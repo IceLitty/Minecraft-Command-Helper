@@ -1,0 +1,31 @@
+﻿<Controls:MetroWindow x:Class="WpfMinecraftCommandHelper2.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico"
+        Title="关于" Height="389" Width="682">
+    <Grid>
+        <Label x:Name="AboutP" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Content="你好哦，我是IceLitty （MinecraftID）&#xD;&#xA;这个软件呢，本来一开始就想做了，不过之前的几个版本因为技术原因或构想不当而停产了……&#xD;&#xA;不过现在……是高产的节奏了！&#xD;&#xA;首先很感谢您来使用本软件，本软件是用于辅助Minecraft的命令以及高级命令的编写器。&#xD;&#xA;有的时候想做一些原版nbt道具结果忘了指令？去网上查相关帖子，日复一日自己也觉得累了。&#xD;&#xA;当然更别提有的时候没有网络……&#xD;&#xA;于是就想做出这种软件了！&#xD;&#xA;&#xD;&#xA;软件相关/Bug汇报："/>
+        <Label x:Name="AboutThanksTitle" Content="知识来源 &amp; 鸣谢：" HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="AboutT" Content="*：软件使用说明：设置好需要的内容后点击生成即可生成代码，如不自动跳出对话框需要手动点击检索或复制按钮。&#xD;&#xA;*：蓝色字体均可点击，感谢支持 &lt;3" HorizontalAlignment="Left" Margin="10,252,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="qq" Content="QQ" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="qq_MouseLeftButtonDown"/>
+        <Label x:Name="weibo" Content="Weibo" HorizontalAlignment="Left" Margin="45,162,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="weibo_MouseLeftButtonDown"/>
+        <Label x:Name="mail" Content="@Mail" HorizontalAlignment="Left" Margin="98,162,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="mail_MouseLeftButtonDown"/>
+        <Label x:Name="mcbbs" Content="MCBBS" HorizontalAlignment="Left" Margin="150,162,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="mcbbs_MouseLeftButtonDown"/>
+        <Label x:Name="website" Content="WebSite" HorizontalAlignment="Left" Margin="207,162,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="website_MouseLeftButtonDown"/>
+        <Label x:Name="love" Content="&lt;3" HorizontalAlignment="Left" Margin="270,162,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="love_MouseLeftButtonDown"/>
+        <Label x:Name="bbs1" Content="MCBBS - PotatoMaster101" HorizontalAlignment="Left" Margin="10,222,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="bbs1_MouseLeftButtonDown"/>
+        <Label x:Name="bbs2" Content="MCBBS - sylqiuyifeng" HorizontalAlignment="Left" Margin="178,222,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="bbs2_MouseLeftButtonDown"/>
+        <Label x:Name="wiki" Content="MinecraftWiki" HorizontalAlignment="Left" Margin="316,222,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="wiki_MouseLeftButtonDown"/>
+        <Label x:Name="csdn" Content="CSDN" HorizontalAlignment="Left" Margin="411,222,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="csdn_MouseLeftButtonDown"/>
+        <Label x:Name="baidu" Content="BAIDU" HorizontalAlignment="Left" Margin="460,222,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="baidu_MouseLeftButtonDown"/>
+        <Label x:Name="ieON" Content="√注册表模式" HorizontalAlignment="Right" Margin="0,323,586,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="ieon_MouseLeftButtonDown"/>
+        <Label x:Name="ieOFF" Content="√默认启动模式" HorizontalAlignment="Right" Margin="0,323,491,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="ieoff_MouseLeftButtonDown"/>
+        <Label x:Name="metro" Content="METRO" HorizontalAlignment="Left" Margin="513,222,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="metro_MouseLeftButtonDown"/>
+        <Label x:Name="byIce" Content="by IceLitty" HorizontalAlignment="Right" Margin="0,327,20,0" VerticalAlignment="Top" Foreground="#FF3285FD" ToolTip="Update here :D" MouseLeftButtonDown="byIce_MouseLeftButtonDown"/>
+        <Image x:Name="ccIMG" HorizontalAlignment="Left" Height="31" Margin="566,292,0,0" VerticalAlignment="Top" Width="88" Source="Images/cc.png" ToolTip="This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/." MouseLeftButtonDown="ccIMG_MouseLeftButtonDown"/>
+
+    </Grid>
+</Controls:MetroWindow>

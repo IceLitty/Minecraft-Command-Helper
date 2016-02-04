@@ -1,0 +1,36 @@
+﻿<Controls:MetroWindow x:Class="WpfMinecraftCommandHelper2.Banner"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
+        Title="旗帜" Height="445" Width="631">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="243">
+            <RadioButton x:Name="tabBannerGive" Content="使用/give获取" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0" Click="tabBannerGive_Checked"/>
+            <RadioButton x:Name="tabBannerSetblock" Content="直接/setblock至地图" HorizontalAlignment="Left" Margin="104,3,0,0" VerticalAlignment="Top" Click="tabBannerSetblock_Checked"/>
+        </Grid>
+        <ComboBox x:Name="tabBannerFacing" HorizontalAlignment="Left" Margin="262,9,0,0" VerticalAlignment="Top" Width="140" IsEnabled="False"/>
+        <Label x:Name="BannerBaseColor" Content="底色：" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="tabBannerBaseColor" HorizontalAlignment="Left" Margin="61,40,0,0" VerticalAlignment="Top" Width="341" SelectionChanged="tabBannerBaseColor_SelectionChanged"/>
+        <Label x:Name="BannerType" Content="样式：" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="tabBannerType" HorizontalAlignment="Left" Margin="61,71,0,0" VerticalAlignment="Top" Width="341" SelectionChanged="tabBannerType_SelectionChanged"/>
+        <Label x:Name="BannerColor" Content="颜色：" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="tabBannerColor" HorizontalAlignment="Left" Margin="61,102,0,0" VerticalAlignment="Top" Width="103" SelectionChanged="tabBannerColor_SelectionChanged"/>
+        <CheckBox x:Name="tabBannerHasMoreAttr" Content="生成物品包含附魔等信息" HorizontalAlignment="Left" Margin="169,106,0,0" VerticalAlignment="Top" Click="tabBannerHasMoreAttr_Checked"/>
+        <CheckBox x:Name="tabBannerShow" Content="实时显示" HorizontalAlignment="Left" Margin="330,106,0,0" VerticalAlignment="Top" Click="tabBannerShow_Checked"/>
+        <Button x:Name="tabBannerPre" Content="上一层" HorizontalAlignment="Left" Margin="10,133,0,0" VerticalAlignment="Top" Width="75" Click="tabBannerPre_Click"/>
+        <Button x:Name="tabBannerNext" Content="下一层" HorizontalAlignment="Left" Margin="90,133,0,0" VerticalAlignment="Top" Width="75" Click="tabBannerNext_Click"/>
+        <Button x:Name="enchantMoreGetBtn" Content="附魔等信息获取" HorizontalAlignment="Left" Margin="170,133,0,0" VerticalAlignment="Top" Width="155" Click="enchantMoreGetBtn_Click" IsEnabled="False"/>
+        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click"/>
+        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="90,163,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click"/>
+        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="250,163,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click"/>
+        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="330,163,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click"/>
+        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="170,163,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click"/>
+        <Label x:Name="tabBannerPageIndex" Content="-第01层-" HorizontalAlignment="Left" Margin="344,133,0,0" VerticalAlignment="Top"/>
+        <Image x:Name="tabBannerPic" HorizontalAlignment="Left" Height="400" Margin="412,10,0,0" VerticalAlignment="Top" Width="200"/>
+        <ListBox x:Name="pageList" HorizontalAlignment="Left" Height="400" Margin="412,10,0,0" VerticalAlignment="Top" Width="200"/>
+        <CheckBox x:Name="ShieldCheck" Content="生成盾牌" HorizontalAlignment="Left" Margin="10,193,0,0" VerticalAlignment="Top" Checked="ShieldCheck_Checked"/>
+
+    </Grid>
+</Controls:MetroWindow>

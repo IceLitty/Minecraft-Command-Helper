@@ -1,0 +1,46 @@
+﻿<Controls:MetroWindow x:Class="WpfMinecraftCommandHelper2.Favourite"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
+        Title="指令收藏" Height="433" Width="809" Closing="MetroWindow_Closing">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="helpBtn" Click="helpBtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="11" Height="16" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_question}"></VisualBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Grid>
+        <TextBox x:Name="InfoBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="235" MouseEnter="InfoBox_MouseEnter" PreviewKeyUp="InfoBox_PreviewKeyUp"/>
+        <TextBox x:Name="InputBox" HorizontalAlignment="Left" Height="23" Margin="250,10,0,0" TextWrapping="Wrap" Text="Command" VerticalAlignment="Top" Width="543" MouseEnter="InputBox_MouseEnter" PreviewKeyUp="InputBox_PreviewKeyUp"/>
+        <ListBox x:Name="CommandList" HorizontalAlignment="Left" Height="353" Margin="10,41,0,0" VerticalAlignment="Top" Width="783" MouseDoubleClick="CommandList_MouseDoubleClick" PreviewKeyDown="CommandList_PreviewKeyDown">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="BNew" Header="新建" Click="BNew_Click" />
+                    <MenuItem x:Name="BCopy" Header="复制" Click="BCopy_Click" />
+                    <Separator/>
+                    <MenuItem x:Name="BRevamp" Header="修改" Click="BRevamp_Click" />
+                    <MenuItem x:Name="BDelete" Header="删除" Click="BDelete_Click" />
+                    <Separator/>
+                    <MenuItem x:Name="BUp" Header="上移" StaysOpenOnClick="True" Click="BUp_Click" />
+                    <MenuItem x:Name="BDown" Header="下移" StaysOpenOnClick="True" Click="BDown_Click" />
+                </ContextMenu>
+            </ListBox.ContextMenu>
+        </ListBox>
+    </Grid>
+</Controls:MetroWindow>

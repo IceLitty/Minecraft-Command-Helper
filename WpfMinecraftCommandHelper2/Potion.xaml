@@ -1,0 +1,151 @@
+﻿<Controls:MetroWindow x:Class="WpfMinecraftCommandHelper2.Potion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
+        Title="药水生成" Height="549.127" Width="991.113">
+    <Grid>
+        <Label x:Name="PotionChooseEffect" Content="请选择药水效果：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="PotionEffectName" Content="效果名" HorizontalAlignment="Left" Margin="30,40,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="PotionTime" Content="持续时间" HorizontalAlignment="Left" Margin="93,40,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="PotionLevel" Content="效果等级" HorizontalAlignment="Left" Margin="200,40,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="PotionTip" Content="「时间单位Tick,默认5分钟 20Tick/s」" HorizontalAlignment="Left" Margin="451,40,0,0" VerticalAlignment="Top" Foreground="#FF646464"/>
+        <Grid HorizontalAlignment="Left" Height="440" Margin="10,70,0,0" VerticalAlignment="Top" Width="671">
+            <CheckBox x:Name="tabPotionEffect1" Content="速度" HorizontalAlignment="Left" Margin="3,0,0,0" VerticalAlignment="Top" Click="tabPotionEffect1_Checked"/>
+            <CheckBox x:Name="tabPotionEffect2" Content="缓慢" HorizontalAlignment="Left" Margin="336,0,0,0" VerticalAlignment="Top" Click="tabPotionEffect2_Checked"/>
+            <CheckBox x:Name="tabPotionEffect3" Content="急迫" HorizontalAlignment="Right" Margin="0,31,620,0" VerticalAlignment="Top" Click="tabPotionEffect3_Checked"/>
+            <CheckBox x:Name="tabPotionEffect4" Content="挖掘疲劳" HorizontalAlignment="Left" Margin="336,31,0,0" VerticalAlignment="Top" Click="tabPotionEffect4_Checked"/>
+            <CheckBox x:Name="tabPotionEffect5" Content="力量" HorizontalAlignment="Left" Margin="3,62,0,0" VerticalAlignment="Top" Click="tabPotionEffect5_Checked"/>
+            <CheckBox x:Name="tabPotionEffect6" Content="瞬间治疗" HorizontalAlignment="Left" Margin="336,62,0,0" VerticalAlignment="Top" Click="tabPotionEffect6_Checked"/>
+            <CheckBox x:Name="tabPotionEffect7" Content="瞬间伤害" HorizontalAlignment="Left" Margin="3,93,0,0" VerticalAlignment="Top" Click="tabPotionEffect7_Checked"/>
+            <CheckBox x:Name="tabPotionEffect8" Content="跳跃提升" HorizontalAlignment="Left" Margin="336,93,0,0" VerticalAlignment="Top" Click="tabPotionEffect8_Checked"/>
+            <CheckBox x:Name="tabPotionEffect9" Content="反胃" HorizontalAlignment="Left" Margin="3,124,0,0" VerticalAlignment="Top" Click="tabPotionEffect9_Checked"/>
+            <CheckBox x:Name="tabPotionEffect10" Content="生命恢复" HorizontalAlignment="Left" Margin="336,124,0,0" VerticalAlignment="Top" Click="tabPotionEffect10_Checked"/>
+            <CheckBox x:Name="tabPotionEffect11" Content="抗性提升" HorizontalAlignment="Left" Margin="3,155,0,0" VerticalAlignment="Top" Click="tabPotionEffect11_Checked"/>
+            <CheckBox x:Name="tabPotionEffect12" Content="抗火" HorizontalAlignment="Left" Margin="336,155,0,0" VerticalAlignment="Top" Click="tabPotionEffect12_Checked"/>
+            <CheckBox x:Name="tabPotionEffect13" Content="水下呼吸" HorizontalAlignment="Left" Margin="3,186,0,0" VerticalAlignment="Top" Click="tabPotionEffect13_Checked"/>
+            <CheckBox x:Name="tabPotionEffect14" Content="隐身" HorizontalAlignment="Left" Margin="336,186,0,0" VerticalAlignment="Top" Click="tabPotionEffect14_Checked"/>
+            <CheckBox x:Name="tabPotionEffect15" Content="失明" HorizontalAlignment="Left" Margin="3,217,0,0" VerticalAlignment="Top" Click="tabPotionEffect15_Checked"/>
+            <CheckBox x:Name="tabPotionEffect16" Content="夜视" HorizontalAlignment="Left" Margin="336,217,0,0" VerticalAlignment="Top" Click="tabPotionEffect16_Checked"/>
+            <CheckBox x:Name="tabPotionEffect17" Content="饥饿" HorizontalAlignment="Left" Margin="3,248,0,0" VerticalAlignment="Top" Click="tabPotionEffect17_Checked"/>
+            <CheckBox x:Name="tabPotionEffect18" Content="虚弱" HorizontalAlignment="Left" Margin="336,248,0,0" VerticalAlignment="Top" Click="tabPotionEffect18_Checked"/>
+            <CheckBox x:Name="tabPotionEffect19" Content="中毒" HorizontalAlignment="Left" Margin="3,279,0,0" VerticalAlignment="Top" Click="tabPotionEffect19_Checked"/>
+            <CheckBox x:Name="tabPotionEffect20" Content="凋零" HorizontalAlignment="Left" Margin="336,279,0,0" VerticalAlignment="Top" Click="tabPotionEffect20_Checked"/>
+            <CheckBox x:Name="tabPotionEffect21" Content="生命提升" HorizontalAlignment="Left" Margin="3,310,0,0" VerticalAlignment="Top" Click="tabPotionEffect21_Checked"/>
+            <CheckBox x:Name="tabPotionEffect22" Content="伤害吸收" HorizontalAlignment="Left" Margin="336,310,0,0" VerticalAlignment="Top" Click="tabPotionEffect22_Checked"/>
+            <CheckBox x:Name="tabPotionEffect23" Content="饱和" HorizontalAlignment="Left" Margin="3,341,0,0" VerticalAlignment="Top" Click="tabPotionEffect23_Checked"/>
+            <CheckBox x:Name="tabPotionEffect1H" Content="" HorizontalAlignment="Left" Margin="294,4,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect3H" Content="" HorizontalAlignment="Left" Margin="294,35,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect5H" Content="" HorizontalAlignment="Left" Margin="294,66,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect7H" Content="" HorizontalAlignment="Left" Margin="294,97,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect9H" Content="" HorizontalAlignment="Left" Margin="294,128,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect11H" Content="" HorizontalAlignment="Left" Margin="294,159,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect13H" Content="" HorizontalAlignment="Left" Margin="294,190,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect15H" Content="" HorizontalAlignment="Left" Margin="294,221,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect17H" Content="" HorizontalAlignment="Left" Margin="294,252,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect19H" Content="" HorizontalAlignment="Left" Margin="294,283,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect21H" Content="" HorizontalAlignment="Left" Margin="294,314,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect23H" Content="" HorizontalAlignment="Left" Margin="294,345,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect2H" Content="" HorizontalAlignment="Left" Margin="637,0,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect4H" Content="" HorizontalAlignment="Left" Margin="637,31,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect6H" Content="" HorizontalAlignment="Left" Margin="637,62,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect8H" Content="" HorizontalAlignment="Left" Margin="637,93,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect10H" Content="" HorizontalAlignment="Left" Margin="637,124,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect12H" Content="" HorizontalAlignment="Left" Margin="637,155,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect14H" Content="" HorizontalAlignment="Left" Margin="637,186,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect16H" Content="" HorizontalAlignment="Left" Margin="637,217,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect18H" Content="" HorizontalAlignment="Left" Margin="637,248,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect20H" Content="" HorizontalAlignment="Left" Margin="637,279,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect22H" Content="" HorizontalAlignment="Left" Margin="637,310,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect24" Content="发光" HorizontalAlignment="Left" Margin="336,341,0,0" VerticalAlignment="Top" Click="tabPotionEffect24_Click"/>
+            <CheckBox x:Name="tabPotionEffect24H" Content="" HorizontalAlignment="Left" Margin="637,341,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <CheckBox x:Name="tabPotionEffect25" Content="漂浮" HorizontalAlignment="Left" Margin="3,372,0,0" VerticalAlignment="Top" Click="tabPotionEffect25_Click"/>
+            <CheckBox x:Name="tabPotionEffect25H" Content="" HorizontalAlignment="Left" Margin="294,376,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <Controls:NumericUpDown x:Name="tabPotionEffect1Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,0,484,414" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect1Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,0,381,414" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect2Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,-4,145,418" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect2Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,-4,42,418" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect3Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,31,484,383" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect3Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,31,381,383" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect4Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,27,145,387" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect4Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,27,42,387" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect5Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,62,484,352" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect5Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,62,381,352" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect6Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,58,145,356" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect6Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,58,42,356" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect7Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,93,484,321" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect7Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,93,381,321" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect8Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,89,145,325" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect8Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,89,42,325" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect9Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,124,484,290" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect9Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,124,381,290" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect10Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,120,145,294" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect10Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,120,42,294" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect11Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,155,484,259" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect11Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,155,381,259" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect12Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,151,145,263" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect12Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,151,42,263" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect13Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,186,484,228" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect13Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,186,381,228" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect14Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,182,145,232" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect14Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,182,42,232" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect15Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,217,484,197" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect15Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,217,381,197" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect16Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,213,145,201" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect16Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,213,42,201" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect17Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,248,484,166" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect17Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,248,381,166" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect18Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,244,145,170" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect18Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,244,42,170" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect19Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,279,484,135" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect19Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,279,381,135" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect20Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,275,145,139" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect20Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,275,42,139" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect21Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,310,484,104" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect21Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,310,381,104" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect22Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,306,145,108" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect22Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,306,42,108" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect23Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,341,484,73" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect23Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,341,381,73" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect24Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,337,145,77" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect24Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,337,42,77" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect25Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,372,484,42" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect25Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,372,381,42" Height="21" Value="0" IsEnabled="False" />
+            <CheckBox x:Name="tabPotionEffect26" Content="幸运" HorizontalAlignment="Left" Margin="336,376,0,0" VerticalAlignment="Top" Click="tabPotionEffect26_Click"/>
+            <CheckBox x:Name="tabPotionEffect26H" Content="" HorizontalAlignment="Left" Margin="637,376,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <Controls:NumericUpDown x:Name="tabPotionEffect26Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,372,145,42" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect26Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,372,42,42" Height="21" Value="0" IsEnabled="False" />
+            <CheckBox x:Name="tabPotionEffect27" Content="霉运" HorizontalAlignment="Left" Margin="3,403,0,0" VerticalAlignment="Top" Click="tabPotionEffect27_Click"/>
+            <CheckBox x:Name="tabPotionEffect27H" Content="" HorizontalAlignment="Left" Margin="294,407,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+            <Controls:NumericUpDown x:Name="tabPotionEffect27Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,403,484,11" Height="21" Value="6000" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect27Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,403,381,11" Height="21" Value="0" IsEnabled="False" />
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="21" Margin="175,13,0,0" VerticalAlignment="Top" Width="322">
+            <RadioButton x:Name="tabPotionA" Content="普通药水" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Top" IsChecked="True"/>
+            <RadioButton x:Name="tabPotionB" Content="喷溅药水" HorizontalAlignment="Left" Margin="79,0,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="tabPotionTipArrow" Content="附魔箭矢" HorizontalAlignment="Left" Margin="233,0,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="tabPotionBUFFPotion" Content="挥发药水" HorizontalAlignment="Left" Margin="156,0,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <CheckBox x:Name="tabPotionAllHideParticles" Content="全局隐藏药水效果" HorizontalAlignment="Left" Margin="502,13,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="tabPotionHasEnchant" Content="有附魔" HorizontalAlignment="Left" Margin="686,74,0,0" VerticalAlignment="Top" Click="tabPotionHasEnchant_Checked"/>
+        <CheckBox x:Name="tabPotionHasNL" Content="有自定义名称或Lore" HorizontalAlignment="Left" Margin="686,108,0,0" VerticalAlignment="Top" Click="tabPotionHasNL_Checked"/>
+        <CheckBox x:Name="tabPotionHasAttr" Content="有自定义物品属性" HorizontalAlignment="Left" Margin="686,139,0,0" VerticalAlignment="Top" Click="tabPotionHasAttr_Checked"/>
+        <TextBox x:Name="enchantBox" HorizontalAlignment="Left" Height="23" Margin="756,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" IsEnabled="False"/>
+        <TextBox x:Name="nlBox" HorizontalAlignment="Left" Height="23" Margin="822,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" IsEnabled="False"/>
+        <TextBox x:Name="attrBox" HorizontalAlignment="Left" Height="23" Margin="811,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" IsEnabled="False"/>
+        <Button x:Name="atBtn" Content="获取At" HorizontalAlignment="Left" Margin="846,167,0,0" VerticalAlignment="Top" Width="75" Height="26" Click="atBtn_Click"/>
+        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="686,198,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click"/>
+        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="766,198,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click"/>
+        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="766,228,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click"/>
+        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="846,228,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click"/>
+        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="686,228,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click"/>
+        <Button x:Name="moreAttrBtn" Content="以上特殊属性获取" HorizontalAlignment="Left" Margin="686,167,0,0" VerticalAlignment="Top" Width="155" Height="26" Click="moreAttrBtn_Click"/>
+        <Grid HorizontalAlignment="Left" Height="29" Margin="686,40,0,0" VerticalAlignment="Top" Width="293">
+            <Label x:Name="PotionItemCount" Content="物品数量：" HorizontalAlignment="Left" Margin="0,2,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabPotionNum" Minimum="0" Maximum="64" Interval="5" StringFormat="" Margin="70,1,10,2" Height="21" Value="1" />
+        </Grid>
+        <Label x:Name="PotionHideEffect" Content="隐藏效果" HorizontalAlignment="Left" Margin="293,40,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Controls:MetroWindow>

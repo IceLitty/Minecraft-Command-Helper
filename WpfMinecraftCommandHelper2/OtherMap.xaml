@@ -1,0 +1,132 @@
+﻿<Controls:MetroWindow x:Class="WpfMinecraftCommandHelper2.OtherMap"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
+        Title="其他零部件" Height="504.929" Width="616.901">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="591">
+            <Button x:Name="tabOther1HatHelp" Content="?" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="31" Margin="0,0,0,1" Click="tabOther1HatHelp_Click"/>
+            <Label x:Name="OtherHat" Content="帽子命令" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="tabOther1HatSel" HorizontalAlignment="Left" Margin="99,0,0,0" VerticalAlignment="Top" Width="218"/>
+            <Controls:NumericUpDown x:Name="tabOther1HatNum" Minimum="0" Maximum="32767" Interval="5" StringFormat="" Margin="322,0,189,0" Height="25" Value="1" />
+            <Controls:NumericUpDown x:Name="tabOther1HatDamage" Minimum="0" Maximum="32767" Interval="5" StringFormat="" Margin="407,0,104,0" Height="25" Value="0" />
+            <CheckBox x:Name="tabOther1HatNBT" Content="NBT" HorizontalAlignment="Left" Margin="492,3,0,0" VerticalAlignment="Top" Click="tabOther1HatNBT_Click"/>
+            <Button x:Name="tabOther1HatCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,0,0,0" Click="tabOther1HatCreate_Click"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,41,0,0" VerticalAlignment="Top" Width="591">
+            <Button x:Name="tabOther1WordHelp" Content="?" HorizontalAlignment="Left" Width="31" Margin="0,0,0,1" Click="tabOther1WordHelp_Click"/>
+            <Label x:Name="OtherFlyWord" Content="浮空字" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="tabOther1WordEntity" HorizontalAlignment="Left" Margin="99,0,0,0" VerticalAlignment="Top" Width="218"/>
+            <Button x:Name="tabOther1WordCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,0,0,0" Click="tabOther1WordCreate_Click"/>
+            <TextBox x:Name="tabOther1Word" HorizontalAlignment="Left" Height="23" Margin="322,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173"/>
+            <Button x:Name="tabOther1WordRemove" Content="移除" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="500,0,0,0" Click="tabOther1WordRemove_Click"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,72,0,0" VerticalAlignment="Top" Width="591">
+            <Button x:Name="tabOther1ItemFlyHelp" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1ItemFlyHelp_Click"/>
+            <Label x:Name="OtherFlyItem" Content="浮空物品" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="tabOther1ItemFlySel" HorizontalAlignment="Left" Margin="99,0,0,0" VerticalAlignment="Top" Width="218"/>
+            <Controls:NumericUpDown x:Name="tabOther1ItemFlyCount" Minimum="0" Maximum="32767" Interval="5" StringFormat="" Margin="322,0,173,0" Height="25" Value="1" />
+            <CheckBox x:Name="tabOther1ItemFlyCantGet" Content="不可拾取" HorizontalAlignment="Left" Margin="423,3,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="tabOther1ItemFlyCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,0,0,0" Click="tabOther1ItemFlyCreate_Click"/>
+            <Button x:Name="tabOther1ItemFlyRemove" Content="移除" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="500,0,0,0" Click="tabOther1ItemFlyRemove_Click"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,103,0,0" VerticalAlignment="Top" Width="591">
+            <Button x:Name="tabOther1TNTHelp" Content="?" Margin="0,0,560,1" Click="tabOther1TNTHelp_Click"/>
+            <Label x:Name="OtherTNT" Content="TNT大炮" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabOther1TNTDz" Minimum="-32767" Maximum="32767" Interval="5" StringFormat="" Margin="321,0,167,0" Height="25" Value="0" />
+            <Controls:NumericUpDown x:Name="tabOther1TNTFuse" Minimum="0" Maximum="32767" Interval="5" StringFormat="" Margin="429,0,53,0" Height="25" Value="20" />
+            <Button x:Name="tabOther1TNTCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,0,0,0" Click="tabOther1TNTCreate_Click"/>
+            <Controls:NumericUpDown x:Name="tabOther1TNTDx" Minimum="-32767" Maximum="32767" Interval="5" StringFormat="" Margin="99,0,386,0" Height="25" Value="0" />
+            <Controls:NumericUpDown x:Name="tabOther1TNTDy" Minimum="-32767" Maximum="32767" Interval="5" StringFormat="" Margin="210,0,275,0" Height="25" Value="0" />
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,134,0,0" VerticalAlignment="Top" Width="591">
+            <Button x:Name="tabOther1JukeboxHelp" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1JukeboxHelp_Click"/>
+            <Label x:Name="OtherJukebox" Content="物品唱片机" HorizontalAlignment="Left" Margin="31,0,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="tabOther1JukeboxItemSel" HorizontalAlignment="Left" Margin="99,0,0,0" VerticalAlignment="Top" Width="218"/>
+            <Controls:NumericUpDown x:Name="tabOther1JukeboxCount" Minimum="0" Maximum="32767" Interval="5" StringFormat="" Margin="322,0,194,0" Height="25" Value="1" />
+            <Controls:NumericUpDown x:Name="tabOther1JukeboxMeta" Minimum="0" Maximum="32767" Interval="5" StringFormat="" Margin="402,-1,126,1" Height="25" Value="0" />
+            <CheckBox x:Name="tabOther1JukeboxHasNBT" Content="NBT" HorizontalAlignment="Left" Margin="480,3,0,0" VerticalAlignment="Top" Click="tabOther1JukeboxHasNBT_Click"/>
+            <Button x:Name="tabOther1JukeboxCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,0,0,0" Click="tabOther1JukeboxCreate_Click"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,165,0,0" VerticalAlignment="Top" Width="591">
+            <Button x:Name="tabOther1TestforInvHelp" Content="?" HorizontalAlignment="Left" Width="31" Margin="0,0,0,1" Click="tabOther1TestforInvHelp_Click"/>
+            <Label x:Name="OtherTestforInv" Content="背包物品检测" HorizontalAlignment="Left" Margin="23,0,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="tabOther1TestforInvItem" HorizontalAlignment="Left" Margin="99,0,0,0" VerticalAlignment="Top" Width="218"/>
+            <Controls:NumericUpDown x:Name="tabOther1TestforInvCount" Minimum="0" Maximum="32767" Interval="5" StringFormat="" Margin="322,0,194,0" Height="25" Value="1" />
+            <Controls:NumericUpDown x:Name="tabOther1TestforInvMeta" Minimum="0" Maximum="32767" Interval="5" StringFormat="" Margin="402,0,126,0" Height="25" Value="0" />
+            <Button x:Name="tabOther1TestforInvCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,0,0,0" Click="tabOther1TestforInvCreate_Click"/>
+            <Controls:NumericUpDown x:Name="tabOther1TestforInvSlot" Minimum="-106" Maximum="103" Interval="5" StringFormat="" Margin="470,0,53,0" Height="25" Value="0" />
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,196,0,0" VerticalAlignment="Top" Width="591">
+            <Button x:Name="tabOther1TestforHotHelp" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1TestforHotHelp_Click"/>
+            <Label x:Name="OtherTestforHotbar" Content="探测玩家选择的快捷栏" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabOther1TestforHotNum" Minimum="0" Maximum="8" Interval="5" StringFormat="" Margin="171,0,53,0" Height="25" Value="0" />
+            <Button x:Name="tabOther1TestforHotCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,0,0,0" Click="tabOther1TestforHotCreate_Click"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,227,0,0" VerticalAlignment="Top" Width="591">
+            <Button x:Name="tabOther1LockHelp" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1LockHelp_Click"/>
+            <Label x:Name="OtherLock" Content="上锁的容器" HorizontalAlignment="Left" Margin="31,0,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="tabOther1LockItem" HorizontalAlignment="Left" Margin="99,0,0,0" VerticalAlignment="Top" Width="218"/>
+            <Button x:Name="tabOther1LockCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,0,0,0" Click="tabOther1LockCreate_Click"/>
+            <TextBox x:Name="tabOther1LockPassword" HorizontalAlignment="Left" Height="23" Margin="322,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173"/>
+            <Button x:Name="tabOther1LockUnlock" Content="解锁" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="500,0,0,0" Click="tabOther1LockUnlock_Click"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,258,0,0" VerticalAlignment="Top" Width="591">
+            <Button x:Name="tabOther1ClearHelp" Content="?" HorizontalAlignment="Left" Width="31" Margin="0,0,0,1" Click="tabOther1ClearHelp_Click"/>
+            <Label x:Name="OtherClear" Content="高级Clear" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
+            <CheckBox x:Name="tabOther1ClearHasName" Content="名称&amp;Lore" HorizontalAlignment="Left" Margin="178,3,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="tabOther1ClearCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,0,0,0" Click="tabOther1ClearCreate_Click"/>
+            <Button x:Name="tabOther1ClearItemSel" Content="选择物品" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Margin="104,0,0,0" Click="tabOther1ClearItemSel_Click"/>
+            <CheckBox x:Name="tabOther1ClearHasEnchant" Content="附魔" HorizontalAlignment="Left" Margin="264,3,0,0" VerticalAlignment="Top"/>
+            <CheckBox x:Name="tabOther1ClearHasAttr" Content="特殊属性" HorizontalAlignment="Left" Margin="317,3,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,289,0,0" VerticalAlignment="Top" Width="591">
+            <Button x:Name="tabOther1GetHead" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1GetHead_Click"/>
+            <Label x:Name="OtherHead" Content="获取头" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="tabOther1GetHeadCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="500,0,0,0" Click="tabOther1GetHeadCreate_Click"/>
+            <TextBox x:Name="tabOther1GetHeadName" HorizontalAlignment="Left" Height="23" Margin="82,-1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107"/>
+            <Button x:Name="tabOther1GetHeadLib" Content="库" HorizontalAlignment="Left" Width="38" Margin="543,0,0,1" FontSize="10" FontWeight="Bold" Click="tabOther1GetHeadLib_Click"/>
+            <CheckBox x:Name="tabOther1GetHeadAA" Content="抗锯齿" HorizontalAlignment="Left" Margin="346,4,0,0" VerticalAlignment="Top" IsChecked="True"/>
+            <CheckBox x:Name="tabOther1GetHeadFullBody" Content="显示全身" HorizontalAlignment="Left" Margin="411,4,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabOther1GetHeadHrh" Minimum="0" Maximum="360" Interval="5" StringFormat="" Margin="247,-1,253,1" Height="25" Value="0" />
+            <CheckBox x:Name="tabOther1GetHeadCode" Content="代码" HorizontalAlignment="Left" Margin="194,4,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,320,0,0" VerticalAlignment="Top" Width="591">
+            <Button x:Name="tabOther1CustomCraft" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1CustomCraft_Click"/>
+            <Label x:Name="OtherCustomCraft" Content="自定义合成" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="tabOther1CustomCraftOpenBtn" Content="打开" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,1,0,0" Click="tabOther1CustomCraftOpenBtn_Click"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,351,0,0" VerticalAlignment="Top" Width="591">
+            <Button x:Name="tabOther1ArmorStand" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1ArmorStand_Click"/>
+            <Label x:Name="OtherArmorStand" Content="网页版高级盔甲架（含预览）" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="tabOther1ArmorStandOpenBtn" Content="打开" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,1,0,0" Click="tabOther1ArmorStandOpenBtn_Click"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,382,0,0" VerticalAlignment="Top" Width="591">
+            <Button x:Name="tabOther1Superflat" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1Superflat_Click"/>
+            <Label x:Name="OtherSuperflat" Content="超平坦编辑（1.7.2以上支持）" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="tabOther1SuperflatOpenBtn" Content="打开" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,1,0,0" Click="tabOther1SuperflatOpenBtn_Click"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,413,0,0" VerticalAlignment="Top" Width="591">
+            <Button x:Name="tabOther1Gateway" Content="?" HorizontalAlignment="Left" Width="31" Margin="0,0,0,1" Click="tabOther1Gateway_Click"/>
+            <Label x:Name="OtherGateway" Content="单/双向传送门" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="tabOther1GatewayBtn" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,1,0,0" Click="tabOther1GatewayBtn_Click"/>
+            <Controls:NumericUpDown x:Name="tabOther1GatewayX" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="126,0,345,0" Height="25" Value="-1000000" />
+            <Controls:NumericUpDown x:Name="tabOther1GatewayY" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="250,0,221,0" Height="25" Value="-1000000" />
+            <Controls:NumericUpDown x:Name="tabOther1GatewayZ" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="374,0,97,0" Height="25" Value="-1000000" />
+            <CheckBox x:Name="tabOther1GatewayIsExact" Content="" HorizontalAlignment="Left" Margin="509,4,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,444,0,0" VerticalAlignment="Top" Width="591">
+            <Button x:Name="tabOther1Ride" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1Ride_Click"/>
+            <Label x:Name="OtherSofa" Content="座椅" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="tabOther1RideSel" HorizontalAlignment="Left" Margin="75,0,0,0" VerticalAlignment="Top" Width="163"/>
+            <Button x:Name="tabOther1RideCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,0,0,0" Click="tabOther1RideCreate_Click"/>
+            <CheckBox x:Name="tabOther1RideChest" Content="带柜子" Margin="358,4,173,0" VerticalAlignment="Top" Click="tabOther1RideChest_Click"/>
+            <TextBox x:Name="tabOther1RideName" HorizontalAlignment="Left" Height="23" Margin="243,1,0,-1" TextWrapping="Wrap" Text="沙发" VerticalAlignment="Top" Width="110"/>
+            <Button x:Name="tabOther1RideHide" Content="隐身" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="500,1,0,0" Click="tabOther1RideHide_Click"/>
+            <CheckBox x:Name="tabOther1RideRi" Content="记录方向" HorizontalAlignment="Left" Margin="423,4,0,0" VerticalAlignment="Top"/>
+        </Grid>
+
+    </Grid>
+</Controls:MetroWindow>

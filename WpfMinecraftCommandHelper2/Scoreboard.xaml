@@ -1,0 +1,17 @@
+﻿<Controls:MetroWindow x:Class="WpfMinecraftCommandHelper2.Scoreboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico"
+        Title="指令帮助 / NBT表" Height="477.465" Width="717.563">
+    <Grid>
+        <ComboBox x:Name="tabScoreCommand" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="690" SelectionChanged="tabScoreCommand_SelectionChanged"/>
+        <ComboBox x:Name="tabScoreAtVar" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="690" SelectionChanged="tabScoreAtVar_SelectionChanged"/>
+        <ComboBox x:Name="tabScoreData1" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="690" SelectionChanged="tabScoreData1_SelectionChanged"/>
+        <ComboBox x:Name="tabScoreData2" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="690" SelectionChanged="tabScoreData2_SelectionChanged"/>
+        <TextBox x:Name="tabScoreBox" HorizontalAlignment="Left" Height="305" Margin="10,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="690"/>
+
+    </Grid>
+</Controls:MetroWindow>

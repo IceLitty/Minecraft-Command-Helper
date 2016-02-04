@@ -1,0 +1,49 @@
+﻿<Controls:MetroWindow x:Class="WpfMinecraftCommandHelper2.Particle"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
+        Title="特效粒子" Height="276.76" Width="611.621">
+    <Grid>
+        <Label x:Name="ParticleChooseEffect" Content="请选择效果：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="tabParticleSel" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="520"/>
+        <Grid HorizontalAlignment="Left" Height="24" Margin="372,10,0,0" VerticalAlignment="Top" Width="158">
+            <RadioButton x:Name="tabParticleCN" Content="解释文本" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="tabParticleCN_Checked"/>
+            <RadioButton x:Name="tabParticleEN" Content="内部ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="77,0,0,0" Checked="tabParticleEN_Checked"/>
+        </Grid>
+        <Label Content="ID:" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top"/>
+        <Grid HorizontalAlignment="Left" Height="133" Margin="64,71,0,0" VerticalAlignment="Top" Width="145">
+            <Controls:NumericUpDown x:Name="tabParticleID" Minimum="0" Maximum="1000000" StringFormat="" Margin="0,0,0,105" Height="28" Value="0" />
+            <Controls:NumericUpDown x:Name="tabParticleX" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="0,33,0,72" Height="28" Value="0" />
+            <Controls:NumericUpDown x:Name="tabParticleDx" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="0,66,0,39" Height="28" Value="0" />
+            <Controls:NumericUpDown x:Name="tabParticleSpeed" Minimum="0" Maximum="1000000" Interval="0.1" StringFormat="" Margin="0,99,0,6" Height="28" Value="0.5" />
+        </Grid>
+        <Label x:Name="ParticleXYZ" Content="坐标X:" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ParticleDxyz" Content="动量Dx:" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ParticleSpeed" Content="速度:" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top"/>
+        <Label Content="Meta:" HorizontalAlignment="Left" Margin="214,73,0,0" VerticalAlignment="Top"/>
+        <Label Content="Y:" HorizontalAlignment="Left" Margin="214,106,0,0" VerticalAlignment="Top"/>
+        <Label Content="Dy:" HorizontalAlignment="Left" Margin="214,138,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ParticleCount" Content="数量:" HorizontalAlignment="Left" Margin="214,172,0,0" VerticalAlignment="Top"/>
+        <Grid HorizontalAlignment="Left" Height="133" Margin="262,73,0,0" VerticalAlignment="Top" Width="145">
+            <Controls:NumericUpDown x:Name="tabParticleMeta" Minimum="0" Maximum="1000000" StringFormat="" Margin="0,0,0,105" Height="28" Value="0" />
+            <Controls:NumericUpDown x:Name="tabParticleY" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="0,33,0,72" Height="28" Value="0" />
+            <Controls:NumericUpDown x:Name="tabParticleDy" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="0,66,0,39" Height="28" Value="0" />
+            <Controls:NumericUpDown x:Name="tabParticleCount" Minimum="0" Maximum="4000" Interval="100" StringFormat="" Margin="0,99,0,6" Height="28" Value="100" />
+        </Grid>
+        <Label Content="Z:" HorizontalAlignment="Left" Margin="412,106,0,0" VerticalAlignment="Top"/>
+        <Label Content="Dz:" HorizontalAlignment="Left" Margin="412,138,0,0" VerticalAlignment="Top"/>
+        <Grid HorizontalAlignment="Left" Height="133" Margin="445,73,0,0" VerticalAlignment="Top" Width="145">
+            <Controls:NumericUpDown x:Name="tabParticleZ" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="0,33,0,72" Height="28" Value="0" />
+            <Controls:NumericUpDown x:Name="tabParticleDz" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="0,66,0,39" Height="28" Value="0" />
+        </Grid>
+        <Button x:Name="tabParticleClear" Content="清空" HorizontalAlignment="Left" Margin="16,209,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click"/>
+        <Button x:Name="tabParticleCreate" Content="生成" HorizontalAlignment="Left" Margin="96,209,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click"/>
+        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="256,209,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click"/>
+        <Button x:Name="tabParticleHelp" Content="？" HorizontalAlignment="Left" Margin="336,209,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click"/>
+        <Button x:Name="tabParticleCopy" Content="复制" HorizontalAlignment="Left" Margin="176,209,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click"/>
+        <CheckBox x:Name="tabParticleXNum" Content="坐标采用当前坐标" HorizontalAlignment="Left" Margin="455,183,0,0" VerticalAlignment="Top" Click="tabParticleXNum_Checked"/>
+
+    </Grid>
+</Controls:MetroWindow>

@@ -1,0 +1,210 @@
+﻿<Controls:MetroWindow x:Name="win" x:Class="WpfMinecraftCommandHelper2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="True" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
+        Title="Minecraft Command Helper versionInCode - Guide" Height="485" Width="797" SaveWindowPosition="False" >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Controls:MetroWindow.LeftWindowCommands>
+        <Controls:WindowCommands>
+
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.LeftWindowCommands>
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="favouriteBtn" Click="favouriteBtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Margin="0 -2 0 0" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_app_favorite}"></VisualBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock x:Name="favouriteText" Margin="4 0 0 0" VerticalAlignment="Center" Text="收藏"></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="settingsColor" Click="settingsColor_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_tools}"></VisualBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock x:Name="settingsText" Margin="4 0 0 0" VerticalAlignment="Center" Text="个性化"></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="aboutSideBtn" Click="aboutBtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_book_list}"></VisualBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock x:Name="aboutText" Margin="4 0 0 0" VerticalAlignment="Center" Text="关于"></TextBlock>
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+            <Controls:Flyout x:Name="settingsFlyout" Header="设置" Position="Right" Width="700"  ClosingFinished="settingsFlyout_ClosingFinished">
+                <Grid>
+                    <Grid HorizontalAlignment="Left" Height="133" Margin="10,10,0,0" VerticalAlignment="Top" Width="355">
+                        <Label x:Name="MainColorProfile" Content="配色方案：" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <Label x:Name="MainColorProfileTip" Content="请点击左侧圆形箭头按钮收回并保存！" HorizontalAlignment="Left" Margin="120,0,0,0" VerticalAlignment="Top" Foreground="#FFA0A0A0"/>
+                        <RadioButton x:Name="Red" Content="红色" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Click="Red_Checked"/>
+                        <RadioButton x:Name="Green" Content="绿色" HorizontalAlignment="Left" Margin="63,30,0,0" VerticalAlignment="Top" Click="Green_Checked"/>
+                        <RadioButton x:Name="Blue" Content="蓝色" HorizontalAlignment="Left" Margin="116,30,0,0" VerticalAlignment="Top" Click="Blue_Checked"/>
+                        <RadioButton x:Name="Purple" Content="紫色" HorizontalAlignment="Left" Margin="169,30,0,0" VerticalAlignment="Top" Click="Purple_Checked"/>
+                        <RadioButton x:Name="Orange" Content="橙色" HorizontalAlignment="Left" Margin="222,30,0,0" VerticalAlignment="Top" Click="Orange_Checked"/>
+                        <RadioButton x:Name="Lime" Content="青草色" HorizontalAlignment="Left" Margin="275,30,0,0" VerticalAlignment="Top" Click="Lime_Checked"/>
+                        <RadioButton x:Name="Emerald" Content="绿色" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Click="Emerald_Checked"/>
+                        <RadioButton x:Name="Teal" Content="靛色" HorizontalAlignment="Left" Margin="63,53,0,0" VerticalAlignment="Top" Click="Teal_Checked"/>
+                        <RadioButton x:Name="Cyan" Content="青蓝" HorizontalAlignment="Left" Margin="116,53,0,0" VerticalAlignment="Top" Click="Cyan_Checked"/>
+                        <RadioButton x:Name="Cobalt" Content="钴蓝" HorizontalAlignment="Left" Margin="169,53,0,0" VerticalAlignment="Top" Click="Cobalt_Checked"/>
+                        <RadioButton x:Name="Indigo" Content="靛紫" HorizontalAlignment="Left" Margin="222,53,0,0" VerticalAlignment="Top" Click="Indigo_Checked"/>
+                        <RadioButton x:Name="Violet" Content="紫罗兰" HorizontalAlignment="Left" Margin="275,53,0,0" VerticalAlignment="Top" Click="Violet_Checked"/>
+                        <RadioButton x:Name="Pink" Content="粉色" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Click="Pink_Checked"/>
+                        <RadioButton x:Name="Magenta" Content="品红" HorizontalAlignment="Left" Margin="63,76,0,0" VerticalAlignment="Top" Click="Magenta_Checked"/>
+                        <RadioButton x:Name="Crimson" Content="深红" HorizontalAlignment="Left" Margin="116,76,0,0" VerticalAlignment="Top" Click="Crimson_Checked"/>
+                        <RadioButton x:Name="Amber" Content="琥珀" HorizontalAlignment="Left" Margin="169,76,0,0" VerticalAlignment="Top" Click="Amber_Checked"/>
+                        <RadioButton x:Name="Yellow" Content="黄色" HorizontalAlignment="Left" Margin="222,76,0,0" VerticalAlignment="Top" Click="Yellow_Checked"/>
+                        <RadioButton x:Name="Brown" Content="棕色" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Click="Brown_Checked"/>
+                        <RadioButton x:Name="Olive" Content="橄榄绿" HorizontalAlignment="Left" Margin="275,76,0,0" VerticalAlignment="Top" Click="Olive_Checked"/>
+                        <RadioButton x:Name="Steel" Content="金属灰" HorizontalAlignment="Left" Margin="63,99,0,0" VerticalAlignment="Top" Click="Steel_Checked"/>
+                        <RadioButton x:Name="Mauve" Content="浅紫色" HorizontalAlignment="Left" Margin="128,99,0,0" VerticalAlignment="Top" Click="Mauve_Checked"/>
+                        <RadioButton x:Name="Sienna" Content="赭色" HorizontalAlignment="Left" Margin="258,99,0,0" VerticalAlignment="Top" Click="Sienna_Checked"/>
+                        <RadioButton x:Name="Taupe" Content="灰褐色" HorizontalAlignment="Left" Margin="193,99,0,0" VerticalAlignment="Top" Click="Taupe_Checked"/>
+                    </Grid>
+                    <Grid HorizontalAlignment="Left" Height="57" Margin="10,148,0,0" VerticalAlignment="Top" Width="355">
+                        <Label x:Name="MainThemeProfile" Content="主题方案：" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="BaseLight" Content="亮色" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Click="BaseLight_Checked"/>
+                        <RadioButton x:Name="BaseDark" Content="暗色" HorizontalAlignment="Left" Margin="63,30,0,0" VerticalAlignment="Top" Click="BaseDark_Checked"/>
+                        <Label x:Name="MainThemeProfileTip" Content="删除文件后请直接关闭程序！" HorizontalAlignment="Left" Margin="180,0,0,0" VerticalAlignment="Top" Foreground="#FFA0A0A0"/>
+                        <Button x:Name="delFileBtn" Content="删除配置文件" HorizontalAlignment="Left" Margin="234,30,0,0" VerticalAlignment="Top" Width="111" Click="delFileBtn_Click"/>
+                    </Grid>
+                    <Grid HorizontalAlignment="Left" Height="57" Margin="10,210,0,0" VerticalAlignment="Top" Width="355">
+                        <Label x:Name="MainFloatTheme" Content="弹框主题：" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="Adapt" Content="宿主" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Click="Adapt_Click"/>
+                        <RadioButton x:Name="Inverse" Content="反宿主" HorizontalAlignment="Left" Margin="63,30,0,0" VerticalAlignment="Top" Click="Inverse_Click"/>
+                        <RadioButton x:Name="Dark" Content="黑" HorizontalAlignment="Left" Margin="128,30,0,0" VerticalAlignment="Top" Click="Dark_Click"/>
+                        <RadioButton x:Name="Light" Content="白" HorizontalAlignment="Left" Margin="169,30,0,0" VerticalAlignment="Top" Click="Light_Click"/>
+                        <RadioButton x:Name="Accent" Content="宿主主色" HorizontalAlignment="Left" Margin="210,30,0,0" VerticalAlignment="Top" Click="Accent_Click" IsEnabled="False"/>
+                    </Grid>
+                    <Grid HorizontalAlignment="Left" Height="268" Margin="370,10,0,-57" VerticalAlignment="Top" Width="189">
+                        <Label x:Name="MainAvatarTitle" Content="请选择要显示的头像：" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="sc" Content="原版" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Click="sc_Checked"/>
+                        <RadioButton x:Name="ice" Content="大蠢冰" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Click="ice_Checked"/>
+                        <RadioButton x:Name="djx" Content="D姐" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Click="djx_Checked"/>
+                        <RadioButton x:Name="pudding" Content="丸子" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Click="pudding_Checked"/>
+                        <RadioButton x:Name="aguo" Content="果酱" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Click="aguo_Checked"/>
+                        <RadioButton x:Name="sym" Content="sym酱" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top" Click="sym_Checked"/>
+                        <RadioButton x:Name="jelly" Content="果冻" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Click="jelly_Checked"/>
+                        <RadioButton x:Name="tizi" Content="提子" HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top" Click="tizi_Checked"/>
+                        <RadioButton x:Name="zero" Content="Zero" HorizontalAlignment="Left" Margin="10,214,0,0" VerticalAlignment="Top" Click="zero_Checked"/>
+                        <Label x:Name="sclabel" Content="仅显示SC已收集头像" HorizontalAlignment="Left" Margin="0,237,0,0" VerticalAlignment="Top" Foreground="#FFA0A0A0" MouseDown="sclabel_MouseDown"/>
+                    </Grid>
+                </Grid>
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+    <Grid>
+        <Controls:Tile x:Name="itemBtn" Title="生成物品" Width="170" Height="55" Margin="30,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="itemBtn_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/item.png" />
+            </StackPanel>
+        </Controls:Tile>
+        <Controls:Tile x:Name="potionBtn" Title="生成药水" Width="170" Height="54" Margin="30,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="potionBtn_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/potion.png" />
+            </StackPanel>
+        </Controls:Tile>
+        <Controls:Tile x:Name="effectBtn" Title="状态效果" Width="170" Height="54" Margin="30,170,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="effectBtn_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/effect.png" />
+            </StackPanel>
+        </Controls:Tile>
+        <Controls:Tile x:Name="particleBtn" Title="特效粒子" Width="170" Height="54" Margin="30,240,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="particleBtn_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/particle.png" />
+            </StackPanel>
+        </Controls:Tile>
+        <Controls:Tile x:Name="fireworkBtn" Title="烟花火箭" Width="170" Height="54" Margin="30,310,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="fireworkBtn_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/fireworks.png" />
+            </StackPanel>
+        </Controls:Tile>
+        <Controls:Tile x:Name="exitBtn" Title="退出程序" Width="170" Height="54" Margin="30,380,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="exitBtn_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/exit.png" />
+            </StackPanel>
+        </Controls:Tile>
+        <Controls:Tile x:Name="tellrawBtn" Title="文本编辑" Width="170" Height="54" Margin="230,31,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="tellrawBtn_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/sign.png" />
+            </StackPanel>
+        </Controls:Tile>
+        <Controls:Tile x:Name="replaceBtn" Title="编辑物品" Width="170" Height="54" Margin="230,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="replaceBtn_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/replace.png" />
+            </StackPanel>
+        </Controls:Tile>
+        <Controls:Tile x:Name="summonEntityBtn" Title="召唤实体" Width="170" Height="54" Margin="230,310,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="summonEntityBtn_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/summon.png" />
+            </StackPanel>
+        </Controls:Tile>
+        <Controls:Tile x:Name="aboutButton" Title="关于程序" Width="170" Height="54" Margin="230,380,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="aboutButton_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/about.png" />
+            </StackPanel>
+        </Controls:Tile>
+        <Controls:Tile x:Name="spBtn" Title="随机传送" Width="170" Height="54" Margin="430,31,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="spBtn_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/spread.png" />
+            </StackPanel>
+        </Controls:Tile>
+        <Controls:Tile x:Name="bannerBtn" Title="旗帜生成" Width="170" Height="54" Margin="430,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="bannerBtn_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/banner.png" />
+            </StackPanel>
+        </Controls:Tile>
+        <Controls:Tile x:Name="testforBtn" Title="搜索实体" Width="170" Height="54" Margin="430,170,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="testforBtn_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/testfor.png" />
+            </StackPanel>
+        </Controls:Tile>
+        <Controls:Tile x:Name="adventureBtn" Title="冒险模式" Width="170" Height="54" Margin="430,240,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="adventureBtn_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/adventure.png" />
+            </StackPanel>
+        </Controls:Tile>
+        <Controls:Tile x:Name="otherBtn" Title="其他指令" Width="170" Height="54" Margin="430,310,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="otherBtn_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/other.png" />
+            </StackPanel>
+        </Controls:Tile>
+        <Controls:Tile Title="？？？？" Width="170" Height="54" Margin="230,170,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" />
+            </StackPanel>
+        </Controls:Tile>
+        <Controls:Tile Title="？？？？" Width="170" Height="54" Margin="230,240,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" />
+            </StackPanel>
+        </Controls:Tile>
+        <Controls:Tile x:Name="scoreboardBtn" Title="指令帮助" Width="170" Height="54" Margin="430,380,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="scoreboardBtn_Click" />
+        <Image x:Name="pictureBox1" HorizontalAlignment="Left" Margin="613,30,0,0" VerticalAlignment="Top" Width="150" Height="150" Source="Images/avatar/sc/0.jpg" MouseDown="pictureBox1_MouseDown"/>
+        <Label x:Name="text" Content="欸？" HorizontalAlignment="Left" Margin="20,358,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label x:Name="language" Content="内置中文" Foreground="#FF3285FD" HorizontalAlignment="Right" Margin="0,370,10,0" VerticalAlignment="Top" MouseLeftButtonUp="language_MouseLeftButtonUp"/>
+        <Label x:Name="author" Content="作者：IceLitty" HorizontalAlignment="Right" Margin="0,395,10,0" VerticalAlignment="Top"/>
+        <Label x:Name="lastupdate" Content="最后更新：2016.01.21" HorizontalAlignment="Right" Margin="0,417,10,0" VerticalAlignment="Top"/>
+    </Grid>
+</Controls:MetroWindow>

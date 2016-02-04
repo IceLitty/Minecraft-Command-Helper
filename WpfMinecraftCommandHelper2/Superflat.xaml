@@ -1,0 +1,72 @@
+﻿<Controls:MetroWindow x:Class="WpfMinecraftCommandHelper2.Superflat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
+        Title="超平坦生成器" Height="352.802" Width="1024.944">
+    <Grid>
+        <ComboBox x:Name="defaultSet" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="404"/>
+        <Button x:Name="preBtn" Content="上一层" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="75" Click="preBtn_Click"/>
+        <Button x:Name="nextBtn" Content="下一层" HorizontalAlignment="Left" Margin="207,72,0,0" VerticalAlignment="Top" Width="75" Click="nextBtn_Click"/>
+        <Label x:Name="layerNum" Content="-第01层-" HorizontalAlignment="Left" Margin="114,72,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="layerSel" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="272"/>
+        <Grid HorizontalAlignment="Left" Height="56" Margin="287,41,0,0" VerticalAlignment="Top" Width="132">
+            <Controls:NumericUpDown x:Name="layerCount" Minimum="1" Maximum="256" Interval="5" StringFormat="" Margin="0,0,10,28" Height="28" Value="1" />
+            <Controls:NumericUpDown x:Name="layerDamage" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="0,28,10,0" Height="28" Value="0" />
+        </Grid>
+        <ComboBox x:Name="biomeSel" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Width="272"/>
+        <GroupBox x:Name="GroupMineshaft" Header="      废弃矿井" HorizontalAlignment="Left" Margin="424,170,0,0" VerticalAlignment="Top" Height="145" Width="204" IsEnabled="False">
+            <Grid HorizontalAlignment="Left" Height="109" VerticalAlignment="Top" Width="194" Margin="0,0,-2,-2">
+                <Controls:NumericUpDown x:Name="MineshaftChance" Minimum="0" Maximum="1" Interval="0.05" StringFormat="" Margin="53,0,10,81" Height="28" Value="0.01" IsEnabled="False" />
+                <Button x:Name="HelpMineshaft" Content="？" HorizontalAlignment="Left" Margin="108,-31,0,0" VerticalAlignment="Top" Width="75" Click="HelpMineshaft_Click"/>
+                <CheckBox x:Name="CheckMineshaftChance" Content="几率" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0" Click="CheckMineshaftChance_Checked"/>
+            </Grid>
+        </GroupBox>
+        <CheckBox x:Name="CheckMineshaft" Content="" HorizontalAlignment="Left" Margin="429,174,0,0" VerticalAlignment="Top" Click="CheckMineshaft_Checked"/>
+        <GroupBox x:Name="GroupVillage" Header="      村庄" HorizontalAlignment="Left" Margin="424,14,0,0" VerticalAlignment="Top" Height="145" Width="204" IsEnabled="False">
+            <Grid HorizontalAlignment="Left" Height="109" VerticalAlignment="Top" Width="194" Margin="0,0,-2,-2">
+                <Controls:NumericUpDown x:Name="VillageSize" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="53,0,10,81" Height="28" Value="1" IsEnabled="False" />
+                <Controls:NumericUpDown x:Name="VillageDistance" Minimum="9" Maximum="10000" Interval="5" StringFormat="" Margin="53,33,10,48" Height="28" Value="32" IsEnabled="False" />
+                <Button x:Name="HelpVillage" Content="？" HorizontalAlignment="Left" Margin="107,-31,0,0" VerticalAlignment="Top" Width="75" Click="HelpVillage_Click"/>
+                <CheckBox x:Name="CheckVillageSize" Content="大小" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Click="CheckVillageSize_Checked"/>
+                <CheckBox x:Name="CheckVillageDistance" Content="距离" HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top" Click="CheckVillageDistance_Checked"/>
+            </Grid>
+        </GroupBox>
+        <CheckBox x:Name="CheckVillage" Content="" HorizontalAlignment="Left" Margin="429,18,0,0" VerticalAlignment="Top" Click="CheckVillage_Checked"/>
+        <GroupBox x:Name="GroupStronghold" Header="      要塞" HorizontalAlignment="Left" Margin="638,14,0,0" VerticalAlignment="Top" Height="145" Width="206" IsEnabled="False">
+            <Grid HorizontalAlignment="Left" Height="109" VerticalAlignment="Top" Width="196" Margin="0,0,-2,-2">
+                <Controls:NumericUpDown x:Name="StrongholdCount" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="56,3,7,78" Height="28" Value="3" IsEnabled="False" />
+                <Controls:NumericUpDown x:Name="StrongholdDistance" Minimum="1" Maximum="100" Interval="5" StringFormat="" Margin="56,36,7,45" Height="28" Value="32" IsEnabled="False" />
+                <Button x:Name="HelpStronghold" Content="？" HorizontalAlignment="Left" Margin="114,-31,0,0" VerticalAlignment="Top" Width="75" Click="HelpStronghold_Click"/>
+                <CheckBox x:Name="CheckStrongholdCount" Content="数量" HorizontalAlignment="Left" Margin="0,8,0,0" VerticalAlignment="Top" Click="CheckStrongholdCount_Checked"/>
+                <CheckBox x:Name="CheckStrongholdDistance" Content="距离" HorizontalAlignment="Left" Margin="0,41,0,0" VerticalAlignment="Top" Click="CheckStrongholdDistance_Checked"/>
+                <Controls:NumericUpDown x:Name="StrongholdSpread" Minimum="1" Maximum="100" Interval="5" StringFormat="" Margin="56,69,7,12" Height="28" Value="3" IsEnabled="False" />
+                <CheckBox x:Name="CheckStrongholdSpread" Content="延伸" HorizontalAlignment="Left" Margin="0,74,0,0" VerticalAlignment="Top" Click="CheckStrongholdSpread_Checked"/>
+            </Grid>
+        </GroupBox>
+        <CheckBox x:Name="CheckStronghold" Content="" HorizontalAlignment="Left" Margin="643,18,0,0" VerticalAlignment="Top" Click="CheckStronghold_Checked"/>
+        <GroupBox x:Name="GroupBiome" Header="      生物群系结构" HorizontalAlignment="Left" Margin="638,170,0,0" VerticalAlignment="Top" Height="145" Width="206" IsEnabled="False">
+            <Grid HorizontalAlignment="Left" Height="109" VerticalAlignment="Top" Width="196" Margin="0,0,-2,-2">
+                <Controls:NumericUpDown x:Name="BiomeChance" Minimum="9" Maximum="100" Interval="5" StringFormat="" Margin="53,0,10,81" Height="28" Value="32" IsEnabled="False" />
+                <Button x:Name="HelpBiome" Content="？" HorizontalAlignment="Left" Margin="111,-31,0,0" VerticalAlignment="Top" Width="75" Click="HelpBiome_Click"/>
+                <CheckBox x:Name="CheckBiomeChance" Content="几率" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0" Click="CheckBiomeChance_Checked"/>
+            </Grid>
+        </GroupBox>
+        <CheckBox x:Name="CheckBiome" Content="" HorizontalAlignment="Left" Margin="643,174,0,0" VerticalAlignment="Top" Click="CheckBiome_Checked"/>
+        <CheckBox x:Name="CheckDungeon" Content="生成地牢" HorizontalAlignment="Left" Margin="10,133,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CheckDecoration" Content="生成植被矿石等" HorizontalAlignment="Left" Margin="87,133,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CheckLake" Content="生成沙子湖甘蔗" HorizontalAlignment="Left" Margin="200,133,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CheckLavaLake" Content="生成岩浆湖" HorizontalAlignment="Left" Margin="10,156,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CheckOceanmonument" Content="水中生成海地遗迹" HorizontalAlignment="Left" Margin="99,156,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="SuperflatTip" Content="注：1.8出了自带的编辑器之后 个人还是感觉1.8自带的编辑器比较好用" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="12,179,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click"/>
+        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="92,179,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click"/>
+        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="252,179,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click"/>
+        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="332,179,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click"/>
+        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="172,179,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click"/>
+        <Button x:Name="BiomeWiki" Content="wiki" HorizontalAlignment="Left" Margin="287,103,0,0" VerticalAlignment="Top" Width="127" Click="BiomeWiki_Click"/>
+        <ListBox x:Name="pageList" HorizontalAlignment="Left" Height="301" Margin="849,14,0,0" VerticalAlignment="Top" Width="160"/>
+
+    </Grid>
+</Controls:MetroWindow>

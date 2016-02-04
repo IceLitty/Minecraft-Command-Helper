@@ -1,0 +1,147 @@
+﻿<Controls:MetroWindow x:Class="WpfMinecraftCommandHelper2.Item"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
+        Title="物品" Width="924" Height="588.588">
+    <Grid>
+        <Grid x:Name="tabItemEnchantGroup" HorizontalAlignment="Left" Height="292" Margin="10,174,0,0" VerticalAlignment="Top" Width="474" IsEnabled="False">
+            <CheckBox x:Name="tabItemEnchant0" Content="保护" HorizontalAlignment="Left" Margin="8,260,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum0" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="88,256,321,10" Height="25" />
+            <CheckBox x:Name="tabItemEnchant1" Content="火焰保护" HorizontalAlignment="Left" Margin="8,11,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum1" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="87,7,323,259" Height="25" />
+            <CheckBox x:Name="tabItemEnchant2" Content="摔落保护" HorizontalAlignment="Left" Margin="163,11,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum2" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="249,7,163,259" Height="25" />
+            <CheckBox x:Name="tabItemEnchant4" Content="弹射物保护" HorizontalAlignment="Left" Margin="8,42,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum4" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="87,38,322,228" Height="25" />
+            <CheckBox x:Name="tabItemEnchant5" Content="水下呼吸" HorizontalAlignment="Left" Margin="163,42,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum5" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="249,38,161,228" Height="25" />
+            <CheckBox x:Name="tabItemEnchant6" Content="水下速掘" HorizontalAlignment="Left" Margin="322,42,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum6" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="402,38,7,228" Height="25" />
+            <CheckBox x:Name="tabItemEnchant8" Content="深海探索" HorizontalAlignment="Left" Margin="163,73,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum8" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="250,69,159,197" Height="25" />
+            <CheckBox x:Name="tabItemEnchant16" Content="锋利" HorizontalAlignment="Left" Margin="323,73,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum16" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="402,69,8,197" Height="25" />
+            <CheckBox x:Name="tabItemEnchant17" Content="亡灵杀手" HorizontalAlignment="Left" Margin="8,104,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum17" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="88,100,321,166" Height="25" />
+            <CheckBox x:Name="tabItemEnchant19" Content="击退" HorizontalAlignment="Left" Margin="323,104,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum19" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="403,100,6,166" Height="25" />
+            <CheckBox x:Name="tabItemEnchant20" Content="火焰附加" HorizontalAlignment="Left" Margin="8,135,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum20" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="89,131,321,135" Height="25" />
+            <CheckBox x:Name="tabItemEnchant21" Content="抢夺" HorizontalAlignment="Left" Margin="163,135,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum21" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="249,131,160,135" Height="25" />
+            <CheckBox x:Name="tabItemEnchant33" Content="精准采集" HorizontalAlignment="Left" Margin="8,166,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum33" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="87,162,322,104" Height="25" />
+            <CheckBox x:Name="tabItemEnchant34" Content="耐久" HorizontalAlignment="Left" Margin="163,166,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum34" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="250,162,160,104" Height="25" />
+            <CheckBox x:Name="tabItemEnchant35" Content="时运" HorizontalAlignment="Left" Margin="323,166,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum35" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="402,162,7,104" Height="25" />
+            <CheckBox x:Name="tabItemEnchant49" Content="冲击" HorizontalAlignment="Left" Margin="163,197,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum49" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="250,193,159,73" Height="25" />
+            <CheckBox x:Name="tabItemEnchant50" Content="火矢" HorizontalAlignment="Left" Margin="323,197,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum50" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="402,193,8,73" Height="25" />
+            <CheckBox x:Name="tabItemEnchant51" Content="无限" HorizontalAlignment="Left" Margin="8,228,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum51" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="88,224,321,42" Height="25" />
+            <CheckBox x:Name="tabItemEnchant62" Content="诱饵" HorizontalAlignment="Left" Margin="323,228,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum62" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="402,224,7,42" Height="25" />
+            <CheckBox x:Name="tabItemEnchant7" Content="荆棘" HorizontalAlignment="Left" Margin="8,73,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum7" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="88,69,321,197" Height="25" />
+            <CheckBox x:Name="tabItemEnchant18" Content="节肢杀手" HorizontalAlignment="Left" Margin="163,104,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum18" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="249,100,160,166" Height="25" />
+            <CheckBox x:Name="tabItemEnchant32" Content="效率" HorizontalAlignment="Left" Margin="323,135,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum32" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="403,131,7,135" Height="25" />
+            <CheckBox x:Name="tabItemEnchant48" Content="力量" HorizontalAlignment="Left" Margin="8,197,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum48" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="87,193,322,73" Height="25" />
+            <CheckBox x:Name="tabItemEnchant61" Content="海之眷顾" HorizontalAlignment="Left" Margin="163,228,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum61" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="250,224,159,42" Height="25" />
+            <CheckBox x:Name="tabItemEnchant3" Content="爆炸保护" HorizontalAlignment="Left" Margin="323,11,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum3" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="403,7,6,259" Height="25" />
+            <CheckBox x:Name="tabItemEnchant70" Content="修复" HorizontalAlignment="Left" Margin="323,260,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum70" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="402,256,7,10" Height="25" />
+            <CheckBox x:Name="tabItemEnchant9" Content="快速冻结" HorizontalAlignment="Left" Margin="163,260,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum9" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="250,256,159,10" Height="25" />
+        </Grid>
+        <Label x:Name="ItemChooseItem" Content="请选择物品/方块：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ItemTip1" Content="「注：部分方块只有方块ID，没有附加值」" HorizontalAlignment="Left" Margin="106,11,0,0" VerticalAlignment="Top" Foreground="#FF919191" FontSize="11"/>
+        <ComboBox x:Name="tabItemSel" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="463" Height="37"/>
+        <Label x:Name="ItemChooseMeta" Content="请填写Meta/Damage/附加值：" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ItemChooseCount" Content="请填写数量：" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="tabItemEnchantCheck" Content="有附魔√" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top" Click="tabItemEnchantCheck_Click"/>
+        <Label x:Name="ItemTip2" Content="「请注意，附魔等级框内填写小数点无效！」" HorizontalAlignment="Left" Margin="76,144,0,0" VerticalAlignment="Top" Foreground="#FF959595"/>
+        <GroupBox x:Name="tabItemNLGroupbox" Header="额外名称&amp;Lore√" HorizontalAlignment="Left" Margin="513,10,0,0" VerticalAlignment="Top" Height="144" Width="393" IsEnabled="False">
+            <Grid HorizontalAlignment="Left" Height="108" VerticalAlignment="Top" Width="378" Margin="0,0,-2,-2">
+                <CheckBox x:Name="tabItemNameCheck" Content="名称" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,10,0,0" Click="tabItemNameCheck_Click"/>
+                <CheckBox x:Name="tabItemLoreCheck" Content="Lore" HorizontalAlignment="Left" Margin="7,42,0,0" VerticalAlignment="Top" Click="tabItemLoreCheck_Click"/>
+                <CheckBox x:Name="tabItemColorCheck" Content="染色" HorizontalAlignment="Left" Margin="7,74,0,0" VerticalAlignment="Top" Click="tabItemColorCheck_Click"/>
+                <TextBox x:Name="tabItemName" HorizontalAlignment="Left" Height="23" Margin="63,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" IsEnabled="False"/>
+                <TextBox x:Name="tabItemLore" HorizontalAlignment="Left" Height="23" Margin="63,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" IsEnabled="False" AcceptsReturn="True"/>
+                <Label x:Name="ItemTip3" Content="(Dec)  Lore回车可换行" HorizontalAlignment="Left" Margin="236,70,0,0" VerticalAlignment="Top"/>
+                <Controls:NumericUpDown x:Name="tabItemColor" Minimum="0" Maximum="16777215" Interval="5" Margin="63,70,147,12" Height="25" IsEnabled="False" Value="0" />
+                <ComboBox x:Name="tabItemNameColorSel" HorizontalAlignment="Left" Margin="236,7,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False" SelectionChanged="tabItemNameColorSel_SelectionChanged"/>
+                <ComboBox x:Name="tabItemLoreColorSel" HorizontalAlignment="Left" Margin="236,39,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False" SelectionChanged="tabItemLoreColorSel_SelectionChanged"/>
+            </Grid>
+        </GroupBox>
+        <CheckBox x:Name="tabItemNLCheck" Content="" HorizontalAlignment="Left" Margin="489,14,0,0" VerticalAlignment="Top" Click="tabItemNLCheck_Click"/>
+        <GroupBox x:Name="tabItemAttrGroupbox" Header="物品特殊属性" HorizontalAlignment="Left" Margin="513,159,0,0" VerticalAlignment="Top" Height="296" Width="278" IsEnabled="False">
+            <Grid HorizontalAlignment="Left" Height="257" VerticalAlignment="Top" Width="263">
+                <CheckBox x:Name="tabItemAttrAttackCheck" Content="攻击力" VerticalAlignment="Top" Margin="1,7,202,0" Click="tabItemAttrAttackCheck_Click"/>
+                <CheckBox x:Name="tabItemAttrRangeCheck" Content="仇恨跟踪" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,38,0,0" Click="tabItemAttrRangeCheck_Click"/>
+                <CheckBox x:Name="tabItemAttrHealthCheck" Content="最大血量" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,69,0,0" Click="tabItemAttrHealthCheck_Click"/>
+                <CheckBox x:Name="tabItemAttrAttackPer" Content="%" HorizontalAlignment="Left" Margin="222,7,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <CheckBox x:Name="tabItemAttrRangePer" Content="%" HorizontalAlignment="Left" Margin="222,38,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <CheckBox x:Name="tabItemAttrHealthPer" Content="%" HorizontalAlignment="Left" Margin="222,69,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <CheckBox x:Name="tabItemAttrFBackCheck" Content="防击退" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,100,0,0" Click="tabItemAttrFBackCheck_Click"/>
+                <CheckBox x:Name="tabItemAttrMSpeedCheck" Content="移动速度" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,131,0,0" Click="tabItemAttrMSpeedCheck_Click"/>
+                <CheckBox x:Name="tabItemAttrFBackPer" Content="%" HorizontalAlignment="Left" Margin="222,100,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <CheckBox x:Name="tabItemAttrMSpeedPer" Content="%" HorizontalAlignment="Left" Margin="222,131,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <CheckBox x:Name="tabItemAttrLuckCheck" Content="幸运" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,162,0,0" Click="tabItemAttrLuckCheck_Click"/>
+                <CheckBox x:Name="tabItemAttrLuckPer" Content="%" HorizontalAlignment="Left" Margin="222,162,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <CheckBox x:Name="tabItemAttrArmorCheck" Content="护甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,193,0,0" Click="tabItemAttrArmorCheck_Click"/>
+                <CheckBox x:Name="tabItemAttrArmorPer" Content="%" HorizontalAlignment="Left" Margin="222,193,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <Controls:NumericUpDown x:Name="tabItemAttrAttack" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,2,46,229" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrRange" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,33,46,198" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrHealth" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,64,46,167" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrFBack" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,95,46,136" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrMSpeed" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,126,46,105" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrLuck" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,157,46,74" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrArmor" Minimum="0" Maximum="30" Interval="5" StringFormat="" Margin="0,188,46,43" Height="25" IsEnabled="False" Value="0" HorizontalAlignment="Right" Width="141" />
+                <CheckBox x:Name="tabItemAttrAtkSpeedCheck" Content="攻击速度" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,224,0,0" Click="tabItemAttrAtkSpeedCheck_Click"/>
+                <CheckBox x:Name="tabItemAttrAtkSpeedPer" Content="%" HorizontalAlignment="Left" Margin="222,224,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <Controls:NumericUpDown x:Name="tabItemAttrAtkSpeed" Minimum="-1024" Maximum="1024" Interval="5" StringFormat="" Margin="0,219,46,12" Height="25" IsEnabled="False" Value="0" HorizontalAlignment="Right" Width="141" />
+            </Grid>
+        </GroupBox>
+        <CheckBox x:Name="tabItemAttrCheck" Content="" HorizontalAlignment="Left" Margin="489,163,0,0" VerticalAlignment="Top" Click="tabItemAttrCheck_Click"/>
+        <GroupBox x:Name="ItemHasExtra" Header="额外" HorizontalAlignment="Left" Margin="796,159,0,0" VerticalAlignment="Top" Height="296" Width="110">
+            <Grid HorizontalAlignment="Left" Height="256" Margin="0,0,-2,0" VerticalAlignment="Top" Width="100">
+                <CheckBox x:Name="tabItemUnbreaking" Content="不可破坏" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="tabItemGetEnchantBook" Content="获取附魔书" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Width="72" Click="tabItemGetEnchantBook_Click"/>
+                <Grid Margin="0,73,0,0">
+                    <RadioButton x:Name="AttrMainHand" Content="主手" HorizontalAlignment="Left" Margin="22,9,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                    <RadioButton x:Name="AttrOffHand" Content="副手" HorizontalAlignment="Left" Margin="22,32,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                    <RadioButton x:Name="AttrHead" Content="头部" HorizontalAlignment="Left" Margin="22,55,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                    <RadioButton x:Name="AttrChest" Content="躯干" HorizontalAlignment="Left" Margin="22,78,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                    <RadioButton x:Name="AttrLegs" Content="腿部" HorizontalAlignment="Left" Margin="22,101,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                    <RadioButton x:Name="AttrFeet" Content="脚部" HorizontalAlignment="Left" Margin="22,124,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                    <RadioButton x:Name="AttrAll" Content="全部" HorizontalAlignment="Left" Margin="22,147,0,0" VerticalAlignment="Top" IsChecked="True" IsEnabled="False"/>
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <Button x:Name="atBtn" Content="获取At" HorizontalAlignment="Left" Margin="513,494,0,0" VerticalAlignment="Top" Width="82" Height="26" Click="atBtn_Click"/>
+        <TextBox x:Name="atBox" HorizontalAlignment="Left" Height="23" Margin="600,494,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308"/>
+        <ComboBox x:Name="tabItemHide" HorizontalAlignment="Left" Margin="513,463,0,0" VerticalAlignment="Top" Width="395"/>
+        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="513,525,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click"/>
+        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="593,525,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click"/>
+        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="753,525,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click"/>
+        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="833,525,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click"/>
+        <Grid HorizontalAlignment="Left" Height="64" Margin="192,82,0,0" VerticalAlignment="Top" Width="281">
+            <Controls:NumericUpDown x:Name="tabItemMeta" Minimum="0" Maximum="100" Interval="5" StringFormat="" Margin="0,3,0,33" Height="28" Value="0" />
+            <Controls:NumericUpDown x:Name="tabItemCount" Minimum="0" Maximum="64" Interval="5" StringFormat="" Margin="0,36,0,0" Height="28" Value="1" />
+        </Grid>
+        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="673,525,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click"/>
+        <Grid HorizontalAlignment="Left" Height="27" Margin="183,471,0,0" VerticalAlignment="Top" Width="301">
+            <Controls:NumericUpDown x:Name="tabItemRepairCost" Minimum="0" Maximum="999999999" Interval="5" StringFormat="" Margin="101,-1,10,0" Height="28" Value="0" IsEnabled="False" />
+            <CheckBox x:Name="tabItemRepairCostCheck" Content="指定修复消耗" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Checked="tabItemRepairCostCheck_Checked"/>
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>
