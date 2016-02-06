@@ -55,6 +55,7 @@ namespace WpfMinecraftCommandHelper2
         }
 
         private string finalStr = "";
+        private int particleSel = 0;
 
         private void clear() 
         {
@@ -115,6 +116,7 @@ namespace WpfMinecraftCommandHelper2
         private void createBtn_Click(object sender, RoutedEventArgs e)
         {
             int langIndex = tabParticleSel.SelectedIndex;
+            particleSel = tabParticleSel.SelectedIndex;
             string particleOut = "/particle ";
             //particle
             AllSelData asd = new AllSelData();
@@ -165,6 +167,8 @@ namespace WpfMinecraftCommandHelper2
             checkbox.showText(finalStr);
             checkbox.Show();
         }
+
+        public int returnParticleSel() { return particleSel; } 
 
         private void helpBtn_Click(object sender, RoutedEventArgs e)
         {

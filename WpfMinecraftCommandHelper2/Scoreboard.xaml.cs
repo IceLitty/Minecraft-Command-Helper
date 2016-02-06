@@ -208,6 +208,10 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabScoreBox.Text = "特殊说明、举例：\r\n\r\n例如@e[type=!Player]则可以搜索到非玩家的实体，@e[name=!IceLitty]则可以搜索名称不为IceLitty的实体。\r\n\r\n@a、p、r都只能选择玩家实体，@e除外。\r\n\r\n如果前四个参数分别是x、y、z、r的时候可以省略标签直接写值，例如@e[1,3,2,5,type=Player]则是选择坐标在(1,3,2)处，半径为5的范围内搜索玩家。";
             }
+            else if (tabScoreAtVar.SelectedIndex == 24)
+            {
+                tabScoreBox.Text = "选择器举例：@e[tag=tag1]\r\n\r\n可以选定所有含有{Tags:[{\"tag1\"}]}NBT标签的实体。";
+            }
             else
             {
                 tabScoreBox.Text = "";
@@ -290,7 +294,7 @@ namespace WpfMinecraftCommandHelper2
             else if (tabScoreData2.SelectedIndex == 8)
             {
                 //实体皆有的标签
-                tabScoreBox.Text = "{Glowing:0}    1代表这个实体发光。\r\n\r\n{id:Zombie}    此标签代表这个实体的种类，可以填除玩家之外的任何种类。\r\n\r\n{Pos:[0:0.0d,1:0.0d,2:0.0d]}    代表实体所在坐标，012分别代表xyz。\r\n\r\n{Motion:[0:0.0d,1:0.0d,2:0.0d]}    代表实体的运动方向和运动速度，012分别代表xyz，速度单位为米/Tick。\r\n\r\n{Rotation:[0:0.0d,1:0.0d]}    0代表绕Y轴顺时针旋转的角度（yaw），西面为0.0d，最大360度。1代表从水平线上下旋转的角度（pitch），水平线为0，值从-90到90度。\r\n\r\n{FallDistance:0.0f}    代表实体坠落的距离，值越高将获得更多的摔落伤害。\r\n\r\n{Fire:0s}    默认为-20s，无火焰。数值代表离燃烧状态结束还剩多少Tick。\r\n\r\n{Air:0s}    在空气中最高值为300s，可以在水下憋15秒才开始扣血。如果值为0s则下水就开始每秒1滴血的速度扣血。\r\n\r\n{OnGround:0b}    如果接触地面，则为1b，不接触则为0b。\r\n\r\n{Dimension:0}    未知用法。实体只在正常世界值为0，下界为-1，末地为1。\r\n\r\n{Invulnerable:0b}    值为1b则表示不会受到任何的伤害，例如喷溅药水和鱼钩，TNT等，但是仍可被创造模式的玩家所攻击/破坏。\r\n\r\n{PortalCooldown:0}    传送冷却的倒计时，每次传送后此值将设置为900Tick（45秒），然后逐渐降为0。\r\n\r\n{UUIDMost:}    实体UUID区间的最大量。\r\n\r\n{UUIDLeast:}    实体UUID区间的最小量。\r\n\r\n{UUID:}    实体的UUID，在实体加载后将被移除。（1.9移除）\r\n\r\n{CustomName:\"Dinnerbone\"}    实体的自定义名称。\r\n\r\n{CustomNameVisible:0b}    实体是否拥有自定义名称，0b为否，1b为是。\r\n\r\n{Silent:0b}    0b为默认，1b为静音。\r\n\r\n{Riding:{}}    实体的骑乘标签。（1.9移除）\r\n    {id等:}    实体的所有标签。\r\n        ...    实体的所有标签。\r\n\r\n{Passengers:[]}    实体的骑乘标签。\r\n    [0:{...},1:{}]    实体所骑乘的标签。\r\n        {id:Zombie,Passengers:[...]}\r\n\r\n{CommandStats:{}}    关于最后命令执行修改的信息标识计分板的参数相关项。\r\n    {SuccessCountObjective:0b}    最后一个成功执行的命令中对象的名字，值为0b或1b。\r\n    {SuccessCountName:\"\"}    最后一个成功执行的命令中玩家的名字，值为string类型玩家名。\r\n    {AffectedBlocksObjectuve:0}    最后一个命令更改了多少的方块，值为int型数字。\r\n    {AffectedBlocksName:\"\"}    最后一个命令更改了多少方块的玩家的名字，值为string类型玩家名。\r\n    {AffectedEntitiesObjective:0}    同上，改变实体。\r\n    {AffectedEntitiesName:\"\"}    同上，改变实体。\r\n    {AffectedItemsObjective:0}    同上，改变物品。\r\n    {AffectedItemsName:\"\"}    同上，改变物品。\r\n    {QueryResultObjective:0}    同上，搜索结果。\r\n    {QueryResultName:\"\"}    同上，搜索结果。";
+                tabScoreBox.Text = "{Glowing:0}    1代表这个实体发光。\r\n\r\n{Tags:[{\"tag1\"},{\"tag2\"}]}    给实体加上tags，用于选择器的选择。\r\n\r\n{id:Zombie}    此标签代表这个实体的种类，可以填除玩家之外的任何种类。\r\n\r\n{Pos:[0:0.0d,1:0.0d,2:0.0d]}    代表实体所在坐标，012分别代表xyz。\r\n\r\n{Motion:[0:0.0d,1:0.0d,2:0.0d]}    代表实体的运动方向和运动速度，012分别代表xyz，速度单位为米/Tick。\r\n\r\n{Rotation:[0:0.0d,1:0.0d]}    0代表绕Y轴顺时针旋转的角度（yaw），西面为0.0d，最大360度。1代表从水平线上下旋转的角度（pitch），水平线为0，值从-90到90度。\r\n\r\n{FallDistance:0.0f}    代表实体坠落的距离，值越高将获得更多的摔落伤害。\r\n\r\n{Fire:0s}    默认为-20s，无火焰。数值代表离燃烧状态结束还剩多少Tick。\r\n\r\n{Air:0s}    在空气中最高值为300s，可以在水下憋15秒才开始扣血。如果值为0s则下水就开始每秒1滴血的速度扣血。\r\n\r\n{OnGround:0b}    如果接触地面，则为1b，不接触则为0b。\r\n\r\n{Dimension:0}    未知用法。实体只在正常世界值为0，下界为-1，末地为1。\r\n\r\n{Invulnerable:0b}    值为1b则表示不会受到任何的伤害，例如喷溅药水和鱼钩，TNT等，但是仍可被创造模式的玩家所攻击/破坏。\r\n\r\n{PortalCooldown:0}    传送冷却的倒计时，每次传送后此值将设置为900Tick（45秒），然后逐渐降为0。\r\n\r\n{UUIDMost:}    实体UUID区间的最大量。\r\n\r\n{UUIDLeast:}    实体UUID区间的最小量。\r\n\r\n{UUID:}    实体的UUID，在实体加载后将被移除。（1.9移除）\r\n\r\n{CustomName:\"Dinnerbone\"}    实体的自定义名称。\r\n\r\n{CustomNameVisible:0b}    实体是否拥有自定义名称，0b为否，1b为是。\r\n\r\n{Silent:0b}    0b为默认，1b为静音。\r\n\r\n{Riding:{}}    实体的骑乘标签。（1.9移除）\r\n    {id等:}    实体的所有标签。\r\n        ...    实体的所有标签。\r\n\r\n{Passengers:[]}    实体的骑乘标签。\r\n    [0:{...},1:{}]    实体所骑乘的标签。\r\n        {id:Zombie,Passengers:[...]}\r\n\r\n{CommandStats:{}}    关于最后命令执行修改的信息标识计分板的参数相关项。\r\n    {SuccessCountObjective:0b}    最后一个成功执行的命令中对象的名字，值为0b或1b。\r\n    {SuccessCountName:\"\"}    最后一个成功执行的命令中玩家的名字，值为string类型玩家名。\r\n    {AffectedBlocksObjectuve:0}    最后一个命令更改了多少的方块，值为int型数字。\r\n    {AffectedBlocksName:\"\"}    最后一个命令更改了多少方块的玩家的名字，值为string类型玩家名。\r\n    {AffectedEntitiesObjective:0}    同上，改变实体。\r\n    {AffectedEntitiesName:\"\"}    同上，改变实体。\r\n    {AffectedItemsObjective:0}    同上，改变物品。\r\n    {AffectedItemsName:\"\"}    同上，改变物品。\r\n    {QueryResultObjective:0}    同上，搜索结果。\r\n    {QueryResultName:\"\"}    同上，搜索结果。";
             }
             else if (tabScoreData2.SelectedIndex == 9)
             {
@@ -500,7 +504,7 @@ namespace WpfMinecraftCommandHelper2
             }
             else if (tabScoreData2.SelectedIndex == 60)
             {
-                tabScoreBox.Text = "命令方块：\r\n{CommandStats:{}}    命令激发状态\r\n    {...}    见之前内容。\r\n{Lock:\"\"}    上锁。\r\n{Command:\"\"}    命令。\r\n{SuccessCount:0}    成功执行次数。\r\n{LastOutput:\"\"}    最后输出。\r\n{TrackOutput:0b}    是否保留输出。\r\n{powered:0b}    1b为接受到红石信号。\r\n{auto:0b}    1b为自动执行。";
+                tabScoreBox.Text = "命令方块：\r\n{CommandStats:{}}    命令激发状态\r\n    {...}    见之前内容。\r\n{Lock:\"\"}    上锁。\r\n{Command:\"\"}    命令。\r\n{SuccessCount:0}    成功执行次数。\r\n{LastOutput:\"\"}    最后输出。\r\n{TrackOutput:0b}    是否保留输出。\r\n{powered:0b}    1b为接受到红石信号。\r\n{auto:0b}    1b为自动执行。\r\n{conditionMet:1b}    1b为指向它的命令方块执行成功，0b为失败，如遇上非连锁命令方块则始终为1b。";
             }
             else if (tabScoreData2.SelectedIndex == 61)
             {
@@ -528,7 +532,7 @@ namespace WpfMinecraftCommandHelper2
             }
             else if (tabScoreData2.SelectedIndex == 67)
             {
-                tabScoreBox.Text = "音乐盒：\r\n{note:0b}    音阶\r\n/playsound指令全部声音wiki链接：http://minecraft.gamepedia.com/Sounds.json\r\n{powered:0b}    1b则接受到红石信号。\r\n\r\n唱片机：\r\n{Record:0}    0表示无唱片，此外其他值会覆盖RecordItem内的设置。\r\n{RecordItem:{}} 物品NBT，只能包含一种物品，多种物品请设置带NBT的箱子方块。";
+                tabScoreBox.Text = "音乐盒：\r\n{note:0b}    音阶\r\n/playsound指令全部声音wiki链接：http://minecraft.gamepedia.com/Sounds.json \r\n{powered:0b}    1b则接受到红石信号。\r\n\r\n唱片机：\r\n{Record:0}    0表示无唱片，此外其他值会覆盖RecordItem内的设置。\r\n{RecordItem:{}} 物品NBT，只能包含一种物品，多种物品请设置带NBT的箱子方块。";
             }
             else if (tabScoreData2.SelectedIndex == 68)
             {

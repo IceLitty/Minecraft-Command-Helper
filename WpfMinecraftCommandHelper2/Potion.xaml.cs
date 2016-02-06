@@ -376,9 +376,6 @@ namespace WpfMinecraftCommandHelper2
                 finalStr.Replace(@"\u00A7", @"\\u00A7");
                 finalStr = "/setblock ~ ~1 ~ standing_sign 0 replace {Text1:\"{text:\\\"" + PotionClickMe + "\\\",clickEvent:{action:\\\"run_command\\\",value:\\\"/blockdata ~ ~-1 ~ {Command:" + finalStr + ",}\\\"}}\"}";
             }
-            Check checkbox = new Check();
-            checkbox.showText(finalStr);
-            checkbox.Show();
         }
 
         private void copyBtn_Click(object sender, RoutedEventArgs e)
@@ -388,14 +385,19 @@ namespace WpfMinecraftCommandHelper2
 
         private void checkBtn_Click(object sender, RoutedEventArgs e)
         {
-            string temp = "/* API LIST */\r\n";
-            temp += "globalPotionString: \r\n";
-            temp += "\t" + globalPotionString + "\r\n";
-            temp += "globalPotionYN: \r\n";
-            temp += "\t" + globalPotionYN + "";
+            //string temp = "/* API LIST */\r\n";
+            //temp += "globalPotionString: \r\n";
+            //temp += "\t" + globalPotionString + "\r\n";
+            //temp += "globalPotionYN: \r\n";
+            //temp += "\t" + globalPotionYN + "\r\n";
+            //temp += "globalPotionNBT: \r\n";
+            //temp += "\t" + globalPotionNBT + "";
+            //Check checkbox = new Check();
+            //checkbox.showText(temp);
+            //checkbox.ShowDialog();
             Check checkbox = new Check();
-            checkbox.showText(temp);
-            checkbox.ShowDialog();
+            checkbox.showText(finalStr);
+            checkbox.Show();
         }
 
         private void helpBtn_Click(object sender, RoutedEventArgs e)

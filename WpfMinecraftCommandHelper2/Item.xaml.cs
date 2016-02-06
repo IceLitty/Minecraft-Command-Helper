@@ -135,6 +135,7 @@ namespace WpfMinecraftCommandHelper2
         private int globalItemCount = 0;
         private int globalItemSelMeta = 0;
         private int globalHideSelIndex = 0;
+        private string globalColor = "16777215";
 
         private string atStr = "未设置AT变量！";
         private string finalStr = "";
@@ -366,7 +367,8 @@ namespace WpfMinecraftCommandHelper2
                 }
                 if (tabItemColorCheck.IsChecked.Value)
                 {
-                    NLStr += "color:" + Convert.ToString(int.Parse(tabItemColor.Value.Value.ToString()), 10) + ",";
+                    globalColor = Convert.ToString(int.Parse(tabItemColor.Value.Value.ToString()), 10);
+                    NLStr += "color:" + globalColor + ",";
                 }
                 if (NLStr != "display:{")
                 {
@@ -600,7 +602,7 @@ namespace WpfMinecraftCommandHelper2
 
         public string[] returnStr()
         {
-            return new string[] { globalEnchString, globalNLString, globalAttrString, globalAttrStringLess, globalUnbreaking, globalHideflag, globalCommand };
+            return new string[] { globalEnchString, globalNLString, globalAttrString, globalAttrStringLess, globalUnbreaking, globalHideflag, globalCommand, globalColor };
         }
 
         public int[] returnStrAdver()

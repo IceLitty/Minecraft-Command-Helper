@@ -21,7 +21,7 @@
         <Grid HorizontalAlignment="Left" Height="30" Margin="10,88,0,0" VerticalAlignment="Top" Width="660">
             <CheckBox x:Name="dxCheck" Content="动量X" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top" Click="dxCheck_Checked"/>
             <Controls:NumericUpDown x:Name="dx" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="84,0,436,4" Height="25" IsEnabled="False" />
-            <CheckBox x:Name="dyCheck" Content="动量Y" HorizontalAlignment="Left" Margin="229,4,0,0" VerticalAlignment="Top" Click="dyCheck_Checked"/>
+            <CheckBox x:Name="dyCheck" Content="动量Y" HorizontalAlignment="Left" Margin="228,4,0,0" VerticalAlignment="Top" Click="dyCheck_Checked"/>
             <Controls:NumericUpDown x:Name="dy" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="302,2,218,2" Height="25" IsEnabled="False" />
             <CheckBox x:Name="dzCheck" Content="动量Z" HorizontalAlignment="Left" Margin="447,4,0,0" VerticalAlignment="Top" Click="dzCheck_Checked"/>
             <Controls:NumericUpDown x:Name="dz" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="520,2,0,2" Height="25" IsEnabled="False" />
@@ -96,6 +96,10 @@
         <Grid HorizontalAlignment="Left" Height="30" Margin="10,453,0,0" VerticalAlignment="Top" Width="660">
             <CheckBox x:Name="rideCheck" Content="骑乘对象" HorizontalAlignment="Left" Margin="7,6,0,0" VerticalAlignment="Top" Checked="rideCheck_Checked"/>
             <ComboBox x:Name="rideEntity" HorizontalAlignment="Left" Margin="108,4,0,0" VerticalAlignment="Top" Width="166" IsEnabled="False"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="30" Margin="236,19,0,0" VerticalAlignment="Top" Width="222">
+            <CheckBox x:Name="tagCheck" Content="标签" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" Click="tagCheck_Click"/>
+            <TextBox x:Name="tags" HorizontalAlignment="Left" Height="23" Margin="53,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" IsEnabled="False"/>
         </Grid>
 
     </Grid>

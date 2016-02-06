@@ -18,7 +18,6 @@ namespace WpfMinecraftCommandHelper2
             AllSelData asd = new AllSelData();
             for (int i = 0; i < asd.getAtListCount(); i++)
             {
-                tabSummonSel.Items.Add(asd.getAtNameList(i));
                 tabSumosType.Items.Add(asd.getAtNameList(i));
                 tabSpawnerShowType.Items.Add(asd.getAtNameList(i));
                 tabSpawner1Type.Items.Add(asd.getAtNameList(i));
@@ -59,7 +58,12 @@ namespace WpfMinecraftCommandHelper2
             {
                 ridingIndex[i] = 0;
             }
+            for (int i = 0; i < 15; i++)
+            {
+                tabSumosEWoolColor.Items.Add(asd.getWoolColor(i));
+            }
             clear();
+            allVisInit();
         }
 
         private string FloatHelpTitle = "帮助";
@@ -67,19 +71,18 @@ namespace WpfMinecraftCommandHelper2
         private string FloatCancel = "取消";
         private string SummonAGetData = "获取数据";
         private string SummonAGetData2 = "Get成功";
-        private string SummonAGetPotion = "药水瓶「获取」√";
         private string SummonAVillagerName = "村民名称";
         private string SummonSNotChooseItemType = "未选择物品类型！";
         private string SummonSNotChooseSummonType = "未选择summon类型！";
-        private string SummonSHelpStr = "";
         private string SummonOHelpStr = "";
         private string SummonVFirstPage = "已达到第一页！\r\n生成计数器已清空至0页！";
         private string SummonVNum1 = "第";
         private string SummonVNum2 = "页";
         private string SummonVAnyPage = "已达到第{0}页！\r\n生成计数器已设置为{1}页满！";
         private string SummonVAtLeastOnce = "请至少点击一次“下一页”来储存本页内容！";
-        private string SummonVHelpStr = "";
         private string SummonPHelpStr = "";
+        private string SummonExtraDurationTooltip = "持续时间";
+        private string SummonExtraRadiusTooltip = "半径";
 
         private void appLanguage()
         {
@@ -94,22 +97,14 @@ namespace WpfMinecraftCommandHelper2
                 tabSumosClear.Content = templang[3];
                 tabVillagerClear.Content = templang[3];
                 tabSpawnerClear.Content = templang[3];
-                tabSummonCreate.Content = templang[4];
                 tabSumosCreate.Content = templang[4];
-                tabVillagerCreate.Content = templang[4];
                 tabSpawnerCreate.Content = templang[4];
                 EntityAttritube.Content = templang[4];
-                tabSummonCheckBtn.Content = templang[5];
                 tabSumosCheckBtn.Content = templang[5];
-                tabVillagerCheckBtn.Content = templang[5];
                 tabSpawnerCheckBtn.Content = templang[5];
-                tabSummonCopy.Content = templang[6];
                 tabSumosCopy.Content = templang[6];
-                tabVillagerCopy.Content = templang[6];
                 tabSpawnerCopy.Content = templang[6];
-                tabSummonHelp.Content = templang[7];
                 tabSumosHelp.Content = templang[7];
-                tabVillagerHelp.Content = templang[7];
                 tabSpawnerHelp.Content = templang[7];
                 SummonAGetData = templang[8];
                 tabSumosHandBtn.Content = templang[8];
@@ -122,18 +117,15 @@ namespace WpfMinecraftCommandHelper2
                 tabVillagerBGet.Content = templang[8];
                 tabVillagerCGet.Content = templang[8];
                 SummonAGetData2 = templang[9];
-                SummonAGetPotion = templang[10];
                 SummonAVillagerName = templang[11];
                 SummonSNotChooseItemType = templang[12];
                 SummonSNotChooseSummonType = templang[13];
-                SummonSHelpStr = templang[14];
                 SummonOHelpStr = templang[15];
                 SummonVFirstPage = templang[16];
                 SummonVNum1 = templang[17];
                 SummonVNum2 = templang[18];
                 SummonVAnyPage = templang[19];
                 SummonVAtLeastOnce = templang[20];
-                SummonVHelpStr = templang[21];
                 SummonPHelpStr = templang[22];
                 this.Title = templang[23];
                 SummonSHeader.Header = templang[24];
@@ -169,7 +161,6 @@ namespace WpfMinecraftCommandHelper2
                 SummonOBoot2.Content = templang[48];
                 tabSumosHasHeadID.Content = templang[49];
                 tabSumosDropchance.Content = templang[50];
-                tabSumosPotionGet.Content = templang[51];
                 tabSumosArmorCheck.Content = templang[52];
                 SummonOAHead.Content = templang[53];
                 SummonOABody.Content = templang[54];
@@ -194,17 +185,8 @@ namespace WpfMinecraftCommandHelper2
                 SummonORiding2.Content = templang[73];
                 SummonVHeader.Header = templang[74];
                 SummonVType.Content = templang[75];
-                tabVillagerHasAttr.Content = templang[76];
-                tabVillagerHasEqu.Content = templang[77];
-                tabVillagerHasEffect.Content = templang[78];
-                tabVillagerAttrGetBtn.Content = templang[79];
-                tabVillagerPotionGetBtn.Content = templang[80];
-                tabVillagerNameCheck.Content = templang[81];
                 tabVillagerPre.Content = templang[82];
                 tabVillagerNext.Content = templang[83];
-                tabVillagerInvulnerable.Content = templang[84];
-                tabVillagerNoAI.Content = templang[85];
-                tabVillagerSilent.Content = templang[86];
                 SummonVTradeMaxCount.Content = templang[87];
                 tabVillagerRewardExp.Content = templang[88];
                 SummonPHeader.Header = templang[89];
@@ -245,7 +227,104 @@ namespace WpfMinecraftCommandHelper2
                 ridingLoader.Header = templang[120];
                 tabSumosEgg.Content = templang[121];
                 tabSumosNowHealthCheck.Content = templang[122];
+                SummonExtraDurationTooltip = templang[123];
+                tabSumosEDuration.ToolTip = templang[123];
+                SummonExtraRadiusTooltip = templang[124];
+                tabSumosERadius.ToolTip = templang[124];
+                tabSumosGlowing.Content = templang[125];
+                tabSumosPersistenceRequired.Content = templang[126];
+                tabSumosFireCheck.Content = templang[127];
+                tabSumosTagsCheck.Content = templang[128];
+                tabSumosDirection.Content = templang[129];
+                tabSumosEEnderman.Content = templang[130];
+                tabSumosEEnderman.ToolTip = templang[131];
+                tabSumosEUUID.ToolTip = templang[132];
+                tabSumosEWoolColor.ToolTip = templang[133];
+                tabSumosEdamage.ToolTip = templang[134];
+                tabSumosEOwner.ToolTip = templang[135];
+                tabSumosEExplosionRadius.ToolTip = templang[136];
+                tabSumosEDragon.ToolTip = templang[137];
+                tabSumosESize.ToolTip = templang[138];
+                tabSumosEShulkerPeek.ToolTip = templang[139];
+                tabSumosEpickup.ToolTip = templang[140];
+                tabSumosEThrower.ToolTip = templang[141];
+                tabSumosEFuse.ToolTip = templang[142];
+                tabSumosEExplosionPower.ToolTip = templang[143];
+                tabSumosECatType.ToolTip = templang[144];
+                tabSumosERabbitType.ToolTip = templang[145];
+                tabSumosEInvul.ToolTip = templang[146];
+                tabSumosEExp.ToolTip = templang[147];
+                tabSumosEPowered.Content = templang[148];
+                tabSumosEElder.Content = templang[149];
+                tabSumosEAtkByEnderman.Content = templang[150];
+                tabSumosESaddle.Content = templang[151];
+                tabSumosECanBreakDoor.Content = templang[152];
+                tabSumosEIsVillager.Content = templang[153];
+                tabSumosESheared.Content = templang[154];
+                tabSumosESkeletonType.Content = templang[155];
+                tabSumosEPlayerCreated.Content = templang[156];
+                tabSumosEAngry.Content = templang[157];
+                tabSumosEParticle.ToolTip = templang[158];
+                tabSumosEParticleColor.ToolTip = templang[159];
+                SummonArmorStandHeader.Header = templang[160];
+                SummonHorseHeader.Header = templang[161];
+                HorseTypeHorse.Content = templang[162];
+                HorseTypeDonkey.Content = templang[163];
+                HorseTypeMule.Content = templang[164];
+                HorseTypeZombie.Content = templang[165];
+                HorseTypeSkeleton.Content = templang[166];
+                HorseHasChest.Content = templang[167];
+                HorseTamedUUID.ToolTip = templang[168];
+                HorseArmorBtn.Content = templang[169];
+                HorseSaddleBtn.Content = templang[170];
+                HorseVariant.Content = templang[171];
+                HorseTamed.Content = templang[172];
+                HorseTemper.ToolTip = templang[173];
+                HorseSkeletonTrap.Content = templang[174];
+                HorseSkeletonTrapTime.ToolTip = templang[175];
+                HorseSaddle.Content = templang[176];
             } catch (System.Exception) { /* throw; */ }
+        }
+
+        private void allVisInit()
+        {
+            tabSumosEWoolColor.SelectedIndex = 13;
+            tabSumosEgg.IsEnabled = false;
+            SummonVHeader.Visibility = Visibility.Hidden;
+            SummonArmorStandHeader.Visibility = Visibility.Hidden;
+            SummonHorseHeader.Visibility = Visibility.Hidden;
+            SummonSHeader.Visibility = Visibility.Hidden;
+            tabSumosEEnderman.IsEnabled = false;
+            tabSumosEUUID.IsEnabled = false;
+            tabSumosEWoolColor.IsEnabled = false;
+            tabSumosEExplosionRadius.IsEnabled = false;
+            tabSumosEDragon.IsEnabled = false;
+            tabSumosESize.IsEnabled = false;
+            tabSumosEShulkerPeek.IsEnabled = false;
+            tabSumosEFuse.IsEnabled = false;
+            tabSumosEExplosionPower.IsEnabled = false;
+            tabSumosECatType.IsEnabled = false;
+            tabSumosERabbitType.IsEnabled = false;
+            tabSumosEInvul.IsEnabled = false;
+            tabSumosEPowered.IsEnabled = false;
+            tabSumosEAtkByEnderman.IsEnabled = false;
+            tabSumosECanBreakDoor.IsEnabled = false;
+            tabSumosESheared.IsEnabled = false;
+            tabSumosEPlayerCreated.IsEnabled = false;
+            tabSumosEElder.IsEnabled = false;
+            tabSumosESaddle.IsEnabled = false;
+            tabSumosEIsVillager.IsEnabled = false;
+            tabSumosESkeletonType.IsEnabled = false;
+            tabSumosEAngry.IsEnabled = false;
+            tabSumosEOwner.IsEnabled = false;
+            tabSumosEThrower.IsEnabled = false;
+            tabSumosEExp.IsEnabled = false;
+            tabSumosEDuration.IsEnabled = false;
+            tabSumosERadius.IsEnabled = false;
+            tabSumosEParticle.IsEnabled = false;
+            tabSumosEParticleColor.IsEnabled = false;
+            tabSumosEdamage.IsEnabled = false;
+            tabSumosEpickup.IsEnabled = false;
         }
 
         private void clear()
@@ -260,7 +339,6 @@ namespace WpfMinecraftCommandHelper2
         {
             if (which == 0)
             {
-                tabSummonSel.SelectedIndex = 7;
                 tabSummonItem.SelectedIndex = 0;
                 tabSummonHide.SelectedIndex = 0;
                 tabSummonCount.Value = 1;
@@ -348,15 +426,10 @@ namespace WpfMinecraftCommandHelper2
                 tabSumosMotionX.Value = 0;
                 tabSumosMotionY.Value = 0;
                 tabSumosMotionZ.Value = 0;
-                tabSumosPotionGet.Content = SummonAGetPotion;
                 tabSumosMarker.IsChecked = false;
             }
             else if (which == 2)
             {
-                tabVillagerNoAI.IsChecked = false;
-                tabVillagerSilent.IsChecked = false;
-                tabVillagerHasEffect.IsChecked = false;
-                tabVillagerHasAttr.IsChecked = false;
                 tabVillagerType.SelectedIndex = 0;
                 tabVillagerACount.Value = 1;
                 tabVillagerBCount.Value = 1;
@@ -373,9 +446,6 @@ namespace WpfMinecraftCommandHelper2
                 tabVillagerMaxUses.Value = 9999999;
                 tabVillagerPageIndex.Content = "-第01页-";
                 tabVillagerBCheck.IsChecked = false;
-                tabVillagerInvulnerable.IsChecked = false;
-                tabVillagerNameCheck.IsChecked = false;
-                tabVillagerName.Text = SummonAVillagerName;
                 tabVillagerEditIndex = 0;
                 tabVillagerMaxIndex = 0;
                 tabVillagerCheckCanCreate = false;
@@ -482,73 +552,6 @@ namespace WpfMinecraftCommandHelper2
             clear(0);
         }
 
-        private void tabSummonCreate_Click(object sender, RoutedEventArgs e)
-        {
-            if (tabSummonSel.SelectedIndex < 0)
-            {
-                tabSummonSel.SelectedIndex = 0;
-            }
-            if (tabSummonItem.SelectedIndex < 0)
-            {
-                tabSummonItem.SelectedIndex = 0;
-            }
-            if (tabSummonHide.SelectedIndex < 0)
-            {
-                tabSummonHide.SelectedIndex = 0;
-            }
-            if (tabSummonSel.SelectedIndex == 7)
-            {
-                if (tabSummonItem.SelectedIndex == 0)
-                {
-                    summonFinalStr = SummonSNotChooseItemType;
-                }
-                else
-                {
-                    AllSelData asd = new AllSelData();
-                    string summonText = "{PickupDelay:" + tabSummonPickupdelay.Value + ",Age:" + tabSummonAge.Value + ",Item:{id:\"" + asd.getItem(tabSummonItem.SelectedIndex) + "\",Count:" + tabSummonCount.Value + ",Damage:" + tabSummonMeta.Value;
-                    summonText += ",tag:{HideFlags:" + tabSummonHide.SelectedIndex;
-                    if (tabSummonUnbreaking.IsChecked.Value)
-                    {
-                        summonText += ",Unbreakable:1";
-                    }
-                    if (tabSummonHasEnchant.IsChecked.Value || tabSummonHasNL.IsChecked.Value || tabSummonHasAttr.IsChecked.Value)
-                    {
-                        string meta = tabSummonGetBackMeta();
-                        summonText = summonText + "," + meta;
-                    }
-                    summonText = summonText + "}}}";
-                    //ridingText = ",Riding:{id:\"" + asd.getItem(tabSummonItem.SelectedIndex) + "\",Count:" + tabSummonCount.Value + ",Damage:" + tabSummonMeta.Value;
-                    summonFinalStr = "/summon Item ~ ~1 ~ " + summonText;
-                }
-            }
-            else if (tabSummonSel.SelectedIndex == 0)
-            {
-                summonFinalStr = SummonSNotChooseSummonType;
-            }
-            else
-            {
-                AllSelData asd = new AllSelData();
-                summonFinalStr = "/summon " + asd.getAt(tabSummonSel.SelectedIndex) + " ~ ~1 ~";
-            }
-        }
-
-        private void tabSummonCopyBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Clipboard.SetData(DataFormats.Text, summonFinalStr);
-        }
-
-        private void tabSummonCheckBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Check checkbox = new Check();
-            checkbox.showText(summonFinalStr);
-            checkbox.Show();
-        }
-
-        private void tabSummonHelp_Click(object sender, RoutedEventArgs e)
-        {
-            this.ShowMessageAsync(FloatHelpTitle, SummonSHelpStr, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-        }
-
         private string tabSummonGetBackMeta()
         {
             string meta = "";
@@ -596,23 +599,16 @@ namespace WpfMinecraftCommandHelper2
             }
         }
 
-        private void tabSummonSel_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (tabSummonSel.SelectedIndex == 7)
-            {
-                tabSummonItem.IsEnabled = true;
-            }
-            else
-            {
-                tabSummonItem.IsEnabled = false;
-            }
-        }
-
         //tabSumos - entity
 
         private string sumosFinalStr = "";
-
-        public string sumosRiding = "", sumosRidingSelType = "", sumosRidingNBT = "";
+        private string sumosRiding = "", sumosRidingSelType = "", sumosRidingNBT = "";
+        private int sumosEquipmentMainHandId = 0, sumosEquipmentOffHandId = 0, sumosEquipmentHeadId = 0, sumosEquipmentChestId = 0, sumosEquipmentLegId = 0, sumosEquipmentBootId = 0;
+        private int sumosEquipmentMainHandCount = 0, sumosEquipmentOffHandCount = 0, sumosEquipmentHeadCount = 0, sumosEquipmentChestCount = 0, sumosEquipmentLegCount = 0, sumosEquipmentBootCount = 0;
+        private int sumosEquipmentMainHandDamage = 0, sumosEquipmentOffHandDamage = 0, sumosEquipmentHeadDamage = 0, sumosEquipmentChestDamage = 0, sumosEquipmentLegDamage = 0, sumosEquipmentBootDamage = 0;
+        private int sumosEndermanCarried = -1, sumosEndermanCarriedMeta = 0;
+        private int globalParticleSel = 0;
+        private string globalParticleColor = "16777215";
 
         //use API
         private string globalSumosHand = "", globalSumosLHand = "", globalSumosBoot = "", globalSumosLeg = "", globalSumosChest = "", globalSumosHead = "", globalSumosPotion = "";
@@ -628,16 +624,12 @@ namespace WpfMinecraftCommandHelper2
             isMC19 = mcVersion.IsChecked.Value;
             if (isMC19)
             {
-                tabSumosLHand.IsEnabled = true;
-                tabSumosNumLHand.IsEnabled = true;
                 tabSumosLHandBtn.IsEnabled = true;
                 tabSumosLeftHand.IsEnabled = true;
                 if(tabSumosDropchance.IsChecked.Value) tabSumosDCLHand.IsEnabled = true; else tabSumosDCLHand.IsEnabled = false;
             }
             else
             {
-                tabSumosLHand.IsEnabled = false;
-                tabSumosNumLHand.IsEnabled = false;
                 tabSumosLHandBtn.IsEnabled = false;
                 tabSumosLeftHand.IsEnabled = false;
                 tabSumosDCLHand.IsEnabled = false;
@@ -657,6 +649,7 @@ namespace WpfMinecraftCommandHelper2
             {
                 globalPotionYN = temp[1];
             }
+            globalSumosPotion = "{Potion:{id:minecraft:potion,Damage:" + globalPotionYN + ",Count:1,tag:{CustomPotionEffects:[" + globalPotionString + "]}}}";
         }
 
         private void tabSumosAttrGetBtn_Click(object sender, RoutedEventArgs e)
@@ -680,44 +673,50 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabSumosLHandBtn_Click(object sender, RoutedEventArgs e)
         {
-            globalSumosLHand = tabVillagerGetBackMeta();
+            globalSumosLHand = tabVillagerGetBackMeta("OffHand");
+            tabSumosLHand.SelectedIndex = sumosEquipmentOffHandId;
+            tabSumosNumLHand.Value = sumosEquipmentOffHandCount;
             tabSumosLHandBtn.Content = SummonAGetData2;
         }
 
         private void tabSumosHandBtn_Click(object sender, RoutedEventArgs e)
         {
-            globalSumosHand = tabVillagerGetBackMeta();
+            globalSumosHand = tabVillagerGetBackMeta("MainHand");
+            tabSumosHand.SelectedIndex = sumosEquipmentMainHandId;
+            tabSumosNumHand.Value = sumosEquipmentMainHandCount;
             tabSumosHandBtn.Content = SummonAGetData2;
         }
 
         private void tabSumosBootBtn_Click(object sender, RoutedEventArgs e)
         {
-            globalSumosBoot = tabVillagerGetBackMeta();
+            globalSumosBoot = tabVillagerGetBackMeta("Boot");
+            tabSumosBoot.SelectedIndex = sumosEquipmentBootId;
+            tabSumosNumBoot.Value = sumosEquipmentBootCount;
             tabSumosBootBtn.Content = SummonAGetData2;
         }
 
         private void tabSumosLegBtn_Click(object sender, RoutedEventArgs e)
         {
-            globalSumosLeg = tabVillagerGetBackMeta();
+            globalSumosLeg = tabVillagerGetBackMeta("Leg");
+            tabSumosLeg.SelectedIndex = sumosEquipmentLegId;
+            tabSumosNumLeg.Value = sumosEquipmentLegCount;
             tabSumosLegBtn.Content = SummonAGetData2;
         }
 
         private void tabSumosChestBtn_Click(object sender, RoutedEventArgs e)
         {
-            globalSumosChest = tabVillagerGetBackMeta();
+            globalSumosChest = tabVillagerGetBackMeta("Chest");
+            tabSumosChest.SelectedIndex = sumosEquipmentChestId;
+            tabSumosNumChest.Value = sumosEquipmentChestCount;
             tabSumosChestBtn.Content = SummonAGetData2;
         }
 
         private void tabSumosHeadBtn_Click(object sender, RoutedEventArgs e)
         {
-            globalSumosHead = tabVillagerGetBackMeta();
+            globalSumosHead = tabVillagerGetBackMeta("Head");
+            tabSumosHead.SelectedIndex = sumosEquipmentHeadId;
+            tabSumosNumHead.Value = sumosEquipmentHeadCount;
             tabSumosHeadBtn.Content = SummonAGetData2;
-        }
-
-        private void tabSumosPotionGet_Click(object sender, RoutedEventArgs e)
-        {
-            globalSumosPotion = "{Potion:{id:minecraft:potion,Damage:" + globalPotionYN + ",Count:1,tag:{CustomPotionEffects:[" + globalPotionString + "]}}}";
-            tabSumosPotionGet.Content = SummonAGetData2;
         }
 
         private void tabSumosHasHeadID_Click(object sender, RoutedEventArgs e)
@@ -844,161 +843,238 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabSumosCreate_Click(object sender, RoutedEventArgs e)
         {
+            tabSumosEgg.IsEnabled = true;
             AllSelData asd = new AllSelData();
-            if (tabSumosType.SelectedIndex < 0)
-            {
-                tabSumosType.SelectedIndex = 0;
-            }
             string sumosText = "ArmorItems:[";
             if (!isMC19) sumosText = "Equipment:[";
-            if (tabSumosBoot.SelectedIndex != 0) { sumosText = sumosText + "0:{id:" + asd.getItem(tabSumosBoot.SelectedIndex) + ",Count:" + tabSumosNumBoot.Value + ",tag:{" + globalSumosBoot + "}}"; }
-            if (tabSumosLeg.SelectedIndex != 0) { sumosText = sumosText + ",1:{id:" + asd.getItem(tabSumosLeg.SelectedIndex) + ",Count:" + tabSumosNumLeg.Value + ",tag:{" + globalSumosLeg + "}}"; }
-            if (tabSumosChest.SelectedIndex != 0) { sumosText = sumosText + ",2:{id:" + asd.getItem(tabSumosChest.SelectedIndex) + ",Count:" + tabSumosNumChest.Value + ",tag:{" + globalSumosChest + "}}"; }
+            int equipCount = 0;
+            if (sumosEquipmentBootId != 0) { equipCount++; sumosText += "0:{id:" + asd.getItem(sumosEquipmentBootId) + ",Count:" + sumosEquipmentBootCount + "b,Damage:" + sumosEquipmentBootDamage + "s,tag:{" + globalSumosBoot + "}},"; }
+            if (sumosEquipmentLegId != 0) { equipCount++; sumosText += "1:{id:" + asd.getItem(sumosEquipmentLegId) + ",Count:" + sumosEquipmentLegCount + "b,Damage:" + sumosEquipmentLegDamage + "s,tag:{" + globalSumosLeg + "}},"; }
+            if (sumosEquipmentChestId != 0) { equipCount++; sumosText += "2:{id:" + asd.getItem(sumosEquipmentChestId) + ",Count:" + sumosEquipmentChestCount + "b,Damage:" + sumosEquipmentChestDamage + "s,tag:{" + globalSumosChest + "}},"; }
             if (tabSumosHasHeadID.IsChecked.Value == false)
             {
-                if (tabSumosHead.SelectedIndex != 0)
+                if (sumosEquipmentHeadId != 0)
                 {
-                    sumosText = sumosText + ",3:{id:" + asd.getItem(tabSumosHead.SelectedIndex) + ",Count:" + tabSumosNumHead.Value + ",tag:{" + globalSumosHead + "}}";
+                    sumosText += "3:{id:" + asd.getItem(sumosEquipmentHeadId) + ",Count:" + sumosEquipmentHeadCount + "b,Damage:" + sumosEquipmentHeadDamage + "s,tag:{" + globalSumosHead + "}},";
+                    equipCount++;
                 }
             }
             else
             {
                 globalSumosTempSel = tabSumosHead.SelectedIndex;
                 tabSumosHead.SelectedIndex = 280;
-                sumosText = sumosText + ",3:{id:" + asd.getItem(280) + ",Count:" + tabSumosNumHead.Value + ",Damage:3,tag:" + tabSumosHeadID.Text + "}";
+                sumosText += "3:{id:" + asd.getItem(280) + ",Count:" + sumosEquipmentHeadCount + "b,Damage:3s,tag:" + tabSumosHeadID.Text + "},";
+                equipCount++;
             }
             if (!isMC19)
             {
-                if (tabSumosHand.SelectedIndex != 0) { sumosText += ",4:{id:" + asd.getItem(tabSumosHand.SelectedIndex) + ",Count:" + tabSumosNumHand.Value + ",tag:{" + globalSumosHand + "}}"; }
+                if (sumosEquipmentMainHandId != 0) { equipCount++; sumosText += "4:{id:" + asd.getItem(sumosEquipmentMainHandId) + ",Count:" + sumosEquipmentMainHandCount + "b,Damage:" + sumosEquipmentMainHandDamage + "s,tag:{" + globalSumosHand + "}},"; }
             }
-            sumosText += "]";
-            if (sumosText.IndexOf("ArmorItems:[]") != -1)
+            if (equipCount != 0)
             {
-                sumosText = sumosText.Substring(0, sumosText.IndexOf("ArmorItems:[]"));
+                sumosText = sumosText.Substring(0, sumosText.Length - 1);
+                equipCount = 0;
             }
-            if (sumosText.IndexOf("Equipment:[]") != -1)
+            sumosText += "],";
+            if (sumosText.IndexOf("ArmorItems:[],") != -1)
             {
-                sumosText = sumosText.Substring(0, sumosText.IndexOf("Equipment:[]"));
+                sumosText = sumosText.Substring(0, sumosText.IndexOf("ArmorItems:[],"));
+            }
+            if (sumosText.IndexOf("Equipment:[],") != -1)
+            {
+                sumosText = sumosText.Substring(0, sumosText.IndexOf("Equipment:[],"));
             }
             if (isMC19)
             {
-                sumosText += ",HandItems:[";
-                if (tabSumosHand.SelectedIndex != 0) { sumosText += "0:{id:" + asd.getItem(tabSumosHand.SelectedIndex) + ",Count:" + tabSumosNumHand.Value + ",tag:{" + globalSumosHand + "}}"; }
-                if (tabSumosLHand.SelectedIndex != 0) { sumosText += ",1:{id:" + asd.getItem(tabSumosLHand.SelectedIndex) + ",Count:" + tabSumosNumLHand.Value + ",tag:{" + globalSumosLHand + "}}"; }
-                sumosText += "]";
+                sumosText += "HandItems:[";
+                if (sumosEquipmentMainHandId != 0) { equipCount++; sumosText += "0:{id:" + asd.getItem(sumosEquipmentMainHandId) + ",Count:" + sumosEquipmentMainHandCount + "b,Damage:" + sumosEquipmentMainHandDamage + "s,tag:{" + globalSumosHand + "}},"; }
+                if (sumosEquipmentOffHandId != 0) { equipCount++; sumosText += "1:{id:" + asd.getItem(sumosEquipmentOffHandId) + ",Count:" + sumosEquipmentOffHandCount + "b,Damage:" + sumosEquipmentOffHandDamage + "s,tag:{" + globalSumosLHand + "}},"; }
+                if (equipCount != 0)
+                {
+                    sumosText = sumosText.Substring(0, sumosText.Length - 1);
+                    equipCount = 0;
+                }
+                sumosText += "],";
+                if (sumosText.IndexOf("HandItems:[],") != -1)
+                {
+                    sumosText = sumosText.Substring(0, sumosText.IndexOf("HandItems:[],"));
+                }
             }
-            if (sumosText.IndexOf(",HandItems:[]") != -1)
-            {
-                sumosText = sumosText.Substring(0, sumosText.IndexOf(",HandItems:[]"));
-            }
-            if (tabSumosLeftHand.IsChecked.Value) sumosText += ",LeftHanded:1b";
+            if (tabSumosLeftHand.IsChecked.Value) sumosText += "LeftHanded:1b,";
             if (tabSumosDropchance.IsChecked.Value)
             {
                 if (isMC19)
                 {
-                    sumosText = sumosText + ",ArmorDropChances:[0:" + tabSumosDCBoot.Value + "F,1:" + tabSumosDCLeg.Value + "F,2:" + tabSumosDCChest.Value + "F,3:" + tabSumosDCHead.Value + "F]";
-                    sumosText += ",HandDropChances:[0:" + tabSumosDCHand.Value + "F,1:" + tabSumosDCLHand.Value + "F]";
+                    sumosText += "ArmorDropChances:[0:" + tabSumosDCBoot.Value + "F,1:" + tabSumosDCLeg.Value + "F,2:" + tabSumosDCChest.Value + "F,3:" + tabSumosDCHead.Value + "F],";
+                    sumosText += "HandDropChances:[0:" + tabSumosDCHand.Value + "F,1:" + tabSumosDCLHand.Value + "F],";
                 }
                 else
                 {
-                    sumosText = sumosText + ",DropChances:[" + tabSumosDCHand.Value + "F," + tabSumosDCBoot.Value + "F," + tabSumosDCLeg.Value + "F," + tabSumosDCChest.Value + "F," + tabSumosDCHead.Value + "F]";
+                    sumosText += "DropChances:[" + tabSumosDCHand.Value + "F," + tabSumosDCBoot.Value + "F," + tabSumosDCLeg.Value + "F," + tabSumosDCChest.Value + "F," + tabSumosDCHead.Value + "F],";
                 }
             }
             globalSumosEquipment = sumosText;
             if (tabSumosHasMetaData.IsChecked.Value)
             {
-                sumosText = sumosText + ",Attributes:[" + globalAttrStringLess + "]";
+                sumosText += "Attributes:[" + globalAttrStringLess + "],";
             }
-            if (tabSumosHasPotion.IsChecked.Value)
+            if (tabSumosHasPotion.IsChecked.Value && asd.getAt(tabSumosType.SelectedIndex) != "TippedArrow" && asd.getAt(tabSumosType.SelectedIndex) != "ThrownPotion")
             {
-                sumosText = sumosText + ",ActiveEffects:[" + globalPotionString + "]";
+                sumosText += "ActiveEffects:[" + globalPotionString + "],";
             }
             if (tabSumosInvulnerable.IsChecked.Value)
             {
-                sumosText += ",Invulnerable:1";
+                sumosText += "Invulnerable:1b,";
             }
             if (tabSumosHasName.IsChecked.Value)
             {
-                sumosText += ",CustomName:\"" + tabSumosName.Text + "\"";
-                if (tabSumosNameVisible.IsChecked != null) { if (!tabSumosNameVisible.IsChecked.Value) sumosText += ",CustomNameVisible:0"; else sumosText += ",CustomNameVisible:1"; }
+                sumosText += "CustomName:\"" + tabSumosName.Text + "\",";
+                if (tabSumosNameVisible.IsChecked != null) { if (!tabSumosNameVisible.IsChecked.Value) sumosText += "CustomNameVisible:0,"; else sumosText += "CustomNameVisible:1,"; }
             }
             if (tabSumosNowHealthCheck.IsChecked.Value)
             {
-                sumosText += ",Health:" + tabSumosNowHealth + ",HealF:" + tabSumosNowHealth;
+                sumosText += "Health:" + tabSumosNowHealth + "f,HealF:" + tabSumosNowHealth + ",";
             }
             if (tabSumosBaby.IsChecked.Value)
             {
-                sumosText += ",Baby:1,Small:1b";
+                //盔甲架则为Small:1b，村民和可以自然长大的生物则Age:-2147483648，僵尸和猪人等则为IsBaby:1b
+                sumosText += "IsBaby:1b,Age:-2147483648,IsBaby:1b,";
             }
             if (tabSumosSilent.IsChecked.Value)
             {
-                sumosText += ",Silent:1";
+                sumosText += "Silent:1b,";
             }
             if (tabSumosNoAI.IsChecked.Value)
             {
-                sumosText += ",NoAI:1";
+                sumosText += "NoAI:1b,";
             }
-            if (tabSumosType.SelectedIndex == 25)
+            if (tabSumosFireCheck.IsChecked.Value)
             {
-                if (tabSumosArmorCheck.IsChecked.Value)
+                sumosText += "Fire:" + tabSumosFireNum.Value + "s,";
+            }
+            if (tabSumosGlowing.IsChecked.Value)
+            {
+                sumosText += "Glowing:1b,";
+            }
+            if (tabSumosPersistenceRequired.IsChecked.Value)
+            {
+                sumosText += "PersistenceRequired:1b,";
+            }
+            if (tabSumosTagsCheck.IsChecked.Value)
+            {
+                string[] temp = tabSumosTags.Text.Replace("\r", "").Split('\n');
+                sumosText += "Tags:[";
+                for (int i = 0; i < temp.Length; i++)
                 {
-                    string poseText = ",Pose:{Body:[" + tabSumosArmorBodyX.Value + "F," + tabSumosArmorBodyY.Value + "F," + tabSumosArmorBodyZ.Value + "F]";
-                    poseText = poseText + ",LeftArm:[" + tabSumosArmorLArmX.Value + "F," + tabSumosArmorLArmY.Value + "F," + tabSumosArmorLArmZ.Value + "F]";
-                    poseText = poseText + ",RightArm:[" + tabSumosArmorRArmX.Value + "F," + tabSumosArmorRArmY.Value + "F," + tabSumosArmorRArmZ.Value + "F]";
-                    poseText = poseText + ",LeftLeg:[" + tabSumosArmorLLegX.Value + "F," + tabSumosArmorLLegY.Value + "F," + tabSumosArmorLLegZ.Value + "F]";
-                    poseText = poseText + ",RightLeg:[" + tabSumosArmorRLegX.Value + "F," + tabSumosArmorRLegY.Value + "F," + tabSumosArmorRLegZ.Value + "F]";
-                    poseText = poseText + ",Head:[" + tabSumosArmorHeadX.Value + "F," + tabSumosArmorHeadY.Value + "F," + tabSumosArmorHeadZ.Value + "F]";
-                    poseText += "}";
-                    sumosText += poseText;
+                    sumosText += "{" + temp[i] + "},";
                 }
-                if (tabSumosArmorRotationCheck.IsChecked.Value)
-                {
-                    sumosText += ",Rotation:[" + tabSumosArmorRotationX.Value + "F," + tabSumosArmorRotationY.Value + "F," + tabSumosArmorRotationZ.Value + "F]";
-                }
-                if (tabSumosArmorNochestplate.IsChecked.Value)
-                {
-                    sumosText += ",NoBasePlate:1b";
-                }
-                if (tabSumosArmorNogravity.IsChecked.Value)
-                {
-                    sumosText += ",NoGravity:1b";
-                }
-                if (tabSumosArmorCant.IsChecked.Value)
-                {
-                    sumosText += ",DisabledSlots:2039583";
-                }
-                if (tabSumosArmorShowarmor.IsChecked.Value)
-                {
-                    sumosText += ",ShowArms:1b";
-                }
-                if (tabSumosMarker.IsChecked.Value)
-                {
-                    sumosText += ",Marker:1b";
-                }
+                sumosText = sumosText.Substring(0, sumosText.Length - 1);
+                sumosText += "],";
             }
             if (tabSumosMotionCheck.IsChecked.Value)
             {
                 int bx = tabSumosMotionX.Value.ToString().IndexOf('.');
                 int by = tabSumosMotionY.Value.ToString().IndexOf('.');
                 int bz = tabSumosMotionZ.Value.ToString().IndexOf('.');
-                if (bx != -1 && by != -1 && bz != -1)
+                sumosText = sumosText + "Motion:[";
+                if (bx == -1) sumosText += tabSumosMotionX.Value + ".0,"; else sumosText += tabSumosMotionX.Value + ",";
+                if (by == -1) sumosText += tabSumosMotionY.Value + ".0,"; else sumosText += tabSumosMotionY.Value + ",";
+                if (bz == -1) sumosText += tabSumosMotionZ.Value + ".0"; else sumosText += tabSumosMotionZ.Value;
+                sumosText += "],";
+            }
+            if (tabSumosDirection.IsChecked.Value)
+            {
+                int bx = tabSumosDirectionX.Value.ToString().IndexOf('.');
+                int by = tabSumosDirectionY.Value.ToString().IndexOf('.');
+                int bz = tabSumosDirectionZ.Value.ToString().IndexOf('.');
+                sumosText = sumosText + "direction:[";
+                if (bx == -1) sumosText += tabSumosDirectionX.Value + ".0,"; else sumosText += tabSumosDirectionX.Value + ",";
+                if (by == -1) sumosText += tabSumosDirectionY.Value + ".0,"; else sumosText += tabSumosDirectionY.Value + ",";
+                if (bz == -1) sumosText += tabSumosDirectionZ.Value + ".0"; else sumosText += tabSumosDirectionZ.Value;
+                sumosText += "],";
+            }
+            if (sumosText != null && sumosText != "") sumosText = sumosText.Substring(0, sumosText.Length - 1);
+            sumosRidingSelType = asd.getAt(tabSumosType.SelectedIndex);
+            sumosRidingNBT = sumosText;
+            globalSumosTypeIndex = tabSumosType.SelectedIndex;
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Villager")//选择村民
+            {
+                if (tabVillagerMaxIndex >= globalVillagerMaxValue)
                 {
-                    sumosText = sumosText + ",Motion:[" + tabSumosMotionX.Value + "," + tabSumosMotionY.Value + "," + tabSumosMotionZ.Value + "]";
+                    tabVillagerMaxIndex = globalVillagerMaxValue - 1;
+                }
+                string summonVillager = "/summon Villager ~ ~1 ~ {Profession:" + tabVillagerType.SelectedIndex + ",Career:1,CareerLevel:9999999";
+                summonVillager += "," + sumosText;
+                summonVillager += ",Offers:{Recipes:[";
+                string villagerOffers = "";
+                string villagerReward = "";
+                if (tabVillagerCheckCanCreate == true)
+                {
+                    if (tabVillagerRewardExp.IsChecked.Value)
+                    {
+                        villagerReward = ",rewardExp:" + tabVillagerRewardExpValue.Value + "b";
+                    }
+                    for (int i = 0; i <= tabVillagerMaxIndex; i++)
+                    {
+                        villagerOffers += "{maxUses:" + globalVillagerMaxUses[i] + villagerReward + ",buy:{id:" + asd.getItem(globalVillagerA[i]) + ",Count:" + globalVillagerACount[i] + "b,Damage:" + globalVillagerAMeta[i] + "s,tag:{" + globalVillagerAStr[i] + "}}";
+                        if (globalVillagerBCheck[i] == true) villagerOffers += ",buyB:{id:" + asd.getItem(globalVillagerB[i]) + ",Count:" + globalVillagerBCount[i] + "b,Damage:" + globalVillagerBMeta[i] + "s,tag:{" + globalVillagerBStr[i] + "}}";
+                        villagerOffers += ",sell:{id:" + asd.getItem(globalVillagerC[i]) + ",Count:" + globalVillagerCCount[i] + "b,Damage:" + globalVillagerCMeta[i] + "s,tag:{" + globalVillagerCStr[i] + "}}},";
+                    }
+                    if (villagerOffers.Length >= 1)
+                    {
+                        villagerOffers = villagerOffers.Remove(villagerOffers.Length - 1, 1);
+                    }
+                    summonVillager += villagerOffers;
                 }
                 else
                 {
-                    sumosText = sumosText + ",Motion:[";
-                    if (bx == -1) sumosText = sumosText + tabSumosMotionX.Value + ".0,"; else sumosText = sumosText + tabSumosMotionX.Value + ",";
-                    if (by == -1) sumosText = sumosText + tabSumosMotionY.Value + ".0,"; else sumosText = sumosText + tabSumosMotionY.Value + ",";
-                    if (bz == -1) sumosText = sumosText + tabSumosMotionZ.Value + ".0"; else sumosText = sumosText + tabSumosMotionZ.Value;
-                    sumosText += "]";
+                    this.ShowMessageAsync("", SummonVAtLeastOnce, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
                 }
+                summonVillager += "]}}";
+                summonVillager = summonVillager.Replace(",tag:{}", "");
+                sumosFinalStr = summonVillager;
             }
-            sumosRidingSelType = asd.getAt(tabSumosType.SelectedIndex);
-            sumosRidingNBT = sumosText;
-            sumosText += "}";
-            globalSumosTypeIndex = tabSumosType.SelectedIndex;
-            if (tabSumosType.SelectedIndex == 30)//选择药水瓶
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "ArmorStand")//盔甲架
+            {
+                string amtemp = "";
+                if (tabSumosArmorCheck.IsChecked.Value)
+                {
+                    amtemp = "Pose:{Body:[" + tabSumosArmorBodyX.Value + "F," + tabSumosArmorBodyY.Value + "F," + tabSumosArmorBodyZ.Value + "F],"
+                        + "LeftArm:[" + tabSumosArmorLArmX.Value + "F," + tabSumosArmorLArmY.Value + "F," + tabSumosArmorLArmZ.Value + "F],"
+                        + "RightArm:[" + tabSumosArmorRArmX.Value + "F," + tabSumosArmorRArmY.Value + "F," + tabSumosArmorRArmZ.Value + "F],"
+                        + "LeftLeg:[" + tabSumosArmorLLegX.Value + "F," + tabSumosArmorLLegY.Value + "F," + tabSumosArmorLLegZ.Value + "F],"
+                        + "RightLeg:[" + tabSumosArmorRLegX.Value + "F," + tabSumosArmorRLegY.Value + "F," + tabSumosArmorRLegZ.Value + "F],"
+                        + "Head:[" + tabSumosArmorHeadX.Value + "F," + tabSumosArmorHeadY.Value + "F," + tabSumosArmorHeadZ.Value + "F]},";
+                }
+                if (tabSumosArmorRotationCheck.IsChecked.Value)
+                {
+                    amtemp += "Rotation:[" + tabSumosArmorRotationX.Value + "F," + tabSumosArmorRotationY.Value + "F," + tabSumosArmorRotationZ.Value + "F],";
+                }
+                if (tabSumosArmorNochestplate.IsChecked.Value)
+                {
+                    amtemp += "NoBasePlate:1b,";
+                }
+                if (tabSumosArmorNogravity.IsChecked.Value)
+                {
+                    amtemp += "NoGravity:1b,";
+                }
+                if (tabSumosArmorCant.IsChecked.Value)
+                {
+                    amtemp += "DisabledSlots:2039583,";
+                }
+                if (tabSumosArmorShowarmor.IsChecked.Value)
+                {
+                    amtemp += "ShowArms:1b,";
+                }
+                if (tabSumosMarker.IsChecked.Value)
+                {
+                    amtemp += "Marker:1b,";
+                }
+                if (amtemp.Length > 1) { amtemp = amtemp.Substring(0, amtemp.Length - 1); }
+                if (sumosText.Length > 0) { sumosText += "," + amtemp; } else { sumosText = amtemp; }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "ThrownPotion")//选择扔出的药水瓶
             {
                 if (tabSumosMotionCheck.IsChecked.Value)
                 {
@@ -1026,17 +1102,352 @@ namespace WpfMinecraftCommandHelper2
                     sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ " + globalSumosPotion;
                 }
             }
-            else if (tabSumosType.SelectedIndex == 64)//选择范围药水云瓶
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "AreaEffectCloud")//选择滞留药水
             {
-                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {Effects:[" + globalPotionString + "],Duration:600,Radius:2.9f}";
+                if (sumosText.Length > 0) { sumosText += ","; }
+                sumosText += "Effects:[" + globalPotionString + "],Duration:" + tabSumosEDuration.Value + ",Radius:" + tabSumosERadius.Value + "f,Particle:\"" + globalParticleSel + "\",Color:" + globalParticleColor;
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Chicken")
+            {
+                if (tabSumosBaby.IsChecked.Value) { if (sumosText.Length > 0) { sumosText += ",IsChickenJockey:1b"; } else { sumosText = "IsChickenJockey:1b"; } }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Enderman")
+            {
+                if (sumosEndermanCarried != -1)
+                {
+                    if (sumosText.Length > 0)
+                    {
+                        sumosText += ",carried:" + asd.getItem(sumosEndermanCarried) + "s,carriedData:" + sumosEndermanCarriedMeta + "s";
+                    }
+                    else
+                    {
+                        sumosText = "carried:" + asd.getItem(sumosEndermanCarried) + "s,carriedData:" + sumosEndermanCarriedMeta + "s";
+                    }
+                }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Ozelot")
+            {
+                if (sumosText.Length > 0)
+                {
+                    sumosText += ",CatType:" + tabSumosECatType.Value.Value;
+                }
+                else
+                {
+                    sumosText = "CatType:" + tabSumosECatType.Value.Value;
+                }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Wolf")
+            {
+                string temp = "";
+                if (!isMC19) { temp = "Owner:" + tabSumosEUUID.Text; } else { temp = "OwnerUUID:" + tabSumosEUUID.Text; }
+                if (tabSumosEAngry.IsChecked.Value) { temp += ",Angry:1b"; }
+                if (sumosText.Length > 0)
+                {
+                    sumosText += "," + temp + ",CollarColor:" + tabSumosEWoolColor.SelectedIndex;
+                }
+                else
+                {
+                    sumosText += temp + ",CollarColor:" + tabSumosEWoolColor.SelectedIndex;
+                }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Sheep")
+            {
+                if (sumosText.Length > 0)
+                {
+                    sumosText += ",Color:" + tabSumosEWoolColor.SelectedIndex;
+                    if (tabSumosESheared.IsChecked.Value) { sumosText += ",Sheared:1b"; }
+                }
+                else
+                {
+                    sumosText = "Color:" + tabSumosEWoolColor.SelectedIndex;
+                    if (tabSumosESheared.IsChecked.Value) { sumosText += ",Sheared:1b"; }
+                }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Creeper")
+            {
+                if (sumosText.Length > 0)
+                {
+                    sumosText += ",ExplosionRadius:" + tabSumosEExplosionRadius.Value.Value + "b,Fuse:" + tabSumosEFuse.Value.Value + "s";
+                    if (tabSumosEPowered.IsChecked.Value) { sumosText += ",powered:1b"; }
+                }
+                else
+                {
+                    sumosText = "ExplosionRadius:" + tabSumosEExplosionRadius.Value.Value + "b,Fuse:" + tabSumosEFuse.Value.Value + "s";
+                    if (tabSumosEPowered.IsChecked.Value) { sumosText += ",powered:1b"; }
+                }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Slime" || asd.getAt(tabSumosType.SelectedIndex) == "LavaSlime")
+            {
+                if (sumosText.Length > 0)
+                {
+                    sumosText += ",Size:" + tabSumosESize.Value.Value;
+                }
+                else
+                {
+                    sumosText = "Size:" + tabSumosESize.Value.Value;
+                }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Shulker")
+            {
+                if (sumosText.Length > 0)
+                {
+                    sumosText += ",Peek:" + tabSumosEShulkerPeek.Value.Value + "b";
+                }
+                else
+                {
+                    sumosText = "Peek:" + tabSumosEShulkerPeek.Value.Value + "b";
+                }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "EnderDragon")
+            {
+                if (tabSumosEDragon.Value.Value != -1)
+                {
+                    if (sumosText.Length > 0)
+                    {
+                        sumosText += ",DragonPhase:" + tabSumosEDragon.Value.Value;
+                    }
+                    else
+                    {
+                        sumosText = "DragonPhase:" + tabSumosEDragon.Value.Value;
+                    }
+                }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Ghast")
+            {
+                if (sumosText.Length > 0)
+                {
+                    sumosText += ",ExplosionPower:" + tabSumosEExplosionPower.Value.Value;
+                }
+                else
+                {
+                    sumosText = "ExplosionPower:" + tabSumosEExplosionPower.Value.Value;
+                }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Rabbit")
+            {
+                if (sumosText.Length > 0)
+                {
+                    sumosText += ",RabbitType:" + tabSumosERabbitType.Value.Value;
+                }
+                else
+                {
+                    sumosText = "RabbitType:" + tabSumosERabbitType.Value.Value;
+                }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "WitherBoss")
+            {
+                if (sumosText.Length > 0)
+                {
+                    sumosText += ",Invul:" + tabSumosEInvul.Value.Value;
+                }
+                else
+                {
+                    sumosText = "Invul:" + tabSumosEInvul.Value.Value;
+                }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Endermite")
+            {
+                if (tabSumosEAtkByEnderman.IsChecked.Value)
+                {
+                    if (sumosText.Length > 0)
+                    {
+                        sumosText += ",PlayerSpawned:1b";
+                    }
+                    else
+                    {
+                        sumosText = "PlayerSpawned:1b";
+                    }
+                }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Zombie")
+            {
+                if (sumosText.Length > 0)
+                {
+                    sumosText += ",VillagerProfession:" + tabVillagerType.SelectedIndex;
+                }
+                else
+                {
+                    sumosText = "VillagerProfession:" + tabVillagerType.SelectedIndex;
+                }
+                if (tabSumosECanBreakDoor.IsChecked.Value) { sumosText += ",CanBreakDoors:1b"; }
+                if (tabSumosEIsVillager.IsChecked.Value) { sumosText += ",IsVillager:1b"; }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "PigZombie")
+            {
+                if (sumosText.Length > 0)
+                {
+                    sumosText += ",VillagerProfession:" + tabVillagerType.SelectedIndex;
+                }
+                else
+                {
+                    sumosText = "VillagerProfession:" + tabVillagerType.SelectedIndex;
+                }
+                if (tabSumosECanBreakDoor.IsChecked.Value) { sumosText += ",CanBreakDoors:1b"; }
+                if (tabSumosEIsVillager.IsChecked.Value) { sumosText += ",IsVillager:1b"; }
+                if (tabSumosEAngry.IsChecked.Value) { sumosText += ",Anger:32767s"; }
+                if (tabSumosEUUID.Text != "") { sumosText += ",HurtBy:" + tabSumosEUUID.Text; }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "VillagerGolem")
+            {
+                if (tabSumosEPlayerCreated.IsChecked.Value)
+                {
+                    if (sumosText.Length > 0)
+                    {
+                        sumosText += ",PlayerCreated:1b";
+                    }
+                    else
+                    {
+                        sumosText = "PlayerCreated:1b";
+                    }
+                }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Pig")
+            {
+                if (tabSumosESaddle.IsChecked.Value)
+                {
+                    if (sumosText.Length > 0)
+                    {
+                        sumosText += ",Saddle:1b";
+                    }
+                    else
+                    {
+                        sumosText = "Saddle:1b";
+                    }
+                }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Skeleton")
+            {
+                if (tabSumosESkeletonType.IsChecked.Value)
+                {
+                    if (sumosText.Length > 0)
+                    {
+                        sumosText += ",SkeletonType:1b";
+                    }
+                    else
+                    {
+                        sumosText = "SkeletonType:1b";
+                    }
+                }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Guardian")
+            {
+                if (tabSumosEElder.IsChecked.Value)
+                {
+                    if (sumosText.Length > 0)
+                    {
+                        sumosText += ",Elder:1b";
+                    }
+                    else
+                    {
+                        sumosText = "Elder:1b";
+                    }
+                }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "EntityHorse")
+            {
+                if (sumosText.Length > 0) { sumosText += ","; }
+                if (HorseTypeDonkey.IsChecked.Value) { sumosText += "Type:1"; } else if (HorseTypeMule.IsChecked.Value) { sumosText += "Type:2"; } else if (HorseTypeZombie.IsChecked.Value) { sumosText += "Type:3"; } else if (HorseTypeSkeleton.IsChecked.Value) { sumosText += "Type:4"; } else { sumosText += "Type:0"; }
+                if (HorseTypeDonkey.IsChecked.Value || HorseTypeMule.IsChecked.Value) { sumosText += ",ChestedHorse:1b"; }
+                if (HorseTamed.IsChecked.Value) { sumosText += ",Tame:1b"; if (isMC19) { sumosText += ",OwnerUUID:" + HorseTamedUUID.Text; } else { sumosText += ",OwnerName:" + HorseTamedUUID.Text; } }
+                if (HorseSaddle.IsChecked.Value) { sumosText += ",Saddle:1b"; }
+                if (HorseSkeletonTrap.IsChecked.Value) { sumosText += ",SkeletonTrap:1b,SkeletonTrapTime:" + HorseSkeletonTrapTime.Value.Value; }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "TippedArrow")
+            {
+                if (sumosText.Length > 0) { sumosText += ","; }
+                if (tabSumosHasPotion.IsChecked.Value)
+                {
+                    sumosText += "tags:{CustomPotionEffects:[" + globalPotionString + "]}";
+                }
+                if (sumosText.Length > 0) { sumosText += ",pickup:" + tabSumosEpickup + "b"; } else { sumosText += "pickup:" + tabSumosEpickup + "b"; }
+                if (sumosText.Length > 0) { sumosText += ",damage:" + tabSumosEdamage + "d"; } else { sumosText += "damage:" + tabSumosEdamage + "d"; }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "SpectralArrow" || asd.getAt(tabSumosType.SelectedIndex) == "Arrow")
+            {
+                if (sumosText.Length > 0) { sumosText += ",pickup:" + tabSumosEpickup + "b"; } else { sumosText += "pickup:" + tabSumosEpickup + "b"; }
+                if (sumosText.Length > 0) { sumosText += ",damage:" + tabSumosEdamage + "d"; } else { sumosText += "damage:" + tabSumosEdamage + "d"; }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Fireball")
+            {
+                if (sumosText.Length > 0) { sumosText += ",ExplosionPower:" + tabSumosEExplosionPower.Value.Value; } else { sumosText += "ExplosionPower:" + tabSumosEExplosionPower.Value.Value; }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Snowball" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEgg" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEnderpearl" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownExpBottle")
+            {
+                if (tabSumosEUUID.Text != "")
+                {
+                    if (sumosText.Length > 0) { sumosText += ","; }
+                    sumosText += "ownerName:" + tabSumosEUUID.Text;
+                }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Item")
+            {
+                if (tabSummonItem.SelectedIndex == 0)
+                {
+                    summonFinalStr = SummonSNotChooseItemType;
+                }
+                else
+                {
+                    string summonText = "PickupDelay:" + tabSummonPickupdelay.Value + ",Age:" + tabSummonAge.Value + ",Item:{id:\"" + asd.getItem(tabSummonItem.SelectedIndex) + "\",Count:" + tabSummonCount.Value + ",Damage:" + tabSummonMeta.Value;
+                    summonText += ",tag:{HideFlags:" + tabSummonHide.SelectedIndex;
+                    if (tabSummonUnbreaking.IsChecked.Value)
+                    {
+                        summonText += ",Unbreakable:1";
+                    }
+                    if (tabSummonHasEnchant.IsChecked.Value || tabSummonHasNL.IsChecked.Value || tabSummonHasAttr.IsChecked.Value)
+                    {
+                        string meta = tabSummonGetBackMeta();
+                        summonText = summonText + "," + meta;
+                    }
+                    summonText += "}}";
+                    if (tabSumosEOwner.Text != "") { sumosText += ",Owner:" + tabSumosEOwner.Text; }
+                    if (tabSumosEThrower.Text != "") { sumosText += ",Thrower:" + tabSumosEThrower.Text; }
+                    //ridingText = ",Riding:{id:\"" + asd.getItem(tabSummonItem.SelectedIndex) + "\",Count:" + tabSummonCount.Value + ",Damage:" + tabSummonMeta.Value;
+                    sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+                }
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "XPOrb")
+            {
+                if (sumosText.Length > 0) { sumosText += ","; }
+                sumosText += "Value:" + tabSumosEExp.Value.Value + "s";
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "MinecartTNT")
+            {
+                if (sumosText.Length > 0) { sumosText += ","; }
+                sumosText += "TNTFuse:" + tabSumosEFuse.Value.Value;
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
             else
             {
-                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText;
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            //懒癌修复
-            sumosFinalStr = sumosFinalStr.Replace("[,", "[");
-            sumosFinalStr = sumosFinalStr.Replace("{,", "{");
+            sumosFinalStr = sumosFinalStr.Replace(" {}", "");
+            //我也不知道为什么要写这么复杂
         }
 
         private void tabSumosRiding_Click(object sender, RoutedEventArgs e)
@@ -1054,18 +1465,9 @@ namespace WpfMinecraftCommandHelper2
         private void tabSumosEgg_Click(object sender, RoutedEventArgs e)
         {
             AllSelData asd = new AllSelData();
-            if (tabSumosType.SelectedIndex != 10)//if not villager
-            {
-                string temp = sumosFinalStr.Substring(sumosFinalStr.IndexOf('{') + 1);
-                string temp2 = temp.Substring(0, temp.Length - 1);
-                sumosFinalStr = "/give @p minecraft:spawn_egg 1 0 {EntityTag:{id:\"" + asd.getAt(tabSumosType.SelectedIndex) + "\"," + temp2 + "}}";
-            }
-            else
-            {
-                string temp = villagerFinalStr.Substring(villagerFinalStr.IndexOf('{') + 1);
-                string temp2 = temp.Substring(0, temp.Length - 1);
-                sumosFinalStr = "/give @p minecraft:spawn_egg 1 0 {EntityTag:{id:\"Villager\"," + temp2 + "}}";
-            }
+            string temp = sumosFinalStr.Substring(sumosFinalStr.IndexOf('{') + 1);
+            string temp2 = temp.Substring(0, temp.Length - 1);
+            sumosFinalStr = "/give @p minecraft:spawn_egg 1 0 {EntityTag:{id:\"" + asd.getAt(tabSumosType.SelectedIndex) + "\"," + temp2 + "}}";
         }
 
         private void tabSumosCopy_Click(object sender, RoutedEventArgs e)
@@ -1097,87 +1499,164 @@ namespace WpfMinecraftCommandHelper2
             }
         }
 
+        private void tabSumosEDuration_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            tabSumosEDuration.ToolTip = SummonExtraDurationTooltip + " | " + tabSumosEDuration.Value + "/" + tabSumosEDuration.Maximum;
+        }
+
+        private void tabSumosERadius_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            tabSumosERadius.ToolTip = SummonExtraRadiusTooltip + " | " + tabSumosERadius.Value + "/" + tabSumosERadius.Maximum;
+        }
+
+        private void tabSumosDirection_Click(object sender, RoutedEventArgs e)
+        {
+            tabSumosDirectionX.IsEnabled = tabSumosDirectionY.IsEnabled = tabSumosDirectionZ.IsEnabled = tabSumosDirection.IsChecked.Value;
+        }
+
+        private void tabSumosFireCheck_Click(object sender, RoutedEventArgs e)
+        {
+            tabSumosFireNum.IsEnabled = tabSumosFireCheck.IsChecked.Value;
+        }
+
+        private void tabSumosEEnderman_Click(object sender, RoutedEventArgs e)
+        {
+            Item itembox = new Item();
+            int[] itemboxreturn = itembox.returnStrAdver();
+            sumosEndermanCarried = itemboxreturn[0];
+            sumosEndermanCarriedMeta = itemboxreturn[2];
+        }
+
         private void tabSumosType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (tabSumosType.SelectedIndex == 25)
+            allVisInit();
+            AllSelData asd = new AllSelData();
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Villager")
             {
-                tabSumosArmorNochestplate.IsEnabled = true;
-                tabSumosArmorCheck.IsEnabled = true;
-                tabSumosArmorCant.IsEnabled = true;
-                tabSumosArmorNogravity.IsEnabled = true;
-                tabSumosArmorShowarmor.IsEnabled = true;
-                tabSumosArmorRotationCheck.IsEnabled = true;
-                if (tabSumosArmorCheck.IsChecked.Value)
-                {
-                    tabSumosArmorHeadX.IsEnabled = true;
-                    tabSumosArmorHeadY.IsEnabled = true;
-                    tabSumosArmorHeadZ.IsEnabled = true;
-                    tabSumosArmorBodyX.IsEnabled = true;
-                    tabSumosArmorBodyY.IsEnabled = true;
-                    tabSumosArmorBodyZ.IsEnabled = true;
-                    tabSumosArmorLArmX.IsEnabled = true;
-                    tabSumosArmorLArmY.IsEnabled = true;
-                    tabSumosArmorLArmZ.IsEnabled = true;
-                    tabSumosArmorRArmX.IsEnabled = true;
-                    tabSumosArmorRArmY.IsEnabled = true;
-                    tabSumosArmorRArmZ.IsEnabled = true;
-                    tabSumosArmorLLegX.IsEnabled = true;
-                    tabSumosArmorLLegY.IsEnabled = true;
-                    tabSumosArmorLLegZ.IsEnabled = true;
-                    tabSumosArmorRLegX.IsEnabled = true;
-                    tabSumosArmorRLegY.IsEnabled = true;
-                    tabSumosArmorRLegZ.IsEnabled = true;
-                }
-                if (tabSumosArmorRotationCheck.IsChecked.Value)
-                {
-                    tabSumosArmorRotationX.IsEnabled = true;
-                    tabSumosArmorRotationY.IsEnabled = true;
-                    tabSumosArmorRotationZ.IsEnabled = true;
-                }
+                SummonVHeader.Visibility = Visibility.Visible;
             }
-            else
+            if (asd.getAt(tabSumosType.SelectedIndex) == "ArmorStand")
             {
-                tabSumosArmorNochestplate.IsEnabled = false;
-                tabSumosArmorCheck.IsEnabled = false;
-                tabSumosArmorCant.IsEnabled = false;
-                tabSumosArmorNogravity.IsEnabled = false;
-                tabSumosArmorShowarmor.IsEnabled = false;
-                tabSumosArmorRotationCheck.IsEnabled = false;
-                tabSumosArmorHeadX.IsEnabled = false;
-                tabSumosArmorHeadY.IsEnabled = false;
-                tabSumosArmorHeadZ.IsEnabled = false;
-                tabSumosArmorBodyX.IsEnabled = false;
-                tabSumosArmorBodyY.IsEnabled = false;
-                tabSumosArmorBodyZ.IsEnabled = false;
-                tabSumosArmorLArmX.IsEnabled = false;
-                tabSumosArmorLArmY.IsEnabled = false;
-                tabSumosArmorLArmZ.IsEnabled = false;
-                tabSumosArmorRArmX.IsEnabled = false;
-                tabSumosArmorRArmY.IsEnabled = false;
-                tabSumosArmorRArmZ.IsEnabled = false;
-                tabSumosArmorLLegX.IsEnabled = false;
-                tabSumosArmorLLegY.IsEnabled = false;
-                tabSumosArmorLLegZ.IsEnabled = false;
-                tabSumosArmorRLegX.IsEnabled = false;
-                tabSumosArmorRLegY.IsEnabled = false;
-                tabSumosArmorRLegZ.IsEnabled = false;
-                tabSumosArmorRotationX.IsEnabled = false;
-                tabSumosArmorRotationY.IsEnabled = false;
-                tabSumosArmorRotationZ.IsEnabled = false;
+                SummonArmorStandHeader.Visibility = Visibility.Visible;
             }
-            if (tabSumosType.SelectedIndex == 30)//选择药水瓶
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Item")
             {
-                tabSumosPotionGet.IsEnabled = true;
+                SummonSHeader.Visibility = Visibility.Visible;
             }
-            else
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Enderman")
             {
-                tabSumosPotionGet.IsEnabled = false;
+                tabSumosEEnderman.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Ozelot" || asd.getAt(tabSumosType.SelectedIndex) == "Wolf" || asd.getAt(tabSumosType.SelectedIndex) == "EntityHorse" || asd.getAt(tabSumosType.SelectedIndex) == "PigZombie" || asd.getAt(tabSumosType.SelectedIndex) == "Snowball" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEgg" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEnderpearl" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownExpBottle")
+            {
+                tabSumosEUUID.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Wolf" || asd.getAt(tabSumosType.SelectedIndex) == "Sheep")
+            {
+                tabSumosEWoolColor.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Creeper")
+            {
+                tabSumosEExplosionRadius.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "EnderDragon")
+            {
+                tabSumosEDragon.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Slime" || asd.getAt(tabSumosType.SelectedIndex) == "LavaSlime")
+            {
+                tabSumosESize.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Shulker")
+            {
+                tabSumosEShulkerPeek.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Creeper" || asd.getAt(tabSumosType.SelectedIndex) == "PrimedTnt" || asd.getAt(tabSumosType.SelectedIndex) == "MinecartTNT")
+            {
+                tabSumosEFuse.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Ghast" || asd.getAt(tabSumosType.SelectedIndex) == "Fireball")
+            {
+                tabSumosEExplosionPower.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Ozelot")
+            {
+                tabSumosECatType.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Rabbit")
+            {
+                tabSumosERabbitType.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "WitherBoss")
+            {
+                tabSumosEInvul.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Creeper")
+            {
+                tabSumosEPowered.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Endermite")
+            {
+                tabSumosEAtkByEnderman.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Zombie" || asd.getAt(tabSumosType.SelectedIndex) == "PigZombie")
+            {
+                tabSumosECanBreakDoor.IsEnabled = true;
+                tabSumosEIsVillager.IsEnabled = true;
+                SummonVHeader.Visibility = Visibility.Visible;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Sheep")
+            {
+                tabSumosESheared.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "VillagerGolem")
+            {
+                tabSumosEPlayerCreated.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Guardian")
+            {
+                tabSumosEElder.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Pig")
+            {
+                tabSumosESaddle.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Skeleton")
+            {
+                tabSumosESkeletonType.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "PigZombie" || asd.getAt(tabSumosType.SelectedIndex) == "Wolf")
+            {
+                tabSumosEAngry.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Arrow" || asd.getAt(tabSumosType.SelectedIndex) == "TippedArrow" || asd.getAt(tabSumosType.SelectedIndex) == "SpectralArrow")
+            {
+                tabSumosEpickup.IsEnabled = true;
+                tabSumosEdamage.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "EntityHorse")
+            {
+                SummonHorseHeader.Visibility = Visibility.Visible;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Item")
+            {
+                tabSumosEOwner.IsEnabled = true;
+                tabSumosEThrower.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "XPOrb")
+            {
+                tabSumosEExp.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "AreaEffectCloud")
+            {
+                tabSumosEDuration.IsEnabled = true;
+                tabSumosERadius.IsEnabled = true;
+                tabSumosEParticle.IsEnabled = true;
+                tabSumosEParticleColor.IsEnabled = true;
             }
         }
 
         //tabVillager
-
-        private string villagerFinalStr = "";
 
         private static int globalVillagerMaxValue = 100;
         private string[] globalVillagerAStr = new string[globalVillagerMaxValue];
@@ -1200,40 +1679,6 @@ namespace WpfMinecraftCommandHelper2
         private int tabVillagerEditIndex = 0;
         private int tabVillagerMaxIndex = 0;
         private bool tabVillagerCheckCanCreate = false;
-
-        private void tabVillagerNameCheck_Click(object sender, RoutedEventArgs e)
-        {
-            if (tabVillagerNameCheck.IsChecked.Value)
-            {
-                tabVillagerName.IsEnabled = true;
-                tabVillagerNameVisible.IsEnabled = true;
-            }
-            else
-            {
-                tabVillagerName.IsEnabled = false;
-                tabVillagerNameVisible.IsEnabled = false;
-            }
-        }
-
-        private void tabVillagerAttrGetBtn_Click(object sender, RoutedEventArgs e)
-        {
-            AttrReturn();
-        }
-
-        private void tabVillagerPotionGetBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Potion pbox = new Potion();
-            pbox.ShowDialog();
-            string[] temp = pbox.returnStr();
-            if (temp[0] != "")
-            {
-                globalPotionString = temp[0];
-            }
-            if (temp[1] != "")
-            {
-                globalPotionYN = temp[1];
-            }
-        }
 
         private void tabVillagerPre_Click(object sender, RoutedEventArgs e)
         {
@@ -1378,11 +1823,13 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabVillagerB.IsEnabled = true;
                 tabVillagerBCount.IsEnabled = true;
+                tabVillagerBGet.IsEnabled = true;
             }
             else
             {
                 tabVillagerB.IsEnabled = false;
                 tabVillagerBCount.IsEnabled = false;
+                tabVillagerBGet.IsEnabled = false;
             }
         }
 
@@ -1419,7 +1866,7 @@ namespace WpfMinecraftCommandHelper2
             }
             else
             {
-                globalVillagerAStr[tabVillagerEditIndex] = tabVillagerGetBackMeta();
+                globalVillagerAStr[tabVillagerEditIndex] = tabVillagerGetBackMeta("Item");
             }
         }
 
@@ -1456,7 +1903,7 @@ namespace WpfMinecraftCommandHelper2
             }
             else
             {
-                globalVillagerBStr[tabVillagerEditIndex] = tabVillagerGetBackMeta();
+                globalVillagerBStr[tabVillagerEditIndex] = tabVillagerGetBackMeta("Item");
             }
         }
 
@@ -1493,7 +1940,7 @@ namespace WpfMinecraftCommandHelper2
             }
             else
             {
-                globalVillagerCStr[tabVillagerEditIndex] = tabVillagerGetBackMeta();
+                globalVillagerCStr[tabVillagerEditIndex] = tabVillagerGetBackMeta("Item");
             }
         }
 
@@ -1512,102 +1959,6 @@ namespace WpfMinecraftCommandHelper2
         private void tabVillagerClear_Click(object sender, RoutedEventArgs e)
         {
             clear(2);
-        }
-
-        private void tabVillagerCreate_Click(object sender, RoutedEventArgs e)
-        {
-            if (tabVillagerType.SelectedIndex < 0)
-            {
-                tabVillagerType.SelectedIndex = 0;
-            }
-            for (int i = 0; i < globalVillagerMaxValue; i++)
-            {
-                if (globalVillagerA[i] < 0)
-                {
-                    globalVillagerA[i] = 0;
-                }
-                if (globalVillagerB[i] < 0)
-                {
-                    globalVillagerB[i] = 0;
-                }
-                if (globalVillagerC[i] < 0)
-                {
-                    globalVillagerC[i] = 0;
-                }
-            }
-            if (tabVillagerMaxIndex >= globalVillagerMaxValue)
-            {
-                tabVillagerMaxIndex = globalVillagerMaxValue - 1;
-            }
-            string summonVillager = "/summon Villager ~ ~1 ~ {Profession:" + tabVillagerType.SelectedIndex + ",Career:1,CareerLevel:9999999";
-            if (tabVillagerInvulnerable.IsChecked.Value)
-            {
-                summonVillager += ",Invulnerable:1";
-            }
-            if (tabVillagerNameCheck.IsChecked.Value)
-            {
-                summonVillager = summonVillager + ",CustomName:\"" + tabVillagerName.Text + "\"";
-                if (tabVillagerNameVisible.IsChecked != null) { if (!tabVillagerNameVisible.IsChecked.Value) summonVillager += ",CustomNameVisible:0"; else summonVillager += ",CustomNameVisible:1"; }
-            }
-            if (tabVillagerHasEffect.IsChecked.Value)
-            {
-                summonVillager = summonVillager + ",ActiveEffects:[" + globalPotionString + "]";
-            }
-            if (tabVillagerHasAttr.IsChecked.Value)
-            {
-                summonVillager = summonVillager + ",Attributes:[" + globalAttrStringLess + "]";
-            }
-            if (tabVillagerHasEqu.IsChecked.Value)
-            {
-                summonVillager = summonVillager + "," + globalSumosEquipment;
-            }
-            summonVillager = summonVillager + ",Offers:{Recipes:[";
-            string villagerOffers = "";
-            string villagerReward = "";
-            if (tabVillagerCheckCanCreate == true)
-            {
-                AllSelData asd = new AllSelData();
-                if (tabVillagerRewardExp.IsChecked.Value)
-                {
-                    villagerReward = ",rewardExp:" + tabVillagerRewardExpValue.Value + "b";
-                }
-                for (int i = 0; i <= tabVillagerMaxIndex; i++)
-                {
-                    villagerOffers = villagerOffers + "{maxUses:" + globalVillagerMaxUses[i] + villagerReward + ",buy:{id:" + asd.getItem(globalVillagerA[i]) + ",Count:" + globalVillagerACount[i] + ",Damage:" + globalVillagerAMeta[i] + "s,tag:{" + globalVillagerAStr[i] + "}}";
-                    if (globalVillagerBCheck[i] == true) villagerOffers = villagerOffers + ",buyB:{id:" + asd.getItem(globalVillagerB[i]) + ",Count:" + globalVillagerBCount[i] + ",Damage:" + globalVillagerBMeta[i] + ",tag:{" + globalVillagerBStr[i] + "}}";
-                    villagerOffers = villagerOffers + ",sell:{id:" + asd.getItem(globalVillagerC[i]) + ",Count:" + globalVillagerCCount[i] + ",Damage:" + globalVillagerCMeta[i] + ",tag:{" + globalVillagerCStr[i] + "}}},";
-                }
-                if (villagerOffers.Length >= 1)
-                {
-                    villagerOffers = villagerOffers.Remove(villagerOffers.Length - 1, 1);
-                }
-                else
-                {
-                    //errorC = true;
-                }
-                summonVillager += villagerOffers;
-            }
-            else
-            {
-                this.ShowMessageAsync("", SummonVAtLeastOnce, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-            }
-            summonVillager += "]}";
-            if (tabVillagerSilent.IsChecked.Value)
-            {
-                summonVillager += ",Silent:1";
-            }
-            if (tabVillagerNoAI.IsChecked.Value)
-            {
-                summonVillager += ",NoAI:1";
-            }
-            summonVillager += "}";
-            summonVillager = summonVillager.Replace(",tag:{}", "");
-            villagerFinalStr = summonVillager;
-        }
-
-        private void tabVillagerCopy_Click(object sender, RoutedEventArgs e)
-        {
-            Clipboard.SetData(DataFormats.Text, villagerFinalStr);
         }
 
         private void tabVillagerGetPotion() 
@@ -1631,7 +1982,7 @@ namespace WpfMinecraftCommandHelper2
             }
         }
 
-        private string tabVillagerGetBackMeta()
+        private string tabVillagerGetBackMeta(string where2use)
         {
             globalEnchString = "";
             globalNLString = "";
@@ -1672,24 +2023,29 @@ namespace WpfMinecraftCommandHelper2
                 {
                     meta = meta.Remove(meta.Length - 1, 1);
                 }
-                else
-                {
-                    //errorC = true;
-                }
             }
+            int[] itemboxreturn = itembox.returnStrAdver();
+            if (where2use == "MainHand") { sumosEquipmentMainHandId = itemboxreturn[0]; sumosEquipmentMainHandCount = itemboxreturn[1]; sumosEquipmentMainHandDamage = itemboxreturn[2]; }
+            else if (where2use == "OffHand") { sumosEquipmentOffHandId = itemboxreturn[0]; sumosEquipmentOffHandCount = itemboxreturn[1]; sumosEquipmentOffHandDamage = itemboxreturn[2]; }
+            else if (where2use == "Head") { sumosEquipmentHeadId = itemboxreturn[0]; sumosEquipmentHeadCount = itemboxreturn[1]; sumosEquipmentHeadDamage = itemboxreturn[2]; }
+            else if (where2use == "Chest") { sumosEquipmentChestId = itemboxreturn[0]; sumosEquipmentChestCount = itemboxreturn[1]; sumosEquipmentChestDamage = itemboxreturn[2]; }
+            else if (where2use == "Leg") { sumosEquipmentLegId = itemboxreturn[0]; sumosEquipmentLegCount = itemboxreturn[1]; sumosEquipmentLegDamage = itemboxreturn[2]; }
+            else if (where2use == "Boot") { sumosEquipmentBootId = itemboxreturn[0]; sumosEquipmentBootCount = itemboxreturn[1]; sumosEquipmentBootDamage = itemboxreturn[2]; }
+            else if (where2use == "Item") { }
             return meta;
         }
 
-        private void tabVillagerCheckBtn_Click(object sender, RoutedEventArgs e)
+        //Horse
+
+        private void HorseTamed_Click(object sender, RoutedEventArgs e)
         {
-            Check checkbox = new Check();
-            checkbox.showText(villagerFinalStr);
-            checkbox.Show();
+            HorseTemper.IsEnabled = !HorseTamed.IsChecked.Value;
+            HorseTamedUUID.IsEnabled = HorseTamed.IsChecked.Value;
         }
 
-        private void tabVillagerHelp_Click(object sender, RoutedEventArgs e)
+        private void HorseSkeletonTrap_Click(object sender, RoutedEventArgs e)
         {
-            this.ShowMessageAsync(FloatHelpTitle, SummonVHelpStr, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+            HorseSkeletonTrapTime.IsEnabled = HorseSkeletonTrap.IsChecked.Value;
         }
 
         //tabSpawner
@@ -1729,6 +2085,21 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabSpawnerName.IsEnabled = false;
             }
+        }
+
+        private void tabSumosEParticle_Click(object sender, RoutedEventArgs e)
+        {
+            Particle pbox = new Particle();
+            pbox.ShowDialog();
+            globalParticleSel = pbox.returnParticleSel();
+        }
+
+        private void tabSumosEParticleColor_Click(object sender, RoutedEventArgs e)
+        {
+            Item ibox = new Item();
+            ibox.ShowDialog();
+            string[] temp = ibox.returnStr();
+            globalParticleColor = temp[7];
         }
 
         private void tabSpawner1_Click(object sender, RoutedEventArgs e)
@@ -2088,6 +2459,18 @@ namespace WpfMinecraftCommandHelper2
         private void tabSpawnerHelp_Click(object sender, RoutedEventArgs e)
         {
             this.ShowMessageAsync(FloatHelpTitle, SummonPHelpStr, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+        }
+
+        private void tabSumosTagsCheck_Click(object sender, RoutedEventArgs e)
+        {
+            if (tabSumosTagsCheck.IsChecked.Value)
+            {
+                tabSumosTags.IsEnabled = true;
+            }
+            else
+            {
+                tabSumosTags.IsEnabled = false;
+            }
         }
 
         private void tabItemAttrAttackCheck_Checked(object sender, RoutedEventArgs e)

@@ -84,6 +84,7 @@ namespace WpfMinecraftCommandHelper2
                 handCheck.Content = templang[34];
                 rideCheck.Content = templang[35];
                 AtHelpStr = templang[36];
+                tagCheck.Content = templang[37];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -281,6 +282,10 @@ namespace WpfMinecraftCommandHelper2
                 {
                     extra += "type=" + asd.getAt(type.SelectedIndex) + ",";
                 }
+            }
+            if (tagCheck.IsChecked.Value)
+            {
+                extra += "tag=" + tags.Text + ",";
             }
             if (extra.Length != 0)
             {
@@ -618,6 +623,18 @@ namespace WpfMinecraftCommandHelper2
             else
             {
                 rideEntity.IsEnabled = false;
+            }
+        }
+
+        private void tagCheck_Click(object sender, RoutedEventArgs e)
+        {
+            if (tagCheck.IsChecked.Value)
+            {
+                tags.IsEnabled = true;
+            }
+            else
+            {
+                tags.IsEnabled = false;
             }
         }
     }

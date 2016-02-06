@@ -5,7 +5,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico"
-        Title="指令帮助 / NBT表" Height="477.465" Width="717.563">
+        Title="指令帮助 / NBT表" Height="477.465" Width="714.563">
     <Grid>
         <ComboBox x:Name="tabScoreCommand" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="690" SelectionChanged="tabScoreCommand_SelectionChanged"/>
         <ComboBox x:Name="tabScoreAtVar" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="690" SelectionChanged="tabScoreAtVar_SelectionChanged"/>
