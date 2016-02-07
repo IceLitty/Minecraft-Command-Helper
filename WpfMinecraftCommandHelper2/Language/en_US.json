@@ -725,6 +725,9 @@
     "TellrawLine4": "Line 4",
     "TellrawHelpStr": "",
 
+    "LootTableFileName": "Loot Table Namespace (File Name)",
+    "LootTableSaveTitle": "File path:",
+    "LootTableSaveList": "List",
     "LootTableGet": "Get ",
     "LootTableRand": "Random",
     "LootTableMin": "Minimum",
@@ -758,7 +761,7 @@
     "LootTableConditionPKillerByPlayer": "Killer By Player",
     "LootTableConditionProperties": "Properties",
     "LootTableConditionPropertiesIsOnFire": "This entity is on fire?",
-    "LootTableConditionPropertiesIsOnFireTip": "If yes, click it to a yes checkmark, or not to a symbol like "-".",
+    "LootTableConditionPropertiesIsOnFireTip": "If yes, click it to a yes checkmark, or not to a symbol like \"-\".",
     "LootTableConditionScore": "Score",
     "LootTableConditionScoreboardName": "Scoreboard Name",
     "LootTableConditionChance": "Chance",
@@ -787,5 +790,6 @@
     "LootTableAttributeHead": "Head",
     "LootTableAttributeAddition": "Addition",
     "LootTableAttributeMultiplyBase": "Multiply Base",
-    "LootTableAttributeMultiplyTotal": "Multiply Total"
+    "LootTableAttributeMultiplyTotal": "Multiply Total",
+    "LootTableWiki": "From Wiki: http://minecraft.gamepedia.com/Loot_table\r\nThey are directory name or file name.\r\n\r\nloot_tables\r\n    chests - Items from loot chests\r\n        abandoned_mineshaft - Minecarts with chests found in abandoned mine shafts\r\n        desert_pyramid - Chests found in the treasure room inside Desert Temples\r\n        end_city_treasure - Chests found in End Cities\r\n        igloo_chest - The chest that appears in the basements in igloos\r\n        jungle_temple - Chests found inside Jungle Temples\r\n        nether_bridge - Chests found in Nether Fortresses\r\n        simple_dungeon - Dungeon chests\r\n        spawn_bonus_chest - Bonus chests that appear in a new world when bonus chests are enabled\r\n        stronghold_corridor - Chests found on slab altars in corridors in strongholds\r\n        stronghold_crossing - The chest in the upper level of store rooms in strongholds\r\n        stronghold_library - Chests found in a library in strongholds\r\n        village_blacksmith - The chest found in the Blacksmith's house in a Village\r\n    entities - Items dropped from entities. May cause issues when applied to chests, due to some items spawning in stacks of 0\r\n        sheep - Sheep with wool\r\n            black\r\n            blue\r\n            brown\r\n            cyan\r\n            gray\r\n            green\r\n            light_blue\r\n            lime\r\n            magenta\r\n            orange\r\n            pink\r\n            purple\r\n            red\r\n            silver\r\n            white\r\n            yellow\r\n        bat\r\n    blaze\r\n    cave_spider\r\n    chicken\r\n    cow\r\n    creeper\r\n    elder_guardian\r\n    enderman\r\n    endermite\r\n    ghast\r\n    giant\r\n    guardian\r\n    horse\r\n    iron_golem\r\n    magma_cube\r\n    mushroom_cow\r\n    ocelot\r\n    pig\r\n    rabbit\r\n    sheep - Sheep without wool, also inherited by sheep with wool\r\n    shulker\r\n    silverfish\r\n    skeleton\r\n    skeleton_horse\r\n    slime\r\n    snowman - Snow golems\r\n    spider\r\n    squid\r\n    witch\r\n    wolf\r\n    zombie\r\n    zombie_horse\r\n    zombie_pigman\r\ngameplay\r\n    fishing\r\n        fish - Also inherited by guardians and elder guardians\r\n        junk\r\n        treasure\r\n    fishing - Used to determine loot from fishing by loading the three tables from the fishing folder and applying luck to each one\r\nempty - Contains no items"
 }

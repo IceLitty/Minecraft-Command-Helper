@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Windows;
 using MahApps.Metro.Controls;
 //using MahApps.Metro.Controls.Dialogs;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace WpfMinecraftCommandHelper2
 {
@@ -34,6 +37,8 @@ namespace WpfMinecraftCommandHelper2
         }
 
         private string LootTableRegular = "Regular";
+        private string LootTableSaveTitle = "文件位于：";
+        private string LootTableWiki = "";
 
         private void appLanguage()
         {
@@ -234,6 +239,10 @@ namespace WpfMinecraftCommandHelper2
                 AttrTip1.Content = templang[63];
                 AttrTip2.Content = templang[64];
                 AttrTip3.Content = templang[65];
+                LootTableFileName.ToolTip = templang[66];
+                LootTableSaveTitle = templang[67];
+                LootTableFileNameList.Content = templang[68];
+                LootTableWiki = templang[69];
             }
             catch (Exception) { /* throw; */ }
         }
@@ -257,6 +266,13 @@ namespace WpfMinecraftCommandHelper2
         private string globalFCMeta = "";
         private string globalFCNBT = "";
 
+        private void LootTableFileNameList_Click(object sender, RoutedEventArgs e)
+        {
+            Check cbox = new Check();
+            cbox.showText(LootTableWiki, "Wiki");
+            cbox.Show();
+        }
+
         private void PoolCheckBtn_Click(object sender, RoutedEventArgs e)
         {
             string output = "{\"pools\":[";
@@ -265,9 +281,26 @@ namespace WpfMinecraftCommandHelper2
                 output += globalPool.Substring(0, globalPool.Length - 1);
             }
             output += "]}";
-
+            string path = "";
+            try
+            {
+                JObject allText = (JObject)JsonConvert.DeserializeObject(output);
+                if (!Directory.Exists(Directory.GetCurrentDirectory() + @"\data\loot_tables\"))
+                {
+                    Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\data\loot_tables\");
+                }
+                path = LootTableFileName.Text.Split(':')[1];
+                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\\data\loot_tables\" + path + ".json", FileMode.Create))
+                {
+                    using (StreamWriter sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
+                    {
+                        sw.Write(allText);
+                    }
+                }
+            }
+            catch (Exception) { /* throw; */ }
             Check cbox = new Check();
-            cbox.showText(output);
+            cbox.showText(output, LootTableSaveTitle + @"\data\loot_tables\" + path + ".json");
             cbox.Show();
         }
 

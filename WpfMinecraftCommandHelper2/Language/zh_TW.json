@@ -727,6 +727,9 @@
     "TellrawLine4": "第四行",
     "TellrawHelpStr": "",
 
+    "LootTableFileName": "可搶奪物品表類名（文件名）",
+    "LootTableSaveTitle": "文件位于：",
+    "LootTableSaveList": "原版列表",
     "LootTableGet": "獲取",
     "LootTableRand": "隨機",
     "LootTableMin": "最小值",
@@ -789,5 +792,6 @@
     "LootTableAttributeHead": "頭",
     "LootTableAttributeAddition": "屬性加成",
     "LootTableAttributeMultiplyBase": "基礎乘積",
-    "LootTableAttributeMultiplyTotal": "總乘積"
+    "LootTableAttributeMultiplyTotal": "總乘積",
+    "LootTableWiki": "以下內容來自&修改Wiki：http://minecraft-zh.gamepedia.com/可搶奪物品表\r\n以下皆爲目錄名/文件名\r\n\r\nloot_tables\r\n    chests - 資源箱子裏的物品\r\n        abandoned_mineshaft - 廢棄礦井中找到的運輸礦車\r\n        desert_pyramid - 沙漠神殿的寶藏室裏的箱子\r\n        end_city_treasure - 末地城裏的箱子\r\n        igloo_chest - 雪屋地下室裏的箱子\r\n        jungle_temple - 叢林神廟裏的箱子\r\n        nether_bridge - 下界要塞裏的箱子\r\n        simple_dungeon - 地牢裏的箱子\r\n        spawn_bonus_chest - 如果打開獎勵箱選項的話，新世界生成時的獎勵箱\r\n        stronghold_corridor - 要塞台階祭壇裏的箱子\r\n        stronghold_crossing - 要塞儲存室裏的箱子\r\n        stronghold_library - 要塞圖書館裏的箱子\r\n        village_blacksmith - 村莊中的鐵匠鋪裏的箱子\r\n    entities - 實體掉落的物品。應用在箱子上會出現漏洞，可能導致部分堆疊爲0\r\n        sheep - Sheep with wool\r\n            black\r\n            blue\r\n            brown\r\n            cyan\r\n            gray\r\n            green\r\n            light_blue\r\n            lime\r\n            magenta\r\n            orange\r\n            pink\r\n            purple\r\n            red\r\n            silver\r\n            white\r\n            yellow\r\n        bat\r\n    blaze\r\n    cave_spider\r\n    chicken\r\n    cow\r\n    creeper\r\n    elder_guardian\r\n    enderman\r\n    endermite\r\n    ghast\r\n    giant\r\n    guardian\r\n    horse\r\n    iron_golem\r\n    magma_cube\r\n    mushroom_cow\r\n    ocelot\r\n    pig\r\n    rabbit\r\n    sheep - 沒毛的羊，並且繼承有羊毛的文件設置\r\n    shulker\r\n    silverfish\r\n    skeleton\r\n    skeleton_horse\r\n    slime\r\n    snowman - 雪傀儡\r\n    spider\r\n    squid\r\n    witch\r\n    wolf\r\n    zombie\r\n    zombie_horse\r\n    zombie_pigman\r\ngameplay\r\n    fishing\r\n        fish - 同樣繼承于守護者（Guardians）和遠古守護者（Elder Guardians）\r\n        junk\r\n        treasure\r\n    fishing - 通過幸運決定讀取“fishing”文件夾裏某一個json\r\nempty - 不包含任何物品"
 }

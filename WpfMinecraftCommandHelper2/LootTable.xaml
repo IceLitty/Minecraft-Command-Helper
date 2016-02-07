@@ -54,6 +54,8 @@
                     <CheckBox x:Name="PoolGetConditionBtn" Content="获取 条件" HorizontalAlignment="Left" Margin="365,30,0,0" VerticalAlignment="Top" Width="116"/>
                     <Button x:Name="PoolCheckBtn" Content="检索" HorizontalAlignment="Left" Margin="190,9,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="PoolCheckBtn_Click"/>
                     <Button x:Name="EntryClearBtn" Content="清空" HorizontalAlignment="Left" Margin="657,9,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="EntryClearBtn_Click"/>
+                    <TextBox x:Name="LootTableFileName" HorizontalAlignment="Left" Height="23" Margin="10,164,0,0" TextWrapping="Wrap" Text="minecraft:empty" VerticalAlignment="Top" Width="391" ToolTip="Loot Table File Name"/>
+                    <Button x:Name="LootTableFileNameList" Content="List" HorizontalAlignment="Left" Margin="406,162,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="LootTableFileNameList_Click"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabFunction" Header="←Functions">

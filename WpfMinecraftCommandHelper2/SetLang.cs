@@ -1341,6 +1341,10 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["LootTableAttributeAddition"].ToString());
             relanglist.Add(LangList[langID]["LootTableAttributeMultiplyBase"].ToString());
             relanglist.Add(LangList[langID]["LootTableAttributeMultiplyTotal"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFileName"].ToString());
+            relanglist.Add(LangList[langID]["LootTableSaveTitle"].ToString());
+            relanglist.Add(LangList[langID]["LootTableSaveList"].ToString());
+            relanglist.Add(LangList[langID]["LootTableWiki"].ToString());
             return relanglist;
         }
     }
