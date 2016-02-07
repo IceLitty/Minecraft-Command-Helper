@@ -61,8 +61,6 @@ namespace WpfMinecraftCommandHelper2
                 typeUN.Content = templang[11];
                 xyzCheck.Content = templang[12];
                 dxCheck.Content = templang[13];
-                dyCheck.Content = templang[14];
-                dzCheck.Content = templang[15];
                 rCheck.Content = templang[16];
                 rmCheck.Content = templang[17];
                 mCheck.Content = templang[18];
@@ -77,7 +75,6 @@ namespace WpfMinecraftCommandHelper2
                 scoreMinCheck.Content = templang[27];
                 teamCheck.Content = templang[28];
                 nameCheck.Content = templang[29];
-                idCheck.Content = templang[30];
                 typeCheck.Content = templang[31];
                 AtTip.Content = templang[32];
                 flyCheck.Content = templang[33];
@@ -99,9 +96,7 @@ namespace WpfMinecraftCommandHelper2
             z.Value = 0;
             dxCheck.IsChecked = false;
             dx.Value = 0;
-            dyCheck.IsChecked = false;
             dy.Value = 0;
-            dzCheck.IsChecked = false;
             dz.Value = 0;
             rCheck.IsChecked = false;
             r.Value = 0;
@@ -135,8 +130,6 @@ namespace WpfMinecraftCommandHelper2
             nameCheck.IsChecked = false;
             name.Text = "";
             nameUN.IsChecked = false;
-            idCheck.IsChecked = false;
-            id.Value = 0;
             typeCheck.IsChecked = false;
             type.SelectedIndex = 0;
             flyCheck.IsChecked = false;
@@ -181,13 +174,7 @@ namespace WpfMinecraftCommandHelper2
             if (dxCheck.IsChecked.Value)
             {
                 extra += "dx=" + dx.Value.ToString() + ",";
-            }
-            if (dyCheck.IsChecked.Value)
-            {
                 extra += "dy=" + dy.Value.ToString() + ",";
-            }
-            if (dzCheck.IsChecked.Value)
-            {
                 extra += "dz=" + dz.Value.ToString() + ",";
             }
             if (rCheck.IsChecked.Value)
@@ -239,11 +226,11 @@ namespace WpfMinecraftCommandHelper2
             }
             if (scoreCheck.IsChecked.Value)
             {
-                extra += "score_" + scoreName + "=" + score.Value.ToString() + ",";
+                extra += "score_" + scoreName.Text + "=" + score.Value.ToString() + ",";
             }
             if (scoreMinCheck.IsChecked.Value)
             {
-                extra += "score_" + scoreMinName + "_min=" + scoreMin.Value.ToString() + ",";
+                extra += "score_" + scoreMinName.Text + "_min=" + scoreMin.Value.ToString() + ",";
             }
             if (teamCheck.IsChecked.Value)
             {
@@ -266,10 +253,6 @@ namespace WpfMinecraftCommandHelper2
                 {
                     extra += "name=" + name.Text + ",";
                 }
-            }
-            if (idCheck.IsChecked.Value)
-            {
-                extra += "id=" + id.Value.ToString() + ",";
             }
             if (typeCheck.IsChecked.Value)
             {
@@ -342,300 +325,116 @@ namespace WpfMinecraftCommandHelper2
             return createText;
         }
 
-        private void xyzCheck_Checked(object sender, EventArgs e)
+        private void xyzCheck_Click(object sender, EventArgs e)
         {
-            if (xyzCheck.IsChecked.Value)
-            {
-                x.IsEnabled = true;
-                y.IsEnabled = true;
-                z.IsEnabled = true;
-            }
-            else
-            {
-                x.IsEnabled = false;
-                y.IsEnabled = false;
-                z.IsEnabled = false;
-            }
+            x.IsEnabled = xyzCheck.IsChecked.Value;
+            y.IsEnabled = xyzCheck.IsChecked.Value;
+            z.IsEnabled = xyzCheck.IsChecked.Value;
         }
 
-        private void dxCheck_Checked(object sender, EventArgs e)
+        private void dxCheck_Click(object sender, EventArgs e)
         {
-            if (dxCheck.IsChecked.Value)
-            {
-                dx.IsEnabled = true;
-            }
-            else
-            {
-                dx.IsEnabled = false;
-            }
+            dx.IsEnabled = dxCheck.IsChecked.Value;
+            dy.IsEnabled = dxCheck.IsChecked.Value;
+            dz.IsEnabled = dxCheck.IsChecked.Value;
         }
 
-        private void dyCheck_Checked(object sender, EventArgs e)
+        private void rCheck_Click(object sender, EventArgs e)
         {
-            if (dyCheck.IsChecked.Value)
-            {
-                dy.IsEnabled = true;
-            }
-            else
-            {
-                dy.IsEnabled = false;
-            }
+            r.IsEnabled = rCheck.IsChecked.Value;
         }
 
-        private void dzCheck_Checked(object sender, EventArgs e)
+        private void rmCheck_Click(object sender, EventArgs e)
         {
-            if (dzCheck.IsChecked.Value)
-            {
-                dz.IsEnabled = true;
-            }
-            else
-            {
-                dz.IsEnabled = false;
-            }
+            rm.IsEnabled = rmCheck.IsChecked.Value;
         }
 
-        private void rCheck_Checked(object sender, EventArgs e)
+        private void mCheck_Click(object sender, EventArgs e)
         {
-            if (rCheck.IsChecked.Value)
-            {
-                r.IsEnabled = true;
-            }
-            else
-            {
-                r.IsEnabled = false;
-            }
+            m.IsEnabled = mCheck.IsChecked.Value;
+            mUN.IsEnabled = mCheck.IsChecked.Value;
         }
 
-        private void rmCheck_Checked(object sender, EventArgs e)
+        private void rxCheck_Click(object sender, EventArgs e)
         {
-            if (rmCheck.IsChecked.Value)
-            {
-                rm.IsEnabled = true;
-            }
-            else
-            {
-                rm.IsEnabled = false;
-            }
+            rx.IsEnabled = rxCheck.IsChecked.Value;
         }
 
-        private void mCheck_Checked(object sender, EventArgs e)
+        private void rxmCheck_Click(object sender, EventArgs e)
         {
-            if (mCheck.IsChecked.Value)
-            {
-                m.IsEnabled = true;
-                mUN.IsEnabled = true;
-            }
-            else
-            {
-                m.IsEnabled = false;
-                mUN.IsEnabled = false;
-            }
+            rxm.IsEnabled = rxmCheck.IsChecked.Value;
         }
 
-        private void rxCheck_Checked(object sender, EventArgs e)
+        private void cCheck_Click(object sender, EventArgs e)
         {
-            if (rxCheck.IsChecked.Value)
-            {
-                rx.IsEnabled = true;
-            }
-            else
-            {
-                rx.IsEnabled = false;
-            }
+            c.IsEnabled = cCheck.IsChecked.Value;
         }
 
-        private void rxmCheck_Checked(object sender, EventArgs e)
+        private void ryCheck_Click(object sender, EventArgs e)
         {
-            if (rxmCheck.IsChecked.Value)
-            {
-                rxm.IsEnabled = true;
-            }
-            else
-            {
-                rxm.IsEnabled = false;
-            }
+            ry.IsEnabled = ryCheck.IsChecked.Value;
         }
 
-        private void cCheck_Checked(object sender, EventArgs e)
+        private void rymCheck_Click(object sender, EventArgs e)
         {
-            if (cCheck.IsChecked.Value)
-            {
-                c.IsEnabled = true;
-            }
-            else
-            {
-                c.IsEnabled = false;
-            }
+            rym.IsEnabled = rymCheck.IsChecked.Value;
         }
 
-        private void ryCheck_Checked(object sender, EventArgs e)
+        private void lCheck_Click(object sender, EventArgs e)
         {
-            if (ryCheck.IsChecked.Value)
-            {
-                ry.IsEnabled = true;
-            }
-            else
-            {
-                ry.IsEnabled = false;
-            }
+            l.IsEnabled = lCheck.IsChecked.Value;
         }
 
-        private void rymCheck_Checked(object sender, EventArgs e)
+        private void lmCheck_Click(object sender, EventArgs e)
         {
-            if (rymCheck.IsChecked.Value)
-            {
-                rym.IsEnabled = true;
-            }
-            else
-            {
-                rym.IsEnabled = false;
-            }
+            lm.IsEnabled = lmCheck.IsChecked.Value;
         }
 
-        private void lCheck_Checked(object sender, EventArgs e)
+        private void scoreCheck_Click(object sender, EventArgs e)
         {
-            if (lCheck.IsChecked.Value)
-            {
-                l.IsEnabled = true;
-            }
-            else
-            {
-                l.IsEnabled = false;
-            }
+            scoreName.IsEnabled = scoreCheck.IsChecked.Value;
+            score.IsEnabled = scoreCheck.IsChecked.Value;
         }
 
-        private void lmCheck_Checked(object sender, EventArgs e)
+        private void scoreMinCheck_Click(object sender, EventArgs e)
         {
-            if (lmCheck.IsChecked.Value)
-            {
-                lm.IsEnabled = true;
-            }
-            else
-            {
-                lm.IsEnabled = false;
-            }
+            scoreMinName.IsEnabled = scoreMinCheck.IsChecked.Value;
+            scoreMin.IsEnabled = scoreMinCheck.IsChecked.Value;
         }
 
-        private void scoreCheck_Checked(object sender, EventArgs e)
+        private void teamCheck_Click(object sender, EventArgs e)
         {
-            if (scoreCheck.IsChecked.Value)
-            {
-                scoreName.IsEnabled = true;
-                score.IsEnabled = true;
-            }
-            else
-            {
-                scoreName.IsEnabled = false;
-                score.IsEnabled = false;
-            }
+            team.IsEnabled = teamCheck.IsChecked.Value;
+            teamUN.IsEnabled = teamCheck.IsChecked.Value;
         }
 
-        private void scoreMinCheck_Checked(object sender, EventArgs e)
+        private void nameCheck_Click(object sender, EventArgs e)
         {
-            if (scoreMinCheck.IsChecked.Value)
-            {
-                scoreMinName.IsEnabled = true;
-                scoreMin.IsEnabled = true;
-            }
-            else
-            {
-                scoreMinName.IsEnabled = false;
-                scoreMin.IsEnabled = false;
-            }
+            name.IsEnabled = nameCheck.IsChecked.Value;
+            name.IsEnabled = nameCheck.IsChecked.Value;
         }
 
-        private void teamCheck_Checked(object sender, EventArgs e)
+        private void typeCheck_Click(object sender, EventArgs e)
         {
-            if (teamCheck.IsChecked.Value)
-            {
-                team.IsEnabled = true;
-                teamUN.IsEnabled = true;
-            }
-            else
-            {
-                team.IsEnabled = false;
-                teamUN.IsEnabled = false;
-            }
+            type.IsEnabled = typeCheck.IsChecked.Value;
+            typeUN.IsEnabled = typeCheck.IsChecked.Value;
         }
 
-        private void nameCheck_Checked(object sender, EventArgs e)
+        private void handCheck_Click(object sender, EventArgs e)
         {
-            if (nameCheck.IsChecked.Value)
-            {
-                name.IsEnabled = true;
-                nameUN.IsEnabled = true;
-            }
-            else
-            {
-                name.IsEnabled = false;
-                name.IsEnabled = false;
-            }
+            hand.IsEnabled = handCheck.IsChecked.Value;
+            handCount.IsEnabled = handCheck.IsChecked.Value;
+            handMeta.IsEnabled = handCheck.IsChecked.Value;
         }
 
-        private void idCheck_Checked(object sender, EventArgs e)
+        private void rideCheck_Click(object sender, RoutedEventArgs e)
         {
-            if (idCheck.IsChecked.Value)
-            {
-                id.IsEnabled = true;
-            }
-            else
-            {
-                id.IsEnabled = false;
-            }
-        }
-
-        private void typeCheck_Checked(object sender, EventArgs e)
-        {
-            if (typeCheck.IsChecked.Value)
-            {
-                type.IsEnabled = true;
-                typeUN.IsEnabled = true;
-            }
-            else
-            {
-                type.IsEnabled = false;
-                typeUN.IsEnabled = false;
-            }
-        }
-
-        private void handCheck_Checked(object sender, EventArgs e)
-        {
-            if (handCheck.IsChecked.Value)
-            {
-                hand.IsEnabled = true;
-                handCount.IsEnabled = true;
-                handMeta.IsEnabled = true;
-            }
-            else
-            {
-                hand.IsEnabled = false;
-                handCount.IsEnabled = false;
-                handMeta.IsEnabled = false;
-            }
-        }
-
-        private void rideCheck_Checked(object sender, RoutedEventArgs e)
-        {
-            if (rideCheck.IsChecked.Value)
-            {
-                rideEntity.IsEnabled = true;
-            }
-            else
-            {
-                rideEntity.IsEnabled = false;
-            }
+            rideEntity.IsEnabled = rideCheck.IsChecked.Value;
         }
 
         private void tagCheck_Click(object sender, RoutedEventArgs e)
         {
-            if (tagCheck.IsChecked.Value)
-            {
-                tags.IsEnabled = true;
-            }
-            else
-            {
-                tags.IsEnabled = false;
-            }
+            tags.IsEnabled = tagCheck.IsChecked.Value;
         }
     }
 }

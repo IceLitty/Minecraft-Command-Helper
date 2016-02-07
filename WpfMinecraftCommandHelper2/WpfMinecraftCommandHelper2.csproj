@@ -110,6 +110,9 @@
       <DependentUpon>Favourite.xaml</DependentUpon>
     </Compile>
     <Compile Include="HeadSelData.cs" />
+    <Compile Include="LootTable.xaml.cs">
+      <DependentUpon>LootTable.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OtherHeadLib.xaml.cs">
       <DependentUpon>OtherHeadLib.xaml</DependentUpon>
     </Compile>
@@ -175,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Item.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LootTable.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -285,6 +292,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Resource Include="Fonts\Minecraft.ttf" />
+    <None Include="Language\en_US.json" />
+    <None Include="Language\zh_CN.json" />
+    <None Include="Language\zh_TW.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

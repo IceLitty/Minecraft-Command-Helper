@@ -31,15 +31,15 @@
         <Label x:Name="FireworkType" Content="类型" HorizontalAlignment="Left" Margin="188,102,0,0" VerticalAlignment="Top"/>
         <Label x:Name="FireworkColor" Content="外部色" HorizontalAlignment="Left" Margin="330,102,0,0" VerticalAlignment="Top"/>
         <Label x:Name="FireworkFadeColor" Content="内部色" HorizontalAlignment="Left" Margin="460,102,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="tabFirePre" Content="上一页" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top" Width="75" Click="tabFirePre_Click"/>
-        <Button x:Name="tabFireNext" Content="下一页" HorizontalAlignment="Left" Margin="90,167,0,0" VerticalAlignment="Top" Width="75" Click="tabFireNext_Click"/>
+        <Button x:Name="tabFirePre" Content="上一页" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top" Width="75" Click="tabFirePre_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="tabFireNext" Content="下一页" HorizontalAlignment="Left" Margin="90,167,0,0" VerticalAlignment="Top" Width="75" Click="tabFireNext_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Label x:Name="tabFirePageIndex" Content="-第01页-" HorizontalAlignment="Left" Margin="519,167,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="tabFireCreateItem" Content="生成物品而不是召唤实体" HorizontalAlignment="Left" Margin="137,79,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="10,198,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click"/>
-        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="90,198,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click"/>
-        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="250,198,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click"/>
-        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="330,198,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click"/>
-        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="170,198,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click"/>
+        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="10,198,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="90,198,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="250,198,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="330,198,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="170,198,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <ListBox x:Name="pageList" HorizontalAlignment="Left" Height="228" Margin="586,10,0,0" VerticalAlignment="Top" Width="141"/>
         <CheckBox x:Name="tabFireOnlyStar" Content="给予烟火之星而不是烟花火箭" HorizontalAlignment="Left" Margin="298,79,0,0" VerticalAlignment="Top"/>
 

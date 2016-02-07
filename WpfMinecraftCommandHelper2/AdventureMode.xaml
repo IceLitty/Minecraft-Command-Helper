@@ -9,23 +9,23 @@
         <CheckBox x:Name="tabRPGHasEnchant" Content="有附魔√" HorizontalAlignment="Left" Margin="160,12,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="tabRPGHasNL" Content="有自定义名称或Lore√" HorizontalAlignment="Left" Margin="160,35,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="tabRPGHasAttr" Content="有自定义物品属性√" HorizontalAlignment="Left" Margin="160,58,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="enchantMoreGetBtn" Content="←属性获取(包括物品)" HorizontalAlignment="Left" Margin="334,41,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="enchantMoreGetBtn_Click"/>
+        <Button x:Name="enchantMoreGetBtn" Content="←属性获取(包括物品)" HorizontalAlignment="Left" Margin="334,41,0,0" VerticalAlignment="Top" Width="139" Height="35" Click="enchantMoreGetBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <CheckBox x:Name="tabRPGOnlyBroke" Content="只允许破坏：" HorizontalAlignment="Left" Margin="160,90,0,0" VerticalAlignment="Top" Click="tabRPGOnlyBroke_Checked"/>
         <ComboBox x:Name="tabRPGOnlyBrokeSel" HorizontalAlignment="Left" Margin="160,113,0,0" VerticalAlignment="Top" Width="313" IsEnabled="False"/>
-        <Button x:Name="tabRPGOnlyBrokePre" Content="上一页" HorizontalAlignment="Left" Margin="160,144,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="tabRPGOnlyBrokePre_Click"/>
-        <Button x:Name="tabRPGOnlyBrokeNext" Content="下一页" HorizontalAlignment="Left" Margin="240,144,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="tabRPGOnlyBrokeNext_Click"/>
+        <Button x:Name="tabRPGOnlyBrokePre" Content="上一页" HorizontalAlignment="Left" Margin="160,144,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="tabRPGOnlyBrokePre_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="tabRPGOnlyBrokeNext" Content="下一页" HorizontalAlignment="Left" Margin="240,144,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="tabRPGOnlyBrokeNext_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Label x:Name="tabRPGOnlyBrokePage" Content="-第01页-" HorizontalAlignment="Left" Margin="415,144,0,0" VerticalAlignment="Top" IsEnabled="False"/>
         <CheckBox x:Name="tabRPGOnlyPlace" Content="只允许放置：" HorizontalAlignment="Left" Margin="160,176,0,0" VerticalAlignment="Top" Click="tabRPGOnlyPlace_Checked"/>
         <ComboBox x:Name="tabRPGOnlyPlaceSel" HorizontalAlignment="Left" Margin="160,199,0,0" VerticalAlignment="Top" Width="313" IsEnabled="False"/>
-        <Button x:Name="tabRPGOnlyPlacePre" Content="上一页" HorizontalAlignment="Left" Margin="160,230,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="tabRPGOnlyPlacePre_Click"/>
-        <Button x:Name="tabRPGOnlyPlaceNext" Content="下一页" HorizontalAlignment="Left" Margin="240,230,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="tabRPGOnlyPlaceNext_Click"/>
+        <Button x:Name="tabRPGOnlyPlacePre" Content="上一页" HorizontalAlignment="Left" Margin="160,230,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="tabRPGOnlyPlacePre_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="tabRPGOnlyPlaceNext" Content="下一页" HorizontalAlignment="Left" Margin="240,230,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="tabRPGOnlyPlaceNext_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Label x:Name="tabRPGOnlyPlacePage" Content="-第01页-" HorizontalAlignment="Left" Margin="415,230,0,0" VerticalAlignment="Top" IsEnabled="False"/>
         <ComboBox x:Name="tabRPGHide" HorizontalAlignment="Left" Margin="160,260,0,0" VerticalAlignment="Top" Width="313"/>
-        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="161,291,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click"/>
-        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="241,291,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click"/>
-        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="401,291,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click"/>
-        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="398,81,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click"/>
-        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="321,291,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click"/>
+        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="161,291,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="241,291,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="401,291,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="398,81,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="321,291,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <ListBox x:Name="placeList" HorizontalAlignment="Left" Height="306" Margin="10,10,0,0" VerticalAlignment="Top" Width="145"/>
         <ListBox x:Name="brokeList" HorizontalAlignment="Left" Height="306" Margin="481,10,0,0" VerticalAlignment="Top" Width="145"/>
 

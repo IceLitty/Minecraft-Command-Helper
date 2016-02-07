@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
@@ -305,8 +303,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["AtUN"].ToString());
             relanglist.Add(LangList[langID]["AtXYZ"].ToString());
             relanglist.Add(LangList[langID]["AtDx"].ToString());
-            relanglist.Add(LangList[langID]["AtDy"].ToString());
-            relanglist.Add(LangList[langID]["AtDz"].ToString());
+            relanglist.Add(LangList[langID]["AtDx"].ToString());
+            relanglist.Add(LangList[langID]["AtDx"].ToString());
             relanglist.Add(LangList[langID]["AtMaxR"].ToString());
             relanglist.Add(LangList[langID]["AtMinR"].ToString());
             relanglist.Add(LangList[langID]["AtGameMode"].ToString());
@@ -321,7 +319,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["AtMinScore"].ToString());
             relanglist.Add(LangList[langID]["AtTeam"].ToString());
             relanglist.Add(LangList[langID]["AtName"].ToString());
-            relanglist.Add(LangList[langID]["AtID"].ToString());
+            relanglist.Add(LangList[langID]["AtName"].ToString());
             relanglist.Add(LangList[langID]["AtType"].ToString());
             relanglist.Add(LangList[langID]["AtTip"].ToString());
             relanglist.Add(LangList[langID]["AtIsFly"].ToString());
@@ -749,6 +747,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["OtherListSouth"].ToString());
             relanglist.Add(LangList[langID]["OtherListWest"].ToString());
             relanglist.Add(LangList[langID]["OtherListEast"].ToString());
+            relanglist.Add(LangList[langID]["OtherLoot"].ToString());
+            relanglist.Add(LangList[langID]["OtherHelpLoot"].ToString());
             return relanglist;
         }
 
@@ -1260,6 +1260,87 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["TellrawLine3"].ToString());
             relanglist.Add(LangList[langID]["TellrawLine4"].ToString());
             relanglist.Add(LangList[langID]["TellrawHelpStr"].ToString());
+            return relanglist;
+        }
+
+        public List<string> SetLootTable()
+        {
+            string nowLang = getLangFile();
+            int langID = 0;
+            for (int i = 0; i < fileCount; i++)
+            {
+                if (LangList[i]["LanguageID"].ToString() == nowLang)
+                {
+                    langID = i;
+                }
+            }
+            List<string> relanglist = new List<string>();
+            relanglist.Add(LangList[langID]["BtnClear"].ToString());
+            relanglist.Add(LangList[langID]["BtnCreate"].ToString());
+            relanglist.Add(LangList[langID]["BtnCheck"].ToString());
+            relanglist.Add(LangList[langID]["LootTableGet"].ToString());
+            relanglist.Add(LangList[langID]["LootTableRand"].ToString());
+            relanglist.Add(LangList[langID]["LootTableMin"].ToString());
+            relanglist.Add(LangList[langID]["LootTableMax"].ToString());
+            relanglist.Add(LangList[langID]["LootTableRegular"].ToString());
+            relanglist.Add(LangList[langID]["LootTableTitle"].ToString());
+            relanglist.Add(LangList[langID]["LootTablePoolHeader"].ToString());
+            relanglist.Add(LangList[langID]["LootTablePoolRollCount"].ToString());
+            relanglist.Add(LangList[langID]["LootTablePoolRollBonus"].ToString());
+            relanglist.Add(LangList[langID]["LootTablePoolRollBonusTip"].ToString());
+            relanglist.Add(LangList[langID]["LootTableEntryItem"].ToString());
+            relanglist.Add(LangList[langID]["LootTableEntryLootTable"].ToString());
+            relanglist.Add(LangList[langID]["LootTableEntryNothing"].ToString());
+            relanglist.Add(LangList[langID]["LootTableEntryWeight"].ToString());
+            relanglist.Add(LangList[langID]["LootTableEntryQuality"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunction"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionRandomEnchant"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionRandomEnchantChoose"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionEnchant"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionEnchantTreasure"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionFurnace"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionLootCount"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionAttribute"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionCount"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionDamage"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionMeta"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionNBT"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionHeader"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionPThis"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionPKiller"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionPKillerByPlayer"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionProperties"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionPropertiesIsOnFire"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionPropertiesIsOnFireTip"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionScore"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionScoreboardName"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionChance"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionChanceTip"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionChanceMultiTip"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionChanceMultiCheck"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionKillByPlayer"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionNotKillByPlayer"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeHeader"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttribute"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeMaxHealth"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeRange"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeKnock"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeSpeed"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeAtkDmg"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeArmor"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeAtkSpeed"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeLuck"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeJump"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeZombie"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeMainHand"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeOffHand"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeFeet"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeLegs"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeChest"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeHead"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeAddition"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeMultiplyBase"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeMultiplyTotal"].ToString());
             return relanglist;
         }
     }

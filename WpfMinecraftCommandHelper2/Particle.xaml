@@ -38,11 +38,11 @@
             <Controls:NumericUpDown x:Name="tabParticleZ" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="0,33,0,72" Height="28" Value="0" />
             <Controls:NumericUpDown x:Name="tabParticleDz" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="0,66,0,39" Height="28" Value="0" />
         </Grid>
-        <Button x:Name="tabParticleClear" Content="清空" HorizontalAlignment="Left" Margin="16,209,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click"/>
-        <Button x:Name="tabParticleCreate" Content="生成" HorizontalAlignment="Left" Margin="96,209,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click"/>
-        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="256,209,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click"/>
-        <Button x:Name="tabParticleHelp" Content="？" HorizontalAlignment="Left" Margin="336,209,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click"/>
-        <Button x:Name="tabParticleCopy" Content="复制" HorizontalAlignment="Left" Margin="176,209,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click"/>
+        <Button x:Name="tabParticleClear" Content="清空" HorizontalAlignment="Left" Margin="16,209,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="tabParticleCreate" Content="生成" HorizontalAlignment="Left" Margin="96,209,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="256,209,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="tabParticleHelp" Content="？" HorizontalAlignment="Left" Margin="336,209,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="tabParticleCopy" Content="复制" HorizontalAlignment="Left" Margin="176,209,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <CheckBox x:Name="tabParticleXNum" Content="坐标采用当前坐标" HorizontalAlignment="Left" Margin="455,183,0,0" VerticalAlignment="Top" Click="tabParticleXNum_Checked"/>
 
     </Grid>

@@ -10,15 +10,12 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedSingleRowTabControl.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <!--<Style x:Key="MinecraftFontStyle" TargetType="Label">
-                <Setter Property="TextElement.FontFamily" Value="Fonts/#Minecraft"/>
-            </Style>-->
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
         <TabControl>
             <TabItem x:Name="HeadlibHeader1" Header="声明">
-                <Grid>
+                <Grid Background="White">
                     <Label x:Name="HeadlibTip0" Content="注：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="HeadlibTip1" Content="您正在使用的服务为" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="freshcoalCOM" Content="freshcoal.com" HorizontalAlignment="Left" Margin="128,40,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="freshcoalCOM_MouseLeftButtonDown"/>
@@ -39,63 +36,63 @@
                 </Grid>
             </TabItem>
             <TabItem x:Name="HeadlibHeader2" Header="搜索">
-                <Grid>
+                <Grid Background="White">
                     <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="20" Margin="10,0,0,-1" TextWrapping="Wrap" Text="在此输入您所要搜索的字符，按回车搜索        *人物和宠物小精灵选项卡不提供中文搜索" VerticalAlignment="Top" Width="925" MouseEnter="searchBox_MouseEnter" PreviewKeyUp="searchBox_PreviewKeyUp"/>
                     <Controls:FlipView x:Name="tabSearch" IsBannerEnabled="False" Margin="0,25,0,0" />
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabFoodLoad" Header="食物" PreviewMouseLeftButtonDown="tabFoodLoad_PreviewMouseLeftButtonDown">
-                <Grid>
+                <Grid Background="White">
                     <Controls:FlipView x:Name="tabFood" IsBannerEnabled="True" SelectionChanged="tabFood_SelectionChanged" />
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabDeviceLoad" Header="设备" PreviewMouseLeftButtonDown="tabDeviceLoad_PreviewMouseLeftButtonDown">
-                <Grid>
+                <Grid Background="White">
                     <Controls:FlipView x:Name="tabDevice" IsBannerEnabled="True" SelectionChanged="tabDevice_SelectionChanged" />
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabMiscLoad" Header="杂项" PreviewMouseLeftButtonDown="tabMiscLoad_PreviewMouseLeftButtonDown" >
-                <Grid>
+                <Grid Background="White">
                     <Controls:FlipView x:Name="tabMisc" IsBannerEnabled="True" SelectionChanged="tabMisc_SelectionChanged" />
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabAlphabetLoad" Header="字母" PreviewMouseLeftButtonDown="tabAlphabetLoad_PreviewMouseLeftButtonDown">
-                <Grid>
+                <Grid Background="White">
                     <Controls:FlipView x:Name="tabAlphabet" IsBannerEnabled="True" SelectionChanged="tabAlphabet_SelectionChanged" />
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabInteriorLoad" Header="内饰" PreviewMouseLeftButtonDown="tabInteriorLoad_PreviewMouseLeftButtonDown">
-                <Grid>
+                <Grid Background="White">
                     <Controls:FlipView x:Name="tabInterior" IsBannerEnabled="True" SelectionChanged="tabInterior_SelectionChanged" />
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabColorLoad" Header="纯色" PreviewMouseLeftButtonDown="tabColorLoad_PreviewMouseLeftButtonDown">
-                <Grid>
+                <Grid Background="White">
                     <Controls:FlipView x:Name="tabColor" IsBannerEnabled="True" SelectionChanged="tabColor_SelectionChanged" />
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabBlockLoad" Header="方块" PreviewMouseLeftButtonDown="tabBlockLoad_PreviewMouseLeftButtonDown">
-                <Grid>
+                <Grid Background="White">
                     <Controls:FlipView x:Name="tabBlock" IsBannerEnabled="True" SelectionChanged="tabBlock_SelectionChanged" />
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabMobLoad" Header="生物" PreviewMouseLeftButtonDown="tabMobLoad_PreviewMouseLeftButtonDown">
-                <Grid>
+                <Grid Background="White">
                     <Controls:FlipView x:Name="tabMob" IsBannerEnabled="True" SelectionChanged="tabMob_SelectionChanged" />
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabGameLoad" Header="游戏" PreviewMouseLeftButtonDown="tabGameLoad_PreviewMouseLeftButtonDown">
-                <Grid>
+                <Grid Background="White">
                     <Controls:FlipView x:Name="tabGame" IsBannerEnabled="True" SelectionChanged="tabGame_SelectionChanged" />
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabCharacterLoad" Header="人物" PreviewMouseLeftButtonDown="tabCharacterLoad_PreviewMouseLeftButtonDown">
-                <Grid>
+                <Grid Background="White">
                     <Controls:FlipView x:Name="tabCharacter" IsBannerEnabled="True" SelectionChanged="tabCharacter_SelectionChanged" />
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabPokemonLoad" Header="宠物小精灵" PreviewMouseLeftButtonDown="tabPokemonLoad_PreviewMouseLeftButtonDown">
-                <Grid>
+                <Grid Background="White">
                     <Controls:FlipView x:Name="tabPokemon" IsBannerEnabled="True" SelectionChanged="tabPokemon_SelectionChanged" />
                 </Grid>
             </TabItem>

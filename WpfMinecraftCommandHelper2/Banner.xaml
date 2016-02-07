@@ -19,14 +19,14 @@
         <ComboBox x:Name="tabBannerColor" HorizontalAlignment="Left" Margin="61,102,0,0" VerticalAlignment="Top" Width="103" SelectionChanged="tabBannerColor_SelectionChanged"/>
         <CheckBox x:Name="tabBannerHasMoreAttr" Content="生成物品包含附魔等信息" HorizontalAlignment="Left" Margin="169,106,0,0" VerticalAlignment="Top" Click="tabBannerHasMoreAttr_Checked"/>
         <CheckBox x:Name="tabBannerShow" Content="实时显示" HorizontalAlignment="Left" Margin="330,106,0,0" VerticalAlignment="Top" Click="tabBannerShow_Checked"/>
-        <Button x:Name="tabBannerPre" Content="上一层" HorizontalAlignment="Left" Margin="10,133,0,0" VerticalAlignment="Top" Width="75" Click="tabBannerPre_Click"/>
-        <Button x:Name="tabBannerNext" Content="下一层" HorizontalAlignment="Left" Margin="90,133,0,0" VerticalAlignment="Top" Width="75" Click="tabBannerNext_Click"/>
-        <Button x:Name="enchantMoreGetBtn" Content="附魔等信息获取" HorizontalAlignment="Left" Margin="170,133,0,0" VerticalAlignment="Top" Width="155" Click="enchantMoreGetBtn_Click" IsEnabled="False"/>
-        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click"/>
-        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="90,163,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click"/>
-        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="250,163,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click"/>
-        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="330,163,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click"/>
-        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="170,163,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click"/>
+        <Button x:Name="tabBannerPre" Content="上一层" HorizontalAlignment="Left" Margin="10,133,0,0" VerticalAlignment="Top" Width="75" Click="tabBannerPre_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="tabBannerNext" Content="下一层" HorizontalAlignment="Left" Margin="90,133,0,0" VerticalAlignment="Top" Width="75" Click="tabBannerNext_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="enchantMoreGetBtn" Content="附魔等信息获取" HorizontalAlignment="Left" Margin="170,133,0,0" VerticalAlignment="Top" Width="155" Click="enchantMoreGetBtn_Click" IsEnabled="False" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="90,163,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="250,163,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="330,163,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="170,163,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Label x:Name="tabBannerPageIndex" Content="-第01层-" HorizontalAlignment="Left" Margin="344,133,0,0" VerticalAlignment="Top"/>
         <Image x:Name="tabBannerPic" HorizontalAlignment="Left" Height="400" Margin="412,10,0,0" VerticalAlignment="Top" Width="200"/>
         <ListBox x:Name="pageList" HorizontalAlignment="Left" Height="400" Margin="412,10,0,0" VerticalAlignment="Top" Width="200"/>

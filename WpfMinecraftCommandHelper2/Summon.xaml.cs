@@ -37,7 +37,6 @@ namespace WpfMinecraftCommandHelper2
                 tabVillagerA.Items.Add(asd.getItemNameList(i));
                 tabVillagerB.Items.Add(asd.getItemNameList(i));
                 tabVillagerC.Items.Add(asd.getItemNameList(i));
-                tabSpawnerType.Items.Add(asd.getItemNameList(i));
             }
             for (int i = 0; i < asd.getHideListCount(); i++)
             {
@@ -478,7 +477,6 @@ namespace WpfMinecraftCommandHelper2
                 tabSpawnerRiding.IsChecked = false;
                 tabSpawnerBaby.IsChecked = false;
                 tabSpawnerInvulnerable.IsChecked = false;
-                tabSpawnerType.SelectedIndex = 242;
                 tabSpawnerShowType.SelectedIndex = tabSumosType.SelectedIndex;
                 tabSpawnerName.Text = "";
                 tabSpawnerHasEqu.IsChecked = false;
@@ -2338,10 +2336,6 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabSpawnerCreate_Click(object sender, RoutedEventArgs e)
         {
-            if (tabSpawnerType.SelectedIndex < 0)
-            {
-                tabSpawnerType.SelectedIndex = 0;
-            }
             if (tabSpawner1Type.SelectedIndex < 0)
             {
                 tabSpawner1Type.SelectedIndex = 0;

@@ -76,6 +76,7 @@ namespace WpfMinecraftCommandHelper2
         private string OtherListSouth = "座椅面朝南 South";
         private string OtherListWest = "座椅面朝西 West";
         private string OtherListEast = "座椅面朝东 East";
+        private string OtherHelpLoot = "用于1.9的JSON格式地图的生物掉落/箱子生成等可抢夺物品表的生成器。";
 
         private void appLanguage()
         {
@@ -103,6 +104,7 @@ namespace WpfMinecraftCommandHelper2
                 tabOther1CustomCraftOpenBtn.Content = templang[5];
                 tabOther1ArmorStandOpenBtn.Content = templang[5];
                 tabOther1SuperflatOpenBtn.Content = templang[5];
+                tabOther1Loot.Content = templang[5];
                 OtherHelpHat = templang[6];
                 OtherHelpWord = templang[7];
                 OtherHelpFlyItem = templang[8];
@@ -168,6 +170,8 @@ namespace WpfMinecraftCommandHelper2
                 OtherListSouth = templang[67];
                 OtherListWest = templang[68];
                 OtherListEast = templang[69];
+                Other1Loot.Content = templang[70];
+                OtherHelpLoot = templang[71];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -933,6 +937,19 @@ namespace WpfMinecraftCommandHelper2
             Check checkbox = new Check();
             checkbox.showText(finalStr);
             checkbox.ShowDialog();
+        }
+
+        private void tabOther1LootHelp_Click(object sender, RoutedEventArgs e)
+        {
+            this.ShowMessageAsync("", OtherHelpLoot, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel, AnimateShow = true });
+        }
+
+        private void tabOther1Loot_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            LootTable lootbox = new LootTable();
+            lootbox.ShowDialog();
+            this.Show();
         }
     }
 }

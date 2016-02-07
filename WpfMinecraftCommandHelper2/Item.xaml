@@ -63,7 +63,7 @@
             <Controls:NumericUpDown x:Name="tabItemEnNum9" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="250,256,159,10" Height="25" />
         </Grid>
         <Label x:Name="ItemChooseItem" Content="请选择物品/方块：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="ItemTip1" Content="「注：部分方块只有方块ID，没有附加值」" HorizontalAlignment="Left" Margin="106,11,0,0" VerticalAlignment="Top" Foreground="#FF919191" FontSize="11"/>
+        <Label x:Name="ItemTip1" Content="「注：部分方块只有方块ID，没有附加值」" HorizontalAlignment="Left" Margin="173,11,0,0" VerticalAlignment="Top" Foreground="#FF919191" FontSize="11"/>
         <ComboBox x:Name="tabItemSel" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="463" Height="37"/>
         <Label x:Name="ItemChooseMeta" Content="请填写Meta/Damage/附加值：" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
         <Label x:Name="ItemChooseCount" Content="请填写数量：" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top"/>
@@ -115,7 +115,7 @@
         <GroupBox x:Name="ItemHasExtra" Header="额外" HorizontalAlignment="Left" Margin="796,159,0,0" VerticalAlignment="Top" Height="296" Width="110">
             <Grid HorizontalAlignment="Left" Height="256" Margin="0,0,-2,0" VerticalAlignment="Top" Width="100">
                 <CheckBox x:Name="tabItemUnbreaking" Content="不可破坏" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="tabItemGetEnchantBook" Content="获取附魔书" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Width="72" Click="tabItemGetEnchantBook_Click"/>
+                <Button x:Name="tabItemGetEnchantBook" Content="获取附魔书" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Width="72" Click="tabItemGetEnchantBook_Click" Style="{DynamicResource SquareButtonStyle}"/>
                 <Grid Margin="0,73,0,0">
                     <RadioButton x:Name="AttrMainHand" Content="主手" HorizontalAlignment="Left" Margin="22,9,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                     <RadioButton x:Name="AttrOffHand" Content="副手" HorizontalAlignment="Left" Margin="22,32,0,0" VerticalAlignment="Top" IsEnabled="False"/>
@@ -127,18 +127,18 @@
                 </Grid>
             </Grid>
         </GroupBox>
-        <Button x:Name="atBtn" Content="获取At" HorizontalAlignment="Left" Margin="513,494,0,0" VerticalAlignment="Top" Width="82" Height="26" Click="atBtn_Click"/>
+        <Button x:Name="atBtn" Content="获取At" HorizontalAlignment="Left" Margin="513,494,0,0" VerticalAlignment="Top" Width="82" Height="26" Click="atBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <TextBox x:Name="atBox" HorizontalAlignment="Left" Height="23" Margin="600,494,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308"/>
         <ComboBox x:Name="tabItemHide" HorizontalAlignment="Left" Margin="513,463,0,0" VerticalAlignment="Top" Width="395"/>
-        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="513,525,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click"/>
-        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="593,525,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click"/>
-        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="753,525,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click"/>
-        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="833,525,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click"/>
+        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="513,525,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="593,525,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="753,525,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="833,525,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Grid HorizontalAlignment="Left" Height="64" Margin="192,82,0,0" VerticalAlignment="Top" Width="281">
             <Controls:NumericUpDown x:Name="tabItemMeta" Minimum="0" Maximum="2147483647" Interval="5" StringFormat="" Margin="0,3,0,33" Height="28" Value="0" />
             <Controls:NumericUpDown x:Name="tabItemCount" Minimum="0" Maximum="64" Interval="5" StringFormat="" Margin="0,36,0,0" Height="28" Value="1" />
         </Grid>
-        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="673,525,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click"/>
+        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="673,525,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Grid HorizontalAlignment="Left" Height="27" Margin="183,471,0,0" VerticalAlignment="Top" Width="301">
             <Controls:NumericUpDown x:Name="tabItemRepairCost" Minimum="0" Maximum="999999999" Interval="5" StringFormat="" Margin="101,-1,10,0" Height="28" Value="0" IsEnabled="False" />
             <CheckBox x:Name="tabItemRepairCostCheck" Content="指定修复消耗" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Checked="tabItemRepairCostCheck_Checked"/>

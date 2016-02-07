@@ -16,33 +16,32 @@
         <TabControl x:Name="tabAll" HorizontalAlignment="Left" Height="563" VerticalAlignment="Top" Width="1100" FontSize="14">
             <TabItem x:Name="SummonPHeader" Header="刷怪笼">
                 <Grid>
-                    <ComboBox x:Name="tabSpawnerType" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="431" Height="33" FontSize="14"/>
-                    <Label x:Name="SummonPNowEntity" Content="当前召唤物：" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top"/>
-                    <ComboBox x:Name="tabSpawnerShowType" HorizontalAlignment="Left" Margin="109,48,0,0" VerticalAlignment="Top" Width="332" Height="33" FontSize="14"/>
-                    <CheckBox x:Name="tabSpawnerHasEqu" Content="有自定义装备√（请在召唤实体标签栏生成代码）" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <CheckBox x:Name="tabSpawnerHasPotion" Content="有药水效果√" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <CheckBox x:Name="tabSpawnerHasAttr" Content="有生物属性特殊设置√" HorizontalAlignment="Left" Margin="10,152,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <Button x:Name="tabSpawnerPotionGetBtn" Content="←获取数据" HorizontalAlignment="Left" Margin="217,115,0,0" VerticalAlignment="Top" Width="120" FontSize="12" Click="tabSpawnerPotionGetBtn_Click"/>
-                    <Button x:Name="tabSpawnerAttrGetBtn" Content="←获取数据" HorizontalAlignment="Left" Margin="217,148,0,0" VerticalAlignment="Top" Width="120" FontSize="12" Click="tabSpawnerAttrGetBtn_Click" IsEnabled="False"/>
-                    <CheckBox x:Name="tabSpawnerInvulnerable" Content="无敌" HorizontalAlignment="Left" Margin="389,86,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <CheckBox x:Name="tabSpawnerBaby" Content="小型" HorizontalAlignment="Left" Margin="389,110,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <CheckBox x:Name="tabSpawnerRiding" Content="Riding" HorizontalAlignment="Left" Margin="377,134,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <CheckBox x:Name="tabSpawnerHasName" Content="有自定义名称：" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" FontSize="14" Click="tabSpawnerHasName_Click"/>
-                    <TextBox x:Name="tabSpawnerName" HorizontalAlignment="Left" Height="23" Margin="137,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="304" FontSize="14" IsEnabled="False"/>
-                    <CheckBox x:Name="tabSpawnerHasItemNL" Content="物品非默认名称&amp;Lore" HorizontalAlignment="Left" Margin="10,218,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <Grid HorizontalAlignment="Left" Height="124" Margin="10,256,0,0" VerticalAlignment="Top" Width="447">
+                    <Label x:Name="SummonPNowEntity" Content="当前召唤物：" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="tabSpawnerShowType" HorizontalAlignment="Left" Margin="109,10,0,0" VerticalAlignment="Top" Width="332" Height="33" FontSize="14"/>
+                    <CheckBox x:Name="tabSpawnerHasEqu" Content="有自定义装备√（请在召唤实体标签栏生成代码）" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" FontSize="14"/>
+                    <CheckBox x:Name="tabSpawnerHasPotion" Content="有药水效果√" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" FontSize="14"/>
+                    <CheckBox x:Name="tabSpawnerHasAttr" Content="有生物属性特殊设置√" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" FontSize="14"/>
+                    <Button x:Name="tabSpawnerPotionGetBtn" Content="←获取数据" HorizontalAlignment="Left" Margin="217,77,0,0" VerticalAlignment="Top" Width="120" FontSize="12" Click="tabSpawnerPotionGetBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="tabSpawnerAttrGetBtn" Content="←获取数据" HorizontalAlignment="Left" Margin="217,110,0,0" VerticalAlignment="Top" Width="120" FontSize="12" Click="tabSpawnerAttrGetBtn_Click" IsEnabled="False" Style="{DynamicResource SquareButtonStyle}"/>
+                    <CheckBox x:Name="tabSpawnerInvulnerable" Content="无敌" HorizontalAlignment="Left" Margin="389,48,0,0" VerticalAlignment="Top" FontSize="14"/>
+                    <CheckBox x:Name="tabSpawnerBaby" Content="小型" HorizontalAlignment="Left" Margin="389,72,0,0" VerticalAlignment="Top" FontSize="14"/>
+                    <CheckBox x:Name="tabSpawnerRiding" Content="Riding" HorizontalAlignment="Left" Margin="377,96,0,0" VerticalAlignment="Top" FontSize="14"/>
+                    <CheckBox x:Name="tabSpawnerHasName" Content="有自定义名称：" HorizontalAlignment="Left" Margin="10,146,0,0" VerticalAlignment="Top" FontSize="14" Click="tabSpawnerHasName_Click"/>
+                    <TextBox x:Name="tabSpawnerName" HorizontalAlignment="Left" Height="23" Margin="137,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="304" FontSize="14" IsEnabled="False"/>
+                    <CheckBox x:Name="tabSpawnerHasItemNL" Content="物品非默认名称&amp;Lore" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" FontSize="14"/>
+                    <Grid HorizontalAlignment="Left" Height="124" Margin="10,218,0,0" VerticalAlignment="Top" Width="447">
                         <CheckBox x:Name="tabSpawner1" Content="附加生物1" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Margin="0,4,0,0" Click="tabSpawner1_Click"/>
                         <ComboBox x:Name="tabSpawner1Type" HorizontalAlignment="Left" Margin="93,0,0,0" VerticalAlignment="Top" Width="154" Height="19" IsEnabled="False" FontSize="14"/>
-                        <Button x:Name="tabSpawner1Get" Content="Get" HorizontalAlignment="Left" Margin="252,0,0,0" VerticalAlignment="Top" Width="49" FontSize="12" Height="26" IsEnabled="False" Click="tabSpawner1Get_Click"/>
+                        <Button x:Name="tabSpawner1Get" Content="Get" HorizontalAlignment="Left" Margin="252,0,0,0" VerticalAlignment="Top" Width="49" FontSize="12" Height="26" IsEnabled="False" Click="tabSpawner1Get_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <CheckBox x:Name="tabSpawner2" Content="附加生物2" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Margin="0,35,0,0" Click="tabSpawner2_Click"/>
                         <ComboBox x:Name="tabSpawner2Type" HorizontalAlignment="Left" Margin="93,31,0,0" VerticalAlignment="Top" Width="154" Height="19" IsEnabled="False" FontSize="14"/>
-                        <Button x:Name="tabSpawner2Get" Content="Get" HorizontalAlignment="Left" Margin="252,31,0,0" VerticalAlignment="Top" Width="49" FontSize="12" Height="26" IsEnabled="False" Click="tabSpawner2Get_Click"/>
+                        <Button x:Name="tabSpawner2Get" Content="Get" HorizontalAlignment="Left" Margin="252,31,0,0" VerticalAlignment="Top" Width="49" FontSize="12" Height="26" IsEnabled="False" Click="tabSpawner2Get_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <CheckBox x:Name="tabSpawner3" Content="附加生物3" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Margin="0,66,0,0" Click="tabSpawner3_Click"/>
                         <ComboBox x:Name="tabSpawner3Type" HorizontalAlignment="Left" Margin="93,62,0,0" VerticalAlignment="Top" Width="154" Height="19" IsEnabled="False" FontSize="14"/>
-                        <Button x:Name="tabSpawner3Get" Content="Get" HorizontalAlignment="Left" Margin="252,62,0,0" VerticalAlignment="Top" Width="49" FontSize="12" Height="26" IsEnabled="False" Click="tabSpawner3Get_Click"/>
+                        <Button x:Name="tabSpawner3Get" Content="Get" HorizontalAlignment="Left" Margin="252,62,0,0" VerticalAlignment="Top" Width="49" FontSize="12" Height="26" IsEnabled="False" Click="tabSpawner3Get_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <CheckBox x:Name="tabSpawner4" Content="附加生物4" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Margin="0,97,0,0" Click="tabSpawner4_Click"/>
                         <ComboBox x:Name="tabSpawner4Type" HorizontalAlignment="Left" Margin="93,93,0,0" VerticalAlignment="Top" Width="154" Height="19" IsEnabled="False" FontSize="14"/>
-                        <Button x:Name="tabSpawner4Get" Content="Get" HorizontalAlignment="Left" Margin="252,93,0,0" VerticalAlignment="Top" Width="49" FontSize="12" Height="26" IsEnabled="False" Click="tabSpawner4Get_Click"/>
+                        <Button x:Name="tabSpawner4Get" Content="Get" HorizontalAlignment="Left" Margin="252,93,0,0" VerticalAlignment="Top" Width="49" FontSize="12" Height="26" IsEnabled="False" Click="tabSpawner4Get_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <Controls:NumericUpDown x:Name="tabSpawner1Weight" Minimum="-32768" Maximum="32767" Interval="0.2" StringFormat="" Margin="306,0,31,98" Height="26" IsEnabled="False" Value="1" FontSize="14" />
                         <Controls:NumericUpDown x:Name="tabSpawner2Weight" Minimum="-32768" Maximum="32767" Interval="0.2" StringFormat="" Margin="306,31,31,67" Height="26" IsEnabled="False" Value="1" FontSize="14" />
                         <Controls:NumericUpDown x:Name="tabSpawner3Weight" Minimum="-32768" Maximum="32767" Interval="0.2" StringFormat="" Margin="306,62,31,36" Height="26" IsEnabled="False" Value="1" FontSize="14" />
@@ -76,20 +75,20 @@
                         <Controls:NumericUpDown x:Name="tabSpawnerZ" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="345,29,2,0" Height="31" IsEnabled="False" />
                         <Label x:Name="SummonPTipTick" Content="*时间单位为Tick" HorizontalAlignment="Left" Margin="342,1,0,0" VerticalAlignment="Top"/>
                     </Grid>
-                    <Button x:Name="tabSpawnerClear" Content="清空" HorizontalAlignment="Left" Margin="467,307,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSpawnerClear_Click"/>
-                    <Button x:Name="tabSpawnerCreate" Content="生成" HorizontalAlignment="Left" Margin="547,307,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSpawnerCreate_Click"/>
-                    <Button x:Name="tabSpawnerCheckBtn" Content="检索" HorizontalAlignment="Left" Margin="707,307,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSpawnerCheckBtn_Click"/>
-                    <Button x:Name="tabSpawnerHelp" Content="？" HorizontalAlignment="Left" Margin="787,307,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSpawnerHelp_Click"/>
-                    <Button x:Name="tabSpawnerCopy" Content="复制" HorizontalAlignment="Left" Margin="627,307,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSpawnerCopy_Click"/>
+                    <Button x:Name="tabSpawnerClear" Content="清空" HorizontalAlignment="Left" Margin="467,307,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSpawnerClear_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="tabSpawnerCreate" Content="生成" HorizontalAlignment="Left" Margin="547,307,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSpawnerCreate_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="tabSpawnerCheckBtn" Content="检索" HorizontalAlignment="Left" Margin="707,307,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSpawnerCheckBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="tabSpawnerHelp" Content="？" HorizontalAlignment="Left" Margin="787,307,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSpawnerHelp_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="tabSpawnerCopy" Content="复制" HorizontalAlignment="Left" Margin="627,307,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSpawnerCopy_Click" Style="{DynamicResource SquareButtonStyle}"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="SummonOHeader" Header="召唤实体" IsSelected="True">
                 <Grid>
                     <ComboBox x:Name="tabSumosType" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="512" Height="31" SelectionChanged="tabSumosType_SelectionChanged" FontSize="14"/>
                     <CheckBox x:Name="tabSumosHasPotion" Content="有药水效果√" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <Button x:Name="tabSumosPotionGetBtn" Content="←获取数据" HorizontalAlignment="Left" Margin="178,43,0,0" VerticalAlignment="Top" Width="160" FontSize="12" Click="tabSumosPotionGetBtn_Click"/>
+                    <Button x:Name="tabSumosPotionGetBtn" Content="←获取数据" HorizontalAlignment="Left" Margin="178,43,0,0" VerticalAlignment="Top" Width="160" FontSize="12" Click="tabSumosPotionGetBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
                     <CheckBox x:Name="tabSumosHasMetaData" Content="有生物属性特殊设置√" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <Button x:Name="tabSumosAttrGetBtn" Content="请在顶端标签页设置" HorizontalAlignment="Left" Margin="178,76,0,0" VerticalAlignment="Top" Width="160" FontSize="12" Click="tabSumosAttrGetBtn_Click" IsEnabled="False"/>
+                    <Button x:Name="tabSumosAttrGetBtn" Content="请在顶端标签页设置" HorizontalAlignment="Left" Margin="178,76,0,0" VerticalAlignment="Top" Width="160" FontSize="12" Click="tabSumosAttrGetBtn_Click" IsEnabled="False" Style="{DynamicResource SquareButtonStyle}"/>
                     <CheckBox x:Name="tabSumosNoAI" Content="无AI" HorizontalAlignment="Left" Margin="400,48,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <CheckBox x:Name="tabSumosSilent" Content="无声" HorizontalAlignment="Left" Margin="400,82,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <CheckBox x:Name="tabSumosInvulnerable" Content="无敌" HorizontalAlignment="Left" Margin="470,48,0,0" VerticalAlignment="Top" FontSize="14"/>
@@ -101,22 +100,22 @@
                     <Grid HorizontalAlignment="Left" Height="194" Margin="81,139,0,0" VerticalAlignment="Top" Width="441">
                         <ComboBox x:Name="tabSumosHand" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Height="28" Margin="5,33,0,0" FontSize="14" IsEnabled="False"/>
                         <Controls:NumericUpDown x:Name="tabSumosNumHand" Minimum="0" Maximum="32767" StringFormat="" Margin="172,33,120,133" Height="28" Value="1" FontSize="14" IsEnabled="False" />
-                        <Button x:Name="tabSumosHandBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,33,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="29" Click="tabSumosHandBtn_Click"/>
+                        <Button x:Name="tabSumosHandBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,33,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="29" Click="tabSumosHandBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <ComboBox x:Name="tabSumosBoot" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Height="29" Margin="5,64,0,0" FontSize="14" IsEnabled="False"/>
                         <Controls:NumericUpDown x:Name="tabSumosNumBoot" Minimum="0" Maximum="32767" StringFormat="" Margin="172,65,120,101" Height="28" Value="1" FontSize="14" IsEnabled="False" />
-                        <Button x:Name="tabSumosBootBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,65,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="28" Click="tabSumosBootBtn_Click"/>
+                        <Button x:Name="tabSumosBootBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,65,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="28" Click="tabSumosBootBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <ComboBox x:Name="tabSumosLeg" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Height="28" Margin="5,97,0,0" FontSize="14" IsEnabled="False"/>
                         <Controls:NumericUpDown x:Name="tabSumosNumLeg" Minimum="0" Maximum="32767" StringFormat="" Margin="172,98,120,68" Height="28" Value="1" FontSize="14" IsEnabled="False" />
-                        <Button x:Name="tabSumosLegBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,97,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="29" Click="tabSumosLegBtn_Click"/>
+                        <Button x:Name="tabSumosLegBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,97,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="29" Click="tabSumosLegBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <ComboBox x:Name="tabSumosChest" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Height="29" Margin="5,130,0,0" FontSize="14" IsEnabled="False"/>
                         <Controls:NumericUpDown x:Name="tabSumosNumChest" Minimum="0" Maximum="32767" StringFormat="" Margin="172,131,120,35" Height="28" Value="1" FontSize="14" IsEnabled="False" />
-                        <Button x:Name="tabSumosChestBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,131,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="28" Click="tabSumosChestBtn_Click"/>
+                        <Button x:Name="tabSumosChestBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,131,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="28" Click="tabSumosChestBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <ComboBox x:Name="tabSumosHead" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Height="29" Margin="5,162,0,0" FontSize="14" IsEnabled="False"/>
                         <Controls:NumericUpDown x:Name="tabSumosNumHead" Minimum="0" Maximum="32767" StringFormat="" Margin="172,164,120,2" Height="28" Value="1" FontSize="14" IsEnabled="False" />
-                        <Button x:Name="tabSumosHeadBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,163,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="29" Click="tabSumosHeadBtn_Click"/>
+                        <Button x:Name="tabSumosHeadBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,163,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="29" Click="tabSumosHeadBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <ComboBox x:Name="tabSumosLHand" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Height="28" Margin="5,0,0,0" FontSize="14" IsEnabled="False"/>
                         <Controls:NumericUpDown x:Name="tabSumosNumLHand" Minimum="0" Maximum="32767" StringFormat="" Margin="172,0,120,166" Height="28" Value="1" FontSize="14" IsEnabled="False" />
-                        <Button x:Name="tabSumosLHandBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,0,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="29" Click="tabSumosLHandBtn_Click"/>
+                        <Button x:Name="tabSumosLHandBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,0,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="29" Click="tabSumosLHandBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
                     </Grid>
                     <Label x:Name="SummonOBoot" Content="靴子" HorizontalAlignment="Left" Margin="40,201,0,0" VerticalAlignment="Top" Height="26"/>
                     <Label x:Name="SummonOLeg" Content="护腿" HorizontalAlignment="Left" Margin="40,234,0,0" VerticalAlignment="Top" Height="26"/>
@@ -139,17 +138,17 @@
                         <Controls:NumericUpDown x:Name="tabSumosDCLHand" Minimum="0" Maximum="1" Interval="0.01" StringFormat="" Margin="290,75,10,15" Height="31" IsEnabled="False" Value="0.085" FontSize="14" />
                         <Label x:Name="SummonOLeftHand2" Content="左手" HorizontalAlignment="Left" Margin="247,77,0,0" VerticalAlignment="Top"/>
                     </Grid>
-                    <Button x:Name="tabSumosClear" Content="清空" HorizontalAlignment="Left" Margin="69,444,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosClear_Click"/>
-                    <Button x:Name="tabSumosCreate" Content="生成" HorizontalAlignment="Left" Margin="149,444,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosCreate_Click"/>
-                    <Button x:Name="tabSumosCheckBtn" Content="检索" HorizontalAlignment="Left" Margin="309,444,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosCheckBtn_Click"/>
-                    <Button x:Name="tabSumosHelp" Content="？" HorizontalAlignment="Left" Margin="389,444,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosHelp_Click"/>
-                    <Button x:Name="tabSumosCopy" Content="复制" HorizontalAlignment="Left" Margin="229,444,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosCopy_Click"/>
+                    <Button x:Name="tabSumosClear" Content="清空" HorizontalAlignment="Left" Margin="69,444,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosClear_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="tabSumosCreate" Content="生成" HorizontalAlignment="Left" Margin="149,444,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosCreate_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="tabSumosCheckBtn" Content="检索" HorizontalAlignment="Left" Margin="309,444,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosCheckBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="tabSumosHelp" Content="？" HorizontalAlignment="Left" Margin="389,444,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosHelp_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="tabSumosCopy" Content="复制" HorizontalAlignment="Left" Margin="229,444,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosCopy_Click" Style="{DynamicResource SquareButtonStyle}"/>
                     <CheckBox x:Name="tabSumosLeftHand" Content="左手主武器" HorizontalAlignment="Left" Margin="10,369,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <CheckBox x:Name="tabSumosNameVisible" Content="" HorizontalAlignment="Left" Margin="253,114,0,0" VerticalAlignment="Top" ToolTip="名称显示" IsChecked="True" IsEnabled="False" IsThreeState="True" Width="19"/>
                     <Grid HorizontalAlignment="Left" Height="37" Margin="532,218,0,0" VerticalAlignment="Top" Width="547">
                         <Label x:Name="SummonORiding1" Content="将实体加入第" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top"/>
                         <Controls:NumericUpDown x:Name="tabSumosRidingV1" Margin="94,6,372,5" Value="0" Maximum="100" Minimum="0" />
-                        <Button x:Name="tabSumosRiding" Content="Riding" HorizontalAlignment="Left" Margin="204,4,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosRiding_Click"/>
+                        <Button x:Name="tabSumosRiding" Content="Riding" HorizontalAlignment="Left" Margin="204,4,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosRiding_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <Label x:Name="SummonORiding2" Content="位" HorizontalAlignment="Left" Margin="175,4,0,0" VerticalAlignment="Top"/>
                     </Grid>
                     <CheckBox x:Name="tabSumosNowHealthCheck" Content="当前血量" HorizontalAlignment="Left" Margin="277,114,0,0" VerticalAlignment="Top" Click="tabSumosNowHealthCheck_Click"/>
@@ -178,9 +177,9 @@
                     </Grid>
                     <GroupBox x:Name="groupBox" Header="Extra" HorizontalAlignment="Left" Margin="527,258,0,0" VerticalAlignment="Top" Height="249" Width="554">
                         <Grid HorizontalAlignment="Left" Height="211" VerticalAlignment="Top" Width="544" Margin="0,0,-2,0">
-                            <Button x:Name="tabSumosEgg" Content="刷怪蛋" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" FontSize="12" Click="tabSumosEgg_Click" IsEnabled="False"/>
+                            <Button x:Name="tabSumosEgg" Content="刷怪蛋" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" FontSize="12" Click="tabSumosEgg_Click" IsEnabled="False" Style="{DynamicResource SquareButtonStyle}"/>
                             <CheckBox x:Name="tabSumosEPowered" Content="充能" HorizontalAlignment="Left" Margin="366,5,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                            <Button x:Name="tabSumosEEnderman" Content="获取方块" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" FontSize="12" IsEnabled="False" Margin="0,33,0,0" ToolTip="末影人所抓的方块" Click="tabSumosEEnderman_Click"/>
+                            <Button x:Name="tabSumosEEnderman" Content="获取方块" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" FontSize="12" IsEnabled="False" Margin="0,33,0,0" ToolTip="末影人所抓的方块" Click="tabSumosEEnderman_Click" Style="{DynamicResource SquareButtonStyle}"/>
                             <CheckBox x:Name="tabSumosEAtkByEnderman" Content="被末影人攻击" HorizontalAlignment="Left" Margin="366,38,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                             <CheckBox x:Name="tabSumosEElder" Content="长者" HorizontalAlignment="Left" Margin="465,6,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                             <TextBox x:Name="tabSumosEUUID" HorizontalAlignment="Left" Height="28" Margin="0,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117" ToolTip="驯养的玩家名(1.8-)/UUID(1.8+)，此UUID也可用于猪人的仇恨对象，保持空则不生成该标签" IsEnabled="False"/>
@@ -208,8 +207,8 @@
                             <Controls:NumericUpDown x:Name="tabSumosEExp" Minimum="-2147483648" Maximum="2147483647" StringFormat="" Margin="244,165,183,18" Value="0" FontSize="14" ToolTip="经验值数量" IsEnabled="False" />
                             <Slider x:Name="tabSumosEDuration" HorizontalAlignment="Left" Margin="366,161,0,0" VerticalAlignment="Top" Width="126" ToolTip="持续时间" IsEnabled="False" Value="600" Maximum="32768" ValueChanged="tabSumosEDuration_ValueChanged"/>
                             <Slider x:Name="tabSumosERadius" HorizontalAlignment="Left" Margin="366,184,0,0" VerticalAlignment="Top" Width="126" ToolTip="半径" IsEnabled="False" Value="2.9" ValueChanged="tabSumosERadius_ValueChanged"/>
-                            <Button x:Name="tabSumosEParticle" Content="P" HorizontalAlignment="Left" Margin="497,167,0,0" VerticalAlignment="Top" Width="19" ToolTip="粒子效果选择" IsEnabled="False" Click="tabSumosEParticle_Click" Height="3"/>
-                            <Button x:Name="tabSumosEParticleColor" Content="E" HorizontalAlignment="Left" Margin="521,167,0,0" VerticalAlignment="Top" Width="19" ToolTip="粒子效果颜色选择" IsEnabled="False" Height="3" Click="tabSumosEParticleColor_Click"/>
+                            <Button x:Name="tabSumosEParticle" Content="P" HorizontalAlignment="Left" Margin="497,167,0,0" VerticalAlignment="Top" Width="19" ToolTip="粒子效果选择" IsEnabled="False" Click="tabSumosEParticle_Click" Height="3" Style="{DynamicResource SquareButtonStyle}"/>
+                            <Button x:Name="tabSumosEParticleColor" Content="E" HorizontalAlignment="Left" Margin="521,167,0,0" VerticalAlignment="Top" Width="19" ToolTip="粒子效果颜色选择" IsEnabled="False" Height="3" Click="tabSumosEParticleColor_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         </Grid>
                     </GroupBox>
                     <Controls:NumericUpDown x:Name="tabSumosFireNum" Minimum="-2147483648" Maximum="2147483647" StringFormat="" Margin="328,364,574,125" Height="28" Value="600" FontSize="14" IsEnabled="False" Interval="10" />
@@ -230,7 +229,7 @@
                     <CheckBox x:Name="tabSummonHasEnchant" Content="有附魔√" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <CheckBox x:Name="tabSummonHasNL" Content="有自定义名称或Lore√" HorizontalAlignment="Left" Margin="90,86,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <CheckBox x:Name="tabSummonHasAttr" Content="有自定义物品属性√" HorizontalAlignment="Left" Margin="253,86,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <Button x:Name="tabSummonEnchantGetBtn" Content="←进行属性设置" HorizontalAlignment="Left" Margin="403,81,0,0" VerticalAlignment="Top" Width="105" FontSize="12" Click="tabSummonEnchantGetBtn_Click"/>
+                    <Button x:Name="tabSummonEnchantGetBtn" Content="←进行属性设置" HorizontalAlignment="Left" Margin="403,81,0,0" VerticalAlignment="Top" Width="105" FontSize="12" Click="tabSummonEnchantGetBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
                     <CheckBox x:Name="tabSummonUnbreaking" Content="不可破坏" HorizontalAlignment="Left" Margin="513,86,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <ComboBox x:Name="tabSummonHide" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" Width="583" Height="34" FontSize="14"/>
                     <Label x:Name="SummonSPickupWaitTime" Content="拿起等待时间(32767为拿不起来)：" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top"/>
@@ -239,21 +238,21 @@
                         <Controls:NumericUpDown x:Name="tabSummonPickupdelay" Minimum="-32768" Maximum="32767" StringFormat="" Margin="0,3,0,33" Height="28" Value="0" FontSize="14" />
                         <Controls:NumericUpDown x:Name="tabSummonAge" Minimum="-32768" Maximum="32767" Interval="5" StringFormat="" Margin="0,36,0,0" Height="28" Value="0" FontSize="14" />
                     </Grid>
-                    <Button x:Name="tabSummonClear" Content="清空" HorizontalAlignment="Left" Margin="13,222,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSummonClear_Click"/>
+                    <Button x:Name="tabSummonClear" Content="清空" HorizontalAlignment="Left" Margin="13,222,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSummonClear_Click" Style="{DynamicResource SquareButtonStyle}"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="SummonVHeader" Header="村民" Margin="-15,0,15,0">
                 <Grid>
                     <Label x:Name="SummonVType" Content="村民类型" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
                     <ComboBox x:Name="tabVillagerType" HorizontalAlignment="Left" Margin="81,8,0,0" VerticalAlignment="Top" Width="210" Height="30" FontSize="14"/>
-                    <Button x:Name="tabVillagerPre" Content="上一页" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabVillagerPre_Click"/>
+                    <Button x:Name="tabVillagerPre" Content="上一页" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabVillagerPre_Click" Style="{DynamicResource SquareButtonStyle}"/>
                     <Label x:Name="tabVillagerPageIndex" Content="-第01页-" HorizontalAlignment="Left" Margin="110,43,0,0" VerticalAlignment="Top"/>
-                    <Button x:Name="tabVillagerNext" Content="下一页" HorizontalAlignment="Left" Margin="206,43,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabVillagerNext_Click"/>
+                    <Button x:Name="tabVillagerNext" Content="下一页" HorizontalAlignment="Left" Margin="206,43,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabVillagerNext_Click" Style="{DynamicResource SquareButtonStyle}"/>
                     <Grid HorizontalAlignment="Left" Height="35" Margin="10,76,0,0" VerticalAlignment="Top" Width="582">
                         <ComboBox x:Name="tabVillagerA" HorizontalAlignment="Left" Margin="51,5,0,0" VerticalAlignment="Top" Width="230" Height="30" FontSize="14"/>
                         <Controls:NumericUpDown x:Name="tabVillagerACount" Minimum="1" Maximum="64" StringFormat="" Margin="286,5,195,2" Height="28" Value="1" FontSize="14" />
                         <Controls:NumericUpDown x:Name="tabVillagerAMeta" Minimum="0" Maximum="32767" StringFormat="" Margin="392,5,89,2" Height="28" IsEnabled="False" FontSize="14" Value="0" />
-                        <Button x:Name="tabVillagerAGet" Content="获取属性" HorizontalAlignment="Left" Margin="498,5,0,0" VerticalAlignment="Top" Width="84" FontSize="12" Click="tabVillagerAGet_Click"/>
+                        <Button x:Name="tabVillagerAGet" Content="获取属性" HorizontalAlignment="Left" Margin="498,5,0,0" VerticalAlignment="Top" Width="84" FontSize="12" Click="tabVillagerAGet_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <Label Content="A" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
                     </Grid>
                     <CheckBox x:Name="tabVillagerBCheck" Content="+？" HorizontalAlignment="Left" Margin="269,116,0,0" VerticalAlignment="Top" FontSize="14" Click="tabVillagerBCheck_Click"/>
@@ -262,7 +261,7 @@
                         <ComboBox x:Name="tabVillagerB" HorizontalAlignment="Left" Margin="51,5,0,0" VerticalAlignment="Top" Width="230" Height="30" IsEnabled="False" FontSize="14"/>
                         <Controls:NumericUpDown x:Name="tabVillagerBCount" Minimum="1" Maximum="64" StringFormat="" Margin="286,5,195,2" Height="28" IsEnabled="False" Value="1" FontSize="14" />
                         <Controls:NumericUpDown x:Name="tabVillagerBMeta" Minimum="0" Maximum="32767" StringFormat="" Margin="392,5,89,2" Height="28" IsEnabled="False" FontSize="14" Value="0" />
-                        <Button x:Name="tabVillagerBGet" Content="获取属性" HorizontalAlignment="Left" Margin="498,5,0,0" VerticalAlignment="Top" Width="84" FontSize="12" IsEnabled="False" Click="tabVillagerBGet_Click"/>
+                        <Button x:Name="tabVillagerBGet" Content="获取属性" HorizontalAlignment="Left" Margin="498,5,0,0" VerticalAlignment="Top" Width="84" FontSize="12" IsEnabled="False" Click="tabVillagerBGet_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <Label Content="B" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
                     </Grid>
                     <CheckBox x:Name="tabVillagerBMetaCheck" Content="Meta?" HorizontalAlignment="Left" Margin="423,180,0,0" VerticalAlignment="Top" FontSize="14" Click="tabVillagerBMetaCheck_Click"/>
@@ -280,7 +279,7 @@
                         <ComboBox x:Name="tabVillagerC" HorizontalAlignment="Left" Margin="51,5,0,0" VerticalAlignment="Top" Width="230" Height="30" FontSize="14"/>
                         <Controls:NumericUpDown x:Name="tabVillagerCCount" Minimum="1" Maximum="1000000" StringFormat="" Margin="286,5,195,2" Height="28" Value="1" FontSize="14" />
                         <Controls:NumericUpDown x:Name="tabVillagerCMeta" Minimum="0" Maximum="32767" StringFormat="" Margin="392,5,89,2" Height="28" IsEnabled="False" FontSize="14" Value="0" />
-                        <Button x:Name="tabVillagerCGet" Content="获取属性" HorizontalAlignment="Left" Margin="498,5,0,0" VerticalAlignment="Top" Width="84" FontSize="12" Click="tabVillagerCGet_Click"/>
+                        <Button x:Name="tabVillagerCGet" Content="获取属性" HorizontalAlignment="Left" Margin="498,5,0,0" VerticalAlignment="Top" Width="84" FontSize="12" Click="tabVillagerCGet_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <Label Content="C" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
                     </Grid>
                     <CheckBox x:Name="tabVillagerCMetaCheck" Content="Meta?" HorizontalAlignment="Left" Margin="423,244,0,0" VerticalAlignment="Top" FontSize="14" Click="tabVillagerCMetaCheck_Click"/>
@@ -292,7 +291,7 @@
                         <Controls:NumericUpDown x:Name="tabVillagerRewardExpValue" Minimum="0" Maximum="2147483647" StringFormat="" Margin="320,0,10,0" Height="28" IsEnabled="False" FontSize="14" Value="0" />
                         <CheckBox x:Name="tabVillagerRewardExp" Content="这个村民的交易不默认奖励经验值或奖励指定：" Margin="0,5,190,0" VerticalAlignment="Top" FontSize="14" Click="tabVillagerRewardExp_Click"/>
                     </Grid>
-                    <Button x:Name="tabVillagerClear" Content="清空" HorizontalAlignment="Left" Margin="13,339,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabVillagerClear_Click"/>
+                    <Button x:Name="tabVillagerClear" Content="清空" HorizontalAlignment="Left" Margin="13,339,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabVillagerClear_Click" Style="{DynamicResource SquareButtonStyle}"/>
                     <ListBox x:Name="pageList" HorizontalAlignment="Left" Height="502" Margin="604,5,0,0" VerticalAlignment="Top" Width="484"/>
                 </Grid>
             </TabItem>
@@ -350,15 +349,15 @@
                     </Grid>
                     <CheckBox x:Name="HorseHasChest" Content="有箱子" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="HorseTamedUUID" HorizontalAlignment="Left" Height="23" Margin="86,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" ToolTip="驯养的玩家名(1.8-)/UUID(1.8+)，保持空则不生成该标签" IsEnabled="False"/>
-                    <Button x:Name="HorseArmorBtn" Content="盔甲物品" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Width="163" IsEnabled="False"/>
-                    <Button x:Name="HorseSaddleBtn" Content="鞍物品" HorizontalAlignment="Left" Margin="176,69,0,0" VerticalAlignment="Top" Width="163" IsEnabled="False"/>
-                    <Controls:NumericUpDown x:Name="HorseVariantValue" Minimum="0" Maximum="32767" StringFormat="" Margin="53,99,757,390" Height="28" Value="0" FontSize="14" />
-                    <Label x:Name="HorseVariant" Content="变种" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top"/>
-                    <CheckBox x:Name="HorseTamed" Content="已驯服" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top" Click="HorseTamed_Click"/>
-                    <Controls:NumericUpDown x:Name="HorseTemper" Minimum="0" Maximum="100" StringFormat="" Margin="86,132,757,357" Height="28" Value="90" FontSize="14" ToolTip="驯化几率" />
-                    <CheckBox x:Name="HorseSkeletonTrap" Content="骷髅陷阱" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top" Click="HorseSkeletonTrap_Click"/>
-                    <Controls:NumericUpDown x:Name="HorseSkeletonTrapTime" Minimum="-2147483648" Maximum="18000" StringFormat="" Margin="114,165,757,324" Height="28" Value="0" FontSize="14" ToolTip="陷阱时间，增加至18000Ticks时自然刷新掉" />
-                    <CheckBox x:Name="HorseSaddle" Content="拥有马鞍" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="HorseArmorBtn" Content="盔甲物品" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Width="163" IsEnabled="False" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="HorseSaddleBtn" Content="鞍物品" HorizontalAlignment="Left" Margin="176,69,0,0" VerticalAlignment="Top" Width="163" IsEnabled="False" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Controls:NumericUpDown x:Name="HorseVariantValue" Minimum="0" Maximum="32767" StringFormat="" Margin="53,105,757,384" Height="28" Value="0" FontSize="14" />
+                    <Label x:Name="HorseVariant" Content="变种" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="HorseTamed" Content="已驯服" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Click="HorseTamed_Click"/>
+                    <Controls:NumericUpDown x:Name="HorseTemper" Minimum="0" Maximum="100" StringFormat="" Margin="86,138,757,351" Height="28" Value="90" FontSize="14" ToolTip="驯化几率" />
+                    <CheckBox x:Name="HorseSkeletonTrap" Content="骷髅陷阱" HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top" Click="HorseSkeletonTrap_Click"/>
+                    <Controls:NumericUpDown x:Name="HorseSkeletonTrapTime" Minimum="-2147483648" Maximum="18000" StringFormat="" Margin="114,171,757,318" Height="28" Value="0" FontSize="14" ToolTip="陷阱时间，增加至18000Ticks时自然刷新掉" />
+                    <CheckBox x:Name="HorseSaddle" Content="拥有马鞍" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="SummonBHeader" Header="属性设置" Margin="250,0,-250,0">
@@ -381,7 +380,7 @@
                             <Controls:NumericUpDown x:Name="tabItemAttrZombieR" Minimum="0" Maximum="1" Interval="5" StringFormat="" Margin="93,190,10,6" Height="25" IsEnabled="False" Value="0" />
                         </Grid>
                     </GroupBox>
-                    <Button x:Name="EntityAttritube" Content="生成" HorizontalAlignment="Left" Margin="10,279,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="EntityAttritube_Click"/>
+                    <Button x:Name="EntityAttritube" Content="生成" HorizontalAlignment="Left" Margin="10,279,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="EntityAttritube_Click" Style="{DynamicResource SquareButtonStyle}"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="ridingLoader" Header="骑乘生成" Margin="250,0,-250,0" Width="120" PreviewMouseLeftButtonDown="ridingLoader_PreviewMouseLeftButtonDown">

@@ -19,8 +19,8 @@
             <Label Content="Z:" HorizontalAlignment="Left" Margin="379,3,0,0" VerticalAlignment="Top"/>
             <Controls:NumericUpDown x:Name="tabRItemZ" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="413,0,10,0" Height="28" />
         </Grid>
-        <Button x:Name="atBtn" Content="At获取" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Width="269" Click="atBtn_Click"/>
-        <Button x:Name="attrBtn" Content="Enchant&amp;NameLore&amp;Attribute获取" HorizontalAlignment="Left" Margin="291,74,0,0" VerticalAlignment="Top" Width="269" Click="attrBtn_Click"/>
+        <Button x:Name="atBtn" Content="At获取" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Width="269" Click="atBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="attrBtn" Content="Enchant&amp;NameLore&amp;Attribute获取" HorizontalAlignment="Left" Margin="291,74,0,0" VerticalAlignment="Top" Width="269" Click="attrBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <ComboBox x:Name="tabRItemSlot" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Width="269"/>
         <ComboBox x:Name="tabRItemItem" HorizontalAlignment="Left" Margin="291,104,0,0" VerticalAlignment="Top" Width="269"/>
         <Label x:Name="ReplaceItemMeta" Content="请填写Meta/Damage/附加值：" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top"/>
@@ -37,11 +37,11 @@
         <CheckBox x:Name="tabRItemHasAttr" Content="有自定义物品属性√ （同上）" HorizontalAlignment="Left" Margin="10,275,0,0" VerticalAlignment="Top" Click="tabRItemHasAttr_Checked"/>
         <CheckBox x:Name="tabRItemUnbreaking" Content="不可破坏" HorizontalAlignment="Left" Margin="10,176,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="tabRItemHide" HorizontalAlignment="Left" Margin="10,298,0,0" VerticalAlignment="Top" Width="550"/>
-        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="11,329,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click"/>
-        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="91,329,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click"/>
-        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="251,329,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click"/>
-        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="331,329,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click"/>
-        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="171,329,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click"/>
+        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="11,329,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="91,329,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="251,329,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="331,329,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="171,329,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
 
     </Grid>
 </Controls:MetroWindow>

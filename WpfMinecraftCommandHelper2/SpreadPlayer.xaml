@@ -16,13 +16,13 @@
             <Controls:NumericUpDown x:Name="tabSPZ" Minimum="-10000000" Maximum="10000000" Interval="5" StringFormat="" Margin="293,7,10,97" Height="28" Value="0" />
             <Controls:NumericUpDown x:Name="tabSPMin" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="109,40,10,64" Height="28" Value="0" />
             <Controls:NumericUpDown x:Name="tabSPMax" Minimum="1" Maximum="1000000" Interval="5" StringFormat="" Margin="109,73,10,31" Height="28" Value="1" ValueChanged="tabSPMax_ValueChanged" />
-            <Button x:Name="atBtn" Content="At获取" HorizontalAlignment="Left" Margin="394,107,0,0" VerticalAlignment="Top" Width="94" Click="atBtn_Click" IsEnabled="False"/>
+            <Button x:Name="atBtn" Content="At获取" HorizontalAlignment="Left" Margin="394,107,0,0" VerticalAlignment="Top" Width="94" Click="atBtn_Click" IsEnabled="False" Style="{DynamicResource SquareButtonStyle}"/>
         </Grid>
-        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="19,147,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click"/>
-        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="99,147,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click"/>
-        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="259,147,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click"/>
-        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="339,147,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click"/>
-        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="179,147,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click"/>
+        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="19,147,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="99,147,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="259,147,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="339,147,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="179,147,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
 
     </Grid>
 </Controls:MetroWindow>
