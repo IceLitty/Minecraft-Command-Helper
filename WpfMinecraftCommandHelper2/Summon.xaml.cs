@@ -844,29 +844,51 @@ namespace WpfMinecraftCommandHelper2
             tabSumosEgg.IsEnabled = true;
             AllSelData asd = new AllSelData();
             string sumosText = "ArmorItems:[";
-            if (!isMC19) sumosText = "Equipment:[";
             int equipCount = 0;
-            if (sumosEquipmentBootId != 0) { equipCount++; sumosText += "0:{id:" + asd.getItem(sumosEquipmentBootId) + ",Count:" + sumosEquipmentBootCount + "b,Damage:" + sumosEquipmentBootDamage + "s,tag:{" + globalSumosBoot + "}},"; }
-            if (sumosEquipmentLegId != 0) { equipCount++; sumosText += "1:{id:" + asd.getItem(sumosEquipmentLegId) + ",Count:" + sumosEquipmentLegCount + "b,Damage:" + sumosEquipmentLegDamage + "s,tag:{" + globalSumosLeg + "}},"; }
-            if (sumosEquipmentChestId != 0) { equipCount++; sumosText += "2:{id:" + asd.getItem(sumosEquipmentChestId) + ",Count:" + sumosEquipmentChestCount + "b,Damage:" + sumosEquipmentChestDamage + "s,tag:{" + globalSumosChest + "}},"; }
-            if (tabSumosHasHeadID.IsChecked.Value == false)
+            if (!isMC19)
             {
-                if (sumosEquipmentHeadId != 0)
+                sumosText = "Equipment:[";
+                if (sumosEquipmentBootId != 0) { equipCount++; sumosText += "{id:" + asd.getItem(sumosEquipmentBootId) + ",Count:" + sumosEquipmentBootCount + "b,Damage:" + sumosEquipmentBootDamage + "s,tag:{" + globalSumosBoot + "}},"; } else { equipCount++; sumosText += "{},"; }
+                if (sumosEquipmentLegId != 0) { equipCount++; sumosText += "{id:" + asd.getItem(sumosEquipmentLegId) + ",Count:" + sumosEquipmentLegCount + "b,Damage:" + sumosEquipmentLegDamage + "s,tag:{" + globalSumosLeg + "}},"; } else { equipCount++; sumosText += "{},"; }
+                if (sumosEquipmentChestId != 0) { equipCount++; sumosText += "{id:" + asd.getItem(sumosEquipmentChestId) + ",Count:" + sumosEquipmentChestCount + "b,Damage:" + sumosEquipmentChestDamage + "s,tag:{" + globalSumosChest + "}},"; } else { equipCount++; sumosText += "{},"; }
+                if (tabSumosHasHeadID.IsChecked.Value == false)
                 {
-                    sumosText += "3:{id:" + asd.getItem(sumosEquipmentHeadId) + ",Count:" + sumosEquipmentHeadCount + "b,Damage:" + sumosEquipmentHeadDamage + "s,tag:{" + globalSumosHead + "}},";
+                    if (sumosEquipmentHeadId != 0)
+                    {
+                        sumosText += "{id:" + asd.getItem(sumosEquipmentHeadId) + ",Count:" + sumosEquipmentHeadCount + "b,Damage:" + sumosEquipmentHeadDamage + "s,tag:{" + globalSumosHead + "}},";
+                        equipCount++;
+                    }
+                    else { equipCount++; sumosText += "{},"; }
+                }
+                else
+                {
+                    globalSumosTempSel = tabSumosHead.SelectedIndex;
+                    tabSumosHead.SelectedIndex = 280;
+                    sumosText += "{id:" + asd.getItem(280) + ",Count:" + sumosEquipmentHeadCount + "b,Damage:3s,tag:" + tabSumosHeadID.Text + "},";
                     equipCount++;
                 }
+                if (sumosEquipmentMainHandId != 0) { equipCount++; sumosText += "{id:" + asd.getItem(sumosEquipmentMainHandId) + ",Count:" + sumosEquipmentMainHandCount + "b,Damage:" + sumosEquipmentMainHandDamage + "s,tag:{" + globalSumosHand + "}},"; }
             }
             else
             {
-                globalSumosTempSel = tabSumosHead.SelectedIndex;
-                tabSumosHead.SelectedIndex = 280;
-                sumosText += "3:{id:" + asd.getItem(280) + ",Count:" + sumosEquipmentHeadCount + "b,Damage:3s,tag:" + tabSumosHeadID.Text + "},";
-                equipCount++;
-            }
-            if (!isMC19)
-            {
-                if (sumosEquipmentMainHandId != 0) { equipCount++; sumosText += "4:{id:" + asd.getItem(sumosEquipmentMainHandId) + ",Count:" + sumosEquipmentMainHandCount + "b,Damage:" + sumosEquipmentMainHandDamage + "s,tag:{" + globalSumosHand + "}},"; }
+                if (sumosEquipmentBootId != 0) { equipCount++; sumosText += "0:{id:" + asd.getItem(sumosEquipmentBootId) + ",Count:" + sumosEquipmentBootCount + "b,Damage:" + sumosEquipmentBootDamage + "s,tag:{" + globalSumosBoot + "}},"; }
+                if (sumosEquipmentLegId != 0) { equipCount++; sumosText += "1:{id:" + asd.getItem(sumosEquipmentLegId) + ",Count:" + sumosEquipmentLegCount + "b,Damage:" + sumosEquipmentLegDamage + "s,tag:{" + globalSumosLeg + "}},"; }
+                if (sumosEquipmentChestId != 0) { equipCount++; sumosText += "2:{id:" + asd.getItem(sumosEquipmentChestId) + ",Count:" + sumosEquipmentChestCount + "b,Damage:" + sumosEquipmentChestDamage + "s,tag:{" + globalSumosChest + "}},"; }
+                if (tabSumosHasHeadID.IsChecked.Value == false)
+                {
+                    if (sumosEquipmentHeadId != 0)
+                    {
+                        sumosText += "3:{id:" + asd.getItem(sumosEquipmentHeadId) + ",Count:" + sumosEquipmentHeadCount + "b,Damage:" + sumosEquipmentHeadDamage + "s,tag:{" + globalSumosHead + "}},";
+                        equipCount++;
+                    }
+                }
+                else
+                {
+                    globalSumosTempSel = tabSumosHead.SelectedIndex;
+                    tabSumosHead.SelectedIndex = 280;
+                    sumosText += "3:{id:" + asd.getItem(280) + ",Count:" + sumosEquipmentHeadCount + "b,Damage:3s,tag:" + tabSumosHeadID.Text + "},";
+                    equipCount++;
+                }
             }
             if (equipCount != 0)
             {
