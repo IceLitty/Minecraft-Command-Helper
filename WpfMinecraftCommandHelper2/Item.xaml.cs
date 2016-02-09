@@ -296,9 +296,10 @@ namespace WpfMinecraftCommandHelper2
                 finalStr = give + finalString + "}";
             }
             //判断是否含有颜色代码
-            if (finalStr.IndexOf(@"\u00A7") != -1)
+            if (finalStr.IndexOf("\u00A7") != -1)
             {
-                finalStr.Replace(@"\u00A7", @"\\u00A7");
+                finalStr.Replace("\"", "\\\\\\\"");
+                finalStr.Replace("\u00A7", @"\\u00A7");
                 finalStr = "/setblock ~ ~1 ~ standing_sign 0 replace {Text1:\"{text:\\\"请点击我\\\",clickEvent:{action:\\\"run_command\\\",value:\\\"/blockdata ~ ~-1 ~ {Command:" + finalStr + ",}\\\"}}\"}";
             }
             globalCommand = finalStr;
@@ -510,27 +511,27 @@ namespace WpfMinecraftCommandHelper2
             }
             else if (AttrMainHand.IsChecked.Value)
             {
-                return ",Slot:\"mainhand\"";
+                return ",Slot:mainhand";
             }
             else if (AttrOffHand.IsChecked.Value)
             {
-                return ",Slot:\"offhand\"";
+                return ",Slot:offhand";
             }
             else if (AttrHead.IsChecked.Value)
             {
-                return ",Slot:\"head\"";
+                return ",Slot:head";
             }
             else if (AttrChest.IsChecked.Value)
             {
-                return ",Slot:\"chest\"";
+                return ",Slot:chest";
             }
             else if (AttrLegs.IsChecked.Value)
             {
-                return ",Slot:\"legs\"";
+                return ",Slot:legs";
             }
             else if (AttrFeet.IsChecked.Value)
             {
-                return ",Slot:\"feet\"";
+                return ",Slot:feet";
             }
             else
             {

@@ -281,27 +281,53 @@ namespace WpfMinecraftCommandHelper2
                 output += globalPool.Substring(0, globalPool.Length - 1);
             }
             output += "]}";
-            string path = "";
-            try
+            if (LootTableFileName.Text.IndexOf(':') == -1)
             {
-                JObject allText = (JObject)JsonConvert.DeserializeObject(output);
-                if (!Directory.Exists(Directory.GetCurrentDirectory() + @"\data\loot_tables\"))
+                Check cbox = new Check();
+                cbox.showText(LootTableFileName.ToolTip + " Error.");
+                cbox.Show();
+            }
+            else
+            {
+                string path = LootTableFileName.Text.Split(':')[1];
+                string namespacePath = LootTableFileName.Text.Split(':')[0];
+                try
                 {
-                    Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\data\loot_tables\");
-                }
-                path = LootTableFileName.Text.Split(':')[1];
-                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\\data\loot_tables\" + path + ".json", FileMode.Create))
-                {
-                    using (StreamWriter sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
+                    JObject allText = (JObject)JsonConvert.DeserializeObject(output);
+                    if (!Directory.Exists(Directory.GetCurrentDirectory() + @"\data\loot_tables\" + namespacePath + @"\"))
                     {
-                        sw.Write(allText);
+                        Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\data\loot_tables\" + namespacePath + @"\");
+                    }
+                    path = path.Replace("\\\\\\", "\\");
+                    path = path.Replace("\\\\", "\\");
+                    path = path.Replace('/', '\\');
+                    string[] dirCheck = path.Split('\\');
+                    string dirCheckPath = "";
+                    for (int i = 0; i < dirCheck.Length - 1; i++)
+                    {
+                        dirCheckPath += dirCheck[i] + @"\";
+                    }
+                    if (!Directory.Exists(Directory.GetCurrentDirectory() + @"\data\loot_tables\" + namespacePath + @"\" + dirCheckPath))
+                    {
+                        Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\data\loot_tables\" + namespacePath + @"\" + dirCheckPath);
+                    }
+                    if (File.Exists(Directory.GetCurrentDirectory() + @"\data\loot_tables\" + namespacePath + @"\" + path + ".json"))
+                    {
+                        File.Delete(Directory.GetCurrentDirectory() + @"\data\loot_tables\" + namespacePath + @"\" + path + ".json");
+                    }
+                    using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\data\loot_tables\" + namespacePath + @"\" + path + ".json", FileMode.Create))
+                    {
+                        using (StreamWriter sw = new StreamWriter(fs, System.Text.Encoding.UTF8))
+                        {
+                            sw.Write(allText);
+                        }
                     }
                 }
+                catch (Exception) { /* throw; */ }
+                Check cbox = new Check();
+                cbox.showText(output, LootTableSaveTitle + @"\data\loot_tables\" + namespacePath + @"\" + path + ".json");
+                cbox.Show();
             }
-            catch (Exception) { /* throw; */ }
-            Check cbox = new Check();
-            cbox.showText(output, LootTableSaveTitle + @"\data\loot_tables\" + path + ".json");
-            cbox.Show();
         }
 
         private void PoolCreateBtn_Click(object sender, RoutedEventArgs e)
@@ -343,12 +369,12 @@ namespace WpfMinecraftCommandHelper2
             string tempEntry = "{";
             if (EntryGetConditionBtn.IsChecked.Value)
             {
-                tempEntry += globalCondition + ",";
+                if (globalCondition != "") { tempEntry += globalCondition + ","; }
             }
             if (EntryItem.IsChecked.Value)
             {
                 AllSelData asd = new AllSelData();
-                tempEntry += "\"type\":\"item\",\"name\":" + asd.getItem(EntryItemSel.SelectedIndex) + "\",";
+                tempEntry += "\"type\":\"item\",\"name\":\"" + asd.getItem(EntryItemSel.SelectedIndex) + "\",";
             }
             else if(EntryLoottable.IsChecked.Value)
             {
@@ -360,7 +386,7 @@ namespace WpfMinecraftCommandHelper2
             }
             if (EntryGetFunctionBtn.IsChecked.Value)
             {
-                tempEntry += globalFunction + ",";
+                if (globalFunction != "") { tempEntry += globalFunction + ","; }
             }
             tempEntry += "\"weight\":" + EntryWeight.Value.Value + ",\"quality\":" + EntryQuality.Value.Value + "},";
             globalEntry += tempEntry;
@@ -374,6 +400,20 @@ namespace WpfMinecraftCommandHelper2
         }
 
         private void functionClear_Click(object sender, RoutedEventArgs e)
+        {
+            globalFunction = "";
+            globalFCRandomEnchant = "";
+            globalFCEnchant = "";
+            globalFCFurnace = "";
+            globalFCLCount = "";
+            globalFCAttribute = "";
+            globalFCCount = "";
+            globalFCDamage = "";
+            globalFCMeta = "";
+            globalFCNBT = "";
+        }
+
+        private void functionCreate_Click(object sender, RoutedEventArgs e)
         {
             globalFunction = "\"functions\":[";
             bool del = false;
@@ -453,20 +493,6 @@ namespace WpfMinecraftCommandHelper2
             globalFunction += "]";
         }
 
-        private void functionCreate_Click(object sender, RoutedEventArgs e)
-        {
-            globalFunction = "";
-            globalFCRandomEnchant = "";
-            globalFCEnchant = "";
-            globalFCFurnace = "";
-            globalFCLCount = "";
-            globalFCAttribute = "";
-            globalFCCount = "";
-            globalFCDamage = "";
-            globalFCMeta = "";
-            globalFCNBT = "";
-        }
-
         private void conditionsCreateBtn_Click(object sender, RoutedEventArgs e)
         {
             bool del = false;
@@ -501,7 +527,8 @@ namespace WpfMinecraftCommandHelper2
             }
             if (conditionsKillByPlayerCheck.IsChecked.Value)
             {
-                globalCondition += "{\"condition\":\"killed_by_player\",\"inverse\":" + conditionsKillByPlayerNot.IsChecked.Value + "},";
+                if (conditionsKillByPlayerNot.IsChecked.Value) { globalCondition += "{\"condition\":\"killed_by_player\",\"inverse\":true},"; }
+                else { globalCondition += "{\"condition\":\"killed_by_player\"},"; }
                 del = true;
             }
             if (del)
