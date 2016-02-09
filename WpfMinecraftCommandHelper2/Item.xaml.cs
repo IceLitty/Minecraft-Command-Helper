@@ -296,10 +296,9 @@ namespace WpfMinecraftCommandHelper2
                 finalStr = give + finalString + "}";
             }
             //判断是否含有颜色代码
-            if (finalStr.IndexOf("\u00A7") != -1)
+            if (finalStr.IndexOf("§") != -1)
             {
-                finalStr.Replace("\"", "\\\\\\\"");
-                finalStr.Replace("\u00A7", @"\\u00A7");
+                finalStr = finalStr.Replace("§", @"\\u00A7");
                 finalStr = "/setblock ~ ~1 ~ standing_sign 0 replace {Text1:\"{text:\\\"请点击我\\\",clickEvent:{action:\\\"run_command\\\",value:\\\"/blockdata ~ ~-1 ~ {Command:" + finalStr + ",}\\\"}}\"}";
             }
             globalCommand = finalStr;
