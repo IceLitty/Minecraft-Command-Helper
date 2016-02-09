@@ -557,7 +557,7 @@ namespace WpfMinecraftCommandHelper2
                 if (AttrMaxHealth_OffHand.IsChecked.Value) { slot += "\"offhand\","; }
                 if (AttrMaxHealth_Feet.IsChecked.Value) { slot += "\"feet\","; }
                 if (AttrMaxHealth_Legs.IsChecked.Value) { slot += "\"legs\","; }
-                if (AttrMaxHealth_Chest.IsChecked.Value) { slot += "\"torso\","; }
+                if (AttrMaxHealth_Chest.IsChecked.Value) { slot += "\"chest\","; }
                 if (AttrMaxHealth_Head.IsChecked.Value) { slot += "\"head\","; }
                 if (slot != ",\"slot\":[") { slot = slot.Substring(0, slot.Length - 1); }
                 slot += "]";
@@ -574,7 +574,7 @@ namespace WpfMinecraftCommandHelper2
                 if (AttrRange_OffHand.IsChecked.Value) { slot += "\"offhand\","; }
                 if (AttrRange_Feet.IsChecked.Value) { slot += "\"feet\","; }
                 if (AttrRange_Legs.IsChecked.Value) { slot += "\"legs\","; }
-                if (AttrRange_Chest.IsChecked.Value) { slot += "\"torso\","; }
+                if (AttrRange_Chest.IsChecked.Value) { slot += "\"chest\","; }
                 if (AttrRange_Head.IsChecked.Value) { slot += "\"head\","; }
                 if (slot != ",\"slot\":[") { slot = slot.Substring(0, slot.Length - 1); }
                 slot += "]";
@@ -591,7 +591,7 @@ namespace WpfMinecraftCommandHelper2
                 if (AttrKnockBack_OffHand.IsChecked.Value) { slot += "\"offhand\","; }
                 if (AttrKnockBack_Feet.IsChecked.Value) { slot += "\"feet\","; }
                 if (AttrKnockBack_Legs.IsChecked.Value) { slot += "\"legs\","; }
-                if (AttrKnockBack_Chest.IsChecked.Value) { slot += "\"torso\","; }
+                if (AttrKnockBack_Chest.IsChecked.Value) { slot += "\"chest\","; }
                 if (AttrKnockBack_Head.IsChecked.Value) { slot += "\"head\","; }
                 if (slot != ",\"slot\":[") { slot = slot.Substring(0, slot.Length - 1); }
                 slot += "]";
@@ -608,7 +608,7 @@ namespace WpfMinecraftCommandHelper2
                 if (AttrMoveSpeed_OffHand.IsChecked.Value) { slot += "\"offhand\","; }
                 if (AttrMoveSpeed_Feet.IsChecked.Value) { slot += "\"feet\","; }
                 if (AttrMoveSpeed_Legs.IsChecked.Value) { slot += "\"legs\","; }
-                if (AttrMoveSpeed_Chest.IsChecked.Value) { slot += "\"torso\","; }
+                if (AttrMoveSpeed_Chest.IsChecked.Value) { slot += "\"chest\","; }
                 if (AttrMoveSpeed_Head.IsChecked.Value) { slot += "\"head\","; }
                 if (slot != ",\"slot\":[") { slot = slot.Substring(0, slot.Length - 1); }
                 slot += "]";
@@ -625,7 +625,7 @@ namespace WpfMinecraftCommandHelper2
                 if (AttrAtkDmg_OffHand.IsChecked.Value) { slot += "\"offhand\","; }
                 if (AttrAtkDmg_Feet.IsChecked.Value) { slot += "\"feet\","; }
                 if (AttrAtkDmg_Legs.IsChecked.Value) { slot += "\"legs\","; }
-                if (AttrAtkDmg_Chest.IsChecked.Value) { slot += "\"torso\","; }
+                if (AttrAtkDmg_Chest.IsChecked.Value) { slot += "\"chest\","; }
                 if (AttrAtkDmg_Head.IsChecked.Value) { slot += "\"head\","; }
                 if (slot != ",\"slot\":[") { slot = slot.Substring(0, slot.Length - 1); }
                 slot += "]";
@@ -642,7 +642,7 @@ namespace WpfMinecraftCommandHelper2
                 if (AttrArmor_OffHand.IsChecked.Value) { slot += "\"offhand\","; }
                 if (AttrArmor_Feet.IsChecked.Value) { slot += "\"feet\","; }
                 if (AttrArmor_Legs.IsChecked.Value) { slot += "\"legs\","; }
-                if (AttrArmor_Chest.IsChecked.Value) { slot += "\"torso\","; }
+                if (AttrArmor_Chest.IsChecked.Value) { slot += "\"chest\","; }
                 if (AttrArmor_Head.IsChecked.Value) { slot += "\"head\","; }
                 if (slot != ",\"slot\":[") { slot = slot.Substring(0, slot.Length - 1); }
                 slot += "]";
@@ -659,7 +659,7 @@ namespace WpfMinecraftCommandHelper2
                 if (AttrAtkSpeed_OffHand.IsChecked.Value) { slot += "\"offhand\","; }
                 if (AttrAtkSpeed_Feet.IsChecked.Value) { slot += "\"feet\","; }
                 if (AttrAtkSpeed_Legs.IsChecked.Value) { slot += "\"legs\","; }
-                if (AttrAtkSpeed_Chest.IsChecked.Value) { slot += "\"torso\","; }
+                if (AttrAtkSpeed_Chest.IsChecked.Value) { slot += "\"chest\","; }
                 if (AttrAtkSpeed_Head.IsChecked.Value) { slot += "\"head\","; }
                 if (slot != ",\"slot\":[") { slot = slot.Substring(0, slot.Length - 1); }
                 slot += "]";
@@ -676,7 +676,7 @@ namespace WpfMinecraftCommandHelper2
                 if (AttrLuck_OffHand.IsChecked.Value) { slot += "\"offhand\","; }
                 if (AttrLuck_Feet.IsChecked.Value) { slot += "\"feet\","; }
                 if (AttrLuck_Legs.IsChecked.Value) { slot += "\"legs\","; }
-                if (AttrLuck_Chest.IsChecked.Value) { slot += "\"torso\","; }
+                if (AttrLuck_Chest.IsChecked.Value) { slot += "\"chest\","; }
                 if (AttrLuck_Head.IsChecked.Value) { slot += "\"head\","; }
                 if (slot != ",\"slot\":[") { slot = slot.Substring(0, slot.Length - 1); }
                 slot += "]";
@@ -693,7 +693,7 @@ namespace WpfMinecraftCommandHelper2
                 if (AttrJump_OffHand.IsChecked.Value) { slot += "\"offhand\","; }
                 if (AttrJump_Feet.IsChecked.Value) { slot += "\"feet\","; }
                 if (AttrJump_Legs.IsChecked.Value) { slot += "\"legs\","; }
-                if (AttrJump_Chest.IsChecked.Value) { slot += "\"torso\","; }
+                if (AttrJump_Chest.IsChecked.Value) { slot += "\"chest\","; }
                 if (AttrJump_Head.IsChecked.Value) { slot += "\"head\","; }
                 if (slot != ",\"slot\":[") { slot = slot.Substring(0, slot.Length - 1); }
                 slot += "]";
@@ -710,7 +710,7 @@ namespace WpfMinecraftCommandHelper2
                 if (AttrZombie_OffHand.IsChecked.Value) { slot += "\"offhand\","; }
                 if (AttrZombie_Feet.IsChecked.Value) { slot += "\"feet\","; }
                 if (AttrZombie_Legs.IsChecked.Value) { slot += "\"legs\","; }
-                if (AttrZombie_Chest.IsChecked.Value) { slot += "\"torso\","; }
+                if (AttrZombie_Chest.IsChecked.Value) { slot += "\"chest\","; }
                 if (AttrZombie_Head.IsChecked.Value) { slot += "\"head\","; }
                 if (slot != ",\"slot\":[") { slot = slot.Substring(0, slot.Length - 1); }
                 slot += "]";
