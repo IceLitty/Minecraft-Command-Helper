@@ -232,13 +232,15 @@
                     <Button x:Name="tabSummonEnchantGetBtn" Content="←进行属性设置" HorizontalAlignment="Left" Margin="403,81,0,0" VerticalAlignment="Top" Width="105" FontSize="12" Click="tabSummonEnchantGetBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
                     <CheckBox x:Name="tabSummonUnbreaking" Content="不可破坏" HorizontalAlignment="Left" Margin="513,86,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <ComboBox x:Name="tabSummonHide" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" Width="583" Height="34" FontSize="14"/>
-                    <Label x:Name="SummonSPickupWaitTime" Content="拿起等待时间(32767为拿不起来)：" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="SummonSDespawnTime" Content="消失等待时间(-32768为永不消失)：" HorizontalAlignment="Left" Margin="10,189,0,0" VerticalAlignment="Top"/>
-                    <Grid HorizontalAlignment="Left" Height="64" Margin="249,153,0,0" VerticalAlignment="Top" Width="344">
-                        <Controls:NumericUpDown x:Name="tabSummonPickupdelay" Minimum="-32768" Maximum="32767" StringFormat="" Margin="0,3,0,33" Height="28" Value="0" FontSize="14" />
-                        <Controls:NumericUpDown x:Name="tabSummonAge" Minimum="-32768" Maximum="32767" Interval="5" StringFormat="" Margin="0,36,0,0" Height="28" Value="0" FontSize="14" />
+                    <Label x:Name="SummonSPickupWaitTime" Content="拿起等待时间(32767为拿不起来)：" HorizontalAlignment="Left" Margin="39,157,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="SummonSDespawnTime" Content="消失等待时间(-32768为永不消失)：" HorizontalAlignment="Left" Margin="33,189,0,0" VerticalAlignment="Top"/>
+                    <Grid HorizontalAlignment="Left" Height="64" Margin="272,153,0,0" VerticalAlignment="Top" Width="321">
+                        <Controls:NumericUpDown x:Name="tabSummonPickupdelay" Minimum="-32768" Maximum="32767" StringFormat="" Margin="0,3,0,33" Height="28" Value="0" FontSize="14" IsEnabled="False" />
+                        <Controls:NumericUpDown x:Name="tabSummonAge" Minimum="-32768" Maximum="32767" Interval="5" StringFormat="" Margin="0,36,0,0" Height="28" Value="0" FontSize="14" IsEnabled="False" />
                     </Grid>
                     <Button x:Name="tabSummonClear" Content="清空" HorizontalAlignment="Left" Margin="13,222,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSummonClear_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <CheckBox x:Name="tabSummonPickupdelayCheck" Content="" HorizontalAlignment="Left" Margin="11,162,0,0" VerticalAlignment="Top" Width="21" Click="tabSummonPickupdelayCheck_Click"/>
+                    <CheckBox x:Name="tabSummonAgeCheck" Content="" HorizontalAlignment="Left" Margin="11,194,0,0" VerticalAlignment="Top" Width="21" Click="tabSummonAgeCheck_Click"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="SummonVHeader" Header="村民" Margin="-15,0,15,0">

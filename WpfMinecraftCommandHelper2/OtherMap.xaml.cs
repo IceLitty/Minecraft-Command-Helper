@@ -659,6 +659,8 @@ namespace WpfMinecraftCommandHelper2
         {
             string ValueURL = "";
             System.Net.HttpWebRequest ValueURLRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.Create("http://skins.minecraft.net/MinecraftSkins/" + PlayerName + ".png");
+            // http://skins.minecraft.net/MinecraftSkins/Notch.png Skin, just jump
+            // http://skins.minecraft.net/MinecraftCloaks/Notch.png Cloak, jump and download
             ValueURLRequest.Method = "GET";
             try { ValueURL = ValueURLRequest.GetResponse().ResponseUri.ToString(); }
             catch (Exception) { }

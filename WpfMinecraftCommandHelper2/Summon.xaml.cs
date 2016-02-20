@@ -1432,7 +1432,16 @@ namespace WpfMinecraftCommandHelper2
                 }
                 else
                 {
-                    string summonText = "PickupDelay:" + tabSummonPickupdelay.Value + ",Age:" + tabSummonAge.Value + ",Item:{id:\"" + asd.getItem(tabSummonItem.SelectedIndex) + "\",Count:" + tabSummonCount.Value + ",Damage:" + tabSummonMeta.Value;
+                    string summonText = "";
+                    if (tabSummonPickupdelayCheck.IsChecked.Value)
+                    {
+                        summonText += "PickupDelay:" + tabSummonPickupdelay.Value + ",";
+                    }
+                    if (tabSummonAgeCheck.IsChecked.Value)
+                    {
+                        summonText += "Age:" + tabSummonAge.Value + ",";
+                    }
+                    summonText += "Item:{id:\"" + asd.getItem(tabSummonItem.SelectedIndex) + "\",Count:" + tabSummonCount.Value + ",Damage:" + tabSummonMeta.Value;
                     summonText += ",tag:{HideFlags:" + tabSummonHide.SelectedIndex;
                     if (tabSummonUnbreaking.IsChecked.Value)
                     {
@@ -1441,13 +1450,13 @@ namespace WpfMinecraftCommandHelper2
                     if (tabSummonHasEnchant.IsChecked.Value || tabSummonHasNL.IsChecked.Value || tabSummonHasAttr.IsChecked.Value)
                     {
                         string meta = tabSummonGetBackMeta();
-                        summonText = summonText + "," + meta;
+                        summonText += "," + meta;
                     }
                     summonText += "}}";
-                    if (tabSumosEOwner.Text != "") { sumosText += ",Owner:" + tabSumosEOwner.Text; }
-                    if (tabSumosEThrower.Text != "") { sumosText += ",Thrower:" + tabSumosEThrower.Text; }
+                    if (tabSumosEOwner.Text != "") { summonText += ",Owner:" + tabSumosEOwner.Text; }
+                    if (tabSumosEThrower.Text != "") { summonText += ",Thrower:" + tabSumosEThrower.Text; }
                     //ridingText = ",Riding:{id:\"" + asd.getItem(tabSummonItem.SelectedIndex) + "\",Count:" + tabSummonCount.Value + ",Damage:" + tabSummonMeta.Value;
-                    sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+                    sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + summonText + "}";
                 }
             }
             else if (asd.getAt(tabSumosType.SelectedIndex) == "XPOrb")
@@ -1537,6 +1546,16 @@ namespace WpfMinecraftCommandHelper2
         private void tabSumosFireCheck_Click(object sender, RoutedEventArgs e)
         {
             tabSumosFireNum.IsEnabled = tabSumosFireCheck.IsChecked.Value;
+        }
+
+        private void tabSummonPickupdelayCheck_Click(object sender, RoutedEventArgs e)
+        {
+            tabSummonPickupdelay.IsEnabled = tabSummonPickupdelayCheck.IsChecked.Value;
+        }
+
+        private void tabSummonAgeCheck_Click(object sender, RoutedEventArgs e)
+        {
+            tabSummonAge.IsEnabled = tabSummonAgeCheck.IsChecked.Value;
         }
 
         private void tabSumosEEnderman_Click(object sender, RoutedEventArgs e)
