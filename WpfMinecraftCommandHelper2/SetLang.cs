@@ -427,6 +427,26 @@ namespace WpfMinecraftCommandHelper2
             return relanglist;
         }
 
+        public List<string> SetColorSel()
+        {
+            string nowLang = getLangFile();
+            int langID = 0;
+            for (int i = 0; i < fileCount; i++)
+            {
+                if (LangList[i]["LanguageID"].ToString() == nowLang)
+                {
+                    langID = i;
+                }
+            }
+            List<string> relanglist = new List<string>();
+            relanglist.Add(LangList[langID]["BtnCreate"].ToString());
+            relanglist.Add(LangList[langID]["ColorTitle"].ToString());
+            relanglist.Add(LangList[langID]["ColorR"].ToString());
+            relanglist.Add(LangList[langID]["ColorG"].ToString());
+            relanglist.Add(LangList[langID]["ColorB"].ToString());
+            return relanglist;
+        }
+
         public List<string> SetEffect()
         {
             string nowLang = getLangFile();
@@ -613,6 +633,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["ItemAttributeLegs"].ToString());
             relanglist.Add(LangList[langID]["ItemAttributeFeet"].ToString());
             relanglist.Add(LangList[langID]["ItemAttributeAll"].ToString());
+            relanglist.Add(LangList[langID]["ItemColorCreateBtn"].ToString());
             return relanglist;
         }
 

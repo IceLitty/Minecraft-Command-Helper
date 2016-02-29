@@ -76,10 +76,10 @@
                 <CheckBox x:Name="tabItemColorCheck" Content="染色" HorizontalAlignment="Left" Margin="7,74,0,0" VerticalAlignment="Top" Click="tabItemColorCheck_Click"/>
                 <TextBox x:Name="tabItemName" HorizontalAlignment="Left" Height="23" Margin="63,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" IsEnabled="False"/>
                 <TextBox x:Name="tabItemLore" HorizontalAlignment="Left" Height="23" Margin="63,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" IsEnabled="False" AcceptsReturn="True"/>
-                <Label x:Name="ItemTip3" Content="(Dec)  Lore回车可换行" HorizontalAlignment="Left" Margin="236,70,0,0" VerticalAlignment="Top"/>
-                <Controls:NumericUpDown x:Name="tabItemColor" Minimum="0" Maximum="16777215" Interval="5" Margin="63,70,147,12" Height="25" IsEnabled="False" Value="0" />
+                <Label x:Name="ItemTip3" Content="Lore回车可换行" HorizontalAlignment="Right" Margin="0,70,10,0" VerticalAlignment="Top"/>
                 <ComboBox x:Name="tabItemNameColorSel" HorizontalAlignment="Left" Margin="236,7,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False" SelectionChanged="tabItemNameColorSel_SelectionChanged"/>
                 <ComboBox x:Name="tabItemLoreColorSel" HorizontalAlignment="Left" Margin="236,39,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False" SelectionChanged="tabItemLoreColorSel_SelectionChanged"/>
+                <Button x:Name="ColorGetBtn" Content="颜色获取" HorizontalAlignment="Left" Margin="63,71,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="ColorGetBtn_Click"/>
             </Grid>
         </GroupBox>
         <CheckBox x:Name="tabItemNLCheck" Content="" HorizontalAlignment="Left" Margin="489,14,0,0" VerticalAlignment="Top" Click="tabItemNLCheck_Click"/>

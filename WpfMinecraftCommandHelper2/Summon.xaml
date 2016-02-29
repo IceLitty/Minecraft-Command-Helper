@@ -362,7 +362,7 @@
                     <CheckBox x:Name="HorseSaddle" Content="拥有马鞍" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="SummonBHeader" Header="属性设置" Margin="250,0,-250,0">
+            <TabItem x:Name="SummonBHeader" Header="属性设置" Margin="150,0,-150,0">
                 <Grid>
                     <GroupBox x:Name="tabItemAttrGroupbox" Header="生物特殊属性" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="264" Width="308">
                         <Grid HorizontalAlignment="Left" Height="222" VerticalAlignment="Top" Width="298" Margin="0,0,-2,0">
@@ -385,7 +385,7 @@
                     <Button x:Name="EntityAttritube" Content="生成" HorizontalAlignment="Left" Margin="10,279,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="EntityAttritube_Click" Style="{DynamicResource SquareButtonStyle}"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="ridingLoader" Header="骑乘生成" Margin="250,0,-250,0" Width="120" PreviewMouseLeftButtonDown="ridingLoader_PreviewMouseLeftButtonDown">
+            <TabItem x:Name="ridingLoader" Header="骑乘生成" Margin="150,0,-150,0" Width="120" PreviewMouseLeftButtonDown="ridingLoader_PreviewMouseLeftButtonDown">
                 <Grid>
                     <TextBox x:Name="ridingLoaderShow" HorizontalAlignment="Left" Height="497" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1076"/>
                 </Grid>

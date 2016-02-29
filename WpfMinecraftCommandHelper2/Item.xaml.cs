@@ -113,6 +113,7 @@ namespace WpfMinecraftCommandHelper2
                 AttrLegs.Content = templang[66];
                 AttrFeet.Content = templang[67];
                 AttrAll.Content = templang[68];
+                ColorGetBtn.Content = templang[69];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -212,7 +213,7 @@ namespace WpfMinecraftCommandHelper2
             tabItemColorCheck.IsChecked = false;
             tabItemName.Text = "";
             tabItemLore.Text = "";
-            tabItemColor.Value = 0;
+            globalColor = "16777215";
             tabItemAttrCheck.IsChecked = false;
             tabItemAttrAttackCheck.IsChecked = false;
             tabItemAttrAttackPer.IsChecked = false;
@@ -367,7 +368,6 @@ namespace WpfMinecraftCommandHelper2
                 }
                 if (tabItemColorCheck.IsChecked.Value)
                 {
-                    globalColor = Convert.ToString(int.Parse(tabItemColor.Value.Value.ToString()), 10);
                     NLStr += "color:" + globalColor + ",";
                 }
                 if (NLStr != "display:{")
@@ -690,14 +690,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabItemColorCheck_Click(object sender, RoutedEventArgs e)
         {
-            if (tabItemColorCheck.IsChecked.Value)
-            {
-                tabItemColor.IsEnabled = true;
-            }
-            else
-            {
-                tabItemColor.IsEnabled = false;
-            }
+            ColorGetBtn.IsEnabled = tabItemColorCheck.IsChecked.Value;
         }
 
         private void tabItemAttrAttackCheck_Click(object sender, RoutedEventArgs e)
@@ -834,6 +827,15 @@ namespace WpfMinecraftCommandHelper2
         {
             AllSelData asd = new AllSelData();
             tabItemLore.SelectedText = asd.getUniColor(tabItemLoreColorSel.SelectedIndex);
+        }
+
+        private void ColorGetBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ColorSel csl = new ColorSel();
+            csl.ShowDialog();
+            byte[] colorList = csl.reColor();
+            string colorhex = colorList[0].ToString("x") + colorList[1].ToString("x") + colorList[2].ToString("x");
+            globalColor = Convert.ToInt32(colorhex, 16).ToString();
         }
     }
 }

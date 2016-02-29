@@ -103,6 +103,9 @@
     <Compile Include="Banner.xaml.cs">
       <DependentUpon>Banner.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ColorSel.xaml.cs">
+      <DependentUpon>ColorSel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomCraft.xaml.cs">
       <DependentUpon>CustomCraft.xaml</DependentUpon>
     </Compile>
@@ -158,6 +161,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Check.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ColorSel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1428,6 +1435,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\cc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ColorSelIMG.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
