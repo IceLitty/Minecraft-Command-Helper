@@ -1439,6 +1439,9 @@
   <ItemGroup>
     <Resource Include="Images\ColorSelIMG.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AlipayQR.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>::cd "C:/Program Files (x86)/Microsoft/ILMerge"

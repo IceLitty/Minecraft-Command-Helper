@@ -24,8 +24,21 @@
         <Label x:Name="ieON" Content="√注册表模式" HorizontalAlignment="Right" Margin="0,323,586,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="ieon_MouseLeftButtonDown"/>
         <Label x:Name="ieOFF" Content="√默认启动模式" HorizontalAlignment="Right" Margin="0,323,491,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="ieoff_MouseLeftButtonDown"/>
         <Label x:Name="metro" Content="METRO" HorizontalAlignment="Left" Margin="513,222,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="metro_MouseLeftButtonDown"/>
-        <Label x:Name="byIce" Content="by IceLitty" HorizontalAlignment="Right" Margin="0,327,20,0" VerticalAlignment="Top" Foreground="#FF3285FD" ToolTip="Update here :D" MouseLeftButtonDown="byIce_MouseLeftButtonDown"/>
+        <Grid HorizontalAlignment="Right" Margin="0,327,20,0" VerticalAlignment="Top" MouseLeftButtonDown="byIce_MouseLeftButtonDown">
+            <Grid.ToolTip>
+                <Grid>
+                    <Image Source="Images/avatar/ice/1.jpg" />
+                    <Label x:Name="byIce" Content="&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Update here :D" />
+                </Grid>
+            </Grid.ToolTip>
+            <Label Content="by IceLitty" Foreground="#FF3285FD"/>
+        </Grid>
         <Image x:Name="ccIMG" HorizontalAlignment="Left" Height="31" Margin="566,292,0,0" VerticalAlignment="Top" Width="88" Source="Images/cc.png" ToolTip="This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/." MouseLeftButtonDown="ccIMG_MouseLeftButtonDown"/>
-
+        <Grid HorizontalAlignment="Right" Margin="0,323,230,0" VerticalAlignment="Top">
+            <Grid.ToolTip>
+                <Image Source="Images/AlipayQR.png" Width="150" Height="150"/>
+            </Grid.ToolTip>
+            <Label x:Name="alipay" Content="支付宝投食二维码(Donate w/ Alipay)" Foreground="#FFDA656D" />
+        </Grid>
     </Grid>
 </Controls:MetroWindow>

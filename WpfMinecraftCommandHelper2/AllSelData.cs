@@ -990,7 +990,7 @@ namespace WpfMinecraftCommandHelper2
                                     "火焰球",
                                     "鸡",
                                     "箭矢",
-                                    "箭矢 - 附魔箭",
+                                    "箭矢 - 药水箭",
                                     "箭矢 - 光箭",
                                     "僵尸",
                                     "僵尸猪人",
