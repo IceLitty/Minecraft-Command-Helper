@@ -2421,7 +2421,9 @@ namespace WpfMinecraftCommandHelper2
             if (tabSpawnerAddToInv.IsChecked.Value)
             {
                 AllSelData asd = new AllSelData();
-                firstText = "/give @p minecraft:mob_spawner 1 0 {BlockEntityTag:{EntityId:" + asd.getAt(tabSpawnerShowType.SelectedIndex) + ",SpawnData:{";
+                firstText = "";
+                if (isMC19) { firstText = "/give @p minecraft:mob_spawner 1 0 {BlockEntityTag:{SpawnData:{id:" + asd.getAt(tabSpawnerShowType.SelectedIndex); }
+                else { firstText = "/give @p minecraft:mob_spawner 1 0 {BlockEntityTag:{EntityId:" + asd.getAt(tabSpawnerShowType.SelectedIndex) + ",SpawnData:{"; }
             }
             else
             {
@@ -2430,7 +2432,9 @@ namespace WpfMinecraftCommandHelper2
                 if (tabSpawnerX.Value == 0) dx = "~"; else dx = tabSpawnerX.Value.ToString();
                 if (tabSpawnerY.Value == 0) dy = "~"; else dy = tabSpawnerY.Value.ToString();
                 if (tabSpawnerZ.Value == 0) dz = "~"; else dz = tabSpawnerZ.Value.ToString();
-                firstText = "/setblock " + dx + " " + dy + " " + dz + " minecraft:mob_spawner 0 replace {BlockEntityTag:{EntityId:" + asd.getAt(tabSpawnerShowType.SelectedIndex) + ",SpawnData:{";
+                firstText = "";
+                if (isMC19) { firstText = "/setblock " + dx + " " + dy + " " + dz + " minecraft:mob_spawner 0 replace {BlockEntityTag:{SpawnData:{id:" + asd.getAt(tabSpawnerShowType.SelectedIndex); }
+                else { firstText = "/setblock " + dx + " " + dy + " " + dz + " minecraft:mob_spawner 0 replace {BlockEntityTag:{EntityId:" + asd.getAt(tabSpawnerShowType.SelectedIndex) + ",SpawnData:{"; }
             }
             string secondText = "";
             if (tabSpawnerHasEqu.IsChecked.Value && globalSumosEquipment != "") secondText = secondText + globalSumosEquipment + ",";
