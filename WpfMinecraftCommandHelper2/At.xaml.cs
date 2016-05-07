@@ -35,8 +35,10 @@ namespace WpfMinecraftCommandHelper2
         private string FloatHelpTitle = "帮助";
         private string FloatConfirm = "确认";
         private string FloatCancel = "取消";
-        private string AtPlzCloseWindow = "代码已生成！请手动关闭窗口。";
+        //private string AtPlzCloseWindow = "代码已生成！请手动关闭窗口。";
         private string AtHelpStr = "";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
 
         private void appLanguage()
         {
@@ -54,7 +56,7 @@ namespace WpfMinecraftCommandHelper2
                 copyBtn.Content = templang[7];
                 helpBtn.Content = templang[8];
                 this.Title = templang[9];
-                AtPlzCloseWindow = templang[10];
+                //AtPlzCloseWindow = templang[10];
                 mUN.Content = templang[11];
                 teamUN.Content = templang[11];
                 nameUN.Content = templang[11];
@@ -82,6 +84,8 @@ namespace WpfMinecraftCommandHelper2
                 rideCheck.Content = templang[35];
                 AtHelpStr = templang[36];
                 tagCheck.Content = templang[37];
+                FloatErrorTitle = templang[38];
+                FloatHelpFileCantFind = templang[39];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -301,7 +305,7 @@ namespace WpfMinecraftCommandHelper2
                 nbt = "{" + nbt + "}";
                 createText += " " + nbt;
             }
-            this.ShowMessageAsync(FloatTipTitle, AtPlzCloseWindow, MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+            //this.ShowMessageAsync(FloatTipTitle, AtPlzCloseWindow, MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
         }
 
         private void copyBtn_Click(object sender, RoutedEventArgs e)
@@ -435,6 +439,22 @@ namespace WpfMinecraftCommandHelper2
         private void tagCheck_Click(object sender, RoutedEventArgs e)
         {
             tags.IsEnabled = tagCheck.IsChecked.Value;
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\At.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
+            }
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico"
-        Title="关于" Height="389" Width="682">
+        Title="关于" Height="389" Width="682" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Grid>
         <Label x:Name="AboutP" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Content="你好哦，我是IceLitty （MinecraftID）&#xD;&#xA;这个软件呢，本来一开始就想做了，不过之前的几个版本因为技术原因或构想不当而停产了……&#xD;&#xA;不过现在……是高产的节奏了！&#xD;&#xA;首先很感谢您来使用本软件，本软件是用于辅助Minecraft的命令以及高级命令的编写器。&#xD;&#xA;有的时候想做一些原版nbt道具结果忘了指令？去网上查相关帖子，日复一日自己也觉得累了。&#xD;&#xA;当然更别提有的时候没有网络……&#xD;&#xA;于是就想做出这种软件了！&#xD;&#xA;&#xD;&#xA;软件相关/Bug汇报："/>
         <Label x:Name="AboutThanksTitle" Content="知识来源 &amp; 鸣谢：" HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top"/>

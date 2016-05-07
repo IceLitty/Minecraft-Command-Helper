@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="文本编辑" Height="665" Width="1284">
+        Title="文本编辑" Height="665" Width="1284" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Grid>
         <Grid HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="519">
             <RadioButton x:Name="rbTellraw" Content="Tellraw" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" IsChecked="True" Click="rbTellraw_Click"/>
@@ -56,15 +56,15 @@
         <ComboBox x:Name="colorSel" HorizontalAlignment="Left" Margin="774,110,0,0" VerticalAlignment="Top" Width="84"/>
         <GroupBox x:Name="groupExtraClick" Header="      高级功能：点击事件" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" Height="185" Width="412" IsEnabled="False">
             <Grid x:Name="groupExtraClick0" Height="148" VerticalAlignment="Top" Margin="0,0,-2,-1">
-                <CheckBox x:Name="checkExtraClickCommand" Content="执行命令" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-1,4,0,0" Click="checkExtraClickCommand_Click"/>
-                <CheckBox x:Name="checkExtraClickOut2Chat" Content="输出到聊天栏" HorizontalAlignment="Left" Margin="-1,32,0,0" VerticalAlignment="Top" Click="checkExtraClickOut2Chat_Click"/>
-                <CheckBox x:Name="checkExtraClickChangePage" Content="书本换页" HorizontalAlignment="Left" Margin="-1,89,0,0" VerticalAlignment="Top" Click="checkExtraClickChangePage_Click"/>
+                <CheckBox x:Name="checkExtraClickCommand" Content="执行命令" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,4,0,0" Click="checkExtraClickCommand_Click"/>
+                <CheckBox x:Name="checkExtraClickOut2Chat" Content="输出到聊天栏" HorizontalAlignment="Left" Margin="0,32,0,0" VerticalAlignment="Top" Click="checkExtraClickOut2Chat_Click"/>
+                <CheckBox x:Name="checkExtraClickChangePage" Content="书本换页" HorizontalAlignment="Left" Margin="0,89,0,0" VerticalAlignment="Top" Click="checkExtraClickChangePage_Click"/>
                 <TextBox x:Name="tbExtraClickCommand" HorizontalAlignment="Left" Height="23" Margin="102,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" IsEnabled="False"/>
                 <TextBox x:Name="tbExtraClickOut2Chat" HorizontalAlignment="Left" Height="23" Margin="102,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" IsEnabled="False"/>
                 <TextBox x:Name="tbExtraClickOpenURL" HorizontalAlignment="Left" Height="23" Margin="102,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" IsEnabled="False"/>
                 <TextBox x:Name="tbExtraClickInsert2Chat" HorizontalAlignment="Left" Height="23" Margin="102,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" IsEnabled="False"/>
-                <CheckBox x:Name="checkExtraClickOpenURL" Content="打开网页" HorizontalAlignment="Right" Margin="-1,60,331,0" VerticalAlignment="Top" Click="checkExtraClickOpenURL_Click"/>
-                <CheckBox x:Name="checkExtraClickInsert2Chat" Content="插入到聊天栏" HorizontalAlignment="Right" Margin="-1,118,307,0" VerticalAlignment="Top" Click="checkExtraClickInsert2Chat_Click"/>
+                <CheckBox x:Name="checkExtraClickOpenURL" Content="打开网页" HorizontalAlignment="Right" Margin="0,60,330,0" VerticalAlignment="Top" Click="checkExtraClickOpenURL_Click"/>
+                <CheckBox x:Name="checkExtraClickInsert2Chat" Content="插入到聊天栏" HorizontalAlignment="Right" Margin="0,118,306,0" VerticalAlignment="Top" Click="checkExtraClickInsert2Chat_Click"/>
                 <Controls:NumericUpDown x:Name="tbExtraClickChangePage" Minimum="1" Maximum="50" StringFormat="" Margin="102,84,10,36" Height="28" Value="1" IsEnabled="False" />
             </Grid>
         </GroupBox>
@@ -86,9 +86,6 @@
         </GroupBox>
         <CheckBox x:Name="checkExtraClick" Content="" HorizontalAlignment="Left" Margin="15,146,0,0" VerticalAlignment="Top" Width="18" Click="checkExtraClick_Click"/>
         <CheckBox x:Name="checkExtraHover" Content="" HorizontalAlignment="Left" Margin="432,146,0,0" VerticalAlignment="Top" Width="18" Click="checkExtraHover_Click"/>
-        <Button x:Name="btnPagePre" Content="上一页/行" HorizontalAlignment="Left" Margin="10,361,0,0" VerticalAlignment="Top" Width="75" Click="btnPagePre_Click" IsEnabled="False" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="btnPageNext" Content="下一页/行" HorizontalAlignment="Left" Margin="170,361,0,0" VerticalAlignment="Top" Width="75" Click="btnPageNext_Click" IsEnabled="False" Style="{DynamicResource SquareButtonStyle}"/>
-        <Label x:Name="tbShowLine" Content="-第01页/行-" HorizontalAlignment="Left" Margin="89,362,0,0" VerticalAlignment="Top" IsEnabled="False"/>
         <Button x:Name="btnParaPre" Content="上一段" HorizontalAlignment="Left" Margin="250,362,0,0" VerticalAlignment="Top" Width="75" Click="btnParaPre_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="btnParaNext" Content="下一段" HorizontalAlignment="Left" Margin="411,361,0,0" VerticalAlignment="Top" Width="75" Click="btnParaNext_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Label x:Name="tbShowPart" Content="-第01段-" HorizontalAlignment="Left" Margin="337,363,0,0" VerticalAlignment="Top"/>
@@ -104,6 +101,11 @@
             <TextBox x:Name="tabBookAuthor" HorizontalAlignment="Left" Height="23" Margin="240,0,0,-1" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
             <CheckBox x:Name="tabBookSigned" Content="已签名" HorizontalAlignment="Left" Margin="370,3,0,0" VerticalAlignment="Top" IsChecked="True"/>
         </Grid>
+        <Label x:Name="tbShowPage1" Content="第" HorizontalAlignment="Left" Margin="35,361,0,0" VerticalAlignment="Top"/>
+        <Grid HorizontalAlignment="Left" Height="27" Margin="62,360,0,0" VerticalAlignment="Top" Width="134">
+            <Controls:NumericUpDown x:Name="tbPage" Minimum="1" Maximum="50" StringFormat="" Margin="0,0,10,-1" Height="28" Value="1" ValueChanged="tbPage_ValueChanged" />
+        </Grid>
+        <Label x:Name="tbShowPage2" Content="页" HorizontalAlignment="Left" Margin="186,361,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Controls:MetroWindow>

@@ -1,6 +1,7 @@
 ﻿using System.Windows.Input;
 using System.Collections.Generic;
 using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using Microsoft.Win32;
 using System.Diagnostics;
 
@@ -37,12 +38,20 @@ namespace WpfMinecraftCommandHelper2
             AboutT.Content = templang[7] + "\r\n" + templang[8];
             ieONStr = templang[9];
             ieOFFStr = templang[10];
+            FloatErrorTitle = templang[11];
+            FloatHelpFileCantFind = templang[12];
+            FloatConfirm = templang[13];
+            FloatCancel = templang[14];
         }
 
         private string value = "";
         private bool ieMode = false;
         private string ieONStr = "注册表模式";
         private string ieOFFStr = "默认启动模式";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
+        private string FloatConfirm = "确认";
+        private string FloatCancel = "取消";
 
         private void ieon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -223,6 +232,22 @@ namespace WpfMinecraftCommandHelper2
             else
             {
                 Process.Start("http://www.mcbbs.net/thread-381131-1-1.html");
+            }
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\About.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
             }
         }
     }

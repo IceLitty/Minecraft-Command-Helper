@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="召唤实体" Height="588.672" Width="1105.911">
+        Title="召唤实体" Height="588.672" Width="1105.911" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -207,8 +207,8 @@
                             <Controls:NumericUpDown x:Name="tabSumosEExp" Minimum="-2147483648" Maximum="2147483647" StringFormat="" Margin="244,165,183,18" Value="0" FontSize="14" ToolTip="经验值数量" IsEnabled="False" />
                             <Slider x:Name="tabSumosEDuration" HorizontalAlignment="Left" Margin="366,161,0,0" VerticalAlignment="Top" Width="126" ToolTip="持续时间" IsEnabled="False" Value="600" Maximum="32768" ValueChanged="tabSumosEDuration_ValueChanged"/>
                             <Slider x:Name="tabSumosERadius" HorizontalAlignment="Left" Margin="366,184,0,0" VerticalAlignment="Top" Width="126" ToolTip="半径" IsEnabled="False" Value="2.9" ValueChanged="tabSumosERadius_ValueChanged"/>
-                            <Button x:Name="tabSumosEParticle" Content="P" HorizontalAlignment="Left" Margin="497,167,0,0" VerticalAlignment="Top" Width="19" ToolTip="粒子效果选择" IsEnabled="False" Click="tabSumosEParticle_Click" Height="3" Style="{DynamicResource SquareButtonStyle}"/>
-                            <Button x:Name="tabSumosEParticleColor" Content="E" HorizontalAlignment="Left" Margin="521,167,0,0" VerticalAlignment="Top" Width="19" ToolTip="粒子效果颜色选择" IsEnabled="False" Height="3" Click="tabSumosEParticleColor_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                            <Button x:Name="tabSumosEParticle" Content="..." HorizontalAlignment="Left" Margin="497,167,0,0" VerticalAlignment="Top" Width="19" ToolTip="粒子效果选择" IsEnabled="False" Click="tabSumosEParticle_Click" Height="34" Style="{DynamicResource SquareButtonStyle}"/>
+                            <Button x:Name="tabSumosEParticleColor" Content="+" HorizontalAlignment="Left" Margin="521,167,0,0" VerticalAlignment="Top" Width="19" ToolTip="粒子效果颜色选择" IsEnabled="False" Height="34" Click="tabSumosEParticleColor_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         </Grid>
                     </GroupBox>
                     <Controls:NumericUpDown x:Name="tabSumosFireNum" Minimum="-2147483648" Maximum="2147483647" StringFormat="" Margin="328,364,574,125" Height="28" Value="600" FontSize="14" IsEnabled="False" Interval="10" />

@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="烟花" Height="273.592" Width="743.113">
+        Title="烟花" Height="273.592" Width="837.113" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Grid>
         <Grid HorizontalAlignment="Left" Height="64" Margin="10,10,0,0" VerticalAlignment="Top" Width="576">
             <Controls:NumericUpDown x:Name="tabFireFly" Minimum="0" Maximum="20000000" Interval="20" StringFormat="" Margin="114,5,281,31" Height="28" Value="30" />
@@ -19,12 +19,14 @@
             <Controls:NumericUpDown x:Name="tabFireZ" Minimum="-1000000" Maximum="1000000" StringFormat="" Margin="403,36,10,0" Height="28" Value="0" IsEnabled="False" />
         </Grid>
         <CheckBox x:Name="tabFireXNum" Content="坐标采用当前坐标" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" IsChecked="True" Click="tabFireXNum_Click"/>
-        <Grid HorizontalAlignment="Left" Height="30" Margin="10,132,0,0" VerticalAlignment="Top" Width="576">
-            <Controls:NumericUpDown x:Name="tabFireSk" Minimum="0" Maximum="1000000" StringFormat="" Margin="0,0,445,2" Height="28" Value="0" />
+        <Grid HorizontalAlignment="Left" Height="30" Margin="10,132,0,0" VerticalAlignment="Top" Width="665">
+            <Controls:NumericUpDown x:Name="tabFireSk" Minimum="0" Maximum="1000000" StringFormat="" Margin="0,0,534,2" Height="28" Value="0" />
             <CheckBox x:Name="tabFireKong" Content="" HorizontalAlignment="Left" Margin="136,6,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="tabFireType" HorizontalAlignment="Left" Margin="165,2,0,0" VerticalAlignment="Top" Width="147"/>
-            <Controls:NumericUpDown x:Name="tabFireColorOut" Minimum="0" Maximum="16777215" StringFormat="" Margin="317,2,135,0" Height="28" Value="0" />
-            <Controls:NumericUpDown x:Name="tabFireColorIn" Minimum="0" Maximum="16777215" StringFormat="" Margin="446,2,6,0" Height="28" Value="0" />
+            <Controls:NumericUpDown x:Name="tabFireColorOut" Minimum="0" Maximum="16777215" StringFormat="" Margin="317,2,213,0" Height="28" Value="0" />
+            <Controls:NumericUpDown x:Name="tabFireColorIn" Minimum="0" Maximum="16777215" StringFormat="" Margin="488,2,42,0" Height="28" Value="0" />
+            <Button x:Name="tabFireColorOutBtn" Content="..." HorizontalAlignment="Left" Margin="456,2,0,0" VerticalAlignment="Top" Width="27" Style="{DynamicResource SquareButtonStyle}" Click="tabFireColorOutBtn_Click"/>
+            <Button x:Name="tabFireColorInBtn" Content="..." HorizontalAlignment="Left" Margin="628,2,0,0" VerticalAlignment="Top" Width="27" Style="{DynamicResource SquareButtonStyle}" Click="tabFireColorInBtn_Click"/>
         </Grid>
         <Label x:Name="FireworkFlicker" Content="闪烁度" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top"/>
         <Label x:Name="FireworkIsTrail" Content="空心？" HorizontalAlignment="Left" Margin="137,102,0,0" VerticalAlignment="Top"/>
@@ -40,7 +42,7 @@
         <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="250,198,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="330,198,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="170,198,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <ListBox x:Name="pageList" HorizontalAlignment="Left" Height="228" Margin="586,10,0,0" VerticalAlignment="Top" Width="141"/>
+        <ListBox x:Name="pageList" HorizontalAlignment="Left" Height="228" Margin="680,10,0,0" VerticalAlignment="Top" Width="141"/>
         <CheckBox x:Name="tabFireOnlyStar" Content="给予烟火之星而不是烟花火箭" HorizontalAlignment="Left" Margin="298,79,0,0" VerticalAlignment="Top"/>
 
     </Grid>

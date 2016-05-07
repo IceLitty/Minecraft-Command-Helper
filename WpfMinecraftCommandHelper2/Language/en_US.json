@@ -14,6 +14,7 @@
     "FloatErrorTitle": "Error",
     "FloatHelpTitle": "Help",
     "FloatTipTitle": "Tip",
+    "FloatHelpFileCantFind": "Can not find help file, please re-downloading this program!",
 
     "BtnAt": "Get AT",
     "BtnClear": "Clear",
@@ -129,7 +130,6 @@
     "AdvHelpStr": "",
 
     "AtTitle": "@",
-    "AtPlzCloseWindow": "Code Generated! Please close window.",
     "AtUN": "NON",
     "AtXYZ": "Coordinate XYZ",
     "AtDx": "Volume XYZ",

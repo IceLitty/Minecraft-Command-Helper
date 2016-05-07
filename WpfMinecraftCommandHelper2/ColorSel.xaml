@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="色彩选择" Height="172" Width="412">
+        Title="色彩选择" Height="172" Width="412" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Grid>
         <Label x:Name="Red" Content="红" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Green" Content="绿" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>

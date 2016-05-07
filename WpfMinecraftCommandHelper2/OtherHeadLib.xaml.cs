@@ -28,6 +28,8 @@ namespace WpfMinecraftCommandHelper2
         private string HeadlibFinish = "辛苦等待，快来尝试吧 :）";
         private string HeadlibFinishTitle = "加载完成";
         private string HeadlibNum = "第{0}页 / 共{1}页";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
 
         private void appLanguage()
         {
@@ -69,6 +71,8 @@ namespace WpfMinecraftCommandHelper2
                 tabGameLoad.Header = templang[31];
                 tabCharacterLoad.Header = templang[32];
                 tabPokemonLoad.Header = templang[33];
+                FloatErrorTitle = templang[34];
+                FloatHelpFileCantFind = templang[35];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -1073,6 +1077,22 @@ namespace WpfMinecraftCommandHelper2
             tabSLPokemon();
             isload_Pokemon = true;
             this.ShowMessageAsync(HeadlibFinishTitle, HeadlibFinish, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel, AnimateShow = true });
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\HeadLib.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
+            }
         }
     }
 }

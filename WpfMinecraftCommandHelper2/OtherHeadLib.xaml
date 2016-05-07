@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="True" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="玩家头颅库" Height="507.042" Width="954.93">
+        Title="玩家头颅库" Height="507.042" Width="954.93" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

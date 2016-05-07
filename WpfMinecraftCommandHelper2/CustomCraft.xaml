@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="自定义合成" Height="546.126" Width="875.705">
+        Title="自定义合成" Height="546.126" Width="875.705" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Grid>
         <Controls:FlipView x:Name="fvbody" Width="870" Height="516" SelectionChanged="fvbody_SelectionChanged">
             <Controls:FlipView.Items>

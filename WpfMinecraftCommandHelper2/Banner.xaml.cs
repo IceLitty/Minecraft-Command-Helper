@@ -43,6 +43,8 @@ namespace WpfMinecraftCommandHelper2
         private string BannerAnyLayer = "已达到第{0}页！\r\n生成计数器已设置为{1}页满！";
         private string BannerAtLeastClickOnce = "请至少点击一次“下一层”来储存本层内容！";
         private string BannerHelpStr = "";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
 
         private void appLanguage()
         {
@@ -76,6 +78,8 @@ namespace WpfMinecraftCommandHelper2
                 tabBannerNext.Content = templang[23];
                 ShieldCheck.Content = templang[24];
                 BannerHelpStr = templang[25];
+                FloatErrorTitle = templang[26];
+                FloatHelpFileCantFind = templang[27];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -511,6 +515,22 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabBannerSetblock.IsChecked = false;
                 tabBannerGive.IsChecked = true;
+            }
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Banner.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
             }
         }
 

@@ -30,6 +30,8 @@ namespace WpfMinecraftCommandHelper2
         private string FavouriteTip1 = "请输入该指令的说明文本 回车储存";
         private string FavouriteTip2 = "请输入要保存的指令 回车储存";
         private string FavouriteHelpStr = "编辑项目前请先选中一条（如没有请右键新建），然后右键修改，即可在文本框内编辑要填写的内容，回车键保存。\r\n如果软件更新后请保留文件夹下的Favourite.txt文件！\r\n\r\n快捷键说明：双击收藏夹条目可快捷编辑。收藏夹内对单条单击左右箭头可快速移动上下。";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
 
         private void appLanguage()
         {
@@ -45,6 +47,8 @@ namespace WpfMinecraftCommandHelper2
                 FavouriteTip1 = templang[5];
                 FavouriteTip2 = templang[6];
                 FavouriteHelpStr = templang[7];
+                FloatErrorTitle = templang[8];
+                FloatHelpFileCantFind = templang[9];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -312,6 +316,22 @@ namespace WpfMinecraftCommandHelper2
             {
                 e.Handled = true;
                 down();
+            }
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Favourite.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
             }
         }
 

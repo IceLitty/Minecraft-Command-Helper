@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace WpfMinecraftCommandHelper2
 {
@@ -54,6 +55,10 @@ namespace WpfMinecraftCommandHelper2
         private string CCClickMe = "请点击我";
         private string CCBack = "靠后的命令方块 - 设置合成后物品";
         private string CCFront = "靠前的命令方块 - 判断合成";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
+        private string FloatConfirm = "确认";
+        private string FloatCancel = "取消";
 
         private void appLanguage()
         {
@@ -102,6 +107,10 @@ namespace WpfMinecraftCommandHelper2
                 South.Content = templang[20];
                 West.Content = templang[21];
                 North.Content = templang[22];
+                FloatErrorTitle = templang[23];
+                FloatHelpFileCantFind = templang[24];
+                FloatConfirm = templang[25];
+                FloatCancel = templang[26];
             } catch (System.Exception) { /* throw; */ }
         }
 
@@ -427,6 +436,22 @@ namespace WpfMinecraftCommandHelper2
             {
                 CustomNameBox_Copy.IsEnabled = false;
                 CustomNameColor_Copy.IsEnabled = false;
+            }
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\CustomCraft.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
             }
         }
     }

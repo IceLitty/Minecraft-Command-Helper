@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="物品" Width="924" Height="588.588">
+        Title="物品" Width="924" Height="588.588" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Grid>
         <Grid x:Name="tabItemEnchantGroup" HorizontalAlignment="Left" Height="292" Margin="10,174,0,0" VerticalAlignment="Top" Width="474" IsEnabled="False">
             <CheckBox x:Name="tabItemEnchant0" Content="保护" HorizontalAlignment="Left" Margin="8,260,0,0" VerticalAlignment="Top"/>
@@ -143,5 +143,7 @@
             <Controls:NumericUpDown x:Name="tabItemRepairCost" Minimum="0" Maximum="999999999" Interval="5" StringFormat="" Margin="101,-1,10,0" Height="28" Value="0" IsEnabled="False" />
             <CheckBox x:Name="tabItemRepairCostCheck" Content="指定修复消耗" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Checked="tabItemRepairCostCheck_Checked"/>
         </Grid>
+        <Button x:Name="fixColorBtn" Content="§" HorizontalAlignment="Left" Margin="476,525,0,0" VerticalAlignment="Top" Width="32" Style="{DynamicResource SquareButtonStyle}" Click="fixColorBtn_Click" ToolTip="Manual re-generate command include color style. Click CHECK button to check code."/>
+        <TextBox x:Name="colorBox" HorizontalAlignment="Left" Height="23" Margin="284,526,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
     </Grid>
 </Controls:MetroWindow>

@@ -32,6 +32,8 @@ namespace WpfMinecraftCommandHelper2
         private string FireworkColorStr = "外部颜色：";
         private string FireworkAtLeastClickOnce = "请至少点击一次“下一页”来储存本页内容！";
         private string FireworkHelpStr = "";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
 
         private void appLanguage()
         {
@@ -301,6 +303,40 @@ namespace WpfMinecraftCommandHelper2
                 tabFireY.IsEnabled = true;
                 tabFireZ.IsEnabled = true;
             }
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Firework.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
+            }
+        }
+
+        private void tabFireColorOutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ColorSel csl = new ColorSel();
+            csl.ShowDialog();
+            byte[] colorList = csl.reColor();
+            string colorhex = colorList[0].ToString("x") + colorList[1].ToString("x") + colorList[2].ToString("x");
+            tabFireColorOut.Value = System.Convert.ToInt32(colorhex, 16);
+        }
+
+        private void tabFireColorInBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ColorSel csl = new ColorSel();
+            csl.ShowDialog();
+            byte[] colorList = csl.reColor();
+            string colorhex = colorList[0].ToString("x") + colorList[1].ToString("x") + colorList[2].ToString("x");
+            tabFireColorIn.Value = System.Convert.ToInt32(colorhex, 16);
         }
     }
 }

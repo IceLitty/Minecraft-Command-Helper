@@ -36,6 +36,8 @@ namespace WpfMinecraftCommandHelper2
         private string FloatConfirm = "确认";
         private string FloatCancel = "取消";
         private string ReplaceItemHelpStr = "";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
 
         private void appLanguage()
         {
@@ -65,6 +67,8 @@ namespace WpfMinecraftCommandHelper2
                 tabRItemHasNL.Content = templang[19];
                 tabRItemHasAttr.Content = templang[20];
                 tabRItemUnbreaking.Content = templang[21];
+                FloatErrorTitle = templang[22];
+                FloatHelpFileCantFind = templang[23];
             } catch (System.Exception) { /* throw; */ }
         }
 
@@ -330,6 +334,22 @@ namespace WpfMinecraftCommandHelper2
                 tabRItemX.IsEnabled = false;
                 tabRItemY.IsEnabled = false;
                 tabRItemZ.IsEnabled = false;
+            }
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\ReplaceItem.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
             }
         }
     }

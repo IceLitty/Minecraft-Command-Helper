@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="检索玩家" Height="100.352" Width="338.028">
+        Title="检索玩家" Height="100.352" Width="338.028" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Grid>
         <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="9,40,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="89,40,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>

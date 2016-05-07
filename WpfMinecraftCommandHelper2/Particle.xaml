@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="特效粒子" Height="276.76" Width="611.621">
+        Title="特效粒子" Height="276.76" Width="611.621" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Grid>
         <Label x:Name="ParticleChooseEffect" Content="请选择效果：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="tabParticleSel" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="520"/>

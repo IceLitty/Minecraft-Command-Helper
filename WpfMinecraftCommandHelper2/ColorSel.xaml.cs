@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Media.Imaging;
 using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using System.Collections.Generic;
 
 namespace WpfMinecraftCommandHelper2
@@ -20,6 +21,10 @@ namespace WpfMinecraftCommandHelper2
         }
 
         private string BtnCreate = "生成";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
+        private string FloatConfirm = "确认";
+        private string FloatCancel = "取消";
 
         private void appLanguage()
         {
@@ -32,6 +37,10 @@ namespace WpfMinecraftCommandHelper2
                 Red.Content = templang[2];
                 Green.Content = templang[3];
                 Blue.Content = templang[4];
+                FloatErrorTitle = templang[5];
+                FloatHelpFileCantFind = templang[6];
+                FloatConfirm = templang[7];
+                FloatCancel = templang[8];
             }
             catch (Exception) { /* throw; */ }
         }
@@ -89,6 +98,22 @@ namespace WpfMinecraftCommandHelper2
         public void setDarkTheme(bool darkTheme)
         {
             this.darkTheme = darkTheme;
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\ColorSel.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
+            }
         }
     }
 }

@@ -44,6 +44,8 @@ namespace WpfMinecraftCommandHelper2
         private string SuperflatHelpStronghold = "几率为矿道是否生成。";
         private string SuperflatHelpMineshaft = "距离为出生点和要塞的距离，\r\n数量为这个世界有多少个要塞，\r\n延伸值越小，要塞距离初始世界出生点越远。";
         private string SuperflatHelpBiome = "距离为每个遗迹之间的距离。";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
 
         private void appLanguage()
         {
@@ -89,7 +91,8 @@ namespace WpfMinecraftCommandHelper2
                 CheckLake.Content = templang[35];
                 CheckLavaLake.Content = templang[36];
                 CheckOceanmonument.Content = templang[37];
-                SuperflatTip.Content = templang[38];
+                FloatErrorTitle = templang[39];
+                FloatHelpFileCantFind = templang[40];
             } catch (System.Exception) {  /* throw; */ }
         }
 
@@ -545,6 +548,22 @@ namespace WpfMinecraftCommandHelper2
             int find = value.IndexOf('\"');
             value = value.Substring(0, find);
             Process.Start(value, "http://minecraft.gamepedia.com/Biome");
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Superflat.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
+            }
         }
     }
 }

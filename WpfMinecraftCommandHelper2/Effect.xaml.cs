@@ -37,6 +37,7 @@ namespace WpfMinecraftCommandHelper2
         private string EffectHelpStr = "";
         private string EffectChooseEffect = "请设置状态效果！";
         private string EffectNotChooseError = "因为意外而导致未选中“名称形式代码”或“ID形式代码”，请选择！";
+        private string FloatHelpFileCantFind = "";
 
         private void appLanguage()
         {
@@ -65,6 +66,7 @@ namespace WpfMinecraftCommandHelper2
                 tabEffectHide.Content = templang[18];
                 tabEffectPlay.Content = templang[19];
                 EffectHelpStr = templang[20];
+                FloatHelpFileCantFind = templang[21];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -381,6 +383,22 @@ namespace WpfMinecraftCommandHelper2
         public void setDarkTheme(bool darkTheme)
         {
             this.darkTheme = darkTheme;
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Effect.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
+            }
         }
     }
 }

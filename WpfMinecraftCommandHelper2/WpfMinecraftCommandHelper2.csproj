@@ -1442,6 +1442,35 @@
   <ItemGroup>
     <Resource Include="Images\AlipayQR.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Help\About.html" />
+    <Content Include="Help\AdventureMode.html" />
+    <Content Include="Help\At.html" />
+    <Content Include="Help\Banner.html" />
+    <Content Include="Help\Check.html" />
+    <Content Include="Help\ColorSel.html" />
+    <Content Include="Help\css\MainStyle.css" />
+    <Content Include="Help\CustomCraft.html" />
+    <Content Include="Help\Effect.html" />
+    <Content Include="Help\Favourite.html" />
+    <Content Include="Help\Firework.html" />
+    <Content Include="Help\HeadLib.html" />
+    <Content Include="Help\Item.html" />
+    <Content Include="Help\LootTable.html" />
+    <Content Include="Help\Main.html" />
+    <Content Include="Help\Other.html" />
+    <Content Include="Help\Particle.html" />
+    <Content Include="Help\Potion.html" />
+    <Content Include="Help\ReplaceItem.html" />
+    <Content Include="Help\SpreadPlayer.html" />
+    <Content Include="Help\Summon.html" />
+    <Content Include="Help\Superflat.html" />
+    <Content Include="Help\Tellraw.html" />
+    <Content Include="Help\Testfor.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Help\img\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>::cd "C:/Program Files (x86)/Microsoft/ILMerge"

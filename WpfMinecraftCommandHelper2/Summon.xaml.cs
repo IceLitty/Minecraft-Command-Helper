@@ -82,6 +82,8 @@ namespace WpfMinecraftCommandHelper2
         private string SummonPHelpStr = "";
         private string SummonExtraDurationTooltip = "持续时间";
         private string SummonExtraRadiusTooltip = "半径";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
 
         private void appLanguage()
         {
@@ -282,6 +284,8 @@ namespace WpfMinecraftCommandHelper2
                 HorseSkeletonTrap.Content = templang[174];
                 HorseSkeletonTrapTime.ToolTip = templang[175];
                 HorseSaddle.Content = templang[176];
+                FloatErrorTitle = templang[177];
+                FloatHelpFileCantFind = templang[178];
             } catch (System.Exception) { /* throw; */ }
         }
 
@@ -2139,6 +2143,22 @@ namespace WpfMinecraftCommandHelper2
             ibox.ShowDialog();
             string[] temp = ibox.returnStr();
             globalParticleColor = temp[7];
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Summon.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
+            }
         }
 
         private void tabSpawner1_Click(object sender, RoutedEventArgs e)

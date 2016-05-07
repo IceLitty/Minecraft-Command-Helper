@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="药水生成" Height="549.127" Width="991.113">
+        Title="药水生成" Height="549.127" Width="991.113" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Grid>
         <Label x:Name="PotionChooseEffect" Content="请选择药水效果：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="PotionEffectName" Content="效果名" HorizontalAlignment="Left" Margin="30,40,0,0" VerticalAlignment="Top"/>

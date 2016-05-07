@@ -1886,7 +1886,8 @@ namespace WpfMinecraftCommandHelper2
 										"至少我觉得挺不错的。",
 										"好啦，程序有问题的话欢迎反馈，点关于里的QQ就行了！",
 										"MCH的话应该只会做原版的高级指令。",
-										"说不定哟？"
+										"说不定哟？",
+                                        "按F1可赛艇。"
                                    };
 
         private string[] scoreStr1 = {

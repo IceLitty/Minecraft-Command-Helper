@@ -26,6 +26,8 @@ namespace WpfMinecraftCommandHelper2
         private string FloatConfirm = "确认";
         private string FloatCancel = "取消";
         private string ParticleHelpStr = "";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
 
         private void appLanguage()
         {
@@ -51,6 +53,8 @@ namespace WpfMinecraftCommandHelper2
                 ParticleCount.Content = templang[15];
                 tabParticleXNum.Content = templang[16];
                 ParticleHelpStr = templang[17];
+                FloatErrorTitle = templang[18];
+                FloatHelpFileCantFind = templang[19];
             } catch (System.Exception) { /* throw; */ }
         }
 
@@ -188,6 +192,22 @@ namespace WpfMinecraftCommandHelper2
                 tabParticleX.IsEnabled = true;
                 tabParticleY.IsEnabled = true;
                 tabParticleZ.IsEnabled = true;
+            }
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Particle.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
             }
         }
     }

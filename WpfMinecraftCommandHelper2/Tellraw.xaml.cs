@@ -49,6 +49,8 @@ namespace WpfMinecraftCommandHelper2
         private string TellrawNum2 = "页/行";
         private string TellrawNum3 = "第";
         private string TellrawNum4 = "段";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
 
         private void appLanguage()
         {
@@ -98,10 +100,12 @@ namespace WpfMinecraftCommandHelper2
                 BookName.Content = templang[39];
                 BookAuthor.Content = templang[40];
                 tabBookSigned.Content = templang[41];
-                btnPagePre.Content = templang[42];
-                btnPageNext.Content = templang[43];
+                //btnPagePre.Content = templang[42];
+                //btnPageNext.Content = templang[43];
                 TellrawNum1 = templang[44];
+                tbShowPage1.Content = TellrawNum1;
                 TellrawNum2 = templang[45];
+                tbShowPage2.Content = TellrawNum2;
                 btnParaPre.Content = templang[46];
                 btnParaNext.Content = templang[47];
                 TellrawNum3 = templang[48];
@@ -111,6 +115,8 @@ namespace WpfMinecraftCommandHelper2
                 GroupList3.Header = templang[52];
                 GroupList4.Header = templang[53];
                 SignHelpStr = templang[54];
+                FloatErrorTitle = templang[55];
+                FloatHelpFileCantFind = templang[56];
             } catch (Exception) { throw; }
         }
 
@@ -314,19 +320,9 @@ namespace WpfMinecraftCommandHelper2
         private string finalStr = "";
         private string atStr = "";
 
-        private void btnPagePre_Click(object sender, RoutedEventArgs e)
+        private void tbPage_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double?> e)
         {
-            if (nowPage > 1)
-            {
-                nowPage--;
-            }
-            flushPageShow();
-        }
-
-        private void btnPageNext_Click(object sender, RoutedEventArgs e)
-        {
-            nowPage++;
-            flushPageShow();
+            nowPage = (int)tbPage.Value.Value;
         }
 
         private void flushPageShow()
@@ -336,7 +332,8 @@ namespace WpfMinecraftCommandHelper2
             else if (nowPage == 3) { rbLineUltra.IsChecked = false; rbLine1.IsChecked = false; rbLine2.IsChecked = false; rbLine4.IsChecked = false; rbLine3.IsChecked = true; }
             else if (nowPage == 4) { rbLineUltra.IsChecked = false; rbLine1.IsChecked = false; rbLine2.IsChecked = false; rbLine3.IsChecked = false; rbLine4.IsChecked = true; }
             else { rbLine1.IsChecked = false; rbLine2.IsChecked = false; rbLine3.IsChecked = false; rbLine4.IsChecked = false; rbLineUltra.IsChecked = true; }
-            if (nowPage < 10) { tbShowLine.Content = "-" + TellrawNum1 + "0" + nowPage + TellrawNum2 + "-"; } else { tbShowLine.Content = "-" + TellrawNum1 + nowPage + TellrawNum2 + "-"; }
+            //if (nowPage < 10) { tbShowLine.Content = "-" + TellrawNum1 + "0" + nowPage + TellrawNum2 + "-"; } else { tbShowLine.Content = "-" + TellrawNum1 + nowPage + TellrawNum2 + "-"; }
+            tbPage.Value = nowPage;
         }
 
         private void btnParaPre_Click(object sender, RoutedEventArgs e)
@@ -515,6 +512,39 @@ namespace WpfMinecraftCommandHelper2
                 if (listStrikethrough[i] == true) { temp += ",\"strikethrough\":\"true\""; }
                 if (listObfuscate[i] == true) { temp += ",\"obfuscated\":\"true\""; }
                 if (listColor[i] != -1) { temp += ",\"color\":\"" + asd.getColor(listColor[i]) + "\""; }
+                if (!rbSignGive.IsChecked.Value && !rbSignSetblock.IsChecked.Value)
+                {
+                    if (listHasExtraClick[i] == true)
+                    {
+                        string ECStr = "";
+                        if (listECHasCommand[i] == true) { ECStr = ",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"" + listECCommand[i] + "\"}"; }
+                        if (listECHasOut2Chat[i] == true) { ECStr = ",\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"" + listECOut2Chat[i] + "\"}"; }
+                        if (listECHasOpenURL[i] == true) { ECStr = ",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"" + listECOpenURL[i] + "\"}"; }
+                        if (listECHasChangePage[i] == true) { ECStr = ",\"clickEvent\":{\"action\":\"change_page\",\"value\":\"" + listECChangePage[i] + "\"}"; }
+                        if (listECHasInsert2Chat[i] == true) { ECStr = ",\"clickEvent\":{\"action\":\"insertion\",\"value\":\"" + listECInsert2Chat[i] + "\"}"; }
+                        temp += ECStr;
+                    }
+                    if (listHasExtraHover[i] == true)
+                    {
+                        string EHStr = "";
+                        if (listEHHasShowtext[i] == true) { if (listEHShowtextByCode[i]) { EHStr = ",\"hoverEvent\":{\"action\":\"show_text\",\"value\":{" + listEHShowtext[i] + "}}"; } else { EHStr = ",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"" + listEHShowtext[i] + "\"}"; } }
+                        if (listEHHasShowitem[i] == true) { EHStr = ",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"" + listEHShowitemStr[i] + "\"}"; }
+                        if (listEHHasShowAc[i] == true) { EHStr = ",\"hoverEvent\":{\"action\":\"show_achievement\",\"value\":\"" + listEHShowAc[i] + "\"}"; }
+                        if (listEHHasShowentity[i] == true) { EHStr = ",\"hoverEvent\":{\"action\":\"show_entity\",\"value\":\"{id:\\\"" + listEHShowentityID[i] + "\\\",name:\\\"" + listEHShowentityName[i] + "\\\",type:\\\"" + listEHShowentityType[i] + "\\\"}\""; }
+                        temp += EHStr;
+                    }
+                }
+                temp += "}";
+                eachStr.Add(temp);
+            }
+            string tempECStr = "";
+            int tempECCount = 4;
+            if (listString.Count <= 4)
+            {
+                tempECCount = listString.Count;
+            }
+            for (int i = 0; i < tempECCount; i++)
+            {
                 if (listHasExtraClick[i] == true)
                 {
                     string ECStr = "";
@@ -523,7 +553,7 @@ namespace WpfMinecraftCommandHelper2
                     if (listECHasOpenURL[i] == true) { ECStr = ",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"" + listECOpenURL[i] + "\"}"; }
                     if (listECHasChangePage[i] == true) { ECStr = ",\"clickEvent\":{\"action\":\"change_page\",\"value\":\"" + listECChangePage[i] + "\"}"; }
                     if (listECHasInsert2Chat[i] == true) { ECStr = ",\"clickEvent\":{\"action\":\"insertion\",\"value\":\"" + listECInsert2Chat[i] + "\"}"; }
-                    temp += ECStr;
+                    tempECStr += ECStr;
                 }
                 if (listHasExtraHover[i] == true)
                 {
@@ -532,11 +562,10 @@ namespace WpfMinecraftCommandHelper2
                     if (listEHHasShowitem[i] == true) { EHStr = ",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"" + listEHShowitemStr[i] + "\"}"; }
                     if (listEHHasShowAc[i] == true) { EHStr = ",\"hoverEvent\":{\"action\":\"show_achievement\",\"value\":\"" + listEHShowAc[i] + "\"}"; }
                     if (listEHHasShowentity[i] == true) { EHStr = ",\"hoverEvent\":{\"action\":\"show_entity\",\"value\":\"{id:\\\"" + listEHShowentityID[i] + "\\\",name:\\\"" + listEHShowentityName[i] + "\\\",type:\\\"" + listEHShowentityType[i] + "\\\"}\""; }
-                    temp += EHStr;
+                    tempECStr += EHStr;
                 }
-                temp += "}";
-                eachStr.Add(temp);
             }
+            tempECStr = tempECStr.Replace("\"", "\\\"");
             if (rbTellraw.IsChecked.Value)
             {
                 finalStr = "/tellraw " + atStr + " {\"text\":\"\",\"extra\":[";
@@ -608,6 +637,7 @@ namespace WpfMinecraftCommandHelper2
                 for (int p = 1; p < 5; p++)
                 {
                     finalStr += "Text" + p + ":\"{\\\"text\\\":\\\"\\\",\\\"extra\\\":[";//]}\"
+                    int numadd = 0;
                     for (int i = 0; i < listPage.Count; i++)
                     {
                         if (listPage[i] == p)
@@ -615,9 +645,10 @@ namespace WpfMinecraftCommandHelper2
                             string temp3 = eachStr[i];
                             finalStr += temp3.Replace("\"", "\\\"") + ",";
                         }
+                        numadd++;
                     }
-                    finalStr = finalStr.Substring(0, finalStr.Length - 1);
-                    finalStr += "]}\",";
+                    if (numadd != 0) finalStr = finalStr.Substring(0, finalStr.Length - 1);
+                    finalStr += "]" + tempECStr + "}\",";
                 }
                 finalStr = finalStr.Substring(0, finalStr.Length - 1);
                 finalStr += "}}";
@@ -628,6 +659,7 @@ namespace WpfMinecraftCommandHelper2
                 for (int p = 1; p < 5; p++)
                 {
                     finalStr += "Text" + p + ":\"{\\\"text\\\":\\\"\\\",\\\"extra\\\":[";//]}\"
+                    int numadd = 0;
                     for (int i = 0; i < listPage.Count; i++)
                     {
                         if (listPage[i] == p)
@@ -635,9 +667,10 @@ namespace WpfMinecraftCommandHelper2
                             string temp3 = eachStr[i];
                             finalStr += temp3.Replace("\"", "\\\"") + ",";
                         }
+                        numadd++;
                     }
-                    finalStr = finalStr.Substring(0, finalStr.Length - 1);
-                    finalStr += "]}\",";
+                    if (numadd != 0) finalStr = finalStr.Substring(0, finalStr.Length - 1);
+                    finalStr += "]" + tempECStr + "}\",";
                 }
                 finalStr = finalStr.Substring(0, finalStr.Length - 1);
                 finalStr += "}";
@@ -700,13 +733,20 @@ namespace WpfMinecraftCommandHelper2
 
         private void tbExtraHoverShowitemGet_Click(object sender, RoutedEventArgs e)
         {
+            AllSelData asd = new AllSelData();
             Item itembox = new Item();
             itembox.ShowDialog();
             int[] temp1 = itembox.returnStrAdver();
             tbExtraHoverShowitemSel.SelectedIndex = temp1[0];
             string[] temp2 = itembox.returnStr();
-            string temp = temp2[6];
-            globalHoverEventShowitemStr = temp.Replace("\\\"", "\\\\\\\"").Replace("\"","\\\"");
+            //string temp = temp2[6];
+            //globalHoverEventShowitemStr = temp.Replace("\\\"", "\\\\\\\"").Replace("\"","\\\"");
+            globalHoverEventShowitemStr = "{id:" + asd.getItem(temp1[0]) + ",tag:{" + temp2[0] + "," + temp2[1] + "," + temp2[2] + "," + temp2[4] + "," + temp2[5] + "}}";
+            globalHoverEventShowitemStr = globalHoverEventShowitemStr.Replace(",,,,", ",");
+            globalHoverEventShowitemStr = globalHoverEventShowitemStr.Replace(",,,", ",");
+            globalHoverEventShowitemStr = globalHoverEventShowitemStr.Replace(",,", ",");
+            globalHoverEventShowitemStr = globalHoverEventShowitemStr.Replace(",,", ",");
+            if (rbBook.IsChecked.Value) { globalHoverEventShowitemStr = globalHoverEventShowitemStr.Replace("\"", "\\\\\\\"").Replace("\\\"", "\""); }
         }
 
         private void rbTellraw_Click(object sender, RoutedEventArgs e)
@@ -723,9 +763,9 @@ namespace WpfMinecraftCommandHelper2
                 checkExtraHover.IsEnabled = true;
                 groupExtraClick0.IsEnabled = true;
                 groupExtraHover0.IsEnabled = true;
-                btnPagePre.IsEnabled = false;
-                btnPageNext.IsEnabled = false;
-                tbShowLine.IsEnabled = false;
+                tbShowPage1.IsEnabled = false;
+                tbPage.IsEnabled = false;
+                tbShowPage2.IsEnabled = false;
             }
         }
 
@@ -743,9 +783,9 @@ namespace WpfMinecraftCommandHelper2
                 checkExtraHover.IsEnabled = false;
                 groupExtraClick0.IsEnabled = false;
                 groupExtraHover0.IsEnabled = false;
-                btnPagePre.IsEnabled = false;
-                btnPageNext.IsEnabled = false;
-                tbShowLine.IsEnabled = false;
+                tbShowPage1.IsEnabled = false;
+                tbPage.IsEnabled = false;
+                tbShowPage2.IsEnabled = false;
             }
         }
 
@@ -763,9 +803,9 @@ namespace WpfMinecraftCommandHelper2
                 checkExtraHover.IsEnabled = false;
                 groupExtraClick0.IsEnabled = false;
                 groupExtraHover0.IsEnabled = false;
-                btnPagePre.IsEnabled = false;
-                btnPageNext.IsEnabled = false;
-                tbShowLine.IsEnabled = false;
+                tbShowPage1.IsEnabled = false;
+                tbPage.IsEnabled = false;
+                tbShowPage2.IsEnabled = false;
             }
         }
 
@@ -784,9 +824,9 @@ namespace WpfMinecraftCommandHelper2
                 checkExtraHover.IsEnabled = false;
                 groupExtraClick0.IsEnabled = true;
                 groupExtraHover0.IsEnabled = false;
-                btnPagePre.IsEnabled = true;
-                btnPageNext.IsEnabled = true;
-                tbShowLine.IsEnabled = true;
+                tbShowPage1.IsEnabled = true;
+                tbPage.IsEnabled = true;
+                tbShowPage2.IsEnabled = true;
             }
         }
 
@@ -805,9 +845,9 @@ namespace WpfMinecraftCommandHelper2
                 checkExtraHover.IsEnabled = false;
                 groupExtraClick0.IsEnabled = true;
                 groupExtraHover0.IsEnabled = false;
-                btnPagePre.IsEnabled = true;
-                btnPageNext.IsEnabled = true;
-                tbShowLine.IsEnabled = true;
+                tbShowPage1.IsEnabled = true;
+                tbPage.IsEnabled = true;
+                tbShowPage2.IsEnabled = true;
             }
         }
 
@@ -825,9 +865,9 @@ namespace WpfMinecraftCommandHelper2
                 checkExtraHover.IsEnabled = true;
                 groupExtraClick0.IsEnabled = true;
                 groupExtraHover0.IsEnabled = true;
-                btnPagePre.IsEnabled = true;
-                btnPageNext.IsEnabled = true;
-                tbShowLine.IsEnabled = true;
+                tbShowPage1.IsEnabled = true;
+                tbPage.IsEnabled = true;
+                tbShowPage2.IsEnabled = true;
             }
         }
 
@@ -956,10 +996,12 @@ namespace WpfMinecraftCommandHelper2
             if (checkExtraHoverShowtext.IsChecked.Value)
             {
                 tbExtraHoverShowtext.IsEnabled = true;
+                tbExtraHoverShowtextByCode.IsEnabled = true;
             }
             else
             {
                 tbExtraHoverShowtext.IsEnabled = false;
+                tbExtraHoverShowtextByCode.IsEnabled = false;
             }
         }
 
@@ -1002,6 +1044,22 @@ namespace WpfMinecraftCommandHelper2
                 tbExtraHoverShowentityID.IsEnabled = false;
                 tbExtraHoverShowentityName.IsEnabled = false;
                 tbExtraHoverShowentitySelType.IsEnabled = false;
+            }
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Tellraw.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
             }
         }
     }

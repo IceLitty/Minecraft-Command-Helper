@@ -14,6 +14,7 @@
     "FloatErrorTitle": "錯誤",
     "FloatHelpTitle": "幫助",
     "FloatTipTitle": "提示",
+    "FloatHelpFileCantFind": "幫助文件未找到，請重新下載軟件！",
 
     "BtnAt": "獲取AT",
     "BtnClear": "清空",
@@ -129,7 +130,6 @@
     "AdvHelpStr": "",
 
     "AtTitle": "尋找實體",
-    "AtPlzCloseWindow": "代碼已生成！請手動關閉窗口。",
     "AtUN": "非",
     "AtXYZ": "坐標XYZ",
     "AtDx": "體積XYZ",

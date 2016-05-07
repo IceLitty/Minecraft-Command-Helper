@@ -207,6 +207,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["MainAvatarSkyJelly"].ToString());
             relanglist.Add(LangList[langID]["MainAvatarTizi"].ToString());
             relanglist.Add(LangList[langID]["MainAvatarZero"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;
         }
 
@@ -233,6 +234,10 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["AboutT2"].ToString());
             relanglist.Add(LangList[langID]["AboutRegMode"].ToString());
             relanglist.Add(LangList[langID]["AboutDefaultMode"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["FloatConfirm"].ToString());
+            relanglist.Add(LangList[langID]["FloatCancel"].ToString());
             return relanglist;
         }
 
@@ -274,6 +279,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["AdvNext"].ToString());
             relanglist.Add(LangList[langID]["AdvOnlyPlace"].ToString());
             relanglist.Add(LangList[langID]["AdvHelpStr"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;
         }
 
@@ -299,7 +306,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BtnCopy"].ToString());
             relanglist.Add(LangList[langID]["BtnHelp"].ToString());
             relanglist.Add(LangList[langID]["AtTitle"].ToString());
-            relanglist.Add(LangList[langID]["AtPlzCloseWindow"].ToString());
+            relanglist.Add(LangList[langID]["AtTitle"].ToString());
             relanglist.Add(LangList[langID]["AtUN"].ToString());
             relanglist.Add(LangList[langID]["AtXYZ"].ToString());
             relanglist.Add(LangList[langID]["AtDx"].ToString());
@@ -327,6 +334,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["AtRiding"].ToString());
             relanglist.Add(LangList[langID]["AtHelpStr"].ToString());
             relanglist.Add(LangList[langID]["AtTags"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;
         }
 
@@ -368,6 +377,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BannerNextLayer"].ToString());
             relanglist.Add(LangList[langID]["BannerGenerateShield"].ToString());
             relanglist.Add(LangList[langID]["BannerHelpStr"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;
         }
 
@@ -386,6 +397,34 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["CheckTitle"].ToString());
             relanglist.Add(LangList[langID]["CheckFavourite"].ToString());
             relanglist.Add(LangList[langID]["CheckCreate"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["FloatConfirm"].ToString());
+            relanglist.Add(LangList[langID]["FloatCancel"].ToString());
+            return relanglist;
+        }
+
+        public List<string> SetColorSel()
+        {
+            string nowLang = getLangFile();
+            int langID = 0;
+            for (int i = 0; i < fileCount; i++)
+            {
+                if (LangList[i]["LanguageID"].ToString() == nowLang)
+                {
+                    langID = i;
+                }
+            }
+            List<string> relanglist = new List<string>();
+            relanglist.Add(LangList[langID]["BtnCreate"].ToString());
+            relanglist.Add(LangList[langID]["ColorTitle"].ToString());
+            relanglist.Add(LangList[langID]["ColorR"].ToString());
+            relanglist.Add(LangList[langID]["ColorG"].ToString());
+            relanglist.Add(LangList[langID]["ColorB"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["FloatConfirm"].ToString());
+            relanglist.Add(LangList[langID]["FloatCancel"].ToString());
             return relanglist;
         }
 
@@ -424,26 +463,10 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["CCSouth"].ToString());
             relanglist.Add(LangList[langID]["CCWest"].ToString());
             relanglist.Add(LangList[langID]["CCNorth"].ToString());
-            return relanglist;
-        }
-
-        public List<string> SetColorSel()
-        {
-            string nowLang = getLangFile();
-            int langID = 0;
-            for (int i = 0; i < fileCount; i++)
-            {
-                if (LangList[i]["LanguageID"].ToString() == nowLang)
-                {
-                    langID = i;
-                }
-            }
-            List<string> relanglist = new List<string>();
-            relanglist.Add(LangList[langID]["BtnCreate"].ToString());
-            relanglist.Add(LangList[langID]["ColorTitle"].ToString());
-            relanglist.Add(LangList[langID]["ColorR"].ToString());
-            relanglist.Add(LangList[langID]["ColorG"].ToString());
-            relanglist.Add(LangList[langID]["ColorB"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["FloatConfirm"].ToString());
+            relanglist.Add(LangList[langID]["FloatCancel"].ToString());
             return relanglist;
         }
 
@@ -480,6 +503,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["EffectHideParticle"].ToString());
             relanglist.Add(LangList[langID]["EffectPlay"].ToString());
             relanglist.Add(LangList[langID]["EffectHelpStr"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;
         }
 
@@ -503,6 +527,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["FavouriteTip1"].ToString());
             relanglist.Add(LangList[langID]["FavouriteTip2"].ToString());
             relanglist.Add(LangList[langID]["FavouriteHelpStr"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;
         }
 
@@ -549,6 +575,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["FireworkFadeColor"].ToString());
             relanglist.Add(LangList[langID]["FireworkPrePage"].ToString());
             relanglist.Add(LangList[langID]["FireworkNextPage"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;
         }
 
@@ -634,6 +662,97 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["ItemAttributeFeet"].ToString());
             relanglist.Add(LangList[langID]["ItemAttributeAll"].ToString());
             relanglist.Add(LangList[langID]["ItemColorCreateBtn"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            return relanglist;
+        }
+
+        public List<string> SetLootTable()
+        {
+            string nowLang = getLangFile();
+            int langID = 0;
+            for (int i = 0; i < fileCount; i++)
+            {
+                if (LangList[i]["LanguageID"].ToString() == nowLang)
+                {
+                    langID = i;
+                }
+            }
+            List<string> relanglist = new List<string>();
+            relanglist.Add(LangList[langID]["BtnClear"].ToString());
+            relanglist.Add(LangList[langID]["BtnCreate"].ToString());
+            relanglist.Add(LangList[langID]["BtnCheck"].ToString());
+            relanglist.Add(LangList[langID]["LootTableGet"].ToString());
+            relanglist.Add(LangList[langID]["LootTableRand"].ToString());
+            relanglist.Add(LangList[langID]["LootTableMin"].ToString());
+            relanglist.Add(LangList[langID]["LootTableMax"].ToString());
+            relanglist.Add(LangList[langID]["LootTableRegular"].ToString());
+            relanglist.Add(LangList[langID]["LootTableTitle"].ToString());
+            relanglist.Add(LangList[langID]["LootTablePoolHeader"].ToString());
+            relanglist.Add(LangList[langID]["LootTablePoolRollCount"].ToString());
+            relanglist.Add(LangList[langID]["LootTablePoolRollBonus"].ToString());
+            relanglist.Add(LangList[langID]["LootTablePoolRollBonusTip"].ToString());
+            relanglist.Add(LangList[langID]["LootTableEntryItem"].ToString());
+            relanglist.Add(LangList[langID]["LootTableEntryLootTable"].ToString());
+            relanglist.Add(LangList[langID]["LootTableEntryNothing"].ToString());
+            relanglist.Add(LangList[langID]["LootTableEntryWeight"].ToString());
+            relanglist.Add(LangList[langID]["LootTableEntryQuality"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunction"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionRandomEnchant"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionRandomEnchantChoose"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionEnchant"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionEnchantTreasure"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionFurnace"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionLootCount"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionAttribute"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionCount"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionDamage"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionMeta"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionNBT"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionHeader"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionPThis"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionPKiller"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionPKillerByPlayer"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionProperties"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionPropertiesIsOnFire"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionPropertiesIsOnFireTip"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionScore"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionScoreboardName"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionChance"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionChanceTip"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionChanceMultiTip"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionChanceMultiCheck"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionKillByPlayer"].ToString());
+            relanglist.Add(LangList[langID]["LootTableConditionNotKillByPlayer"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeHeader"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttribute"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeMaxHealth"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeRange"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeKnock"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeSpeed"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeAtkDmg"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeArmor"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeAtkSpeed"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeLuck"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeJump"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeZombie"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeMainHand"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeOffHand"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeFeet"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeLegs"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeChest"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeHead"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeAddition"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeMultiplyBase"].ToString());
+            relanglist.Add(LangList[langID]["LootTableAttributeMultiplyTotal"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFileName"].ToString());
+            relanglist.Add(LangList[langID]["LootTableSaveTitle"].ToString());
+            relanglist.Add(LangList[langID]["LootTableSaveList"].ToString());
+            relanglist.Add(LangList[langID]["LootTableWiki"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["FloatConfirm"].ToString());
+            relanglist.Add(LangList[langID]["FloatCancel"].ToString());
             return relanglist;
         }
 
@@ -683,6 +802,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["HeadlibHeader11"].ToString());
             relanglist.Add(LangList[langID]["HeadlibHeader12"].ToString());
             relanglist.Add(LangList[langID]["HeadlibHeader13"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;
         }
 
@@ -770,6 +891,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["OtherListEast"].ToString());
             relanglist.Add(LangList[langID]["OtherLoot"].ToString());
             relanglist.Add(LangList[langID]["OtherHelpLoot"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;
         }
 
@@ -803,6 +926,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["ParticleCount"].ToString());
             relanglist.Add(LangList[langID]["ParticleUseNowPosition"].ToString());
             relanglist.Add(LangList[langID]["ParticleHelpStr"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;
         }
 
@@ -874,6 +999,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["PotionHideEffect"].ToString());
             relanglist.Add(LangList[langID]["PotionEffect26"].ToString());
             relanglist.Add(LangList[langID]["PotionEffect27"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;
         }
 
@@ -911,6 +1038,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["ReplaceItemHasNameLore"].ToString());
             relanglist.Add(LangList[langID]["ReplaceItemHasAttribute"].ToString());
             relanglist.Add(LangList[langID]["ReplaceItemCantBroke"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;
         }
 
@@ -940,6 +1069,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["SpreadPlayerMaxRange"].ToString());
             relanglist.Add(LangList[langID]["SpreadPlayerOnlyTeam"].ToString());
             relanglist.Add(LangList[langID]["SpreadPlayerHelpStr"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;
         }
 
@@ -1132,6 +1263,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["SummonHorseSkeletonTrap"].ToString());
             relanglist.Add(LangList[langID]["SummonHorseSkeletonTrapTimeTooltip"].ToString());
             relanglist.Add(LangList[langID]["SummonHorseSaddle"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;
         }
 
@@ -1185,32 +1318,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["SuperflatLake"].ToString());
             relanglist.Add(LangList[langID]["SuperflatLavaLake"].ToString());
             relanglist.Add(LangList[langID]["SuperflatOceanMonument"].ToString());
-            return relanglist;
-        }
-
-        public List<string> SetTestfor()
-        {
-            string nowLang = getLangFile();
-            int langID = 0;
-            for (int i = 0; i < fileCount; i++)
-            {
-                if (LangList[i]["LanguageID"].ToString() == nowLang)
-                {
-                    langID = i;
-                }
-            }
-            List<string> relanglist = new List<string>();
-            relanglist.Add(LangList[langID]["FloatHelpTitle"].ToString());
-            relanglist.Add(LangList[langID]["FloatConfirm"].ToString());
-            relanglist.Add(LangList[langID]["FloatCancel"].ToString());
-            relanglist.Add(LangList[langID]["BtnClear"].ToString());
-            relanglist.Add(LangList[langID]["BtnCreate"].ToString());
-            relanglist.Add(LangList[langID]["BtnCheck"].ToString());
-            relanglist.Add(LangList[langID]["BtnCopy"].ToString());
-            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
-            relanglist.Add(LangList[langID]["TestforHelpStr"].ToString());
-            relanglist.Add(LangList[langID]["TestforTitle"].ToString());
-            relanglist.Add(LangList[langID]["TestforOpenAtWindowBtn"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;
         }
 
@@ -1281,10 +1390,12 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["TellrawLine3"].ToString());
             relanglist.Add(LangList[langID]["TellrawLine4"].ToString());
             relanglist.Add(LangList[langID]["TellrawHelpStr"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;
         }
 
-        public List<string> SetLootTable()
+        public List<string> SetTestfor()
         {
             string nowLang = getLangFile();
             int langID = 0;
@@ -1296,76 +1407,19 @@ namespace WpfMinecraftCommandHelper2
                 }
             }
             List<string> relanglist = new List<string>();
+            relanglist.Add(LangList[langID]["FloatHelpTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatConfirm"].ToString());
+            relanglist.Add(LangList[langID]["FloatCancel"].ToString());
             relanglist.Add(LangList[langID]["BtnClear"].ToString());
             relanglist.Add(LangList[langID]["BtnCreate"].ToString());
             relanglist.Add(LangList[langID]["BtnCheck"].ToString());
-            relanglist.Add(LangList[langID]["LootTableGet"].ToString());
-            relanglist.Add(LangList[langID]["LootTableRand"].ToString());
-            relanglist.Add(LangList[langID]["LootTableMin"].ToString());
-            relanglist.Add(LangList[langID]["LootTableMax"].ToString());
-            relanglist.Add(LangList[langID]["LootTableRegular"].ToString());
-            relanglist.Add(LangList[langID]["LootTableTitle"].ToString());
-            relanglist.Add(LangList[langID]["LootTablePoolHeader"].ToString());
-            relanglist.Add(LangList[langID]["LootTablePoolRollCount"].ToString());
-            relanglist.Add(LangList[langID]["LootTablePoolRollBonus"].ToString());
-            relanglist.Add(LangList[langID]["LootTablePoolRollBonusTip"].ToString());
-            relanglist.Add(LangList[langID]["LootTableEntryItem"].ToString());
-            relanglist.Add(LangList[langID]["LootTableEntryLootTable"].ToString());
-            relanglist.Add(LangList[langID]["LootTableEntryNothing"].ToString());
-            relanglist.Add(LangList[langID]["LootTableEntryWeight"].ToString());
-            relanglist.Add(LangList[langID]["LootTableEntryQuality"].ToString());
-            relanglist.Add(LangList[langID]["LootTableFunction"].ToString());
-            relanglist.Add(LangList[langID]["LootTableFunctionRandomEnchant"].ToString());
-            relanglist.Add(LangList[langID]["LootTableFunctionRandomEnchantChoose"].ToString());
-            relanglist.Add(LangList[langID]["LootTableFunctionEnchant"].ToString());
-            relanglist.Add(LangList[langID]["LootTableFunctionEnchantTreasure"].ToString());
-            relanglist.Add(LangList[langID]["LootTableFunctionFurnace"].ToString());
-            relanglist.Add(LangList[langID]["LootTableFunctionLootCount"].ToString());
-            relanglist.Add(LangList[langID]["LootTableFunctionAttribute"].ToString());
-            relanglist.Add(LangList[langID]["LootTableFunctionCount"].ToString());
-            relanglist.Add(LangList[langID]["LootTableFunctionDamage"].ToString());
-            relanglist.Add(LangList[langID]["LootTableFunctionMeta"].ToString());
-            relanglist.Add(LangList[langID]["LootTableFunctionNBT"].ToString());
-            relanglist.Add(LangList[langID]["LootTableConditionHeader"].ToString());
-            relanglist.Add(LangList[langID]["LootTableConditionPThis"].ToString());
-            relanglist.Add(LangList[langID]["LootTableConditionPKiller"].ToString());
-            relanglist.Add(LangList[langID]["LootTableConditionPKillerByPlayer"].ToString());
-            relanglist.Add(LangList[langID]["LootTableConditionProperties"].ToString());
-            relanglist.Add(LangList[langID]["LootTableConditionPropertiesIsOnFire"].ToString());
-            relanglist.Add(LangList[langID]["LootTableConditionPropertiesIsOnFireTip"].ToString());
-            relanglist.Add(LangList[langID]["LootTableConditionScore"].ToString());
-            relanglist.Add(LangList[langID]["LootTableConditionScoreboardName"].ToString());
-            relanglist.Add(LangList[langID]["LootTableConditionChance"].ToString());
-            relanglist.Add(LangList[langID]["LootTableConditionChanceTip"].ToString());
-            relanglist.Add(LangList[langID]["LootTableConditionChanceMultiTip"].ToString());
-            relanglist.Add(LangList[langID]["LootTableConditionChanceMultiCheck"].ToString());
-            relanglist.Add(LangList[langID]["LootTableConditionKillByPlayer"].ToString());
-            relanglist.Add(LangList[langID]["LootTableConditionNotKillByPlayer"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeHeader"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttribute"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeMaxHealth"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeRange"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeKnock"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeSpeed"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeAtkDmg"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeArmor"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeAtkSpeed"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeLuck"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeJump"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeZombie"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeMainHand"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeOffHand"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeFeet"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeLegs"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeChest"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeHead"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeAddition"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeMultiplyBase"].ToString());
-            relanglist.Add(LangList[langID]["LootTableAttributeMultiplyTotal"].ToString());
-            relanglist.Add(LangList[langID]["LootTableFileName"].ToString());
-            relanglist.Add(LangList[langID]["LootTableSaveTitle"].ToString());
-            relanglist.Add(LangList[langID]["LootTableSaveList"].ToString());
-            relanglist.Add(LangList[langID]["LootTableWiki"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());
+            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
+            relanglist.Add(LangList[langID]["TestforHelpStr"].ToString());
+            relanglist.Add(LangList[langID]["TestforTitle"].ToString());
+            relanglist.Add(LangList[langID]["TestforOpenAtWindowBtn"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;
         }
     }

@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterOwner" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="寻找玩家" Height="566.366" Width="685.803">
+        Title="寻找玩家" Height="566.366" Width="685.803" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Grid>
         <Grid HorizontalAlignment="Left" Height="39" Margin="10,10,0,0" VerticalAlignment="Top" Width="208">
             <RadioButton x:Name="atP" Content="@p" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" IsChecked="True"/>

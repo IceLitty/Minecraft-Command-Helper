@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Media.Imaging;
 using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using System.Windows;
 
 namespace WpfMinecraftCommandHelper2
@@ -18,6 +19,10 @@ namespace WpfMinecraftCommandHelper2
         }
 
         private string CheckCreate = "检索已生成代码 - ";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
+        private string FloatConfirm = "确认";
+        private string FloatCancel = "取消";
 
         private void appLanguage()
         {
@@ -28,6 +33,10 @@ namespace WpfMinecraftCommandHelper2
                 this.Title = templang[0];
                 favouriteText.Text = templang[1];
                 CheckCreate = templang[2];
+                FloatErrorTitle = templang[3];
+                FloatHelpFileCantFind = templang[4];
+                FloatConfirm = templang[5];
+                FloatCancel = templang[6];
             }
             catch (Exception) { /* throw; */ }
         }
@@ -94,6 +103,22 @@ namespace WpfMinecraftCommandHelper2
             Favourite fbox = new Favourite();
             //fbox.NewItems(box.Text);
             fbox.Show();
+        }
+
+        private void winCheck_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Check.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
+            }
         }
     }
 }

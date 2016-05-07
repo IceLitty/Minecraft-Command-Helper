@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="状态效果" Height="301.056" Width="502.733">
+        Title="状态效果" Height="301.056" Width="502.733" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Grid>
         <Label x:Name="EffectChooseEffect2" Content="请选择状态效果：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="tabEffectSel" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="338" SelectionChanged="tabEffectSel_SelectionChanged"/>

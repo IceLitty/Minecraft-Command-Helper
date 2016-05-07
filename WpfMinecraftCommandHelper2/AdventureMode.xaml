@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="冒险模式" Height="357.042" Width="639.48">
+        Title="冒险模式" Height="357.042" Width="639.48" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Grid>
         <CheckBox x:Name="tabRPGHasEnchant" Content="有附魔√" HorizontalAlignment="Left" Margin="160,12,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="tabRPGHasNL" Content="有自定义名称或Lore√" HorizontalAlignment="Left" Margin="160,35,0,0" VerticalAlignment="Top"/>

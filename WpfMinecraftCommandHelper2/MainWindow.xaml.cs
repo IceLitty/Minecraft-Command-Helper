@@ -35,6 +35,7 @@ namespace WpfMinecraftCommandHelper2
         private string FloatAboutTitle = "关于";
         private string FloatWarningTitle = "警告";
         private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
 
         private void appLanguage(List<string> templanglist)
         {
@@ -46,7 +47,7 @@ namespace WpfMinecraftCommandHelper2
             FloatAboutTitle = templanglist[11];
             FloatWarningTitle = templanglist[12];
             FloatErrorTitle = templanglist[13];
-            this.Title = "Minecraft Command Helper v2.8.0.0 - " + templanglist[14];
+            this.Title = "Minecraft Command Helper v2.8.1.0 - " + templanglist[14];
             itemBtn.Title = templanglist[15];
             spBtn.Title = templanglist[17];
             potionBtn.Title = templanglist[18];
@@ -118,6 +119,7 @@ namespace WpfMinecraftCommandHelper2
             jelly.Content = templanglist[85];
             tizi.Content = templanglist[86];
             zero.Content = templanglist[87];
+            FloatHelpFileCantFind = templanglist[88];
         }
 
         private List<string> lang = new List<string>();
@@ -989,6 +991,22 @@ namespace WpfMinecraftCommandHelper2
             int find = value.IndexOf('\"');
             value = value.Substring(0, find);
             System.Diagnostics.Process.Start(value, "http://www.mcbbs.net/group-163-1.html");
+        }
+
+        private void win_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            string path = Directory.GetCurrentDirectory() + @"\Help\Main.html";
+            if (e.Key == Key.F1)
+            {
+                if (File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
+            }
         }
     }
 }

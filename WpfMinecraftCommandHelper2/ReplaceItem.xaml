@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="编辑背包" Height="394.014" Width="587.324">
+        Title="编辑背包" Height="394.014" Width="587.324" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Grid>
         <Grid HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="144">
             <RadioButton x:Name="tabRItemEntity" Content="实体" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Click="tabRItemEntity_Checked"/>

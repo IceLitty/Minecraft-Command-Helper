@@ -24,6 +24,8 @@ namespace WpfMinecraftCommandHelper2
         private string PotionNotSelect = "药水类型没有选中，请检查！";
         private string PotionClickMe = "请点击我";
         private string PotionHelpStr = "";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
 
         private void appLanguage()
         {
@@ -87,6 +89,8 @@ namespace WpfMinecraftCommandHelper2
                 PotionHideEffect.Content = templang[53];
                 tabPotionEffect26.Content = templang[54];
                 tabPotionEffect27.Content = templang[55];
+                FloatErrorTitle = templang[56];
+                FloatHelpFileCantFind = templang[57];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -875,6 +879,22 @@ namespace WpfMinecraftCommandHelper2
             else
             {
                 attrBox.IsEnabled = false;
+            }
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Potion.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
             }
         }
     }

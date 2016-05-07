@@ -77,6 +77,8 @@ namespace WpfMinecraftCommandHelper2
         private string OtherListWest = "座椅面朝西 West";
         private string OtherListEast = "座椅面朝东 East";
         private string OtherHelpLoot = "用于1.9的JSON格式地图的生物掉落/箱子生成等可抢夺物品表的生成器。";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
 
         private void appLanguage()
         {
@@ -172,6 +174,8 @@ namespace WpfMinecraftCommandHelper2
                 OtherListEast = templang[69];
                 Other1Loot.Content = templang[70];
                 OtherHelpLoot = templang[71];
+                FloatErrorTitle = templang[72];
+                FloatHelpFileCantFind = templang[73];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -952,6 +956,22 @@ namespace WpfMinecraftCommandHelper2
             LootTable lootbox = new LootTable();
             lootbox.ShowDialog();
             this.Show();
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Other.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
+            }
         }
     }
 }

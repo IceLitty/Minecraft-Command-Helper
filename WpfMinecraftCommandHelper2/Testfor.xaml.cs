@@ -20,6 +20,8 @@ namespace WpfMinecraftCommandHelper2
         private string FloatConfirm = "确认";
         private string FloatCancel = "取消";
         private string TestforHelpStr = "";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
 
         private void appLanguage()
         {
@@ -38,6 +40,8 @@ namespace WpfMinecraftCommandHelper2
                 TestforHelpStr = templang[8];
                 this.Title = templang[9];
                 atBtn.Content = templang[10];
+                FloatErrorTitle = templang[11];
+                FloatHelpFileCantFind = templang[12];
             } catch (System.Exception) { /* throw; */ }
         }
 
@@ -80,6 +84,22 @@ namespace WpfMinecraftCommandHelper2
             Check checkbox = new Check();
             checkbox.showText(finalStr);
             checkbox.Show();
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Testfor.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
+            }
         }
     }
 }

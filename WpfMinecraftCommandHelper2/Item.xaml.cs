@@ -37,6 +37,8 @@ namespace WpfMinecraftCommandHelper2
         private string FloatConfirm = "确认";
         private string FloatCancel = "取消";
         private string ItemHelpStr = "";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
 
         private void appLanguage()
         {
@@ -114,6 +116,8 @@ namespace WpfMinecraftCommandHelper2
                 AttrFeet.Content = templang[67];
                 AttrAll.Content = templang[68];
                 ColorGetBtn.Content = templang[69];
+                FloatErrorTitle = templang[70];
+                FloatHelpFileCantFind = templang[71];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -296,13 +300,20 @@ namespace WpfMinecraftCommandHelper2
                 finalString = finalString.Remove(finalString.Length - 1, 1);
                 finalStr = give + finalString + "}";
             }
-            //判断是否含有颜色代码
-            if (finalStr.IndexOf("§") != -1)
-            {
-                finalStr = finalStr.Replace("§", @"\\u00A7");
-                finalStr = "/setblock ~ ~1 ~ standing_sign 0 replace {Text1:\"{text:\\\"请点击我\\\",clickEvent:{action:\\\"run_command\\\",value:\\\"/blockdata ~ ~-1 ~ {Command:" + finalStr + ",}\\\"}}\"}";
-            }
+            finalStr = fixColorCode(finalStr);
             globalCommand = finalStr;
+        }
+
+        private string fixColorCode(string str)
+        {
+            //判断是否含有颜色代码
+            if (str.IndexOf("§") != -1)
+            {
+                str = str.Replace("§", @"\\u00A7");
+                str = str.Replace("\"", "\\\\\\\"");
+                str = "/setblock ~ ~1 ~ standing_sign 0 replace {Text1:\"{\\\"text\\\":\\\"请点击我\\\",\\\"clickEvent\\\":{\\\"action\\\":\\\"run_command\\\",\\\"value\\\":\\\"/blockdata ~ ~-1 ~ {Command:" + str + ",}\\\"}}\"}";
+            }
+            return str;
         }
 
         private string EnchantReturn()
@@ -310,33 +321,33 @@ namespace WpfMinecraftCommandHelper2
             string enchant = "";
             if (tabItemEnchantCheck.IsChecked.Value)
             {
-                if (tabItemEnchant0.IsChecked.Value) { enchant += "{id:0s" + ",lvl:" + tabItemEnNum0.Value.Value + "s},"; }
-                if (tabItemEnchant1.IsChecked.Value) { enchant += "{id:1s" + ",lvl:" + tabItemEnNum1.Value.Value + "s},"; }
-                if (tabItemEnchant2.IsChecked.Value) { enchant += "{id:2s" + ",lvl:" + tabItemEnNum2.Value.Value + "s},"; }
-                if (tabItemEnchant3.IsChecked.Value) { enchant += "{id:3s" + ",lvl:" + tabItemEnNum3.Value.Value + "s},"; }
-                if (tabItemEnchant4.IsChecked.Value) { enchant += "{id:4s" + ",lvl:" + tabItemEnNum4.Value.Value + "s},"; }
-                if (tabItemEnchant5.IsChecked.Value) { enchant += "{id:5s" + ",lvl:" + tabItemEnNum5.Value.Value + "s},"; }
-                if (tabItemEnchant6.IsChecked.Value) { enchant += "{id:6s" + ",lvl:" + tabItemEnNum6.Value.Value + "s},"; }
-                if (tabItemEnchant7.IsChecked.Value) { enchant += "{id:7s" + ",lvl:" + tabItemEnNum7.Value.Value + "s},"; }
-                if (tabItemEnchant8.IsChecked.Value) { enchant += "{id:8s" + ",lvl:" + tabItemEnNum8.Value.Value + "s},"; }
-                if (tabItemEnchant9.IsChecked.Value) { enchant += "{id:9s" + ",lvl:" + tabItemEnNum9.Value.Value + "s},"; }
-                if (tabItemEnchant16.IsChecked.Value) { enchant += "{id:16s" + ",lvl:" + tabItemEnNum16.Value.Value + "s},"; }
-                if (tabItemEnchant17.IsChecked.Value) { enchant += "{id:17s" + ",lvl:" + tabItemEnNum17.Value.Value + "s},"; }
-                if (tabItemEnchant18.IsChecked.Value) { enchant += "{id:18s" + ",lvl:" + tabItemEnNum18.Value.Value + "s},"; }
-                if (tabItemEnchant19.IsChecked.Value) { enchant += "{id:19s" + ",lvl:" + tabItemEnNum19.Value.Value + "s},"; }
-                if (tabItemEnchant20.IsChecked.Value) { enchant += "{id:20s" + ",lvl:" + tabItemEnNum20.Value.Value + "s},"; }
-                if (tabItemEnchant21.IsChecked.Value) { enchant += "{id:21s" + ",lvl:" + tabItemEnNum21.Value.Value + "s},"; }
-                if (tabItemEnchant32.IsChecked.Value) { enchant += "{id:32s" + ",lvl:" + tabItemEnNum32.Value.Value + "s},"; }
-                if (tabItemEnchant33.IsChecked.Value) { enchant += "{id:33s" + ",lvl:" + tabItemEnNum33.Value.Value + "s},"; }
-                if (tabItemEnchant34.IsChecked.Value) { enchant += "{id:34s" + ",lvl:" + tabItemEnNum34.Value.Value + "s},"; }
-                if (tabItemEnchant35.IsChecked.Value) { enchant += "{id:35s" + ",lvl:" + tabItemEnNum35.Value.Value + "s},"; }
-                if (tabItemEnchant48.IsChecked.Value) { enchant += "{id:48s" + ",lvl:" + tabItemEnNum48.Value.Value + "s},"; }
-                if (tabItemEnchant49.IsChecked.Value) { enchant += "{id:49s" + ",lvl:" + tabItemEnNum49.Value.Value + "s},"; }
-                if (tabItemEnchant50.IsChecked.Value) { enchant += "{id:50s" + ",lvl:" + tabItemEnNum50.Value.Value + "s},"; }
-                if (tabItemEnchant51.IsChecked.Value) { enchant += "{id:51s" + ",lvl:" + tabItemEnNum51.Value.Value + "s},"; }
-                if (tabItemEnchant61.IsChecked.Value) { enchant += "{id:61s" + ",lvl:" + tabItemEnNum61.Value.Value + "s},"; }
-                if (tabItemEnchant62.IsChecked.Value) { enchant += "{id:62s" + ",lvl:" + tabItemEnNum62.Value.Value + "s},"; }
-                if (tabItemEnchant70.IsChecked.Value) { enchant += "{id:70s" + ",lvl:" + tabItemEnNum70.Value.Value + "s},"; }
+                if (tabItemEnchant0.IsChecked.Value) { enchant += "{id:0s,lvl:" + tabItemEnNum0.Value.Value + "s},"; }
+                if (tabItemEnchant1.IsChecked.Value) { enchant += "{id:1s,lvl:" + tabItemEnNum1.Value.Value + "s},"; }
+                if (tabItemEnchant2.IsChecked.Value) { enchant += "{id:2s,lvl:" + tabItemEnNum2.Value.Value + "s},"; }
+                if (tabItemEnchant3.IsChecked.Value) { enchant += "{id:3s,lvl:" + tabItemEnNum3.Value.Value + "s},"; }
+                if (tabItemEnchant4.IsChecked.Value) { enchant += "{id:4s,lvl:" + tabItemEnNum4.Value.Value + "s},"; }
+                if (tabItemEnchant5.IsChecked.Value) { enchant += "{id:5s,lvl:" + tabItemEnNum5.Value.Value + "s},"; }
+                if (tabItemEnchant6.IsChecked.Value) { enchant += "{id:6s,lvl:" + tabItemEnNum6.Value.Value + "s},"; }
+                if (tabItemEnchant7.IsChecked.Value) { enchant += "{id:7s,lvl:" + tabItemEnNum7.Value.Value + "s},"; }
+                if (tabItemEnchant8.IsChecked.Value) { enchant += "{id:8s,lvl:" + tabItemEnNum8.Value.Value + "s},"; }
+                if (tabItemEnchant9.IsChecked.Value) { enchant += "{id:9s,lvl:" + tabItemEnNum9.Value.Value + "s},"; }
+                if (tabItemEnchant16.IsChecked.Value) { enchant += "{id:16s,lvl:" + tabItemEnNum16.Value.Value + "s},"; }
+                if (tabItemEnchant17.IsChecked.Value) { enchant += "{id:17s,lvl:" + tabItemEnNum17.Value.Value + "s},"; }
+                if (tabItemEnchant18.IsChecked.Value) { enchant += "{id:18s,lvl:" + tabItemEnNum18.Value.Value + "s},"; }
+                if (tabItemEnchant19.IsChecked.Value) { enchant += "{id:19s,lvl:" + tabItemEnNum19.Value.Value + "s},"; }
+                if (tabItemEnchant20.IsChecked.Value) { enchant += "{id:20s,lvl:" + tabItemEnNum20.Value.Value + "s},"; }
+                if (tabItemEnchant21.IsChecked.Value) { enchant += "{id:21s,lvl:" + tabItemEnNum21.Value.Value + "s},"; }
+                if (tabItemEnchant32.IsChecked.Value) { enchant += "{id:32s,lvl:" + tabItemEnNum32.Value.Value + "s},"; }
+                if (tabItemEnchant33.IsChecked.Value) { enchant += "{id:33s,lvl:" + tabItemEnNum33.Value.Value + "s},"; }
+                if (tabItemEnchant34.IsChecked.Value) { enchant += "{id:34s,lvl:" + tabItemEnNum34.Value.Value + "s},"; }
+                if (tabItemEnchant35.IsChecked.Value) { enchant += "{id:35s,lvl:" + tabItemEnNum35.Value.Value + "s},"; }
+                if (tabItemEnchant48.IsChecked.Value) { enchant += "{id:48s,lvl:" + tabItemEnNum48.Value.Value + "s},"; }
+                if (tabItemEnchant49.IsChecked.Value) { enchant += "{id:49s,lvl:" + tabItemEnNum49.Value.Value + "s},"; }
+                if (tabItemEnchant50.IsChecked.Value) { enchant += "{id:50s,lvl:" + tabItemEnNum50.Value.Value + "s},"; }
+                if (tabItemEnchant51.IsChecked.Value) { enchant += "{id:51s,lvl:" + tabItemEnNum51.Value.Value + "s},"; }
+                if (tabItemEnchant61.IsChecked.Value) { enchant += "{id:61s,lvl:" + tabItemEnNum61.Value.Value + "s},"; }
+                if (tabItemEnchant62.IsChecked.Value) { enchant += "{id:62s,lvl:" + tabItemEnNum62.Value.Value + "s},"; }
+                if (tabItemEnchant70.IsChecked.Value) { enchant += "{id:70s,lvl:" + tabItemEnNum70.Value.Value + "s},"; }
                 if (enchant != "")
                 {
                     enchant = enchant.Remove(enchant.Length - 1, 1);
@@ -354,15 +365,15 @@ namespace WpfMinecraftCommandHelper2
             {
                 if (tabItemNameCheck.IsChecked.Value)
                 {
-                    NLStr += "Name:" + tabItemName.Text + ",";
+                    NLStr += "Name:\"" + tabItemName.Text + "\",";
                 }
                 if (tabItemLoreCheck.IsChecked.Value)
                 {
                     string[] loreAL = tabItemLore.Text.Replace("\r", "").Split('\n');
-                    string lore = "0:" + loreAL[0] + ",";
-                    for (int i = 1; i < loreAL.Count(); i++)
+                    string lore = "";
+                    for (int i = 0; i < loreAL.Count(); i++)
                     {
-                        lore += i + ":" + loreAL[i] + ",";
+                        lore += i + ":\"" + loreAL[i] + "\",";
                     }
                     NLStr += "Lore:[" + lore + "],";
                 }
@@ -836,6 +847,27 @@ namespace WpfMinecraftCommandHelper2
             byte[] colorList = csl.reColor();
             string colorhex = colorList[0].ToString("x") + colorList[1].ToString("x") + colorList[2].ToString("x");
             globalColor = Convert.ToInt32(colorhex, 16).ToString();
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Item.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
+            }
+        }
+
+        private void fixColorBtn_Click(object sender, RoutedEventArgs e)
+        {
+            finalStr = fixColorCode(colorBox.Text);
         }
     }
 }

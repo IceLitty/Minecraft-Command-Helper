@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using MahApps.Metro.Controls;
-//using MahApps.Metro.Controls.Dialogs;
+using MahApps.Metro.Controls.Dialogs;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
@@ -39,6 +39,10 @@ namespace WpfMinecraftCommandHelper2
         private string LootTableRegular = "Regular";
         private string LootTableSaveTitle = "文件位于：";
         private string LootTableWiki = "";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
+        private string FloatConfirm = "确认";
+        private string FloatCancel = "取消";
 
         private void appLanguage()
         {
@@ -243,8 +247,11 @@ namespace WpfMinecraftCommandHelper2
                 LootTableSaveTitle = templang[67];
                 LootTableFileNameList.Content = templang[68];
                 LootTableWiki = templang[69];
-            }
-            catch (Exception) { /* throw; */ }
+                FloatErrorTitle = templang[70];
+                FloatHelpFileCantFind = templang[71];
+                FloatConfirm = templang[72];
+                FloatCancel = templang[73];
+            } catch (Exception) { /* throw; */ }
         }
 
         private int globalIndexPool = 1;
@@ -1041,6 +1048,22 @@ namespace WpfMinecraftCommandHelper2
             AttrZombie_Legs.IsEnabled = AttrZombieCheck.IsChecked.Value;
             AttrZombie_Chest.IsEnabled = AttrZombieCheck.IsChecked.Value;
             AttrZombie_Head.IsEnabled = AttrZombieCheck.IsChecked.Value;
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\LootTable.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
+            }
         }
     }
 }

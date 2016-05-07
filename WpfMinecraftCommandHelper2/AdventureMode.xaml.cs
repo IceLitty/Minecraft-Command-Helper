@@ -39,6 +39,8 @@ namespace WpfMinecraftCommandHelper2
         private string AdvCanBroke = "允许破坏：";
         private string AdvCanPlace = "允许放置于：";
         private string AdvHelpStr = "";
+        private string FloatErrorTitle = "错误";
+        private string FloatHelpFileCantFind = "";
 
         private void appLanguage()
         {
@@ -74,6 +76,8 @@ namespace WpfMinecraftCommandHelper2
                 tabRPGOnlyPlaceNext.Content = templang[23];
                 tabRPGOnlyPlace.Content = templang[24];
                 AdvHelpStr = templang[25];
+                FloatErrorTitle = templang[26];
+                FloatHelpFileCantFind = templang[27];
             } catch (System.Exception) { /* throw; */ }
         }
 
@@ -447,6 +451,22 @@ namespace WpfMinecraftCommandHelper2
                 {
                     int ii = i + 1;
                     placeList.Items.Add("[" + ii + "] " + asd.getItemNameList(globalRPGPlace[i]));
+                }
+            }
+        }
+
+        private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\AdventureMode.html";
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
                 }
             }
         }
