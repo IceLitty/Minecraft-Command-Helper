@@ -452,7 +452,13 @@ namespace WpfMinecraftCommandHelper2
                                                 "钻石矿",
                                                 "钻石头盔",
                                                 "钻石胸甲",
-                                                "钻石靴子"
+                                                "钻石靴子",
+                                                "*Magma Block",
+                                                "*Nether Wart Block",
+                                                "*Red Nether Brick",
+                                                "*Bone Block",
+                                                "*Structure Block",
+                                                "*Structure Void"
                                               };
 
         string[] itemSel = {
@@ -852,7 +858,13 @@ namespace WpfMinecraftCommandHelper2
                             "minecraft:diamond_ore",
                             "minecraft:diamond_helmet",
                             "minecraft:diamond_chestplate",
-                            "minecraft:diamond_boots"
+                            "minecraft:diamond_boots",
+                            "minecraft:magma",
+                            "minecraft:nether_wart_block",
+                            "minecraft:red_nether_brick",
+                            "minecraft:bone_block",
+                            "minecraft:structure_block",
+                            "minecraft:structure_void"
                            };
 
         private string[] hideList = {
@@ -962,7 +974,8 @@ namespace WpfMinecraftCommandHelper2
                             "Sheep",
                             "AreaEffectCloud",
                             "Spider",
-                            "Pig"
+                            "Pig",
+                            "PolarBear"
                          };
 
         string[] atSelNameList = {
@@ -1040,7 +1053,8 @@ namespace WpfMinecraftCommandHelper2
                                     "羊",
                                     "药水云",
                                     "蜘蛛",
-                                    "猪"
+                                    "猪",
+                                    "*Polar Bear"
                                  };
 
         string[] effectStr = {

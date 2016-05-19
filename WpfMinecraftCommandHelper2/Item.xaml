@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="物品" Width="924" Height="588.588" PreviewKeyDown="MetroWindow_PreviewKeyDown">
+        Title="物品" Width="924" Height="637.588" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Grid>
         <Grid x:Name="tabItemEnchantGroup" HorizontalAlignment="Left" Height="292" Margin="10,174,0,0" VerticalAlignment="Top" Width="474" IsEnabled="False">
             <CheckBox x:Name="tabItemEnchant0" Content="保护" HorizontalAlignment="Left" Margin="8,260,0,0" VerticalAlignment="Top"/>
@@ -83,8 +83,8 @@
             </Grid>
         </GroupBox>
         <CheckBox x:Name="tabItemNLCheck" Content="" HorizontalAlignment="Left" Margin="489,14,0,0" VerticalAlignment="Top" Click="tabItemNLCheck_Click"/>
-        <GroupBox x:Name="tabItemAttrGroupbox" Header="物品特殊属性" HorizontalAlignment="Left" Margin="513,159,0,0" VerticalAlignment="Top" Height="296" Width="278" IsEnabled="False">
-            <Grid HorizontalAlignment="Left" Height="257" VerticalAlignment="Top" Width="263">
+        <GroupBox x:Name="tabItemAttrGroupbox" Header="物品特殊属性" HorizontalAlignment="Left" Margin="513,159,0,0" VerticalAlignment="Top" Height="337" Width="278" IsEnabled="False">
+            <Grid HorizontalAlignment="Left" Height="299" VerticalAlignment="Top" Width="263">
                 <CheckBox x:Name="tabItemAttrAttackCheck" Content="攻击力" VerticalAlignment="Top" Margin="1,7,202,0" Click="tabItemAttrAttackCheck_Click"/>
                 <CheckBox x:Name="tabItemAttrRangeCheck" Content="仇恨跟踪" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,38,0,0" Click="tabItemAttrRangeCheck_Click"/>
                 <CheckBox x:Name="tabItemAttrHealthCheck" Content="最大血量" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,69,0,0" Click="tabItemAttrHealthCheck_Click"/>
@@ -99,20 +99,23 @@
                 <CheckBox x:Name="tabItemAttrLuckPer" Content="%" HorizontalAlignment="Left" Margin="222,162,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                 <CheckBox x:Name="tabItemAttrArmorCheck" Content="护甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,193,0,0" Click="tabItemAttrArmorCheck_Click"/>
                 <CheckBox x:Name="tabItemAttrArmorPer" Content="%" HorizontalAlignment="Left" Margin="222,193,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                <Controls:NumericUpDown x:Name="tabItemAttrAttack" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,2,46,229" Height="25" IsEnabled="False" Value="0" />
-                <Controls:NumericUpDown x:Name="tabItemAttrRange" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,33,46,198" Height="25" IsEnabled="False" Value="0" />
-                <Controls:NumericUpDown x:Name="tabItemAttrHealth" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,64,46,167" Height="25" IsEnabled="False" Value="0" />
-                <Controls:NumericUpDown x:Name="tabItemAttrFBack" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,95,46,136" Height="25" IsEnabled="False" Value="0" />
-                <Controls:NumericUpDown x:Name="tabItemAttrMSpeed" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,126,46,105" Height="25" IsEnabled="False" Value="0" />
-                <Controls:NumericUpDown x:Name="tabItemAttrLuck" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,157,46,74" Height="25" IsEnabled="False" Value="0" />
-                <Controls:NumericUpDown x:Name="tabItemAttrArmor" Minimum="0" Maximum="30" Interval="5" StringFormat="" Margin="0,188,46,43" Height="25" IsEnabled="False" Value="0" HorizontalAlignment="Right" Width="141" />
-                <CheckBox x:Name="tabItemAttrAtkSpeedCheck" Content="攻击速度" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,224,0,0" Click="tabItemAttrAtkSpeedCheck_Click"/>
-                <CheckBox x:Name="tabItemAttrAtkSpeedPer" Content="%" HorizontalAlignment="Left" Margin="222,224,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                <Controls:NumericUpDown x:Name="tabItemAttrAtkSpeed" Minimum="-1024" Maximum="1024" Interval="5" StringFormat="" Margin="0,219,46,12" Height="25" IsEnabled="False" Value="0" HorizontalAlignment="Right" Width="141" />
+                <CheckBox x:Name="tabItemAttrAtkSpeedCheck" Content="攻击速度" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,255,0,0" Click="tabItemAttrAtkSpeedCheck_Click"/>
+                <CheckBox x:Name="tabItemAttrAtkSpeedPer" Content="%" HorizontalAlignment="Left" Margin="222,255,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <Controls:NumericUpDown x:Name="tabItemAttrAttack" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,2,46,271" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrRange" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,33,46,240" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrHealth" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,64,46,209" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrFBack" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,95,46,178" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrMSpeed" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,126,46,147" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrLuck" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,157,46,116" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrArmor" Minimum="0" Maximum="30" Interval="5" StringFormat="" Margin="0,188,46,85" Height="25" IsEnabled="False" Value="0" HorizontalAlignment="Right" Width="141" />
+                <Controls:NumericUpDown x:Name="tabItemAttrAtkSpeed" Minimum="-1024" Maximum="1024" Interval="5" StringFormat="" Margin="0,250,46,23" Height="25" IsEnabled="False" Value="0" HorizontalAlignment="Right" Width="141" />
+                <CheckBox x:Name="tabItemAttrArmorToughnessCheck" Content="护甲韧性" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,224,0,0" Click="tabItemAttrArmorToughnessCheck_Click"/>
+                <CheckBox x:Name="tabItemAttrArmorToughnessPer" Content="%" HorizontalAlignment="Left" Margin="222,224,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <Controls:NumericUpDown x:Name="tabItemAttrArmorToughness" Minimum="0" Maximum="30" Interval="5" StringFormat="" Margin="0,219,46,54" Height="25" IsEnabled="False" Value="0" HorizontalAlignment="Right" Width="141" />
             </Grid>
         </GroupBox>
         <CheckBox x:Name="tabItemAttrCheck" Content="" HorizontalAlignment="Left" Margin="489,163,0,0" VerticalAlignment="Top" Click="tabItemAttrCheck_Click"/>
-        <GroupBox x:Name="ItemHasExtra" Header="额外" HorizontalAlignment="Left" Margin="796,159,0,0" VerticalAlignment="Top" Height="296" Width="110">
+        <GroupBox x:Name="ItemHasExtra" Header="额外" HorizontalAlignment="Left" Margin="796,159,0,0" VerticalAlignment="Top" Height="337" Width="110">
             <Grid HorizontalAlignment="Left" Height="256" Margin="0,0,-2,0" VerticalAlignment="Top" Width="100">
                 <CheckBox x:Name="tabItemUnbreaking" Content="不可破坏" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                 <Button x:Name="tabItemGetEnchantBook" Content="获取附魔书" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Width="72" Click="tabItemGetEnchantBook_Click" Style="{DynamicResource SquareButtonStyle}"/>
@@ -127,23 +130,23 @@
                 </Grid>
             </Grid>
         </GroupBox>
-        <Button x:Name="atBtn" Content="获取At" HorizontalAlignment="Left" Margin="513,494,0,0" VerticalAlignment="Top" Width="82" Height="26" Click="atBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <TextBox x:Name="atBox" HorizontalAlignment="Left" Height="23" Margin="600,494,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308"/>
-        <ComboBox x:Name="tabItemHide" HorizontalAlignment="Left" Margin="513,463,0,0" VerticalAlignment="Top" Width="395"/>
-        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="513,525,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="593,525,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="753,525,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="833,525,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="atBtn" Content="获取At" HorizontalAlignment="Left" Margin="513,541,0,0" VerticalAlignment="Top" Width="82" Height="26" Click="atBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <TextBox x:Name="atBox" HorizontalAlignment="Left" Height="23" Margin="600,541,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308"/>
+        <ComboBox x:Name="tabItemHide" HorizontalAlignment="Left" Margin="513,510,0,0" VerticalAlignment="Top" Width="395"/>
+        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="513,572,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="593,572,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="753,572,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="833,572,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Grid HorizontalAlignment="Left" Height="64" Margin="192,82,0,0" VerticalAlignment="Top" Width="281">
             <Controls:NumericUpDown x:Name="tabItemMeta" Minimum="0" Maximum="2147483647" Interval="5" StringFormat="" Margin="0,3,0,33" Height="28" Value="0" />
             <Controls:NumericUpDown x:Name="tabItemCount" Minimum="0" Maximum="64" Interval="5" StringFormat="" Margin="0,36,0,0" Height="28" Value="1" />
         </Grid>
-        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="673,525,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Grid HorizontalAlignment="Left" Height="27" Margin="183,471,0,0" VerticalAlignment="Top" Width="301">
+        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="673,572,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Grid HorizontalAlignment="Left" Height="27" Margin="183,518,0,0" VerticalAlignment="Top" Width="301">
             <Controls:NumericUpDown x:Name="tabItemRepairCost" Minimum="0" Maximum="999999999" Interval="5" StringFormat="" Margin="101,-1,10,0" Height="28" Value="0" IsEnabled="False" />
             <CheckBox x:Name="tabItemRepairCostCheck" Content="指定修复消耗" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Checked="tabItemRepairCostCheck_Checked"/>
         </Grid>
-        <Button x:Name="fixColorBtn" Content="§" HorizontalAlignment="Left" Margin="476,525,0,0" VerticalAlignment="Top" Width="32" Style="{DynamicResource SquareButtonStyle}" Click="fixColorBtn_Click" ToolTip="Manual re-generate command include color style. Click CHECK button to check code."/>
-        <TextBox x:Name="colorBox" HorizontalAlignment="Left" Height="23" Margin="284,526,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <Button x:Name="fixColorBtn" Content="§" HorizontalAlignment="Left" Margin="476,572,0,0" VerticalAlignment="Top" Width="32" Style="{DynamicResource SquareButtonStyle}" Click="fixColorBtn_Click" ToolTip="Manual re-generate command include color style. Click CHECK button to check code."/>
+        <TextBox x:Name="colorBox" HorizontalAlignment="Left" Height="23" Margin="284,573,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" ToolTip="Paste command here."/>
     </Grid>
 </Controls:MetroWindow>

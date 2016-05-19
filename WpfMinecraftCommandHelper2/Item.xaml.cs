@@ -490,6 +490,19 @@ namespace WpfMinecraftCommandHelper2
                     attrReturn += "{Operation:0,UUIDLeast:" + uuid + ",UUIDMost:" + uuid + ",Amount:" + tabItemAttrArmor.Value.ToString() + ",AttributeName:generic.armor,Name:Armor" + AttrSlotReturn() + "},";
                 }
             }
+            if (tabItemAttrArmorToughnessCheck.IsChecked.Value)
+            {
+                if (tabItemAttrArmorToughnessPer.IsChecked.Value)
+                {
+                    int uuid = random.Next(-214783648, 2147483647);
+                    attrReturn += "{Operation:1,UUIDLeast:" + uuid + ",UUIDMost:" + uuid + ",Amount:" + tabItemAttrArmorToughness.Value.ToString() + ",AttributeName:generic.armorToughness,Name:ArmorToughness" + AttrSlotReturn() + "},";
+                }
+                else
+                {
+                    int uuid = random.Next(-214783648, 2147483647);
+                    attrReturn += "{Operation:0,UUIDLeast:" + uuid + ",UUIDMost:" + uuid + ",Amount:" + tabItemAttrArmorToughness.Value.ToString() + ",AttributeName:generic.armorToughness,Name:ArmorToughness" + AttrSlotReturn() + "},";
+                }
+            }
             if (tabItemAttrAtkSpeedCheck.IsChecked.Value)
             {
                 if (tabItemAttrAtkSpeedPer.IsChecked.Value)
@@ -706,114 +719,56 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabItemAttrAttackCheck_Click(object sender, RoutedEventArgs e)
         {
-            if (tabItemAttrAttackCheck.IsChecked.Value)
-            {
-                tabItemAttrAttack.IsEnabled = true;
-                tabItemAttrAttackPer.IsEnabled = true;
-            }
-            else
-            {
-                tabItemAttrAttack.IsEnabled = false;
-                tabItemAttrAttackPer.IsEnabled = false;
-            }
+            tabItemAttrAttack.IsEnabled = tabItemAttrAttackCheck.IsChecked.Value;
+            tabItemAttrAttackPer.IsEnabled = tabItemAttrAttackCheck.IsChecked.Value;
         }
 
         private void tabItemAttrRangeCheck_Click(object sender, RoutedEventArgs e)
         {
-            if (tabItemAttrRangeCheck.IsChecked.Value)
-            {
-                tabItemAttrRange.IsEnabled = true;
-                tabItemAttrRangePer.IsEnabled = true;
-            }
-            else
-            {
-                tabItemAttrRange.IsEnabled = false;
-                tabItemAttrRangePer.IsEnabled = false;
-            }
+            tabItemAttrRange.IsEnabled = tabItemAttrRangeCheck.IsChecked.Value;
+            tabItemAttrRangePer.IsEnabled = tabItemAttrRangeCheck.IsChecked.Value;
         }
 
         private void tabItemAttrHealthCheck_Click(object sender, RoutedEventArgs e)
         {
-            if (tabItemAttrHealthCheck.IsChecked.Value)
-            {
-                tabItemAttrHealth.IsEnabled = true;
-                tabItemAttrHealthPer.IsEnabled = true;
-            }
-            else
-            {
-                tabItemAttrHealth.IsEnabled = false;
-                tabItemAttrHealthPer.IsEnabled = false;
-            }
+            tabItemAttrHealth.IsEnabled = tabItemAttrHealthCheck.IsChecked.Value;
+            tabItemAttrHealthPer.IsEnabled = tabItemAttrHealthCheck.IsChecked.Value;
         }
 
         private void tabItemAttrFBackCheck_Click(object sender, RoutedEventArgs e)
         {
-            if (tabItemAttrFBackCheck.IsChecked.Value)
-            {
-                tabItemAttrFBack.IsEnabled = true;
-                tabItemAttrFBackPer.IsEnabled = true;
-            }
-            else
-            {
-                tabItemAttrFBack.IsEnabled = false;
-                tabItemAttrFBackPer.IsEnabled = false;
-            }
+            tabItemAttrFBack.IsEnabled = tabItemAttrFBackCheck.IsChecked.Value;
+            tabItemAttrFBackPer.IsEnabled = tabItemAttrFBackCheck.IsChecked.Value;
         }
 
         private void tabItemAttrMSpeedCheck_Click(object sender, RoutedEventArgs e)
         {
-            if (tabItemAttrMSpeedCheck.IsChecked.Value)
-            {
-                tabItemAttrMSpeed.IsEnabled = true;
-                tabItemAttrMSpeedPer.IsEnabled = true;
-            }
-            else
-            {
-                tabItemAttrMSpeed.IsEnabled = false;
-                tabItemAttrMSpeedPer.IsEnabled = false;
-            }
+            tabItemAttrMSpeed.IsEnabled = tabItemAttrMSpeedCheck.IsChecked.Value;
+            tabItemAttrMSpeedPer.IsEnabled = tabItemAttrMSpeedCheck.IsChecked.Value;
         }
 
         private void tabItemAttrLuckCheck_Click(object sender, RoutedEventArgs e)
         {
-            if (tabItemAttrLuckCheck.IsChecked.Value)
-            {
-                tabItemAttrLuck.IsEnabled = true;
-                tabItemAttrLuckPer.IsEnabled = true;
-            }
-            else
-            {
-                tabItemAttrLuck.IsEnabled = false;
-                tabItemAttrLuckPer.IsEnabled = false;
-            }
+            tabItemAttrLuck.IsEnabled = tabItemAttrLuckCheck.IsChecked.Value;
+            tabItemAttrLuckPer.IsEnabled = tabItemAttrLuckCheck.IsChecked.Value;
         }
 
         private void tabItemAttrArmorCheck_Click(object sender, RoutedEventArgs e)
         {
-            if (tabItemAttrArmorCheck.IsChecked.Value)
-            {
-                tabItemAttrArmor.IsEnabled = true;
-                tabItemAttrArmorPer.IsEnabled = true;
-            }
-            else
-            {
-                tabItemAttrArmor.IsEnabled = false;
-                tabItemAttrArmorPer.IsEnabled = false;
-            }
+            tabItemAttrArmor.IsEnabled = tabItemAttrArmorCheck.IsChecked.Value;
+            tabItemAttrArmorPer.IsEnabled = tabItemAttrArmorCheck.IsChecked.Value;
         }
 
         private void tabItemAttrAtkSpeedCheck_Click(object sender, RoutedEventArgs e)
         {
-            if (tabItemAttrAtkSpeedCheck.IsChecked.Value)
-            {
-                tabItemAttrAtkSpeed.IsEnabled = true;
-                tabItemAttrAtkSpeedPer.IsEnabled = true;
-            }
-            else
-            {
-                tabItemAttrAtkSpeed.IsEnabled = false;
-                tabItemAttrAtkSpeedPer.IsEnabled = false;
-            }
+            tabItemAttrAtkSpeed.IsEnabled = tabItemAttrAtkSpeedCheck.IsChecked.Value;
+            tabItemAttrAtkSpeedPer.IsEnabled = tabItemAttrAtkSpeedCheck.IsChecked.Value;
+        }
+
+        private void tabItemAttrArmorToughnessCheck_Click(object sender, RoutedEventArgs e)
+        {
+            tabItemAttrArmorToughness.IsEnabled = tabItemAttrArmorToughnessCheck.IsChecked.Value;
+            tabItemAttrArmorToughnessPer.IsEnabled = tabItemAttrArmorToughnessCheck.IsChecked.Value;
         }
 
         private void tabItemRepairCostCheck_Checked(object sender, RoutedEventArgs e)
