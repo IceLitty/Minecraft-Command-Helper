@@ -321,16 +321,35 @@ namespace WpfMinecraftCommandHelper2
 
         private void MetroWindow_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Favourite.html";
-            if (e.Key == System.Windows.Input.Key.F1)
+            string path = Directory.GetCurrentDirectory() + @"\Help\Favourite.html";
+            if (e.Key == Key.F1)
             {
-                if (System.IO.File.Exists(path))
+                if (File.Exists(path))
                 {
                     System.Diagnostics.Process.Start(path);
                 }
                 else
                 {
                     this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
+            }
+            else if (e.Key == Key.Z)
+            {
+                int i, j, k;
+                for (i = 1; i <= 3; i++)
+                {
+                    for (j = 1; j <= 10; j++)
+                    {
+                        this.Top += 1;
+                        this.Left += 1;
+                        System.Threading.Thread.Sleep(1);
+                    }
+                    for (k = 1; k <= 10; k++)
+                    {
+                        this.Top -= 1;
+                        this.Left -= 1;
+                        System.Threading.Thread.Sleep(1);
+                    }
                 }
             }
         }
