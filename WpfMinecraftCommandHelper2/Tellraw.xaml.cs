@@ -637,17 +637,17 @@ namespace WpfMinecraftCommandHelper2
                 for (int p = 1; p < 5; p++)
                 {
                     finalStr += "Text" + p + ":\"{\\\"text\\\":\\\"\\\",\\\"extra\\\":[";//]}\"
-                    int numadd = 0;
+                    bool needdelete = false;
                     for (int i = 0; i < listPage.Count; i++)
                     {
                         if (listPage[i] == p)
                         {
                             string temp3 = eachStr[i];
                             finalStr += temp3.Replace("\"", "\\\"") + ",";
+                            needdelete = true;
                         }
-                        numadd++;
                     }
-                    if (numadd != 0) finalStr = finalStr.Substring(0, finalStr.Length - 1);
+                    if (needdelete) finalStr = finalStr.Substring(0, finalStr.Length - 1);
                     finalStr += "]" + tempECStr + "}\",";
                 }
                 finalStr = finalStr.Substring(0, finalStr.Length - 1);
@@ -659,17 +659,17 @@ namespace WpfMinecraftCommandHelper2
                 for (int p = 1; p < 5; p++)
                 {
                     finalStr += "Text" + p + ":\"{\\\"text\\\":\\\"\\\",\\\"extra\\\":[";//]}\"
-                    int numadd = 0;
+                    bool needdelete = false;
                     for (int i = 0; i < listPage.Count; i++)
                     {
                         if (listPage[i] == p)
                         {
                             string temp3 = eachStr[i];
                             finalStr += temp3.Replace("\"", "\\\"") + ",";
+                            needdelete = true;
                         }
-                        numadd++;
                     }
-                    if (numadd != 0) finalStr = finalStr.Substring(0, finalStr.Length - 1);
+                    if (needdelete) finalStr = finalStr.Substring(0, finalStr.Length - 1);
                     finalStr += "]" + tempECStr + "}\",";
                 }
                 finalStr = finalStr.Substring(0, finalStr.Length - 1);

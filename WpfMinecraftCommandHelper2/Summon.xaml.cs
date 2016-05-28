@@ -1028,7 +1028,7 @@ namespace WpfMinecraftCommandHelper2
                     tabVillagerMaxIndex = globalVillagerMaxValue - 1;
                 }
                 string summonVillager = "/summon Villager ~ ~1 ~ {Profession:" + tabVillagerType.SelectedIndex + ",Career:1,CareerLevel:9999999";
-                summonVillager += "," + sumosText;
+                summonVillager += "," + sumosText;//可能出现双重逗号
                 summonVillager += ",Offers:{Recipes:[";
                 string villagerOffers = "";
                 string villagerReward = "";
@@ -1055,7 +1055,7 @@ namespace WpfMinecraftCommandHelper2
                     this.ShowMessageAsync("", SummonVAtLeastOnce, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
                 }
                 summonVillager += "]}}";
-                summonVillager = summonVillager.Replace(",tag:{}", "");
+                summonVillager = summonVillager.Replace(",tag:{}", "").Replace(",,", ",");//fix double comma
                 sumosFinalStr = summonVillager;
             }
             else if (asd.getAt(tabSumosType.SelectedIndex) == "ArmorStand")//盔甲架

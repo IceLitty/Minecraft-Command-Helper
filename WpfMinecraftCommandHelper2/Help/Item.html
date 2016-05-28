@@ -45,6 +45,7 @@
 				<p><span class="magenta">↑</span>清空为初始化本界面，生成即生成代码，复制为复制生成后的代码至剪切板，检索则是打开新窗口以检索和编辑生成的代码，并可以快速收藏。</p>
 				<p>例如，以下代码可以生成一个名为“我是彩色文本”的鞍，但是由于名称或lore中拥有彩色文本，不能直接生成，则需要在命令方块上方生成一个告示牌，玩家通过点击告示牌来修改命令方块中的内容，再执行命令方块即可获得所需物品。（Tip：在修改过命令方块内容后，可以使用Ctrl+鼠标中键也就是拾取方块键来获得带NBT的命令方块，此后就可以直接放置在地图中执行并获得物品，无需再经过告示牌的步骤了。）</p>
 				<pre class="autobreak">/setblock ~ ~1 ~ standing_sign 0 replace {Text1:"{\"text\":\"请点击我\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/blockdata ~ ~-1 ~ {Command:/give @p minecraft:saddle 1 0 {ench:[{id:2s,lvl:5s}],display:{Name:\\\"我\\u00A70是\\u00A71彩\\u00A72色\\u00A73文\\u00A74本\\\",Lore:[0:\\\"\\u00A7o我是拥有样式的\\u00A7kLore~\\\",]},AttributeModifiers:[{Operation:1,UUIDLeast:2103212208,UUIDMost:2103212208,Amount:25,AttributeName:generic.attackDamage,Name:Attack,Slot:mainhand},{Operation:0,UUIDLeast:1122652257,UUIDMost:1122652257,Amount:10,AttributeName:generic.maxHealth,Name:Health,Slot:mainhand}],Unbreakable:1,HideFlags:1,RepairCost:15},}\"}}"}</pre>
+				<p>更新内容：复制生成的含有颜色符号的代码，打开生成物品窗口，最下方有个文本框以及颜色符号的按钮，将代码粘入其中并点击该按钮，再点击检索按钮即可生成彩色文本修复的代码。</p>
 			</article>
 		</div>
 	</div>
