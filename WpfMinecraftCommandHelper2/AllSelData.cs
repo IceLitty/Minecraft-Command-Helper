@@ -2302,6 +2302,8 @@ namespace WpfMinecraftCommandHelper2
                                             "Black"
                                         };
 
+        public int getWoolColorCount() { return woolColorStr.Count(); }
+
         public string getWoolColor(int index)
         {
             if (index < 0 || index > (woolColorStr.Count() - 1))

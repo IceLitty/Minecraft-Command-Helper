@@ -47,7 +47,7 @@ namespace WpfMinecraftCommandHelper2
             FloatAboutTitle = templanglist[11];
             FloatWarningTitle = templanglist[12];
             FloatErrorTitle = templanglist[13];
-            this.Title = "Minecraft Command Helper v2.8.3.1 - " + templanglist[14];
+            this.Title = "Minecraft Command Helper v2.8.3.2 - " + templanglist[14];
             itemBtn.Title = templanglist[15];
             spBtn.Title = templanglist[17];
             potionBtn.Title = templanglist[18];

@@ -57,7 +57,7 @@ namespace WpfMinecraftCommandHelper2
             {
                 ridingIndex[i] = 0;
             }
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < asd.getWoolColorCount(); i++)
             {
                 tabSumosEWoolColor.Items.Add(asd.getWoolColor(i));
             }
@@ -291,7 +291,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void allVisInit()
         {
-            tabSumosEWoolColor.SelectedIndex = 13;
+            //tabSumosEWoolColor.SelectedIndex = 13;
             tabSumosEgg.IsEnabled = false;
             SummonVHeader.Visibility = Visibility.Hidden;
             SummonArmorStandHeader.Visibility = Visibility.Hidden;
@@ -957,7 +957,7 @@ namespace WpfMinecraftCommandHelper2
             }
             if (tabSumosNowHealthCheck.IsChecked.Value)
             {
-                sumosText += "Health:" + tabSumosNowHealth + "f,HealF:" + tabSumosNowHealth + ",";
+                sumosText += "Health:" + tabSumosNowHealth.Value.Value + "f,HealF:" + tabSumosNowHealth.Value.Value + ",";
             }
             if (tabSumosBaby.IsChecked.Value)
             {
@@ -1167,15 +1167,17 @@ namespace WpfMinecraftCommandHelper2
             else if (asd.getAt(tabSumosType.SelectedIndex) == "Wolf")
             {
                 string temp = "";
-                if (!isMC19) { temp = "Owner:" + tabSumosEUUID.Text; } else { temp = "OwnerUUID:" + tabSumosEUUID.Text; }
+                if (tabSumosEUUID.Text != null || tabSumosEUUID.Text != "") { if (!isMC19) { temp = "Owner:" + tabSumosEUUID.Text; } else { temp = "OwnerUUID:" + tabSumosEUUID.Text; } }
                 if (tabSumosEAngry.IsChecked.Value) { temp += ",Angry:1b"; }
                 if (sumosText.Length > 0)
                 {
-                    sumosText += "," + temp + ",CollarColor:" + tabSumosEWoolColor.SelectedIndex;
+                    sumosText += "," + temp;
+                    if (tabSumosEWoolColor.SelectedIndex != -1) {sumosText += ",CollarColor:" + tabSumosEWoolColor.SelectedIndex; }
                 }
                 else
                 {
-                    sumosText += temp + ",CollarColor:" + tabSumosEWoolColor.SelectedIndex;
+                    sumosText += temp;
+                    if (tabSumosEWoolColor.SelectedIndex != -1) { sumosText += ",CollarColor:" + tabSumosEWoolColor.SelectedIndex; }
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
@@ -1183,12 +1185,12 @@ namespace WpfMinecraftCommandHelper2
             {
                 if (sumosText.Length > 0)
                 {
-                    sumosText += ",Color:" + tabSumosEWoolColor.SelectedIndex;
+                    if (tabSumosEWoolColor.SelectedIndex != -1) { sumosText += ",Color:" + tabSumosEWoolColor.SelectedIndex; }
                     if (tabSumosESheared.IsChecked.Value) { sumosText += ",Sheared:1b"; }
                 }
                 else
                 {
-                    sumosText = "Color:" + tabSumosEWoolColor.SelectedIndex;
+                    if (tabSumosEWoolColor.SelectedIndex != -1) { sumosText = "Color:" + tabSumosEWoolColor.SelectedIndex; }
                     if (tabSumosESheared.IsChecked.Value) { sumosText += ",Sheared:1b"; }
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
@@ -1594,9 +1596,14 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabSumosEUUID.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Wolf" || asd.getAt(tabSumosType.SelectedIndex) == "Sheep")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Wolf")
             {
                 tabSumosEWoolColor.IsEnabled = true;
+                tabSumosEWoolColor.Items.Clear();
+                for (int i = 0; i < asd.getBannerColorCount(); i++)
+                {
+                    tabSumosEWoolColor.Items.Add(asd.getBannerColorStr(i));
+                }
             }
             if (asd.getAt(tabSumosType.SelectedIndex) == "Creeper")
             {
@@ -1650,7 +1657,13 @@ namespace WpfMinecraftCommandHelper2
             }
             if (asd.getAt(tabSumosType.SelectedIndex) == "Sheep")
             {
+                tabSumosEWoolColor.IsEnabled = true;
                 tabSumosESheared.IsEnabled = true;
+                tabSumosEWoolColor.Items.Clear();
+                for (int i = 0; i < asd.getWoolColorCount(); i++)
+                {
+                    tabSumosEWoolColor.Items.Add(asd.getWoolColor(i));
+                }
             }
             if (asd.getAt(tabSumosType.SelectedIndex) == "VillagerGolem")
             {
