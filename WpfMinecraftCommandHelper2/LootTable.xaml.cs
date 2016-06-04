@@ -251,6 +251,7 @@ namespace WpfMinecraftCommandHelper2
                 FloatHelpFileCantFind = templang[71];
                 FloatConfirm = templang[72];
                 FloatCancel = templang[73];
+                functionLCountLimit.ToolTip = templang[74];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -457,7 +458,8 @@ namespace WpfMinecraftCommandHelper2
             }
             if (functionNBTCheck.IsChecked.Value)
             {
-                globalFunction += "{\"function\":\"set_nbt\",\"tag\":" + functionNBT.Text;
+                string tempNBTText = functionNBT.Text.Replace("\"", "\\\"");
+                globalFunction += "{\"function\":\"set_nbt\",\"tag\":" + tempNBTText;
                 if (globalFCNBT != "") { globalFunction += "," + globalFCNBT; }
                 globalFunction += "},";
                 del = true;
@@ -474,6 +476,7 @@ namespace WpfMinecraftCommandHelper2
                 globalFunction += "{\"function\":\"enchant_with_levels\"";
                 if (functionsEnchantTreasure.IsChecked == null) { } else if (functionsEnchantTreasure.IsChecked.Value) { globalFunction += ",\"treasure\":true"; } else { globalFunction += ",\"treasure\":false"; }
                 if (functionsEnchantRandom.IsChecked.Value) { globalFunction += ",\"levels\":{\"min\":" + functionsEnchantMin.Value.Value + ",\"max\":" + functionsEnchantMax.Value.Value + "}"; } else { globalFunction += ",\"levels\":" + functionsEnchantMin.Value.Value; }
+                if (functionLCountLimit.Value.Value <= 0) { globalFunction += ",\"limit\":" + functionLCountLimit.Value.Value; }
                 if (globalFCEnchant != "") { globalFunction += "," + globalFCEnchant; }
                 globalFunction += "},";
                 del = true;

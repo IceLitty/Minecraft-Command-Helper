@@ -94,8 +94,9 @@
                         <Grid HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="336" Margin="0,0,-2,0">
                             <Button x:Name="functionLCountCondition" Content="Condition" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Style="{StaticResource AccentedSquareButtonStyle}" Margin="237,-31,0,0" Height="16" Click="functionLCountCondition_Click"/>
                             <CheckBox x:Name="functionLCountRandom" Content="Randomly" HorizontalAlignment="Left" Margin="252,4,0,0" VerticalAlignment="Top" Click="functionLCountRandom_Click"/>
-                            <Controls:NumericUpDown x:Name="functionLCountMin" Margin="0,0,215,3" ToolTip="Minimum" Maximum="2147483647" Minimum="-2147483648" Value="0" />
-                            <Controls:NumericUpDown x:Name="functionLCountMax" Margin="126,0,89,3" IsEnabled="False" ToolTip="Maximum" Minimum="-2147483648" Maximum="2147483647" Value="1" />
+                            <Controls:NumericUpDown x:Name="functionLCountMin" Margin="0,0,255,3" ToolTip="Minimum" Maximum="2147483647" Minimum="-2147483648" Value="0" />
+                            <Controls:NumericUpDown x:Name="functionLCountMax" Margin="85,0,171,3" IsEnabled="False" ToolTip="Maximum" Minimum="-2147483648" Maximum="2147483647" Value="1" />
+                            <Controls:NumericUpDown x:Name="functionLCountLimit" Margin="170,0,91,3" IsEnabled="False" ToolTip="Limit" Minimum="-2147483648" Maximum="2147483647" Value="0" />
                         </Grid>
                     </GroupBox>
                     <CheckBox x:Name="functionLCountCheck" Content="" HorizontalAlignment="Left" Margin="15,260,0,0" VerticalAlignment="Top" Width="18" Click="functionLCountCheck_Click"/>

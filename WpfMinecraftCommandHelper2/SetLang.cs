@@ -753,6 +753,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             relanglist.Add(LangList[langID]["FloatConfirm"].ToString());
             relanglist.Add(LangList[langID]["FloatCancel"].ToString());
+            relanglist.Add(LangList[langID]["LootTableFunctionLootLimit"].ToString());
             return relanglist;
         }
 
@@ -1265,6 +1266,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["SummonHorseSaddle"].ToString());
             relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["SummonOZombieType"].ToString());
             return relanglist;
         }
 

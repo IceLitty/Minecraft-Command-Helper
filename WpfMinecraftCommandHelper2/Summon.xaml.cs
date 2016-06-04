@@ -286,6 +286,7 @@ namespace WpfMinecraftCommandHelper2
                 HorseSaddle.Content = templang[176];
                 FloatErrorTitle = templang[177];
                 FloatHelpFileCantFind = templang[178];
+                tabSumosEZombieType.ToolTip = templang[179];
             } catch (System.Exception) { /* throw; */ }
         }
 
@@ -328,6 +329,7 @@ namespace WpfMinecraftCommandHelper2
             tabSumosEParticleColor.IsEnabled = false;
             tabSumosEdamage.IsEnabled = false;
             tabSumosEpickup.IsEnabled = false;
+            tabSumosEZombieType.IsEnabled = false;
         }
 
         private void clear()
@@ -610,6 +612,8 @@ namespace WpfMinecraftCommandHelper2
         private int sumosEquipmentMainHandDamage = 0, sumosEquipmentOffHandDamage = 0, sumosEquipmentHeadDamage = 0, sumosEquipmentChestDamage = 0, sumosEquipmentLegDamage = 0, sumosEquipmentBootDamage = 0;
         private int sumosEndermanCarried = -1, sumosEndermanCarriedMeta = 0;
         private int globalParticleSel = 0;
+        private int globalParticlePara1 = 0;
+        private int globalParticlePara2 = 0;
         private string globalParticleColor = "16777215";
 
         //use API
@@ -980,9 +984,20 @@ namespace WpfMinecraftCommandHelper2
             {
                 sumosText += "Glowing:1b,";
             }
+            if (tabSumosElytra.IsChecked.Value)
+            {
+                sumosText += "FallFlying: 1b,";
+            }
             if (tabSumosPersistenceRequired.IsChecked.Value)
             {
                 sumosText += "PersistenceRequired:1b,";
+            }
+            if (isMC19)
+            {
+                if (tabSumosArmorNogravity.IsChecked.Value)
+                {
+                    sumosText += "NoGravity:1b,";
+                }
             }
             if (tabSumosTagsCheck.IsChecked.Value)
             {
@@ -1078,9 +1093,12 @@ namespace WpfMinecraftCommandHelper2
                 {
                     amtemp += "NoBasePlate:1b,";
                 }
-                if (tabSumosArmorNogravity.IsChecked.Value)
+                if (!isMC19)
                 {
-                    amtemp += "NoGravity:1b,";
+                    if (tabSumosArmorNogravity.IsChecked.Value)
+                    {
+                        amtemp += "NoGravity:1b,";
+                    }
                 }
                 if (tabSumosArmorCant.IsChecked.Value)
                 {
@@ -1129,7 +1147,7 @@ namespace WpfMinecraftCommandHelper2
             else if (asd.getAt(tabSumosType.SelectedIndex) == "AreaEffectCloud")//选择滞留药水
             {
                 if (sumosText.Length > 0) { sumosText += ","; }
-                sumosText += "Effects:[" + globalPotionString + "],Duration:" + tabSumosEDuration.Value + ",Radius:" + tabSumosERadius.Value + "f,Particle:\"" + globalParticleSel + "\",Color:" + globalParticleColor;
+                sumosText += "Effects:[" + globalPotionString + "],Duration:" + tabSumosEDuration.Value + ",Radius:" + tabSumosERadius.Value + "f,Particle:\"" + asd.getParticle(globalParticleSel) + "\",ParticleParam1:" + globalParticlePara1 + ",ParticleParam2:" + globalParticlePara2 + ",Color:" + globalParticleColor;
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
             else if (asd.getAt(tabSumosType.SelectedIndex) == "Chicken")
@@ -1311,6 +1329,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 if (tabSumosECanBreakDoor.IsChecked.Value) { sumosText += ",CanBreakDoors:1b"; }
                 if (tabSumosEIsVillager.IsChecked.Value) { sumosText += ",IsVillager:1b"; }
+                if (tabSumosEZombieType.Value.Value != -1) { sumosText += ",ZombieType:" + tabSumosEZombieType.Value.Value; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
             else if (asd.getAt(tabSumosType.SelectedIndex) == "PigZombie")
@@ -1654,6 +1673,10 @@ namespace WpfMinecraftCommandHelper2
                 tabSumosECanBreakDoor.IsEnabled = true;
                 tabSumosEIsVillager.IsEnabled = true;
                 SummonVHeader.Visibility = Visibility.Visible;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Zombie")
+            {
+                tabSumosEZombieType.IsEnabled = true;
             }
             if (asd.getAt(tabSumosType.SelectedIndex) == "Sheep")
             {
@@ -2148,6 +2171,8 @@ namespace WpfMinecraftCommandHelper2
             Particle pbox = new Particle();
             pbox.ShowDialog();
             globalParticleSel = pbox.returnParticleSel();
+            globalParticlePara1 = pbox.returnParticlePara()[0];
+            globalParticlePara2 = pbox.returnParticlePara()[1];
         }
 
         private void tabSumosEParticleColor_Click(object sender, RoutedEventArgs e)

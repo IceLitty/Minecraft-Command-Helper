@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="召唤实体" Height="588.672" Width="1105.911" PreviewKeyDown="MetroWindow_PreviewKeyDown">
+        Title="召唤实体" Height="624.672" Width="1105.911" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -83,7 +83,7 @@
                 </Grid>
             </TabItem>
             <TabItem x:Name="SummonOHeader" Header="召唤实体" IsSelected="True">
-                <Grid>
+                <Grid Margin="0,0,0,-31">
                     <ComboBox x:Name="tabSumosType" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="512" Height="31" SelectionChanged="tabSumosType_SelectionChanged" FontSize="14"/>
                     <CheckBox x:Name="tabSumosHasPotion" Content="有药水效果√" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <Button x:Name="tabSumosPotionGetBtn" Content="←获取数据" HorizontalAlignment="Left" Margin="178,43,0,0" VerticalAlignment="Top" Width="160" FontSize="12" Click="tabSumosPotionGetBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
@@ -138,11 +138,11 @@
                         <Controls:NumericUpDown x:Name="tabSumosDCLHand" Minimum="0" Maximum="1" Interval="0.01" StringFormat="" Margin="290,75,10,15" Height="31" IsEnabled="False" Value="0.085" FontSize="14" />
                         <Label x:Name="SummonOLeftHand2" Content="左手" HorizontalAlignment="Left" Margin="247,77,0,0" VerticalAlignment="Top"/>
                     </Grid>
-                    <Button x:Name="tabSumosClear" Content="清空" HorizontalAlignment="Left" Margin="69,444,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosClear_Click" Style="{DynamicResource SquareButtonStyle}"/>
-                    <Button x:Name="tabSumosCreate" Content="生成" HorizontalAlignment="Left" Margin="149,444,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosCreate_Click" Style="{DynamicResource SquareButtonStyle}"/>
-                    <Button x:Name="tabSumosCheckBtn" Content="检索" HorizontalAlignment="Left" Margin="309,444,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosCheckBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-                    <Button x:Name="tabSumosHelp" Content="？" HorizontalAlignment="Left" Margin="389,444,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosHelp_Click" Style="{DynamicResource SquareButtonStyle}"/>
-                    <Button x:Name="tabSumosCopy" Content="复制" HorizontalAlignment="Left" Margin="229,444,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosCopy_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="tabSumosClear" Content="清空" HorizontalAlignment="Left" Margin="66,487,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosClear_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="tabSumosCreate" Content="生成" HorizontalAlignment="Left" Margin="146,487,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosCreate_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="tabSumosCheckBtn" Content="检索" HorizontalAlignment="Left" Margin="306,487,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosCheckBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="tabSumosHelp" Content="？" HorizontalAlignment="Left" Margin="386,487,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosHelp_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="tabSumosCopy" Content="复制" HorizontalAlignment="Left" Margin="226,487,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosCopy_Click" Style="{DynamicResource SquareButtonStyle}"/>
                     <CheckBox x:Name="tabSumosLeftHand" Content="左手主武器" HorizontalAlignment="Left" Margin="10,369,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <CheckBox x:Name="tabSumosNameVisible" Content="" HorizontalAlignment="Left" Margin="253,114,0,0" VerticalAlignment="Top" ToolTip="名称显示" IsChecked="True" IsEnabled="False" IsThreeState="True" Width="19"/>
                     <Grid HorizontalAlignment="Left" Height="37" Margin="532,218,0,0" VerticalAlignment="Top" Width="547">
@@ -152,17 +152,6 @@
                         <Label x:Name="SummonORiding2" Content="位" HorizontalAlignment="Left" Margin="175,4,0,0" VerticalAlignment="Top"/>
                     </Grid>
                     <CheckBox x:Name="tabSumosNowHealthCheck" Content="当前血量" HorizontalAlignment="Left" Margin="277,114,0,0" VerticalAlignment="Top" Click="tabSumosNowHealthCheck_Click"/>
-                    <Controls:NumericUpDown x:Name="tabSumosNowHealth" Minimum="0" Maximum="2147483647" StringFormat="" Margin="358,108,574,381" Height="28" Value="20" FontSize="14" IsEnabled="False" />
-                    <Controls:ToggleSwitch x:Name="mcVersion" Margin="-64,214,994,265" IsChecked="True" OnLabel="Minecraft 1.9+" OffLabel="Minecraft 1.8-" RenderTransformOrigin="0.5,0.5" IsCheckedChanged="mcVersion_IsCheckedChanged" >
-                        <Controls:ToggleSwitch.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform Angle="-90"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Controls:ToggleSwitch.RenderTransform>
-                    </Controls:ToggleSwitch>
                     <CheckBox x:Name="tabSumosTagsCheck" Content="标签" HorizontalAlignment="Left" Margin="239,398,0,0" VerticalAlignment="Top" Click="tabSumosTagsCheck_Click" FontSize="14"/>
                     <TextBox x:Name="tabSumosTags" HorizontalAlignment="Left" Height="23" Margin="328,397,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" IsEnabled="False" AcceptsReturn="True" />
                     <Grid HorizontalAlignment="Left" Height="74" Margin="542,144,0,0" VerticalAlignment="Top" Width="544">
@@ -175,8 +164,8 @@
                         <Controls:NumericUpDown x:Name="tabSumosDirectionZ" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="382,40,10,2" Height="32" Value="0" IsEnabled="False" FontSize="14" />
                         <Controls:NumericUpDown x:Name="tabSumosDirectionX" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="80,40,326,2" Height="32" Value="0" IsEnabled="False" FontSize="14" />
                     </Grid>
-                    <GroupBox x:Name="groupBox" Header="Extra" HorizontalAlignment="Left" Margin="527,258,0,0" VerticalAlignment="Top" Height="249" Width="554">
-                        <Grid HorizontalAlignment="Left" Height="211" VerticalAlignment="Top" Width="544" Margin="0,0,-2,0">
+                    <GroupBox x:Name="groupBox" Header="Extra" HorizontalAlignment="Left" Margin="527,258,0,0" VerticalAlignment="Top" Height="280" Width="554">
+                        <Grid HorizontalAlignment="Left" Height="242" VerticalAlignment="Top" Width="544" Margin="0,0,-2,0">
                             <Button x:Name="tabSumosEgg" Content="刷怪蛋" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" FontSize="12" Click="tabSumosEgg_Click" IsEnabled="False" Style="{DynamicResource SquareButtonStyle}"/>
                             <CheckBox x:Name="tabSumosEPowered" Content="充能" HorizontalAlignment="Left" Margin="366,5,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                             <Button x:Name="tabSumosEEnderman" Content="获取方块" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" FontSize="12" IsEnabled="False" Margin="0,33,0,0" ToolTip="末影人所抓的方块" Click="tabSumosEEnderman_Click" Style="{DynamicResource SquareButtonStyle}"/>
@@ -191,30 +180,44 @@
                             <CheckBox x:Name="tabSumosESkeletonType" Content="凋零骷髅" HorizontalAlignment="Left" Margin="465,105,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                             <CheckBox x:Name="tabSumosEPlayerCreated" Content="玩家制造" HorizontalAlignment="Left" Margin="366,138,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                             <CheckBox x:Name="tabSumosEAngry" Content="生气" HorizontalAlignment="Left" Margin="465,138,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                            <Controls:NumericUpDown x:Name="tabSumosEExplosionRadius" Minimum="0" Maximum="32767" StringFormat="" Margin="122,0,305,183" Value="3" FontSize="14" ToolTip="爆炸半径" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosEFuse" Minimum="0" Maximum="32767" StringFormat="" Margin="244,0,183,183" Value="1" FontSize="14" ToolTip="引信时间" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosEDragon" Minimum="-1" Maximum="10" StringFormat="" Margin="122,33,305,150" Value="-1" FontSize="14" ToolTip="末影龙动作" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosEExplosionPower" Minimum="0" Maximum="32767" StringFormat="" Margin="244,33,183,150" Value="1" FontSize="14" ToolTip="爆炸威力" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosESize" Minimum="0" Maximum="32767" StringFormat="" Margin="122,66,305,117" Value="3" FontSize="14" ToolTip="大小" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosECatType" Minimum="0" Maximum="3" StringFormat="" Margin="244,66,183,117" Value="0" FontSize="14" ToolTip="豹猫类型|0为野生|1为西服猫|2为虎斑猫|3为暹罗猫" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosERabbitType" Minimum="0" Maximum="99" StringFormat="" Margin="244,99,183,84" Value="0" FontSize="14" ToolTip="兔子的类型|0为棕色兔子|1为白色|2为黑色|3为黑白相间|4为金色|5为胡椒盐|99为杀手兔" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosEShulkerPeek" Minimum="-32768" Maximum="32767" StringFormat="" Margin="122,99,305,84" Value="30" FontSize="14" ToolTip="头部高度" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosEInvul" Minimum="0" Maximum="99" StringFormat="" Margin="244,132,183,51" Value="0" FontSize="14" ToolTip="无敌时间-倒计时" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosEpickup" Minimum="0" Maximum="2" StringFormat="" Margin="122,132,305,51" Value="0" FontSize="14" ToolTip="箭矢能否被捡起|0为不能|1为可以|2为只允许创造模式捡起" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosEdamage" Minimum="0" Maximum="1000000" StringFormat="" Margin="0,132,427,51" Value="2" FontSize="14" ToolTip="箭矢的攻击力" IsEnabled="False" Interval="0.5" />
                             <TextBox x:Name="tabSumosEOwner" HorizontalAlignment="Left" Height="28" Margin="0,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117" ToolTip="物品所有者，除此玩家之外无人可捡起，留空忽略此项" IsEnabled="False"/>
                             <TextBox x:Name="tabSumosEThrower" HorizontalAlignment="Left" Height="28" Margin="122,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117" ToolTip="物品持有者，留空忽略此项" IsEnabled="False"/>
-                            <Controls:NumericUpDown x:Name="tabSumosEExp" Minimum="-2147483648" Maximum="2147483647" StringFormat="" Margin="244,165,183,18" Value="0" FontSize="14" ToolTip="经验值数量" IsEnabled="False" />
                             <Slider x:Name="tabSumosEDuration" HorizontalAlignment="Left" Margin="366,161,0,0" VerticalAlignment="Top" Width="126" ToolTip="持续时间" IsEnabled="False" Value="600" Maximum="32768" ValueChanged="tabSumosEDuration_ValueChanged"/>
                             <Slider x:Name="tabSumosERadius" HorizontalAlignment="Left" Margin="366,184,0,0" VerticalAlignment="Top" Width="126" ToolTip="半径" IsEnabled="False" Value="2.9" ValueChanged="tabSumosERadius_ValueChanged"/>
                             <Button x:Name="tabSumosEParticle" Content="..." HorizontalAlignment="Left" Margin="497,167,0,0" VerticalAlignment="Top" Width="19" ToolTip="粒子效果选择" IsEnabled="False" Click="tabSumosEParticle_Click" Height="34" Style="{DynamicResource SquareButtonStyle}"/>
                             <Button x:Name="tabSumosEParticleColor" Content="+" HorizontalAlignment="Left" Margin="521,167,0,0" VerticalAlignment="Top" Width="19" ToolTip="粒子效果颜色选择" IsEnabled="False" Height="34" Click="tabSumosEParticleColor_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                            <Controls:NumericUpDown x:Name="tabSumosEExplosionRadius" Minimum="0" Maximum="32767" StringFormat="" Margin="122,0,305,214" Value="3" FontSize="14" ToolTip="爆炸半径" IsEnabled="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosEFuse" Minimum="0" Maximum="32767" StringFormat="" Margin="244,0,183,214" Value="1" FontSize="14" ToolTip="引信时间" IsEnabled="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosEDragon" Minimum="-1" Maximum="10" StringFormat="" Margin="122,33,305,181" Value="-1" FontSize="14" ToolTip="末影龙动作" IsEnabled="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosEExplosionPower" Minimum="0" Maximum="32767" StringFormat="" Margin="244,33,183,181" Value="1" FontSize="14" ToolTip="爆炸威力" IsEnabled="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosESize" Minimum="0" Maximum="32767" StringFormat="" Margin="122,66,305,148" Value="3" FontSize="14" ToolTip="大小" IsEnabled="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosECatType" Minimum="0" Maximum="3" StringFormat="" Margin="244,66,183,148" Value="0" FontSize="14" ToolTip="豹猫类型|0为野生|1为西服猫|2为虎斑猫|3为暹罗猫" IsEnabled="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosERabbitType" Minimum="0" Maximum="99" StringFormat="" Margin="244,99,183,115" Value="0" FontSize="14" ToolTip="兔子的类型|0为棕色兔子|1为白色|2为黑色|3为黑白相间|4为金色|5为胡椒盐|99为杀手兔" IsEnabled="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosEShulkerPeek" Minimum="-32768" Maximum="32767" StringFormat="" Margin="122,99,305,115" Value="30" FontSize="14" ToolTip="头部高度" IsEnabled="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosEInvul" Minimum="0" Maximum="99" StringFormat="" Margin="244,132,183,82" Value="0" FontSize="14" ToolTip="无敌时间-倒计时" IsEnabled="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosEpickup" Minimum="0" Maximum="2" StringFormat="" Margin="122,132,305,82" Value="0" FontSize="14" ToolTip="箭矢能否被捡起|0为不能|1为可以|2为只允许创造模式捡起" IsEnabled="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosEdamage" Minimum="0" Maximum="1000000" StringFormat="" Margin="0,132,427,82" Value="2" FontSize="14" ToolTip="箭矢的攻击力" IsEnabled="False" Interval="0.5" />
+                            <Controls:NumericUpDown x:Name="tabSumosEExp" Minimum="-2147483648" Maximum="2147483647" StringFormat="" Margin="244,165,183,49" Value="0" FontSize="14" ToolTip="经验值数量" IsEnabled="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosEZombieType" Minimum="-1" Maximum="1000000" StringFormat="" Margin="0,198,427,16" Value="-1" FontSize="14" ToolTip="僵尸类型，0为默认，1-5为村民，6为Husk" IsEnabled="False" Interval="0.5" />
                         </Grid>
                     </GroupBox>
-                    <Controls:NumericUpDown x:Name="tabSumosFireNum" Minimum="-2147483648" Maximum="2147483647" StringFormat="" Margin="328,364,574,125" Height="28" Value="600" FontSize="14" IsEnabled="False" Interval="10" />
                     <CheckBox x:Name="tabSumosFireCheck" Content="燃烧状态" HorizontalAlignment="Left" Margin="239,369,0,0" VerticalAlignment="Top" Click="tabSumosFireCheck_Click"/>
                     <CheckBox x:Name="tabSumosGlowing" Content="发光" HorizontalAlignment="Left" Margin="168,369,0,0" VerticalAlignment="Top"/>
                     <CheckBox x:Name="tabSumosPersistenceRequired" Content="不会自然刷新" HorizontalAlignment="Left" Margin="10,398,0,0" VerticalAlignment="Top" FontSize="14"/>
+                    <Controls:NumericUpDown x:Name="tabSumosNowHealth" Minimum="0" Maximum="2147483647" StringFormat="" Margin="358,108,574,412" Height="28" Value="20" FontSize="14" IsEnabled="False" />
+                    <Controls:ToggleSwitch x:Name="mcVersion" Margin="-64,214,994,296" IsChecked="True" OnLabel="Minecraft 1.9+" OffLabel="Minecraft 1.8-" RenderTransformOrigin="0.5,0.5" IsCheckedChanged="mcVersion_IsCheckedChanged" >
+                        <Controls:ToggleSwitch.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-90"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Controls:ToggleSwitch.RenderTransform>
+                    </Controls:ToggleSwitch>
+                    <Controls:NumericUpDown x:Name="tabSumosFireNum" Minimum="-2147483648" Maximum="2147483647" StringFormat="" Margin="328,364,574,156" Height="28" Value="600" FontSize="14" IsEnabled="False" Interval="10" />
+                    <CheckBox x:Name="tabSumosElytra" Content="滑翔翼" HorizontalAlignment="Left" Margin="168,399,0,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="tabSumosArmorNogravity" Content="无重力环境" HorizontalAlignment="Left" Margin="10,427,0,0" VerticalAlignment="Top" FontSize="14"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="SummonSHeader" Header="召唤物品" Margin="125,0,-125,0">
@@ -334,7 +337,6 @@
                     <CheckBox x:Name="tabSumosArmorShowarmor" Content="盔甲架显示手臂" HorizontalAlignment="Left" Margin="10,331,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <CheckBox x:Name="tabSumosArmorNochestplate" Content="不显示底盘" HorizontalAlignment="Left" Margin="137,331,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <CheckBox x:Name="tabSumosArmorCant" Content="不允许编辑" HorizontalAlignment="Left" Margin="236,331,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <CheckBox x:Name="tabSumosArmorNogravity" Content="无重力环境" HorizontalAlignment="Left" Margin="335,331,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <Label x:Name="SummonOX" Content="X度数" HorizontalAlignment="Left" Margin="118,31,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="SummonOY" Content="Y度数" HorizontalAlignment="Left" Margin="268,30,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="SummonOZ" Content="Z度数" HorizontalAlignment="Left" Margin="419,30,0,0" VerticalAlignment="Top"/>

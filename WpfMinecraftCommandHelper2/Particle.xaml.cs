@@ -60,6 +60,7 @@ namespace WpfMinecraftCommandHelper2
 
         private string finalStr = "";
         private int particleSel = 0;
+        private string atStr = "";
 
         private void clear() 
         {
@@ -124,39 +125,30 @@ namespace WpfMinecraftCommandHelper2
             string particleOut = "/particle ";
             //particle
             AllSelData asd = new AllSelData();
-            if (langIndex == 0)
-            {
-                //tabParticleBox.Text = "请选择效果类型！";
-            }
-            else if (langIndex == 1)
-            {
-                particleOut = particleOut + asd.getParticle(langIndex) + "_" + tabParticleID.Value + "_" + tabParticleMeta.Value + " ";
-            }
-            else if (langIndex == 2)
-            {
-                particleOut = particleOut + asd.getParticle(langIndex) + "_" + tabParticleID.Value + " ";
-            }
-            else if (langIndex == 3)
-            {
-                particleOut = particleOut + asd.getParticle(langIndex) + "_" + tabParticleID.Value + " ";
-            }
-            else
-            {
-                particleOut = particleOut + asd.getParticle(langIndex) + " ";
-            }
+            particleOut += asd.getParticle(langIndex) + " ";
             //local
             if (tabParticleXNum.IsChecked == true)
             {
-                particleOut = particleOut + "~ ~ ~ ";
+                particleOut += "~ ~ ~ ";
             }
             else
             {
-                particleOut = particleOut + tabParticleX.Value + " " + tabParticleY.Value + " " + tabParticleZ.Value + " ";
+                particleOut += tabParticleX.Value + " " + tabParticleY.Value + " " + tabParticleZ.Value + " ";
             }
             //dyn
-            particleOut = particleOut + tabParticleDx.Value + " " + tabParticleDy.Value + " " + tabParticleDz.Value + " ";
-            //speed
-            particleOut = particleOut + tabParticleSpeed.Value + " " + tabParticleCount.Value;
+            particleOut += tabParticleDx.Value + " " + tabParticleDy.Value + " " + tabParticleDz.Value + " ";
+            //speed & count
+            particleOut += tabParticleSpeed.Value + " " + tabParticleCount.Value;
+            //mode
+            if (modeNormal.IsChecked.Value || modeTarget.IsChecked.Value)
+            {
+                if (modeNormal.IsChecked.Value) { particleOut += " normal "; }
+                if (modeTarget.IsChecked.Value) { particleOut += " target "; }
+                //player
+                particleOut += atBox.Text;
+                //param
+                particleOut += " " + tabParticleID.Value + " " + tabParticleMeta.Value;
+            }
             finalStr = particleOut;
         }
 
@@ -172,7 +164,9 @@ namespace WpfMinecraftCommandHelper2
             checkbox.Show();
         }
 
-        public int returnParticleSel() { return particleSel; } 
+        public int returnParticleSel() { return particleSel; }
+
+        public int[] returnParticlePara() { return new int[] { (int)tabParticleID.Value.Value, (int)tabParticleMeta.Value.Value }; }
 
         private void helpBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -228,6 +222,88 @@ namespace WpfMinecraftCommandHelper2
                     }
                 }
             }
+        }
+
+        private void tabParticleDx_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            //Count为0&Speed不为0，将可以自定义颜色，Count大于0则随机化颜色。
+            if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                AllSelData asd = new AllSelData();
+                if (asd.getParticle(tabParticleSel.SelectedIndex) == "reddust" || asd.getParticle(tabParticleSel.SelectedIndex) == "mobSpell" || asd.getParticle(tabParticleSel.SelectedIndex) == "mobSpellAmbient")
+                {
+                    tabParticleCount.Value = 0;
+                    tabParticleSpeed.Value = 0.5;
+                    ColorSel cs = new ColorSel();
+                    cs.ShowDialog();
+                    byte[] temp = cs.reColor();
+                    double _R = temp[0] / 255d;
+                    if (asd.getParticle(tabParticleSel.SelectedIndex) == "reddust") { _R--; }
+                    tabParticleDx.Value = System.Math.Round(_R, 3);
+                    double _G = temp[1] / 255d;
+                    tabParticleDy.Value = System.Math.Round(_G, 3);
+                    double _B = temp[2] / 255d;
+                    tabParticleDz.Value = System.Math.Round(_B, 3);
+                }
+            }
+        }
+
+        private void tabParticleDy_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                AllSelData asd = new AllSelData();
+                if (asd.getParticle(tabParticleSel.SelectedIndex) == "reddust" || asd.getParticle(tabParticleSel.SelectedIndex) == "mobSpell" || asd.getParticle(tabParticleSel.SelectedIndex) == "mobSpellAmbient")
+                {
+                    tabParticleCount.Value = 0;
+                    tabParticleSpeed.Value = 0.5;
+                    ColorSel cs = new ColorSel();
+                    cs.ShowDialog();
+                    byte[] temp = cs.reColor();
+                    double _R = temp[0] / 255d;
+                    if (asd.getParticle(tabParticleSel.SelectedIndex) == "reddust") { _R--; }
+                    tabParticleDx.Value = System.Math.Round(_R, 3);
+                    double _G = temp[1] / 255d;
+                    tabParticleDy.Value = System.Math.Round(_G, 3);
+                    double _B = temp[2] / 255d;
+                    tabParticleDz.Value = System.Math.Round(_B, 3);
+                }
+            }
+        }
+
+        private void tabParticleDz_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                AllSelData asd = new AllSelData();
+                if (asd.getParticle(tabParticleSel.SelectedIndex) == "reddust" || asd.getParticle(tabParticleSel.SelectedIndex) == "mobSpell" || asd.getParticle(tabParticleSel.SelectedIndex) == "mobSpellAmbient")
+                {
+                    tabParticleCount.Value = 0;
+                    tabParticleSpeed.Value = 0.5;
+                    ColorSel cs = new ColorSel();
+                    cs.ShowDialog();
+                    byte[] temp = cs.reColor();
+                    double _R = temp[0] / 255d;
+                    if (asd.getParticle(tabParticleSel.SelectedIndex) == "reddust") { _R--; }
+                    tabParticleDx.Value = System.Math.Round(_R, 3);
+                    double _G = temp[1] / 255d;
+                    tabParticleDy.Value = System.Math.Round(_G, 3);
+                    double _B = temp[2] / 255d;
+                    tabParticleDz.Value = System.Math.Round(_B, 3);
+                }
+            }
+        }
+
+        private void atBtn_Click(object sender, RoutedEventArgs e)
+        {
+            At at = new At();
+            at.ShowDialog();
+            string temp = at.returnStr();
+            if (temp != "")
+            {
+                atStr = at.returnStr();
+            }
+            atBox.Text = atStr;
         }
     }
 }
