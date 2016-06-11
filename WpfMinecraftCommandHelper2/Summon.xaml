@@ -173,19 +173,17 @@
                             <CheckBox x:Name="tabSumosEElder" Content="长者" HorizontalAlignment="Left" Margin="465,6,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                             <TextBox x:Name="tabSumosEUUID" HorizontalAlignment="Left" Height="28" Margin="0,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117" ToolTip="驯养的玩家名(1.8-)/UUID(1.8+)，此UUID也可用于猪人的仇恨对象，保持空则不生成该标签" IsEnabled="False"/>
                             <CheckBox x:Name="tabSumosESaddle" Content="鞍" HorizontalAlignment="Left" Margin="465,38,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                            <CheckBox x:Name="tabSumosEIsVillager" Content="是村民" HorizontalAlignment="Left" Margin="465,72,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                             <CheckBox x:Name="tabSumosECanBreakDoor" Content="可破坏门" HorizontalAlignment="Left" Margin="366,72,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                             <CheckBox x:Name="tabSumosESheared" Content="没有羊毛" HorizontalAlignment="Left" Margin="366,105,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                             <ComboBox x:Name="tabSumosEWoolColor" HorizontalAlignment="Left" Margin="0,99,0,0" VerticalAlignment="Top" Width="117" Height="28" ToolTip="羊毛颜色" IsEnabled="False"/>
-                            <CheckBox x:Name="tabSumosESkeletonType" Content="凋零骷髅" HorizontalAlignment="Left" Margin="465,105,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                            <CheckBox x:Name="tabSumosEPlayerCreated" Content="玩家制造" HorizontalAlignment="Left" Margin="366,138,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                            <CheckBox x:Name="tabSumosEAngry" Content="生气" HorizontalAlignment="Left" Margin="465,138,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                            <CheckBox x:Name="tabSumosEPlayerCreated" Content="玩家制造" HorizontalAlignment="Left" Margin="465,105,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                            <CheckBox x:Name="tabSumosEAngry" Content="生气" HorizontalAlignment="Left" Margin="465,72,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                             <TextBox x:Name="tabSumosEOwner" HorizontalAlignment="Left" Height="28" Margin="0,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117" ToolTip="物品所有者，除此玩家之外无人可捡起，留空忽略此项" IsEnabled="False"/>
                             <TextBox x:Name="tabSumosEThrower" HorizontalAlignment="Left" Height="28" Margin="122,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117" ToolTip="物品持有者，留空忽略此项" IsEnabled="False"/>
-                            <Slider x:Name="tabSumosEDuration" HorizontalAlignment="Left" Margin="366,161,0,0" VerticalAlignment="Top" Width="126" ToolTip="持续时间" IsEnabled="False" Value="600" Maximum="32768" ValueChanged="tabSumosEDuration_ValueChanged"/>
-                            <Slider x:Name="tabSumosERadius" HorizontalAlignment="Left" Margin="366,184,0,0" VerticalAlignment="Top" Width="126" ToolTip="半径" IsEnabled="False" Value="2.9" ValueChanged="tabSumosERadius_ValueChanged"/>
-                            <Button x:Name="tabSumosEParticle" Content="..." HorizontalAlignment="Left" Margin="497,167,0,0" VerticalAlignment="Top" Width="19" ToolTip="粒子效果选择" IsEnabled="False" Click="tabSumosEParticle_Click" Height="34" Style="{DynamicResource SquareButtonStyle}"/>
-                            <Button x:Name="tabSumosEParticleColor" Content="+" HorizontalAlignment="Left" Margin="521,167,0,0" VerticalAlignment="Top" Width="19" ToolTip="粒子效果颜色选择" IsEnabled="False" Height="34" Click="tabSumosEParticleColor_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                            <Slider x:Name="tabSumosEDuration" HorizontalAlignment="Left" Margin="366,198,0,0" VerticalAlignment="Top" Width="126" ToolTip="持续时间" IsEnabled="False" Value="600" Maximum="32768" ValueChanged="tabSumosEDuration_ValueChanged"/>
+                            <Slider x:Name="tabSumosERadius" HorizontalAlignment="Left" Margin="366,221,0,0" VerticalAlignment="Top" Width="126" ToolTip="半径" IsEnabled="False" Value="2.9" ValueChanged="tabSumosERadius_ValueChanged"/>
+                            <Button x:Name="tabSumosEParticle" Content="..." HorizontalAlignment="Left" Margin="497,204,0,0" VerticalAlignment="Top" Width="19" ToolTip="粒子效果选择" IsEnabled="False" Click="tabSumosEParticle_Click" Height="34" Style="{DynamicResource SquareButtonStyle}"/>
+                            <Button x:Name="tabSumosEParticleColor" Content="+" HorizontalAlignment="Left" Margin="521,204,0,0" VerticalAlignment="Top" Width="19" ToolTip="粒子效果颜色选择" IsEnabled="False" Height="34" Click="tabSumosEParticleColor_Click" Style="{DynamicResource SquareButtonStyle}"/>
                             <Controls:NumericUpDown x:Name="tabSumosEExplosionRadius" Minimum="0" Maximum="32767" StringFormat="" Margin="122,0,305,214" Value="3" FontSize="14" ToolTip="爆炸半径" IsEnabled="False" />
                             <Controls:NumericUpDown x:Name="tabSumosEFuse" Minimum="0" Maximum="32767" StringFormat="" Margin="244,0,183,214" Value="1" FontSize="14" ToolTip="引信时间" IsEnabled="False" />
                             <Controls:NumericUpDown x:Name="tabSumosEDragon" Minimum="-1" Maximum="10" StringFormat="" Margin="122,33,305,181" Value="-1" FontSize="14" ToolTip="末影龙动作" IsEnabled="False" />
@@ -198,7 +196,7 @@
                             <Controls:NumericUpDown x:Name="tabSumosEpickup" Minimum="0" Maximum="2" StringFormat="" Margin="122,132,305,82" Value="0" FontSize="14" ToolTip="箭矢能否被捡起|0为不能|1为可以|2为只允许创造模式捡起" IsEnabled="False" />
                             <Controls:NumericUpDown x:Name="tabSumosEdamage" Minimum="0" Maximum="1000000" StringFormat="" Margin="0,132,427,82" Value="2" FontSize="14" ToolTip="箭矢的攻击力" IsEnabled="False" Interval="0.5" />
                             <Controls:NumericUpDown x:Name="tabSumosEExp" Minimum="-2147483648" Maximum="2147483647" StringFormat="" Margin="244,165,183,49" Value="0" FontSize="14" ToolTip="经验值数量" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosEZombieType" Minimum="-1" Maximum="1000000" StringFormat="" Margin="0,198,427,16" Value="-1" FontSize="14" ToolTip="僵尸类型，0为默认，1-5为村民，6为Husk" IsEnabled="False" Interval="0.5" />
+                            <Controls:NumericUpDown x:Name="tabSumosEZombieType" Minimum="-1" Maximum="1000000" StringFormat="" Margin="0,198,427,16" Value="-1" FontSize="14" ToolTip="僵尸类型，0为默认，1-5为村民，6为尸壳（Husk）\n骷髅类型，0为默认，1为凋零骷髅，2为流髑（Stray）" IsEnabled="False" Interval="0.5" />
                         </Grid>
                     </GroupBox>
                     <CheckBox x:Name="tabSumosFireCheck" Content="燃烧状态" HorizontalAlignment="Left" Margin="239,369,0,0" VerticalAlignment="Top" Click="tabSumosFireCheck_Click"/>

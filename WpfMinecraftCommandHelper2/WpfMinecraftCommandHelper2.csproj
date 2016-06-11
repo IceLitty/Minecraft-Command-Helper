@@ -58,6 +58,9 @@
   <PropertyGroup>
     <StartupObject>WpfMinecraftCommandHelper2.App</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MahApps.Metro, Version=1.2.4.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
@@ -320,11 +323,6 @@
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5 %28x86 和 x64%29</ProductName>
       <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
@@ -1471,8 +1469,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>::cd "C:/Program Files (x86)/Microsoft/ILMerge"
-::ilmerge /lib:"C:/Windows/Microsoft.NET/Framework64/v4.0.30319/WPF" /lib:"C:/Windows/Microsoft.NET/Framework64/v4.0.30319" /out:"C:/Users/IceRain/Documents/Visual Studio 2015/Projects/WpfMinecraftCommandHelper2/WpfMinecraftCommandHelper2/bin/Release/WpfMinecraftCommandHelper2_AIO.exe" /log "C:/Users/IceRain/Documents/Visual Studio 2015/Projects/WpfMinecraftCommandHelper2/WpfMinecraftCommandHelper2/bin/Release/WpfMinecraftCommandHelper2.exe" "C:/Users/IceRain/Documents/Visual Studio 2015/Projects/WpfMinecraftCommandHelper2/WpfMinecraftCommandHelper2/bin/Release/MahApps.Metro.dll" "C:/Users/IceRain/Documents/Visual Studio 2015/Projects/WpfMinecraftCommandHelper2/WpfMinecraftCommandHelper2/bin/Release/System.Windows.Interactivity.dll" /target:winexe /ndebug /targetplatform:v4</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -260,9 +260,7 @@ namespace WpfMinecraftCommandHelper2
                 tabSumosEAtkByEnderman.Content = templang[150];
                 tabSumosESaddle.Content = templang[151];
                 tabSumosECanBreakDoor.Content = templang[152];
-                tabSumosEIsVillager.Content = templang[153];
                 tabSumosESheared.Content = templang[154];
-                tabSumosESkeletonType.Content = templang[155];
                 tabSumosEPlayerCreated.Content = templang[156];
                 tabSumosEAngry.Content = templang[157];
                 tabSumosEParticle.ToolTip = templang[158];
@@ -317,8 +315,6 @@ namespace WpfMinecraftCommandHelper2
             tabSumosEPlayerCreated.IsEnabled = false;
             tabSumosEElder.IsEnabled = false;
             tabSumosESaddle.IsEnabled = false;
-            tabSumosEIsVillager.IsEnabled = false;
-            tabSumosESkeletonType.IsEnabled = false;
             tabSumosEAngry.IsEnabled = false;
             tabSumosEOwner.IsEnabled = false;
             tabSumosEThrower.IsEnabled = false;
@@ -986,7 +982,7 @@ namespace WpfMinecraftCommandHelper2
             }
             if (tabSumosElytra.IsChecked.Value)
             {
-                sumosText += "FallFlying: 1b,";
+                sumosText += "FallFlying:1b,";
             }
             if (tabSumosPersistenceRequired.IsChecked.Value)
             {
@@ -1319,31 +1315,14 @@ namespace WpfMinecraftCommandHelper2
             }
             else if (asd.getAt(tabSumosType.SelectedIndex) == "Zombie")
             {
-                if (sumosText.Length > 0)
-                {
-                    sumosText += ",VillagerProfession:" + tabVillagerType.SelectedIndex;
-                }
-                else
-                {
-                    sumosText = "VillagerProfession:" + tabVillagerType.SelectedIndex;
-                }
                 if (tabSumosECanBreakDoor.IsChecked.Value) { sumosText += ",CanBreakDoors:1b"; }
-                if (tabSumosEIsVillager.IsChecked.Value) { sumosText += ",IsVillager:1b"; }
                 if (tabSumosEZombieType.Value.Value != -1) { sumosText += ",ZombieType:" + tabSumosEZombieType.Value.Value; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
             else if (asd.getAt(tabSumosType.SelectedIndex) == "PigZombie")
             {
-                if (sumosText.Length > 0)
-                {
-                    sumosText += ",VillagerProfession:" + tabVillagerType.SelectedIndex;
-                }
-                else
-                {
-                    sumosText = "VillagerProfession:" + tabVillagerType.SelectedIndex;
-                }
                 if (tabSumosECanBreakDoor.IsChecked.Value) { sumosText += ",CanBreakDoors:1b"; }
-                if (tabSumosEIsVillager.IsChecked.Value) { sumosText += ",IsVillager:1b"; }
+                if (tabSumosEZombieType.Value.Value != -1) { sumosText += ",ZombieType:" + tabSumosEZombieType.Value.Value; }
                 if (tabSumosEAngry.IsChecked.Value) { sumosText += ",Anger:32767s"; }
                 if (tabSumosEUUID.Text != "") { sumosText += ",HurtBy:" + tabSumosEUUID.Text; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
@@ -1380,16 +1359,13 @@ namespace WpfMinecraftCommandHelper2
             }
             else if (asd.getAt(tabSumosType.SelectedIndex) == "Skeleton")
             {
-                if (tabSumosESkeletonType.IsChecked.Value)
+                if (sumosText.Length > 0)
                 {
-                    if (sumosText.Length > 0)
-                    {
-                        sumosText += ",SkeletonType:1b";
-                    }
-                    else
-                    {
-                        sumosText = "SkeletonType:1b";
-                    }
+                    if (tabSumosEZombieType.Value.Value != -1) { sumosText += ",SkeletonType:" + tabSumosEZombieType.Value.Value; }
+                }
+                else
+                {
+                    if (tabSumosEZombieType.Value.Value != -1) { sumosText += "SkeletonType:" + tabSumosEZombieType.Value.Value; }
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
@@ -1671,7 +1647,6 @@ namespace WpfMinecraftCommandHelper2
             if (asd.getAt(tabSumosType.SelectedIndex) == "Zombie" || asd.getAt(tabSumosType.SelectedIndex) == "PigZombie")
             {
                 tabSumosECanBreakDoor.IsEnabled = true;
-                tabSumosEIsVillager.IsEnabled = true;
                 SummonVHeader.Visibility = Visibility.Visible;
             }
             if (asd.getAt(tabSumosType.SelectedIndex) == "Zombie")
@@ -1702,7 +1677,7 @@ namespace WpfMinecraftCommandHelper2
             }
             if (asd.getAt(tabSumosType.SelectedIndex) == "Skeleton")
             {
-                tabSumosESkeletonType.IsEnabled = true;
+                tabSumosEZombieType.IsEnabled = true;
             }
             if (asd.getAt(tabSumosType.SelectedIndex) == "PigZombie" || asd.getAt(tabSumosType.SelectedIndex) == "Wolf")
             {

@@ -1240,9 +1240,9 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["SummonExtraAtkByEnderman"].ToString());
             relanglist.Add(LangList[langID]["SummonExtraSaddle"].ToString());
             relanglist.Add(LangList[langID]["SummonExtraCanBreakDoor"].ToString());
-            relanglist.Add(LangList[langID]["SummonExtraIsVillager"].ToString());
+            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
             relanglist.Add(LangList[langID]["SummonExtraSheared"].ToString());
-            relanglist.Add(LangList[langID]["SummonExtraSkeletonType"].ToString());
+            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
             relanglist.Add(LangList[langID]["SummonExtraPlayerCreated"].ToString());
             relanglist.Add(LangList[langID]["SummonExtraAngry"].ToString());
             relanglist.Add(LangList[langID]["SummonExtraParticle"].ToString());

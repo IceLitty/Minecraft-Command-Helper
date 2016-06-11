@@ -32,7 +32,7 @@
         <Label x:Name="FireworkIsTrail" Content="空心？" HorizontalAlignment="Left" Margin="137,102,0,0" VerticalAlignment="Top"/>
         <Label x:Name="FireworkType" Content="类型" HorizontalAlignment="Left" Margin="188,102,0,0" VerticalAlignment="Top"/>
         <Label x:Name="FireworkColor" Content="外部色" HorizontalAlignment="Left" Margin="330,102,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="FireworkFadeColor" Content="内部色" HorizontalAlignment="Left" Margin="460,102,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="FireworkFadeColor" Content="内部色" HorizontalAlignment="Left" Margin="503,102,0,0" VerticalAlignment="Top"/>
         <Button x:Name="tabFirePre" Content="上一页" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top" Width="75" Click="tabFirePre_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="tabFireNext" Content="下一页" HorizontalAlignment="Left" Margin="90,167,0,0" VerticalAlignment="Top" Width="75" Click="tabFireNext_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Label x:Name="tabFirePageIndex" Content="-第01页-" HorizontalAlignment="Left" Margin="519,167,0,0" VerticalAlignment="Top"/>

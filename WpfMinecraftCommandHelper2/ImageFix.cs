@@ -56,6 +56,64 @@ namespace WpfMinecraftCommandHelper2
         }
 
         /// <summary>
+        /// 更改颜色，专门用于上行渐变和下行渐变。
+        /// </summary>
+        /// <param name="pic">原图</param>
+        /// <param name="dstBGRA">要更改为的像素，顺序为蓝绿红透明通道</param>
+        /// <returns></returns>
+        public BitmapSource ChangeColor(BitmapSource pic, byte[] dstBGRA, bool isUp2Down)
+        {
+            int lineCount = 0;
+            int PixelWidth = pic.PixelWidth;
+            int PixelHeight = pic.PixelHeight;
+            byte[] picArray = new byte[PixelWidth * PixelHeight * 4];
+            pic.CopyPixels(picArray, PixelWidth * 4, 0);
+            picArray[0] = dstBGRA[0];
+            picArray[1] = dstBGRA[1];
+            picArray[2] = dstBGRA[2];
+            picArray[3] = dstBGRA[3];
+            for (int i = 4; i < picArray.Count(); i++)
+            {
+                if (i % (4 * 20) == 0)
+                {
+                    lineCount++;
+                }
+                if (i % 4 == 0)
+                {
+                    int temp = dstBGRA[0];
+                    if (isUp2Down) temp += lineCount * 3;
+                    else temp -= lineCount * 3;
+                    if (temp > 255) temp = 255; else if (temp < 0) temp = 0;
+                    picArray[i] = (byte)temp;
+                }
+                if (i % 4 == 1)
+                {
+                    int temp = dstBGRA[1];
+                    if (isUp2Down) temp += lineCount * 3;
+                    else temp -= lineCount * 3;
+                    if (temp > 255) temp = 255; else if (temp < 0) temp = 0;
+                    picArray[i] = (byte)temp;
+                }
+                if (i % 4 == 2)
+                {
+                    int temp = dstBGRA[2];
+                    if (isUp2Down) temp += lineCount * 3;
+                    else temp -= lineCount * 3;
+                    if (temp > 255) temp = 255; else if (temp < 0) temp = 0;
+                    picArray[i] = (byte)temp;
+                }
+                if (i % 4 == 3)
+                {
+                    int temp = dstBGRA[3] - lineCount * 3;
+                    if (temp > 255) temp = 255;
+                    picArray[i] = (byte)temp;
+                }
+            }
+            BitmapSource bpic = BitmapSource.Create(PixelWidth, PixelHeight, 96, 96, System.Windows.Media.PixelFormats.Bgr32, null, picArray, PixelWidth * 4);
+            return bpic;
+        }
+
+        /// <summary>
         /// 更改图片的大小
         /// </summary>
         /// <param name="pic">原图</param>

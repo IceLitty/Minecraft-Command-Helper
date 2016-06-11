@@ -325,7 +325,19 @@ namespace WpfMinecraftCommandHelper2
                 //{
                 //    K1Bitmap = ifix.ChangeColor(tabBannerTypeSel(globalBannerType[i]), new byte[] { 0, 0, 0, 255 }, new byte[] { b1, g1, r1, 255 });
                 //}
-                BitmapSource K1Bitmap = ifix.ChangeColor(tabBannerTypeSel(globalBannerType[i]), new byte[] { 0, 0, 0, 255 }, new byte[] { b1, g1, r1, 255 });
+                BitmapSource K1Bitmap;
+                if (globalBannerType[i] == 3)
+                {
+                    K1Bitmap = ifix.ChangeColor(tabBannerTypeSel(globalBannerType[i]), new byte[] { b1, g1, r1, 255 }, true);
+                }
+                else if (globalBannerType[i] == 4)
+                {
+                    K1Bitmap = ifix.ChangeColor(tabBannerTypeSel(globalBannerType[i]), new byte[] { b1, g1, r1, 255 }, false);
+                }
+                else
+                {
+                    K1Bitmap = ifix.ChangeColor(tabBannerTypeSel(globalBannerType[i]), new byte[] { 0, 0, 0, 255 }, new byte[] { b1, g1, r1, 255 });
+                }
                 finalBitmap = ifix.Merger(finalBitmap, K1Bitmap);
             }
             finalBitmap = ifix.ChangeSize(finalBitmap, 13);
