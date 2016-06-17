@@ -894,6 +894,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["OtherHelpLoot"].ToString());
             relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["OtherHelpArmorStand3"].ToString());
             return relanglist;
         }
 

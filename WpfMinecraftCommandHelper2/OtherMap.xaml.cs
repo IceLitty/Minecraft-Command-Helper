@@ -62,6 +62,7 @@ namespace WpfMinecraftCommandHelper2
         private string OtherHelpArmorStand = "和召唤实体里的盔甲架编辑一样，但是多了一些功能，以及可以直接预览效果（虽然有bug）。";
         private string OtherHelpArmorStandNeedInternet = "需要访问外部页面";
         private string OtherHelpArmorStand2 = "再次点击将跳转到境外源站点，如果加载失败请尝试使用vpn链接或使用支持opengl的浏览器。";
+        private string OtherHelpArmorStand3 = "本人将该项目进行汉化并完全离线化，方便国内用户使用，源码公开至本项目页，该子项目使用GPL协议。";
         private string OtherHelpSuperflat = "使用第三个版本的超平坦代码来创建世界";
         private string OtherHelpGateway = "Minecraft1.9更新内容\r\n\r\n可以进行定点传送。\r\n参数说明：分别为XYZ的坐标，生成在脚下第二格。和一个确认是否准确传送至该点而不是该点周围的复选框。";
         private string OtherHelpSofa = "完美隐形沙发/座椅，参数为座椅面朝的方向、坐上后按E的GUI名称和是否有储存空间，另外要注意的是：1：请把命令方块放在座椅上方的那一格。 2：隐形仅使用了药水效果，意味着总有一刻会失效，请使用隐身按钮来执行恢复命令！3：柜子里所有物品包括鞍玩家都有权限拿走！";
@@ -176,6 +177,7 @@ namespace WpfMinecraftCommandHelper2
                 OtherHelpLoot = templang[71];
                 FloatErrorTitle = templang[72];
                 FloatHelpFileCantFind = templang[73];
+                OtherHelpArmorStand3 = templang[74];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -845,6 +847,7 @@ namespace WpfMinecraftCommandHelper2
         }
 
         bool tell3 = true;
+        bool tell4 = true;
 
         private void tabOther1ArmorStandOpenBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -862,6 +865,27 @@ namespace WpfMinecraftCommandHelper2
                 int find = value.IndexOf('\"');
                 value = value.Substring(0, find);
                 System.Diagnostics.Process.Start(value, "http://haselkern.github.io/Minecraft-ArmorStand/");
+            }
+        }
+
+        private void tabOther1ArmorStandOpenOfflineBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (tell4)
+            {
+                this.ShowMessageAsync("", OtherHelpArmorStand3, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel, AnimateShow = true });
+                tell4 = false;
+            }
+            else
+            {
+                string path = System.IO.Directory.GetCurrentDirectory() + @"\ArmorStandWebGL\index.htm";
+                if (System.IO.File.Exists(path))
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                else
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
             }
         }
 

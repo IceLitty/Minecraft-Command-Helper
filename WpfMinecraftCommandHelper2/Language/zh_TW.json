@@ -5,7 +5,7 @@
     "AuthorStr": "語言文件作者：",
     "Author": "IceLitty",
     "LastUpdateStr": "最後更新：",
-    "LastUpdate": "2016.06.11",
+    "LastUpdate": "2016.06.17",
 
     "FloatConfirm": "確認",
     "FloatCancel": "取消",
@@ -360,6 +360,7 @@
     "OtherHelpArmorStand": "和召喚實體裏的盔甲架編輯一樣，但是多了一些功能，以及可以直接預覽效果（雖然有bug）。",
     "OtherHelpArmorStandNeedInternet": "需要訪問外部頁面",
     "OtherHelpArmorStand2": "再次點擊將跳轉到境外源站點，如果加載失敗請嘗試使用vpn鏈接或使用支持opengl的浏覽器。",
+    "OtherHelpArmorStand3": "本人將該項目進行漢化並完全離線化，方便國內用戶使用，源碼公開至本項目頁，該子項目使用GPL協議。",
     "OtherHelpSuperflat": "使用第三個版本的超平坦代碼來創建世界",
     "OtherHelpGateway": "Minecraft1.9更新內容\r\n\r\n可以進行定點傳送。\r\n參數說明：分別爲XYZ的坐標，生成在腳下第二格。和一個確認是否准確傳送至該點而不是該點周圍的複選框。",
     "OtherHelpSofa": "完美隱形沙發/座椅，參數爲座椅面朝的方向、坐上後按E的GUI名稱和是否有儲存空間，另外要注意的是：1：請把命令方塊放在座椅上方的那一格。 2：隱形僅使用了藥水效果，意味著總有一刻會失效，請使用隱身按鈕來執行恢複命令！3：櫃子裏所有物品包括鞍玩家都有權限拿走！",

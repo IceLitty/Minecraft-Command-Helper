@@ -5,7 +5,7 @@
     "AuthorStr": "Lang File Author: ",
     "Author": "IceLitty",
     "LastUpdateStr": "Last Update: ",
-    "LastUpdate": "2016.06.11",
+    "LastUpdate": "2016.06.17",
 
     "FloatConfirm": "Confirm",
     "FloatCancel": "Cancel",
@@ -360,6 +360,7 @@
     "OtherHelpArmorStand": "The third part of Armorstand Edit using OpenGl on github.",
     "OtherHelpArmorStandNeedInternet": "Need Internet",
     "OtherHelpArmorStand2": "This is third part of Armorstand Edit using OpenGl on github.",
+    "OtherHelpArmorStand3": "Because we have an Internet GreatWall in China, so I make this offline & translated version about this project, this sub-project use GPL license.",
     "OtherHelpSuperflat": "Using version 3 about superflat code to generate world.",
     "OtherHelpGateway": "Minecraft1.9Update*\r\n\r\nIt can point to point teleport.\r\nNeed parameter: Coordinate XYZ you want to teleport to",
     "OtherHelpSofa": "Invisible Sofa/Chair\r\nNeed parameter: Which direction sofa face to, Is player press E can open gui with storage on sofa. Need attention: 1: Place command block up sofa block. 2: Invisible only use potion effect, use invisible button to re-invisible! 3: All player CAN take items in storage!",

@@ -1465,6 +1465,7 @@
     <Resource Include="Resources\WindowsIcons-license.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ArmorStandWebGL\" />
     <Folder Include="Help\img\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

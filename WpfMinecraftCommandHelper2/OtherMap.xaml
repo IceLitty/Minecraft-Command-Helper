@@ -102,6 +102,7 @@
             <Button x:Name="tabOther1ArmorStand" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1ArmorStand_Click" Style="{DynamicResource SquareButtonStyle}"/>
             <Label x:Name="OtherArmorStand" Content="网页版高级盔甲架（含预览）" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
             <Button x:Name="tabOther1ArmorStandOpenBtn" Content="打开" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,1,0,0" Click="tabOther1ArmorStandOpenBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+            <Button x:Name="tabOther1ArmorStandOpenOfflineBtn" Content="离线汉化版" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="462,1,0,0" Style="{DynamicResource SquareButtonStyle}" Click="tabOther1ArmorStandOpenOfflineBtn_Click"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="26" Margin="10,382,0,0" VerticalAlignment="Top" Width="591">
             <Button x:Name="tabOther1Superflat" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1Superflat_Click" Style="{DynamicResource SquareButtonStyle}"/>
