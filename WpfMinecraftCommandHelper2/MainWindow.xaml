@@ -5,13 +5,6 @@
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="True" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
         Title="Minecraft Command Helper versionInCode - Guide" Height="485" Width="797" SaveWindowPosition="False" PreviewKeyDown="win_PreviewKeyDown" >
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Resources/Icons.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
     <Controls:MetroWindow.LeftWindowCommands>
         <Controls:WindowCommands>
 

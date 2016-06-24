@@ -632,12 +632,12 @@ namespace WpfMinecraftCommandHelper2
         private void readFile()
         {
             List<string> txt = new List<string>();
-            if (!File.Exists(Directory.GetCurrentDirectory() + @"\settings"))
+            if (!File.Exists(Directory.GetCurrentDirectory() + @"\settings\settings.txt"))
             {
                 List<string> wtxt = new List<string>();
                 wtxt.Add("Blue|BaseLight|Adapt");
                 darkTheme = false;
-                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings", FileMode.Create))
+                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\settings.txt", FileMode.Create))
                 {
                     using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
                     {
@@ -648,7 +648,7 @@ namespace WpfMinecraftCommandHelper2
                     }
                 }
             }
-            using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings", Encoding.UTF8))
+            using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings\settings.txt", Encoding.UTF8))
             {
                 int lineCount = 0;
                 while (sr.Peek() > 0)
@@ -679,7 +679,7 @@ namespace WpfMinecraftCommandHelper2
                 List<string> wtxt = new List<string>();
                 string temp = accents + "|" + themes + "|" + flytheme;
                 wtxt.Add(temp);
-                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings", FileMode.Create))
+                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\settings.txt", FileMode.Create))
                 {
                     using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
                     {
@@ -698,17 +698,17 @@ namespace WpfMinecraftCommandHelper2
 
         private void delFileBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (File.Exists(Directory.GetCurrentDirectory() + @"\settings"))
+            if (File.Exists(Directory.GetCurrentDirectory() + @"\settings\settings.txt"))
             {
-                File.Delete(Directory.GetCurrentDirectory() + @"\settings");
+                File.Delete(Directory.GetCurrentDirectory() + @"\settings\settings.txt");
             }
             else
             {
                 this.ShowMessageAsync(FloatErrorTitle, MainProfileDoesntExist, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
             }
-            if (File.Exists(Directory.GetCurrentDirectory() + @"\avatar"))
+            if (File.Exists(Directory.GetCurrentDirectory() + @"\settings\avatar.txt"))
             {
-                File.Delete(Directory.GetCurrentDirectory() + @"\avatar");
+                File.Delete(Directory.GetCurrentDirectory() + @"\settings\avatar.txt");
             }
             else
             {
@@ -771,7 +771,7 @@ namespace WpfMinecraftCommandHelper2
         private void errorDialog()
         {
             this.ShowMessageAsync(FloatErrorTitle, MainProfileError, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-            File.Delete(Directory.GetCurrentDirectory() + @"\settings");
+            File.Delete(Directory.GetCurrentDirectory() + @"\settings\settings.txt");
         }
 
         private void Adapt_Click(object sender, RoutedEventArgs e)
@@ -928,11 +928,11 @@ namespace WpfMinecraftCommandHelper2
 
         private void ReadDarkTheme()
         {
-            if (File.Exists(Directory.GetCurrentDirectory() + @"\settings"))
+            if (File.Exists(Directory.GetCurrentDirectory() + @"\settings\settings.txt"))
             {
                 List<string> txt = new List<string>();
                 string themes = "BaseLight";
-                using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings", Encoding.UTF8))
+                using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings\settings.txt", Encoding.UTF8))
                 {
                     int lineCount = 0;
                     while (sr.Peek() > 0)
@@ -963,7 +963,7 @@ namespace WpfMinecraftCommandHelper2
             List<string> wtxt = new List<string>();
             string temp = str;
             wtxt.Add(temp);
-            using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\avatar", FileMode.Create))
+            using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\avatar.txt", FileMode.Create))
             {
                 using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
                 {
@@ -978,11 +978,11 @@ namespace WpfMinecraftCommandHelper2
         public string getMainImageGroupMode()
         {
             List<string> txt = new List<string>();
-            if (!File.Exists(Directory.GetCurrentDirectory() + @"\avatar"))
+            if (!File.Exists(Directory.GetCurrentDirectory() + @"\settings\avatar.txt"))
             {
                 List<string> wtxt = new List<string>();
                 wtxt.Add("sc");
-                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\avatar", FileMode.Create))
+                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\avatar.txt", FileMode.Create))
                 {
                     using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
                     {
@@ -993,7 +993,7 @@ namespace WpfMinecraftCommandHelper2
                     }
                 }
             }
-            using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\avatar", Encoding.UTF8))
+            using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings\avatar.txt", Encoding.UTF8))
             {
                 int lineCount = 0;
                 while (sr.Peek() > 0)
@@ -1009,7 +1009,7 @@ namespace WpfMinecraftCommandHelper2
             }
             catch (Exception)
             {
-                File.Delete(Directory.GetCurrentDirectory() + @"\avatar");
+                File.Delete(Directory.GetCurrentDirectory() + @"\settings\avatar.txt");
                 return "sc";
                 //throw;
             }

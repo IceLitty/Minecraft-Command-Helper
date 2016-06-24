@@ -18,11 +18,11 @@ namespace WpfMinecraftCommandHelper2
         public string getLangFile()
         {
             List<string> txt = new List<string>();
-            if (!File.Exists(Directory.GetCurrentDirectory() + @"\lang"))
+            if (!File.Exists(Directory.GetCurrentDirectory() + @"\settings\lang.txt"))
             {
                 List<string> wtxt = new List<string>();
                 wtxt.Add("cn");
-                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\lang", FileMode.Create))
+                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\lang.txt", FileMode.Create))
                 {
                     using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
                     {
@@ -33,7 +33,7 @@ namespace WpfMinecraftCommandHelper2
                     }
                 }
             }
-            using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\lang", Encoding.UTF8))
+            using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings\lang.txt", Encoding.UTF8))
             {
                 int lineCount = 0;
                 while (sr.Peek() > 0)
@@ -49,7 +49,7 @@ namespace WpfMinecraftCommandHelper2
             }
             catch (Exception)
             {
-                File.Delete(Directory.GetCurrentDirectory() + @"\lang");
+                File.Delete(Directory.GetCurrentDirectory() + @"\settings\lang.txt");
                 return "cn";
                 //throw;
             }
