@@ -43,7 +43,7 @@ namespace WpfMinecraftCommandHelper2
             FloatConfirm = templang[13];
             FloatCancel = templang[14];
         }
-
+        
         private string value = "";
         private bool ieMode = false;
         private string ieONStr = "注册表模式";

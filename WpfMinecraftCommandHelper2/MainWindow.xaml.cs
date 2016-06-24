@@ -325,42 +325,68 @@ namespace WpfMinecraftCommandHelper2
             if (imageGroupMode == "sc")
             {
                 pictureBox1.Source = getBitmap_sc();
+                picTip.Source = null;
             }
             else if (imageGroupMode == "aguo")
             {
                 pictureBox1.Source = getBitmap_aguo();
+                picTip.Source = null;
             }
             else if (imageGroupMode == "djx")
             {
                 pictureBox1.Source = getBitmap_djx();
+                picTip.Source = null;
             }
             else if (imageGroupMode == "ice")
             {
                 pictureBox1.Source = getBitmap_ice();
+                picTip.Source = null;
             }
             else if (imageGroupMode == "jelly")
             {
                 pictureBox1.Source = getBitmap_jelly();
+                picTip.Source = null;
             }
             else if (imageGroupMode == "pudding")
             {
                 pictureBox1.Source = getBitmap_pudding();
+                picTip.Source = null;
             }
             else if (imageGroupMode == "sym")
             {
                 pictureBox1.Source = getBitmap_sym();
+                picTip.Source = null;
             }
             else if (imageGroupMode == "tizi")
             {
                 pictureBox1.Source = getBitmap_tizi();
+                picTip.Source = null;
             }
             else if (imageGroupMode == "zero")
             {
                 pictureBox1.Source = getBitmap_zero();
+                picTip.Source = null;
+            }
+            else if (imageGroupMode == "sasa")
+            {
+                pictureBox1.Source = getBitmap_sasa();
+                picTip.Source = null;
+            }
+            else if (imageGroupMode == "style")
+            {
+                pictureBox1.Source = getBitmap_style();
+                picTip.Source = null;
+            }
+            else if (imageGroupMode == "temp")
+            {
+                BitmapSource tempbs = getBitmap_temp();
+                pictureBox1.Source = tempbs;
+                picTip.Source = tempbs;
             }
             else
             {
                 pictureBox1.Source = getBitmap_sc();
+                picTip.Source = null;
             }
         }
 
@@ -391,6 +417,8 @@ namespace WpfMinecraftCommandHelper2
             else if (ran == 4) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/aguo/4.jpg")); }
             else if (ran == 5) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/aguo/5.jpg")); }
             else if (ran == 6) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/aguo/6.jpg")); }
+            else if (ran == 7) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/aguo/7.jpg")); }
+            else if (ran == 8) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/aguo/8.jpg")); }
             else { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/aguo/0.jpg")); }
         }
 
@@ -415,6 +443,13 @@ namespace WpfMinecraftCommandHelper2
             else if (ran == 14) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/djx/14.jpg")); }
             else if (ran == 15) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/djx/15.jpg")); }
             else if (ran == 16) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/djx/16.jpg")); }
+            else if (ran == 17) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/djx/17.jpg")); }
+            else if (ran == 18) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/djx/18.jpg")); }
+            else if (ran == 19) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/djx/19.jpg")); }
+            else if (ran == 20) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/djx/20.jpg")); }
+            else if (ran == 21) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/djx/21.jpg")); }
+            else if (ran == 22) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/djx/22.jpg")); }
+            else if (ran == 23) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/djx/23.jpg")); }
             else { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/djx/0.jpg")); }
         }
 
@@ -441,6 +476,11 @@ namespace WpfMinecraftCommandHelper2
             else if (ran == 16) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/ice/16.jpg")); }
             else if (ran == 17) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/ice/17.jpg")); }
             else if (ran == 18) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/ice/18.jpg")); }
+            else if (ran == 19) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/ice/19.jpg")); }
+            else if (ran == 20) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/ice/20.jpg")); }
+            else if (ran == 21) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/ice/21.jpg")); }
+            else if (ran == 22) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/ice/22.jpg")); }
+            else if (ran == 23) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/ice/23.jpg")); }
             else { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/ice/0.jpg")); }
         }
 
@@ -509,15 +549,66 @@ namespace WpfMinecraftCommandHelper2
             int ran = random.Next(0, 5);
             if (ran == 0) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/tizi/0.jpg")); }
             else if (ran == 1) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/tizi/1.jpg")); }
-            else if (ran == 1) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/tizi/2.jpg")); }
-            else if (ran == 1) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/tizi/3.jpg")); }
-            else if (ran == 1) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/tizi/4.jpg")); }
+            else if (ran == 2) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/tizi/2.jpg")); }
+            else if (ran == 3) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/tizi/3.jpg")); }
+            else if (ran == 4) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/tizi/4.jpg")); }
             else { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/tizi/0.jpg")); }
         }
 
         private BitmapSource getBitmap_zero()
         {
             return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/zero/0.jpg"));
+        }
+
+        private BitmapSource getBitmap_style()
+        {
+            Random random = new Random();
+            int ran = random.Next(0, 8);
+            if (ran == 0) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/style/1.jpg")); }
+            else if (ran == 1) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/style/2.jpg")); }
+            else if (ran == 2) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/style/3.jpg")); }
+            else if (ran == 3) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/style/4.jpg")); }
+            else if (ran == 4) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/style/5.jpg")); }
+            else if (ran == 5) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/style/6.jpg")); }
+            else if (ran == 6) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/style/7.jpg")); }
+            else if (ran == 7) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/style/8.jpg")); }
+            else { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/style/1.jpg")); }
+        }
+
+        private BitmapSource getBitmap_sasa()
+        {
+            return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/sasa/0.jpg"));
+        }
+
+        private BitmapSource getBitmap_temp()
+        {
+            Random random = new Random();
+            int ran = random.Next(0, 24);
+            if (ran == 0) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/0.jpg")); }
+            else if (ran == 1) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/1.jpg")); }
+            else if (ran == 2) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/2.jpg")); }
+            else if (ran == 3) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/3.jpg")); }
+            else if (ran == 4) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/4.jpg")); }
+            else if (ran == 5) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/5.jpg")); }
+            else if (ran == 6) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/6.jpg")); }
+            else if (ran == 7) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/7.jpg")); }
+            else if (ran == 8) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/8.jpg")); }
+            else if (ran == 9) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/9.jpg")); }
+            else if (ran == 10) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/10.jpg")); }
+            else if (ran == 11) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/11.jpg")); }
+            else if (ran == 12) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/12.jpg")); }
+            else if (ran == 13) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/13.jpg")); }
+            else if (ran == 14) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/14.jpg")); }
+            else if (ran == 15) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/15.jpg")); }
+            else if (ran == 16) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/16.jpg")); }
+            else if (ran == 17) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/17.jpg")); }
+            else if (ran == 18) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/18.jpg")); }
+            else if (ran == 19) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/19.jpg")); }
+            else if (ran == 20) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/20.jpg")); }
+            else if (ran == 21) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/21.jpg")); }
+            else if (ran == 22) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/22.jpg")); }
+            else if (ran == 23) { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/23.jpg")); }
+            else { return new BitmapImage(new Uri("pack://application:,,,/Images/avatar/temp/0.jpg")); }
         }
 
         private byte[] pictureStrColorBackRandom()
@@ -935,6 +1026,9 @@ namespace WpfMinecraftCommandHelper2
             else if (str == "sym") { sym.IsChecked = true; }
             else if (str == "tizi") { tizi.IsChecked = true; }
             else if (str == "zero") { zero.IsChecked = true; }
+            else if (str == "sasa") { sasa.IsChecked = true; }
+            else if (str == "style") { style.IsChecked = true; }
+            else if (str == "temp") { temp.IsChecked = true; }
         }
 
         private void sc_Checked(object sender, RoutedEventArgs e)
@@ -980,6 +1074,21 @@ namespace WpfMinecraftCommandHelper2
         private void zero_Checked(object sender, RoutedEventArgs e)
         {
             setMainImageGroupMode("zero");
+        }
+
+        private void sasa_Click(object sender, RoutedEventArgs e)
+        {
+            setMainImageGroupMode("sasa");
+        }
+
+        private void style_Click(object sender, RoutedEventArgs e)
+        {
+            setMainImageGroupMode("style");
+        }
+
+        private void temp_Click(object sender, RoutedEventArgs e)
+        {
+            setMainImageGroupMode("temp");
         }
 
         private void sclabel_MouseDown(object sender, MouseButtonEventArgs e)

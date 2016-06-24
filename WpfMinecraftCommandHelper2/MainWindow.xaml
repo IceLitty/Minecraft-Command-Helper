@@ -97,7 +97,7 @@
                         <RadioButton x:Name="Light" Content="白" HorizontalAlignment="Left" Margin="169,30,0,0" VerticalAlignment="Top" Click="Light_Click"/>
                         <RadioButton x:Name="Accent" Content="宿主主色" HorizontalAlignment="Left" Margin="210,30,0,0" VerticalAlignment="Top" Click="Accent_Click" IsEnabled="False"/>
                     </Grid>
-                    <Grid HorizontalAlignment="Left" Height="268" Margin="370,10,0,-57" VerticalAlignment="Top" Width="189">
+                    <Grid HorizontalAlignment="Left" Height="360" Margin="370,10,0,-57" VerticalAlignment="Top" Width="189">
                         <Label x:Name="MainAvatarTitle" Content="请选择要显示的头像：" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                         <RadioButton x:Name="sc" Content="原版" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Click="sc_Checked"/>
                         <RadioButton x:Name="ice" Content="大蠢冰" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Click="ice_Checked"/>
@@ -108,7 +108,10 @@
                         <RadioButton x:Name="jelly" Content="果冻" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Click="jelly_Checked"/>
                         <RadioButton x:Name="tizi" Content="提子" HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top" Click="tizi_Checked"/>
                         <RadioButton x:Name="zero" Content="Zero" HorizontalAlignment="Left" Margin="10,214,0,0" VerticalAlignment="Top" Click="zero_Checked"/>
-                        <Label x:Name="sclabel" Content="仅显示SC已收集头像" HorizontalAlignment="Left" Margin="0,237,0,0" VerticalAlignment="Top" Foreground="#FFA0A0A0" MouseDown="sclabel_MouseDown"/>
+                        <RadioButton x:Name="sasa" Content="撒撒" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Click="sasa_Click"/>
+                        <RadioButton x:Name="style" Content="格调" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top" Click="style_Click"/>
+                        <RadioButton x:Name="temp" Content="手稿" HorizontalAlignment="Left" Margin="10,283,0,0" VerticalAlignment="Top" Click="temp_Click"/>
+                        <Label x:Name="sclabel" Content="仅显示SC已收集头像" HorizontalAlignment="Left" Margin="0,306,0,0" VerticalAlignment="Top" Foreground="#FFA0A0A0" MouseDown="sclabel_MouseDown"/>
                     </Grid>
                 </Grid>
             </Controls:Flyout>
@@ -201,7 +204,11 @@
             </StackPanel>
         </Controls:Tile>
         <Controls:Tile x:Name="scoreboardBtn" Title="指令帮助" Width="170" Height="54" Margin="430,380,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="scoreboardBtn_Click" />
-        <Image x:Name="pictureBox1" HorizontalAlignment="Left" Margin="613,30,0,0" VerticalAlignment="Top" Width="150" Height="150" Source="Images/avatar/sc/0.jpg" MouseDown="pictureBox1_MouseDown"/>
+        <Image x:Name="pictureBox1" HorizontalAlignment="Left" Margin="613,30,0,0" VerticalAlignment="Top" Width="150" Height="222" Source="Images/avatar/sc/0.jpg" MouseDown="pictureBox1_MouseDown">
+            <Image.ToolTip>
+                <Image x:Name="picTip"></Image>
+            </Image.ToolTip>
+        </Image>
         <Label x:Name="text" Content="欸？" HorizontalAlignment="Left" Margin="20,358,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label x:Name="language" Content="内置中文" Foreground="#FF3285FD" HorizontalAlignment="Right" Margin="0,370,10,0" VerticalAlignment="Top" MouseLeftButtonUp="language_MouseLeftButtonUp"/>
         <Label x:Name="author" Content="作者：IceLitty" HorizontalAlignment="Right" Margin="0,395,10,0" VerticalAlignment="Top"/>

@@ -541,18 +541,6 @@
     <Resource Include="Images\avatar\jelly\9.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\avatar\pudding\0.jpg" />
-    <Resource Include="Images\avatar\pudding\1.jpg" />
-    <Resource Include="Images\avatar\pudding\2.jpg" />
-    <Resource Include="Images\avatar\pudding\3.jpg" />
-    <Resource Include="Images\avatar\pudding\4.jpg" />
-    <Resource Include="Images\avatar\pudding\5.jpg" />
-    <Resource Include="Images\avatar\pudding\6.jpg" />
-    <Resource Include="Images\avatar\pudding\7.jpg" />
-    <Resource Include="Images\avatar\pudding\8.jpg" />
-    <Resource Include="Images\avatar\pudding\9.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\avatar\sc\0.jpg" />
     <Resource Include="Images\avatar\sc\1.jpg" />
   </ItemGroup>
@@ -1461,6 +1449,63 @@
     <Content Include="Help\Superflat.html" />
     <Content Include="Help\Tellraw.html" />
     <Content Include="Help\Testfor.html" />
+    <Resource Include="Images\avatar\temp\21.jpg" />
+    <Resource Include="Images\avatar\temp\22.jpg" />
+    <Resource Include="Images\avatar\temp\23.jpg" />
+    <Resource Include="Images\avatar\temp\0.jpg" />
+    <Resource Include="Images\avatar\temp\1.jpg" />
+    <Resource Include="Images\avatar\temp\10.jpg" />
+    <Resource Include="Images\avatar\temp\11.jpg" />
+    <Resource Include="Images\avatar\temp\12.jpg" />
+    <Resource Include="Images\avatar\temp\13.jpg" />
+    <Resource Include="Images\avatar\temp\14.jpg" />
+    <Resource Include="Images\avatar\temp\15.jpg" />
+    <Resource Include="Images\avatar\temp\16.jpg" />
+    <Resource Include="Images\avatar\temp\17.jpg" />
+    <Resource Include="Images\avatar\temp\18.jpg" />
+    <Resource Include="Images\avatar\temp\19.jpg" />
+    <Resource Include="Images\avatar\temp\2.jpg" />
+    <Resource Include="Images\avatar\temp\20.jpg" />
+    <Resource Include="Images\avatar\temp\3.jpg" />
+    <Resource Include="Images\avatar\temp\4.jpg" />
+    <Resource Include="Images\avatar\temp\5.jpg" />
+    <Resource Include="Images\avatar\temp\6.jpg" />
+    <Resource Include="Images\avatar\temp\7.jpg" />
+    <Resource Include="Images\avatar\temp\8.jpg" />
+    <Resource Include="Images\avatar\temp\9.jpg" />
+    <Resource Include="Images\avatar\sasa\0.png" />
+    <Resource Include="Images\avatar\aguo\7.jpg" />
+    <Resource Include="Images\avatar\aguo\8.jpg" />
+    <Resource Include="Images\avatar\ice\19.png" />
+    <Resource Include="Images\avatar\ice\20.png" />
+    <Resource Include="Images\avatar\ice\21.png" />
+    <Resource Include="Images\avatar\ice\22.png" />
+    <Resource Include="Images\avatar\ice\23.png" />
+    <Resource Include="Images\avatar\djx\17.png" />
+    <Resource Include="Images\avatar\djx\18.png" />
+    <Resource Include="Images\avatar\djx\19.png" />
+    <Resource Include="Images\avatar\djx\20.png" />
+    <Resource Include="Images\avatar\djx\21.png" />
+    <Resource Include="Images\avatar\djx\22.png" />
+    <Resource Include="Images\avatar\djx\23.png" />
+    <Resource Include="Images\avatar\pudding\0.jpg" />
+    <Resource Include="Images\avatar\pudding\1.jpg" />
+    <Resource Include="Images\avatar\pudding\2.jpg" />
+    <Resource Include="Images\avatar\pudding\3.jpg" />
+    <Resource Include="Images\avatar\pudding\4.jpg" />
+    <Resource Include="Images\avatar\pudding\5.jpg" />
+    <Resource Include="Images\avatar\pudding\6.jpg" />
+    <Resource Include="Images\avatar\pudding\7.jpg" />
+    <Resource Include="Images\avatar\pudding\8.jpg" />
+    <Resource Include="Images\avatar\pudding\9.jpg" />
+    <Resource Include="Images\avatar\style\1.jpg" />
+    <Resource Include="Images\avatar\style\2.jpg" />
+    <Resource Include="Images\avatar\style\3.jpg" />
+    <Resource Include="Images\avatar\style\4.jpg" />
+    <Resource Include="Images\avatar\style\5.jpg" />
+    <Resource Include="Images\avatar\style\6.jpg" />
+    <Resource Include="Images\avatar\style\7.jpg" />
+    <Resource Include="Images\avatar\style\8.jpg" />
     <Resource Include="Resources\Entypo-license.txt" />
     <Resource Include="Resources\WindowsIcons-license.txt" />
   </ItemGroup>
