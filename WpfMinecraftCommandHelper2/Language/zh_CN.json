@@ -5,7 +5,7 @@
     "AuthorStr": "语言文件作者：",
     "Author": "IceLitty",
     "LastUpdateStr": "最后更新：",
-    "LastUpdate": "2016.06.17",
+    "LastUpdate": "2016.06.25",
 
     "FloatConfirm": "确认",
     "FloatCancel": "取消",
@@ -15,6 +15,8 @@
     "FloatHelpTitle": "帮助",
     "FloatTipTitle": "提示",
     "FloatHelpFileCantFind": "帮助文件未找到，请重新下载软件！",
+    "FloatSearch1": "正在显示：",
+    "FloatSearch2": "的搜索结果。",
 
     "BtnAt": "获取AT",
     "BtnClear": "清空",
@@ -24,6 +26,8 @@
     "BtnHelp": "？",
     "BtnRemove": "移除",
     "BtnOpen": "打开",
+    "BtnReadFavourite": "界面设定读取",
+    "BtnSaveFavourite": "界面设定保存",
 
     "MainGuide": "主界面",
     "MainItem": "生成物品",

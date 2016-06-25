@@ -664,6 +664,10 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["ItemColorCreateBtn"].ToString());
             relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["BtnReadFavourite"].ToString());
+            relanglist.Add(LangList[langID]["BtnSaveFavourite"].ToString());
+            relanglist.Add(LangList[langID]["FloatSearch1"].ToString());
+            relanglist.Add(LangList[langID]["FloatSearch2"].ToString());
             return relanglist;
         }
 

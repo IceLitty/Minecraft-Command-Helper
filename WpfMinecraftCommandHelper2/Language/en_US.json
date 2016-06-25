@@ -5,7 +5,7 @@
     "AuthorStr": "Lang File Author: ",
     "Author": "IceLitty",
     "LastUpdateStr": "Last Update: ",
-    "LastUpdate": "2016.06.17",
+    "LastUpdate": "2016.06.25",
 
     "FloatConfirm": "Confirm",
     "FloatCancel": "Cancel",
@@ -15,6 +15,8 @@
     "FloatHelpTitle": "Help",
     "FloatTipTitle": "Tip",
     "FloatHelpFileCantFind": "Can not find help file, please re-downloading this program!",
+    "FloatSearch1": "Now showing:",
+    "FloatSearch2": " results.",
 
     "BtnAt": "Get AT",
     "BtnClear": "Clear",
@@ -24,6 +26,8 @@
     "BtnHelp": "?",
     "BtnRemove": "Remove",
     "BtnOpen": "Open",
+    "BtnReadFavourite": "Load interface settings",
+    "BtnSaveFavourite": "Save interface settings",
 
     "MainGuide": "Guide",
     "MainItem": "Item",

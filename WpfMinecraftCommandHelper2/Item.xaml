@@ -14,7 +14,7 @@
                             <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_deeplink}"></VisualBrush>
                         </Rectangle.OpacityMask>
                     </Rectangle>
-                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="界面设定读取"></TextBlock>
+                    <TextBlock x:Name="BtnReadFavourite" Margin="4 0 0 0" VerticalAlignment="Center" Text="界面设定读取"></TextBlock>
                 </StackPanel>
             </Button>
             <Button x:Name="saveFavBtn" Click="saveFavBtn_Click">
@@ -24,13 +24,13 @@
                             <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_brick}"></VisualBrush>
                         </Rectangle.OpacityMask>
                     </Rectangle>
-                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="界面设定保存"></TextBlock>
+                    <TextBlock x:Name="BtnSaveFavourite" Margin="4 0 0 0" VerticalAlignment="Center" Text="界面设定保存"></TextBlock>
                 </StackPanel>
             </Button>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid>
-        <Grid x:Name="tabItemEnchantGroup" HorizontalAlignment="Left" Height="292" Margin="10,174,0,0" VerticalAlignment="Top" Width="474" IsEnabled="False">
+        <Grid x:Name="tabItemEnchantGroup" HorizontalAlignment="Left" Height="292" Margin="10,195,0,0" VerticalAlignment="Top" Width="474" IsEnabled="False">
             <CheckBox x:Name="tabItemEnchant0" Content="保护" HorizontalAlignment="Left" Margin="8,260,0,0" VerticalAlignment="Top"/>
             <Controls:NumericUpDown x:Name="tabItemEnNum0" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="88,256,321,10" Height="25" Value="0" />
             <CheckBox x:Name="tabItemEnchant1" Content="火焰保护" HorizontalAlignment="Left" Margin="8,11,0,0" VerticalAlignment="Top"/>
@@ -88,11 +88,11 @@
         </Grid>
         <Label x:Name="ItemChooseItem" Content="请选择物品/方块：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="ItemTip1" Content="「注：部分方块只有方块ID，没有附加值」" HorizontalAlignment="Left" Margin="173,11,0,0" VerticalAlignment="Top" Foreground="#FF919191" FontSize="11"/>
-        <ComboBox x:Name="tabItemSel" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="463" Height="37"/>
-        <Label x:Name="ItemChooseMeta" Content="请填写Meta/Damage/附加值：" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="ItemChooseCount" Content="请填写数量：" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="tabItemEnchantCheck" Content="有附魔√" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top" Click="tabItemEnchantCheck_Click"/>
-        <Label x:Name="ItemTip2" Content="「请注意，附魔等级框内填写小数点无效！」" HorizontalAlignment="Left" Margin="76,144,0,0" VerticalAlignment="Top" Foreground="#FF959595"/>
+        <ComboBox x:Name="tabItemSel" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="463" Height="25"/>
+        <Label x:Name="ItemChooseMeta" Content="请填写Meta/Damage/附加值：" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ItemChooseCount" Content="请填写数量：" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="tabItemEnchantCheck" Content="有附魔√" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Click="tabItemEnchantCheck_Click"/>
+        <Label x:Name="ItemTip2" Content="「请注意，附魔等级框内填写小数点无效！」" HorizontalAlignment="Left" Margin="76,165,0,0" VerticalAlignment="Top" Foreground="#FF959595"/>
         <GroupBox x:Name="tabItemNLGroupbox" Header="额外名称&amp;Lore√" HorizontalAlignment="Left" Margin="513,10,0,0" VerticalAlignment="Top" Height="144" Width="393" IsEnabled="False">
             <Grid HorizontalAlignment="Left" Height="108" VerticalAlignment="Top" Width="378" Margin="0,0,-2,-2">
                 <CheckBox x:Name="tabItemNameCheck" Content="名称" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,10,0,0" Click="tabItemNameCheck_Click"/>
@@ -161,7 +161,7 @@
         <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="593,572,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="753,572,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="833,572,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Grid HorizontalAlignment="Left" Height="64" Margin="192,82,0,0" VerticalAlignment="Top" Width="281">
+        <Grid HorizontalAlignment="Left" Height="64" Margin="192,103,0,0" VerticalAlignment="Top" Width="281">
             <Controls:NumericUpDown x:Name="tabItemMeta" Minimum="0" Maximum="2147483647" Interval="5" StringFormat="" Margin="0,3,0,33" Height="28" Value="0" />
             <Controls:NumericUpDown x:Name="tabItemCount" Minimum="0" Maximum="64" Interval="5" StringFormat="" Margin="0,36,0,0" Height="28" Value="1" />
         </Grid>
@@ -172,5 +172,9 @@
         </Grid>
         <Button x:Name="fixColorBtn" Content="§" HorizontalAlignment="Left" Margin="476,572,0,0" VerticalAlignment="Top" Width="32" Style="{DynamicResource SquareButtonStyle}" Click="fixColorBtn_Click" ToolTip="Manual re-generate command include color style. Click CHECK button to check code."/>
         <TextBox x:Name="colorBox" HorizontalAlignment="Left" Height="23" Margin="284,573,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" ToolTip="Paste command here."/>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,40,0,0" VerticalAlignment="Top" Width="463">
+            <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="48,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="415" PreviewKeyDown="searchBox_PreviewKeyDown"/>
+            <Label x:Name="label" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF959595"/>
+        </Grid>
     </Grid>
 </Controls:MetroWindow>

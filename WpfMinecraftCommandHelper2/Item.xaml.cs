@@ -39,6 +39,8 @@ namespace WpfMinecraftCommandHelper2
         private string ItemHelpStr = "";
         private string FloatErrorTitle = "错误";
         private string FloatHelpFileCantFind = "";
+        private string FloatSearch1 = "正在显示：";
+        private string FloatSearch2 = "的搜索结果。";
 
         private void appLanguage()
         {
@@ -118,6 +120,10 @@ namespace WpfMinecraftCommandHelper2
                 ColorGetBtn.Content = templang[69];
                 FloatErrorTitle = templang[70];
                 FloatHelpFileCantFind = templang[71];
+                BtnReadFavourite.Text = templang[72];
+                BtnSaveFavourite.Text = templang[73];
+                FloatSearch1 = templang[74];
+                FloatSearch2 = templang[75];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -1090,6 +1096,45 @@ namespace WpfMinecraftCommandHelper2
             else
             {
                 this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+            }
+        }
+
+        private string searchedString = "";
+        private int searchedResultIndex = 0;
+
+        private void searchBox_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            tabItemSel.ToolTip = null;
+            if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                if (searchedString != searchBox.Text) { searchedResultIndex = 0; searchedString = searchBox.Text; }
+                List<int> searchedIndex = new List<int>();
+                AllSelData asd = new AllSelData();
+                for (int i = 0; i < asd.getItemNameListCount(); i++)
+                {
+                    if (asd.getItemNameList(i).IndexOf(searchBox.Text) != -1)
+                    {
+                        searchedIndex.Add(i);
+                    }
+                }
+                if (searchedIndex.Count() != 0)
+                {
+                    if (searchedResultIndex < searchedIndex.Count())
+                    {
+                        tabItemSel.SelectedIndex = searchedIndex[searchedResultIndex];
+                        int now = searchedResultIndex + 1;
+                        tabItemSel.ToolTip = FloatSearch1 + now + "/" + searchedIndex.Count() + FloatSearch2;
+                        searchedResultIndex++;
+                    }
+                    else if(searchedResultIndex == searchedIndex.Count())
+                    {
+                        searchedResultIndex = 0;
+                        tabItemSel.SelectedIndex = searchedIndex[searchedResultIndex];
+                        int now = searchedResultIndex + 1;
+                        tabItemSel.ToolTip = FloatSearch1 + now + "/" + searchedIndex.Count() + FloatSearch2;
+                        searchedResultIndex++;
+                    }
+                }
             }
         }
     }
