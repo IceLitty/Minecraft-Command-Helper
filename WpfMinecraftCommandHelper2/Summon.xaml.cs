@@ -1478,6 +1478,13 @@ namespace WpfMinecraftCommandHelper2
             }
             sumosFinalStr = sumosFinalStr.Replace(" {}", "");
             //我也不知道为什么要写这么复杂
+            //判断是否含有颜色代码
+            if (sumosFinalStr.IndexOf("§") != -1)
+            {
+                sumosFinalStr = sumosFinalStr.Replace("§", @"\\u00A7");
+                sumosFinalStr = sumosFinalStr.Replace("\"", "\\\\\\\"");
+                sumosFinalStr = "/setblock ~ ~1 ~ standing_sign 0 replace {Text1:\"{\\\"text\\\":\\\"请点击我\\\",\\\"clickEvent\\\":{\\\"action\\\":\\\"run_command\\\",\\\"value\\\":\\\"/blockdata ~ ~-1 ~ {Command:" + sumosFinalStr + ",}\\\"}}\",Text2:\"\",Text3:\"\",Text4:\"\"}";
+            }
         }
 
         private void tabSumosRiding_Click(object sender, RoutedEventArgs e)

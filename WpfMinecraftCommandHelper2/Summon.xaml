@@ -13,7 +13,7 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <TabControl x:Name="tabAll" HorizontalAlignment="Left" Height="563" VerticalAlignment="Top" Width="1100" FontSize="14">
+        <TabControl x:Name="tabAll" HorizontalAlignment="Left" Height="596" VerticalAlignment="Top" Width="1100" FontSize="14">
             <TabItem x:Name="SummonPHeader" Header="刷怪笼">
                 <Grid>
                     <Label x:Name="SummonPNowEntity" Content="当前召唤物：" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top"/>
@@ -83,7 +83,7 @@
                 </Grid>
             </TabItem>
             <TabItem x:Name="SummonOHeader" Header="召唤实体" IsSelected="True">
-                <Grid Margin="0,0,0,-31">
+                <Grid>
                     <ComboBox x:Name="tabSumosType" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="512" Height="31" SelectionChanged="tabSumosType_SelectionChanged" FontSize="14"/>
                     <CheckBox x:Name="tabSumosHasPotion" Content="有药水效果√" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <Button x:Name="tabSumosPotionGetBtn" Content="←获取数据" HorizontalAlignment="Left" Margin="178,43,0,0" VerticalAlignment="Top" Width="160" FontSize="12" Click="tabSumosPotionGetBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
@@ -386,8 +386,8 @@
                 </Grid>
             </TabItem>
             <TabItem x:Name="ridingLoader" Header="骑乘生成" Margin="150,0,-150,0" Width="120" PreviewMouseLeftButtonDown="ridingLoader_PreviewMouseLeftButtonDown">
-                <Grid>
-                    <TextBox x:Name="ridingLoaderShow" HorizontalAlignment="Left" Height="497" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1076"/>
+                <Grid Margin="0,0,0,-30">
+                    <TextBox x:Name="ridingLoaderShow" HorizontalAlignment="Left" Height="527" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1076"/>
                 </Grid>
             </TabItem>
         </TabControl>

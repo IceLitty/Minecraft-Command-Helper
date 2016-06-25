@@ -91,6 +91,8 @@ namespace WpfMinecraftCommandHelper2
                 tabPotionEffect27.Content = templang[55];
                 FloatErrorTitle = templang[56];
                 FloatHelpFileCantFind = templang[57];
+                BtnReadFavourite.Text = templang[58];
+                BtnSaveFavourite.Text = templang[59];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -375,10 +377,11 @@ namespace WpfMinecraftCommandHelper2
             globalPotionNBT = nbt;
             finalStr = endStr;
             //判断是否含有颜色代码
-            if (finalStr.IndexOf(@"\u00A7") != -1)
+            if (finalStr.IndexOf("§") != -1)
             {
-                finalStr.Replace(@"\u00A7", @"\\u00A7");
-                finalStr = "/setblock ~ ~1 ~ standing_sign 0 replace {Text1:\"{text:\\\"" + PotionClickMe + "\\\",clickEvent:{action:\\\"run_command\\\",value:\\\"/blockdata ~ ~-1 ~ {Command:" + finalStr + ",}\\\"}}\"}";
+                finalStr = finalStr.Replace("§", @"\\u00A7");
+                finalStr = finalStr.Replace("\"", "\\\\\\\"");
+                finalStr = "/setblock ~ ~1 ~ standing_sign 0 replace {Text1:\"{\\\"text\\\":\\\"" + PotionClickMe + "\\\",\\\"clickEvent\\\":{\\\"action\\\":\\\"run_command\\\",\\\"value\\\":\\\"/blockdata ~ ~-1 ~ {Command:" + finalStr + ",}\\\"}}\",Text2:\"\",Text3:\"\",Text4:\"\"}";
             }
         }
 
@@ -914,6 +917,311 @@ namespace WpfMinecraftCommandHelper2
                         System.Threading.Thread.Sleep(1);
                     }
                 }
+            }
+        }
+
+        private void saveFavBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string saveFavStr = "";
+            if (tabPotionB.IsChecked.Value) saveFavStr += "B"; else if (tabPotionBUFFPotion.IsChecked.Value) saveFavStr += "BUFF"; else if (tabPotionTipArrow.IsChecked.Value) saveFavStr += "ARROW"; else saveFavStr += "A";
+            if (tabPotionAllHideParticles.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionNum.Value;
+            if (tabPotionEffect1.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect1Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect1Level.Value.Value;
+            if (tabPotionEffect1H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect2.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect2Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect2Level.Value.Value;
+            if (tabPotionEffect2H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect3.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect3Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect3Level.Value.Value;
+            if (tabPotionEffect3H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect4.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect4Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect4Level.Value.Value;
+            if (tabPotionEffect4H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect5.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect5Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect5Level.Value.Value;
+            if (tabPotionEffect5H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect6.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect6Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect6Level.Value.Value;
+            if (tabPotionEffect6H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect7.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect7Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect7Level.Value.Value;
+            if (tabPotionEffect7H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect8.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect8Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect8Level.Value.Value;
+            if (tabPotionEffect8H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect9.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect9Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect9Level.Value.Value;
+            if (tabPotionEffect9H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect10.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect10Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect10Level.Value.Value;
+            if (tabPotionEffect10H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect11.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect11Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect11Level.Value.Value;
+            if (tabPotionEffect11H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect12.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect12Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect12Level.Value.Value;
+            if (tabPotionEffect12H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect13.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect13Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect13Level.Value.Value;
+            if (tabPotionEffect13H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect14.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect14Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect14Level.Value.Value;
+            if (tabPotionEffect14H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect15.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect15Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect15Level.Value.Value;
+            if (tabPotionEffect15H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect16.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect16Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect16Level.Value.Value;
+            if (tabPotionEffect16H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect17.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect17Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect17Level.Value.Value;
+            if (tabPotionEffect17H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect18.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect18Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect18Level.Value.Value;
+            if (tabPotionEffect18H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect19.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect19Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect19Level.Value.Value;
+            if (tabPotionEffect19H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect20.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect20Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect20Level.Value.Value;
+            if (tabPotionEffect20H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect21.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect21Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect21Level.Value.Value;
+            if (tabPotionEffect21H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect22.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect22Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect22Level.Value.Value;
+            if (tabPotionEffect22H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect23.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect23Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect23Level.Value.Value;
+            if (tabPotionEffect23H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect24.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect24Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect24Level.Value.Value;
+            if (tabPotionEffect24H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect25.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect25Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect25Level.Value.Value;
+            if (tabPotionEffect25H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect26.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect26Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect26Level.Value.Value;
+            if (tabPotionEffect26H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionEffect27.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionEffect27Time.Value.Value;
+            saveFavStr += "|" + tabPotionEffect27Level.Value.Value;
+            if (tabPotionEffect27H.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            if (tabPotionHasEnchant.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + globalEnchString.Replace("|", "[MCH_SPLIT]");
+            if (tabPotionHasNL.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + globalNLString.Replace("|", "[MCH_SPLIT]");
+            if (tabPotionHasAttr.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + globalAttrString.Replace("|", "[MCH_SPLIT]");
+            saveFavStr += "|" + globalHideflag.Replace("|", "[MCH_SPLIT]");
+            saveFavStr += "|" + at.Replace("|", "[MCH_SPLIT]");
+            //
+            List<string> wtxt = new List<string>();
+            wtxt.Add(saveFavStr);
+            DateTime dt = DateTime.Now;
+            string time = "" + dt.Year + dt.Month + dt.Day + dt.Hour + dt.Minute + dt.Second;
+            using (System.IO.FileStream fs = new System.IO.FileStream(System.IO.Directory.GetCurrentDirectory() + @"\settings\Favorites\Potion_" + time + ".txt", System.IO.FileMode.Create))
+            {
+                using (System.IO.StreamWriter sw = new System.IO.StreamWriter(fs, System.Text.Encoding.UTF8))
+                {
+                    for (int i = 0; i < wtxt.Count; i++)
+                    {
+                        sw.WriteLine(wtxt[i]);
+                    }
+                }
+            }
+        }
+
+        private List<string> loadNameList = new List<string>();
+        private int loadResultIndex = 0;
+
+        private void readFavBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (loadResultIndex >= loadNameList.Count) loadResultIndex = 0;
+            System.IO.DirectoryInfo dirinfo = new System.IO.DirectoryInfo(System.IO.Directory.GetCurrentDirectory() + @"\settings\Favorites");
+            System.IO.FileInfo[] finfo = dirinfo.GetFiles();
+            int fileCount = finfo.Length;
+            List<string> loadList = new List<string>();
+            for (int i = 0; i < fileCount; i++)
+            {
+                if (System.Text.RegularExpressions.Regex.IsMatch(finfo[i].Name, @"Potion_\d+\.txt"))
+                {
+                    loadList.Add(finfo[i].Name);
+                }
+            }
+            loadNameList = loadList;
+            if (loadNameList.Count > 0)
+            {
+                if (System.IO.File.Exists(System.IO.Directory.GetCurrentDirectory() + @"\settings\Favorites\" + loadNameList[loadResultIndex]))
+                {
+                    List<string> txt = new List<string>();
+                    using (System.IO.StreamReader sr = new System.IO.StreamReader(System.IO.Directory.GetCurrentDirectory() + @"\settings\Favorites\" + loadNameList[loadResultIndex], System.Text.Encoding.UTF8))
+                    {
+                        int lineCount = 0;
+                        while (sr.Peek() > 0)
+                        {
+                            lineCount++;
+                            string temp = sr.ReadLine();
+                            txt.Add(temp);
+                        }
+                    }
+                    string[] readFavStr = txt[0].Split('|');
+                    if (readFavStr[0] == "B") tabPotionB.IsChecked = true; else if (readFavStr[0] == "BUFF") tabPotionBUFFPotion.IsChecked = true; else if (readFavStr[0] == "ARROW") tabPotionTipArrow.IsChecked = true; else tabPotionA.IsChecked = true;
+                    if (readFavStr[1] == "1") tabPotionAllHideParticles.IsChecked = true; else tabPotionAllHideParticles.IsChecked = false;
+                    tabPotionNum.Value = int.Parse(readFavStr[2]);
+                    if (readFavStr[3] == "1") tabPotionEffect1.IsChecked = true; else tabPotionEffect1.IsChecked = false;
+                    tabPotionEffect1Time.Value = int.Parse(readFavStr[4]);
+                    tabPotionEffect1Level.Value = int.Parse(readFavStr[5]);
+                    if (readFavStr[6] == "1") tabPotionEffect1H.IsChecked = true; else tabPotionEffect1H.IsChecked = false;
+                    if (readFavStr[7] == "1") tabPotionEffect2.IsChecked = true; else tabPotionEffect12.IsChecked = false;
+                    tabPotionEffect2Time.Value = int.Parse(readFavStr[8]);
+                    tabPotionEffect2Level.Value = int.Parse(readFavStr[9]);
+                    if (readFavStr[10] == "1") tabPotionEffect2H.IsChecked = true; else tabPotionEffect2H.IsChecked = false;
+                    if (readFavStr[11] == "1") tabPotionEffect3.IsChecked = true; else tabPotionEffect3.IsChecked = false;
+                    tabPotionEffect3Time.Value = int.Parse(readFavStr[12]);
+                    tabPotionEffect3Level.Value = int.Parse(readFavStr[13]);
+                    if (readFavStr[14] == "1") tabPotionEffect3H.IsChecked = true; else tabPotionEffect3H.IsChecked = false;
+                    if (readFavStr[15] == "1") tabPotionEffect4.IsChecked = true; else tabPotionEffect4.IsChecked = false;
+                    tabPotionEffect4Time.Value = int.Parse(readFavStr[16]);
+                    tabPotionEffect4Level.Value = int.Parse(readFavStr[17]);
+                    if (readFavStr[18] == "1") tabPotionEffect4H.IsChecked = true; else tabPotionEffect4H.IsChecked = false;
+                    if (readFavStr[19] == "1") tabPotionEffect5.IsChecked = true; else tabPotionEffect5.IsChecked = false;
+                    tabPotionEffect5Time.Value = int.Parse(readFavStr[20]);
+                    tabPotionEffect5Level.Value = int.Parse(readFavStr[21]);
+                    if (readFavStr[22] == "1") tabPotionEffect5H.IsChecked = true; else tabPotionEffect5H.IsChecked = false;
+                    if (readFavStr[23] == "1") tabPotionEffect6.IsChecked = true; else tabPotionEffect6.IsChecked = false;
+                    tabPotionEffect6Time.Value = int.Parse(readFavStr[24]);
+                    tabPotionEffect6Level.Value = int.Parse(readFavStr[25]);
+                    if (readFavStr[26] == "1") tabPotionEffect6H.IsChecked = true; else tabPotionEffect6H.IsChecked = false;
+                    if (readFavStr[27] == "1") tabPotionEffect7.IsChecked = true; else tabPotionEffect7.IsChecked = false;
+                    tabPotionEffect7Time.Value = int.Parse(readFavStr[28]);
+                    tabPotionEffect7Level.Value = int.Parse(readFavStr[29]);
+                    if (readFavStr[30] == "1") tabPotionEffect7H.IsChecked = true; else tabPotionEffect7H.IsChecked = false;
+                    if (readFavStr[31] == "1") tabPotionEffect8.IsChecked = true; else tabPotionEffect8.IsChecked = false;
+                    tabPotionEffect8Time.Value = int.Parse(readFavStr[32]);
+                    tabPotionEffect8Level.Value = int.Parse(readFavStr[33]);
+                    if (readFavStr[34] == "1") tabPotionEffect8H.IsChecked = true; else tabPotionEffect8H.IsChecked = false;
+                    if (readFavStr[35] == "1") tabPotionEffect9.IsChecked = true; else tabPotionEffect9.IsChecked = false;
+                    tabPotionEffect9Time.Value = int.Parse(readFavStr[36]);
+                    tabPotionEffect9Level.Value = int.Parse(readFavStr[37]);
+                    if (readFavStr[38] == "1") tabPotionEffect9H.IsChecked = true; else tabPotionEffect9H.IsChecked = false;
+                    if (readFavStr[39] == "1") tabPotionEffect10.IsChecked = true; else tabPotionEffect10.IsChecked = false;
+                    tabPotionEffect10Time.Value = int.Parse(readFavStr[40]);
+                    tabPotionEffect10Level.Value = int.Parse(readFavStr[41]);
+                    if (readFavStr[42] == "1") tabPotionEffect10H.IsChecked = true; else tabPotionEffect10H.IsChecked = false;
+                    if (readFavStr[43] == "1") tabPotionEffect11.IsChecked = true; else tabPotionEffect11.IsChecked = false;
+                    tabPotionEffect11Time.Value = int.Parse(readFavStr[44]);
+                    tabPotionEffect11Level.Value = int.Parse(readFavStr[45]);
+                    if (readFavStr[46] == "1") tabPotionEffect11H.IsChecked = true; else tabPotionEffect11H.IsChecked = false;
+                    if (readFavStr[47] == "1") tabPotionEffect12.IsChecked = true; else tabPotionEffect12.IsChecked = false;
+                    tabPotionEffect12Time.Value = int.Parse(readFavStr[48]);
+                    tabPotionEffect12Level.Value = int.Parse(readFavStr[49]);
+                    if (readFavStr[50] == "1") tabPotionEffect12H.IsChecked = true; else tabPotionEffect12H.IsChecked = false;
+                    if (readFavStr[51] == "1") tabPotionEffect13.IsChecked = true; else tabPotionEffect13.IsChecked = false;
+                    tabPotionEffect13Time.Value = int.Parse(readFavStr[52]);
+                    tabPotionEffect13Level.Value = int.Parse(readFavStr[53]);
+                    if (readFavStr[54] == "1") tabPotionEffect13H.IsChecked = true; else tabPotionEffect13H.IsChecked = false;
+                    if (readFavStr[55] == "1") tabPotionEffect14.IsChecked = true; else tabPotionEffect14.IsChecked = false;
+                    tabPotionEffect14Time.Value = int.Parse(readFavStr[56]);
+                    tabPotionEffect14Level.Value = int.Parse(readFavStr[57]);
+                    if (readFavStr[58] == "1") tabPotionEffect14H.IsChecked = true; else tabPotionEffect14H.IsChecked = false;
+                    if (readFavStr[59] == "1") tabPotionEffect15.IsChecked = true; else tabPotionEffect15.IsChecked = false;
+                    tabPotionEffect15Time.Value = int.Parse(readFavStr[60]);
+                    tabPotionEffect15Level.Value = int.Parse(readFavStr[61]);
+                    if (readFavStr[62] == "1") tabPotionEffect15H.IsChecked = true; else tabPotionEffect15H.IsChecked = false;
+                    if (readFavStr[63] == "1") tabPotionEffect16.IsChecked = true; else tabPotionEffect16.IsChecked = false;
+                    tabPotionEffect16Time.Value = int.Parse(readFavStr[64]);
+                    tabPotionEffect16Level.Value = int.Parse(readFavStr[65]);
+                    if (readFavStr[66] == "1") tabPotionEffect16H.IsChecked = true; else tabPotionEffect16H.IsChecked = false;
+                    if (readFavStr[67] == "1") tabPotionEffect17.IsChecked = true; else tabPotionEffect17.IsChecked = false;
+                    tabPotionEffect17Time.Value = int.Parse(readFavStr[68]);
+                    tabPotionEffect17Level.Value = int.Parse(readFavStr[69]);
+                    if (readFavStr[70] == "1") tabPotionEffect17H.IsChecked = true; else tabPotionEffect17H.IsChecked = false;
+                    if (readFavStr[71] == "1") tabPotionEffect18.IsChecked = true; else tabPotionEffect18.IsChecked = false;
+                    tabPotionEffect18Time.Value = int.Parse(readFavStr[72]);
+                    tabPotionEffect18Level.Value = int.Parse(readFavStr[73]);
+                    if (readFavStr[74] == "1") tabPotionEffect18H.IsChecked = true; else tabPotionEffect18H.IsChecked = false;
+                    if (readFavStr[75] == "1") tabPotionEffect19.IsChecked = true; else tabPotionEffect19.IsChecked = false;
+                    tabPotionEffect19Time.Value = int.Parse(readFavStr[76]);
+                    tabPotionEffect19Level.Value = int.Parse(readFavStr[77]);
+                    if (readFavStr[78] == "1") tabPotionEffect19H.IsChecked = true; else tabPotionEffect19H.IsChecked = false;
+                    if (readFavStr[79] == "1") tabPotionEffect20.IsChecked = true; else tabPotionEffect20.IsChecked = false;
+                    tabPotionEffect20Time.Value = int.Parse(readFavStr[80]);
+                    tabPotionEffect20Level.Value = int.Parse(readFavStr[81]);
+                    if (readFavStr[82] == "1") tabPotionEffect20H.IsChecked = true; else tabPotionEffect20H.IsChecked = false;
+                    if (readFavStr[83] == "1") tabPotionEffect21.IsChecked = true; else tabPotionEffect21.IsChecked = false;
+                    tabPotionEffect21Time.Value = int.Parse(readFavStr[84]);
+                    tabPotionEffect21Level.Value = int.Parse(readFavStr[85]);
+                    if (readFavStr[86] == "1") tabPotionEffect21H.IsChecked = true; else tabPotionEffect21H.IsChecked = false;
+                    if (readFavStr[87] == "1") tabPotionEffect22.IsChecked = true; else tabPotionEffect22.IsChecked = false;
+                    tabPotionEffect22Time.Value = int.Parse(readFavStr[88]);
+                    tabPotionEffect22Level.Value = int.Parse(readFavStr[89]);
+                    if (readFavStr[90] == "1") tabPotionEffect22H.IsChecked = true; else tabPotionEffect22H.IsChecked = false;
+                    if (readFavStr[91] == "1") tabPotionEffect23.IsChecked = true; else tabPotionEffect23.IsChecked = false;
+                    tabPotionEffect23Time.Value = int.Parse(readFavStr[92]);
+                    tabPotionEffect23Level.Value = int.Parse(readFavStr[93]);
+                    if (readFavStr[94] == "1") tabPotionEffect23H.IsChecked = true; else tabPotionEffect23H.IsChecked = false;
+                    if (readFavStr[95] == "1") tabPotionEffect24.IsChecked = true; else tabPotionEffect24.IsChecked = false;
+                    tabPotionEffect24Time.Value = int.Parse(readFavStr[96]);
+                    tabPotionEffect24Level.Value = int.Parse(readFavStr[97]);
+                    if (readFavStr[98] == "1") tabPotionEffect24H.IsChecked = true; else tabPotionEffect24H.IsChecked = false;
+                    if (readFavStr[99] == "1") tabPotionEffect25.IsChecked = true; else tabPotionEffect25.IsChecked = false;
+                    tabPotionEffect25Time.Value = int.Parse(readFavStr[100]);
+                    tabPotionEffect25Level.Value = int.Parse(readFavStr[101]);
+                    if (readFavStr[102] == "1") tabPotionEffect25H.IsChecked = true; else tabPotionEffect25H.IsChecked = false;
+                    if (readFavStr[103] == "1") tabPotionEffect26.IsChecked = true; else tabPotionEffect26.IsChecked = false;
+                    tabPotionEffect26Time.Value = int.Parse(readFavStr[104]);
+                    tabPotionEffect26Level.Value = int.Parse(readFavStr[105]);
+                    if (readFavStr[106] == "1") tabPotionEffect26H.IsChecked = true; else tabPotionEffect26H.IsChecked = false;
+                    if (readFavStr[107] == "1") tabPotionEffect27.IsChecked = true; else tabPotionEffect27.IsChecked = false;
+                    tabPotionEffect27Time.Value = int.Parse(readFavStr[108]);
+                    tabPotionEffect27Level.Value = int.Parse(readFavStr[109]);
+                    if (readFavStr[110] == "1") tabPotionEffect27H.IsChecked = true; else tabPotionEffect27H.IsChecked = false;
+                    if (readFavStr[111] == "1") tabPotionHasEnchant.IsChecked = true; else tabPotionHasEnchant.IsChecked = false;
+                    globalEnchString = readFavStr[112].Replace("[MCH_SPLIT]", "|");
+                    enchantBox.Text = globalEnchString;
+                    if (readFavStr[113] == "1") tabPotionHasNL.IsChecked = true; else tabPotionHasNL.IsChecked = false;
+                    globalNLString = readFavStr[114].Replace("[MCH_SPLIT]", "|");
+                    nlBox.Text = globalNLString;
+                    if (readFavStr[115] == "1") tabPotionHasAttr.IsChecked = true; else tabPotionHasAttr.IsChecked = false;
+                    globalAttrString = readFavStr[116].Replace("[MCH_SPLIT]", "|");
+                    attrBox.Text = globalAttrString;
+                    globalHideflag = readFavStr[117].Replace("[MCH_SPLIT]", "|");
+                    at = readFavStr[118].Replace("[MCH_SPLIT]", "|");
+                    this.ShowMessageAsync("", "已读取：" + loadNameList[loadResultIndex], MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel, AnimateShow = false, AnimateHide = false });
+                }
+                loadResultIndex++;
+            }
+            else
+            {
+                this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
             }
         }
     }

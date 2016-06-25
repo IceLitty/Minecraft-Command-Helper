@@ -1007,6 +1007,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["PotionEffect27"].ToString());
             relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["BtnReadFavourite"].ToString());
+            relanglist.Add(LangList[langID]["BtnSaveFavourite"].ToString());
             return relanglist;
         }
 
