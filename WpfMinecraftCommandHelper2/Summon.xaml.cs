@@ -875,9 +875,9 @@ namespace WpfMinecraftCommandHelper2
             }
             else
             {
-                if (sumosEquipmentBootId != 0) { equipCount++; sumosText += "0:{id:" + asd.getItem(sumosEquipmentBootId) + ",Count:" + sumosEquipmentBootCount + "b,Damage:" + sumosEquipmentBootDamage + "s,tag:{" + globalSumosBoot + "}},"; }
-                if (sumosEquipmentLegId != 0) { equipCount++; sumosText += "1:{id:" + asd.getItem(sumosEquipmentLegId) + ",Count:" + sumosEquipmentLegCount + "b,Damage:" + sumosEquipmentLegDamage + "s,tag:{" + globalSumosLeg + "}},"; }
-                if (sumosEquipmentChestId != 0) { equipCount++; sumosText += "2:{id:" + asd.getItem(sumosEquipmentChestId) + ",Count:" + sumosEquipmentChestCount + "b,Damage:" + sumosEquipmentChestDamage + "s,tag:{" + globalSumosChest + "}},"; }
+                sumosText += "0:{"; if (sumosEquipmentBootId != 0) { equipCount++; sumosText += "id:" + asd.getItem(sumosEquipmentBootId) + ",Count:" + sumosEquipmentBootCount + "b,Damage:" + sumosEquipmentBootDamage + "s,tag:{" + globalSumosBoot + "}"; } sumosText += "},";
+                sumosText += "1:{"; if (sumosEquipmentLegId != 0) { equipCount++; sumosText += "id:" + asd.getItem(sumosEquipmentLegId) + ",Count:" + sumosEquipmentLegCount + "b,Damage:" + sumosEquipmentLegDamage + "s,tag:{" + globalSumosLeg + "}"; } sumosText += "},";
+                sumosText += "2:{"; if (sumosEquipmentChestId != 0) { equipCount++; sumosText += "id:" + asd.getItem(sumosEquipmentChestId) + ",Count:" + sumosEquipmentChestCount + "b,Damage:" + sumosEquipmentChestDamage + "s,tag:{" + globalSumosChest + "}"; } sumosText += "},";
                 if (tabSumosHasHeadID.IsChecked.Value == false)
                 {
                     if (sumosEquipmentHeadId != 0)
@@ -911,7 +911,7 @@ namespace WpfMinecraftCommandHelper2
             if (isMC19)
             {
                 sumosText += "HandItems:[";
-                if (sumosEquipmentMainHandId != 0) { equipCount++; sumosText += "0:{id:" + asd.getItem(sumosEquipmentMainHandId) + ",Count:" + sumosEquipmentMainHandCount + "b,Damage:" + sumosEquipmentMainHandDamage + "s,tag:{" + globalSumosHand + "}},"; }
+                sumosText += "0:{"; if (sumosEquipmentMainHandId != 0) { equipCount++; sumosText += "id:" + asd.getItem(sumosEquipmentMainHandId) + ",Count:" + sumosEquipmentMainHandCount + "b,Damage:" + sumosEquipmentMainHandDamage + "s,tag:{" + globalSumosHand + "}"; } sumosText += "},";
                 if (sumosEquipmentOffHandId != 0) { equipCount++; sumosText += "1:{id:" + asd.getItem(sumosEquipmentOffHandId) + ",Count:" + sumosEquipmentOffHandCount + "b,Damage:" + sumosEquipmentOffHandDamage + "s,tag:{" + globalSumosLHand + "}},"; }
                 if (equipCount != 0)
                 {
