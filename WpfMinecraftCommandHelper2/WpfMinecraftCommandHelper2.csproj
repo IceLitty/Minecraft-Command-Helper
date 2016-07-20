@@ -1449,6 +1449,7 @@
     <Content Include="Help\Superflat.html" />
     <Content Include="Help\Tellraw.html" />
     <Content Include="Help\Testfor.html" />
+    <Resource Include="Images\avatar\sasa\0.jpg" />
     <Resource Include="Images\avatar\temp\21.jpg" />
     <Resource Include="Images\avatar\temp\22.jpg" />
     <Resource Include="Images\avatar\temp\23.jpg" />
@@ -1473,7 +1474,6 @@
     <Resource Include="Images\avatar\temp\7.jpg" />
     <Resource Include="Images\avatar\temp\8.jpg" />
     <Resource Include="Images\avatar\temp\9.jpg" />
-    <Resource Include="Images\avatar\sasa\0.png" />
     <Resource Include="Images\avatar\aguo\7.jpg" />
     <Resource Include="Images\avatar\aguo\8.jpg" />
     <Resource Include="Images\avatar\ice\19.png" />
