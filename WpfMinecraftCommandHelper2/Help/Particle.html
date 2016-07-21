@@ -31,6 +31,12 @@
 				<p><span class="magenta">↑</span>ID和Meta用于图标效果/方块效果所需要的选项。动量则是从坐标XYZ开始朝向动量坐标XYZ的变化。</p>
 				<p>此处为烟花尾部爆炸的效果。<span class="magenta">→</span></p>
 				<pre class="autobreak">/particle fireworksSpark ~ ~ ~ 5 10 10 0.5 1000</pre>
+				<p>特殊功能：当使用<code>reddust</code>/<code>mobSpell</code>或<code>mobSpellAmbient</code>，数量设为0并且速度不是0时，动量XYZ三个参数则控制着他们对应的颜色，<code>reddust</code>有点特殊由于它默认是红色的，所以它的<code>0 0 0</code>对应着红色，<code>-1 1 0</code>对应着绿色，<code>-1 0 1</code>对应着蓝色，以此类推。如果数量大于0，则颜色随机。<span class="magenta">↓</span></p>
+				<img class="left" src="img/particle/example2.png" style="width:55%">
+				<br><br>
+				<pre class="autobreak right">/particle mobSpellAmbient ~ ~ ~ 2 0.4 1.6 0.8 0 normal @a 0 0</pre>
+				<p>Normal则为普通生成，Force则为强制玩家看到此特效，即使玩家开启了最小量特效显示，选择Force需要指定玩家，如@a选择所有人强制看到此特效。</p>
+				<p>当选取Normal或Force后，<code>blockdust</code>/<code>iconcrack</code>/<code>blockcrack</code>和<code>fallingdust</code>可以设置显示指定方块/物品的材质，由软件窗口里的ID和Meta控制。</p>
 			</article>
 		</div>
 	</div>

@@ -143,7 +143,7 @@ namespace WpfMinecraftCommandHelper2
             if (modeNormal.IsChecked.Value || modeTarget.IsChecked.Value)
             {
                 if (modeNormal.IsChecked.Value) { particleOut += " normal "; }
-                if (modeTarget.IsChecked.Value) { particleOut += " target "; }
+                if (modeTarget.IsChecked.Value) { particleOut += " force "; }
                 //player
                 particleOut += atBox.Text;
                 //param

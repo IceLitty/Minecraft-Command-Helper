@@ -310,7 +310,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void copyBtn_Click(object sender, RoutedEventArgs e)
         {
-            Clipboard.SetData(DataFormats.Text, createText);
+            Clipboard.SetData(DataFormats.UnicodeText, createText);
         }
 
         private void checkBtn_Click(object sender, RoutedEventArgs e)

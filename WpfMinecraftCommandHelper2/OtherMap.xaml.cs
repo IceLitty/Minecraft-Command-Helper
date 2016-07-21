@@ -523,7 +523,7 @@ namespace WpfMinecraftCommandHelper2
             AllSelData asd = new AllSelData();
             string temp = "/give @p " + asd.getItem(tabOther1LockItem.SelectedIndex) + " 1 0 {display:{Name:\"" + tabOther1LockPassword.Text + "\",Lore:[\"" + OtherHelpUnlockKeyLore + "\"]}}";
             finalStr = temp;
-            Clipboard.SetData(DataFormats.Text, temp);
+            Clipboard.SetData(DataFormats.UnicodeText, temp);
             string temp2 = OtherHelpUnlock + temp;
             this.ShowMessageAsync(FloatHelpTitle, temp2, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
         }

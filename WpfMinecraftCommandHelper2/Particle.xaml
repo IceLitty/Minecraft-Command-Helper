@@ -46,7 +46,7 @@
         <CheckBox x:Name="tabParticleXNum" Content="坐标采用当前坐标" HorizontalAlignment="Left" Margin="457,177,0,0" VerticalAlignment="Top" Click="tabParticleXNum_Checked"/>
         <Grid HorizontalAlignment="Left" Height="24" Margin="10,209,0,0" VerticalAlignment="Top" Width="397">
             <RadioButton x:Name="modeNormal" Content="Normal" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <RadioButton x:Name="modeTarget" Content="Target" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="81,0,0,0"/>
+            <RadioButton x:Name="modeTarget" Content="Force" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="81,0,0,0"/>
             <TextBox x:Name="atBox" HorizontalAlignment="Left" Height="23" Margin="157,0,0,-2" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" Text="@a"/>
             <Button x:Name="atBtn" Content="At" HorizontalAlignment="Left" Margin="285,0,0,-1" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="atBtn_Click"/>
         </Grid>
