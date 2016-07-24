@@ -90,6 +90,10 @@
                         <RadioButton x:Name="Light" Content="白" HorizontalAlignment="Left" Margin="169,30,0,0" VerticalAlignment="Top" Click="Light_Click"/>
                         <RadioButton x:Name="Accent" Content="宿主主色" HorizontalAlignment="Left" Margin="210,30,0,0" VerticalAlignment="Top" Click="Accent_Click" IsEnabled="False"/>
                     </Grid>
+                    <Grid HorizontalAlignment="Left" Height="57" Margin="10,272,0,0" VerticalAlignment="Top" Width="355">
+                        <Label x:Name="MainFloatUpdateSettingTitle" Content="更新设置：" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <CheckBox x:Name="Update" Content="自动更新" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Click="Update_Click"/>
+                    </Grid>
                     <Grid HorizontalAlignment="Left" Height="360" Margin="370,10,0,-57" VerticalAlignment="Top" Width="189">
                         <Label x:Name="MainAvatarTitle" Content="请选择要显示的头像：" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                         <RadioButton x:Name="sc" Content="原版" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Click="sc_Checked"/>

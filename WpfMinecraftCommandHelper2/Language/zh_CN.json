@@ -17,6 +17,8 @@
     "FloatHelpFileCantFind": "帮助文件未找到，请重新下载软件！",
     "FloatSearch1": "正在显示：",
     "FloatSearch2": "的搜索结果。",
+    "FloatUpdateTitle": "更新检测",
+    "FloatUpdateString": "检测到更新，请点击关于->右下角的byIceLitty来访问软件发布帖更新软件。",
 
     "BtnAt": "获取AT",
     "BtnClear": "清空",

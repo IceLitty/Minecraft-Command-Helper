@@ -31,28 +31,28 @@
                     <Label x:Name="CCTip2" Content="单个物品编辑完成后再次打开编辑窗口无法继续编辑代码请注意。" Margin="186,51,193,421" />
                     <Label x:Name="CCTip3" Content="左侧为合成前，右侧为合成后。请点击设置物品按钮来设置该物品。" Margin="186,79,193,400" />
                     <ComboBox x:Name="cb1" HorizontalAlignment="Left" Margin="33,115,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b1" Content="设置物品" Margin="33,146,702,335" Click="b1_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b1" Content="设置物品" Margin="33,146,702,335" Click="b1_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb2" HorizontalAlignment="Left" Margin="165,115,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b2" Content="设置物品" Margin="165,146,570,335" Click="b2_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b2" Content="设置物品" Margin="165,146,570,335" Click="b2_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb3" HorizontalAlignment="Left" Margin="297,115,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b3" Content="设置物品" Margin="297,146,438,335" Click="b3_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b3" Content="设置物品" Margin="297,146,438,335" Click="b3_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb4" HorizontalAlignment="Left" Margin="33,178,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b4" Content="设置物品" Margin="33,209,702,272" Click="b4_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b4" Content="设置物品" Margin="33,209,702,272" Click="b4_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb5" HorizontalAlignment="Left" Margin="165,178,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b5" Content="设置物品" Margin="165,209,570,272" Click="b5_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b5" Content="设置物品" Margin="165,209,570,272" Click="b5_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb6" HorizontalAlignment="Left" Margin="297,178,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b6" Content="设置物品" Margin="297,209,438,272" Click="b6_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b6" Content="设置物品" Margin="297,209,438,272" Click="b6_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb7" HorizontalAlignment="Left" Margin="33,243,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b7" Content="设置物品" Margin="33,274,702,207" Click="b7_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b7" Content="设置物品" Margin="33,274,702,207" Click="b7_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb8" HorizontalAlignment="Left" Margin="165,243,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b8" Content="设置物品" Margin="165,274,570,207" Click="b8_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b8" Content="设置物品" Margin="165,274,570,207" Click="b8_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb9" HorizontalAlignment="Left" Margin="297,243,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b9" Content="设置物品" Margin="297,274,438,207" Click="b9_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b9" Content="设置物品" Margin="297,274,438,207" Click="b9_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <CheckBox x:Name="CustomNameCheck" Content="自定义名称" HorizontalAlignment="Left" Margin="55,326,0,0" VerticalAlignment="Top" Click="CustomNameCheck_Click"/>
                     <TextBox x:Name="CustomNameBox" Height="23" TextWrapping="Wrap" Margin="144,321,550,161" IsEnabled="False"/>
                     <ComboBox x:Name="CustomNameColor" HorizontalAlignment="Left" VerticalAlignment="Top" Width="93" Margin="317,321,0,0" IsEnabled="False" SelectionChanged="CustomNameColor_SelectionChanged"/>
                     <Label x:Name="CCTip4" Content="将会弹出两个检索框，请看清标题填写。" Margin="284,372,273,106"/>
-                    <Button x:Name="bCreate" Content="生成两段代码" Margin="353,407,343,72" Click="bCreate_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="bCreate" Content="生成两段代码" Margin="353,407,343,72" Click="bCreate_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="13.333"/>
                     <Grid Margin="10,10,646,415">
                         <Label x:Name="CCChooseDirection" Content="选择朝向" />
                         <RadioButton x:Name="East" Content="东(east)" Margin="10,31,122,30" IsChecked="True" />
@@ -61,23 +61,23 @@
                         <RadioButton x:Name="North" Content="北(north)" Margin="89,52,43,4" />
                     </Grid>
                     <ComboBox x:Name="cb1_Copy" HorizontalAlignment="Left" Margin="438,115,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b1_Copy" Content="设置物品" Margin="438,146,297,335" Click="b1_Copy_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b1_Copy" Content="设置物品" Margin="438,146,297,335" Click="b1_Copy_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb2_Copy" HorizontalAlignment="Left" Margin="570,115,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b2_Copy" Content="设置物品" Margin="570,146,165,335" Click="b2_Copy_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b2_Copy" Content="设置物品" Margin="570,146,165,335" Click="b2_Copy_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb3_Copy" HorizontalAlignment="Left" Margin="702,115,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b3_Copy" Content="设置物品" Margin="702,146,33,335" Click="b3_Copy_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b3_Copy" Content="设置物品" Margin="702,146,33,335" Click="b3_Copy_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb4_Copy" HorizontalAlignment="Left" Margin="438,178,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b4_Copy" Content="设置物品" Margin="438,209,297,272" Click="b4_Copy_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b4_Copy" Content="设置物品" Margin="438,209,297,272" Click="b4_Copy_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb5_Copy" HorizontalAlignment="Left" Margin="570,178,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b5_Copy" Content="设置物品" Margin="570,209,165,272" Click="b5_Copy_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b5_Copy" Content="设置物品" Margin="570,209,165,272" Click="b5_Copy_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb6_Copy" HorizontalAlignment="Left" Margin="702,178,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b6_Copy" Content="设置物品" Margin="702,209,33,272" Click="b6_Copy_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b6_Copy" Content="设置物品" Margin="702,209,33,272" Click="b6_Copy_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb7_Copy" HorizontalAlignment="Left" Margin="438,243,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b7_Copy" Content="设置物品" Margin="438,274,297,207" Click="b7_Copy_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b7_Copy" Content="设置物品" Margin="438,274,297,207" Click="b7_Copy_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb8_Copy" HorizontalAlignment="Left" Margin="570,243,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b8_Copy" Content="设置物品" Margin="570,274,165,207" Click="b8_Copy_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b8_Copy" Content="设置物品" Margin="570,274,165,207" Click="b8_Copy_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb9_Copy" HorizontalAlignment="Left" Margin="702,243,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
-                    <Button x:Name="b9_Copy" Content="设置物品" Margin="702,274,33,207" Click="b9_Copy_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="b9_Copy" Content="设置物品" Margin="702,274,33,207" Click="b9_Copy_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <CheckBox x:Name="CustomNameCheck_Copy" Content="自定义名称" HorizontalAlignment="Left" Margin="452,326,0,0" VerticalAlignment="Top" Click="CustomNameCheck_Copy_Click"/>
                     <TextBox x:Name="CustomNameBox_Copy" Height="23" TextWrapping="Wrap" Margin="541,321,153,161" IsEnabled="False"/>
                     <ComboBox x:Name="CustomNameColor_Copy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="93" Margin="714,321,0,0" IsEnabled="False" SelectionChanged="CustomNameColor_Copy_SelectionChanged"/>

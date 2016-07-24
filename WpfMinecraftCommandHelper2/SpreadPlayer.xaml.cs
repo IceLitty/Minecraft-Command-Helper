@@ -108,7 +108,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void helpBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.ShowMessageAsync(FloatHelpTitle, SpreadPlayerHelpStr, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\Help\SpreadPlayer.html");
         }
 
         private void tabSPMax_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double?> e)

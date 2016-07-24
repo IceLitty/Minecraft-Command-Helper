@@ -17,6 +17,8 @@
     "FloatHelpFileCantFind": "Can not find help file, please re-downloading this program!",
     "FloatSearch1": "Now showing:",
     "FloatSearch2": " results.",
+    "FloatUpdateTitle": "Update Check",
+    "FloatUpdateString": "New version finded, please click about->by IceLitty in right-bottom to visit post in Forum and download newest version.",
 
     "BtnAt": "Get AT",
     "BtnClear": "Clear",

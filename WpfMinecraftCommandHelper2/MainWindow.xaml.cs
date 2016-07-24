@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -28,6 +29,66 @@ namespace WpfMinecraftCommandHelper2
                 pictureBoxClicked();
             }
             ReadDarkTheme();
+            if (getUpdateSetting() != "false")
+            {
+                Update.IsChecked = true;
+                Thread t = new Thread(() => {
+                    UpdateCheck();
+                });
+                t.Start();
+            }
+            else
+            {
+                Update.IsChecked = false;
+            }
+        }
+
+        private bool isUpdate = false;
+        private string version = "2.8.3.12";
+
+        private void UpdateCheck()
+        {
+            string getVersion = "";
+            try
+            {
+                System.Net.HttpWebRequest getVersionRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.Create("https://bitbucket.org/IceLitty/minecraftcommandhelperversioncheck/raw/cf010517c80e96cef8619a2aff957fbb9f4a16ec/version.ini");
+                getVersionRequest.Method = "GET";
+                using (System.Net.WebResponse response = getVersionRequest.GetResponse())
+                {
+                    using (System.IO.StreamReader reader = new System.IO.StreamReader(response.GetResponseStream(), Encoding.UTF8))
+                    {
+                        getVersion = reader.ReadToEnd();
+                    }
+                }
+            }
+            catch (Exception) { }
+            string[] getVS = getVersion.Split('.');
+            string[] nowVS = version.Split('.');
+            try
+            {
+                int[] getV = { int.Parse(getVS[0]), int.Parse(getVS[1]), int.Parse(getVS[2]), int.Parse(getVS[3]) };
+                int[] nowV = { int.Parse(nowVS[0]), int.Parse(nowVS[1]), int.Parse(nowVS[2]), int.Parse(nowVS[3]) };
+                if (nowV[0] >= getV[0])
+                {
+                    isUpdate = false;
+                    if (nowV[1] >= getV[1])
+                    {
+                        isUpdate = false;
+                        if (nowV[2] >= getV[2])
+                        {
+                            isUpdate = false;
+                            if (nowV[3] >= getV[3])
+                            {
+                                isUpdate = false;
+                            } else { isUpdate = true; }
+                        } else { isUpdate = true; }
+                    } else { isUpdate = true; }
+                } else { isUpdate = true; }
+            } catch (Exception) { isUpdate = false; }
+            if (isUpdate)
+            {
+                MessageBox.Show(FloatUpdateString, FloatUpdateTitle + " - v" + version + " -> v" + getVersion, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
 
         private string FloatConfirm = "确认";
@@ -36,6 +97,8 @@ namespace WpfMinecraftCommandHelper2
         private string FloatWarningTitle = "警告";
         private string FloatErrorTitle = "错误";
         private string FloatHelpFileCantFind = "";
+        private string FloatUpdateTitle = "更新检测";
+        private string FloatUpdateString = "检测到更新，请点击关于->右下角的byIceLitty来访问软件发布帖更新软件。";
 
         private void appLanguage(List<string> templanglist)
         {
@@ -47,7 +110,7 @@ namespace WpfMinecraftCommandHelper2
             FloatAboutTitle = templanglist[11];
             FloatWarningTitle = templanglist[12];
             FloatErrorTitle = templanglist[13];
-            this.Title = "Minecraft Command Helper v2.8.3.11 - " + templanglist[14];
+            this.Title = "Minecraft Command Helper v" + version + " - " + templanglist[14];
             itemBtn.Title = templanglist[15];
             spBtn.Title = templanglist[17];
             potionBtn.Title = templanglist[18];
@@ -120,6 +183,8 @@ namespace WpfMinecraftCommandHelper2
             tizi.Content = templanglist[86];
             zero.Content = templanglist[87];
             FloatHelpFileCantFind = templanglist[88];
+            FloatUpdateTitle = templanglist[89];
+            FloatUpdateString = templanglist[90];
         }
 
         private List<string> lang = new List<string>();
@@ -1100,6 +1165,75 @@ namespace WpfMinecraftCommandHelper2
             int find = value.IndexOf('\"');
             value = value.Substring(0, find);
             System.Diagnostics.Process.Start(value, "http://www.mcbbs.net/group-163-1.html");
+        }
+
+        public void setUpdateSetting(string str)
+        {
+            List<string> wtxt = new List<string>();
+            string temp = str;
+            wtxt.Add(temp);
+            using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\update.txt", FileMode.Create))
+            {
+                using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
+                {
+                    for (int i = 0; i < wtxt.Count; i++)
+                    {
+                        sw.WriteLine(wtxt[i]);
+                    }
+                }
+            }
+        }
+
+        public string getUpdateSetting()
+        {
+            List<string> txt = new List<string>();
+            if (!File.Exists(Directory.GetCurrentDirectory() + @"\settings\update.txt"))
+            {
+                List<string> wtxt = new List<string>();
+                wtxt.Add("true");
+                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\update.txt", FileMode.Create))
+                {
+                    using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
+                    {
+                        for (int i = 0; i < wtxt.Count; i++)
+                        {
+                            sw.WriteLine(wtxt[i]);
+                        }
+                    }
+                }
+            }
+            using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings\update.txt", Encoding.UTF8))
+            {
+                int lineCount = 0;
+                while (sr.Peek() > 0)
+                {
+                    lineCount++;
+                    string temp = sr.ReadLine();
+                    txt.Add(temp);
+                }
+            }
+            try
+            {
+                return txt[0];
+            }
+            catch (Exception)
+            {
+                File.Delete(Directory.GetCurrentDirectory() + @"\settings\update.txt");
+                return "true";
+                //throw;
+            }
+        }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            if (Update.IsChecked.Value)
+            {
+                setUpdateSetting("true");
+            }
+            else
+            {
+                setUpdateSetting("false");
+            }
         }
 
         private void win_PreviewKeyDown(object sender, KeyEventArgs e)

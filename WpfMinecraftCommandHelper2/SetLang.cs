@@ -208,6 +208,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["MainAvatarTizi"].ToString());
             relanglist.Add(LangList[langID]["MainAvatarZero"].ToString());
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["FloatUpdateTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatUpdateString"].ToString());
             return relanglist;
         }
 

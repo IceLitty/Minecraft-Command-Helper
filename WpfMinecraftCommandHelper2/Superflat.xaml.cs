@@ -384,7 +384,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void helpBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.ShowMessageAsync(FloatHelpTitle, SuperflatHelpStr, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\Help\Superflat.html");
         }
 
         private void HelpVillage_Click(object sender, RoutedEventArgs e)

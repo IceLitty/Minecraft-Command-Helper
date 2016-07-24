@@ -1087,5 +1087,10 @@ namespace WpfMinecraftCommandHelper2
                 }
             }
         }
+
+        private void HelpBtn_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(Directory.GetCurrentDirectory() + @"\Help\LootTable.html");
+        }
     }
 }

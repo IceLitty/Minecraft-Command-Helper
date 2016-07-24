@@ -858,13 +858,7 @@ namespace WpfMinecraftCommandHelper2
             }
             else
             {
-                string value = "";
-                Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey(@"http\shell\open\command\");
-                value = key.GetValue("").ToString();
-                value = value.Remove(0, 1);
-                int find = value.IndexOf('\"');
-                value = value.Substring(0, find);
-                System.Diagnostics.Process.Start(value, "http://haselkern.github.io/Minecraft-ArmorStand/");
+                System.Diagnostics.Process.Start("http://haselkern.github.io/Minecraft-ArmorStand/");
             }
         }
 

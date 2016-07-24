@@ -80,12 +80,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void freshcoalCOM_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"http\shell\open\command\");
-            string value = key.GetValue("").ToString();
-            value = value.Remove(0, 1);
-            int find = value.IndexOf('\"');
-            value = value.Substring(0, find);
-            Process.Start(value, "http://heads.freshcoal.com/maincollectionlist.php");
+            Process.Start("http://heads.freshcoal.com/maincollectionlist.php");
         }
 
         private void GridAdd(FlipView fvName, int whichTab, bool isSearch)

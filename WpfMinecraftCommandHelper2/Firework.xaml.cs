@@ -286,7 +286,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void helpBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.ShowMessageAsync(FloatHelpTitle, FireworkHelpStr, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\Help\Firework.html");
         }
 
         private void tabFireXNum_Click(object sender, RoutedEventArgs e)

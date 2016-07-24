@@ -409,7 +409,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void helpBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.ShowMessageAsync(FloatHelpTitle, PotionHelpStr, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\Help\Potion.html");
         }
 
         public string[] returnStr()

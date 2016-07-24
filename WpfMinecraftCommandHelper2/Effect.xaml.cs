@@ -175,7 +175,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void helpBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.ShowMessageAsync(FloatHelpTitle, EffectHelpStr, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\Help\Effect.html");
         }
 
         private int playEffect = 0;

@@ -1521,7 +1521,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabSumosHelp_Click(object sender, RoutedEventArgs e)
         {
-            this.ShowMessageAsync(FloatHelpTitle, SummonOHelpStr, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\Help\Summon.html");
         }
 
         private void tabSumosNowHealthCheck_Click(object sender, RoutedEventArgs e)
@@ -2579,7 +2579,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabSpawnerHelp_Click(object sender, RoutedEventArgs e)
         {
-            this.ShowMessageAsync(FloatHelpTitle, SummonPHelpStr, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\Help\Summon.html");
         }
 
         private void tabSumosTagsCheck_Click(object sender, RoutedEventArgs e)
