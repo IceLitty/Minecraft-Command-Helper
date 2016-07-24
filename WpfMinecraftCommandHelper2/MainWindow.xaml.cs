@@ -87,7 +87,10 @@ namespace WpfMinecraftCommandHelper2
             } catch (Exception) { isUpdate = false; }
             if (isUpdate)
             {
-                MessageBox.Show(FloatUpdateString, FloatUpdateTitle + " - v" + version + " -> v" + getVersion, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                if (MessageBox.Show(FloatUpdateString, FloatUpdateTitle + " - v" + version + " -> v" + getVersion, MessageBoxButton.OKCancel, MessageBoxImage.Exclamation) == MessageBoxResult.OK)
+                {
+                    System.Diagnostics.Process.Start("https://github.com/IceLitty/Minecraft-Command-Helper/releases/latest");
+                }
             }
         }
 
@@ -98,7 +101,7 @@ namespace WpfMinecraftCommandHelper2
         private string FloatErrorTitle = "错误";
         private string FloatHelpFileCantFind = "";
         private string FloatUpdateTitle = "更新检测";
-        private string FloatUpdateString = "检测到更新，请点击关于->右下角的byIceLitty来访问软件发布帖更新软件。";
+        private string FloatUpdateString = "检测到更新，请于接下来打开的站点更新软件。";
 
         private void appLanguage(List<string> templanglist)
         {
