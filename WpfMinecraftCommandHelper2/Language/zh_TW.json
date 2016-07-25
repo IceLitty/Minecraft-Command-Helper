@@ -15,6 +15,7 @@
     "FloatHelpTitle": "幫助",
     "FloatTipTitle": "提示",
     "FloatHelpFileCantFind": "幫助文件未找到，請重新下載軟件！",
+    "FloatSaveFileCantFind": "文件未找到，請確認文件名是否符合規範。",
     "FloatSearch1": "正在顯示：",
     "FloatSearch2": "的搜索结果。",
     "FloatUpdateTitle": "更新檢測",

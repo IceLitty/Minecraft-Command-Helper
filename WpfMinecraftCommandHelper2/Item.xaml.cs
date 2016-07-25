@@ -41,6 +41,7 @@ namespace WpfMinecraftCommandHelper2
         private string FloatHelpFileCantFind = "";
         private string FloatSearch1 = "正在显示：";
         private string FloatSearch2 = "的搜索结果。";
+        private string FloatSaveFileCantFind = "文件未找到，请确认文件名是否符合规范。";
 
         private void appLanguage()
         {
@@ -124,6 +125,7 @@ namespace WpfMinecraftCommandHelper2
                 BtnSaveFavourite.Text = templang[73];
                 FloatSearch1 = templang[74];
                 FloatSearch2 = templang[75];
+                FloatSaveFileCantFind = templang[76];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -959,7 +961,7 @@ namespace WpfMinecraftCommandHelper2
             wtxt.Add(saveFavStr);
             DateTime dt = DateTime.Now;
             string time = "" + dt.Year + dt.Month + dt.Day + dt.Hour + dt.Minute + dt.Second;
-            using (System.IO.FileStream fs = new System.IO.FileStream(System.IO.Directory.GetCurrentDirectory() + @"\settings\Favorites\Item_" + time + ".txt", System.IO.FileMode.Create))
+            using (System.IO.FileStream fs = new System.IO.FileStream(System.IO.Directory.GetCurrentDirectory() + @"\settings\Favorites\Item_" + time + ".ini", System.IO.FileMode.Create))
             {
                 using (System.IO.StreamWriter sw = new System.IO.StreamWriter(fs, System.Text.Encoding.UTF8))
                 {
@@ -983,7 +985,7 @@ namespace WpfMinecraftCommandHelper2
             List<string> loadList = new List<string>();
             for (int i = 0; i < fileCount; i++)
             {
-                if (System.Text.RegularExpressions.Regex.IsMatch(finfo[i].Name, @"Item_\d+\.txt"))
+                if (System.Text.RegularExpressions.Regex.IsMatch(finfo[i].Name, @"Item_\d+\.ini"))
                 {
                     loadList.Add(finfo[i].Name);
                 }
@@ -1118,7 +1120,7 @@ namespace WpfMinecraftCommandHelper2
             }
             else
             {
-                this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                this.ShowMessageAsync(FloatErrorTitle, FloatSaveFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
             }
         }
 

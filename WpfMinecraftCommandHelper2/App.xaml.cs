@@ -24,11 +24,11 @@ namespace WpfMinecraftCommandHelper2
             {
                 Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\settings\Favorites");
             }
-            if (File.Exists(Directory.GetCurrentDirectory() + @"\settings\settings.txt"))
+            if (File.Exists(Directory.GetCurrentDirectory() + @"\settings\settings.ini"))
             {
                 List<string> txt = new List<string>();
                 string accents = "Blue", themes = "BaseLight"; //flytheme = "Dark";
-                using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings\settings.txt", Encoding.UTF8))
+                using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings\settings.ini", Encoding.UTF8))
                 {
                     int lineCount = 0;
                     while (sr.Peek() > 0)
@@ -46,7 +46,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 catch (Exception)
                 {
-                    File.Delete(Directory.GetCurrentDirectory() + @"\settings\settings.txt");
+                    File.Delete(Directory.GetCurrentDirectory() + @"\settings\settings.ini");
                     //throw;
                 }
                 ThemeManager.ChangeAppStyle(Application.Current,

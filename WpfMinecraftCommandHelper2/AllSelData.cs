@@ -18,11 +18,11 @@ namespace WpfMinecraftCommandHelper2
         public string getLangFile()
         {
             List<string> txt = new List<string>();
-            if (!File.Exists(Directory.GetCurrentDirectory() + @"\settings\lang.txt"))
+            if (!File.Exists(Directory.GetCurrentDirectory() + @"\settings\lang.ini"))
             {
                 List<string> wtxt = new List<string>();
                 wtxt.Add("cn");
-                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\lang.txt", FileMode.Create))
+                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\lang.ini", FileMode.Create))
                 {
                     using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
                     {
@@ -33,7 +33,7 @@ namespace WpfMinecraftCommandHelper2
                     }
                 }
             }
-            using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings\lang.txt", Encoding.UTF8))
+            using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings\lang.ini", Encoding.UTF8))
             {
                 int lineCount = 0;
                 while (sr.Peek() > 0)
@@ -49,7 +49,7 @@ namespace WpfMinecraftCommandHelper2
             }
             catch (Exception)
             {
-                File.Delete(Directory.GetCurrentDirectory() + @"\settings\lang.txt");
+                File.Delete(Directory.GetCurrentDirectory() + @"\settings\lang.ini");
                 return "cn";
                 //throw;
             }
@@ -1902,7 +1902,46 @@ namespace WpfMinecraftCommandHelper2
 										"好啦，程序有问题的话欢迎反馈，点关于里的QQ就行了！",
 										"MCH的话应该只会做原版的高级指令。",
 										"说不定哟？",
-                                        "按F1可赛艇。"
+                                        "按F1可赛艇。",
+                                        "从来不会有人知道右上的图是可以点的。",
+                                        "按Z可按轨。",
+                                        "Zzzz...",
+                                        "你有找到我的本子吗？",
+                                        "IBW248",
+                                        "我的小熊被水淹没，可怜。",
+                                        "别闹，正在玩Starbound~",
+                                        "沉迷MC呢？",
+                                        "最喜欢冒险地图了！",
+                                        "倾听，感受，思考…什么辣鸡运营。",
+                                        "好饿啊…",
+                                        "有吃的吗？",
+                                        "你有看过我的帖子-将玩家皮肤变成方块模型吗？没有的话赶紧看哟",
+                                        "你有玩过Magicspells插件吗，很好玩的哟",
+                                        "嗯……啊……别晃了……我…我头晕……",
+                                        "这个软件有很多很多的黑科技，融聚了我的精华呢",
+                                        "苦恼的在于，麻麻把我锁在这个程序里，出不去啦",
+                                        "我就这样静静的看着你操作~♬",
+                                        "有不懂的可以来问我…好像我也不懂呢，去问作者麻麻吧？",
+                                        "啾啾",
+                                        "啊~啾！感冒了……",
+                                        "好热啊",
+                                        "好冷啊≡(▔﹏▔)≡",
+                                        "都要化成水了……",
+                                        "都要冻成硬冰了……",
+                                        "我要做一个人造乱叔才行！",
+                                        "718根内存条",
+                                        "想知道我住在什么样的地方嘛？你猜你猜？",
+                                        "教皇Exodus赐予我力量吧！",
+                                        "呐姐姐姐姐，那边的人都是变态嘛？",
+                                        "你在看哪呢？",
+                                        "你在想什么呢？",
+                                        "黄金起司蛋糕，好吃(╹ڡ╹ )",
+                                        "豆豆姐和阿果姐去哪了QAQ",
+                                        "胤蛇呢？胤蛇呢？",
+                                        "蠢狗啊，啥时候再觅食一顿呀",
+                                        "日，太阳啊",
+                                        "三晋叔常年不见0.0",
+                                        "symsymqaq"
                                    };
 
         private string[] scoreStr1 = {

@@ -2717,7 +2717,7 @@ namespace WpfMinecraftCommandHelper2
             }
             if (tabItemAttrZombieRCheck.IsChecked.Value)
             {
-                attrReturn += "{Name:zombie.spawnReinforcements,Base:" + tabItemAttrZombieR.Value.ToString() + "d}";
+                attrReturn += "{Name:zombie.spawnReinforcements,Base:" + tabItemAttrZombieR.Value.ToString() + "d},";
             }
             if (attrReturn.Length >= 1)
             {

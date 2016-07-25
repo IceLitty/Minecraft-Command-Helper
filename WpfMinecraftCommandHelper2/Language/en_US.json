@@ -15,6 +15,7 @@
     "FloatHelpTitle": "Help",
     "FloatTipTitle": "Tip",
     "FloatHelpFileCantFind": "Can not find help file, please re-downloading this program!",
+    "FloatSaveFileCantFind": "Can not find save file, please check file name.",
     "FloatSearch1": "Now showing:",
     "FloatSearch2": " results.",
     "FloatUpdateTitle": "Update Check",

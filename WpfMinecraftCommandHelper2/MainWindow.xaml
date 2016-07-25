@@ -206,7 +206,7 @@
                 <Image x:Name="picTip"></Image>
             </Image.ToolTip>
         </Image>
-        <Label x:Name="text" Content="欸？" HorizontalAlignment="Left" Margin="20,358,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label x:Name="text" Content="从来不会有人知道右上的图是可以点的。" HorizontalAlignment="Left" Margin="26,358,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label x:Name="language" Content="内置中文" Foreground="#FF3285FD" HorizontalAlignment="Right" Margin="0,370,10,0" VerticalAlignment="Top" MouseLeftButtonUp="language_MouseLeftButtonUp"/>
         <Label x:Name="author" Content="作者：IceLitty" HorizontalAlignment="Right" Margin="0,395,10,0" VerticalAlignment="Top"/>
         <Label x:Name="lastupdate" Content="最后更新：201X.XX.XX" HorizontalAlignment="Right" Margin="0,417,10,0" VerticalAlignment="Top"/>

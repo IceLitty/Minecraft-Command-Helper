@@ -46,7 +46,7 @@ namespace WpfMinecraftCommandHelper2
             List<string> wtxt = new List<string>();
             string temp = langID;
             wtxt.Add(temp);
-            using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\lang.txt", FileMode.Create))
+            using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\lang.ini", FileMode.Create))
             {
                 using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
                 {
@@ -61,11 +61,11 @@ namespace WpfMinecraftCommandHelper2
         public string getLangFile()
         {
             List<string> txt = new List<string>();
-            if (!File.Exists(Directory.GetCurrentDirectory() + @"\settings\lang.txt"))
+            if (!File.Exists(Directory.GetCurrentDirectory() + @"\settings\lang.ini"))
             {
                 List<string> wtxt = new List<string>();
                 wtxt.Add("cn");
-                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\lang.txt", FileMode.Create))
+                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\lang.ini", FileMode.Create))
                 {
                     using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
                     {
@@ -76,7 +76,7 @@ namespace WpfMinecraftCommandHelper2
                     }
                 }
             }
-            using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings\lang.txt", Encoding.UTF8))
+            using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings\lang.ini", Encoding.UTF8))
             {
                 int lineCount = 0;
                 while (sr.Peek() > 0)
@@ -92,7 +92,7 @@ namespace WpfMinecraftCommandHelper2
             }
             catch (Exception)
             {
-                File.Delete(Directory.GetCurrentDirectory() + @"\settings\lang.txt");
+                File.Delete(Directory.GetCurrentDirectory() + @"\settings\lang.ini");
                 return "cn";
                 //throw;
             }
@@ -670,6 +670,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BtnSaveFavourite"].ToString());
             relanglist.Add(LangList[langID]["FloatSearch1"].ToString());
             relanglist.Add(LangList[langID]["FloatSearch2"].ToString());
+            relanglist.Add(LangList[langID]["FloatSaveFileCantFind"].ToString());
             return relanglist;
         }
 
@@ -1011,6 +1012,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             relanglist.Add(LangList[langID]["BtnReadFavourite"].ToString());
             relanglist.Add(LangList[langID]["BtnSaveFavourite"].ToString());
+            relanglist.Add(LangList[langID]["FloatSaveFileCantFind"].ToString());
             return relanglist;
         }
 
