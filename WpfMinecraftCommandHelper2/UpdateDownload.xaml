@@ -1,0 +1,14 @@
+﻿<Controls:MetroWindow x:Class="WpfMinecraftCommandHelper2.UpdateDownload"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
+        Title="UpdateDownload" Height="135.212" Width="361.268" Loaded="MetroWindow_Loaded">
+    <Grid>
+        <Controls:MetroProgressBar Margin="0,0,0,100" IsIndeterminate="True" />
+        <Button x:Name="download" Content="百度云-qmx5" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Width="98" Click="download_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="download_Copy" Content="Github" HorizontalAlignment="Left" Margin="113,69,0,0" VerticalAlignment="Top" Width="98" Click="download_Copy_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Label x:Name="label" Content="检测到更新，请从以下链接获取" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Controls:MetroWindow>

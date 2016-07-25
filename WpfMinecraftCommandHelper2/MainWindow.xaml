@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="True" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="Minecraft Command Helper versionInCode - Guide" Height="485" Width="797" SaveWindowPosition="False" PreviewKeyDown="win_PreviewKeyDown" >
+        Title="Minecraft Command Helper versionInCode - Guide" Height="485" Width="797" SaveWindowPosition="False" PreviewKeyDown="win_PreviewKeyDown" Loaded="win_Loaded" >
     <Controls:MetroWindow.LeftWindowCommands>
         <Controls:WindowCommands>
 

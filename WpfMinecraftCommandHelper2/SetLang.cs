@@ -208,8 +208,6 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["MainAvatarTizi"].ToString());
             relanglist.Add(LangList[langID]["MainAvatarZero"].ToString());
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
-            relanglist.Add(LangList[langID]["FloatUpdateTitle"].ToString());
-            relanglist.Add(LangList[langID]["FloatUpdateString"].ToString());
             return relanglist;
         }
 
@@ -1433,6 +1431,23 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["TestforOpenAtWindowBtn"].ToString());
             relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            return relanglist;
+        }
+
+        public List<string> SetUpdate()
+        {
+            string nowLang = getLangFile();
+            int langID = 0;
+            for (int i = 0; i < fileCount; i++)
+            {
+                if (LangList[i]["LanguageID"].ToString() == nowLang)
+                {
+                    langID = i;
+                }
+            }
+            List<string> relanglist = new List<string>();
+            relanglist.Add(LangList[langID]["FloatUpdateTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatUpdateString"].ToString());
             return relanglist;
         }
     }

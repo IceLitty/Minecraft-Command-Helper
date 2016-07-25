@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using System.IO;
+using System.Windows.Threading;
 
 namespace WpfMinecraftCommandHelper2
 {
@@ -17,6 +18,8 @@ namespace WpfMinecraftCommandHelper2
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        private DispatcherTimer timer = new DispatcherTimer();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -45,6 +48,7 @@ namespace WpfMinecraftCommandHelper2
 
         private bool isUpdate = false;
         private string version = "2.8.3.14";
+        private string getversion = "0.0.0.0";
 
         private void UpdateCheck()
         {
@@ -62,6 +66,7 @@ namespace WpfMinecraftCommandHelper2
                 }
             }
             catch (Exception) { }
+            getversion = getVersion;
             string[] getVS = getVersion.Split('.');
             string[] nowVS = version.Split('.');
             try
@@ -85,12 +90,26 @@ namespace WpfMinecraftCommandHelper2
                     } else { isUpdate = true; }
                 } else { isUpdate = true; }
             } catch (Exception) { isUpdate = false; }
+        }
+
+        private void win_Loaded(object sender, RoutedEventArgs e)
+        {
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+            timer.Start();
+        }
+
+        private async void timer_Tick(object sender, EventArgs e)
+        {
             if (isUpdate)
             {
-                if (MessageBox.Show(FloatUpdateString, FloatUpdateTitle + " - v" + version + " -> v" + getVersion, MessageBoxButton.OKCancel, MessageBoxImage.Exclamation) == MessageBoxResult.OK)
-                {
-                    System.Diagnostics.Process.Start("https://github.com/IceLitty/Minecraft-Command-Helper/releases/latest");
-                }
+                timer.Stop();
+                this.ShowMessageAsync("", "", MessageDialogStyle.Affirmative, new MetroDialogSettings() { MaximumBodyHeight=0, AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                await System.Threading.Tasks.Task.Delay(500);
+                UpdateDownload ud = new UpdateDownload();
+                ud.setVersion(version, getversion);
+                ud.Show();
             }
         }
 
@@ -100,8 +119,6 @@ namespace WpfMinecraftCommandHelper2
         private string FloatWarningTitle = "警告";
         private string FloatErrorTitle = "错误";
         private string FloatHelpFileCantFind = "";
-        private string FloatUpdateTitle = "更新检测";
-        private string FloatUpdateString = "检测到更新，请于接下来打开的站点更新软件。";
 
         private void appLanguage(List<string> templanglist)
         {
@@ -186,8 +203,6 @@ namespace WpfMinecraftCommandHelper2
             tizi.Content = templanglist[86];
             zero.Content = templanglist[87];
             FloatHelpFileCantFind = templanglist[88];
-            FloatUpdateTitle = templanglist[89];
-            FloatUpdateString = templanglist[90];
         }
 
         private List<string> lang = new List<string>();

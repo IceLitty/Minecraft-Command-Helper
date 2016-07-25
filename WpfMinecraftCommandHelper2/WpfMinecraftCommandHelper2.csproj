@@ -145,6 +145,9 @@
     <Compile Include="Testfor.xaml.cs">
       <DependentUpon>Testfor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateDownload.xaml.cs">
+      <DependentUpon>UpdateDownload.xaml</DependentUpon>
+    </Compile>
     <Page Include="About.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -274,6 +277,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Testfor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateDownload.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
