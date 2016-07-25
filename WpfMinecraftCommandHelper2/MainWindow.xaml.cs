@@ -44,14 +44,14 @@ namespace WpfMinecraftCommandHelper2
         }
 
         private bool isUpdate = false;
-        private string version = "2.8.3.13";
+        private string version = "2.8.3.14";
 
         private void UpdateCheck()
         {
             string getVersion = "";
             try
             {
-                System.Net.HttpWebRequest getVersionRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.Create("https://bitbucket.org/IceLitty/minecraftcommandhelperversioncheck/raw/cf010517c80e96cef8619a2aff957fbb9f4a16ec/version.ini");
+                System.Net.HttpWebRequest getVersionRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.Create("https://bitbucket.org/IceLitty/minecraftcommandhelperversioncheck/raw/master/version.ini");
                 getVersionRequest.Method = "GET";
                 using (System.Net.WebResponse response = getVersionRequest.GetResponse())
                 {
