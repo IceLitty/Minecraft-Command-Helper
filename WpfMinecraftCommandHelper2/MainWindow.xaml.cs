@@ -49,6 +49,7 @@ namespace WpfMinecraftCommandHelper2
         }
 
         private bool isUpdate = false;
+        private bool preview = false;
         private string version = "2.8.3.15";
         private string getversion = "0.0.0.0";
         private bool error1 = false;
@@ -83,6 +84,11 @@ namespace WpfMinecraftCommandHelper2
                 if (error1) { this.ShowMessageAsync(FloatErrorTitle, FloatUpdateError1 + " " + getversion, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel }); }
                 if (error2&&!error1) { this.ShowMessageAsync(FloatErrorTitle, FloatUpdateError2 + " " + getversion, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel }); }
             }
+            if (preview)
+            {
+                timer.Stop();
+                this.Title = Title += " - " + MainPreview;
+            }
         }
 
         private void UpdateCheck()
@@ -110,15 +116,19 @@ namespace WpfMinecraftCommandHelper2
                 int[] nowV = { int.Parse(nowVS[0]), int.Parse(nowVS[1]), int.Parse(nowVS[2]), int.Parse(nowVS[3]) };
                 if (nowV[0] >= getV[0])
                 {
+                    if (nowV[0] > getV[0]) { preview = true; }
                     isUpdate = false;
                     if (nowV[1] >= getV[1])
                     {
+                        if (nowV[1] > getV[1]) { preview = true; }
                         isUpdate = false;
                         if (nowV[2] >= getV[2])
                         {
+                            if (nowV[2] > getV[2]) { preview = true; }
                             isUpdate = false;
                             if (nowV[3] >= getV[3])
                             {
+                                if (nowV[3] > getV[3]) { preview = true; }
                                 isUpdate = false;
                             } else { isUpdate = true; }
                         } else { isUpdate = true; }
@@ -135,6 +145,7 @@ namespace WpfMinecraftCommandHelper2
         private string FloatHelpFileCantFind = "";
         private string FloatUpdateError1 = "检测更新失败，请告知作者";
         private string FloatUpdateError2 = "更新内容分析失败，请告知作者";
+        private string MainPreview = "预览版本";
 
         private void appLanguage(List<string> templanglist)
         {
@@ -220,6 +231,7 @@ namespace WpfMinecraftCommandHelper2
             fixColorSelCB.ToolTip = templanglist[91];
             fixColorSelSign.ToolTip = templanglist[92];
             loottable.Title = templanglist[93];
+            MainPreview = templanglist[94];
         }
 
         private List<string> lang = new List<string>();

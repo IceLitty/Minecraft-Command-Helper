@@ -162,6 +162,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["FColorSelCB"].ToString());
             relanglist.Add(LangList[langID]["FColorSelSign"].ToString());
             relanglist.Add(LangList[langID]["MainLoottable"].ToString());
+            relanglist.Add(LangList[langID]["MainPreview"].ToString());
             return relanglist;
         }
 
