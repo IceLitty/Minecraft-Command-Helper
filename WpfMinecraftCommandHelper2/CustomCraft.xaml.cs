@@ -52,7 +52,6 @@ namespace WpfMinecraftCommandHelper2
         private string CCStep4 = "第四步：在两个命令方块中间放上比较器，注意下方也要放方块支撑。";
         private string CCStep5 = "第五步：检查面朝朝向，左侧第二组第四行：“Facing: east”。";
         private string CCStep6 = "最后：根据你的朝向生成代码。";
-        private string CCClickMe = "请点击我";
         private string CCBack = "靠后的命令方块 - 设置合成后物品";
         private string CCFront = "靠前的命令方块 - 判断合成";
         private string FloatErrorTitle = "错误";
@@ -73,7 +72,6 @@ namespace WpfMinecraftCommandHelper2
                 CCStep4 = templang[4];
                 CCStep5 = templang[5];
                 CCStep6 = templang[6];
-                CCClickMe = templang[7];
                 CCBack = templang[8];
                 CCFront = templang[9];
                 this.Title = templang[10];
@@ -287,19 +285,23 @@ namespace WpfMinecraftCommandHelper2
             if (item7_Copy != "") secondBlock += item7_Copy + ",";
             if (item8_Copy != "") secondBlock += item8_Copy + ",";
             if (item9_Copy != "") secondBlock += item9_Copy + ",";
-            if (firstBlock != " {Items:[") secondBlock = secondBlock.Remove(secondBlock.Count() - 1, 1);
+            if (secondBlock != " {Items:[") secondBlock = secondBlock.Remove(secondBlock.Count() - 1, 1);
             firstBlock = fir + firstBlock + "]}";
             secondBlock = sec + secondBlock + "]}";
             //判断是否含有颜色代码
-            if (secondBlock.IndexOf(@"\u00A7") != -1)
+            if (firstBlock.IndexOf("§") != -1)
             {
-                secondBlock.Replace(@"\u00A7", @"\\u00A7");
-                secondBlock = "/setblock ~ ~1 ~ standing_sign 0 replace {Text1:\"{text:\\\"" + CCClickMe + "\\\",clickEvent:{action:\\\"run_command\\\",value:\\\"/blockdata ~ ~-1 ~ {Command:" + secondBlock + ",}\\\"}}\"}";
+                FixColorCode fcc = new FixColorCode();
+                fcc.setStr(firstBlock);
+                fcc.ShowDialog();
+                firstBlock = fcc.getStr();
             }
-            if (firstBlock.IndexOf(@"\u00A7") != -1)
+            if (secondBlock.IndexOf("§") != -1)
             {
-                firstBlock.Replace(@"\u00A7", @"\\u00A7");
-                firstBlock = "/setblock ~ ~1 ~ standing_sign 0 replace {Text1:\"{text:\\\"" + CCClickMe + "\\\",clickEvent:{action:\\\"run_command\\\",value:\\\"/blockdata ~ ~-1 ~ {Command:" + firstBlock + ",}\\\"}}\"}";
+                FixColorCode fcc = new FixColorCode();
+                fcc.setStr(secondBlock);
+                fcc.ShowDialog();
+                secondBlock = fcc.getStr();
             }
             Check cbox2 = new Check();
             cbox2.showText(secondBlock, CCBack);
@@ -410,7 +412,7 @@ namespace WpfMinecraftCommandHelper2
             if (CustomNameCheck.IsChecked.Value)
             {
                 CustomNameBox.IsEnabled = true;
-                //CustomNameColor.IsEnabled = true;
+                CustomNameColor.IsEnabled = true;
             }
             else
             {
@@ -430,7 +432,7 @@ namespace WpfMinecraftCommandHelper2
             if (CustomNameCheck_Copy.IsChecked.Value)
             {
                 CustomNameBox_Copy.IsEnabled = true;
-                //CustomNameColor_Copy.IsEnabled = true;
+                CustomNameColor_Copy.IsEnabled = true;
             }
             else
             {

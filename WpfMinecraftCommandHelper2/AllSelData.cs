@@ -12,47 +12,8 @@ namespace WpfMinecraftCommandHelper2
 
         public AllSelData()
         {
-            nowLang = getLangFile();
-        }
-
-        public string getLangFile()
-        {
-            List<string> txt = new List<string>();
-            if (!File.Exists(Directory.GetCurrentDirectory() + @"\settings\lang.ini"))
-            {
-                List<string> wtxt = new List<string>();
-                wtxt.Add("cn");
-                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\lang.ini", FileMode.Create))
-                {
-                    using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
-                    {
-                        for (int i = 0; i < wtxt.Count; i++)
-                        {
-                            sw.WriteLine(wtxt[i]);
-                        }
-                    }
-                }
-            }
-            using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings\lang.ini", Encoding.UTF8))
-            {
-                int lineCount = 0;
-                while (sr.Peek() > 0)
-                {
-                    lineCount++;
-                    string temp = sr.ReadLine();
-                    txt.Add(temp);
-                }
-            }
-            try
-            {
-                return txt[0];
-            }
-            catch (Exception)
-            {
-                File.Delete(Directory.GetCurrentDirectory() + @"\settings\lang.ini");
-                return "cn";
-                //throw;
-            }
+            Config config = new Config();
+            nowLang = config.getSetting("[Personalize]", "Language");
         }
 
         private string[] itemNameList = {

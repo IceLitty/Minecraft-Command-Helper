@@ -156,7 +156,7 @@
         </GroupBox>
         <Button x:Name="atBtn" Content="获取At" HorizontalAlignment="Left" Margin="513,541,0,0" VerticalAlignment="Top" Width="82" Height="26" Click="atBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <TextBox x:Name="atBox" HorizontalAlignment="Left" Height="23" Margin="600,541,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308"/>
-        <ComboBox x:Name="tabItemHide" HorizontalAlignment="Left" Margin="513,510,0,0" VerticalAlignment="Top" Width="395"/>
+        <ComboBox x:Name="tabItemHide" HorizontalAlignment="Left" Margin="513,509,0,0" VerticalAlignment="Top" Width="395" Height="27"/>
         <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="513,572,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="593,572,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="753,572,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
@@ -166,15 +166,14 @@
             <Controls:NumericUpDown x:Name="tabItemCount" Minimum="0" Maximum="64" Interval="5" StringFormat="" Margin="0,36,0,0" Height="28" Value="1" />
         </Grid>
         <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="673,572,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Grid HorizontalAlignment="Left" Height="27" Margin="183,518,0,0" VerticalAlignment="Top" Width="301">
-            <Controls:NumericUpDown x:Name="tabItemRepairCost" Minimum="0" Maximum="999999999" Interval="5" StringFormat="" Margin="101,-1,10,0" Height="28" Value="0" IsEnabled="False" />
-            <CheckBox x:Name="tabItemRepairCostCheck" Content="指定修复消耗" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Checked="tabItemRepairCostCheck_Checked"/>
+        <Grid HorizontalAlignment="Left" Height="27" Margin="207,509,0,0" VerticalAlignment="Top" Width="301">
+            <Controls:NumericUpDown x:Name="tabItemRepairCost" Minimum="0" Maximum="999999999" Interval="5" StringFormat="" Margin="111,-1,0,0" Height="28" Value="0" IsEnabled="False" />
+            <CheckBox x:Name="tabItemRepairCostCheck" Content="指定修复消耗" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Checked="tabItemRepairCostCheck_Checked"/>
         </Grid>
-        <Button x:Name="fixColorBtn" Content="§" HorizontalAlignment="Left" Margin="476,572,0,0" VerticalAlignment="Top" Width="32" Style="{DynamicResource SquareButtonStyle}" Click="fixColorBtn_Click" ToolTip="Manual re-generate command include color style. Click CHECK button to check code."/>
-        <TextBox x:Name="colorBox" HorizontalAlignment="Left" Height="23" Margin="284,573,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" ToolTip="Paste command here."/>
         <Grid HorizontalAlignment="Left" Height="26" Margin="10,40,0,0" VerticalAlignment="Top" Width="463">
             <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="48,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="415" PreviewKeyDown="searchBox_PreviewKeyDown"/>
             <Label x:Name="label" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF959595"/>
         </Grid>
+        <Button x:Name="fixColorBtn" Content="§" HorizontalAlignment="Left" Margin="479,541,0,0" VerticalAlignment="Top" Width="26" Style="{DynamicResource SquareButtonStyle}" ToolTip="Using F2 to open this Manual Fix Color Code window." Height="26" Click="fixColorBtn_Click"/>
     </Grid>
 </Controls:MetroWindow>

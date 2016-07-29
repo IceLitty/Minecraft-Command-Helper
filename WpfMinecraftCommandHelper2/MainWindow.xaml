@@ -79,8 +79,6 @@
                         <Label x:Name="MainThemeProfile" Content="主题方案：" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                         <RadioButton x:Name="BaseLight" Content="亮色" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Click="BaseLight_Checked"/>
                         <RadioButton x:Name="BaseDark" Content="暗色" HorizontalAlignment="Left" Margin="63,30,0,0" VerticalAlignment="Top" Click="BaseDark_Checked"/>
-                        <Label x:Name="MainThemeProfileTip" Content="删除文件后请直接关闭程序！" HorizontalAlignment="Left" Margin="180,0,0,0" VerticalAlignment="Top" Foreground="#FFA0A0A0"/>
-                        <Button x:Name="delFileBtn" Content="删除配置文件" HorizontalAlignment="Left" Margin="234,30,0,0" VerticalAlignment="Top" Width="111" Click="delFileBtn_Click"/>
                     </Grid>
                     <Grid HorizontalAlignment="Left" Height="57" Margin="10,210,0,0" VerticalAlignment="Top" Width="355">
                         <Label x:Name="MainFloatTheme" Content="弹框主题：" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -91,8 +89,12 @@
                         <RadioButton x:Name="Accent" Content="宿主主色" HorizontalAlignment="Left" Margin="210,30,0,0" VerticalAlignment="Top" Click="Accent_Click" IsEnabled="False"/>
                     </Grid>
                     <Grid HorizontalAlignment="Left" Height="57" Margin="10,272,0,0" VerticalAlignment="Top" Width="355">
-                        <Label x:Name="MainFloatUpdateSettingTitle" Content="更新设置：" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <Label x:Name="MainFloatPersonalizeTitle" Content="偏好设置：" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                         <CheckBox x:Name="Update" Content="自动更新" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Click="Update_Click"/>
+                        <Grid Margin="100,30,0,0">
+                            <RadioButton x:Name="fixColorSelSign" Content="Sign" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0"/>
+                            <RadioButton x:Name="fixColorSelCB" Content="CB" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Top"/>
+                        </Grid>
                     </Grid>
                     <Grid HorizontalAlignment="Left" Height="360" Margin="370,10,0,-57" VerticalAlignment="Top" Width="189">
                         <Label x:Name="MainAvatarTitle" Content="请选择要显示的头像：" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -190,9 +192,9 @@
                 <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/other.png" />
             </StackPanel>
         </Controls:Tile>
-        <Controls:Tile Title="？？？？" Width="170" Height="54" Margin="230,170,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light">
+        <Controls:Tile x:Name="loottable" Title="掉落掠夺" Width="170" Height="54" Margin="230,170,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="loottable_Click">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
-                <Image Width="32" Height="32" Stretch="Fill" />
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/loottable.png" />
             </StackPanel>
         </Controls:Tile>
         <Controls:Tile Title="？？？？" Width="170" Height="54" Margin="230,240,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light">
@@ -200,7 +202,11 @@
                 <Image Width="32" Height="32" Stretch="Fill" />
             </StackPanel>
         </Controls:Tile>
-        <Controls:Tile x:Name="scoreboardBtn" Title="指令帮助" Width="170" Height="54" Margin="430,380,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="scoreboardBtn_Click" />
+        <Controls:Tile x:Name="scoreboardBtn" Title="指令帮助" Width="170" Height="54" Margin="430,380,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="scoreboardBtn_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/scoreboard.png" />
+            </StackPanel>
+        </Controls:Tile>
         <Image x:Name="pictureBox1" HorizontalAlignment="Left" Margin="613,30,0,0" VerticalAlignment="Top" Width="150" Height="222" Source="Images/avatar/sc/0.jpg" MouseDown="pictureBox1_MouseDown">
             <Image.ToolTip>
                 <Image x:Name="picTip"></Image>

@@ -381,9 +381,10 @@ namespace WpfMinecraftCommandHelper2
             //判断是否含有颜色代码
             if (finalStr.IndexOf("§") != -1)
             {
-                finalStr = finalStr.Replace("§", @"\\u00A7");
-                finalStr = finalStr.Replace("\"", "\\\\\\\"");
-                finalStr = "/setblock ~ ~1 ~ standing_sign 0 replace {Text1:\"{\\\"text\\\":\\\"" + PotionClickMe + "\\\",\\\"clickEvent\\\":{\\\"action\\\":\\\"run_command\\\",\\\"value\\\":\\\"/blockdata ~ ~-1 ~ {Command:" + finalStr + ",}\\\"}}\",Text2:\"\",Text3:\"\",Text4:\"\"}";
+                FixColorCode fcc = new FixColorCode();
+                fcc.setStr(finalStr);
+                fcc.ShowDialog();
+                finalStr = fcc.getStr();
             }
         }
 
@@ -1073,7 +1074,7 @@ namespace WpfMinecraftCommandHelper2
             List<string> loadList = new List<string>();
             for (int i = 0; i < fileCount; i++)
             {
-                if (System.Text.RegularExpressions.Regex.IsMatch(finfo[i].Name, @"Potion_\d+\.ini"))
+                if (System.Text.RegularExpressions.Regex.IsMatch(finfo[i].Name, @"Potion_.+\.ini"))
                 {
                     loadList.Add(finfo[i].Name);
                 }

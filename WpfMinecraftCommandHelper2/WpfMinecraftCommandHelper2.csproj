@@ -107,11 +107,15 @@
     <Compile Include="ColorSel.xaml.cs">
       <DependentUpon>ColorSel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Config.cs" />
     <Compile Include="CustomCraft.xaml.cs">
       <DependentUpon>CustomCraft.xaml</DependentUpon>
     </Compile>
     <Compile Include="Favourite.xaml.cs">
       <DependentUpon>Favourite.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FixColorCode.xaml.cs">
+      <DependentUpon>FixColorCode.xaml</DependentUpon>
     </Compile>
     <Compile Include="HeadSelData.cs" />
     <Compile Include="LootTable.xaml.cs">
@@ -185,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Firework.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FixColorCode.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1328,57 +1336,6 @@
     <Resource Include="Images\avatar\djx\16.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\MainIcon\item.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MainIcon\potion.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MainIcon\effect.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MainIcon\particle.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MainIcon\fireworks.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MainIcon\exit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MainIcon\sign.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MainIcon\book.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MainIcon\replace.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MainIcon\title.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MainIcon\summon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MainIcon\about.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MainIcon\spread.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MainIcon\banner.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MainIcon\testfor.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MainIcon\adventure.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MainIcon\other.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Head\Food\100.png" />
     <Resource Include="Images\Head\Food\101.png" />
     <Resource Include="Images\Head\Food\102.png" />
@@ -1456,6 +1413,23 @@
     <Content Include="Help\Superflat.html" />
     <Content Include="Help\Tellraw.html" />
     <Content Include="Help\Testfor.html" />
+    <Resource Include="Images\MainIcon\about.png" />
+    <Resource Include="Images\MainIcon\adventure.png" />
+    <Resource Include="Images\MainIcon\banner.png" />
+    <Resource Include="Images\MainIcon\effect.png" />
+    <Resource Include="Images\MainIcon\exit.png" />
+    <Resource Include="Images\MainIcon\fireworks.png" />
+    <Resource Include="Images\MainIcon\item.png" />
+    <Resource Include="Images\MainIcon\loottable.png" />
+    <Resource Include="Images\MainIcon\other.png" />
+    <Resource Include="Images\MainIcon\particle.png" />
+    <Resource Include="Images\MainIcon\potion.png" />
+    <Resource Include="Images\MainIcon\replace.png" />
+    <Resource Include="Images\MainIcon\scoreboard.png" />
+    <Resource Include="Images\MainIcon\sign.png" />
+    <Resource Include="Images\MainIcon\spread.png" />
+    <Resource Include="Images\MainIcon\summon.png" />
+    <Resource Include="Images\MainIcon\testfor.png" />
     <Resource Include="Images\avatar\sasa\0.jpg" />
     <Resource Include="Images\avatar\temp\21.jpg" />
     <Resource Include="Images\avatar\temp\22.jpg" />

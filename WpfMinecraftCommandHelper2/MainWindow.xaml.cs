@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using MahApps.Metro;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using System.IO;
@@ -19,6 +20,7 @@ namespace WpfMinecraftCommandHelper2
     public partial class MainWindow : MetroWindow
     {
         private DispatcherTimer timer = new DispatcherTimer();
+        private Config config = new Config();
 
         public MainWindow()
         {
@@ -27,12 +29,12 @@ namespace WpfMinecraftCommandHelper2
             lang = setlang.getAllLanguage();
             string templang = setlang.getLangFile();
             appLanguage(setlang.SetMain(templang));
-            if (getMainImageGroupMode() != "sc")
+            if (config.getSetting("[Personalize]", "Avatar") != "sc")
             {
                 pictureBoxClicked();
             }
-            ReadDarkTheme();
-            if (getUpdateSetting() != "false")
+            readTheme();
+            if (config.getSetting("[Personalize]", "CheckingUpdate") != "false")
             {
                 Update.IsChecked = true;
                 Thread t = new Thread(() => {
@@ -47,12 +49,45 @@ namespace WpfMinecraftCommandHelper2
         }
 
         private bool isUpdate = false;
-        private string version = "2.8.3.14";
+        private string version = "2.8.3.15";
         private string getversion = "0.0.0.0";
+        private bool error1 = false;
+        private bool error2 = false;
+
+        private void win_Loaded(object sender, RoutedEventArgs e)
+        {
+            string Taccents = config.getSetting("[Theme]", "ThemeColor");
+            string Tthemes = config.getSetting("[Theme]", "ThemeType");
+            ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(Taccents), ThemeManager.GetAppTheme(Tthemes));
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+            timer.Start();
+            if (config.getSetting("[Personalize]", "ColorfulFontsUse") != "Sign") { fixColorSelSign.IsChecked = false; fixColorSelCB.IsChecked = true; } else { fixColorSelCB.IsChecked = false; fixColorSelSign.IsChecked = true; }
+        }
+
+        private async void timer_Tick(object sender, EventArgs e)
+        {
+            if (isUpdate)
+            {
+                timer.Stop();
+                this.ShowMessageAsync("", "", MessageDialogStyle.Affirmative, new MetroDialogSettings() { MaximumBodyHeight=0, AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                await System.Threading.Tasks.Task.Delay(500);
+                UpdateDownload ud = new UpdateDownload();
+                ud.setVersion(version, getversion);
+                ud.Show();
+            }
+            if (error1 || error2)
+            {
+                timer.Stop();
+                if (error1) { this.ShowMessageAsync(FloatErrorTitle, FloatUpdateError1 + " " + getversion, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel }); }
+                if (error2&&!error1) { this.ShowMessageAsync(FloatErrorTitle, FloatUpdateError2 + " " + getversion, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel }); }
+            }
+        }
 
         private void UpdateCheck()
         {
-            string getVersion = "";
+            string getVersion = "nil";
             try
             {
                 System.Net.HttpWebRequest getVersionRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.Create("https://bitbucket.org/IceLitty/minecraftcommandhelperversioncheck/raw/master/version.ini");
@@ -65,7 +100,7 @@ namespace WpfMinecraftCommandHelper2
                     }
                 }
             }
-            catch (Exception) { }
+            catch (Exception) { error1 = true; }
             getversion = getVersion;
             string[] getVS = getVersion.Split('.');
             string[] nowVS = version.Split('.');
@@ -89,28 +124,7 @@ namespace WpfMinecraftCommandHelper2
                         } else { isUpdate = true; }
                     } else { isUpdate = true; }
                 } else { isUpdate = true; }
-            } catch (Exception) { isUpdate = false; }
-        }
-
-        private void win_Loaded(object sender, RoutedEventArgs e)
-        {
-            timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += timer_Tick;
-            timer.Start();
-        }
-
-        private async void timer_Tick(object sender, EventArgs e)
-        {
-            if (isUpdate)
-            {
-                timer.Stop();
-                this.ShowMessageAsync("", "", MessageDialogStyle.Affirmative, new MetroDialogSettings() { MaximumBodyHeight=0, AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-                await System.Threading.Tasks.Task.Delay(500);
-                UpdateDownload ud = new UpdateDownload();
-                ud.setVersion(version, getversion);
-                ud.Show();
-            }
+            } catch (Exception) { isUpdate = false; error2 = true; }
         }
 
         private string FloatConfirm = "确认";
@@ -119,6 +133,8 @@ namespace WpfMinecraftCommandHelper2
         private string FloatWarningTitle = "警告";
         private string FloatErrorTitle = "错误";
         private string FloatHelpFileCantFind = "";
+        private string FloatUpdateError1 = "检测更新失败，请告知作者";
+        private string FloatUpdateError2 = "更新内容分析失败，请告知作者";
 
         private void appLanguage(List<string> templanglist)
         {
@@ -148,8 +164,6 @@ namespace WpfMinecraftCommandHelper2
             aboutButton.Title = templanglist[31];
             scoreboardBtn.Title = templanglist[32];
             MainAboutFloatText = templanglist[33];
-            MainProfileDoesntExist = templanglist[34];
-            MainAvatarDoesntExist = templanglist[35];
             MainProfileError = templanglist[36];
             favouriteText.Text = templanglist[37];
             settingsText.Text = templanglist[38];
@@ -181,10 +195,8 @@ namespace WpfMinecraftCommandHelper2
             Sienna.Content = templanglist[64];
             Taupe.Content = templanglist[65];
             MainThemeProfile.Content = templanglist[66];
-            MainThemeProfileTip.Content = templanglist[67];
             BaseLight.Content = templanglist[68];
             BaseDark.Content = templanglist[69];
-            delFileBtn.Content = templanglist[70];
             MainFloatTheme.Content = templanglist[71];
             Adapt.Content = templanglist[72];
             Inverse.Content = templanglist[73];
@@ -203,6 +215,11 @@ namespace WpfMinecraftCommandHelper2
             tizi.Content = templanglist[86];
             zero.Content = templanglist[87];
             FloatHelpFileCantFind = templanglist[88];
+            FloatUpdateError1 = templanglist[89];
+            FloatUpdateError2 = templanglist[90];
+            fixColorSelCB.ToolTip = templanglist[91];
+            fixColorSelSign.ToolTip = templanglist[92];
+            loottable.Title = templanglist[93];
         }
 
         private List<string> lang = new List<string>();
@@ -212,7 +229,7 @@ namespace WpfMinecraftCommandHelper2
         {
             SetLang setlang = new SetLang();
             if (nowLang < lang.Count - 1) { nowLang++; } else { nowLang = 0; }
-            setlang.setLangFile(lang[nowLang]);
+            config.setSetting(new Dictionary<string, string> { { "Language", lang[nowLang] } });
             string templang = setlang.getLangFile();
             appLanguage(setlang.SetMain(templang));
         }
@@ -224,15 +241,10 @@ namespace WpfMinecraftCommandHelper2
 
         private void settingsColor_Click(object sender, RoutedEventArgs e)
         {
-            readFile();
-            initValue(getMainImageGroupMode());
+            readTheme();
+            initValue(config.getSetting("[Personalize]", "Avatar"));
             flythemeChange();
             settingsFlyout.IsOpen = !settingsFlyout.IsOpen;
-            //this.Hide();
-            //FrameColorSet fcbox = new FrameColorSet();
-            //fcbox.ShowDialog();
-            //this.Show();
-            //string temp = "请重启本程序来更改配色方案！";
             //this.ShowMessageAsync("", temp, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = "确认", NegativeButtonText = "取消", AnimateShow = false });
         }
 
@@ -366,6 +378,14 @@ namespace WpfMinecraftCommandHelper2
             this.Show();
         }
 
+        private void loottable_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            LootTable ltbox = new LootTable();
+            ltbox.ShowDialog();
+            this.Show();
+        }
+
         string MainAboutFloatText = "感谢使用此软件，更多详情请点击右上角“关于”按钮！";
 
         private void aboutButton_Click(object sender, RoutedEventArgs e)
@@ -373,38 +393,20 @@ namespace WpfMinecraftCommandHelper2
             this.ShowMessageAsync(FloatAboutTitle, MainAboutFloatText, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
         }
 
-        //private bool picSwitch = false;
-        //private int labelInt = 0;
-        //private string imageGroupMode = "sc";
-
         private void pictureBox1_MouseDown(object sender, MouseButtonEventArgs e)
         {
             pictureBoxClicked();
-            /*
-            if (picSwitch)
-            {
-                pictureBox1.Source = new BitmapImage(new Uri("pack://application:,,,/Images/0o0.png"));
-                picSwitch = false;
-            }
-            else
-            {
-                pictureBox1.Source = new BitmapImage(new Uri("pack://application:,,,/Images/0o02.png"));
-                picSwitch = true;
-            }
-            */
-            //labelInt++;
             Random random = new Random();
             AllSelData asd = new AllSelData();
             int randomResault = random.Next(1, asd.getMainStrCount());
             byte[] randomStrColor = pictureStrColorBackRandom();
             text.Foreground = new SolidColorBrush(Color.FromArgb(255, randomStrColor[0], randomStrColor[1], randomStrColor[2]));
-            //text.Content = randomStrColor[0] + " " + randomStrColor[1] + " " + randomStrColor[2];
             text.Content = asd.getMainStr(randomResault);
         }
 
         private void pictureBoxClicked()
         {
-            string imageGroupMode = getMainImageGroupMode();
+            string imageGroupMode = config.getSetting("[Personalize]", "Avatar");
             if (imageGroupMode == "sc")
             {
                 pictureBox1.Source = getBitmap_sc();
@@ -709,95 +711,26 @@ namespace WpfMinecraftCommandHelper2
 
         private void settingsFlyout_ClosingFinished(object sender, RoutedEventArgs e)
         {
-            saveFileAndRun();
+            config.setSetting(new Dictionary<string, string> { { "ThemeColor", accents }, { "ThemeType", themes }, { "FlyThemeType", flytheme } });
+            ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(accents), ThemeManager.GetAppTheme(themes));
+            string ColorfulFonts; if (fixColorSelSign.IsChecked.Value == true) ColorfulFonts = "Sign"; else ColorfulFonts = "CB";
+            config.setSetting(new Dictionary<string, string> { { "ColorfulFontsUse", ColorfulFonts } });
         }
 
-        private void readFile()
+        private void readTheme()
         {
-            List<string> txt = new List<string>();
-            if (!File.Exists(Directory.GetCurrentDirectory() + @"\settings\settings.ini"))
+            accents = config.getSetting("[Theme]", "ThemeColor");
+            themes = config.getSetting("[Theme]", "ThemeType");
+            flytheme = config.getSetting("[Theme]", "FlyThemeType");
+            appinShow();
+            if (themes == "BaseDark")
             {
-                List<string> wtxt = new List<string>();
-                wtxt.Add("Blue|BaseLight|Adapt");
+                darkTheme = true;
+            }
+            else
+            {
                 darkTheme = false;
-                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\settings.ini", FileMode.Create))
-                {
-                    using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
-                    {
-                        for (int i = 0; i < wtxt.Count; i++)
-                        {
-                            sw.WriteLine(wtxt[i]);
-                        }
-                    }
-                }
             }
-            using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings\settings.ini", Encoding.UTF8))
-            {
-                int lineCount = 0;
-                while (sr.Peek() > 0)
-                {
-                    lineCount++;
-                    string temp = sr.ReadLine();
-                    txt.Add(temp);
-                }
-            }
-            try
-            {
-                accents = txt[0].Split(new char[] { '|' })[0];
-                themes = txt[0].Split(new char[] { '|' })[1];
-                flytheme = txt[0].Split(new char[] { '|' })[2];
-                appinShow();
-            }
-            catch (Exception)
-            {
-                errorDialog();
-                //throw;
-            }
-        }
-
-        private void saveFileAndRun()
-        {
-            if (!dontCreate)
-            {
-                List<string> wtxt = new List<string>();
-                string temp = accents + "|" + themes + "|" + flytheme;
-                wtxt.Add(temp);
-                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\settings.ini", FileMode.Create))
-                {
-                    using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
-                    {
-                        for (int i = 0; i < wtxt.Count; i++)
-                        {
-                            sw.WriteLine(wtxt[i]);
-                        }
-                    }
-                }
-            }
-        }
-
-        bool dontCreate = false;
-        string MainProfileDoesntExist = "配置文件不存在。";
-        string MainAvatarDoesntExist = "头像清单不存在。";
-
-        private void delFileBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (File.Exists(Directory.GetCurrentDirectory() + @"\settings\settings.ini"))
-            {
-                File.Delete(Directory.GetCurrentDirectory() + @"\settings\settings.ini");
-            }
-            else
-            {
-                this.ShowMessageAsync(FloatErrorTitle, MainProfileDoesntExist, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-            }
-            if (File.Exists(Directory.GetCurrentDirectory() + @"\settings\avatar.ini"))
-            {
-                File.Delete(Directory.GetCurrentDirectory() + @"\settings\avatar.ini");
-            }
-            else
-            {
-                this.ShowMessageAsync(FloatErrorTitle, MainAvatarDoesntExist, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-            }
-            dontCreate = true;
         }
 
         bool darkTheme = false;
@@ -849,12 +782,13 @@ namespace WpfMinecraftCommandHelper2
             else { errorDialog(); }
         }
 
-        string MainProfileError = "配置文件获取错误，即将删除配置文件！";
+        string MainProfileError = "配置文件获取错误，即将初始化配置文件！";
 
         private void errorDialog()
         {
             this.ShowMessageAsync(FloatErrorTitle, MainProfileError, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-            File.Delete(Directory.GetCurrentDirectory() + @"\settings\settings.ini");
+            File.Delete(Directory.GetCurrentDirectory() + @"\settings\config.ini");
+            config.initconfig();
         }
 
         private void Adapt_Click(object sender, RoutedEventArgs e)
@@ -1009,95 +943,6 @@ namespace WpfMinecraftCommandHelper2
             darkTheme = true;
         }
 
-        private void ReadDarkTheme()
-        {
-            if (File.Exists(Directory.GetCurrentDirectory() + @"\settings\settings.ini"))
-            {
-                List<string> txt = new List<string>();
-                string themes = "BaseLight";
-                using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings\settings.ini", Encoding.UTF8))
-                {
-                    int lineCount = 0;
-                    while (sr.Peek() > 0)
-                    {
-                        lineCount++;
-                        string temp = sr.ReadLine();
-                        txt.Add(temp);
-                    }
-                }
-                try
-                {
-                    themes = txt[0].Split(new char[] { '|' })[1];
-                }
-                catch (Exception) { }
-                if (themes == "BaseDark")
-                {
-                    darkTheme = true;
-                }
-                else
-                {
-                    darkTheme = false;
-                }
-            }
-        }
-
-        public void setMainImageGroupMode(string str)
-        {
-            List<string> wtxt = new List<string>();
-            string temp = str;
-            wtxt.Add(temp);
-            using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\avatar.ini", FileMode.Create))
-            {
-                using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
-                {
-                    for (int i = 0; i < wtxt.Count; i++)
-                    {
-                        sw.WriteLine(wtxt[i]);
-                    }
-                }
-            }
-        }
-
-        public string getMainImageGroupMode()
-        {
-            List<string> txt = new List<string>();
-            if (!File.Exists(Directory.GetCurrentDirectory() + @"\settings\avatar.ini"))
-            {
-                List<string> wtxt = new List<string>();
-                wtxt.Add("sc");
-                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\avatar.ini", FileMode.Create))
-                {
-                    using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
-                    {
-                        for (int i = 0; i < wtxt.Count; i++)
-                        {
-                            sw.WriteLine(wtxt[i]);
-                        }
-                    }
-                }
-            }
-            using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings\avatar.ini", Encoding.UTF8))
-            {
-                int lineCount = 0;
-                while (sr.Peek() > 0)
-                {
-                    lineCount++;
-                    string temp = sr.ReadLine();
-                    txt.Add(temp);
-                }
-            }
-            try
-            {
-                return txt[0];
-            }
-            catch (Exception)
-            {
-                File.Delete(Directory.GetCurrentDirectory() + @"\settings\avatar.ini");
-                return "sc";
-                //throw;
-            }
-        }
-
         private void initValue(string str)
         {
             if (str == "sc") { sc.IsChecked = true; }
@@ -1116,62 +961,62 @@ namespace WpfMinecraftCommandHelper2
 
         private void sc_Checked(object sender, RoutedEventArgs e)
         {
-            setMainImageGroupMode("sc");
+            config.setSetting(new Dictionary<string, string> { { "Avatar", "sc" } });
         }
 
         private void ice_Checked(object sender, RoutedEventArgs e)
         {
-            setMainImageGroupMode("ice");
+            config.setSetting(new Dictionary<string, string> { { "Avatar", "ice" } });
         }
 
         private void djx_Checked(object sender, RoutedEventArgs e)
         {
-            setMainImageGroupMode("djx");
+            config.setSetting(new Dictionary<string, string> { { "Avatar", "djx" } });
         }
 
         private void pudding_Checked(object sender, RoutedEventArgs e)
         {
-            setMainImageGroupMode("pudding");
+            config.setSetting(new Dictionary<string, string> { { "Avatar", "pudding" } });
         }
 
         private void aguo_Checked(object sender, RoutedEventArgs e)
         {
-            setMainImageGroupMode("aguo");
+            config.setSetting(new Dictionary<string, string> { { "Avatar", "aguo" } });
         }
 
         private void sym_Checked(object sender, RoutedEventArgs e)
         {
-            setMainImageGroupMode("sym");
+            config.setSetting(new Dictionary<string, string> { { "Avatar", "sym" } });
         }
 
         private void jelly_Checked(object sender, RoutedEventArgs e)
         {
-            setMainImageGroupMode("jelly");
+            config.setSetting(new Dictionary<string, string> { { "Avatar", "jelly" } });
         }
 
         private void tizi_Checked(object sender, RoutedEventArgs e)
         {
-            setMainImageGroupMode("tizi");
+            config.setSetting(new Dictionary<string, string> { { "Avatar", "tizi" } });
         }
 
         private void zero_Checked(object sender, RoutedEventArgs e)
         {
-            setMainImageGroupMode("zero");
+            config.setSetting(new Dictionary<string, string> { { "Avatar", "zero" } });
         }
 
         private void sasa_Click(object sender, RoutedEventArgs e)
         {
-            setMainImageGroupMode("sasa");
+            config.setSetting(new Dictionary<string, string> { { "Avatar", "sasa" } });
         }
 
         private void style_Click(object sender, RoutedEventArgs e)
         {
-            setMainImageGroupMode("style");
+            config.setSetting(new Dictionary<string, string> { { "Avatar", "style" } });
         }
 
         private void temp_Click(object sender, RoutedEventArgs e)
         {
-            setMainImageGroupMode("temp");
+            config.setSetting(new Dictionary<string, string> { { "Avatar", "temp" } });
         }
 
         private void sclabel_MouseDown(object sender, MouseButtonEventArgs e)
@@ -1179,72 +1024,15 @@ namespace WpfMinecraftCommandHelper2
             System.Diagnostics.Process.Start("http://www.mcbbs.net/group-163-1.html");
         }
 
-        public void setUpdateSetting(string str)
-        {
-            List<string> wtxt = new List<string>();
-            string temp = str;
-            wtxt.Add(temp);
-            using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\update.ini", FileMode.Create))
-            {
-                using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
-                {
-                    for (int i = 0; i < wtxt.Count; i++)
-                    {
-                        sw.WriteLine(wtxt[i]);
-                    }
-                }
-            }
-        }
-
-        public string getUpdateSetting()
-        {
-            List<string> txt = new List<string>();
-            if (!File.Exists(Directory.GetCurrentDirectory() + @"\settings\update.ini"))
-            {
-                List<string> wtxt = new List<string>();
-                wtxt.Add("true");
-                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\update.ini", FileMode.Create))
-                {
-                    using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
-                    {
-                        for (int i = 0; i < wtxt.Count; i++)
-                        {
-                            sw.WriteLine(wtxt[i]);
-                        }
-                    }
-                }
-            }
-            using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings\update.ini", Encoding.UTF8))
-            {
-                int lineCount = 0;
-                while (sr.Peek() > 0)
-                {
-                    lineCount++;
-                    string temp = sr.ReadLine();
-                    txt.Add(temp);
-                }
-            }
-            try
-            {
-                return txt[0];
-            }
-            catch (Exception)
-            {
-                File.Delete(Directory.GetCurrentDirectory() + @"\settings\update.ini");
-                return "true";
-                //throw;
-            }
-        }
-
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             if (Update.IsChecked.Value)
             {
-                setUpdateSetting("true");
+                config.setSetting(new Dictionary<string, string> { { "CheckingUpdate", "true" } });
             }
             else
             {
-                setUpdateSetting("false");
+                config.setSetting(new Dictionary<string, string> { { "CheckingUpdate", "false" } });
             }
         }
 

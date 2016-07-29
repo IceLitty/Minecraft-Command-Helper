@@ -5,7 +5,7 @@
     "AuthorStr": "語言文件作者：",
     "Author": "IceLitty",
     "LastUpdateStr": "最後更新：",
-    "LastUpdate": "2016.06.25",
+    "LastUpdate": "2016.07.29",
 
     "FloatConfirm": "確認",
     "FloatCancel": "取消",
@@ -20,6 +20,8 @@
     "FloatSearch2": "的搜索结果。",
     "FloatUpdateTitle": "更新檢測",
     "FloatUpdateString": "檢測到更新，請從以下鏈接獲取",
+    "FloatUpdateError1": "檢測更新失敗，請告知作者:",
+    "FloatUpdateError2": "更新內容分析失敗，請告知作者:",
 
     "BtnAt": "獲取AT",
     "BtnClear": "清空",
@@ -48,11 +50,10 @@
     "MainOtherLib": "其他指令",
     "MainExit": "退出程序",
     "MainAbout": "關于程序",
+    "MainLoottable": "掉落掠奪",
     "MainCommandHelp": "指令幫助",
     "MainAboutFloatText": "感謝使用此軟件，更多詳情請點擊右上角「關于」按鈕！",
-    "MainProfileDoesntExist": "配置文件不存在。",
-    "MainAvatarDoesntExist": "頭像清單不存在。",
-    "MainProfileError": "配置文件獲取錯誤，即將刪除配置文件！",
+    "MainProfileError": "配置文件獲取錯誤，即將初始化配置文件！",
     "MainFavourite": "收藏",
     "MainCustomize": "個性化",
     "MainAbout2": "關于",
@@ -83,10 +84,8 @@
     "MainColorSienna": "赭色",
     "MainColorTaupe": "灰褐色",
     "MainThemeProfile": "主題方案：",
-    "MainThemeProfileTip": "刪除文件後請直接關閉程序！",
     "MainThemeLight": "亮色",
     "MainThemeDark": "暗色",
-    "MainThemeDeleteProfile": "刪除配置文件",
     "MainFloatTheme": "彈框主題：",
     "MainFloatThemeAdapt": "宿主",
     "MainFloatThemeInverse": "反宿主",
@@ -106,7 +105,7 @@
     "MainAvatarZero": "Z叔",
 
     "AboutTitle": "關于",
-    "AboutP1": "你好哦，我是IceLitty （MinecraftID）\r\n這個軟件呢，本來一開始就想做了，不過之前的幾個版本因爲技術原因或構想不當而停産了……\r\n不過現在……是高産的節奏了！\r\n首先很感謝您來使用本軟件，本軟件是用于輔助Minecraft的命令以及高級命令的編寫器。\r\n有的時候想做一些原版nbt道具結果忘了指令？去網上查相關帖子，日複一日自己也覺得累了。\r\n當然更別提有的時候沒有網絡……\r\n于是就想做出這種軟件了！",
+    "AboutP1": "你好哦，我是IceLitty （MinecraftID）\r\n這個軟件是用於為那些懂Minecraft指令基礎知識的玩家缺又不想手動碼命令的玩家使用的，使用前最好擁有基礎知識。\r\n首先很感謝您來使用本軟件，本軟件是用于輔助Minecraft的命令以及高級命令的編寫器。\r\n有的時候想做一些原版nbt道具結果忘了指令？去網上查相關帖子，日複一日自己也覺得累了。\r\n當然更別提有的時候沒有網絡……\r\n于是就想做出這種軟件了！",
     "AboutContactTitle": "軟件相關/Bug彙報：",
     "AboutMail": "郵件",
     "AboutWebSite": "個人網站",
@@ -192,7 +191,6 @@
     "CCStep4": "第四步：在兩個命令方塊中間放上比較器，注意下方也要放方塊支撐。",
     "CCStep5": "第五步：檢查面朝朝向，左側第二組第四行：「Facing: east」。",
     "CCStep6": "最後：根據你的朝向生成代碼。",
-    "CCClickMe": "請戳我",
     "CCBack": "靠後的命令方塊 - 設置合成後物品",
     "CCFront": "靠前的命令方塊 - 判斷合成",
     "CCTitle": "自定義合成",
@@ -411,8 +409,6 @@
     "OtherListSouth": "座椅面朝南 South",
     "OtherListWest": "座椅面朝西 West",
     "OtherListEast": "座椅面朝東 East",
-    "OtherLoot": "可搶奪物品表編輯器",
-    "OtherHelpLoot": "用于1.9的JSON格式地圖的生物掉落/箱子生成等可搶奪物品表的生成器。",
 
     "ParticleTitle": "特效粒子",
     "ParticleChooseEffect": "請選擇效果：",
@@ -807,5 +803,13 @@
     "ColorTitle": "色彩選擇",
     "ColorR": "紅",
     "ColorG": "綠",
-    "ColorB": "藍"
+    "ColorB": "藍",
+
+    "FColorTitle": "色彩代碼修復",
+    "FColorClickMe": "請點擊我",
+    "FColorCopy": "Ctrl+鼠標中鍵可抓取",
+    "FColorBoxTooltip": "在此粘貼代碼",
+    "FColorBtnTooltip": "根據妳的代碼，手動重新生成指令。",
+    "FColorSelCB": "[默認]告示牌會將下方命令方塊的內容為修復後指令，可Ctrl+鼠標中鍵拾取並在別處放置，仍有效。",
+    "FColorSelSign": "直接右鍵告示牌即可執行修復後指令，同樣可Ctrl+鼠標中鍵拾取並在別處放置。"
 }

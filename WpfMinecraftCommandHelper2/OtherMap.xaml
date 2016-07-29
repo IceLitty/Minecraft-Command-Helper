@@ -128,11 +128,6 @@
             <Button x:Name="tabOther1RideHide" Content="隐身" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="500,1,0,0" Click="tabOther1RideHide_Click" Style="{DynamicResource SquareButtonStyle}"/>
             <CheckBox x:Name="tabOther1RideRi" Content="记录方向" HorizontalAlignment="Left" Margin="423,4,0,0" VerticalAlignment="Top"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="26" Margin="10,475,0,0" VerticalAlignment="Top" Width="591">
-            <Button x:Name="tabOther1LootHelp" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1LootHelp_Click" Style="{DynamicResource SquareButtonStyle}"/>
-            <Label x:Name="Other1Loot" Content="可抢夺物品表编辑器" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="tabOther1Loot" Content="打开" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,1,0,0" Style="{DynamicResource SquareButtonStyle}" Click="tabOther1Loot_Click"/>
-        </Grid>
 
     </Grid>
 </Controls:MetroWindow>

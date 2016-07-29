@@ -161,6 +161,7 @@ namespace WpfMinecraftCommandHelper2
             globalAttrStringLess = "";
             globalUnbreaking = "";
             globalHideflag = "";
+            globalCommand = "";
             tabItemSel.SelectedIndex = 0;
             tabItemMeta.Value = 0;
             tabItemCount.Value = 1;
@@ -263,6 +264,7 @@ namespace WpfMinecraftCommandHelper2
             globalNLString = "";
             globalAttrString = "";
             globalAttrStringLess = "";
+            globalCommand = "";
             //开始生成赋值
             AllSelData asd = new AllSelData();
             string give = "/give " + atBox.Text + " " + asd.getItem(tabItemSel.SelectedIndex) + " " + tabItemCount.Value.ToString() + " " + tabItemMeta.Value.ToString();
@@ -308,20 +310,15 @@ namespace WpfMinecraftCommandHelper2
                 finalString = finalString.Remove(finalString.Length - 1, 1);
                 finalStr = give + finalString + "}";
             }
-            finalStr = fixColorCode(finalStr);
-            globalCommand = finalStr;
-        }
-
-        private string fixColorCode(string str)
-        {
             //判断是否含有颜色代码
-            if (str.IndexOf("§") != -1)
+            if (finalStr.IndexOf("§") != -1)
             {
-                str = str.Replace("§", @"\\u00A7");
-                str = str.Replace("\"", "\\\\\\\"");
-                str = "/setblock ~ ~1 ~ standing_sign 0 replace {Text1:\"{\\\"text\\\":\\\"请点击我\\\",\\\"clickEvent\\\":{\\\"action\\\":\\\"run_command\\\",\\\"value\\\":\\\"/blockdata ~ ~-1 ~ {Command:" + str + ",}\\\"}}\",Text2:\"\",Text3:\"\",Text4:\"\"}";
+                FixColorCode fcc = new FixColorCode();
+                fcc.setStr(finalStr);
+                fcc.ShowDialog();
+                finalStr = fcc.getStr();
             }
-            return str;
+            globalCommand = finalStr;
         }
 
         private string EnchantReturn()
@@ -845,11 +842,10 @@ namespace WpfMinecraftCommandHelper2
                     }
                 }
             }
-        }
-
-        private void fixColorBtn_Click(object sender, RoutedEventArgs e)
-        {
-            finalStr = fixColorCode(colorBox.Text);
+            else if (e.Key == System.Windows.Input.Key.F2)
+            {
+                showFixColorWindow();
+            }
         }
 
         private void saveFavBtn_Click(object sender, RoutedEventArgs e)
@@ -985,7 +981,7 @@ namespace WpfMinecraftCommandHelper2
             List<string> loadList = new List<string>();
             for (int i = 0; i < fileCount; i++)
             {
-                if (System.Text.RegularExpressions.Regex.IsMatch(finfo[i].Name, @"Item_\d+\.ini"))
+                if (System.Text.RegularExpressions.Regex.IsMatch(finfo[i].Name, @"Item_.+\.ini"))
                 {
                     loadList.Add(finfo[i].Name);
                 }
@@ -1161,6 +1157,20 @@ namespace WpfMinecraftCommandHelper2
                     }
                 }
             }
+        }
+
+        private void fixColorBtn_Click(object sender, RoutedEventArgs e)
+        {
+            showFixColorWindow();
+        }
+
+        private void showFixColorWindow()
+        {
+            FixColorCode fcc = new FixColorCode();
+            if (globalCommand != "") { fcc.setStr(finalStr); }
+                else { fcc.setStr(""); }
+            fcc.ShowDialog();
+            finalStr = fcc.getStr();
         }
     }
 }

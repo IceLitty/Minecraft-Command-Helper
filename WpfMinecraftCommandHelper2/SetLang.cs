@@ -41,61 +41,10 @@ namespace WpfMinecraftCommandHelper2
             return txt;
         }
 
-        public void setLangFile(string langID)
-        {
-            List<string> wtxt = new List<string>();
-            string temp = langID;
-            wtxt.Add(temp);
-            using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\lang.ini", FileMode.Create))
-            {
-                using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
-                {
-                    for (int i = 0; i < wtxt.Count; i++)
-                    {
-                        sw.WriteLine(wtxt[i]);
-                    }
-                }
-            }
-        }
-
         public string getLangFile()
         {
-            List<string> txt = new List<string>();
-            if (!File.Exists(Directory.GetCurrentDirectory() + @"\settings\lang.ini"))
-            {
-                List<string> wtxt = new List<string>();
-                wtxt.Add("cn");
-                using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + @"\settings\lang.ini", FileMode.Create))
-                {
-                    using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
-                    {
-                        for (int i = 0; i < wtxt.Count; i++)
-                        {
-                            sw.WriteLine(wtxt[i]);
-                        }
-                    }
-                }
-            }
-            using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + @"\settings\lang.ini", Encoding.UTF8))
-            {
-                int lineCount = 0;
-                while (sr.Peek() > 0)
-                {
-                    lineCount++;
-                    string temp = sr.ReadLine();
-                    txt.Add(temp);
-                }
-            }
-            try
-            {
-                return txt[0];
-            }
-            catch (Exception)
-            {
-                File.Delete(Directory.GetCurrentDirectory() + @"\settings\lang.ini");
-                return "cn";
-                //throw;
-            }
+            Config config = new Config();
+            return config.getSetting("[Personalize]", "Language");
         }
 
         public List<string> getAllLanguage()
@@ -153,8 +102,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["MainAbout"].ToString());
             relanglist.Add(LangList[langID]["MainCommandHelp"].ToString());
             relanglist.Add(LangList[langID]["MainAboutFloatText"].ToString());
-            relanglist.Add(LangList[langID]["MainProfileDoesntExist"].ToString());
-            relanglist.Add(LangList[langID]["MainAvatarDoesntExist"].ToString());
+            relanglist.Add(LangList[langID]["MainAboutFloatText"].ToString());//
+            relanglist.Add(LangList[langID]["MainAboutFloatText"].ToString());//
             relanglist.Add(LangList[langID]["MainProfileError"].ToString());
             relanglist.Add(LangList[langID]["MainFavourite"].ToString());
             relanglist.Add(LangList[langID]["MainCustomize"].ToString());
@@ -186,10 +135,10 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["MainColorSienna"].ToString());
             relanglist.Add(LangList[langID]["MainColorTaupe"].ToString());
             relanglist.Add(LangList[langID]["MainThemeProfile"].ToString());
-            relanglist.Add(LangList[langID]["MainThemeProfileTip"].ToString());
+            relanglist.Add(LangList[langID]["MainThemeProfile"].ToString());//
             relanglist.Add(LangList[langID]["MainThemeLight"].ToString());
             relanglist.Add(LangList[langID]["MainThemeDark"].ToString());
-            relanglist.Add(LangList[langID]["MainThemeDeleteProfile"].ToString());
+            relanglist.Add(LangList[langID]["MainThemeDark"].ToString());//
             relanglist.Add(LangList[langID]["MainFloatTheme"].ToString());
             relanglist.Add(LangList[langID]["MainFloatThemeAdapt"].ToString());
             relanglist.Add(LangList[langID]["MainFloatThemeInverse"].ToString());
@@ -208,6 +157,11 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["MainAvatarTizi"].ToString());
             relanglist.Add(LangList[langID]["MainAvatarZero"].ToString());
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["FloatUpdateError1"].ToString());
+            relanglist.Add(LangList[langID]["FloatUpdateError2"].ToString());
+            relanglist.Add(LangList[langID]["FColorSelCB"].ToString());
+            relanglist.Add(LangList[langID]["FColorSelSign"].ToString());
+            relanglist.Add(LangList[langID]["MainLoottable"].ToString());
             return relanglist;
         }
 
@@ -447,7 +401,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["CCStep4"].ToString());
             relanglist.Add(LangList[langID]["CCStep5"].ToString());
             relanglist.Add(LangList[langID]["CCStep6"].ToString());
-            relanglist.Add(LangList[langID]["CCClickMe"].ToString());
+            relanglist.Add(LangList[langID]["FloatCancel"].ToString());//
             relanglist.Add(LangList[langID]["CCBack"].ToString());
             relanglist.Add(LangList[langID]["CCFront"].ToString());
             relanglist.Add(LangList[langID]["CCTitle"].ToString());
@@ -577,6 +531,32 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["FireworkNextPage"].ToString());
             relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            return relanglist;
+        }
+
+        public List<string> SetFixColorCode()
+        {
+            string nowLang = getLangFile();
+            int langID = 0;
+            for (int i = 0; i < fileCount; i++)
+            {
+                if (LangList[i]["LanguageID"].ToString() == nowLang)
+                {
+                    langID = i;
+                }
+            }
+            List<string> relanglist = new List<string>();
+            relanglist.Add(LangList[langID]["FColorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FColorClickMe"].ToString());
+            relanglist.Add(LangList[langID]["FColorCopy"].ToString());
+            relanglist.Add(LangList[langID]["FColorBoxTooltip"].ToString());
+            relanglist.Add(LangList[langID]["FColorBtnTooltip"].ToString());
+            relanglist.Add(LangList[langID]["FColorSelCB"].ToString());
+            relanglist.Add(LangList[langID]["FColorSelSign"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["FloatConfirm"].ToString());
+            relanglist.Add(LangList[langID]["FloatCancel"].ToString());
             return relanglist;
         }
 
@@ -895,8 +875,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["OtherListSouth"].ToString());
             relanglist.Add(LangList[langID]["OtherListWest"].ToString());
             relanglist.Add(LangList[langID]["OtherListEast"].ToString());
-            relanglist.Add(LangList[langID]["OtherLoot"].ToString());
-            relanglist.Add(LangList[langID]["OtherHelpLoot"].ToString());
+            relanglist.Add(LangList[langID]["OtherListEast"].ToString());//
+            relanglist.Add(LangList[langID]["OtherListEast"].ToString());//
             relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             relanglist.Add(LangList[langID]["OtherHelpArmorStand3"].ToString());
