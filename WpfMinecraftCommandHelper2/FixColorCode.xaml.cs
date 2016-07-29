@@ -81,6 +81,11 @@ namespace WpfMinecraftCommandHelper2
 
         private void fixColorBtn_Click(object sender, RoutedEventArgs e)
         {
+            fixColor();
+        }
+
+        public void fixColor()
+        {
             finalStr = fixColorCode(colorBox.Text);
             this.Title = FColorTitle + " - √";
         }

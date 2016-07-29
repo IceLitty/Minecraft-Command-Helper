@@ -293,15 +293,17 @@ namespace WpfMinecraftCommandHelper2
             {
                 FixColorCode fcc = new FixColorCode();
                 fcc.setStr(firstBlock);
-                fcc.ShowDialog();
+                fcc.fixColor();
                 firstBlock = fcc.getStr();
+                fcc.Close();
             }
             if (secondBlock.IndexOf("§") != -1)
             {
                 FixColorCode fcc = new FixColorCode();
                 fcc.setStr(secondBlock);
-                fcc.ShowDialog();
+                fcc.fixColor();
                 secondBlock = fcc.getStr();
+                fcc.Close();
             }
             Check cbox2 = new Check();
             cbox2.showText(secondBlock, CCBack);
