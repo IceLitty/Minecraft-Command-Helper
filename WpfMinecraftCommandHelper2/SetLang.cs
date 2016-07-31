@@ -1412,6 +1412,22 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["TestforOpenAtWindowBtn"].ToString());
             relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["TestforTestforTooltip"].ToString());
+            relanglist.Add(LangList[langID]["TestforExecuteTooltip"].ToString());
+            relanglist.Add(LangList[langID]["TestforDetect"].ToString());
+            relanglist.Add(LangList[langID]["TestforDetectTooltip"].ToString());
+            relanglist.Add(LangList[langID]["TestforEntityTooltip"].ToString());
+            relanglist.Add(LangList[langID]["TestforEntityX"].ToString());
+            relanglist.Add(LangList[langID]["TestforEntityY"].ToString());
+            relanglist.Add(LangList[langID]["TestforEntityZ"].ToString());
+            relanglist.Add(LangList[langID]["TestforCommand"].ToString());
+            relanglist.Add(LangList[langID]["TestforBlockType"].ToString());
+            relanglist.Add(LangList[langID]["TestforBlockX"].ToString());
+            relanglist.Add(LangList[langID]["TestforBlockY"].ToString());
+            relanglist.Add(LangList[langID]["TestforBlockZ"].ToString());
+            relanglist.Add(LangList[langID]["TestforBlockMeta"].ToString());
+            relanglist.Add(LangList[langID]["TestforBlockButton"].ToString());
+            relanglist.Add(LangList[langID]["TestforBlockButtonTooltip"].ToString());
             return relanglist;
         }
 

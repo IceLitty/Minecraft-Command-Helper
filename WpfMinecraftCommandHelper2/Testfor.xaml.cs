@@ -14,6 +14,16 @@ namespace WpfMinecraftCommandHelper2
         {
             InitializeComponent();
             appLanguage();
+            AllSelData asd = new AllSelData();
+            for (int i = 0; i < asd.getAtListCount(); i++)
+            {
+                entitySel.Items.Add(asd.getAtNameList(i));
+            }
+            for (int i = 0; i < asd.getItemNameListCount(); i++)
+            {
+                itemSel.Items.Add(asd.getItemNameList(i));
+            }
+            clear();
         }
 
         private string FloatHelpTitle = "帮助";
@@ -42,6 +52,22 @@ namespace WpfMinecraftCommandHelper2
                 atBtn.Content = templang[10];
                 FloatErrorTitle = templang[11];
                 FloatHelpFileCantFind = templang[12];
+                rbTestfor.ToolTip = templang[13];
+                rbExecute.ToolTip = templang[14];
+                detectGpb.Header = templang[15];
+                detectCheck.ToolTip = templang[16];
+                entitySel.ToolTip = templang[17];
+                x.ToolTip = templang[18];
+                y.ToolTip = templang[19];
+                z.ToolTip = templang[20];
+                executeCmd.ToolTip = templang[21];
+                itemSel.ToolTip = templang[22];
+                x2.ToolTip = templang[23];
+                y2.ToolTip = templang[24];
+                z2.ToolTip = templang[25];
+                blockData.ToolTip = templang[26];
+                getBlockBtn.Content = templang[27];
+                getBlockBtn.ToolTip = templang[28];
             } catch (System.Exception) { /* throw; */ }
         }
 
@@ -66,12 +92,59 @@ namespace WpfMinecraftCommandHelper2
 
         private void clearBtn_Click(object sender, RoutedEventArgs e)
         {
+            clear();
+        }
 
+        private void clear()
+        {
+            rbTestfor.IsChecked = true;
+            entitySel.SelectedIndex = 0;
+            itemSel.SelectedIndex = 0;
+            detectCheck.IsChecked = false;
+            detectGpb.IsEnabled = false;
+            x.Value = 0;
+            y.Value = 0;
+            z.Value = 0;
+            x2.Value = 0;
+            y2.Value = 0;
+            z2.Value = 0;
+            executeCmd.Text = "";
+            blockData.Value = -1;
+            at = "";
+            finalStr = "";
         }
 
         private void createBtn_Click(object sender, RoutedEventArgs e)
         {
-            finalStr = "/testfor " + at;
+            if (rbTestfor.IsChecked.Value)
+            {
+                finalStr = "/testfor " + at;
+            }
+            else
+            {
+                finalStr = "/execute " + at + " ~" + x.Value.Value + " ~" + y.Value.Value + " ~" + z.Value.Value + " ";
+                if (detectCheck.IsChecked.Value)
+                {
+                    AllSelData asd = new AllSelData();
+                    finalStr += "detect ~" + x2.Value.Value + " ~" + y2.Value.Value + " ~" + z2.Value.Value + " " + asd.getItem(itemSel.SelectedIndex) + " " + blockData.Value.Value + " " + executeCmd.Text;
+                }
+                else
+                {
+                    finalStr += executeCmd.Text;
+                }
+            }
+        }
+
+        private void getBlockBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Item itembox = new Item();
+            itembox.ShowDialog();
+            int[] temp = itembox.returnStrAdver();
+            if (temp[0] != 0)
+            {
+                itemSel.SelectedIndex = temp[0];
+            }
+            blockData.Value = temp[2];
         }
 
         private void copyBtn_Click(object sender, RoutedEventArgs e)
@@ -84,6 +157,16 @@ namespace WpfMinecraftCommandHelper2
             Check checkbox = new Check();
             checkbox.showText(finalStr);
             checkbox.Show();
+        }
+
+        private void detectCheck_Click(object sender, RoutedEventArgs e)
+        {
+            detectGpb.IsEnabled = detectCheck.IsChecked.Value;
+            if (detectCheck.IsChecked.Value && rbTestfor.IsChecked.Value)
+            {
+                rbTestfor.IsChecked = false;
+                rbExecute.IsChecked = true;
+            }
         }
 
         private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)

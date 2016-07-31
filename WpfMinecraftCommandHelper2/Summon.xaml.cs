@@ -537,7 +537,6 @@ namespace WpfMinecraftCommandHelper2
         private string globalAttrStringLess = "";
         private string globalUnbreaking = "";
         private string globalPotionString = "";
-        private string globalPotionYN = "";
         private string globalPotionNBT = "";
         private string globalHideflag = "";
 
@@ -647,11 +646,7 @@ namespace WpfMinecraftCommandHelper2
             {
                 globalPotionString = temp[0];
             }
-            if (temp[1] != "")
-            {
-                globalPotionYN = temp[1];
-            }
-            globalSumosPotion = "{Potion:{id:minecraft:potion,Damage:" + globalPotionYN + ",Count:1,tag:{CustomPotionEffects:[" + globalPotionString + "]}}}";
+            globalSumosPotion = "{Potion:{id:minecraft:potion,Damage:0,Count:1,tag:{CustomPotionEffects:[" + globalPotionString + "]}}}";
         }
 
         private void tabSumosAttrGetBtn_Click(object sender, RoutedEventArgs e)
@@ -1914,18 +1909,8 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabVillagerGetPotion();
                 globalVillagerAStr[tabVillagerEditIndex] = "CustomPotionEffects:[" + globalPotionString + "]" + globalPotionNBT;
-                if (globalPotionYN == "1")
-                {
-                    tabVillagerAMeta.Value = 1;
-                    tabVillagerAMetaCheck.IsChecked = true;
-                    tabVillagerAMeta.IsEnabled = true;
-                }
-                else
-                {
-                    tabVillagerAMeta.Value = 16384;
-                    tabVillagerAMetaCheck.IsChecked = true;
-                    tabVillagerAMeta.IsEnabled = true;
-                }
+                tabVillagerAMetaCheck.IsChecked = true;
+                tabVillagerAMeta.IsEnabled = true;
             }
             else
             {
@@ -1956,18 +1941,8 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabVillagerGetPotion();
                 globalVillagerBStr[tabVillagerEditIndex] = "CustomPotionEffects:[" + globalPotionString + "]" + globalPotionNBT;
-                if (globalPotionYN == "1")
-                {
-                    tabVillagerBMeta.Value = 1;
-                    tabVillagerBMetaCheck.IsChecked = true;
-                    tabVillagerBMeta.IsEnabled = true;
-                }
-                else
-                {
-                    tabVillagerBMeta.Value = 16384;
-                    tabVillagerBMetaCheck.IsChecked = true;
-                    tabVillagerBMeta.IsEnabled = true;
-                }
+                tabVillagerBMetaCheck.IsChecked = true;
+                tabVillagerBMeta.IsEnabled = true;
             }
             else
             {
@@ -1998,18 +1973,8 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabVillagerGetPotion();
                 globalVillagerCStr[tabVillagerEditIndex] = "CustomPotionEffects:[" + globalPotionString + "]" + globalPotionNBT;
-                if (globalPotionYN == "1")
-                {
-                    tabVillagerCMeta.Value = 1;
-                    tabVillagerCMetaCheck.IsChecked = true;
-                    tabVillagerCMeta.IsEnabled = true;
-                }
-                else
-                {
-                    tabVillagerCMeta.Value = 16384;
-                    tabVillagerCMetaCheck.IsChecked = true;
-                    tabVillagerCMeta.IsEnabled = true;
-                }
+                tabVillagerCMetaCheck.IsChecked = true;
+                tabVillagerCMeta.IsEnabled = true;
             }
             else
             {
@@ -2041,7 +2006,6 @@ namespace WpfMinecraftCommandHelper2
         private void tabVillagerGetPotion() 
         {
             globalPotionString = "";
-            globalPotionYN = "1";
             Potion pbox = new Potion();
             pbox.ShowDialog();
             string[] temp = pbox.returnStr();
@@ -2051,11 +2015,7 @@ namespace WpfMinecraftCommandHelper2
             }
             if (temp[1] != "")
             {
-                globalPotionYN = temp[1];
-            }
-            if (temp[2] != "")
-            {
-                globalPotionNBT = "," + temp[2];
+                globalPotionNBT = "," + temp[1];
             }
         }
 
@@ -2148,10 +2108,6 @@ namespace WpfMinecraftCommandHelper2
             if (temp[0] != "")
             {
                 globalPotionString = temp[0];
-            }
-            if (temp[1] != "")
-            {
-                globalPotionYN = temp[1];
             }
         }
 

@@ -162,7 +162,7 @@
         <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="753,572,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="833,572,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Grid HorizontalAlignment="Left" Height="64" Margin="192,103,0,0" VerticalAlignment="Top" Width="281">
-            <Controls:NumericUpDown x:Name="tabItemMeta" Minimum="0" Maximum="2147483647" Interval="5" StringFormat="" Margin="0,3,0,33" Height="28" Value="0" />
+            <Controls:NumericUpDown x:Name="tabItemMeta" Minimum="-1" Maximum="2147483647" Interval="5" StringFormat="" Margin="0,3,0,33" Height="28" Value="0" />
             <Controls:NumericUpDown x:Name="tabItemCount" Minimum="0" Maximum="64" Interval="5" StringFormat="" Margin="0,36,0,0" Height="28" Value="1" />
         </Grid>
         <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="673,572,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>

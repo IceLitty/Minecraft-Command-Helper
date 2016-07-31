@@ -4,14 +4,38 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="检索玩家" Height="108.352" Width="338.028" PreviewKeyDown="MetroWindow_PreviewKeyDown">
+        Title="检索玩家" Height="189" Width="725" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Grid>
-        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="9,40,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="89,40,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="249,40,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="249,10,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="169,40,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="atBtn" Content="打开AT窗口编辑testfor指令" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="234" Click="atBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="314,10,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="394,10,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="554,10,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="634,10,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="474,10,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="atBtn" Content="打开AT窗口编辑testfor指令" HorizontalAlignment="Left" Margin="83,10,0,0" VerticalAlignment="Top" Width="226" Click="atBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Grid HorizontalAlignment="Left" Height="54" Margin="10,15,0,0" VerticalAlignment="Top" Width="73">
+            <RadioButton x:Name="rbTestfor" Content="Testfor" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True"/>
+            <RadioButton x:Name="rbExecute" Content="Execute" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,32,0,0"/>
+        </Grid>
+        <ComboBox x:Name="entitySel" HorizontalAlignment="Left" Margin="83,43,0,0" VerticalAlignment="Top" Width="226"/>
+        <GroupBox x:Name="detectGpb" Header="Detect" HorizontalAlignment="Left" Margin="83,74,0,0" VerticalAlignment="Top" Height="75" Width="626" IsEnabled="False">
+            <Grid HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="616" Margin="0,0,-2,0">
+                <Grid HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="235" Margin="225,0,0,0">
+                    <Controls:NumericUpDown x:Name="x2" Margin="0,4,160,4" HideUpDownButtons="True" ToolTip="X" Value="0" />
+                    <Controls:NumericUpDown x:Name="y2" Margin="80,4" HideUpDownButtons="True" ToolTip="Y" Value="0" />
+                    <Controls:NumericUpDown x:Name="z2" Margin="160,4,0,4" HideUpDownButtons="True" ToolTip="Z" Value="0" />
+                    <Controls:NumericUpDown x:Name="blockData" Margin="240,4,-80,4" HideUpDownButtons="True" ToolTip="Z" Value="-1" Minimum="-1" />
+                </Grid>
+                <ComboBox x:Name="itemSel" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="220"/>
+                <Button x:Name="getBlockBtn" Content="Get block" HorizontalAlignment="Left" Margin="545,4,0,0" VerticalAlignment="Top" Width="71" Style="{DynamicResource SquareButtonStyle}" Click="getBlockBtn_Click"/>
+            </Grid>
+        </GroupBox>
+        <TextBox x:Name="executeCmd" HorizontalAlignment="Left" Height="23" Margin="554,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" ToolTip="command"/>
+        <Grid HorizontalAlignment="Left" Height="36" Margin="314,38,0,0" VerticalAlignment="Top" Width="235">
+            <Controls:NumericUpDown x:Name="x" Margin="0,4,160,4" HideUpDownButtons="True" ToolTip="X" Value="0" />
+            <Controls:NumericUpDown x:Name="y" Margin="80,4" HideUpDownButtons="True" ToolTip="Y" Value="0" />
+            <Controls:NumericUpDown x:Name="z" Margin="160,4,0,4" HideUpDownButtons="True" ToolTip="Z" Value="0" />
+        </Grid>
+        <CheckBox x:Name="detectCheck" Content="Detect" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Click="detectCheck_Click"/>
 
     </Grid>
 </Controls:MetroWindow>

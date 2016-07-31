@@ -102,8 +102,9 @@ namespace WpfMinecraftCommandHelper2
 
         public string globalPotionString = "";
         // "{Id:1,Amplifier:xxx,Duration:xxx},{xxx}"
-        public int globalPotionYN = 1;
-        // 1 or 16384 - DefaultA or B
+        //public int globalPotionYN = 0;
+        // <s>1 or 16384 - DefaultA or B</s>
+        // it's nothing
         public string globalPotionNBT = "";
         // ...
 
@@ -119,7 +120,6 @@ namespace WpfMinecraftCommandHelper2
         private void clear()
         {
             globalPotionString = "";
-            globalPotionYN = 0;
             tabPotionEffect1.IsChecked = false;
             tabPotionEffect2.IsChecked = false;
             tabPotionEffect3.IsChecked = false;
@@ -295,12 +295,10 @@ namespace WpfMinecraftCommandHelper2
             if (tabPotionA.IsChecked.Value)
             {
                 endStr = "/give " + at + " minecraft:potion " + tabPotionNum.Value.ToString() + " 0";
-                //globalPotionYN = 1;
             }
             else if (tabPotionB.IsChecked.Value)
             {
                 endStr = "/give " + at + " minecraft:splash_potion " + tabPotionNum.Value.ToString() + " 0";
-                //globalPotionYN = 16384;
             }
             else if (tabPotionBUFFPotion.IsChecked.Value)
             {
@@ -417,7 +415,7 @@ namespace WpfMinecraftCommandHelper2
 
         public string[] returnStr()
         {
-            return new string[] { globalPotionString, globalPotionYN.ToString(), globalPotionNBT };
+            return new string[] { globalPotionString, globalPotionNBT };
         }
 
         private void tabPotionEffect1_Checked(object sender, EventArgs e)
