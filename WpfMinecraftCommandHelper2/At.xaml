@@ -39,7 +39,7 @@
             <CheckBox x:Name="rxmCheck" Content="最小垂直旋转" HorizontalAlignment="Left" Margin="252,2,0,0" VerticalAlignment="Top" Click="rxmCheck_Click"/>
             <Controls:NumericUpDown x:Name="rxm" Minimum="-360" Maximum="360" Interval="5" StringFormat="" Margin="353,0,167,4" Height="25" IsEnabled="False" Value="0" />
             <CheckBox x:Name="cCheck" Content="数量" HorizontalAlignment="Left" Margin="498,2,0,0" VerticalAlignment="Top" Click="cCheck_Click"/>
-            <Controls:NumericUpDown x:Name="c" Minimum="-1" Maximum="1000000" Interval="5" StringFormat="" Margin="551,0,0,4" Height="25" Value="1" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="c" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="551,0,0,4" Height="25" Value="1" IsEnabled="False" />
         </Grid>
         <Grid HorizontalAlignment="Left" Height="30" Margin="10,190,0,0" VerticalAlignment="Top" Width="660">
             <CheckBox x:Name="ryCheck" Content="最大水平旋转" HorizontalAlignment="Left" Margin="8,2,0,0" VerticalAlignment="Top" Click="ryCheck_Click"/>

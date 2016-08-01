@@ -996,7 +996,7 @@ namespace WpfMinecraftCommandHelper2
                 sumosText += "Tags:[";
                 for (int i = 0; i < temp.Length; i++)
                 {
-                    sumosText += "{" + temp[i] + "},";
+                    sumosText += "\"" + temp[i] + "\",";
                 }
                 sumosText = sumosText.Substring(0, sumosText.Length - 1);
                 sumosText += "],";
