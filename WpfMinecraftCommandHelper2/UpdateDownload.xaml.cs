@@ -16,6 +16,26 @@ namespace WpfMinecraftCommandHelper2
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
             appLanguage();
+            getUpdateInfo();
+        }
+
+        private void getUpdateInfo()
+        {
+            string updateInfoStr = "";
+            try
+            {
+                System.Net.HttpWebRequest getVersionRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.Create("https://bitbucket.org/IceLitty/minecraftcommandhelperversioncheck/raw/master/update.txt");
+                getVersionRequest.Method = "GET";
+                using (System.Net.WebResponse response = getVersionRequest.GetResponse())
+                {
+                    using (System.IO.StreamReader reader = new System.IO.StreamReader(response.GetResponseStream(), System.Text.Encoding.Default))
+                    {
+                        updateInfoStr = reader.ReadToEnd();
+                    }
+                }
+            }
+            catch (System.Exception) { }
+            updateInfoBox.Text = updateInfoStr;
         }
 
         private void appLanguage()

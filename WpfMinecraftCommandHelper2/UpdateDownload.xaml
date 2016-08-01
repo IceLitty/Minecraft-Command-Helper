@@ -4,11 +4,12 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="UpdateDownload" Height="135.212" Width="361.268" Loaded="MetroWindow_Loaded">
+        Title="UpdateDownload" Height="344.212" Width="528.268" Loaded="MetroWindow_Loaded">
     <Grid>
-        <Controls:MetroProgressBar Margin="0,0,0,100" IsIndeterminate="True" />
-        <Button x:Name="download" Content="百度云-qmx5" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Width="98" Click="download_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="download_Copy" Content="Github" HorizontalAlignment="Left" Margin="113,69,0,0" VerticalAlignment="Top" Width="98" Click="download_Copy_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Label x:Name="label" Content="检测到更新，请从以下链接获取" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top"/>
+        <Controls:MetroProgressBar Margin="0,0,0,309" IsIndeterminate="True" />
+        <Button x:Name="download" Content="百度云-qmx5" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Width="98" Click="download_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="download_Copy" Content="Github" HorizontalAlignment="Left" Margin="113,52,0,0" VerticalAlignment="Top" Width="98" Click="download_Copy_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Label x:Name="label" Content="检测到更新，请从以下链接获取" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="updateInfoBox" HorizontalAlignment="Left" Height="209" Margin="10,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="502"/>
     </Grid>
 </Controls:MetroWindow>
