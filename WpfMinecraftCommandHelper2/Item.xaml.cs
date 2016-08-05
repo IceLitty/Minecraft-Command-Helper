@@ -126,6 +126,9 @@ namespace WpfMinecraftCommandHelper2
                 FloatSearch1 = templang[74];
                 FloatSearch2 = templang[75];
                 FloatSaveFileCantFind = templang[76];
+                AdventureBtn.Content = templang[77];
+                AdventureBtn.ToolTip = templang[78];
+                fixColorBtn.ToolTip = templang[79];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -142,6 +145,10 @@ namespace WpfMinecraftCommandHelper2
         // Unbreakable:1
         private string globalHideflag = "";
         // HideFlag:0 ~ 64
+        private string candestroy = "";
+        // "CanDestroy:["block1","block2"]"
+        private string canplaceon = "";
+        // "CanPlaceOn:["block1","block2"]"
         private string globalCommand = "";
 
         private int globalItemSel = 0;
@@ -264,6 +271,8 @@ namespace WpfMinecraftCommandHelper2
             globalNLString = "";
             globalAttrString = "";
             globalAttrStringLess = "";
+            candestroy = "";
+            canplaceon = "";
             globalCommand = "";
             //开始生成赋值
             AllSelData asd = new AllSelData();
@@ -300,6 +309,14 @@ namespace WpfMinecraftCommandHelper2
             if (tabItemRepairCostCheck.IsChecked.Value)
             {
                 finalString += "RepairCost:" + tabItemRepairCost.Value + ",";
+            }
+            if (candestroy.Length > 0)
+            {
+                finalString += candestroy + ",";
+            }
+            if (canplaceon.Length > 0)
+            {
+                finalString += canplaceon + ",";
             }
             if (finalString == " {")
             {
@@ -629,11 +646,19 @@ namespace WpfMinecraftCommandHelper2
             checkbox.Show();
         }
 
+        /// <summary>
+        /// 0：附魔，1：名称Lore，2：Attribute，3：缩减版Attribute，4：Unbreaking，5：HideFlag，6：全指令，7：10进制色彩代码，8：只能破坏，9：只能放置
+        /// </summary>
+        /// <returns></returns>
         public string[] returnStr()
         {
-            return new string[] { globalEnchString, globalNLString, globalAttrString, globalAttrStringLess, globalUnbreaking, globalHideflag, globalCommand, globalColor };
+            return new string[] { globalEnchString, globalNLString, globalAttrString, globalAttrStringLess, globalUnbreaking, globalHideflag, globalCommand, globalColor, candestroy, canplaceon };
         }
 
+        /// <summary>
+        /// 0：物品选择，1：物品数量，2：物品Meta值，3：HideFlag值
+        /// </summary>
+        /// <returns></returns>
         public int[] returnStrAdver()
         {
             return new int[] { globalItemSel, globalItemCount, globalItemSelMeta, globalHideSelIndex };
@@ -800,11 +825,20 @@ namespace WpfMinecraftCommandHelper2
             tabItemLore.SelectedText = asd.getUniColor(tabItemLoreColorSel.SelectedIndex);
         }
 
+        private byte[] tempColor = { 255, 255, 255 };
+
         private void ColorGetBtn_Click(object sender, RoutedEventArgs e)
         {
             ColorSel csl = new ColorSel();
+            if (tempColor[0] != 255 && tempColor[1] != 255 && tempColor[2] != 255)
+            {
+                csl.setColor(tempColor[0], tempColor[1], tempColor[2]);
+            }
             csl.ShowDialog();
             byte[] colorList = csl.reColor();
+            tempColor[0] = colorList[0];
+            tempColor[1] = colorList[1];
+            tempColor[2] = colorList[2];
             string colorhex = colorList[0].ToString("x") + colorList[1].ToString("x") + colorList[2].ToString("x");
             globalColor = Convert.ToInt32(colorhex, 16).ToString();
         }
@@ -1171,6 +1205,21 @@ namespace WpfMinecraftCommandHelper2
                 else { fcc.setStr(""); }
             fcc.ShowDialog();
             finalStr = fcc.getStr();
+        }
+
+        private void AdventureBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AdventureMode adv = new AdventureMode();
+            adv.ShowDialog();
+            string[] temp = adv.returnStr();
+            if (temp[0] != "CanDestroy:[]")
+            {
+                candestroy = temp[0];
+            }
+            if (temp[1] != "CanPlaceOn:[]")
+            {
+                canplaceon = temp[1];
+            }
         }
     }
 }

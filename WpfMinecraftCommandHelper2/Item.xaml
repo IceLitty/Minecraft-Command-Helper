@@ -175,5 +175,6 @@
             <Label x:Name="label" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF959595"/>
         </Grid>
         <Button x:Name="fixColorBtn" Content="§" HorizontalAlignment="Left" Margin="479,541,0,0" VerticalAlignment="Top" Width="26" Style="{DynamicResource SquareButtonStyle}" ToolTip="Using F2 to open this Manual Fix Color Code window." Height="26" Click="fixColorBtn_Click"/>
+        <Button x:Name="AdventureBtn" Content="Adventure" HorizontalAlignment="Left" Margin="393,541,0,0" VerticalAlignment="Top" Width="80" Style="{DynamicResource SquareButtonStyle}" ToolTip="Open Adventure Window, give item OnlyPlace or OnlyDestroy something NBT data." Height="26" Click="AdventureBtn_Click"/>
     </Grid>
 </Controls:MetroWindow>

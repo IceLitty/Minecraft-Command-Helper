@@ -1,0 +1,111 @@
+﻿<Controls:MetroWindow x:Class="WpfMinecraftCommandHelper2.Tellraw"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
+        Title="文本编辑" Height="665" Width="1284" PreviewKeyDown="MetroWindow_PreviewKeyDown">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="519">
+            <RadioButton x:Name="rbTellraw" Content="Tellraw" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" IsChecked="True" Click="rbTellraw_Click"/>
+            <RadioButton x:Name="rbTitle" Content="Title" HorizontalAlignment="Left" Margin="164,6,0,0" VerticalAlignment="Top" Click="rbTitle_Click"/>
+            <RadioButton x:Name="rbSubtitle" Content="Subtitle" HorizontalAlignment="Left" Margin="232,6,0,0" VerticalAlignment="Top" Click="rbSubtitle_Click"/>
+            <RadioButton x:Name="rbSignGive" Content="Give Sign" HorizontalAlignment="Left" Margin="314,6,0,0" VerticalAlignment="Top" Click="rbSignGive_Click"/>
+            <RadioButton x:Name="rbSignSetblock" Content="Blockdata Sign" HorizontalAlignment="Left" Margin="413,6,0,0" VerticalAlignment="Top" Click="rbSignSetblock_Click"/>
+            <RadioButton x:Name="rbBook" Content="Book" HorizontalAlignment="Left" Margin="91,6,0,0" VerticalAlignment="Top" Click="rbBook_Click"/>
+        </Grid>
+        <GroupBox x:Name="GroupList1" HorizontalAlignment="Left" Height="616" Margin="863,10,0,0" VerticalAlignment="Top" Width="200" Header="Line 1">
+            <ListBox x:Name="TextList1" HorizontalAlignment="Left" Height="578" VerticalAlignment="Top" Width="190" Margin="0,0,-2,0"/>
+        </GroupBox>
+        <GroupBox x:Name="GroupList2" HorizontalAlignment="Left" Height="203" Margin="1068,10,0,0" VerticalAlignment="Top" Width="200" Header="Line 2">
+            <ListBox x:Name="TextList2" HorizontalAlignment="Left" Height="165" VerticalAlignment="Top" Width="190" Margin="0,0,-2,0"/>
+        </GroupBox>
+        <GroupBox x:Name="GroupList3" HorizontalAlignment="Left" Height="203" Margin="1068,218,0,0" VerticalAlignment="Top" Width="200" Header="Line 3">
+            <ListBox x:Name="TextList3" HorizontalAlignment="Left" Height="165" VerticalAlignment="Top" Width="190" Margin="0,0,-2,0"/>
+        </GroupBox>
+        <GroupBox x:Name="GroupList4" HorizontalAlignment="Left" Height="200" Margin="1068,426,0,0" VerticalAlignment="Top" Width="200" Header="Line 4">
+            <ListBox x:Name="TextList4" HorizontalAlignment="Left" Height="162" VerticalAlignment="Top" Width="190" Margin="0,0,-2,0"/>
+        </GroupBox>
+        <Grid x:Name="rbSignBox" HorizontalAlignment="Left" Height="30" Margin="534,10,0,0" VerticalAlignment="Top" Width="324" IsEnabled="False">
+            <RadioButton x:Name="rbLine2" Content="2" HorizontalAlignment="Left" Margin="56,6,0,0" VerticalAlignment="Top" ToolTip="Line 2"/>
+            <RadioButton x:Name="rbLine1" Content="1" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" IsChecked="True" ToolTip="Line 1"/>
+            <RadioButton x:Name="rbLine4" Content="4" HorizontalAlignment="Left" Margin="147,6,0,0" VerticalAlignment="Top" ToolTip="Line 4"/>
+            <RadioButton x:Name="rbLine3" Content="3" HorizontalAlignment="Left" Margin="101,6,0,0" VerticalAlignment="Top" ToolTip="Line 3"/>
+            <RadioButton x:Name="rbLineUltra" Content="∞" HorizontalAlignment="Left" Margin="192,6,0,0" VerticalAlignment="Top" ToolTip="Line 4"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="29" Margin="10,45,0,0" VerticalAlignment="Top" Width="373">
+            <RadioButton x:Name="rbScoreboard" Content="Scoreboard" HorizontalAlignment="Left" Margin="192,6,0,0" VerticalAlignment="Top" Click="rbScoreboard_Click"/>
+            <RadioButton x:Name="rbText" Content="Text" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" IsChecked="True" Click="rbText_Click"/>
+            <RadioButton x:Name="rbSelector" Content="Selector" HorizontalAlignment="Left" Margin="91,6,0,0" VerticalAlignment="Top" Click="rbSelector_Click"/>
+        </Grid>
+        <TextBox x:Name="tbText" HorizontalAlignment="Left" Height="23" Margin="10,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="373" ToolTip="插入的文本"/>
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="10,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" IsEnabled="False" ToolTip="选择的对象名"/>
+        <TextBox x:Name="tbScoreboard" HorizontalAlignment="Left" Height="23" Margin="201,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" IsEnabled="False" ToolTip="选择的计分板"/>
+        <TextBox x:Name="tbSelector" HorizontalAlignment="Left" Height="23" Margin="388,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="381" IsEnabled="False" ToolTip="选择器"/>
+        <Button x:Name="atBtn" Content="At" HorizontalAlignment="Left" Margin="774,79,0,0" VerticalAlignment="Top" Width="84" IsEnabled="False" Click="atBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <CheckBox x:Name="checkBold" Content="" HorizontalAlignment="Left" Margin="388,115,0,0" VerticalAlignment="Top" Width="18"/>
+        <CheckBox x:Name="checkItalic" Content="" HorizontalAlignment="Left" Margin="442,115,0,0" VerticalAlignment="Top" Width="18"/>
+        <CheckBox x:Name="checkUnderline" Content="" HorizontalAlignment="Left" Margin="497,115,0,0" VerticalAlignment="Top" Width="18"/>
+        <CheckBox x:Name="checkStrikethrough" Content="" HorizontalAlignment="Left" Margin="581,115,0,0" VerticalAlignment="Top" Width="18"/>
+        <CheckBox x:Name="checkObfuscate" Content="" HorizontalAlignment="Left" Margin="688,115,0,0" VerticalAlignment="Top" Width="18"/>
+        <TextBlock x:Name="Bold" HorizontalAlignment="Left" Margin="411,117,0,0" TextWrapping="Wrap" Text="Bold" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock x:Name="Italic" HorizontalAlignment="Left" Margin="465,117,0,0" TextWrapping="Wrap" Text="Italic" VerticalAlignment="Top" FontStyle="Italic"/>
+        <TextBlock x:Name="Underline" HorizontalAlignment="Left" Margin="520,117,0,0" TextWrapping="Wrap" Text="Underline" VerticalAlignment="Top" TextDecorations="Underline"/>
+        <TextBlock x:Name="Strikethrough" HorizontalAlignment="Left" Margin="604,117,0,0" TextWrapping="Wrap" Text="Strikethrough" VerticalAlignment="Top" TextDecorations="Strikethrough"/>
+        <TextBlock x:Name="Obfuscate" HorizontalAlignment="Left" Margin="711,117,0,0" TextWrapping="Wrap" Text="Obfuscate" VerticalAlignment="Top"/>
+        <ComboBox x:Name="colorSel" HorizontalAlignment="Left" Margin="774,110,0,0" VerticalAlignment="Top" Width="84"/>
+        <GroupBox x:Name="groupExtraClick" Header="      高级功能：点击事件" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" Height="185" Width="412" IsEnabled="False">
+            <Grid x:Name="groupExtraClick0" Height="148" VerticalAlignment="Top" Margin="0,0,-2,-1">
+                <CheckBox x:Name="checkExtraClickCommand" Content="执行命令" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,4,0,0" Click="checkExtraClickCommand_Click"/>
+                <CheckBox x:Name="checkExtraClickOut2Chat" Content="输出到聊天栏" HorizontalAlignment="Left" Margin="0,32,0,0" VerticalAlignment="Top" Click="checkExtraClickOut2Chat_Click"/>
+                <CheckBox x:Name="checkExtraClickChangePage" Content="书本换页" HorizontalAlignment="Left" Margin="0,89,0,0" VerticalAlignment="Top" Click="checkExtraClickChangePage_Click"/>
+                <TextBox x:Name="tbExtraClickCommand" HorizontalAlignment="Left" Height="23" Margin="102,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" IsEnabled="False"/>
+                <TextBox x:Name="tbExtraClickOut2Chat" HorizontalAlignment="Left" Height="23" Margin="102,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" IsEnabled="False"/>
+                <TextBox x:Name="tbExtraClickOpenURL" HorizontalAlignment="Left" Height="23" Margin="102,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" IsEnabled="False"/>
+                <TextBox x:Name="tbExtraClickInsert2Chat" HorizontalAlignment="Left" Height="23" Margin="102,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" IsEnabled="False"/>
+                <CheckBox x:Name="checkExtraClickOpenURL" Content="打开网页" HorizontalAlignment="Right" Margin="0,60,330,0" VerticalAlignment="Top" Click="checkExtraClickOpenURL_Click"/>
+                <CheckBox x:Name="checkExtraClickInsert2Chat" Content="插入到聊天栏" HorizontalAlignment="Right" Margin="0,118,306,0" VerticalAlignment="Top" Click="checkExtraClickInsert2Chat_Click"/>
+                <Controls:NumericUpDown x:Name="tbExtraClickChangePage" Minimum="1" Maximum="50" StringFormat="" Margin="102,84,10,36" Height="28" Value="1" IsEnabled="False" />
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupExtraHover" Header="      高级功能：悬浮事件" HorizontalAlignment="Left" Margin="427,141,0,0" VerticalAlignment="Top" Height="185" Width="431" IsEnabled="False">
+            <Grid x:Name="groupExtraHover0" Height="149" VerticalAlignment="Top" Margin="0,0,-2,-2">
+                <CheckBox x:Name="checkExtraHoverShowtext" Content="显示文本" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,4,0,0" Click="checkExtraHoverShowtext_Click"/>
+                <CheckBox x:Name="checkExtraHoverShowitem" Content="显示物品" HorizontalAlignment="Left" Margin="0,32,0,0" VerticalAlignment="Top" Click="checkExtraHoverShowitem_Click"/>
+                <CheckBox x:Name="checkExtraHoverShowentity" Content="显示实体" HorizontalAlignment="Left" Margin="0,90,0,0" VerticalAlignment="Top" Click="checkExtraHoverShowentity_Click"/>
+                <TextBox x:Name="tbExtraHoverShowtext" HorizontalAlignment="Left" Height="23" Margin="102,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" IsEnabled="False"/>
+                <TextBox x:Name="tbExtraHoverShowAc" HorizontalAlignment="Left" Height="23" Margin="102,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="309" IsEnabled="False"/>
+                <TextBox x:Name="tbExtraHoverShowentityID" HorizontalAlignment="Left" Height="23" Margin="102,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" IsEnabled="False" ToolTip="ID"/>
+                <ComboBox x:Name="tbExtraHoverShowitemSel" HorizontalAlignment="Left" Margin="102,29,0,0" VerticalAlignment="Top" Width="233" IsEnabled="False" SelectedIndex="0"/>
+                <Button x:Name="tbExtraHoverShowitemGet" Content="Get" HorizontalAlignment="Left" Margin="340,29,0,0" VerticalAlignment="Top" Width="69" IsEnabled="False" Click="tbExtraHoverShowitemGet_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                <CheckBox x:Name="checkExtraHoverShowAc" Content="显示成就" HorizontalAlignment="Right" Margin="0,61,349,0" VerticalAlignment="Top" Click="checkExtraHoverShowAc_Click"/>
+                <TextBox x:Name="tbExtraHoverShowentityName" HorizontalAlignment="Left" Height="23" Margin="197,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" IsEnabled="False" ToolTip="Name"/>
+                <ComboBox x:Name="tbExtraHoverShowentitySelType" HorizontalAlignment="Left" Margin="292,87,0,0" VerticalAlignment="Top" Width="119" IsEnabled="False" SelectedIndex="0"/>
+                <CheckBox x:Name="tbExtraHoverShowtextByCode" Content="" HorizontalAlignment="Left" Margin="391,4,0,0" VerticalAlignment="Top" ToolTip="如是JSON文本，请勾上此复选框，否则为普通文本" Width="18" IsEnabled="False"/>
+            </Grid>
+        </GroupBox>
+        <CheckBox x:Name="checkExtraClick" Content="" HorizontalAlignment="Left" Margin="15,146,0,0" VerticalAlignment="Top" Width="18" Click="checkExtraClick_Click"/>
+        <CheckBox x:Name="checkExtraHover" Content="" HorizontalAlignment="Left" Margin="432,146,0,0" VerticalAlignment="Top" Width="18" Click="checkExtraHover_Click"/>
+        <Button x:Name="btnParaPre" Content="上一段" HorizontalAlignment="Left" Margin="250,362,0,0" VerticalAlignment="Top" Width="75" Click="btnParaPre_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="btnParaNext" Content="下一段" HorizontalAlignment="Left" Margin="411,361,0,0" VerticalAlignment="Top" Width="75" Click="btnParaNext_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Label x:Name="tbShowPart" Content="-第01段-" HorizontalAlignment="Left" Margin="337,363,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="10,391,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="90,391,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="250,391,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="411,391,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="170,391,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Grid x:Name="rbBookBox" HorizontalAlignment="Left" Height="25" Margin="10,331,0,0" VerticalAlignment="Top" Width="848" IsEnabled="False">
+            <TextBox x:Name="tabBookName" HorizontalAlignment="Left" Height="23" Margin="52,0,0,-1" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+            <Label x:Name="BookName" Content="书名：" HorizontalAlignment="Left" Margin="1,0,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="BookAuthor" Content="作者名：" HorizontalAlignment="Left" Margin="182,0,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tabBookAuthor" HorizontalAlignment="Left" Height="23" Margin="240,0,0,-1" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+            <CheckBox x:Name="tabBookSigned" Content="已签名" HorizontalAlignment="Left" Margin="370,3,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        </Grid>
+        <Label x:Name="tbShowPage1" Content="第" HorizontalAlignment="Left" Margin="35,361,0,0" VerticalAlignment="Top"/>
+        <Grid HorizontalAlignment="Left" Height="27" Margin="62,360,0,0" VerticalAlignment="Top" Width="134">
+            <Controls:NumericUpDown x:Name="tbPage" Minimum="1" Maximum="50" StringFormat="" Margin="0,0,10,-1" Height="28" Value="1" ValueChanged="tbPage_ValueChanged" />
+        </Grid>
+        <Label x:Name="tbShowPage2" Content="页" HorizontalAlignment="Left" Margin="186,361,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Controls:MetroWindow>

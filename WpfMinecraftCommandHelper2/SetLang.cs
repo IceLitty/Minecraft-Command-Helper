@@ -94,7 +94,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["MainTestfor"].ToString());
             relanglist.Add(LangList[langID]["MainParticle"].ToString());
             relanglist.Add(LangList[langID]["MainTellraw"].ToString());
-            relanglist.Add(LangList[langID]["MainAdventureMode"].ToString());
+            relanglist.Add(LangList[langID]["MainTellraw"].ToString());//
             relanglist.Add(LangList[langID]["MainRocketLauncher"].ToString());
             relanglist.Add(LangList[langID]["MainSummon"].ToString());
             relanglist.Add(LangList[langID]["MainOtherLib"].ToString());
@@ -213,8 +213,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["FloatCancel"].ToString());
             relanglist.Add(LangList[langID]["BtnClear"].ToString());
             relanglist.Add(LangList[langID]["BtnCreate"].ToString());
-            relanglist.Add(LangList[langID]["BtnCheck"].ToString());
-            relanglist.Add(LangList[langID]["BtnCopy"].ToString());
+            relanglist.Add(LangList[langID]["FloatCancel"].ToString());//
+            relanglist.Add(LangList[langID]["FloatCancel"].ToString());//
             relanglist.Add(LangList[langID]["BtnHelp"].ToString());
             relanglist.Add(LangList[langID]["AdvNum1"].ToString());
             relanglist.Add(LangList[langID]["AdvNum2"].ToString());
@@ -225,10 +225,10 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["AdvCanBroke"].ToString());
             relanglist.Add(LangList[langID]["AdvCanPlace"].ToString());
             relanglist.Add(LangList[langID]["AdvTitle"].ToString());
-            relanglist.Add(LangList[langID]["AdvEnchant"].ToString());
-            relanglist.Add(LangList[langID]["AdvNameLore"].ToString());
-            relanglist.Add(LangList[langID]["AdvAttribute"].ToString());
-            relanglist.Add(LangList[langID]["AdvNBTBtn"].ToString());
+            relanglist.Add(LangList[langID]["FloatCancel"].ToString());//
+            relanglist.Add(LangList[langID]["FloatCancel"].ToString());//
+            relanglist.Add(LangList[langID]["FloatCancel"].ToString());//
+            relanglist.Add(LangList[langID]["FloatCancel"].ToString());//
             relanglist.Add(LangList[langID]["AdvOnlyBroke"].ToString());
             relanglist.Add(LangList[langID]["AdvPre"].ToString());
             relanglist.Add(LangList[langID]["AdvNext"].ToString());
@@ -650,6 +650,9 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["FloatSearch1"].ToString());
             relanglist.Add(LangList[langID]["FloatSearch2"].ToString());
             relanglist.Add(LangList[langID]["FloatSaveFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["ItemAdventure"].ToString());
+            relanglist.Add(LangList[langID]["ItemAdventureTip"].ToString());
+            relanglist.Add(LangList[langID]["ItemColorfixTip"].ToString());
             return relanglist;
         }
 
@@ -1327,10 +1330,8 @@ namespace WpfMinecraftCommandHelper2
                 }
             }
             List<string> relanglist = new List<string>();
-            relanglist.Add(LangList[langID]["FloatHelpTitle"].ToString());
             relanglist.Add(LangList[langID]["FloatConfirm"].ToString());
             relanglist.Add(LangList[langID]["FloatCancel"].ToString());
-            relanglist.Add(LangList[langID]["BtnAt"].ToString());
             relanglist.Add(LangList[langID]["BtnClear"].ToString());
             relanglist.Add(LangList[langID]["BtnCreate"].ToString());
             relanglist.Add(LangList[langID]["BtnCheck"].ToString());
@@ -1341,47 +1342,56 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["TellrawTypeSubtitle"].ToString());
             relanglist.Add(LangList[langID]["TellrawTypeBook"].ToString());
             relanglist.Add(LangList[langID]["TellrawTypeSignGive"].ToString());
-            relanglist.Add(LangList[langID]["TellrawTypeSignBlockdata"].ToString());
             relanglist.Add(LangList[langID]["TellrawText"].ToString());
             relanglist.Add(LangList[langID]["TellrawSelector"].ToString());
             relanglist.Add(LangList[langID]["TellrawScoreboard"].ToString());
-            relanglist.Add(LangList[langID]["TellrawScoreboardTooltipTarget"].ToString());
-            relanglist.Add(LangList[langID]["TellrawScoreboardTooltipName"].ToString());
-            relanglist.Add(LangList[langID]["TellrawSelectorTooltip"].ToString());
-            relanglist.Add(LangList[langID]["TellrawTextTooltip"].ToString());
+            relanglist.Add(LangList[langID]["TellrawText1"].ToString());
+            relanglist.Add(LangList[langID]["TellrawText2"].ToString());
+            relanglist.Add(LangList[langID]["TellrawTextAtBtn"].ToString());
             relanglist.Add(LangList[langID]["TellrawBold"].ToString());
             relanglist.Add(LangList[langID]["TellrawItalic"].ToString());
             relanglist.Add(LangList[langID]["TellrawUnderline"].ToString());
             relanglist.Add(LangList[langID]["TellrawStrikethrough"].ToString());
             relanglist.Add(LangList[langID]["TellrawObfuscate"].ToString());
+            relanglist.Add(LangList[langID]["TellrawInsert2Chat"].ToString());
             relanglist.Add(LangList[langID]["TellrawExtraClick"].ToString());
             relanglist.Add(LangList[langID]["TellrawExtraClickCMD"].ToString());
+            relanglist.Add(LangList[langID]["TellrawExtraClickCMDTip"].ToString());
             relanglist.Add(LangList[langID]["TellrawExtraClickOut2Chat"].ToString());
+            relanglist.Add(LangList[langID]["TellrawExtraClickOut2ChatTip"].ToString());
             relanglist.Add(LangList[langID]["TellrawExtraClickOpenURL"].ToString());
+            relanglist.Add(LangList[langID]["TellrawExtraClickOpenURLTip"].ToString());
             relanglist.Add(LangList[langID]["TellrawExtraClickChangePage"].ToString());
-            relanglist.Add(LangList[langID]["TellrawExtraClickInsert2Chat"].ToString());
+            relanglist.Add(LangList[langID]["TellrawExtraClickChangePageTip"].ToString());
             relanglist.Add(LangList[langID]["TellrawExtraHover"].ToString());
             relanglist.Add(LangList[langID]["TellrawExtraHoverShowText"].ToString());
-            relanglist.Add(LangList[langID]["TellrawExtraHoverShowTextTooltip"].ToString());
+            relanglist.Add(LangList[langID]["TellrawExtraHoverShowTextTip"].ToString());
+            relanglist.Add(LangList[langID]["TellrawExtraHoverShowTextCheck"].ToString());
             relanglist.Add(LangList[langID]["TellrawExtraHoverShowItem"].ToString());
-            relanglist.Add(LangList[langID]["TellrawExtraHoverShowAchievements"].ToString());
+            relanglist.Add(LangList[langID]["TellrawExtraHoverShowItemTip"].ToString());
+            relanglist.Add(LangList[langID]["TellrawExtraHoverShowItemBtn"].ToString());
             relanglist.Add(LangList[langID]["TellrawExtraHoverShowEntity"].ToString());
-            relanglist.Add(LangList[langID]["TellrawBookName"].ToString());
+            relanglist.Add(LangList[langID]["TellrawExtraHoverShowEntityTip"].ToString());
+            relanglist.Add(LangList[langID]["TellrawExtraHoverShowEntityName"].ToString());
+            relanglist.Add(LangList[langID]["TellrawExtraHoverShowEntityType"].ToString());
+            relanglist.Add(LangList[langID]["TellrawExtraHoverShowEntityUUID"].ToString());
+            relanglist.Add(LangList[langID]["TellrawExtraHoverShowAchievements"].ToString());
+            relanglist.Add(LangList[langID]["TellrawExtraHoverShowAchievementsTip"].ToString());
+            relanglist.Add(LangList[langID]["TellrawExtraHoverShowAchievements1"].ToString());
+            relanglist.Add(LangList[langID]["TellrawExtraHoverShowAchievements2"].ToString());
             relanglist.Add(LangList[langID]["TellrawAuthor"].ToString());
+            relanglist.Add(LangList[langID]["TellrawBookName"].ToString());
             relanglist.Add(LangList[langID]["TellrawSigned"].ToString());
-            relanglist.Add(LangList[langID]["TellrawPreviousPage"].ToString());
-            relanglist.Add(LangList[langID]["TellrawNextPage"].ToString());
-            relanglist.Add(LangList[langID]["TellrawNum1"].ToString());
-            relanglist.Add(LangList[langID]["TellrawNum2"].ToString());
+            relanglist.Add(LangList[langID]["TellrawGetCode"].ToString());
+            relanglist.Add(LangList[langID]["TellrawGetCodeTip"].ToString());
+            relanglist.Add(LangList[langID]["TellrawGetCodeTip1"].ToString());
+            relanglist.Add(LangList[langID]["TellrawNowLine"].ToString());
             relanglist.Add(LangList[langID]["TellrawPreviousParagraph"].ToString());
             relanglist.Add(LangList[langID]["TellrawNextParagraph"].ToString());
-            relanglist.Add(LangList[langID]["TellrawNum3"].ToString());
-            relanglist.Add(LangList[langID]["TellrawNum4"].ToString());
-            relanglist.Add(LangList[langID]["TellrawLine1"].ToString());
-            relanglist.Add(LangList[langID]["TellrawLine2"].ToString());
-            relanglist.Add(LangList[langID]["TellrawLine3"].ToString());
-            relanglist.Add(LangList[langID]["TellrawLine4"].ToString());
-            relanglist.Add(LangList[langID]["TellrawHelpStr"].ToString());
+            relanglist.Add(LangList[langID]["TellrawNum0"].ToString());
+            relanglist.Add(LangList[langID]["TellrawNum1"].ToString());
+            relanglist.Add(LangList[langID]["TellrawWarningStr"].ToString());
+            relanglist.Add(LangList[langID]["FloatWarningTitle"].ToString());
             relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             return relanglist;

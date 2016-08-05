@@ -50,7 +50,7 @@ namespace WpfMinecraftCommandHelper2
 
         private bool isUpdate = false;
         private bool preview = false;
-        private string version = "2.8.3.18";
+        private string version = "2.8.4.0";
         private string getversion = "0.0.0.0";
         private bool error1 = false;
         private bool error2 = false;
@@ -114,26 +114,22 @@ namespace WpfMinecraftCommandHelper2
             {
                 int[] getV = { int.Parse(getVS[0]), int.Parse(getVS[1]), int.Parse(getVS[2]), int.Parse(getVS[3]) };
                 int[] nowV = { int.Parse(nowVS[0]), int.Parse(nowVS[1]), int.Parse(nowVS[2]), int.Parse(nowVS[3]) };
-                if (nowV[0] >= getV[0])
+                if (nowV[0] < getV[0]) { isUpdate = true; }
+                else if (nowV[0] == getV[0])
                 {
-                    if (nowV[0] > getV[0]) { preview = true; }
-                    isUpdate = false;
-                    if (nowV[1] >= getV[1])
+                    if (nowV[1] < getV[1]) { isUpdate = true; }
+                    else if (nowV[1] == getV[1])
                     {
-                        if (nowV[1] > getV[1]) { preview = true; }
-                        isUpdate = false;
-                        if (nowV[2] >= getV[2])
+                        if (nowV[2] < getV[2]) { isUpdate = true; }
+                        else if (nowV[2] == getV[2])
                         {
-                            if (nowV[2] > getV[2]) { preview = true; }
-                            isUpdate = false;
-                            if (nowV[3] >= getV[3])
-                            {
-                                if (nowV[3] > getV[3]) { preview = true; }
-                                isUpdate = false;
-                            } else { isUpdate = true; }
-                        } else { isUpdate = true; }
-                    } else { isUpdate = true; }
-                } else { isUpdate = true; }
+                            if (nowV[3] < getV[3]) { isUpdate = true; }
+                        }
+                        else { preview = true; }
+                    }
+                    else { preview = true; }
+                }
+                else { preview = true; }
             } catch (Exception) { isUpdate = false; error2 = true; }
         }
 
@@ -167,7 +163,6 @@ namespace WpfMinecraftCommandHelper2
             testforBtn.Title = templanglist[23];
             particleBtn.Title = templanglist[24];
             tellrawBtn.Title = templanglist[25];
-            adventureBtn.Title = templanglist[26];
             fireworkBtn.Title = templanglist[27];
             summonEntityBtn.Title = templanglist[28];
             otherBtn.Title = templanglist[29];

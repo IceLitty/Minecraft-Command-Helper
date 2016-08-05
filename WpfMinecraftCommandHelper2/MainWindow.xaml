@@ -182,17 +182,12 @@
                 <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/testfor.png" />
             </StackPanel>
         </Controls:Tile>
-        <Controls:Tile x:Name="adventureBtn" Title="冒险模式" Width="170" Height="54" Margin="430,240,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="adventureBtn_Click">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
-                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/adventure.png" />
-            </StackPanel>
-        </Controls:Tile>
         <Controls:Tile x:Name="otherBtn" Title="其他指令" Width="170" Height="54" Margin="430,310,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="otherBtn_Click">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
                 <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/other.png" />
             </StackPanel>
         </Controls:Tile>
-        <Controls:Tile x:Name="loottable" Title="掉落掠夺" Width="170" Height="54" Margin="230,170,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="loottable_Click">
+        <Controls:Tile x:Name="loottable" Title="掉落掠夺" Width="170" Height="54" Margin="430,240,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="loottable_Click">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
                 <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/loottable.png" />
             </StackPanel>
@@ -216,5 +211,10 @@
         <Label x:Name="language" Content="内置中文" Foreground="#FF3285FD" HorizontalAlignment="Right" Margin="0,370,10,0" VerticalAlignment="Top" MouseLeftButtonUp="language_MouseLeftButtonUp"/>
         <Label x:Name="author" Content="作者：IceLitty" HorizontalAlignment="Right" Margin="0,395,10,0" VerticalAlignment="Top"/>
         <Label x:Name="lastupdate" Content="最后更新：201X.XX.XX" HorizontalAlignment="Right" Margin="0,417,10,0" VerticalAlignment="Top"/>
+        <Controls:Tile Title="？？？？" Width="170" Height="54" Margin="230,170,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" />
+            </StackPanel>
+        </Controls:Tile>
     </Grid>
 </Controls:MetroWindow>

@@ -80,6 +80,13 @@ namespace WpfMinecraftCommandHelper2
             flushImagebox();
         }
 
+        public void setColor(byte R, byte G, byte B)
+        {
+            _R = R;
+            _G = G;
+            _B = B;
+        }
+
         public byte[] reColor()
         {
             return returnColor;

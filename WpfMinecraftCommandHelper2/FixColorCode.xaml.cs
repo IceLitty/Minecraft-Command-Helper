@@ -96,7 +96,7 @@ namespace WpfMinecraftCommandHelper2
             if (str.IndexOf("§") != -1)
             {
                 str = str.Replace("§", @"\\u00A7");
-                str = str.Replace("\"", "\\\\\\\"");
+                str = str.Replace("\\\"","\\\\\\\\\"").Replace("\"", "\\\\\\\"");
                 if (fixColorSelSign.IsChecked.Value) str = "/setblock ~ ~1 ~ standing_sign 0 replace {Text1:\"{\\\"text\\\":\\\"请点击我\\\",\\\"clickEvent\\\":{\\\"action\\\":\\\"run_command\\\",\\\"value\\\":\\\"" + str + "\\\"}}\",Text2:\"{\\\"text\\\":\\\"Ctrl+鼠标中键可抓取\\\"}\",Text3:\"\",Text4:\"\"}";
                 else str = "/setblock ~ ~1 ~ standing_sign 0 replace {Text1:\"{\\\"text\\\":\\\"请点击我\\\",\\\"clickEvent\\\":{\\\"action\\\":\\\"run_command\\\",\\\"value\\\":\\\"/blockdata ~ ~-1 ~ {Command:" + str + "}\\\"}}\",Text2:\"{\\\"text\\\":\\\"Ctrl+鼠标中键可抓取\\\"}\",Text3:\"\",Text4:\"\"}";
             }
@@ -140,6 +140,10 @@ namespace WpfMinecraftCommandHelper2
                         System.Threading.Thread.Sleep(1);
                     }
                 }
+            }
+            else if (e.Key == System.Windows.Input.Key.Escape)
+            {
+                this.Close();
             }
         }
     }

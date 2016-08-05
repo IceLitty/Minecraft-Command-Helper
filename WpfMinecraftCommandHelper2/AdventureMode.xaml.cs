@@ -20,10 +20,6 @@ namespace WpfMinecraftCommandHelper2
                 tabRPGOnlyBrokeSel.Items.Add(asd.getItemNameList(i));
                 tabRPGOnlyPlaceSel.Items.Add(asd.getItemNameList(i));
             }
-            for (int i = 0; i < asd.getHideListCount(); i++)
-            {
-                tabRPGHide.Items.Add(asd.getHideList(i));
-            }
             clear();
         }
 
@@ -53,8 +49,6 @@ namespace WpfMinecraftCommandHelper2
                 FloatCancel = templang[2];
                 clearBtn.Content = templang[3];
                 createBtn.Content = templang[4];
-                checkBtn.Content = templang[5];
-                copyBtn.Content = templang[6];
                 helpBtn.Content = templang[7];
                 AdvNum1 = templang[8];
                 AdvNum2 = templang[9];
@@ -65,10 +59,6 @@ namespace WpfMinecraftCommandHelper2
                 AdvCanBroke = templang[14];
                 AdvCanPlace = templang[15];
                 this.Title = templang[16];
-                tabRPGHasEnchant.Content = templang[17];
-                tabRPGHasNL.Content = templang[18];
-                tabRPGHasAttr.Content = templang[19];
-                enchantMoreGetBtn.Content = templang[20];
                 tabRPGOnlyBroke.Content = templang[21];
                 tabRPGOnlyBrokePre.Content = templang[22];
                 tabRPGOnlyPlacePre.Content = templang[22];
@@ -89,7 +79,8 @@ namespace WpfMinecraftCommandHelper2
             tabRPGOnlyBrokeSel.IsEnabled = false;
             tabRPGOnlyPlace.IsChecked = false;
             tabRPGOnlyPlaceSel.IsEnabled = false;
-            finalStr = "";
+            finalStrDestroy = "";
+            finalStrPlace = "";
             for (int i = 0; i < globalRPGMaxIndex; i++)
             {
                 globalRPGBroke[i] = 0;
@@ -107,15 +98,8 @@ namespace WpfMinecraftCommandHelper2
             brokeFlush();
         }
 
-        //API used
-        private string globalEnchString = "";
-        private string globalNLString = "";
-        private string globalAttrString = "";
-        private int globalItemSel = 0;
-        private int globalItemCount = 0;
-        private int globalItemMeta = 0;
-
-        private string finalStr = "";
+        private string finalStrDestroy = "";
+        private string finalStrPlace = "";
 
         private static int globalRPGMaxIndex = 50;
         private int[] globalRPGBroke = new int[globalRPGMaxIndex];
@@ -179,10 +163,6 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabRPGOnlyPlaceSel.SelectedIndex = 0;
             }
-            if (tabRPGHide.SelectedIndex < 0)
-            {
-                tabRPGHide.SelectedIndex = 0;
-            }
             if (tabRPGBrokeMaxIndex >= globalRPGMaxIndex)
             {
                 tabRPGBrokeMaxIndex = globalRPGMaxIndex - 1;
@@ -191,13 +171,13 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabRPGPlaceMaxIndex = globalRPGMaxIndex - 1;
             }
-            string give = "/give @p " + asd.getItem(globalItemSel) + " " + globalItemCount + " " + globalItemMeta + " ";
+            string giveDestroy = "";
+            string givePlace = "";
             if (tabRPGOnlyBroke.IsChecked.Value || tabRPGOnlyPlace.IsChecked.Value)
             {
-                give += "{";
                 if (tabRPGOnlyBroke.IsChecked.Value)
                 {
-                    give = give + "CanDestroy:[";
+                    giveDestroy += "CanDestroy:[";
                     string give2 = "";
                     if (tabRPGBrokeCheckCanCreate == true)
                     {
@@ -214,11 +194,11 @@ namespace WpfMinecraftCommandHelper2
                     {
                         this.ShowMessageAsync(FloatHelpTitle, AdvNeedNextBtn2Save, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
                     }
-                    give = give + give2 + "],";
+                    giveDestroy += give2 + "]";
                 }
                 if (tabRPGOnlyPlace.IsChecked.Value)
                 {
-                    give = give + "CanPlaceOn:[";
+                    givePlace += "CanPlaceOn:[";
                     string give2 = "";
                     if (tabRPGPlaceCheckCanCreate == true)
                     {
@@ -235,82 +215,26 @@ namespace WpfMinecraftCommandHelper2
                     {
                         this.ShowMessageAsync(FloatHelpTitle, AdvNeedNextBtn2Save, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
                     }
-                    give = give + give2 + "],";
+                    givePlace += give2 + "]";
                 }
-                if (tabRPGHasEnchant.IsChecked.Value)
-                {
-                    give = give + globalEnchString + ",";
-                }
-                if (tabRPGHasNL.IsChecked.Value)
-                {
-                    give = give + globalNLString + ",";
-                }
-                if (tabRPGHasAttr.IsChecked.Value)
-                {
-                    give = give + globalAttrString + ",";
-                }
-                if (tabRPGHide.SelectedIndex != 0)
-                {
-                    give = give + "HideFlags:" + tabRPGHide.SelectedIndex + ",";
-                }
-                if (give.Length >= 1)
-                {
-                    give = give.Remove(give.Length - 1, 1);
-                }
-                else
-                {
-                    //errorC = true;
-                }
-                give += "}";
-                finalStr = give;
+                finalStrDestroy = giveDestroy;
+                finalStrPlace = givePlace;
             }
             else
             {
-                finalStr = AdvNullSel;
+                finalStrDestroy = AdvNullSel;
+                finalStrPlace = AdvNullSel;
             }
         }
 
-        private void copyBtn_Click(object sender, RoutedEventArgs e)
+        public string[] returnStr()
         {
-            Clipboard.SetData(DataFormats.UnicodeText, finalStr);
-        }
-
-        private void checkBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Check checkbox = new Check();
-            checkbox.showText(finalStr);
-            checkbox.Show();
+            return new string[] { finalStrDestroy, finalStrPlace };
         }
 
         private void helpBtn_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\Help\AdventureMode.html");
-        }
-
-        private void enchantMoreGetBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Item itembox = new Item();
-            itembox.ShowDialog();
-            string[] tempa = itembox.returnStr();
-            int[] tempb = itembox.returnStrAdver();
-            if (tempa[0] != "ench:[]")
-            {
-                globalEnchString = tempa[0];
-            }
-            if (tempa[1] != "display:{}")
-            {
-                globalNLString = tempa[1];
-            }
-            if (tempa[2] != "AttributeModifiers:[]")
-            {
-                globalAttrString = tempa[2];
-            }
-            if (tempb[0] != 0)
-            {
-                globalItemSel = tempb[0];
-            }
-            globalItemCount = tempb[1];
-            globalItemMeta = tempb[2];
         }
 
         private void tabRPGOnlyBrokePre_Click(object sender, RoutedEventArgs e)

@@ -340,9 +340,16 @@ namespace WpfMinecraftCommandHelper2
             }
         }
 
+        private byte[] tempColorOut = { 255, 255, 255 };
+        private byte[] tempColorIn = { 255, 255, 255 };
+
         private void tabFireColorOutBtn_Click(object sender, RoutedEventArgs e)
         {
             ColorSel csl = new ColorSel();
+            if (tempColorOut[0] != 255 && tempColorOut[1] != 255 && tempColorOut[2] != 255)
+            {
+                csl.setColor(tempColorOut[0], tempColorOut[1], tempColorOut[2]);
+            }
             csl.ShowDialog();
             byte[] colorList = csl.reColor();
             string colorhex = colorList[0].ToString("x") + colorList[1].ToString("x") + colorList[2].ToString("x");
@@ -352,6 +359,10 @@ namespace WpfMinecraftCommandHelper2
         private void tabFireColorInBtn_Click(object sender, RoutedEventArgs e)
         {
             ColorSel csl = new ColorSel();
+            if (tempColorIn[0] != 255 && tempColorIn[1] != 255 && tempColorIn[2] != 255)
+            {
+                csl.setColor(tempColorIn[0], tempColorIn[1], tempColorIn[2]);
+            }
             csl.ShowDialog();
             byte[] colorList = csl.reColor();
             string colorhex = colorList[0].ToString("x") + colorList[1].ToString("x") + colorList[2].ToString("x");
