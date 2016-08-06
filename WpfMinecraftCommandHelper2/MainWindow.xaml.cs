@@ -50,7 +50,7 @@ namespace WpfMinecraftCommandHelper2
 
         private bool isUpdate = false;
         private bool preview = false;
-        private string version = "2.8.4.0";
+        private string version = "2.8.4.1";
         private string getversion = "0.0.0.0";
         private bool error1 = false;
         private bool error2 = false;
@@ -91,20 +91,23 @@ namespace WpfMinecraftCommandHelper2
             }
         }
 
-        private void UpdateCheck()
+        private async void UpdateCheck()
         {
             string getVersion = "nil";
             try
             {
-                System.Net.HttpWebRequest getVersionRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.Create("https://bitbucket.org/IceLitty/minecraftcommandhelperversioncheck/raw/master/version.ini");
-                getVersionRequest.Method = "GET";
-                using (System.Net.WebResponse response = getVersionRequest.GetResponse())
-                {
-                    using (System.IO.StreamReader reader = new System.IO.StreamReader(response.GetResponseStream(), Encoding.UTF8))
-                    {
-                        getVersion = reader.ReadToEnd();
-                    }
-                }
+                System.Net.Http.HttpClient hct = new System.Net.Http.HttpClient();
+                getVersion = await hct.GetStringAsync("https://bitbucket.org/IceLitty/minecraftcommandhelperversioncheck/raw/master/version.ini");
+
+                //System.Net.HttpWebRequest getVersionRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.Create("https://bitbucket.org/IceLitty/minecraftcommandhelperversioncheck/raw/master/version.ini");
+                //getVersionRequest.Method = "GET";
+                //using (System.Net.WebResponse response = getVersionRequest.GetResponse())
+                //{
+                //    using (System.IO.StreamReader reader = new System.IO.StreamReader(response.GetResponseStream(), Encoding.UTF8))
+                //    {
+                //        getVersion = reader.ReadToEnd();
+                //    }
+                //}
             }
             catch (Exception) { error1 = true; }
             getversion = getVersion;
@@ -123,7 +126,7 @@ namespace WpfMinecraftCommandHelper2
                         if (nowV[2] < getV[2]) { isUpdate = true; }
                         else if (nowV[2] == getV[2])
                         {
-                            if (nowV[3] < getV[3]) { isUpdate = true; }
+                            if (nowV[3] < getV[3]) { isUpdate = true; } else if (nowV[3] > getV[3]) { preview = true; }
                         }
                         else { preview = true; }
                     }

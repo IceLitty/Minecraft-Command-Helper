@@ -271,8 +271,6 @@ namespace WpfMinecraftCommandHelper2
             globalNLString = "";
             globalAttrString = "";
             globalAttrStringLess = "";
-            candestroy = "";
-            canplaceon = "";
             globalCommand = "";
             //开始生成赋值
             AllSelData asd = new AllSelData();

@@ -664,8 +664,7 @@ namespace WpfMinecraftCommandHelper2
             // http://skins.minecraft.net/MinecraftSkins/Notch.png Skin, just jump
             // http://skins.minecraft.net/MinecraftCloaks/Notch.png Cloak, jump and download
             ValueURLRequest.Method = "GET";
-            try { ValueURL = ValueURLRequest.GetResponse().ResponseUri.ToString(); }
-            catch (Exception) { }
+            try { ValueURL = ValueURLRequest.GetResponse().ResponseUri.ToString(); } catch (Exception) { }
             //http://textures.minecraft.net/texture/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
             string aa = "true", headOnly = "true";
             if (!tabOther1GetHeadAA.IsChecked.Value) aa = "false"; else aa = "true";
