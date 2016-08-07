@@ -139,8 +139,8 @@ namespace WpfMinecraftCommandHelper2
             flyCheck.IsChecked = false;
             handCheck.IsChecked = false;
             hand.SelectedIndex = 0;
-            handCount.Value = 0;
-            handMeta.Value = 0;
+            handCount.Value = 1;
+            handMeta.Value = -1;
         }
 
         private void clearBtn_Click(object sender, RoutedEventArgs e)
@@ -288,11 +288,16 @@ namespace WpfMinecraftCommandHelper2
             {
                 AllSelData asd = new AllSelData();
                 string temp = "";
-                if (handMeta.Value != 0)
+                string temp2 = "";
+                if (handMeta.Value != -1)
                 {
                     temp = ",Damage:" + handMeta.Value + "s";
                 }
-                nbt += "SelectedItem:{id:" + asd.getItem(hand.SelectedIndex) + ",Count:" + handCount.Value + "b" + temp + "},";
+                if (getItemText.Text != "")
+                {
+                    temp2 = ",tag:{" + getItemText.Text + "}";
+                }
+                nbt += "SelectedItem:{id:" + asd.getItem(hand.SelectedIndex) + ",Count:" + handCount.Value + "b" + temp + temp2 + "},";
             }
             if (rideCheck.IsChecked.Value)
             {
@@ -324,6 +329,31 @@ namespace WpfMinecraftCommandHelper2
         {
             System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\Help\At.html");
         }
+
+        private void getItemBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Item itembox = new Item();
+            itembox.ShowDialog();
+            string[] temp = itembox.returnStr();
+            int[] temp2 = itembox.returnStrAdver();
+            if (temp2[0] != 0)
+            {
+                hand.SelectedIndex = temp2[0];
+            }
+            if (temp2[1] != 1)
+            {
+                handCount.Value = temp2[1];
+            }
+            if (temp2[2] != 0)
+            {
+                handMeta.Value = temp2[2];
+            }
+            if (temp[10] != "")
+            {
+                getItemText.Text = temp[10];
+            }
+        }
+
         public string returnStr()
         {
             return createText;
@@ -429,6 +459,8 @@ namespace WpfMinecraftCommandHelper2
             hand.IsEnabled = handCheck.IsChecked.Value;
             handCount.IsEnabled = handCheck.IsChecked.Value;
             handMeta.IsEnabled = handCheck.IsChecked.Value;
+            getItemBtn.IsEnabled = handCheck.IsChecked.Value;
+            getItemText.IsEnabled = handCheck.IsChecked.Value;
         }
 
         private void rideCheck_Click(object sender, RoutedEventArgs e)

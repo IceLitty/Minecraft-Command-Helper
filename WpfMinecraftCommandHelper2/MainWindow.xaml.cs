@@ -29,6 +29,14 @@ namespace WpfMinecraftCommandHelper2
             lang = setlang.getAllLanguage();
             string templang = setlang.getLangFile();
             appLanguage(setlang.SetMain(templang));
+            if (config.getSetting("[Personalize]", "MCVersion") == "latest")
+            {
+                mcVersion = "latest";
+            }
+            else if (config.getSetting("[Personalize]", "MCVersion") == "1.8")
+            {
+                mcVersion = "1.8";
+            }
             if (config.getSetting("[Personalize]", "Avatar") != "sc")
             {
                 pictureBoxClicked();
@@ -50,10 +58,11 @@ namespace WpfMinecraftCommandHelper2
 
         private bool isUpdate = false;
         private bool preview = false;
-        private string version = "2.8.4.1";
+        private string version = "2.8.4.2";
         private string getversion = "0.0.0.0";
         private bool error1 = false;
         private bool error2 = false;
+        private string mcVersion = "latest";
 
         private void win_Loaded(object sender, RoutedEventArgs e)
         {
@@ -65,6 +74,7 @@ namespace WpfMinecraftCommandHelper2
             timer.Tick += timer_Tick;
             timer.Start();
             if (config.getSetting("[Personalize]", "ColorfulFontsUse") != "Sign") { fixColorSelSign.IsChecked = false; fixColorSelCB.IsChecked = true; } else { fixColorSelCB.IsChecked = false; fixColorSelSign.IsChecked = true; }
+            if (config.getSetting("[Personalize]", "MCVersion") == "1.8") { mcv18.IsChecked = true; } else { mcvLatest.IsChecked = true; }
         }
 
         private async void timer_Tick(object sender, EventArgs e)
@@ -294,6 +304,7 @@ namespace WpfMinecraftCommandHelper2
         {
             this.Hide();
             Potion potionbox = new Potion();
+            potionbox.setVersion(mcVersion);
             potionbox.ShowDialog();
             this.Show();
         }
@@ -343,6 +354,7 @@ namespace WpfMinecraftCommandHelper2
         {
             this.Hide();
             Summon summonbox = new Summon();
+            summonbox.setVersion(mcVersion);
             summonbox.ShowDialog();
             this.Show();
         }
@@ -723,8 +735,12 @@ namespace WpfMinecraftCommandHelper2
         {
             config.setSetting(new Dictionary<string, string> { { "ThemeColor", accents }, { "ThemeType", themes }, { "FlyThemeType", flytheme } });
             ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(accents), ThemeManager.GetAppTheme(themes));
-            string ColorfulFonts; if (fixColorSelSign.IsChecked.Value == true) ColorfulFonts = "Sign"; else ColorfulFonts = "CB";
+            string ColorfulFonts; if (fixColorSelSign.IsChecked.Value) ColorfulFonts = "Sign"; else ColorfulFonts = "CB";
             config.setSetting(new Dictionary<string, string> { { "ColorfulFontsUse", ColorfulFonts } });
+            string CheckingUpdate; if (Update.IsChecked.Value) CheckingUpdate = "true"; else CheckingUpdate = "false";
+            config.setSetting(new Dictionary<string, string> { { "CheckingUpdate", CheckingUpdate } });
+            string MCVersionSel; if (mcv18.IsChecked.Value) { MCVersionSel = "1.8"; mcVersion = "1.8"; } else { MCVersionSel = "latest"; mcVersion = "latest"; }
+            config.setSetting(new Dictionary<string, string> { { "MCVersion", MCVersionSel } });
         }
 
         private void readTheme()
@@ -1032,18 +1048,6 @@ namespace WpfMinecraftCommandHelper2
         private void sclabel_MouseDown(object sender, MouseButtonEventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.mcbbs.net/group-163-1.html");
-        }
-
-        private void Update_Click(object sender, RoutedEventArgs e)
-        {
-            if (Update.IsChecked.Value)
-            {
-                config.setSetting(new Dictionary<string, string> { { "CheckingUpdate", "true" } });
-            }
-            else
-            {
-                config.setSetting(new Dictionary<string, string> { { "CheckingUpdate", "false" } });
-            }
         }
 
         private void win_PreviewKeyDown(object sender, KeyEventArgs e)

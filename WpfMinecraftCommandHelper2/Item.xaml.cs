@@ -645,12 +645,15 @@ namespace WpfMinecraftCommandHelper2
         }
 
         /// <summary>
-        /// 0：附魔，1：名称Lore，2：Attribute，3：缩减版Attribute，4：Unbreaking，5：HideFlag，6：全指令，7：10进制色彩代码，8：只能破坏，9：只能放置
+        /// 0：附魔，1：名称Lore，2：Attribute，3：缩减版Attribute，4：Unbreaking，5：HideFlag，6：全指令，7：10进制色彩代码，8：只能破坏，9：只能放置，10：修复后的全指令仅保留{}部分，带括号。
         /// </summary>
         /// <returns></returns>
         public string[] returnStr()
         {
-            return new string[] { globalEnchString, globalNLString, globalAttrString, globalAttrStringLess, globalUnbreaking, globalHideflag, globalCommand, globalColor, candestroy, canplaceon };
+            int templength = globalCommand.IndexOf('{');
+            string globalCommandAll = "";
+            if (templength != -1) globalCommandAll = globalCommand.Substring(templength + 1, globalCommand.Length - templength - 2);
+            return new string[] { globalEnchString, globalNLString, globalAttrString, globalAttrStringLess, globalUnbreaking, globalHideflag, globalCommand, globalColor, candestroy, canplaceon, globalCommandAll };
         }
 
         /// <summary>
@@ -984,6 +987,8 @@ namespace WpfMinecraftCommandHelper2
             if (tabItemRepairCostCheck.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
             saveFavStr += "|" + tabItemRepairCost.Value.Value.ToString();
             saveFavStr += "|" + atBox.Text;
+            saveFavStr += "|" + tabItemCount.Value.Value;
+            saveFavStr += "|" + tabItemMeta.Value.Value;
             //
             List<string> wtxt = new List<string>();
             wtxt.Add(saveFavStr);
@@ -1142,6 +1147,8 @@ namespace WpfMinecraftCommandHelper2
                     if (int.Parse(readFavStr[102]) == 1) tabItemRepairCostCheck.IsChecked = true; else tabItemRepairCostCheck.IsChecked = false;
                     tabItemRepairCost.Value = int.Parse(readFavStr[103]);
                     atBox.Text = readFavStr[104];
+                    tabItemCount.Value = int.Parse(readFavStr[105]);
+                    tabItemMeta.Value = int.Parse(readFavStr[106]);
                     this.ShowMessageAsync("", "已读取：" + loadNameList[loadResultIndex], MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel, AnimateShow = false, AnimateHide = false });
                 }
                 loadResultIndex++;

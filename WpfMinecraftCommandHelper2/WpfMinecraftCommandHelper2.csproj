@@ -1414,6 +1414,7 @@
     <Content Include="Help\Superflat.html" />
     <Content Include="Help\Tellraw.html" />
     <Content Include="Help\Testfor.html" />
+    <Resource Include="Images\HorseChest.png" />
     <Resource Include="Images\MainIcon\about.png" />
     <Resource Include="Images\MainIcon\adventure.png" />
     <Resource Include="Images\MainIcon\banner.png" />

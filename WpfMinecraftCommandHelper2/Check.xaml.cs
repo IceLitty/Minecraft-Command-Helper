@@ -104,21 +104,5 @@ namespace WpfMinecraftCommandHelper2
             //fbox.NewItems(box.Text);
             fbox.Show();
         }
-
-        private void winCheck_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Check.html";
-            if (e.Key == System.Windows.Input.Key.F1)
-            {
-                if (System.IO.File.Exists(path))
-                {
-                    System.Diagnostics.Process.Start(path);
-                }
-                else
-                {
-                    this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-                }
-            }
-        }
     }
 }

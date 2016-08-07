@@ -1260,6 +1260,10 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             relanglist.Add(LangList[langID]["SummonOZombieType"].ToString());
+            relanglist.Add(LangList[langID]["SummonExtraElytra"].ToString());
+            relanglist.Add(LangList[langID]["SummonExtraTeam"].ToString());
+            relanglist.Add(LangList[langID]["SummonExtraTeamTip"].ToString());
+            relanglist.Add(LangList[langID]["FloatSaveFileCantFind"].ToString());
             return relanglist;
         }
 

@@ -100,13 +100,16 @@ namespace WpfMinecraftCommandHelper2
 
         /* API List Start */
 
-        public string globalPotionString = "";
+        private string globalPotionString = "";
         // "{Id:1,Amplifier:xxx,Duration:xxx},{xxx}"
-        //public int globalPotionYN = 0;
-        // <s>1 or 16384 - DefaultA or B</s>
-        // it's nothing
-        public string globalPotionNBT = "";
+        private int globalPotionYN = 0;
+        // 0 or 16384 - DefaultA or B
+        // use under 1.8
+        private string globalPotionNBT = "";
         // ...
+        private string globalPotionID = "minecraft:potion";
+        // minecraft:potion
+        private string globalPotionCount = "1";
 
         /* REGISTER API KEYS */
         private string globalEnchString = "";
@@ -117,9 +120,22 @@ namespace WpfMinecraftCommandHelper2
         private string at = "@p";
         private string finalStr = "";
 
+        private string mcVersion = "latest";
+
+        public void setVersion(string version)
+        {
+            mcVersion = version;
+            if (mcVersion == "1.8")
+            {
+                tabPotionBUFFPotion.IsEnabled = false;
+                tabPotionTipArrow.IsEnabled = false;
+            }
+        }
+
         private void clear()
         {
             globalPotionString = "";
+            globalPotionYN = 0;
             tabPotionEffect1.IsChecked = false;
             tabPotionEffect2.IsChecked = false;
             tabPotionEffect3.IsChecked = false;
@@ -291,26 +307,52 @@ namespace WpfMinecraftCommandHelper2
 
         private void createBtn_Click(object sender, RoutedEventArgs e)
         {
+            globalPotionCount = tabPotionNum.Value.Value.ToString();
             string endStr = "";
-            if (tabPotionA.IsChecked.Value)
+            if (mcVersion == "latest")
             {
-                endStr = "/give " + at + " minecraft:potion " + tabPotionNum.Value.ToString() + " 0";
+                if (tabPotionA.IsChecked.Value)
+                {
+                    endStr = "/give " + at + " minecraft:potion " + tabPotionNum.Value.ToString() + " 0";
+                    globalPotionID = "minecraft:potion";
+                }
+                else if (tabPotionB.IsChecked.Value)
+                {
+                    endStr = "/give " + at + " minecraft:splash_potion " + tabPotionNum.Value.ToString() + " 0";
+                    globalPotionID = "minecraft:splash_potion";
+                }
+                else if (tabPotionBUFFPotion.IsChecked.Value)
+                {
+                    endStr = "/give " + at + " minecraft:lingering_potion " + tabPotionNum.Value.ToString() + " 0";
+                    globalPotionID = "minecraft:lingering_potion";
+                }
+                else if (tabPotionTipArrow.IsChecked.Value)
+                {
+                    endStr = "/give " + at + " minecraft:tipped_arrow " + tabPotionNum.Value.ToString() + " 0";
+                    globalPotionID = "minecraft:tipped_arrow";
+                }
+                else
+                {
+                    endStr = PotionNotSelect;
+                }
             }
-            else if (tabPotionB.IsChecked.Value)
+            else //if(mcVersion == "1.8")
             {
-                endStr = "/give " + at + " minecraft:splash_potion " + tabPotionNum.Value.ToString() + " 0";
-            }
-            else if (tabPotionBUFFPotion.IsChecked.Value)
-            {
-                endStr = "/give " + at + " minecraft:lingering_potion " + tabPotionNum.Value.ToString() + " 0";
-            }
-            else if (tabPotionTipArrow.IsChecked.Value)
-            {
-                endStr = "/give " + at + " minecraft:tipped_arrow " + tabPotionNum.Value.ToString() + " 0";
-            }
-            else
-            {
-                endStr = PotionNotSelect;
+                if (tabPotionA.IsChecked.Value)
+                {
+                    endStr = "/give " + at + " minecraft:potion " + tabPotionNum.Value.ToString() + " 0";
+                    globalPotionID = "minecraft:potion";
+                    globalPotionYN = 0;
+                }
+                else if (tabPotionB.IsChecked.Value)
+                {
+                    endStr = "/give " + at + " minecraft:potion " + tabPotionNum.Value.ToString() + " 16384";
+                    globalPotionID = "minecraft:splash_potion";
+                    globalPotionYN = 16384;
+                }
+                else if (tabPotionBUFFPotion.IsChecked.Value) { endStr = PotionNotSelect; globalPotionID = "minecraft:splash_potion"; }
+                else if (tabPotionTipArrow.IsChecked.Value) { endStr = PotionNotSelect; globalPotionID = "minecraft:splash_potion"; }
+                else { endStr = PotionNotSelect; }
             }
             string nbt = "";
             if (tabPotionHasEnchant.IsChecked.Value)
@@ -413,9 +455,13 @@ namespace WpfMinecraftCommandHelper2
             System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\Help\Potion.html");
         }
 
+        /// <summary>
+        /// 0：药水NBT，1：物品NBT，2：位于1.8及以下的Damage值，3：药水数量，4：药水英文ID
+        /// </summary>
+        /// <returns></returns>
         public string[] returnStr()
         {
-            return new string[] { globalPotionString, globalPotionNBT };
+            return new string[] { globalPotionString, globalPotionNBT, globalPotionYN.ToString(), globalPotionCount, globalPotionID };
         }
 
         private void tabPotionEffect1_Checked(object sender, EventArgs e)

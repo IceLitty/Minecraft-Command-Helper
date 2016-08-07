@@ -12,6 +12,30 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="readFavBtn" Click="readFavBtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Margin="0 -2 0 0" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_deeplink}"></VisualBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock x:Name="BtnReadFavourite" Margin="4 0 0 0" VerticalAlignment="Center" Text="界面设定读取"></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="saveFavBtn" Click="saveFavBtn_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Margin="0 -2 0 0" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_brick}"></VisualBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock x:Name="BtnSaveFavourite" Margin="4 0 0 0" VerticalAlignment="Center" Text="界面设定保存"></TextBlock>
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
     <Grid>
         <TabControl x:Name="tabAll" HorizontalAlignment="Left" Height="596" VerticalAlignment="Top" Width="1100" FontSize="14">
             <TabItem x:Name="SummonPHeader" Header="刷怪笼">
@@ -70,9 +94,9 @@
                     <Grid HorizontalAlignment="Left" Height="60" Margin="462,242,0,0" VerticalAlignment="Top" Width="465">
                         <RadioButton x:Name="tabSpawnerAddToInv" Content="添加至玩家背包" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0" FontSize="14" Click="tabSpawnerAddToInv_Click"/>
                         <RadioButton x:Name="tabSpawnerAddToMap" Content="添加至地图" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,34,0,0" FontSize="14" Click="tabSpawnerAddToMap_Click"/>
-                        <Controls:NumericUpDown x:Name="tabSpawnerX" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="99,29,248,0" Height="31" IsEnabled="False" />
-                        <Controls:NumericUpDown x:Name="tabSpawnerY" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="222,29,125,0" Height="31" IsEnabled="False" />
-                        <Controls:NumericUpDown x:Name="tabSpawnerZ" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="345,29,2,0" Height="31" IsEnabled="False" />
+                        <Controls:NumericUpDown x:Name="tabSpawnerX" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="99,29,248,0" Height="31" IsEnabled="False" Value="0" />
+                        <Controls:NumericUpDown x:Name="tabSpawnerY" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="222,29,125,0" Height="31" IsEnabled="False" Value="0" />
+                        <Controls:NumericUpDown x:Name="tabSpawnerZ" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="345,29,2,0" Height="31" IsEnabled="False" Value="0" />
                         <Label x:Name="SummonPTipTick" Content="*时间单位为Tick" HorizontalAlignment="Left" Margin="342,1,0,0" VerticalAlignment="Top"/>
                     </Grid>
                     <Button x:Name="tabSpawnerClear" Content="清空" HorizontalAlignment="Left" Margin="467,307,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSpawnerClear_Click" Style="{DynamicResource SquareButtonStyle}"/>
@@ -150,6 +174,7 @@
                         <Controls:NumericUpDown x:Name="tabSumosRidingV1" Margin="94,6,372,5" Value="0" Maximum="100" Minimum="0" />
                         <Button x:Name="tabSumosRiding" Content="Riding" HorizontalAlignment="Left" Margin="204,4,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSumosRiding_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <Label x:Name="SummonORiding2" Content="位" HorizontalAlignment="Left" Margin="175,4,0,0" VerticalAlignment="Top"/>
+                        <Button x:Name="tabSumosRidingClear" Content="Clear" HorizontalAlignment="Left" Margin="284,4,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Style="{DynamicResource SquareButtonStyle}" Click="tabSumosRidingClear_Click"/>
                     </Grid>
                     <CheckBox x:Name="tabSumosNowHealthCheck" Content="当前血量" HorizontalAlignment="Left" Margin="277,114,0,0" VerticalAlignment="Top" Click="tabSumosNowHealthCheck_Click"/>
                     <CheckBox x:Name="tabSumosTagsCheck" Content="标签" HorizontalAlignment="Left" Margin="239,398,0,0" VerticalAlignment="Top" Click="tabSumosTagsCheck_Click" FontSize="14"/>
@@ -203,19 +228,11 @@
                     <CheckBox x:Name="tabSumosGlowing" Content="发光" HorizontalAlignment="Left" Margin="168,369,0,0" VerticalAlignment="Top"/>
                     <CheckBox x:Name="tabSumosPersistenceRequired" Content="不会自然刷新" HorizontalAlignment="Left" Margin="10,398,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <Controls:NumericUpDown x:Name="tabSumosNowHealth" Minimum="0" Maximum="2147483647" StringFormat="" Margin="358,108,574,412" Height="28" Value="20" FontSize="14" IsEnabled="False" />
-                    <Controls:ToggleSwitch x:Name="mcVersion" Margin="-64,214,994,296" IsChecked="True" OnLabel="Minecraft 1.9+" OffLabel="Minecraft 1.8-" RenderTransformOrigin="0.5,0.5" IsCheckedChanged="mcVersion_IsCheckedChanged" >
-                        <Controls:ToggleSwitch.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform Angle="-90"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Controls:ToggleSwitch.RenderTransform>
-                    </Controls:ToggleSwitch>
                     <Controls:NumericUpDown x:Name="tabSumosFireNum" Minimum="-2147483648" Maximum="2147483647" StringFormat="" Margin="328,364,574,156" Height="28" Value="600" FontSize="14" IsEnabled="False" Interval="10" />
                     <CheckBox x:Name="tabSumosElytra" Content="滑翔翼" HorizontalAlignment="Left" Margin="168,399,0,0" VerticalAlignment="Top"/>
                     <CheckBox x:Name="tabSumosArmorNogravity" Content="无重力环境" HorizontalAlignment="Left" Margin="10,427,0,0" VerticalAlignment="Top" FontSize="14"/>
+                    <CheckBox x:Name="tabSumosTeamCheck" Content="入队" HorizontalAlignment="Left" Margin="239,429,0,0" VerticalAlignment="Top" FontSize="14" ToolTip="使生物加入计分板队伍，需填写队伍名" Click="tabSumosTeamCheck_Click"/>
+                    <TextBox x:Name="tabSumosTeam" HorizontalAlignment="Left" Height="23" Margin="328,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" IsEnabled="False" />
                 </Grid>
             </TabItem>
             <TabItem x:Name="SummonSHeader" Header="召唤物品" Margin="125,0,-125,0">
@@ -351,15 +368,31 @@
                     </Grid>
                     <CheckBox x:Name="HorseHasChest" Content="有箱子" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="HorseTamedUUID" HorizontalAlignment="Left" Height="23" Margin="86,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" ToolTip="驯养的玩家名(1.8-)/UUID(1.8+)，保持空则不生成该标签" IsEnabled="False"/>
-                    <Button x:Name="HorseArmorBtn" Content="盔甲物品" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Width="163" IsEnabled="False" Style="{DynamicResource SquareButtonStyle}"/>
-                    <Button x:Name="HorseSaddleBtn" Content="鞍物品" HorizontalAlignment="Left" Margin="176,69,0,0" VerticalAlignment="Top" Width="163" IsEnabled="False" Style="{DynamicResource SquareButtonStyle}"/>
-                    <Controls:NumericUpDown x:Name="HorseVariantValue" Minimum="0" Maximum="32767" StringFormat="" Margin="53,105,757,384" Height="28" Value="0" FontSize="14" />
+                    <Button x:Name="HorseArmorBtn" Content="盔甲物品" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Width="163" Style="{DynamicResource SquareButtonStyle}" Click="HorseArmorBtn_Click"/>
+                    <Button x:Name="HorseSaddleBtn" Content="鞍物品" HorizontalAlignment="Left" Margin="176,69,0,0" VerticalAlignment="Top" Width="163" Style="{DynamicResource SquareButtonStyle}" Click="HorseSaddleBtn_Click"/>
+                    <Controls:NumericUpDown x:Name="HorseVariantValue" Minimum="0" Maximum="32767" StringFormat="" Margin="53,105,757,417" Height="28" Value="0" FontSize="14" />
                     <Label x:Name="HorseVariant" Content="变种" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top"/>
                     <CheckBox x:Name="HorseTamed" Content="已驯服" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Click="HorseTamed_Click"/>
-                    <Controls:NumericUpDown x:Name="HorseTemper" Minimum="0" Maximum="100" StringFormat="" Margin="86,138,757,351" Height="28" Value="90" FontSize="14" ToolTip="驯化几率" />
+                    <Controls:NumericUpDown x:Name="HorseTemper" Minimum="0" Maximum="100" StringFormat="" Margin="86,138,757,384" Height="28" Value="90" FontSize="14" ToolTip="驯化几率" />
                     <CheckBox x:Name="HorseSkeletonTrap" Content="骷髅陷阱" HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top" Click="HorseSkeletonTrap_Click"/>
-                    <Controls:NumericUpDown x:Name="HorseSkeletonTrapTime" Minimum="-2147483648" Maximum="18000" StringFormat="" Margin="114,171,757,318" Height="28" Value="0" FontSize="14" ToolTip="陷阱时间，增加至18000Ticks时自然刷新掉" />
+                    <Controls:NumericUpDown x:Name="HorseSkeletonTrapTime" Minimum="-2147483648" Maximum="18000" StringFormat="" Margin="114,171,757,351" Height="28" Value="0" FontSize="14" ToolTip="陷阱时间，增加至18000Ticks时自然刷新掉" />
                     <CheckBox x:Name="HorseSaddle" Content="拥有马鞍" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top"/>
+                    <Image x:Name="image" HorizontalAlignment="Left" Height="123" Margin="412,69,0,0" VerticalAlignment="Top" Width="203" Source="/Images/HorseChest.png"/>
+                    <Button x:Name="HorseChest2" Content="" HorizontalAlignment="Left" Margin="417,74,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest2_Click" Foreground="White"/>
+                    <Button x:Name="HorseChest3" Content="" HorizontalAlignment="Left" Margin="458,74,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest3_Click" Foreground="White"/>
+                    <Button x:Name="HorseChest4" Content="" HorizontalAlignment="Left" Margin="498,74,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest4_Click" Foreground="White"/>
+                    <Button x:Name="HorseChest5" Content="" HorizontalAlignment="Left" Margin="539,74,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest5_Click" Foreground="White"/>
+                    <Button x:Name="HorseChest6" Content="" HorizontalAlignment="Left" Margin="579,74,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest6_Click" Foreground="White"/>
+                    <Button x:Name="HorseChest7" Content="" HorizontalAlignment="Left" Margin="417,115,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest7_Click" Foreground="White"/>
+                    <Button x:Name="HorseChest8" Content="" HorizontalAlignment="Left" Margin="458,115,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest8_Click" Foreground="White"/>
+                    <Button x:Name="HorseChest9" Content="" HorizontalAlignment="Left" Margin="498,115,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest9_Click" Foreground="White"/>
+                    <Button x:Name="HorseChest10" Content="" HorizontalAlignment="Left" Margin="539,115,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest10_Click" Foreground="White"/>
+                    <Button x:Name="HorseChest11" Content="" HorizontalAlignment="Left" Margin="579,115,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest11_Click" Foreground="White"/>
+                    <Button x:Name="HorseChest12" Content="" HorizontalAlignment="Left" Margin="417,156,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest12_Click" Foreground="White"/>
+                    <Button x:Name="HorseChest13" Content="" HorizontalAlignment="Left" Margin="458,156,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest13_Click" Foreground="White"/>
+                    <Button x:Name="HorseChest14" Content="" HorizontalAlignment="Left" Margin="498,156,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest14_Click" Foreground="White"/>
+                    <Button x:Name="HorseChest15" Content="" HorizontalAlignment="Left" Margin="539,156,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest15_Click" Foreground="White"/>
+                    <Button x:Name="HorseChest16" Content="" HorizontalAlignment="Left" Margin="579,156,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest16_Click" Foreground="White"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="SummonBHeader" Header="属性设置" Margin="150,0,-150,0">

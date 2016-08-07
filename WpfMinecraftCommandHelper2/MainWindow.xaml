@@ -88,12 +88,16 @@
                         <RadioButton x:Name="Light" Content="白" HorizontalAlignment="Left" Margin="169,30,0,0" VerticalAlignment="Top" Click="Light_Click"/>
                         <RadioButton x:Name="Accent" Content="宿主主色" HorizontalAlignment="Left" Margin="210,30,0,0" VerticalAlignment="Top" Click="Accent_Click" IsEnabled="False"/>
                     </Grid>
-                    <Grid HorizontalAlignment="Left" Height="57" Margin="10,272,0,0" VerticalAlignment="Top" Width="355">
+                    <Grid HorizontalAlignment="Left" Height="87" Margin="10,272,0,0" VerticalAlignment="Top" Width="355">
                         <Label x:Name="MainFloatPersonalizeTitle" Content="偏好设置：" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                        <CheckBox x:Name="Update" Content="自动更新" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Click="Update_Click"/>
+                        <CheckBox x:Name="Update" Content="自动更新" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
                         <Grid Margin="100,30,0,0">
                             <RadioButton x:Name="fixColorSelSign" Content="Sign" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0"/>
                             <RadioButton x:Name="fixColorSelCB" Content="CB" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Margin="10,60,0,0">
+                            <RadioButton x:Name="mcvLatest" Content="Latest" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" ToolTip="MCVersion"/>
+                            <RadioButton x:Name="mcv18" Content="1.8" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Top" ToolTip="MCVersion"/>
                         </Grid>
                     </Grid>
                     <Grid HorizontalAlignment="Left" Height="360" Margin="370,10,0,-57" VerticalAlignment="Top" Width="189">

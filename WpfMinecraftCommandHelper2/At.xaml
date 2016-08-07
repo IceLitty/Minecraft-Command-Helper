@@ -82,9 +82,11 @@
         </Grid>
         <Grid HorizontalAlignment="Left" Height="30" Margin="10,418,0,0" VerticalAlignment="Top" Width="660">
             <CheckBox x:Name="handCheck" Content="是否手持物品" HorizontalAlignment="Left" Margin="7,5,0,0" VerticalAlignment="Top" Click="handCheck_Click"/>
-            <ComboBox x:Name="hand" HorizontalAlignment="Left" Margin="108,0,0,0" VerticalAlignment="Top" Width="256" IsEnabled="False"/>
-            <Controls:NumericUpDown x:Name="handMeta" Minimum="0" Maximum="100" Interval="5" StringFormat="" Margin="517,2,10,0" Height="28" ToolTip="物品的Meta(Damage)值" IsEnabled="False" Value="0" />
-            <Controls:NumericUpDown x:Name="handCount" Minimum="0" Maximum="64" Interval="5" StringFormat="" Margin="369,1,148,1" Height="28" Value="1" ToolTip="物品的数量" IsEnabled="False" />
+            <ComboBox x:Name="hand" HorizontalAlignment="Left" Margin="108,2,0,0" VerticalAlignment="Top" Width="166" IsEnabled="False"/>
+            <Controls:NumericUpDown x:Name="handMeta" Minimum="-1" Maximum="100" Interval="5" StringFormat="" Margin="371,2,206,0" Height="28" ToolTip="物品的Meta(Damage)值" IsEnabled="False" Value="-1" />
+            <Controls:NumericUpDown x:Name="handCount" Minimum="0" Maximum="64" Interval="5" StringFormat="" Margin="279,2,292,0" Height="28" Value="1" ToolTip="物品的数量" IsEnabled="False" />
+            <Button x:Name="getItemBtn" Content="Get" HorizontalAlignment="Left" Margin="575,2,0,0" VerticalAlignment="Top" Width="75" FontSize="10" Style="{DynamicResource SquareButtonStyle}" Height="28" IsEnabled="False" Click="getItemBtn_Click"/>
+            <TextBox x:Name="getItemText" HorizontalAlignment="Left" Height="23" Margin="459,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111" IsEnabled="False"/>
         </Grid>
         <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="156,495,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" FontSize="10" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="236,495,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" FontSize="10" Style="{DynamicResource SquareButtonStyle}"/>

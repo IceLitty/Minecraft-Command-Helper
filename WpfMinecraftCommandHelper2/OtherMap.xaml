@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="其他零部件" Height="547.929" Width="616.901" PreviewKeyDown="MetroWindow_PreviewKeyDown">
+        Title="其他零部件" Height="547.929" Width="609.901" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Grid>
         <Grid HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="591">
             <Button x:Name="tabOther1HatHelp" Content="?" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="31" Margin="0,0,0,1" Click="tabOther1HatHelp_Click" Style="{DynamicResource SquareButtonStyle}"/>
