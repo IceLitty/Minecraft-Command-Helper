@@ -934,10 +934,8 @@ namespace WpfMinecraftCommandHelper2
                 equipCount = 0;
             }
             sumosText += "],";
-            sumosText = sumosText.Replace(",Equipment:[{},{},{},{}]", "");
-            sumosText = sumosText.Replace("Equipment:[{},{},{},{}]", "");
-            sumosText = sumosText.Replace(",Equipment:[0:{},1:{},2:{},3:{}]", "");
-            sumosText = sumosText.Replace("Equipment:[0:{},1:{},2:{},3:{}]", "");
+            sumosText = sumosText.Replace("Equipment:[{},{},{},{}],", "");
+            sumosText = sumosText.Replace("Equipment:[0:{},1:{},2:{},3:{}],", "");
             if (mcVersion != "1.8")
             {
                 sumosText += "HandItems:[";
@@ -966,7 +964,7 @@ namespace WpfMinecraftCommandHelper2
                     sumosText += "HandDropChances:[0:" + tabSumosDCHand.Value + "F,1:" + tabSumosDCLHand.Value + "F],";
                 }
             }
-            globalSumosEquipment = sumosText;
+            globalSumosEquipment = sumosText.Substring(0, sumosText.Length - 1).Replace(",tag:{}", "");
             if (tabSumosHasMetaData.IsChecked.Value)
             {
                 sumosText += "Attributes:[" + globalAttrStringLess + "],";
@@ -1466,14 +1464,14 @@ namespace WpfMinecraftCommandHelper2
                 {
                     sumosText += "tags:{CustomPotionEffects:[" + globalPotionString + "]}";
                 }
-                if (sumosText.Length > 0) { sumosText += ",pickup:" + tabSumosEpickup + "b"; } else { sumosText += "pickup:" + tabSumosEpickup + "b"; }
-                if (sumosText.Length > 0) { sumosText += ",damage:" + tabSumosEdamage + "d"; } else { sumosText += "damage:" + tabSumosEdamage + "d"; }
+                if (sumosText.Length > 0) { sumosText += ",pickup:" + tabSumosEpickup.Value.Value + "b"; } else { sumosText += "pickup:" + tabSumosEpickup.Value.Value + "b"; }
+                if (sumosText.Length > 0) { sumosText += ",damage:" + tabSumosEdamage.Value.Value + "d"; } else { sumosText += "damage:" + tabSumosEdamage.Value.Value + "d"; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
             else if (asd.getAt(tabSumosType.SelectedIndex) == "SpectralArrow" || asd.getAt(tabSumosType.SelectedIndex) == "Arrow")
             {
-                if (sumosText.Length > 0) { sumosText += ",pickup:" + tabSumosEpickup + "b"; } else { sumosText += "pickup:" + tabSumosEpickup + "b"; }
-                if (sumosText.Length > 0) { sumosText += ",damage:" + tabSumosEdamage + "d"; } else { sumosText += "damage:" + tabSumosEdamage + "d"; }
+                if (sumosText.Length > 0) { sumosText += ",pickup:" + tabSumosEpickup.Value.Value + "b"; } else { sumosText += "pickup:" + tabSumosEpickup.Value.Value + "b"; }
+                if (sumosText.Length > 0) { sumosText += ",damage:" + tabSumosEdamage.Value.Value + "d"; } else { sumosText += "damage:" + tabSumosEdamage.Value.Value + "d"; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
             else if (asd.getAt(tabSumosType.SelectedIndex) == "Fireball")
