@@ -38,6 +38,8 @@ namespace WpfMinecraftCommandHelper2
             clear();
         }
 
+        private string mcVersion = "latest";
+
         private string FloatWarningTitle = "";
         private string FloatErrorTitle = "";
         private string FloatHelpFileCantFind = "";
@@ -134,7 +136,6 @@ namespace WpfMinecraftCommandHelper2
                 createBtn.Content = templang[3];
                 checkBtn.Content = templang[4];
                 copyBtn.Content = templang[5];
-                helpBtn.Content = templang[6];
                 Title = templang[7];
                 rbTitle.Content = templang[8];
                 rbSubtitle.Content = templang[9];
@@ -607,9 +608,15 @@ namespace WpfMinecraftCommandHelper2
         private void bAt_Click(object sender, RoutedEventArgs e)
         {
             At atbox = new At();
+            atbox.setVersion(mcVersion);
             atbox.Show();
             string temp = atbox.returnStr();
             tText.Text = temp;
+        }
+
+        public void setVersion(string mcVersion)
+        {
+            this.mcVersion = mcVersion;
         }
 
         private void bHEShowItem_Click(object sender, RoutedEventArgs e)

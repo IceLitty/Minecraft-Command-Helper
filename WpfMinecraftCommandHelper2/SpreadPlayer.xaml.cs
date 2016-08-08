@@ -38,7 +38,6 @@ namespace WpfMinecraftCommandHelper2
                 createBtn.Content = templang[5];
                 checkBtn.Content = templang[6];
                 copyBtn.Content = templang[7];
-                helpBtn.Content = templang[8];
                 this.Title = templang[9];
                 SpreadPlayerMinRange.Content = templang[10];
                 SpreadPlayerMaxRange.Content = templang[11];

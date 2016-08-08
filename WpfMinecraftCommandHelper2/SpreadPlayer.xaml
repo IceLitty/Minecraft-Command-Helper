@@ -5,6 +5,19 @@
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
         Title="随机传送" Height="217.212" Width="523.324" PreviewKeyDown="MetroWindow_PreviewKeyDown">
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="helpBtn" Click="helpBtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_quill}"></VisualBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
     <Grid>
         <Grid HorizontalAlignment="Left" Height="132" Margin="10,10,0,0" VerticalAlignment="Top" Width="498">
             <Label Content="X:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
@@ -21,7 +34,6 @@
         <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="19,147,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="99,147,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="259,147,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="339,147,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="179,147,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
 
     </Grid>

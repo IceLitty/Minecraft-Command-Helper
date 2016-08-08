@@ -5,6 +5,19 @@
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
         Title="状态效果" Height="301.056" Width="502.733" PreviewKeyDown="MetroWindow_PreviewKeyDown">
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="helpBtn" Click="helpBtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_quill}"></VisualBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
     <Grid>
         <Label x:Name="EffectChooseEffect2" Content="请选择状态效果：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="tabEffectSel" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="338" SelectionChanged="tabEffectSel_SelectionChanged"/>
@@ -26,7 +39,6 @@
         <Button x:Name="tabEffectClear" Content="清空" HorizontalAlignment="Left" Margin="7,224,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="tabEffectCreate" Content="生成" HorizontalAlignment="Left" Margin="87,224,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="247,224,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="tabEffectHelp" Content="？" HorizontalAlignment="Left" Margin="327,224,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="tabEffectCopy" Content="复制" HorizontalAlignment="Left" Margin="167,224,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
 
     </Grid>

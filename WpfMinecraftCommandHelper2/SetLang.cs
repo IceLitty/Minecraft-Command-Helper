@@ -215,7 +215,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BtnCreate"].ToString());
             relanglist.Add(LangList[langID]["FloatCancel"].ToString());//
             relanglist.Add(LangList[langID]["FloatCancel"].ToString());//
-            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
+            relanglist.Add(LangList[langID]["FloatCancel"].ToString());//
             relanglist.Add(LangList[langID]["AdvNum1"].ToString());
             relanglist.Add(LangList[langID]["AdvNum2"].ToString());
             relanglist.Add(LangList[langID]["AdvNeedNextBtn2Save"].ToString());
@@ -259,7 +259,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BtnCreate"].ToString());
             relanglist.Add(LangList[langID]["BtnCheck"].ToString());
             relanglist.Add(LangList[langID]["BtnCopy"].ToString());
-            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());//
             relanglist.Add(LangList[langID]["AtTitle"].ToString());
             relanglist.Add(LangList[langID]["AtTitle"].ToString());
             relanglist.Add(LangList[langID]["AtUN"].ToString());
@@ -291,6 +291,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["AtTags"].ToString());
             relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["AtItems"].ToString());
             return relanglist;
         }
 
@@ -313,7 +314,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BtnCreate"].ToString());
             relanglist.Add(LangList[langID]["BtnCheck"].ToString());
             relanglist.Add(LangList[langID]["BtnCopy"].ToString());
-            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());//
             relanglist.Add(LangList[langID]["BannerNum1"].ToString());
             relanglist.Add(LangList[langID]["BannerNum2"].ToString());
             relanglist.Add(LangList[langID]["BannerFirstLayer"].ToString());
@@ -446,7 +447,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BtnCreate"].ToString());
             relanglist.Add(LangList[langID]["BtnCheck"].ToString());
             relanglist.Add(LangList[langID]["BtnCopy"].ToString());
-            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());//
             relanglist.Add(LangList[langID]["EffectChooseEffect"].ToString());
             relanglist.Add(LangList[langID]["EffectNotChooseError"].ToString());
             relanglist.Add(LangList[langID]["EffectTitle"].ToString());
@@ -506,7 +507,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BtnCreate"].ToString());
             relanglist.Add(LangList[langID]["BtnCheck"].ToString());
             relanglist.Add(LangList[langID]["BtnCopy"].ToString());
-            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());//
             relanglist.Add(LangList[langID]["FireworkNum1"].ToString());
             relanglist.Add(LangList[langID]["FireworkNum2"].ToString());
             relanglist.Add(LangList[langID]["FireworkFirstPage"].ToString());
@@ -634,7 +635,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BtnCreate"].ToString());
             relanglist.Add(LangList[langID]["BtnCheck"].ToString());
             relanglist.Add(LangList[langID]["BtnCopy"].ToString());
-            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());//
             relanglist.Add(LangList[langID]["ItemAttributeMainHand"].ToString());
             relanglist.Add(LangList[langID]["ItemAttributeOffHand"].ToString());
             relanglist.Add(LangList[langID]["ItemAttributeHead"].ToString());
@@ -906,7 +907,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BtnCreate"].ToString());
             relanglist.Add(LangList[langID]["BtnCheck"].ToString());
             relanglist.Add(LangList[langID]["BtnCopy"].ToString());
-            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());//
             relanglist.Add(LangList[langID]["ParticleTitle"].ToString());
             relanglist.Add(LangList[langID]["ParticleChooseEffect"].ToString());
             relanglist.Add(LangList[langID]["ParticleExplanation"].ToString());
@@ -942,7 +943,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BtnCreate"].ToString());
             relanglist.Add(LangList[langID]["BtnCheck"].ToString());
             relanglist.Add(LangList[langID]["BtnCopy"].ToString());
-            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());//
             relanglist.Add(LangList[langID]["PotionNotSelect"].ToString());
             relanglist.Add(LangList[langID]["PotionClickMe"].ToString());
             relanglist.Add(LangList[langID]["PotionHelpStr"].ToString());
@@ -1018,7 +1019,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BtnCreate"].ToString());
             relanglist.Add(LangList[langID]["BtnCheck"].ToString());
             relanglist.Add(LangList[langID]["BtnCopy"].ToString());
-            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());//
             relanglist.Add(LangList[langID]["ReplaceItemHelpStr"].ToString());
             relanglist.Add(LangList[langID]["ReplaceItemTitle"].ToString());
             relanglist.Add(LangList[langID]["ReplaceItemEntity"].ToString());
@@ -1057,7 +1058,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BtnCreate"].ToString());
             relanglist.Add(LangList[langID]["BtnCheck"].ToString());
             relanglist.Add(LangList[langID]["BtnCopy"].ToString());
-            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());//
             relanglist.Add(LangList[langID]["SpreadPlayerTitle"].ToString());
             relanglist.Add(LangList[langID]["SpreadPlayerMinRange"].ToString());
             relanglist.Add(LangList[langID]["SpreadPlayerMaxRange"].ToString());
@@ -1087,7 +1088,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BtnCreate"].ToString());
             relanglist.Add(LangList[langID]["BtnCheck"].ToString());
             relanglist.Add(LangList[langID]["BtnCopy"].ToString());
-            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());//
             relanglist.Add(LangList[langID]["SummonAGetData"].ToString());
             relanglist.Add(LangList[langID]["SummonAGetData2"].ToString());
             relanglist.Add(LangList[langID]["SummonAGetData2"].ToString());
@@ -1170,14 +1171,14 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["SummonVTradeMaxCount"].ToString());
             relanglist.Add(LangList[langID]["SummonVNoTradeExpReward"].ToString());
             relanglist.Add(LangList[langID]["SummonPHeader"].ToString());
-            relanglist.Add(LangList[langID]["SummonPNowEntity"].ToString());
-            relanglist.Add(LangList[langID]["SummonPHasEquipment"].ToString());
-            relanglist.Add(LangList[langID]["SummonPHasPotion"].ToString());
-            relanglist.Add(LangList[langID]["SummonPHasAttribute"].ToString());
-            relanglist.Add(LangList[langID]["SummonPGetNBTBtn"].ToString());
-            relanglist.Add(LangList[langID]["SummonPInvulnerable"].ToString());
-            relanglist.Add(LangList[langID]["SummonPBaby"].ToString());
-            relanglist.Add(LangList[langID]["SummonPRiding"].ToString());
+            relanglist.Add(LangList[langID]["SummonPHeader"].ToString());//
+            relanglist.Add(LangList[langID]["SummonPHeader"].ToString());//
+            relanglist.Add(LangList[langID]["SummonPHeader"].ToString());//
+            relanglist.Add(LangList[langID]["SummonPHeader"].ToString());//
+            relanglist.Add(LangList[langID]["SummonPHeader"].ToString());//
+            relanglist.Add(LangList[langID]["SummonPHeader"].ToString());//
+            relanglist.Add(LangList[langID]["SummonPHeader"].ToString());//
+            relanglist.Add(LangList[langID]["SummonPHeader"].ToString());//
             relanglist.Add(LangList[langID]["SummonPCustomName"].ToString());
             relanglist.Add(LangList[langID]["SummonPHasNameLore"].ToString());
             relanglist.Add(LangList[langID]["SummonPExtraEntity"].ToString());
@@ -1233,9 +1234,9 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["SummonExtraAtkByEnderman"].ToString());
             relanglist.Add(LangList[langID]["SummonExtraSaddle"].ToString());
             relanglist.Add(LangList[langID]["SummonExtraCanBreakDoor"].ToString());
-            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());//
             relanglist.Add(LangList[langID]["SummonExtraSheared"].ToString());
-            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());//
             relanglist.Add(LangList[langID]["SummonExtraPlayerCreated"].ToString());
             relanglist.Add(LangList[langID]["SummonExtraAngry"].ToString());
             relanglist.Add(LangList[langID]["SummonExtraParticle"].ToString());
@@ -1286,7 +1287,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BtnCreate"].ToString());
             relanglist.Add(LangList[langID]["BtnCheck"].ToString());
             relanglist.Add(LangList[langID]["BtnCopy"].ToString());
-            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());//
             relanglist.Add(LangList[langID]["SuperflatAir"].ToString());
             relanglist.Add(LangList[langID]["SuperflatFirstLayer"].ToString());
             relanglist.Add(LangList[langID]["SuperflatNum1"].ToString());
@@ -1340,7 +1341,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BtnCreate"].ToString());
             relanglist.Add(LangList[langID]["BtnCheck"].ToString());
             relanglist.Add(LangList[langID]["BtnCopy"].ToString());
-            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());//
             relanglist.Add(LangList[langID]["TellrawTitle"].ToString());
             relanglist.Add(LangList[langID]["TellrawTypeTitle"].ToString());
             relanglist.Add(LangList[langID]["TellrawTypeSubtitle"].ToString());
@@ -1420,7 +1421,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BtnCreate"].ToString());
             relanglist.Add(LangList[langID]["BtnCheck"].ToString());
             relanglist.Add(LangList[langID]["BtnCopy"].ToString());
-            relanglist.Add(LangList[langID]["BtnHelp"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());//
             relanglist.Add(LangList[langID]["TestforHelpStr"].ToString());
             relanglist.Add(LangList[langID]["TestforTitle"].ToString());
             relanglist.Add(LangList[langID]["TestforOpenAtWindowBtn"].ToString());
@@ -1430,7 +1431,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["TestforExecuteTooltip"].ToString());
             relanglist.Add(LangList[langID]["TestforDetect"].ToString());
             relanglist.Add(LangList[langID]["TestforDetectTooltip"].ToString());
-            relanglist.Add(LangList[langID]["TestforEntityTooltip"].ToString());
+            relanglist.Add(LangList[langID]["TestforDetectTooltip"].ToString());//
             relanglist.Add(LangList[langID]["TestforEntityX"].ToString());
             relanglist.Add(LangList[langID]["TestforEntityY"].ToString());
             relanglist.Add(LangList[langID]["TestforEntityZ"].ToString());

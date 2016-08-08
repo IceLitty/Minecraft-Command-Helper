@@ -60,7 +60,6 @@ namespace WpfMinecraftCommandHelper2
                 createBtn.Content = templang[4];
                 checkBtn.Content = templang[5];
                 copyBtn.Content = templang[6];
-                helpBtn.Content = templang[7];
                 SuperflatAir = templang[8];
                 SuperflatFirstLayer = templang[9];
                 SuperflatNum1 = templang[10];

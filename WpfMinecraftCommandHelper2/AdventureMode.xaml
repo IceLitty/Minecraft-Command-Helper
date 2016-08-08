@@ -5,6 +5,19 @@
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
         Title="冒险模式" Height="274.042" Width="646.48" PreviewKeyDown="MetroWindow_PreviewKeyDown">
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="helpBtn" Click="helpBtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_quill}"></VisualBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
     <Grid>
         <CheckBox x:Name="tabRPGOnlyBroke" Content="只允许破坏：" HorizontalAlignment="Left" Margin="163,19,0,0" VerticalAlignment="Top" Click="tabRPGOnlyBroke_Checked"/>
         <ComboBox x:Name="tabRPGOnlyBrokeSel" HorizontalAlignment="Left" Margin="163,42,0,0" VerticalAlignment="Top" Width="313" IsEnabled="False"/>
@@ -18,7 +31,6 @@
         <Label x:Name="tabRPGOnlyPlacePage" Content="-第01页-" HorizontalAlignment="Left" Margin="291,161,0,0" VerticalAlignment="Top" IsEnabled="False"/>
         <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="243,203,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="323,203,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="401,10,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <ListBox x:Name="placeList" HorizontalAlignment="Left" Height="225" Margin="10,10,0,0" VerticalAlignment="Top" Width="145"/>
         <ListBox x:Name="brokeList" HorizontalAlignment="Left" Height="225" Margin="485,10,0,0" VerticalAlignment="Top" Width="145"/>
 

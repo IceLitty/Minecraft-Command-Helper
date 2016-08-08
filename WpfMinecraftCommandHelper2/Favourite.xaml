@@ -16,9 +16,9 @@
         <Controls:WindowCommands>
             <Button x:Name="helpBtn" Click="helpBtn_Click">
                 <StackPanel Orientation="Horizontal">
-                    <Rectangle Width="11" Height="16" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
                         <Rectangle.OpacityMask>
-                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_question}"></VisualBrush>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_quill}"></VisualBrush>
                         </Rectangle.OpacityMask>
                     </Rectangle>
                 </StackPanel>

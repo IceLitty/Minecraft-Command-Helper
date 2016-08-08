@@ -111,8 +111,6 @@ namespace WpfMinecraftCommandHelper2
                 tabSpawnerCheckBtn.Content = templang[5];
                 tabSumosCopy.Content = templang[6];
                 tabSpawnerCopy.Content = templang[6];
-                tabSumosHelp.Content = templang[7];
-                tabSpawnerHelp.Content = templang[7];
                 SummonAGetData = templang[8];
                 tabSumosHandBtn.Content = templang[8];
                 tabSumosBootBtn.Content = templang[8];
@@ -198,14 +196,6 @@ namespace WpfMinecraftCommandHelper2
                 tabVillagerRewardExp.Content = templang[88];
                 SummonPHeader.Header = templang[89];
                 SummonPNowEntity.Content = templang[90];
-                tabSpawnerHasEqu.Content = templang[91];
-                tabSpawnerHasPotion.Content = templang[92];
-                tabSpawnerHasAttr.Content = templang[93];
-                tabSpawnerPotionGetBtn.Content = templang[94];
-                tabSpawnerAttrGetBtn.Content = templang[94];
-                tabSpawnerInvulnerable.Content = templang[95];
-                tabSpawnerBaby.Content = templang[96];
-                tabSpawnerRiding.Content = templang[97];
                 tabSpawnerHasName.Content = templang[98];
                 tabSpawnerHasItemNL.Content = templang[99];
                 tabSpawner1.Content = templang[100] + "1";
@@ -486,14 +476,9 @@ namespace WpfMinecraftCommandHelper2
             }
             else
             {
-                tabSpawnerRiding.IsChecked = false;
-                tabSpawnerBaby.IsChecked = false;
-                tabSpawnerInvulnerable.IsChecked = false;
+                globalSummonNBT = "";
                 tabSpawnerShowType.SelectedIndex = tabSumosType.SelectedIndex;
                 tabSpawnerName.Text = "";
-                tabSpawnerHasEqu.IsChecked = false;
-                tabSpawnerHasPotion.IsChecked = false;
-                tabSpawnerHasAttr.IsChecked = false;
                 tabSpawnerHasName.IsChecked = false;
                 tabSpawnerName.IsEnabled = false;
                 tabSpawnerSpawnCount.Value = 3;
@@ -540,6 +525,7 @@ namespace WpfMinecraftCommandHelper2
         private string globalSumosEquipment = "";
         private int globalSumosTypeIndex = 0;
         private string globalSpawnerData = "";
+        private string globalSummonNBT = "";
 
         private string globalEnchString = "";
         private string globalNLString = "";
@@ -680,11 +666,11 @@ namespace WpfMinecraftCommandHelper2
             globalPotionDamage = int.Parse(temp[2]);
             if (mcVersion == "1.8")
             {
-                globalSumosPotion = "{Potion:{id:minecraft:potion,Damage:" + globalPotionDamage + ",Count:1,tag:{CustomPotionEffects:[" + globalPotionString + "]}}}";
+                globalSumosPotion = "{Potion:{id:minecraft:potion,Damage:" + globalPotionDamage + "s,Count:1b,tag:{CustomPotionEffects:[" + globalPotionString + "]}}}";
             }
             else
             {
-                globalSumosPotion = "{Potion:{id:minecraft:potion,Damage:0,Count:1,tag:{CustomPotionEffects:[" + globalPotionString + "]}}}";
+                globalSumosPotion = "{Potion:{id:minecraft:potion,Damage:0s,Count:1b,tag:{CustomPotionEffects:[" + globalPotionString + "]}}}";
             }
         }
 
@@ -762,7 +748,13 @@ namespace WpfMinecraftCommandHelper2
                 tabSumosHeadID.IsEnabled = true;
                 tabSumosHead.IsEnabled = false;
                 globalSumosTempSel = tabSumosHead.SelectedIndex;
-                tabSumosHead.SelectedIndex = 280;
+                AllSelData asd = new AllSelData();
+                int tempIndex = 0;
+                for (int i = 0; i < asd.getItemNameListCount(); i++)
+                {
+                    if (asd.getItem(i) == "minecraft:skull") { tempIndex = i; continue; }
+                }
+                tabSumosHead.SelectedIndex = tempIndex;
             }
             else
             {
@@ -902,8 +894,7 @@ namespace WpfMinecraftCommandHelper2
                 else
                 {
                     globalSumosTempSel = tabSumosHead.SelectedIndex;
-                    tabSumosHead.SelectedIndex = 280;
-                    sumosText += "{id:" + asd.getItem(280) + ",Count:" + sumosEquipmentHeadCount + "b,Damage:3s,tag:" + tabSumosHeadID.Text + "},";
+                    sumosText += "{id:" + asd.getItem(tabSumosHead.SelectedIndex) + ",Count:" + sumosEquipmentHeadCount + "b,Damage:3s,tag:" + tabSumosHeadID.Text + "},";
                     equipCount++;
                 }
             }
@@ -923,8 +914,7 @@ namespace WpfMinecraftCommandHelper2
                 else
                 {
                     globalSumosTempSel = tabSumosHead.SelectedIndex;
-                    tabSumosHead.SelectedIndex = 280;
-                    sumosText += "3:{id:" + asd.getItem(280) + ",Count:" + sumosEquipmentHeadCount + "b,Damage:3s,tag:" + tabSumosHeadID.Text + "},";
+                    sumosText += "3:{id:" + asd.getItem(tabSumosHead.SelectedIndex) + ",Count:" + sumosEquipmentHeadCount + "b,Damage:3s,tag:" + tabSumosHeadID.Text + "},";
                     equipCount++;
                 }
             }
@@ -965,6 +955,7 @@ namespace WpfMinecraftCommandHelper2
                 }
             }
             globalSumosEquipment = sumosText.Substring(0, sumosText.Length - 1).Replace(",tag:{}", "");
+            sumosText = sumosText.Replace("{,", "{");
             if (tabSumosHasMetaData.IsChecked.Value)
             {
                 sumosText += "Attributes:[" + globalAttrStringLess + "],";
@@ -1505,21 +1496,26 @@ namespace WpfMinecraftCommandHelper2
                     {
                         summonText += "Age:" + tabSummonAge.Value + ",";
                     }
-                    summonText += "Item:{id:\"" + asd.getItem(tabSummonItem.SelectedIndex) + "\",Count:" + tabSummonCount.Value + ",Damage:" + tabSummonMeta.Value;
-                    summonText += ",tag:{HideFlags:" + tabSummonHide.SelectedIndex;
+                    summonText += "Item:{id:\"" + asd.getItem(tabSummonItem.SelectedIndex) + "\",Count:" + tabSummonCount.Value + "b,Damage:" + tabSummonMeta.Value + "s";
+                    summonText += ",tag:{";
+                    if (tabSummonHide.SelectedIndex != 0)
+                    {
+                        summonText += "HideFlags: " + tabSummonHide.SelectedIndex + ",";
+                    }
                     if (tabSummonUnbreaking.IsChecked.Value)
                     {
-                        summonText += ",Unbreakable:1";
+                        summonText += "Unbreakable:1,";
                     }
                     if (tabSummonHasEnchant.IsChecked.Value || tabSummonHasNL.IsChecked.Value || tabSummonHasAttr.IsChecked.Value)
                     {
                         string meta = tabSummonGetBackMeta();
-                        summonText += "," + meta;
+                        summonText += meta + ",";
                     }
                     summonText += "}}";
+                    summonText = summonText.Replace(",tag:{,}", "");
                     if (tabSumosEOwner.Text != "") { summonText += ",Owner:" + tabSumosEOwner.Text; }
                     if (tabSumosEThrower.Text != "") { summonText += ",Thrower:" + tabSumosEThrower.Text; }
-                    //ridingText = ",Riding:{id:\"" + asd.getItem(tabSummonItem.SelectedIndex) + "\",Count:" + tabSummonCount.Value + ",Damage:" + tabSummonMeta.Value;
+                    //ridingText = ",Riding:{id:\"" + asd.getItem(tabSummonItem.SelectedIndex) + "\",Count:" + tabSummonCount.Value + "b,Damage:" + tabSummonMeta.Value + "s";
                     sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + summonText + "}";
                 }
             }
@@ -1539,7 +1535,7 @@ namespace WpfMinecraftCommandHelper2
             {
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            sumosFinalStr = sumosFinalStr.Replace(",tag:{}", "").Replace(" {}", "");
+            sumosFinalStr = sumosFinalStr.Replace(",tag:{}", "").Replace("{,", "{").Replace(" {}", "");
             //我也不知道为什么要写这么复杂
             //判断是否含有颜色代码
             if (sumosFinalStr.IndexOf("§") != -1)
@@ -1610,11 +1606,6 @@ namespace WpfMinecraftCommandHelper2
             Check checkbox = new Check();
             checkbox.showText(sumosFinalStr);
             checkbox.Show();
-        }
-
-        private void tabSumosHelp_Click(object sender, RoutedEventArgs e)
-        {
-            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\Help\Summon.html");
         }
 
         private void tabSumosNowHealthCheck_Click(object sender, RoutedEventArgs e)
@@ -2435,12 +2426,12 @@ namespace WpfMinecraftCommandHelper2
             saveFavStr += "|" + globalAttrString.Replace("|", "[MCH_SPLIT]");
             //spawner
             saveFavStr += tabSpawnerShowType.SelectedIndex;
-            saveFavStr += "|" + tabSpawnerHasEqu.IsChecked.Value;
-            saveFavStr += "|" + tabSpawnerHasPotion.IsChecked.Value;
-            saveFavStr += "|" + tabSpawnerHasAttr.IsChecked.Value;
-            saveFavStr += "|" + tabSpawnerInvulnerable.IsChecked.Value;
-            saveFavStr += "|" + tabSpawnerBaby.IsChecked.Value;
-            saveFavStr += "|" + tabSpawnerRiding.IsChecked.Value;
+            saveFavStr += "|null";
+            saveFavStr += "|null";
+            saveFavStr += "|null";
+            saveFavStr += "|null";
+            saveFavStr += "|null";
+            saveFavStr += "|null";
             saveFavStr += "|" + tabSpawnerHasName.IsChecked.Value;
             saveFavStr += "|" + tabSpawnerName.Text.Replace("|", "[MCH_SPLIT]");
             saveFavStr += "|" + tabSpawnerHasItemNL.IsChecked.Value;
@@ -2674,12 +2665,6 @@ namespace WpfMinecraftCommandHelper2
                     globalAttrString = readFavStr[1].Replace("|", "[MCH_SPLIT]");
                     //spawner
                     tabSpawnerShowType.SelectedIndex = int.Parse(readFavStr[2]);
-                    tabSpawnerHasEqu.IsChecked = bool.Parse(readFavStr[3]);
-                    tabSpawnerHasPotion.IsChecked = bool.Parse(readFavStr[4]);
-                    tabSpawnerHasAttr.IsChecked = bool.Parse(readFavStr[5]);
-                    tabSpawnerInvulnerable.IsChecked = bool.Parse(readFavStr[6]);
-                    tabSpawnerBaby.IsChecked = bool.Parse(readFavStr[7]);
-                    tabSpawnerRiding.IsChecked = bool.Parse(readFavStr[8]);
                     tabSpawnerHasName.IsChecked = bool.Parse(readFavStr[9]);
                     tabSpawnerName.Text = readFavStr[10].Replace("|", "[MCH_SPLIT]");
                     tabSpawnerHasItemNL.IsChecked = bool.Parse(readFavStr[11]);
@@ -2936,6 +2921,11 @@ namespace WpfMinecraftCommandHelper2
             }
         }
 
+        private void helpBtn_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\Help\Summon.html");
+        }
+
         private void tabSpawner2_Click(object sender, RoutedEventArgs e)
         {
             if (tabSpawner2.IsChecked.Value)
@@ -3101,6 +3091,16 @@ namespace WpfMinecraftCommandHelper2
             clear(3);
         }
 
+        private void tabSpawnerGetNBT_Click(object sender, RoutedEventArgs e)
+        {
+            if (sumosFinalStr != "" && sumosFinalStr.IndexOf('{') != -1)
+            {
+                globalSummonNBT = sumosFinalStr.Substring(sumosFinalStr.IndexOf('{') + 1, sumosFinalStr.LastIndexOf('}') - sumosFinalStr.IndexOf('{') - 1);
+                tabSpawnerGetNBT.Content = "√";
+                MessageBox.Show(globalSummonNBT);
+            }
+        }
+
         private void tabSpawnerCreate_Click(object sender, RoutedEventArgs e)
         {
             if (tabSpawner1Type.SelectedIndex < 0)
@@ -3143,25 +3143,11 @@ namespace WpfMinecraftCommandHelper2
                 else { firstText = "/setblock " + dx + " " + dy + " " + dz + " minecraft:mob_spawner 0 replace {BlockEntityTag:{id:\"MobSpawner\",SpawnData:{id:" + asd.getAt(tabSpawnerShowType.SelectedIndex) + "\","; }
             }
             string secondText = "";
-            if (tabSpawnerHasEqu.IsChecked.Value && globalSumosEquipment != "") secondText += globalSumosEquipment + ",";
-            if (tabSpawnerHasAttr.IsChecked.Value && globalAttrString != "") secondText += globalAttrString + ",";
-            if (tabSpawnerHasPotion.IsChecked.Value && globalPotionString != "")
-            {
-                secondText += "ActiveEffects:[" + globalPotionString + "],";
-            }
             if (tabSpawnerHasName.IsChecked.Value) secondText += "CustomName:\"" + tabSpawnerName.Text + "\",";
-            if (tabSpawnerInvulnerable.IsChecked.Value) secondText += "Invulnerable:1,";
-            if (tabSpawnerBaby.IsChecked.Value) secondText += "Baby:1,Small:1b,";
-            if (tabSpawnerHasEqu.IsChecked.Value || tabSpawnerHasAttr.IsChecked.Value || tabSpawnerHasPotion.IsChecked.Value || tabSpawnerHasName.IsChecked.Value || tabSpawnerInvulnerable.IsChecked.Value || tabSpawnerBaby.IsChecked.Value)
+            if (globalSummonNBT != "") secondText += globalSummonNBT + ",";
+            if (secondText.Length >= 1)
             {
-                if (secondText.Length >= 1)
-                {
-                    secondText = secondText.Remove(secondText.Length - 1, 1);
-                }
-                else
-                {
-                    //errorC = true;
-                }
+                secondText = secondText.Remove(secondText.Length - 1, 1);
             }
             globalSpawnerData = secondText;
             secondText += "}";
@@ -3250,11 +3236,8 @@ namespace WpfMinecraftCommandHelper2
                 }
                 ridingText = finalRidingString + finalRidingBackend;
             }
-            if (tabSpawnerHasEqu.IsChecked.Value || tabSpawnerHasPotion.IsChecked.Value || tabSpawnerHasAttr.IsChecked.Value)
-            {
-                ridingText += ",";
-            }
-            if (tabSpawnerRiding.IsChecked.Value)
+            ridingText += ",";
+            if (ridingText != "" && ridingText != "Riding:{}")
             {
                 spawnerFinalStr = firstText + ridingText + secondText + thirdText + "}}";
             }
@@ -3262,6 +3245,7 @@ namespace WpfMinecraftCommandHelper2
             {
                 spawnerFinalStr = firstText + secondText + thirdText + "}}";
             }
+            spawnerFinalStr = spawnerFinalStr.Replace(",,", ",");
         }
 
         private void tabSpawnerCopy_Click(object sender, RoutedEventArgs e)
@@ -3274,11 +3258,6 @@ namespace WpfMinecraftCommandHelper2
             Check checkbox = new Check();
             checkbox.showText(spawnerFinalStr);
             checkbox.Show();
-        }
-
-        private void tabSpawnerHelp_Click(object sender, RoutedEventArgs e)
-        {
-            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\Help\Summon.html");
         }
 
         private void tabSumosTagsCheck_Click(object sender, RoutedEventArgs e)
@@ -3379,7 +3358,10 @@ namespace WpfMinecraftCommandHelper2
 
         public string[] returnStr()
         {
-            return new string[] { globalSumosEquipment, globalSumosTypeIndex.ToString(), globalSpawnerData };
+            int templength = sumosFinalStr.IndexOf('{');
+            string globalCommandAll = "";
+            if (templength != -1) globalCommandAll = sumosFinalStr.Substring(templength + 1, sumosFinalStr.Length - templength - 2);
+            return new string[] { globalSumosEquipment, globalSumosTypeIndex.ToString(), globalSpawnerData, globalCommandAll };
         }
 
         private void EntityAttritube_Click(object sender, RoutedEventArgs e)

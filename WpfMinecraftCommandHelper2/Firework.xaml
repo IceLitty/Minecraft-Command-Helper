@@ -5,6 +5,19 @@
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
         Title="烟花" Height="273.592" Width="837.113" PreviewKeyDown="MetroWindow_PreviewKeyDown">
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="helpBtn" Click="helpBtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_quill}"></VisualBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
     <Grid>
         <Grid HorizontalAlignment="Left" Height="64" Margin="10,10,0,0" VerticalAlignment="Top" Width="576">
             <Controls:NumericUpDown x:Name="tabFireFly" Minimum="0" Maximum="20000000" Interval="20" StringFormat="" Margin="114,5,281,31" Height="28" Value="30" />
@@ -40,7 +53,6 @@
         <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="10,198,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="90,198,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="250,198,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="330,198,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="170,198,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <ListBox x:Name="pageList" HorizontalAlignment="Left" Height="228" Margin="680,10,0,0" VerticalAlignment="Top" Width="141"/>
         <CheckBox x:Name="tabFireOnlyStar" Content="给予烟火之星而不是烟花火箭" HorizontalAlignment="Left" Margin="298,79,0,0" VerticalAlignment="Top"/>

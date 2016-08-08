@@ -39,6 +39,9 @@ namespace WpfMinecraftCommandHelper2
         private string AtHelpStr = "";
         private string FloatErrorTitle = "错误";
         private string FloatHelpFileCantFind = "";
+        
+        private string cmd = "";
+        private string mcVersion = "latest";
 
         private void appLanguage()
         {
@@ -54,7 +57,6 @@ namespace WpfMinecraftCommandHelper2
                 createBtn.Content = templang[5];
                 checkBtn.Content = templang[6];
                 copyBtn.Content = templang[7];
-                helpBtn.Content = templang[8];
                 this.Title = templang[9];
                 //AtPlzCloseWindow = templang[10];
                 mUN.Content = templang[11];
@@ -86,6 +88,7 @@ namespace WpfMinecraftCommandHelper2
                 tagCheck.Content = templang[37];
                 FloatErrorTitle = templang[38];
                 FloatHelpFileCantFind = templang[39];
+                itemCheck.Content = templang[40];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -299,10 +302,14 @@ namespace WpfMinecraftCommandHelper2
                 }
                 nbt += "SelectedItem:{id:" + asd.getItem(hand.SelectedIndex) + ",Count:" + handCount.Value + "b" + temp + temp2 + "},";
             }
+            if (itemCheck.IsChecked.Value && cmd != "")
+            {
+                nbt += cmd + ",";
+            }
             if (rideCheck.IsChecked.Value)
             {
                 AllSelData asd = new AllSelData();
-                nbt += "RootVehicle:{Entity:{id:\"" + asd.getAt(rideEntity.SelectedIndex) + "\"}}";
+                nbt += "RootVehicle:{Entity:{id:\"" + asd.getAt(rideEntity.SelectedIndex) + "\"}},";
             }
             if (nbt.Length != 0)
             {
@@ -310,7 +317,6 @@ namespace WpfMinecraftCommandHelper2
                 nbt = "{" + nbt + "}";
                 createText += " " + nbt;
             }
-            //this.ShowMessageAsync(FloatTipTitle, AtPlzCloseWindow, MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
         }
 
         private void copyBtn_Click(object sender, RoutedEventArgs e)
@@ -506,6 +512,24 @@ namespace WpfMinecraftCommandHelper2
                     }
                 }
             }
+        }
+
+        public void setVersion(string mcVersion)
+        {
+            this.mcVersion = mcVersion;
+        }
+
+        private void itemCheck_Click(object sender, RoutedEventArgs e)
+        {
+            itemCheckBtn.IsEnabled = itemCheck.IsChecked.Value;
+        }
+
+        private void itemCheckBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Summon summonbox = new Summon();
+            summonbox.setVersion(mcVersion);
+            summonbox.ShowDialog();
+            cmd = summonbox.returnStr()[3];
         }
     }
 }

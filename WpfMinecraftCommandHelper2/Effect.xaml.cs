@@ -54,7 +54,6 @@ namespace WpfMinecraftCommandHelper2
                 tabEffectCreate.Content = templang[6];
                 checkBtn.Content = templang[7];
                 tabEffectCopy.Content = templang[8];
-                tabEffectHelp.Content = templang[9];
                 EffectChooseEffect = templang[10];
                 EffectNotChooseError = templang[11];
                 this.Title = templang[12];

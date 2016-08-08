@@ -5,6 +5,19 @@
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
         Title="超平坦生成器" Height="352.802" Width="1024.944" PreviewKeyDown="MetroWindow_PreviewKeyDown">
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="helpBtn" Click="helpBtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_quill}"></VisualBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
     <Grid>
         <Button x:Name="preBtn" Content="上一层" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="75" Click="preBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="nextBtn" Content="下一层" HorizontalAlignment="Left" Margin="207,72,0,0" VerticalAlignment="Top" Width="75" Click="nextBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
@@ -61,7 +74,6 @@
         <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="12,179,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="92,179,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="252,179,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="332,179,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="172,179,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="BiomeWiki" Content="wiki" HorizontalAlignment="Left" Margin="287,103,0,0" VerticalAlignment="Top" Width="127" Click="BiomeWiki_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <ListBox x:Name="pageList" HorizontalAlignment="Left" Height="301" Margin="849,14,0,0" VerticalAlignment="Top" Width="160"/>

@@ -53,7 +53,6 @@ namespace WpfMinecraftCommandHelper2
                 createBtn.Content = templang[5];
                 checkBtn.Content = templang[6];
                 copyBtn.Content = templang[7];
-                helpBtn.Content = templang[8];
                 ReplaceItemHelpStr = templang[9];
                 this.Title = templang[10];
                 tabRItemEntity.Content = templang[11];

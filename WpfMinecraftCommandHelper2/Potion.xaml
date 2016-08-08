@@ -27,6 +27,15 @@
                     <TextBlock x:Name="BtnSaveFavourite" Margin="4 0 0 0" VerticalAlignment="Center" Text="界面设定保存"></TextBlock>
                 </StackPanel>
             </Button>
+            <Button x:Name="helpBtn" Click="helpBtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_quill}"></VisualBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </StackPanel>
+            </Button>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid>
@@ -86,64 +95,64 @@
             <CheckBox x:Name="tabPotionEffect24H" Content="" HorizontalAlignment="Left" Margin="637,341,0,0" VerticalAlignment="Top" IsEnabled="False"/>
             <CheckBox x:Name="tabPotionEffect25" Content="漂浮" HorizontalAlignment="Left" Margin="3,372,0,0" VerticalAlignment="Top" Click="tabPotionEffect25_Click"/>
             <CheckBox x:Name="tabPotionEffect25H" Content="" HorizontalAlignment="Left" Margin="294,376,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-            <Controls:NumericUpDown x:Name="tabPotionEffect1Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,0,484,414" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect1Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,0,381,414" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect2Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,-4,145,418" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect2Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,-4,42,418" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect3Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,31,484,383" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect3Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,31,381,383" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect4Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,27,145,387" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect4Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,27,42,387" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect5Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,62,484,352" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect5Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,62,381,352" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect6Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,58,145,356" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect6Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,58,42,356" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect7Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,93,484,321" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect7Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,93,381,321" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect8Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,89,145,325" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect8Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,89,42,325" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect9Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,124,484,290" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect9Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,124,381,290" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect10Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,120,145,294" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect10Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,120,42,294" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect11Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,155,484,259" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect11Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,155,381,259" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect12Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,151,145,263" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect12Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,151,42,263" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect13Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,186,484,228" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect13Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,186,381,228" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect14Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,182,145,232" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect14Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,182,42,232" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect15Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,217,484,197" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect15Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,217,381,197" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect16Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,213,145,201" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect16Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,213,42,201" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect17Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,248,484,166" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect17Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,248,381,166" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect18Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,244,145,170" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect18Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,244,42,170" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect19Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,279,484,135" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect19Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,279,381,135" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect20Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,275,145,139" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect20Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,275,42,139" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect21Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,310,484,104" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect21Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,310,381,104" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect22Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,306,145,108" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect22Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,306,42,108" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect23Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,341,484,73" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect23Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,341,381,73" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect24Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,337,145,77" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect24Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,337,42,77" Height="21" Value="0" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect25Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,372,484,42" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect25Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,372,381,42" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect1Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,0,484,414" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect1Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,0,381,414" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect2Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,-4,145,418" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect2Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,-4,42,418" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect3Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,31,484,383" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect3Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,31,381,383" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect4Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,27,145,387" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect4Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,27,42,387" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect5Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,62,484,352" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect5Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,62,381,352" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect6Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,58,145,356" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect6Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,58,42,356" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect7Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,93,484,321" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect7Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,93,381,321" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect8Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,89,145,325" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect8Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,89,42,325" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect9Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,124,484,290" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect9Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,124,381,290" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect10Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,120,145,294" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect10Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,120,42,294" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect11Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,155,484,259" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect11Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,155,381,259" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect12Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,151,145,263" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect12Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,151,42,263" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect13Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,186,484,228" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect13Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,186,381,228" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect14Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,182,145,232" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect14Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,182,42,232" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect15Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,217,484,197" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect15Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,217,381,197" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect16Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,213,145,201" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect16Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,213,42,201" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect17Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,248,484,166" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect17Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,248,381,166" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect18Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,244,145,170" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect18Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,244,42,170" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect19Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,279,484,135" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect19Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,279,381,135" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect20Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,275,145,139" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect20Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,275,42,139" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect21Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,310,484,104" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect21Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,310,381,104" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect22Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,306,145,108" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect22Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,306,42,108" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect23Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,341,484,73" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect23Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,341,381,73" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect24Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,337,145,77" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect24Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,337,42,77" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect25Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,372,484,42" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect25Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,372,381,42" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
             <CheckBox x:Name="tabPotionEffect26" Content="幸运" HorizontalAlignment="Left" Margin="336,376,0,0" VerticalAlignment="Top" Click="tabPotionEffect26_Click"/>
             <CheckBox x:Name="tabPotionEffect26H" Content="" HorizontalAlignment="Left" Margin="637,376,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-            <Controls:NumericUpDown x:Name="tabPotionEffect26Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,372,145,42" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect26Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,372,42,42" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect26Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="420,372,145,42" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect26Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="531,372,42,42" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
             <CheckBox x:Name="tabPotionEffect27" Content="霉运" HorizontalAlignment="Left" Margin="3,403,0,0" VerticalAlignment="Top" Click="tabPotionEffect27_Click"/>
             <CheckBox x:Name="tabPotionEffect27H" Content="" HorizontalAlignment="Left" Margin="294,407,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-            <Controls:NumericUpDown x:Name="tabPotionEffect27Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,403,484,11" Height="21" Value="6000" IsEnabled="False" />
-            <Controls:NumericUpDown x:Name="tabPotionEffect27Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,403,381,11" Height="21" Value="0" IsEnabled="False" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect27Time" Minimum="0" Maximum="20000000" Interval="5" StringFormat="" Margin="81,403,484,11" Height="21" Value="6000" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
+            <Controls:NumericUpDown x:Name="tabPotionEffect27Level" Minimum="-255" Maximum="255" Interval="5" StringFormat="" Margin="192,403,381,11" Height="21" Value="0" IsEnabled="False" HasDecimals="False" HideUpDownButtons="True" />
         </Grid>
         <Grid HorizontalAlignment="Left" Height="21" Margin="175,13,0,0" VerticalAlignment="Top" Width="322">
             <RadioButton x:Name="tabPotionA" Content="普通药水" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Top" IsChecked="True"/>
@@ -162,12 +171,11 @@
         <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="686,198,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="766,198,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="766,228,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="helpBtn" Content="？" HorizontalAlignment="Left" Margin="846,228,0,0" VerticalAlignment="Top" Width="75" Click="helpBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="686,228,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="moreAttrBtn" Content="以上特殊属性获取" HorizontalAlignment="Left" Margin="686,167,0,0" VerticalAlignment="Top" Width="155" Height="26" Click="moreAttrBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Grid HorizontalAlignment="Left" Height="29" Margin="686,40,0,0" VerticalAlignment="Top" Width="293">
             <Label x:Name="PotionItemCount" Content="物品数量：" HorizontalAlignment="Left" Margin="0,2,0,0" VerticalAlignment="Top"/>
-            <Controls:NumericUpDown x:Name="tabPotionNum" Minimum="0" Maximum="64" Interval="5" StringFormat="" Margin="70,1,10,2" Height="21" Value="1" />
+            <Controls:NumericUpDown x:Name="tabPotionNum" Minimum="0" Maximum="64" Interval="5" StringFormat="" Margin="70,1,10,2" Height="21" Value="1" HasDecimals="False" />
         </Grid>
         <Label x:Name="PotionHideEffect" Content="隐藏效果" HorizontalAlignment="Left" Margin="293,40,0,0" VerticalAlignment="Top"/>
 

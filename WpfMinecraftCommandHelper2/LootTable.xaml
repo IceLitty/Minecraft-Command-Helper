@@ -12,6 +12,19 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="HelpBtn" Click="HelpBtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_quill}"></VisualBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
     <Grid>
         <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="591" VerticalAlignment="Top" Width="1007">
             <TabItem x:Name="tabPool" Header="Pools">
@@ -56,7 +69,6 @@
                     <Button x:Name="EntryClearBtn" Content="清空" HorizontalAlignment="Left" Margin="657,9,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="EntryClearBtn_Click"/>
                     <TextBox x:Name="LootTableFileName" HorizontalAlignment="Left" Height="23" Margin="10,164,0,0" TextWrapping="Wrap" Text="minecraft:empty" VerticalAlignment="Top" Width="391" ToolTip="Loot Table File Name"/>
                     <Button x:Name="LootTableFileNameList" Content="List" HorizontalAlignment="Left" Margin="406,162,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="LootTableFileNameList_Click"/>
-                    <Button x:Name="HelpBtn" Content="?" HorizontalAlignment="Left" Margin="914,-37,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="HelpBtn_Click"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabFunction" Header="←Functions">

@@ -48,7 +48,6 @@ namespace WpfMinecraftCommandHelper2
                 createBtn.Content = templang[4];
                 checkBtn.Content = templang[5];
                 copyBtn.Content = templang[6];
-                helpBtn.Content = templang[7];
                 FireworkNum1 = templang[8];
                 FireworkNum2 = templang[9];
                 FireworkFirstPage = templang[10];

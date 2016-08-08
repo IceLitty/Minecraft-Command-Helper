@@ -42,7 +42,6 @@ namespace WpfMinecraftCommandHelper2
                 createBtn.Content = templang[5];
                 checkBtn.Content = templang[6];
                 copyBtn.Content = templang[7];
-                helpBtn.Content = templang[8];
                 PotionNotSelect = templang[9];
                 PotionClickMe = templang[10];
                 PotionHelpStr = templang[11];

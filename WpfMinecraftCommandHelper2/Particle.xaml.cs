@@ -42,7 +42,6 @@ namespace WpfMinecraftCommandHelper2
                 tabParticleCreate.Content = templang[4];
                 checkBtn.Content = templang[5];
                 tabParticleCopy.Content = templang[6];
-                tabParticleHelp.Content = templang[7];
                 this.Title = templang[8];
                 ParticleChooseEffect.Content = templang[9];
                 tabParticleCN.Content = templang[10];

@@ -15,10 +15,6 @@ namespace WpfMinecraftCommandHelper2
             InitializeComponent();
             appLanguage();
             AllSelData asd = new AllSelData();
-            for (int i = 0; i < asd.getAtListCount(); i++)
-            {
-                entitySel.Items.Add(asd.getAtNameList(i));
-            }
             for (int i = 0; i < asd.getItemNameListCount(); i++)
             {
                 itemSel.Items.Add(asd.getItemNameList(i));
@@ -46,7 +42,6 @@ namespace WpfMinecraftCommandHelper2
                 createBtn.Content = templang[4];
                 checkBtn.Content = templang[5];
                 copyBtn.Content = templang[6];
-                helpBtn.Content = templang[7];
                 TestforHelpStr = templang[8];
                 this.Title = templang[9];
                 atBtn.Content = templang[10];
@@ -56,7 +51,6 @@ namespace WpfMinecraftCommandHelper2
                 rbExecute.ToolTip = templang[14];
                 detectGpb.Header = templang[15];
                 detectCheck.ToolTip = templang[16];
-                entitySel.ToolTip = templang[17];
                 x.ToolTip = templang[18];
                 y.ToolTip = templang[19];
                 z.ToolTip = templang[20];
@@ -98,7 +92,6 @@ namespace WpfMinecraftCommandHelper2
         private void clear()
         {
             rbTestfor.IsChecked = true;
-            entitySel.SelectedIndex = 0;
             itemSel.SelectedIndex = 0;
             detectCheck.IsChecked = false;
             detectGpb.IsEnabled = false;

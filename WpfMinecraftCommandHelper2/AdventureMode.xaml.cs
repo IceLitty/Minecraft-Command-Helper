@@ -49,7 +49,6 @@ namespace WpfMinecraftCommandHelper2
                 FloatCancel = templang[2];
                 clearBtn.Content = templang[3];
                 createBtn.Content = templang[4];
-                helpBtn.Content = templang[7];
                 AdvNum1 = templang[8];
                 AdvNum2 = templang[9];
                 AdvNeedNextBtn2Save = templang[10];

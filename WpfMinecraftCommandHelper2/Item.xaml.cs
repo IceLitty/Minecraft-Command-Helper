@@ -110,7 +110,6 @@ namespace WpfMinecraftCommandHelper2
                 createBtn.Content = templang[58];
                 checkBtn.Content = templang[59];
                 copyBtn.Content = templang[60];
-                helpBtn.Content = templang[61];
                 AttrMainHand.Content = templang[62];
                 AttrOffHand.Content = templang[63];
                 AttrHead.Content = templang[64];
@@ -645,7 +644,7 @@ namespace WpfMinecraftCommandHelper2
         }
 
         /// <summary>
-        /// 0：附魔，1：名称Lore，2：Attribute，3：缩减版Attribute，4：Unbreaking，5：HideFlag，6：全指令，7：10进制色彩代码，8：只能破坏，9：只能放置，10：修复后的全指令仅保留{}部分，带括号。
+        /// 0：附魔，1：名称Lore，2：Attribute，3：缩减版Attribute，4：Unbreaking，5：HideFlag，6：全指令，7：10进制色彩代码，8：只能破坏，9：只能放置，10：修复后的全指令仅保留{}部分，不带括号。
         /// </summary>
         /// <returns></returns>
         public string[] returnStr()

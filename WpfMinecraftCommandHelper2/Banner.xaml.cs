@@ -59,7 +59,6 @@ namespace WpfMinecraftCommandHelper2
                 createBtn.Content = templang[4];
                 checkBtn.Content = templang[5];
                 copyBtn.Content = templang[6];
-                helpBtn.Content = templang[7];
                 BannerNum1 = templang[8];
                 BannerNum2 = templang[9];
                 BannerFirstLayer = templang[10];
