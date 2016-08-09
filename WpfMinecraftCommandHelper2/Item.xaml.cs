@@ -148,6 +148,7 @@ namespace WpfMinecraftCommandHelper2
         // "CanDestroy:["block1","block2"]"
         private string canplaceon = "";
         // "CanPlaceOn:["block1","block2"]"
+        private string globalEnchList = "";
         private string globalCommand = "";
 
         private int globalItemSel = 0;
@@ -340,33 +341,34 @@ namespace WpfMinecraftCommandHelper2
             string enchant = "";
             if (tabItemEnchantCheck.IsChecked.Value)
             {
-                if (tabItemEnchant0.IsChecked.Value) { enchant += "{id:0s,lvl:" + tabItemEnNum0.Value.Value + "s},"; }
-                if (tabItemEnchant1.IsChecked.Value) { enchant += "{id:1s,lvl:" + tabItemEnNum1.Value.Value + "s},"; }
-                if (tabItemEnchant2.IsChecked.Value) { enchant += "{id:2s,lvl:" + tabItemEnNum2.Value.Value + "s},"; }
-                if (tabItemEnchant3.IsChecked.Value) { enchant += "{id:3s,lvl:" + tabItemEnNum3.Value.Value + "s},"; }
-                if (tabItemEnchant4.IsChecked.Value) { enchant += "{id:4s,lvl:" + tabItemEnNum4.Value.Value + "s},"; }
-                if (tabItemEnchant5.IsChecked.Value) { enchant += "{id:5s,lvl:" + tabItemEnNum5.Value.Value + "s},"; }
-                if (tabItemEnchant6.IsChecked.Value) { enchant += "{id:6s,lvl:" + tabItemEnNum6.Value.Value + "s},"; }
-                if (tabItemEnchant7.IsChecked.Value) { enchant += "{id:7s,lvl:" + tabItemEnNum7.Value.Value + "s},"; }
-                if (tabItemEnchant8.IsChecked.Value) { enchant += "{id:8s,lvl:" + tabItemEnNum8.Value.Value + "s},"; }
-                if (tabItemEnchant9.IsChecked.Value) { enchant += "{id:9s,lvl:" + tabItemEnNum9.Value.Value + "s},"; }
-                if (tabItemEnchant16.IsChecked.Value) { enchant += "{id:16s,lvl:" + tabItemEnNum16.Value.Value + "s},"; }
-                if (tabItemEnchant17.IsChecked.Value) { enchant += "{id:17s,lvl:" + tabItemEnNum17.Value.Value + "s},"; }
-                if (tabItemEnchant18.IsChecked.Value) { enchant += "{id:18s,lvl:" + tabItemEnNum18.Value.Value + "s},"; }
-                if (tabItemEnchant19.IsChecked.Value) { enchant += "{id:19s,lvl:" + tabItemEnNum19.Value.Value + "s},"; }
-                if (tabItemEnchant20.IsChecked.Value) { enchant += "{id:20s,lvl:" + tabItemEnNum20.Value.Value + "s},"; }
-                if (tabItemEnchant21.IsChecked.Value) { enchant += "{id:21s,lvl:" + tabItemEnNum21.Value.Value + "s},"; }
-                if (tabItemEnchant32.IsChecked.Value) { enchant += "{id:32s,lvl:" + tabItemEnNum32.Value.Value + "s},"; }
-                if (tabItemEnchant33.IsChecked.Value) { enchant += "{id:33s,lvl:" + tabItemEnNum33.Value.Value + "s},"; }
-                if (tabItemEnchant34.IsChecked.Value) { enchant += "{id:34s,lvl:" + tabItemEnNum34.Value.Value + "s},"; }
-                if (tabItemEnchant35.IsChecked.Value) { enchant += "{id:35s,lvl:" + tabItemEnNum35.Value.Value + "s},"; }
-                if (tabItemEnchant48.IsChecked.Value) { enchant += "{id:48s,lvl:" + tabItemEnNum48.Value.Value + "s},"; }
-                if (tabItemEnchant49.IsChecked.Value) { enchant += "{id:49s,lvl:" + tabItemEnNum49.Value.Value + "s},"; }
-                if (tabItemEnchant50.IsChecked.Value) { enchant += "{id:50s,lvl:" + tabItemEnNum50.Value.Value + "s},"; }
-                if (tabItemEnchant51.IsChecked.Value) { enchant += "{id:51s,lvl:" + tabItemEnNum51.Value.Value + "s},"; }
-                if (tabItemEnchant61.IsChecked.Value) { enchant += "{id:61s,lvl:" + tabItemEnNum61.Value.Value + "s},"; }
-                if (tabItemEnchant62.IsChecked.Value) { enchant += "{id:62s,lvl:" + tabItemEnNum62.Value.Value + "s},"; }
-                if (tabItemEnchant70.IsChecked.Value) { enchant += "{id:70s,lvl:" + tabItemEnNum70.Value.Value + "s},"; }
+                if (tabItemEnchant0.IsChecked.Value) { enchant += "{id:0s,lvl:" + tabItemEnNum0.Value.Value + "s},"; globalEnchList += "protection,"; }
+                if (tabItemEnchant1.IsChecked.Value) { enchant += "{id:1s,lvl:" + tabItemEnNum1.Value.Value + "s},"; globalEnchList += "fire_protection,"; }
+                if (tabItemEnchant2.IsChecked.Value) { enchant += "{id:2s,lvl:" + tabItemEnNum2.Value.Value + "s},"; globalEnchList += "feather_falling,"; }
+                if (tabItemEnchant3.IsChecked.Value) { enchant += "{id:3s,lvl:" + tabItemEnNum3.Value.Value + "s},"; globalEnchList += "blast_protection,"; }
+                if (tabItemEnchant4.IsChecked.Value) { enchant += "{id:4s,lvl:" + tabItemEnNum4.Value.Value + "s},"; globalEnchList += "projectile_protection,"; }
+                if (tabItemEnchant5.IsChecked.Value) { enchant += "{id:5s,lvl:" + tabItemEnNum5.Value.Value + "s},"; globalEnchList += "respiration,"; }
+                if (tabItemEnchant6.IsChecked.Value) { enchant += "{id:6s,lvl:" + tabItemEnNum6.Value.Value + "s},"; globalEnchList += "aqua_affinity,"; }
+                if (tabItemEnchant7.IsChecked.Value) { enchant += "{id:7s,lvl:" + tabItemEnNum7.Value.Value + "s},"; globalEnchList += "thorns,"; }
+                if (tabItemEnchant8.IsChecked.Value) { enchant += "{id:8s,lvl:" + tabItemEnNum8.Value.Value + "s},"; globalEnchList += "depth_strider,"; }
+                if (tabItemEnchant9.IsChecked.Value) { enchant += "{id:9s,lvl:" + tabItemEnNum9.Value.Value + "s},"; globalEnchList += "frost_walker,"; }
+                if (tabItemEnchant16.IsChecked.Value) { enchant += "{id:16s,lvl:" + tabItemEnNum16.Value.Value + "s},"; globalEnchList += "sharpness,"; }
+                if (tabItemEnchant17.IsChecked.Value) { enchant += "{id:17s,lvl:" + tabItemEnNum17.Value.Value + "s},"; globalEnchList += "smite,"; }
+                if (tabItemEnchant18.IsChecked.Value) { enchant += "{id:18s,lvl:" + tabItemEnNum18.Value.Value + "s},"; globalEnchList += "bane_of_arthropods,"; }
+                if (tabItemEnchant19.IsChecked.Value) { enchant += "{id:19s,lvl:" + tabItemEnNum19.Value.Value + "s},"; globalEnchList += "knockback,"; }
+                if (tabItemEnchant20.IsChecked.Value) { enchant += "{id:20s,lvl:" + tabItemEnNum20.Value.Value + "s},"; globalEnchList += "fire_aspect,"; }
+                if (tabItemEnchant21.IsChecked.Value) { enchant += "{id:21s,lvl:" + tabItemEnNum21.Value.Value + "s},"; globalEnchList += "looting,"; }
+                if (tabItemEnchant32.IsChecked.Value) { enchant += "{id:32s,lvl:" + tabItemEnNum32.Value.Value + "s},"; globalEnchList += "efficiency,"; }
+                if (tabItemEnchant33.IsChecked.Value) { enchant += "{id:33s,lvl:" + tabItemEnNum33.Value.Value + "s},"; globalEnchList += "silk_touch,"; }
+                if (tabItemEnchant34.IsChecked.Value) { enchant += "{id:34s,lvl:" + tabItemEnNum34.Value.Value + "s},"; globalEnchList += "unbreaking,"; }
+                if (tabItemEnchant35.IsChecked.Value) { enchant += "{id:35s,lvl:" + tabItemEnNum35.Value.Value + "s},"; globalEnchList += "fortune,"; }
+                if (tabItemEnchant48.IsChecked.Value) { enchant += "{id:48s,lvl:" + tabItemEnNum48.Value.Value + "s},"; globalEnchList += "power,"; }
+                if (tabItemEnchant49.IsChecked.Value) { enchant += "{id:49s,lvl:" + tabItemEnNum49.Value.Value + "s},"; globalEnchList += "punch,"; }
+                if (tabItemEnchant50.IsChecked.Value) { enchant += "{id:50s,lvl:" + tabItemEnNum50.Value.Value + "s},"; globalEnchList += "flame,"; }
+                if (tabItemEnchant51.IsChecked.Value) { enchant += "{id:51s,lvl:" + tabItemEnNum51.Value.Value + "s},"; globalEnchList += "infinity,"; }
+                if (tabItemEnchant61.IsChecked.Value) { enchant += "{id:61s,lvl:" + tabItemEnNum61.Value.Value + "s},"; globalEnchList += "luck_of_the_sea,"; }
+                if (tabItemEnchant62.IsChecked.Value) { enchant += "{id:62s,lvl:" + tabItemEnNum62.Value.Value + "s},"; globalEnchList += "lure,"; }
+                if (tabItemEnchant70.IsChecked.Value) { enchant += "{id:70s,lvl:" + tabItemEnNum70.Value.Value + "s},"; globalEnchList += "mending,"; }
+                if (globalEnchList.Length != 0) globalEnchList = globalEnchList.Substring(0, globalEnchList.Length - 1);
                 if (enchant != "")
                 {
                     enchant = enchant.Remove(enchant.Length - 1, 1);
@@ -644,7 +646,7 @@ namespace WpfMinecraftCommandHelper2
         }
 
         /// <summary>
-        /// 0：附魔，1：名称Lore，2：Attribute，3：缩减版Attribute，4：Unbreaking，5：HideFlag，6：全指令，7：10进制色彩代码，8：只能破坏，9：只能放置，10：修复后的全指令仅保留{}部分，不带括号。
+        /// 0：附魔，1：名称Lore，2：Attribute，3：缩减版Attribute，4：Unbreaking，5：HideFlag，6：全指令，7：10进制色彩代码，8：只能破坏，9：只能放置，10：修复后的全指令仅保留{}部分，不带括号，11：用于Loottable的附魔ID列表
         /// </summary>
         /// <returns></returns>
         public string[] returnStr()
@@ -652,7 +654,7 @@ namespace WpfMinecraftCommandHelper2
             int templength = globalCommand.IndexOf('{');
             string globalCommandAll = "";
             if (templength != -1) globalCommandAll = globalCommand.Substring(templength + 1, globalCommand.Length - templength - 2);
-            return new string[] { globalEnchString, globalNLString, globalAttrString, globalAttrStringLess, globalUnbreaking, globalHideflag, globalCommand, globalColor, candestroy, canplaceon, globalCommandAll };
+            return new string[] { globalEnchString, globalNLString, globalAttrString, globalAttrStringLess, globalUnbreaking, globalHideflag, globalCommand, globalColor, candestroy, canplaceon, globalCommandAll, globalEnchList };
         }
 
         /// <summary>

@@ -744,6 +744,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["FloatConfirm"].ToString());
             relanglist.Add(LangList[langID]["FloatCancel"].ToString());
             relanglist.Add(LangList[langID]["LootTableFunctionLootLimit"].ToString());
+            relanglist.Add(LangList[langID]["LootTableError"].ToString());
             return relanglist;
         }
 
@@ -1265,6 +1266,14 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["SummonExtraTeam"].ToString());
             relanglist.Add(LangList[langID]["SummonExtraTeamTip"].ToString());
             relanglist.Add(LangList[langID]["FloatSaveFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["SummonSandsHeader"].ToString());
+            relanglist.Add(LangList[langID]["SummonSandsItem"].ToString());
+            relanglist.Add(LangList[langID]["SummonSandsMeta"].ToString());
+            relanglist.Add(LangList[langID]["SummonSandsTime"].ToString());
+            relanglist.Add(LangList[langID]["SummonSandsDrop"].ToString());
+            relanglist.Add(LangList[langID]["SummonSandsDamage"].ToString());
+            relanglist.Add(LangList[langID]["SummonSandsDamageMax"].ToString());
+            relanglist.Add(LangList[langID]["SummonSandsDamageCount"].ToString());
             return relanglist;
         }
 

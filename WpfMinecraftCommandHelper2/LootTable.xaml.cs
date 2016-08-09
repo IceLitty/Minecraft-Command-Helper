@@ -43,6 +43,9 @@ namespace WpfMinecraftCommandHelper2
         private string FloatHelpFileCantFind = "";
         private string FloatConfirm = "确认";
         private string FloatCancel = "取消";
+        private string LootTableError = "";
+
+        private string globalEnchList = "[]";
 
         private void appLanguage()
         {
@@ -252,6 +255,7 @@ namespace WpfMinecraftCommandHelper2
                 FloatConfirm = templang[72];
                 FloatCancel = templang[73];
                 functionLCountLimit.ToolTip = templang[74];
+                LootTableError = templang[75];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -331,7 +335,10 @@ namespace WpfMinecraftCommandHelper2
                         }
                     }
                 }
-                catch (Exception) { /* throw; */ }
+                catch (Exception)
+                {
+                    this.ShowMessageAsync(FloatErrorTitle, LootTableError, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                }
                 Check cbox = new Check();
                 cbox.showText(output, LootTableSaveTitle + @"\data\loot_tables\" + namespacePath + @"\" + path + ".json");
                 cbox.Show();
@@ -467,6 +474,7 @@ namespace WpfMinecraftCommandHelper2
             if (functionsRandomEnchantCheck.IsChecked.Value)
             {
                 globalFunction += "{\"function\":\"enchant_randomly\"";
+                if(globalEnchList != "[]") globalFunction += ",\"enchantments\":" + globalEnchList;
                 if (globalFCRandomEnchant != "") { globalFunction += "," + globalFCRandomEnchant; }
                 globalFunction += "},";
                 del = true;
@@ -476,7 +484,6 @@ namespace WpfMinecraftCommandHelper2
                 globalFunction += "{\"function\":\"enchant_with_levels\"";
                 if (functionsEnchantTreasure.IsChecked == null) { } else if (functionsEnchantTreasure.IsChecked.Value) { globalFunction += ",\"treasure\":true"; } else { globalFunction += ",\"treasure\":false"; }
                 if (functionsEnchantRandom.IsChecked.Value) { globalFunction += ",\"levels\":{\"min\":" + functionsEnchantMin.Value.Value + ",\"max\":" + functionsEnchantMax.Value.Value + "}"; } else { globalFunction += ",\"levels\":" + functionsEnchantMin.Value.Value; }
-                if (functionLCountLimit.Value.Value <= 0) { globalFunction += ",\"limit\":" + functionLCountLimit.Value.Value; }
                 if (globalFCEnchant != "") { globalFunction += "," + globalFCEnchant; }
                 globalFunction += "},";
                 del = true;
@@ -492,6 +499,7 @@ namespace WpfMinecraftCommandHelper2
             {
                 globalFunction += "{\"function\":\"looting_enchant\"";
                 if (functionLCountRandom.IsChecked.Value) { globalFunction += ",\"count\":{\"min\":" + functionLCountMin.Value.Value + ",\"max\":" + functionLCountMax.Value.Value + "}"; } else { globalFunction += ",\"count\":" + functionLCountMin.Value.Value; }
+                if (functionLCountLimit.Value.Value <= 0) { globalFunction += ",\"limit\":" + functionLCountLimit.Value.Value; }
                 if (globalFCLCount != "") { globalFunction += "," + globalFCLCount; }
                 globalFunction += "},";
                 del = true;
@@ -767,6 +775,21 @@ namespace WpfMinecraftCommandHelper2
         private void conditionsChanceIsMulti_Click(object sender, RoutedEventArgs e)
         {
             conditionsChanceMulti.IsEnabled = conditionsChanceIsMulti.IsChecked.Value;
+        }
+
+        private void functionsRandomEnchantBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Item itembox = new Item();
+            itembox.ShowDialog();
+            string enchlist = itembox.returnStr()[11];
+            string[] ench = enchlist.Split(',');
+            globalEnchList = "[";
+            for (int i = 0; i < ench.Length; i++)
+            {
+                globalEnchList += "\"" + ench[i] + "\",";
+            }
+            if (globalEnchList != "[") globalEnchList = globalEnchList.Substring(0, globalEnchList.Length - 1);
+            globalEnchList += "]";
         }
 
         private void functionsEnchantRandom_Click(object sender, RoutedEventArgs e)

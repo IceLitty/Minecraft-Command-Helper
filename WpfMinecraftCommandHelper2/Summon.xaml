@@ -67,10 +67,10 @@
                         <CheckBox x:Name="tabSpawner4" Content="附加生物4" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Margin="0,97,0,0" Click="tabSpawner4_Click"/>
                         <ComboBox x:Name="tabSpawner4Type" HorizontalAlignment="Left" Margin="93,93,0,0" VerticalAlignment="Top" Width="154" Height="19" IsEnabled="False" FontSize="14"/>
                         <Button x:Name="tabSpawner4Get" Content="Get" HorizontalAlignment="Left" Margin="252,93,0,0" VerticalAlignment="Top" Width="49" FontSize="12" Height="26" IsEnabled="False" Click="tabSpawner4Get_Click" Style="{DynamicResource SquareButtonStyle}"/>
-                        <Controls:NumericUpDown x:Name="tabSpawner1Weight" Minimum="-32768" Maximum="32767" Interval="0.2" StringFormat="" Margin="306,0,31,98" Height="26" IsEnabled="False" Value="1" FontSize="14" />
-                        <Controls:NumericUpDown x:Name="tabSpawner2Weight" Minimum="-32768" Maximum="32767" Interval="0.2" StringFormat="" Margin="306,31,31,67" Height="26" IsEnabled="False" Value="1" FontSize="14" />
-                        <Controls:NumericUpDown x:Name="tabSpawner3Weight" Minimum="-32768" Maximum="32767" Interval="0.2" StringFormat="" Margin="306,62,31,36" Height="26" IsEnabled="False" Value="1" FontSize="14" />
-                        <Controls:NumericUpDown x:Name="tabSpawner4Weight" Minimum="-32768" Maximum="32767" Interval="0.2" StringFormat="" Margin="306,93,31,5" Height="26" IsEnabled="False" Value="1" FontSize="14" />
+                        <Controls:NumericUpDown x:Name="tabSpawner1Weight" Minimum="-32768" Maximum="32767" Interval="0.2" StringFormat="" Margin="306,0,31,98" Height="26" IsEnabled="False" Value="1" FontSize="14" HasDecimals="False" />
+                        <Controls:NumericUpDown x:Name="tabSpawner2Weight" Minimum="-32768" Maximum="32767" Interval="0.2" StringFormat="" Margin="306,31,31,67" Height="26" IsEnabled="False" Value="1" FontSize="14" HasDecimals="False" />
+                        <Controls:NumericUpDown x:Name="tabSpawner3Weight" Minimum="-32768" Maximum="32767" Interval="0.2" StringFormat="" Margin="306,62,31,36" Height="26" IsEnabled="False" Value="1" FontSize="14" HasDecimals="False" />
+                        <Controls:NumericUpDown x:Name="tabSpawner4Weight" Minimum="-32768" Maximum="32767" Interval="0.2" StringFormat="" Margin="306,93,31,5" Height="26" IsEnabled="False" Value="1" FontSize="14" HasDecimals="False" />
                         <Label Content="x" HorizontalAlignment="Left" Margin="416,0,0,0" VerticalAlignment="Top"/>
                         <Label Content="x" HorizontalAlignment="Left" Margin="416,33,0,63"/>
                         <Label Content="x" HorizontalAlignment="Left" Margin="416,60,0,36"/>
@@ -84,20 +84,20 @@
                         <Label x:Name="SummonPMinWaitTick" Content="最小刷怪等待时间：" HorizontalAlignment="Left" Margin="0,128,0,0" VerticalAlignment="Top"/>
                         <Label x:Name="SummonPMaxWaitTick" Content="最大刷怪等待时间：" HorizontalAlignment="Left" Margin="0,159,0,0" VerticalAlignment="Top"/>
                         <Label x:Name="SummonPMaxNumEntityInRange" Content="召唤半径内最大怪物数：" HorizontalAlignment="Left" Margin="0,190,0,0" VerticalAlignment="Top"/>
-                        <Controls:NumericUpDown x:Name="tabSpawnerSpawnCount" Minimum="0" Maximum="32767" StringFormat="" Margin="163,6,10,195" Height="26" Value="3" FontSize="13" />
-                        <Controls:NumericUpDown x:Name="tabSpawnerSpawnRange" Minimum="0" Maximum="32767" StringFormat="" Margin="163,40,10,161" Height="26" Value="4" FontSize="13" />
-                        <Controls:NumericUpDown x:Name="tabSpawnerRequiredPlayerRange" Minimum="0" Maximum="32767" StringFormat="" Margin="163,71,10,130" Height="26" Value="30" FontSize="13" />
-                        <Controls:NumericUpDown x:Name="tabSpawnerDelay" Minimum="0" Maximum="51840000" StringFormat="" Margin="163,102,10,99" Height="26" Value="0" FontSize="13" />
-                        <Controls:NumericUpDown x:Name="tabSpawnerMinSpawnDelay" Minimum="0" Maximum="51840000" StringFormat="" Margin="163,133,10,68" Height="26" Value="300" FontSize="13" />
-                        <Controls:NumericUpDown x:Name="tabSpawnerMaxSpawnDelay" Minimum="0" Maximum="51840000" StringFormat="" Margin="163,164,10,37" Height="26" Value="1800" FontSize="13" />
-                        <Controls:NumericUpDown x:Name="tabSpawnerMaxNearbyEntities" Minimum="0" Maximum="32767" StringFormat="" Margin="163,195,10,6" Height="26" Value="6" FontSize="13" />
+                        <Controls:NumericUpDown x:Name="tabSpawnerSpawnCount" Minimum="0" Maximum="32767" StringFormat="" Margin="163,6,10,195" Height="26" Value="3" FontSize="13" HasDecimals="False" />
+                        <Controls:NumericUpDown x:Name="tabSpawnerSpawnRange" Minimum="0" Maximum="32767" StringFormat="" Margin="163,40,10,161" Height="26" Value="4" FontSize="13" HasDecimals="False" />
+                        <Controls:NumericUpDown x:Name="tabSpawnerRequiredPlayerRange" Minimum="0" Maximum="32767" StringFormat="" Margin="163,71,10,130" Height="26" Value="30" FontSize="13" HasDecimals="False" />
+                        <Controls:NumericUpDown x:Name="tabSpawnerDelay" Minimum="0" Maximum="51840000" StringFormat="" Margin="163,102,10,99" Height="26" Value="0" FontSize="13" HasDecimals="False" />
+                        <Controls:NumericUpDown x:Name="tabSpawnerMinSpawnDelay" Minimum="0" Maximum="51840000" StringFormat="" Margin="163,133,10,68" Height="26" Value="300" FontSize="13" HasDecimals="False" />
+                        <Controls:NumericUpDown x:Name="tabSpawnerMaxSpawnDelay" Minimum="0" Maximum="51840000" StringFormat="" Margin="163,164,10,37" Height="26" Value="1800" FontSize="13" HasDecimals="False" />
+                        <Controls:NumericUpDown x:Name="tabSpawnerMaxNearbyEntities" Minimum="0" Maximum="32767" StringFormat="" Margin="163,195,10,6" Height="26" Value="6" FontSize="13" HasDecimals="False" />
                     </Grid>
                     <Grid HorizontalAlignment="Left" Height="60" Margin="462,242,0,0" VerticalAlignment="Top" Width="465">
                         <RadioButton x:Name="tabSpawnerAddToInv" Content="添加至玩家背包" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0" FontSize="14" Click="tabSpawnerAddToInv_Click"/>
                         <RadioButton x:Name="tabSpawnerAddToMap" Content="添加至地图" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,34,0,0" FontSize="14" Click="tabSpawnerAddToMap_Click"/>
-                        <Controls:NumericUpDown x:Name="tabSpawnerX" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="99,29,248,0" Height="31" IsEnabled="False" Value="0" />
-                        <Controls:NumericUpDown x:Name="tabSpawnerY" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="222,29,125,0" Height="31" IsEnabled="False" Value="0" />
-                        <Controls:NumericUpDown x:Name="tabSpawnerZ" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="345,29,2,0" Height="31" IsEnabled="False" Value="0" />
+                        <Controls:NumericUpDown x:Name="tabSpawnerX" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="99,29,248,0" Height="31" IsEnabled="False" Value="0" HasDecimals="False" />
+                        <Controls:NumericUpDown x:Name="tabSpawnerY" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="222,29,125,0" Height="31" IsEnabled="False" Value="0" HasDecimals="False" />
+                        <Controls:NumericUpDown x:Name="tabSpawnerZ" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="345,29,2,0" Height="31" IsEnabled="False" Value="0" HasDecimals="False" />
                         <Label x:Name="SummonPTipTick" Content="*时间单位为Tick" HorizontalAlignment="Left" Margin="342,1,0,0" VerticalAlignment="Top"/>
                     </Grid>
                     <Button x:Name="tabSpawnerClear" Content="清空" HorizontalAlignment="Left" Margin="467,307,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSpawnerClear_Click" Style="{DynamicResource SquareButtonStyle}"/>
@@ -124,22 +124,22 @@
                     <Label x:Name="SummonORightHand" Content="右手" HorizontalAlignment="Left" Margin="40,169,0,0" VerticalAlignment="Top" Height="26"/>
                     <Grid HorizontalAlignment="Left" Height="194" Margin="81,139,0,0" VerticalAlignment="Top" Width="441">
                         <ComboBox x:Name="tabSumosHand" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Height="28" Margin="5,33,0,0" FontSize="14" IsEnabled="False"/>
-                        <Controls:NumericUpDown x:Name="tabSumosNumHand" Minimum="0" Maximum="32767" StringFormat="" Margin="172,33,120,133" Height="28" Value="1" FontSize="14" IsEnabled="False" />
+                        <Controls:NumericUpDown x:Name="tabSumosNumHand" Minimum="0" Maximum="32767" StringFormat="" Margin="172,33,120,133" Height="28" Value="1" FontSize="14" IsEnabled="False" HasDecimals="False" />
                         <Button x:Name="tabSumosHandBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,33,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="29" Click="tabSumosHandBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <ComboBox x:Name="tabSumosBoot" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Height="29" Margin="5,64,0,0" FontSize="14" IsEnabled="False"/>
-                        <Controls:NumericUpDown x:Name="tabSumosNumBoot" Minimum="0" Maximum="32767" StringFormat="" Margin="172,65,120,101" Height="28" Value="1" FontSize="14" IsEnabled="False" />
+                        <Controls:NumericUpDown x:Name="tabSumosNumBoot" Minimum="0" Maximum="32767" StringFormat="" Margin="172,65,120,101" Height="28" Value="1" FontSize="14" IsEnabled="False" HasDecimals="False" />
                         <Button x:Name="tabSumosBootBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,65,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="28" Click="tabSumosBootBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <ComboBox x:Name="tabSumosLeg" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Height="28" Margin="5,97,0,0" FontSize="14" IsEnabled="False"/>
-                        <Controls:NumericUpDown x:Name="tabSumosNumLeg" Minimum="0" Maximum="32767" StringFormat="" Margin="172,98,120,68" Height="28" Value="1" FontSize="14" IsEnabled="False" />
+                        <Controls:NumericUpDown x:Name="tabSumosNumLeg" Minimum="0" Maximum="32767" StringFormat="" Margin="172,98,120,68" Height="28" Value="1" FontSize="14" IsEnabled="False" HasDecimals="False" />
                         <Button x:Name="tabSumosLegBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,97,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="29" Click="tabSumosLegBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <ComboBox x:Name="tabSumosChest" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Height="29" Margin="5,130,0,0" FontSize="14" IsEnabled="False"/>
-                        <Controls:NumericUpDown x:Name="tabSumosNumChest" Minimum="0" Maximum="32767" StringFormat="" Margin="172,131,120,35" Height="28" Value="1" FontSize="14" IsEnabled="False" />
+                        <Controls:NumericUpDown x:Name="tabSumosNumChest" Minimum="0" Maximum="32767" StringFormat="" Margin="172,131,120,35" Height="28" Value="1" FontSize="14" IsEnabled="False" HasDecimals="False" />
                         <Button x:Name="tabSumosChestBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,131,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="28" Click="tabSumosChestBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <ComboBox x:Name="tabSumosHead" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Height="29" Margin="5,162,0,0" FontSize="14" IsEnabled="False"/>
-                        <Controls:NumericUpDown x:Name="tabSumosNumHead" Minimum="0" Maximum="32767" StringFormat="" Margin="172,164,120,2" Height="28" Value="1" FontSize="14" IsEnabled="False" />
+                        <Controls:NumericUpDown x:Name="tabSumosNumHead" Minimum="0" Maximum="32767" StringFormat="" Margin="172,164,120,2" Height="28" Value="1" FontSize="14" IsEnabled="False" HasDecimals="False" />
                         <Button x:Name="tabSumosHeadBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,163,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="29" Click="tabSumosHeadBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <ComboBox x:Name="tabSumosLHand" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Height="28" Margin="5,0,0,0" FontSize="14" IsEnabled="False"/>
-                        <Controls:NumericUpDown x:Name="tabSumosNumLHand" Minimum="0" Maximum="32767" StringFormat="" Margin="172,0,120,166" Height="28" Value="1" FontSize="14" IsEnabled="False" />
+                        <Controls:NumericUpDown x:Name="tabSumosNumLHand" Minimum="0" Maximum="32767" StringFormat="" Margin="172,0,120,166" Height="28" Value="1" FontSize="14" IsEnabled="False" HasDecimals="False" />
                         <Button x:Name="tabSumosLHandBtn" Content="获取数据" HorizontalAlignment="Left" Margin="326,0,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Height="29" Click="tabSumosLHandBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
                     </Grid>
                     <Label x:Name="SummonOBoot" Content="靴子" HorizontalAlignment="Left" Margin="40,201,0,0" VerticalAlignment="Top" Height="26"/>
@@ -181,13 +181,13 @@
                     <TextBox x:Name="tabSumosTags" HorizontalAlignment="Left" Height="23" Margin="328,397,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" IsEnabled="False" AcceptsReturn="True" />
                     <Grid HorizontalAlignment="Left" Height="74" Margin="542,144,0,0" VerticalAlignment="Top" Width="544">
                         <CheckBox x:Name="tabSumosMotionCheck" Content="动量" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="14" Click="tabSumosMotionCheck_Click"/>
-                        <Controls:NumericUpDown x:Name="tabSumosMotionY" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="223,3,167,39" Height="32" Value="0" IsEnabled="False" FontSize="14" />
-                        <Controls:NumericUpDown x:Name="tabSumosMotionZ" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="382,3,10,39" Height="32" Value="0" IsEnabled="False" FontSize="14" />
-                        <Controls:NumericUpDown x:Name="tabSumosMotionX" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="80,3,326,39" Height="32" Value="0" IsEnabled="False" FontSize="14" />
+                        <Controls:NumericUpDown x:Name="tabSumosMotionY" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="223,3,167,39" Height="32" Value="0" IsEnabled="False" FontSize="14" HasDecimals="False" />
+                        <Controls:NumericUpDown x:Name="tabSumosMotionZ" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="382,3,10,39" Height="32" Value="0" IsEnabled="False" FontSize="14" HasDecimals="False" />
+                        <Controls:NumericUpDown x:Name="tabSumosMotionX" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="80,3,326,39" Height="32" Value="0" IsEnabled="False" FontSize="14" HasDecimals="False" />
                         <CheckBox x:Name="tabSumosDirection" Content="方向" HorizontalAlignment="Left" Margin="0,47,0,0" VerticalAlignment="Top" FontSize="14" Click="tabSumosDirection_Click"/>
-                        <Controls:NumericUpDown x:Name="tabSumosDirectionY" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="223,40,167,2" Height="32" Value="0" IsEnabled="False" FontSize="14" />
-                        <Controls:NumericUpDown x:Name="tabSumosDirectionZ" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="382,40,10,2" Height="32" Value="0" IsEnabled="False" FontSize="14" />
-                        <Controls:NumericUpDown x:Name="tabSumosDirectionX" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="80,40,326,2" Height="32" Value="0" IsEnabled="False" FontSize="14" />
+                        <Controls:NumericUpDown x:Name="tabSumosDirectionY" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="223,40,167,2" Height="32" Value="0" IsEnabled="False" FontSize="14" HasDecimals="False" />
+                        <Controls:NumericUpDown x:Name="tabSumosDirectionZ" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="382,40,10,2" Height="32" Value="0" IsEnabled="False" FontSize="14" HasDecimals="False" />
+                        <Controls:NumericUpDown x:Name="tabSumosDirectionX" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="80,40,326,2" Height="32" Value="0" IsEnabled="False" FontSize="14" HasDecimals="False" />
                     </Grid>
                     <GroupBox x:Name="groupBox" Header="Extra" HorizontalAlignment="Left" Margin="527,258,0,0" VerticalAlignment="Top" Height="280" Width="554">
                         <Grid HorizontalAlignment="Left" Height="242" VerticalAlignment="Top" Width="544" Margin="0,0,-2,0">
@@ -209,26 +209,26 @@
                             <Slider x:Name="tabSumosERadius" HorizontalAlignment="Left" Margin="366,221,0,0" VerticalAlignment="Top" Width="126" ToolTip="半径" IsEnabled="False" Value="2.9" ValueChanged="tabSumosERadius_ValueChanged"/>
                             <Button x:Name="tabSumosEParticle" Content="..." HorizontalAlignment="Left" Margin="497,204,0,0" VerticalAlignment="Top" Width="19" ToolTip="粒子效果选择" IsEnabled="False" Click="tabSumosEParticle_Click" Height="34" Style="{DynamicResource SquareButtonStyle}"/>
                             <Button x:Name="tabSumosEParticleColor" Content="+" HorizontalAlignment="Left" Margin="521,204,0,0" VerticalAlignment="Top" Width="19" ToolTip="粒子效果颜色选择" IsEnabled="False" Height="34" Click="tabSumosEParticleColor_Click" Style="{DynamicResource SquareButtonStyle}"/>
-                            <Controls:NumericUpDown x:Name="tabSumosEExplosionRadius" Minimum="0" Maximum="32767" StringFormat="" Margin="122,0,305,214" Value="3" FontSize="14" ToolTip="爆炸半径" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosEFuse" Minimum="0" Maximum="32767" StringFormat="" Margin="244,0,183,214" Value="1" FontSize="14" ToolTip="引信时间" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosEDragon" Minimum="-1" Maximum="10" StringFormat="" Margin="122,33,305,181" Value="-1" FontSize="14" ToolTip="末影龙动作" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosEExplosionPower" Minimum="0" Maximum="32767" StringFormat="" Margin="244,33,183,181" Value="1" FontSize="14" ToolTip="爆炸威力" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosESize" Minimum="0" Maximum="32767" StringFormat="" Margin="122,66,305,148" Value="3" FontSize="14" ToolTip="大小" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosECatType" Minimum="0" Maximum="3" StringFormat="" Margin="244,66,183,148" Value="0" FontSize="14" ToolTip="豹猫类型|0为野生|1为西服猫|2为虎斑猫|3为暹罗猫" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosERabbitType" Minimum="0" Maximum="99" StringFormat="" Margin="244,99,183,115" Value="0" FontSize="14" ToolTip="兔子的类型|0为棕色兔子|1为白色|2为黑色|3为黑白相间|4为金色|5为胡椒盐|99为杀手兔" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosEShulkerPeek" Minimum="-32768" Maximum="32767" StringFormat="" Margin="122,99,305,115" Value="30" FontSize="14" ToolTip="头部高度" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosEInvul" Minimum="0" Maximum="99" StringFormat="" Margin="244,132,183,82" Value="0" FontSize="14" ToolTip="无敌时间-倒计时" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosEpickup" Minimum="0" Maximum="2" StringFormat="" Margin="122,132,305,82" Value="0" FontSize="14" ToolTip="箭矢能否被捡起|0为不能|1为可以|2为只允许创造模式捡起" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosEdamage" Minimum="0" Maximum="1000000" StringFormat="" Margin="0,132,427,82" Value="2" FontSize="14" ToolTip="箭矢的攻击力" IsEnabled="False" Interval="0.5" />
-                            <Controls:NumericUpDown x:Name="tabSumosEExp" Minimum="-2147483648" Maximum="2147483647" StringFormat="" Margin="244,165,183,49" Value="0" FontSize="14" ToolTip="经验值数量" IsEnabled="False" />
-                            <Controls:NumericUpDown x:Name="tabSumosEZombieType" Minimum="-1" Maximum="1000000" StringFormat="" Margin="0,198,427,16" Value="-1" FontSize="14" ToolTip="僵尸类型，0为默认，1-5为村民，6为尸壳（Husk）\n骷髅类型，0为默认，1为凋零骷髅，2为流髑（Stray）" IsEnabled="False" Interval="0.5" />
+                            <Controls:NumericUpDown x:Name="tabSumosEExplosionRadius" Minimum="0" Maximum="32767" StringFormat="" Margin="122,0,305,214" Value="3" FontSize="14" ToolTip="爆炸半径" IsEnabled="False" HasDecimals="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosEFuse" Minimum="0" Maximum="32767" StringFormat="" Margin="244,0,183,214" Value="1" FontSize="14" ToolTip="引信时间" IsEnabled="False" HasDecimals="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosEDragon" Minimum="-1" Maximum="10" StringFormat="" Margin="122,33,305,181" Value="-1" FontSize="14" ToolTip="末影龙动作" IsEnabled="False" HasDecimals="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosEExplosionPower" Minimum="0" Maximum="32767" StringFormat="" Margin="244,33,183,181" Value="1" FontSize="14" ToolTip="爆炸威力" IsEnabled="False" HasDecimals="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosESize" Minimum="0" Maximum="32767" StringFormat="" Margin="122,66,305,148" Value="3" FontSize="14" ToolTip="大小" IsEnabled="False" HasDecimals="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosECatType" Minimum="0" Maximum="3" StringFormat="" Margin="244,66,183,148" Value="0" FontSize="14" ToolTip="豹猫类型|0为野生|1为西服猫|2为虎斑猫|3为暹罗猫" IsEnabled="False" HasDecimals="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosERabbitType" Minimum="0" Maximum="99" StringFormat="" Margin="244,99,183,115" Value="0" FontSize="14" ToolTip="兔子的类型|0为棕色兔子|1为白色|2为黑色|3为黑白相间|4为金色|5为胡椒盐|99为杀手兔" IsEnabled="False" HasDecimals="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosEShulkerPeek" Minimum="-32768" Maximum="32767" StringFormat="" Margin="122,99,305,115" Value="30" FontSize="14" ToolTip="头部高度" IsEnabled="False" HasDecimals="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosEInvul" Minimum="0" Maximum="99" StringFormat="" Margin="244,132,183,82" Value="0" FontSize="14" ToolTip="无敌时间-倒计时" IsEnabled="False" HasDecimals="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosEpickup" Minimum="0" Maximum="2" StringFormat="" Margin="122,132,305,82" Value="0" FontSize="14" ToolTip="箭矢能否被捡起|0为不能|1为可以|2为只允许创造模式捡起" IsEnabled="False" HasDecimals="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosEdamage" Minimum="0" Maximum="1000000" StringFormat="" Margin="0,132,427,82" Value="2" FontSize="14" ToolTip="箭矢的攻击力" IsEnabled="False" Interval="0.5" HasDecimals="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosEExp" Minimum="-2147483648" Maximum="2147483647" StringFormat="" Margin="244,165,183,49" Value="0" FontSize="14" ToolTip="经验值数量" IsEnabled="False" HasDecimals="False" />
+                            <Controls:NumericUpDown x:Name="tabSumosEZombieType" Minimum="-1" Maximum="1000000" StringFormat="" Margin="0,198,427,16" Value="-1" FontSize="14" ToolTip="僵尸类型，0为默认，1-5为村民，6为尸壳（Husk）\n骷髅类型，0为默认，1为凋零骷髅，2为流髑（Stray）" IsEnabled="False" Interval="0.5" HasDecimals="False" />
                         </Grid>
                     </GroupBox>
                     <CheckBox x:Name="tabSumosFireCheck" Content="燃烧状态" HorizontalAlignment="Left" Margin="239,369,0,0" VerticalAlignment="Top" Click="tabSumosFireCheck_Click"/>
                     <CheckBox x:Name="tabSumosGlowing" Content="发光" HorizontalAlignment="Left" Margin="168,369,0,0" VerticalAlignment="Top"/>
                     <CheckBox x:Name="tabSumosPersistenceRequired" Content="不会自然刷新" HorizontalAlignment="Left" Margin="10,398,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <Controls:NumericUpDown x:Name="tabSumosNowHealth" Minimum="0" Maximum="2147483647" StringFormat="" Margin="358,108,574,412" Height="28" Value="20" FontSize="14" IsEnabled="False" />
-                    <Controls:NumericUpDown x:Name="tabSumosFireNum" Minimum="-2147483648" Maximum="2147483647" StringFormat="" Margin="328,364,574,156" Height="28" Value="600" FontSize="14" IsEnabled="False" Interval="10" />
+                    <Controls:NumericUpDown x:Name="tabSumosNowHealth" Minimum="0" Maximum="2147483647" StringFormat="" Margin="358,108,574,412" Height="28" Value="20" FontSize="14" IsEnabled="False" HasDecimals="False" />
+                    <Controls:NumericUpDown x:Name="tabSumosFireNum" Minimum="-2147483648" Maximum="2147483647" StringFormat="" Margin="328,364,574,156" Height="28" Value="600" FontSize="14" IsEnabled="False" Interval="10" HasDecimals="False" />
                     <CheckBox x:Name="tabSumosElytra" Content="滑翔翼" HorizontalAlignment="Left" Margin="168,399,0,0" VerticalAlignment="Top"/>
                     <CheckBox x:Name="tabSumosArmorNogravity" Content="无重力环境" HorizontalAlignment="Left" Margin="10,427,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <CheckBox x:Name="tabSumosTeamCheck" Content="入队" HorizontalAlignment="Left" Margin="239,429,0,0" VerticalAlignment="Top" FontSize="14" ToolTip="使生物加入计分板队伍，需填写队伍名" Click="tabSumosTeamCheck_Click"/>
@@ -259,6 +259,18 @@
                     <Button x:Name="tabSummonClear" Content="清空" HorizontalAlignment="Left" Margin="13,222,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabSummonClear_Click" Style="{DynamicResource SquareButtonStyle}"/>
                     <CheckBox x:Name="tabSummonPickupdelayCheck" Content="" HorizontalAlignment="Left" Margin="11,162,0,0" VerticalAlignment="Top" Width="21" Click="tabSummonPickupdelayCheck_Click"/>
                     <CheckBox x:Name="tabSummonAgeCheck" Content="" HorizontalAlignment="Left" Margin="11,194,0,0" VerticalAlignment="Top" Width="21" Click="tabSummonAgeCheck_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="SummonSand" Header="掉落沙" Margin="35,0,-125,0">
+                <Grid>
+                    <ComboBox x:Name="FallingSandItemSel" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" Height="28" ToolTip="掉落沙外观方块选择"/>
+                    <Controls:NumericUpDown x:Name="FallingSandLifeTime" Minimum="0" Maximum="2147483647" StringFormat="" Margin="10,43,886,479" Height="28" Value="1" FontSize="14" HasDecimals="False" ToolTip="掉落沙存活时间，0会立即删除，从1开始到600-&gt;数字越大存活时间越短" />
+                    <Controls:NumericUpDown x:Name="FallingSandMeta" Minimum="0" Maximum="2147483647" StringFormat="" Margin="215,10,770,512" Height="28" Value="0" FontSize="14" HasDecimals="False" ToolTip="方块的Meta值" />
+                    <CheckBox x:Name="FallingSandIsDrop" Content="掉落沙摧毁时是否掉落方块" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                    <CheckBox x:Name="FallingSandIsDamage" Content="掉落沙落下时是否产生伤害" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Click="FallingSandIsDamage_Click"/>
+                    <Controls:NumericUpDown x:Name="FallingSandMaxDamage" Minimum="0" Maximum="2147483647" StringFormat="" Margin="33,122,863,400" Height="28" Value="40" FontSize="14" HasDecimals="False" ToolTip="掉落沙最大伤害值，默认40（20♥）" IsEnabled="False" />
+                    <Controls:NumericUpDown x:Name="FallingSandDamageCount" Minimum="0" Maximum="2147483647" StringFormat="" Margin="33,155,863,367" Height="28" Value="2" FontSize="14" ToolTip="掉落沙伤害次数" IsEnabled="False" />
+
                 </Grid>
             </TabItem>
             <TabItem x:Name="SummonVHeader" Header="村民" Margin="-15,0,15,0">

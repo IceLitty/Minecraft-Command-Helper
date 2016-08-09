@@ -75,7 +75,7 @@
                 <Grid Background="White">
                     <GroupBox x:Name="functionsRandomEnchantGroup" Header="        随机附魔" HorizontalAlignment="Left" Margin="8,0,0,0" VerticalAlignment="Top" Height="67" Width="346" IsEnabled="False">
                         <Grid HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="336" Margin="0,0,-2,0">
-                            <Button x:Name="functionsRandomEnchantBtn" Content="选择指定附魔" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False"/>
+                            <Button x:Name="functionsRandomEnchantBtn" Content="选择指定附魔" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Style="{DynamicResource SquareButtonStyle}" Click="functionsRandomEnchantBtn_Click"/>
                             <Button x:Name="functionsRandomEnchantCondition" Content="Condition" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Style="{StaticResource AccentedSquareButtonStyle}" Margin="237,-31,0,0" Height="16" Click="functionsRandomEnchantCondition_Click"/>
                         </Grid>
                     </GroupBox>

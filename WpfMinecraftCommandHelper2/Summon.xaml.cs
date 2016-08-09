@@ -37,6 +37,7 @@ namespace WpfMinecraftCommandHelper2
                 tabVillagerA.Items.Add(asd.getItemNameList(i));
                 tabVillagerB.Items.Add(asd.getItemNameList(i));
                 tabVillagerC.Items.Add(asd.getItemNameList(i));
+                FallingSandItemSel.Items.Add(asd.getItemNameList(i));
             }
             for (int i = 0; i < asd.getHideListCount(); i++)
             {
@@ -285,6 +286,14 @@ namespace WpfMinecraftCommandHelper2
                 tabSumosTeamCheck.Content = templang[181];
                 tabSumosTeamCheck.ToolTip = templang[182];
                 FloatSaveFileCantFind = templang[183];
+                SummonSand.Header = templang[184];
+                FallingSandItemSel.ToolTip = templang[185];
+                FallingSandMeta.ToolTip = templang[186];
+                FallingSandLifeTime.ToolTip = templang[187];
+                FallingSandIsDrop.Content = templang[188];
+                FallingSandIsDamage.Content = templang[189];
+                FallingSandMaxDamage.ToolTip = templang[190];
+                FallingSandDamageCount.ToolTip = templang[191];
             } catch (System.Exception) { /* throw; */ }
         }
 
@@ -296,6 +305,7 @@ namespace WpfMinecraftCommandHelper2
             SummonArmorStandHeader.Visibility = Visibility.Hidden;
             SummonHorseHeader.Visibility = Visibility.Hidden;
             SummonSHeader.Visibility = Visibility.Hidden;
+            SummonSand.Visibility = Visibility.Hidden;
             tabSumosEEnderman.IsEnabled = false;
             tabSumosEUUID.IsEnabled = false;
             tabSumosEWoolColor.IsEnabled = false;
@@ -333,6 +343,11 @@ namespace WpfMinecraftCommandHelper2
             for (int i = 0; i < 4; i++)
             {
                 clear(i);
+            }
+            AllSelData asd = new AllSelData();
+            for (int i = 0; i < asd.getItemNameListCount(); i++)
+            {
+                if (asd.getItem(i) == "minecraft:sand") { FallingSandItemSel.SelectedIndex = i; continue; }
             }
         }
 
@@ -428,6 +443,13 @@ namespace WpfMinecraftCommandHelper2
                 tabSumosMotionY.Value = 0;
                 tabSumosMotionZ.Value = 0;
                 tabSumosMarker.IsChecked = false;
+                //
+                FallingSandMeta.Value = 0;
+                FallingSandLifeTime.Value = 1;
+                FallingSandIsDrop.IsChecked = true;
+                FallingSandIsDamage.IsChecked = false;
+                FallingSandMaxDamage.Value = 40;
+                FallingSandDamageCount.Value = 2;
             }
             else if (which == 2)
             {
@@ -666,11 +688,11 @@ namespace WpfMinecraftCommandHelper2
             globalPotionDamage = int.Parse(temp[2]);
             if (mcVersion == "1.8")
             {
-                globalSumosPotion = "{Potion:{id:minecraft:potion,Damage:" + globalPotionDamage + "s,Count:1b,tag:{CustomPotionEffects:[" + globalPotionString + "]}}}";
+                globalSumosPotion = "{Potion:{id:\"minecraft:splash_potion\",Damage:" + globalPotionDamage + "s,Count:1b,tag:{CustomPotionEffects:[" + globalPotionString + "]}}}";
             }
             else
             {
-                globalSumosPotion = "{Potion:{id:minecraft:potion,Damage:0s,Count:1b,tag:{CustomPotionEffects:[" + globalPotionString + "]}}}";
+                globalSumosPotion = "{Potion:{id:\"minecraft:splash_potion\",Damage:0s,Count:1b,tag:{CustomPotionEffects:[" + globalPotionString + "]}}}";
             }
         }
 
@@ -1531,6 +1553,17 @@ namespace WpfMinecraftCommandHelper2
                 sumosText += "TNTFuse:" + tabSumosEFuse.Value.Value;
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "FallingSand")
+            {
+                if (sumosText.Length > 0) { sumosText += ","; }
+                string sands = "";
+                if (asd.getItem(FallingSandItemSel.SelectedIndex) != "minecraft:sand") sands += "Block:\"" + asd.getItem(FallingSandItemSel.SelectedIndex) + "\",";
+                if (FallingSandMeta.Value.Value != 0) sands += "Data:" + FallingSandMeta.Value.Value + "s,";
+                sands += "Time:" + FallingSandLifeTime.Value.Value + ",";
+                if (!FallingSandIsDrop.IsChecked.Value) sands += "DropItem:0b,";
+                if (FallingSandIsDamage.IsChecked.Value) { sands += "HurtEntities:1b,FallHurtMax:" + FallingSandMaxDamage.Value.Value + ",FallHurtAmount:" + FallingSandDamageCount.Value.Value + "f,"; }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + sands.Substring(0, sands.Length - 1) + "}";
+            }
             else
             {
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
@@ -1798,6 +1831,10 @@ namespace WpfMinecraftCommandHelper2
                 tabSumosERadius.IsEnabled = true;
                 tabSumosEParticle.IsEnabled = true;
                 tabSumosEParticleColor.IsEnabled = true;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "FallingSand")
+            {
+                SummonSand.Visibility = Visibility.Visible;
             }
         }
 
@@ -2919,6 +2956,12 @@ namespace WpfMinecraftCommandHelper2
                 tabSpawner4Get.IsEnabled = false;
                 tabSpawner4.IsEnabled = false;
             }
+        }
+
+        private void FallingSandIsDamage_Click(object sender, RoutedEventArgs e)
+        {
+            FallingSandMaxDamage.IsEnabled = FallingSandIsDamage.IsChecked.Value;
+            FallingSandDamageCount.IsEnabled = FallingSandIsDamage.IsChecked.Value;
         }
 
         private void helpBtn_Click(object sender, RoutedEventArgs e)
