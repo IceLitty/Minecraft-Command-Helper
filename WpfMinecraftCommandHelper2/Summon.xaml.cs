@@ -976,7 +976,14 @@ namespace WpfMinecraftCommandHelper2
                     sumosText += "HandDropChances:[0:" + tabSumosDCHand.Value + "F,1:" + tabSumosDCLHand.Value + "F],";
                 }
             }
-            globalSumosEquipment = sumosText.Substring(0, sumosText.Length - 1).Replace(",tag:{}", "");
+            if (sumosText.Length != 0)
+            {
+                globalSumosEquipment = sumosText.Substring(0, sumosText.Length - 1).Replace(",tag:{}", "");
+            }
+            else
+            {
+                globalSumosEquipment = "";
+            }
             sumosText = sumosText.Replace("{,", "{");
             if (tabSumosHasMetaData.IsChecked.Value)
             {
@@ -1479,7 +1486,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 if (sumosText.Length > 0) { sumosText += ",pickup:" + tabSumosEpickup.Value.Value + "b"; } else { sumosText += "pickup:" + tabSumosEpickup.Value.Value + "b"; }
                 if (sumosText.Length > 0) { sumosText += ",damage:" + tabSumosEdamage.Value.Value + "d"; } else { sumosText += "damage:" + tabSumosEdamage.Value.Value + "d"; }
-                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+                sumosFinalStr = "/summon Arrow ~ ~1 ~ {" + sumosText + "}";
             }
             else if (asd.getAt(tabSumosType.SelectedIndex) == "SpectralArrow" || asd.getAt(tabSumosType.SelectedIndex) == "Arrow")
             {
@@ -1629,9 +1636,6 @@ namespace WpfMinecraftCommandHelper2
             {
                 sumosFinalStr = "/give @p minecraft:spawn_egg 1 0 {EntityTag:{id:\"" + asd.getAt(tabSumosType.SelectedIndex) + "\"}}";
             }
-            //string temp = sumosFinalStr.Substring(sumosFinalStr.IndexOf('{') + 1);
-            //string temp2 = temp.Substring(0, temp.Length - 1);
-            //string sumosEggNBT = "{" + temp + "}";
             Check cbox = new Check();
             cbox.showText(sumosFinalStr);
             cbox.Show();
@@ -3165,7 +3169,6 @@ namespace WpfMinecraftCommandHelper2
             {
                 globalSummonNBT = sumosFinalStr.Substring(sumosFinalStr.IndexOf('{') + 1, sumosFinalStr.LastIndexOf('}') - sumosFinalStr.IndexOf('{') - 1);
                 tabSpawnerGetNBT.Content = "√";
-                MessageBox.Show(globalSummonNBT);
             }
         }
 

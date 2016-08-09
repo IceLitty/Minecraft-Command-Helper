@@ -5,7 +5,7 @@
     "AuthorStr": "Lang File Author: ",
     "Author": "IceLitty",
     "LastUpdateStr": "Last Update: ",
-    "LastUpdate": "2016.08.06",
+    "LastUpdate": "2016.08.09",
 
     "FloatConfirm": "Confirm",
     "FloatCancel": "Cancel",
@@ -22,6 +22,7 @@
     "FloatUpdateString": "New version finded, download latest with these button.",
     "FloatUpdateError1": "Version Check Failed, please contact author:",
     "FloatUpdateError2": "Version Check analysis Failed, please contact author:",
+    "FloatPassVersion": "Pass this version",
 
     "BtnAt": "Get AT",
     "BtnClear": "Clear",

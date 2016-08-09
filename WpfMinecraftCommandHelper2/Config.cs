@@ -23,7 +23,7 @@ namespace WpfMinecraftCommandHelper2
             }
             if (!File.Exists(configPath))
             {
-                string str = ";Please Don't modify this file!\r\n[Personalize]\r\nCheckingUpdate=true\r\nLanguage=cn\r\nAvatar=sc\r\nColorfulFontsUse=CB\r\nMCVersion=latest\r\n[Theme]\r\nThemeColor=Blue\r\nThemeType=BaseLight\r\nFlyThemeType=Adapt";
+                string str = ";Please Don't modify this file!\r\n[Personalize]\r\nCheckingUpdate=true\r\nLanguage=cn\r\nAvatar=sc\r\nColorfulFontsUse=CB\r\nMCVersion=latest\r\nPassVersion=0.0.0.0\r\n[Theme]\r\nThemeColor=Blue\r\nThemeType=BaseLight\r\nFlyThemeType=Adapt";
                 List<string> wtxt = new List<string>();
                 string temp = str;
                 wtxt.Add(temp);
@@ -56,6 +56,7 @@ namespace WpfMinecraftCommandHelper2
             string Avatar = "sc";
             string ColorfulFontsUse = "CB";
             string MCVersion = "latest";
+            string PassVersion = "0.0.0.0";
             string ThemeColor = "Blue";
             string ThemeType = "BaseLight";
             string FlyThemeType = "Adapt";
@@ -66,6 +67,7 @@ namespace WpfMinecraftCommandHelper2
                 Avatar = getSetting("[Personalize]", "Avatar");
                 ColorfulFontsUse = getSetting("[Personalize]", "ColorfulFontsUse");
                 MCVersion = getSetting("[Personalize]", "MCVersion");
+                PassVersion = getSetting("[Personalize]", "PassVersion");
                 ThemeColor = getSetting("[Theme]", "ThemeColor");
                 ThemeType = getSetting("[Theme]", "ThemeType");
                 FlyThemeType = getSetting("[Theme]", "FlyThemeType");
@@ -75,10 +77,11 @@ namespace WpfMinecraftCommandHelper2
             if (dir.ContainsKey("Avatar")) { Avatar = dir["Avatar"]; }
             if (dir.ContainsKey("ColorfulFontsUse")) { ColorfulFontsUse = dir["ColorfulFontsUse"]; }
             if (dir.ContainsKey("MCVersion")) { MCVersion = dir["MCVersion"]; }
+            if (dir.ContainsKey("PassVersion")) { PassVersion = dir["PassVersion"]; }
             if (dir.ContainsKey("ThemeColor")) { ThemeColor = dir["ThemeColor"]; }
             if (dir.ContainsKey("ThemeType")) { ThemeType = dir["ThemeType"]; }
             if (dir.ContainsKey("FlyThemeType")) { FlyThemeType = dir["FlyThemeType"]; }
-            string str = ";Please Don't modify this file!\r\n[Personalize]\r\nCheckingUpdate=" + CheckingUpdate + "\r\nLanguage=" + Language + "\r\nAvatar=" + Avatar + "\r\nColorfulFontsUse=" + ColorfulFontsUse + "\r\nMCVersion=" + MCVersion + "\r\n[Theme]\r\nThemeColor=" + ThemeColor + "\r\nThemeType=" + ThemeType + "\r\nFlyThemeType=" + FlyThemeType;
+            string str = ";Please Don't modify this file!\r\n[Personalize]\r\nCheckingUpdate=" + CheckingUpdate + "\r\nLanguage=" + Language + "\r\nAvatar=" + Avatar + "\r\nColorfulFontsUse=" + ColorfulFontsUse + "\r\nMCVersion=" + MCVersion + "\r\nPassVersion=" + PassVersion + "\r\n[Theme]\r\nThemeColor=" + ThemeColor + "\r\nThemeType=" + ThemeType + "\r\nFlyThemeType=" + FlyThemeType;
             List<string> wtxt = new List<string>();
             string temp = str;
             wtxt.Add(temp);
@@ -148,6 +151,10 @@ namespace WpfMinecraftCommandHelper2
                         else if (txt[i].Split('=')[0] == "MCVersion")
                         {
                             dir["[Personalize]"].Add("MCVersion", txt[i].Split('=')[1]);
+                        }
+                        else if (txt[i].Split('=')[0] == "PassVersion")
+                        {
+                            dir["[Personalize]"].Add("PassVersion", txt[i].Split('=')[1]);
                         }
                         else if (txt[i].Split('=')[0] == "ThemeColor")
                         {

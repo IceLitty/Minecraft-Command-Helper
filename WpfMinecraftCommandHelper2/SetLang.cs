@@ -1469,6 +1469,7 @@ namespace WpfMinecraftCommandHelper2
             List<string> relanglist = new List<string>();
             relanglist.Add(LangList[langID]["FloatUpdateTitle"].ToString());
             relanglist.Add(LangList[langID]["FloatUpdateString"].ToString());
+            relanglist.Add(LangList[langID]["FloatPassVersion"].ToString());
             return relanglist;
         }
     }

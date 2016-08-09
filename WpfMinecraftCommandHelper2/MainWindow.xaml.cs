@@ -25,6 +25,20 @@ namespace WpfMinecraftCommandHelper2
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private bool isUpdate = false;
+        private bool isNeedUpdate = false;
+        private bool preview = false;
+        private string version = "2.8.4.7";
+        private string getversion = "0.0.0.0";
+        private string passversion = "0.0.0.0";
+        private bool error1 = false;
+        private bool error2 = false;
+        private string mcVersion = "latest";
+
+        private void win_Loaded(object sender, RoutedEventArgs e)
+        {
             SetLang setlang = new SetLang();
             lang = setlang.getAllLanguage();
             string templang = setlang.getLangFile();
@@ -54,18 +68,7 @@ namespace WpfMinecraftCommandHelper2
             {
                 Update.IsChecked = false;
             }
-        }
-
-        private bool isUpdate = false;
-        private bool preview = false;
-        private string version = "2.8.4.6";
-        private string getversion = "0.0.0.0";
-        private bool error1 = false;
-        private bool error2 = false;
-        private string mcVersion = "latest";
-
-        private void win_Loaded(object sender, RoutedEventArgs e)
-        {
+            passversion = config.getSetting("[Personalize]", "PassVersion");
             string Taccents = config.getSetting("[Theme]", "ThemeColor");
             string Tthemes = config.getSetting("[Theme]", "ThemeType");
             ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(Taccents), ThemeManager.GetAppTheme(Tthemes));
@@ -77,9 +80,11 @@ namespace WpfMinecraftCommandHelper2
             if (config.getSetting("[Personalize]", "MCVersion") == "1.8") { mcv18.IsChecked = true; } else { mcvLatest.IsChecked = true; }
         }
 
+        private int timerticks = 0;
+
         private async void timer_Tick(object sender, EventArgs e)
         {
-            if (isUpdate)
+            if (isNeedUpdate)
             {
                 timer.Stop();
                 this.ShowMessageAsync("", "", MessageDialogStyle.Affirmative, new MetroDialogSettings() { MaximumBodyHeight=0, AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
@@ -91,13 +96,22 @@ namespace WpfMinecraftCommandHelper2
             if (error1 || error2)
             {
                 timer.Stop();
-                if (error1) { this.ShowMessageAsync(FloatErrorTitle, FloatUpdateError1 + " " + getversion, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel }); }
-                if (error2&&!error1) { this.ShowMessageAsync(FloatErrorTitle, FloatUpdateError2 + " " + getversion, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel }); }
+                if (error1) {await this.ShowMessageAsync(FloatErrorTitle, FloatUpdateError1 + " " + getversion, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel }); }
+                if (error2&&!error1) {await this.ShowMessageAsync(FloatErrorTitle, FloatUpdateError2 + " " + getversion, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel }); }
             }
             if (preview)
             {
                 timer.Stop();
-                this.Title = Title += " - " + MainPreview;
+                this.Title += " - " + MainPreview;
+            }
+            if (isUpdate && !isNeedUpdate)
+            {
+                timer.Stop();
+                this.Title += " - " + FloatUpdates + getversion;
+            }
+            if (timerticks++ == 90)
+            {
+                timer.Stop();//no update
             }
         }
 
@@ -108,16 +122,6 @@ namespace WpfMinecraftCommandHelper2
             {
                 System.Net.Http.HttpClient hct = new System.Net.Http.HttpClient();
                 getVersion = await hct.GetStringAsync("https://bitbucket.org/IceLitty/minecraftcommandhelperversioncheck/raw/master/version.ini");
-
-                //System.Net.HttpWebRequest getVersionRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.Create("https://bitbucket.org/IceLitty/minecraftcommandhelperversioncheck/raw/master/version.ini");
-                //getVersionRequest.Method = "GET";
-                //using (System.Net.WebResponse response = getVersionRequest.GetResponse())
-                //{
-                //    using (System.IO.StreamReader reader = new System.IO.StreamReader(response.GetResponseStream(), Encoding.UTF8))
-                //    {
-                //        getVersion = reader.ReadToEnd();
-                //    }
-                //}
             }
             catch (Exception) { error1 = true; }
             getversion = getVersion;
@@ -144,6 +148,15 @@ namespace WpfMinecraftCommandHelper2
                 }
                 else { preview = true; }
             } catch (Exception) { isUpdate = false; error2 = true; }
+            string[] passVS = passversion.Split('.');
+            if (getVS[0] == passVS[0] && getVS[1] == passVS[1] && getVS[2] == passVS[2] && getVS[3] == passVS[3])
+            {
+                isNeedUpdate = false;
+            }
+            else if (isUpdate)
+            {
+                isNeedUpdate = true;
+            }
         }
 
         private string FloatConfirm = "确认";
@@ -155,6 +168,7 @@ namespace WpfMinecraftCommandHelper2
         private string FloatUpdateError1 = "检测更新失败，请告知作者";
         private string FloatUpdateError2 = "更新内容分析失败，请告知作者";
         private string MainPreview = "预览版本";
+        private string FloatUpdates = "检测到更新->";
 
         private void appLanguage(List<string> templanglist)
         {

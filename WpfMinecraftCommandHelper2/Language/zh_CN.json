@@ -5,7 +5,7 @@
     "AuthorStr": "语言文件作者：",
     "Author": "IceLitty",
     "LastUpdateStr": "最后更新：",
-    "LastUpdate": "2016.08.06",
+    "LastUpdate": "2016.08.09",
 
     "FloatConfirm": "确认",
     "FloatCancel": "取消",
@@ -22,6 +22,7 @@
     "FloatUpdateString": "检测到更新，请从以下链接获取",
     "FloatUpdateError1": "检测更新失败，请告知作者:",
     "FloatUpdateError2": "更新内容分析失败，请告知作者:",
+    "FloatPassVersion": "跳过当前版本",
 
     "BtnAt": "获取AT",
     "BtnClear": "清空",

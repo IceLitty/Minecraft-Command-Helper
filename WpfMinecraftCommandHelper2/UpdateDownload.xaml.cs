@@ -46,6 +46,7 @@ namespace WpfMinecraftCommandHelper2
             {
                 this.Title = templang[0] + " - v" + version + " -> v" + getversion;
                 label.Content = templang[1];
+                pass.Content = templang[2];
             }
             catch (System.Exception) { /* throw; */ }
         }
@@ -67,6 +68,13 @@ namespace WpfMinecraftCommandHelper2
         private void download_Copy_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/IceLitty/Minecraft-Command-Helper/releases/latest");
+        }
+
+        private void pass_Click(object sender, RoutedEventArgs e)
+        {
+            Config config = new Config();
+            config.setSetting(new System.Collections.Generic.Dictionary<string, string> { { "PassVersion", getversion } });
+            pass.Content = "√";
         }
     }
 }

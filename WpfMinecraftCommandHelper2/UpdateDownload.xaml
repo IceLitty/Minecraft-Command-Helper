@@ -4,12 +4,13 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="UpdateDownload" Height="344.212" Width="528.268" Loaded="MetroWindow_Loaded">
+        Title="更新检测" Height="344.212" Width="528.268" Loaded="MetroWindow_Loaded">
     <Grid>
         <Controls:MetroProgressBar Margin="0,0,0,309" IsIndeterminate="True" />
         <Button x:Name="download" Content="百度云-qmx5" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Width="98" Click="download_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="download_Copy" Content="Github" HorizontalAlignment="Left" Margin="113,52,0,0" VerticalAlignment="Top" Width="98" Click="download_Copy_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Label x:Name="label" Content="检测到更新，请从以下链接获取" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="updateInfoBox" HorizontalAlignment="Left" Height="209" Margin="10,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="502"/>
+        <Button x:Name="pass" Content="跳过当前版本" HorizontalAlignment="Left" Margin="414,52,0,0" VerticalAlignment="Top" Width="98" Style="{DynamicResource SquareButtonStyle}" Click="pass_Click"/>
     </Grid>
 </Controls:MetroWindow>
