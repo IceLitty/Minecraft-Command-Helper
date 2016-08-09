@@ -3199,8 +3199,16 @@ namespace WpfMinecraftCommandHelper2
             {
                 AllSelData asd = new AllSelData();
                 firstText = "";
-                if (mcVersion == "1.8") { firstText = "/give @p minecraft:mob_spawner 1 0 {BlockEntityTag:{id:\"MobSpawner\",EntityId:" + asd.getAt(tabSpawnerShowType.SelectedIndex) + ",SpawnData:{"; }
-                else { firstText = "/give @p minecraft:mob_spawner 1 0 {BlockEntityTag:{id:\"MobSpawner\",SpawnData:{id:\"" + asd.getAt(tabSpawnerShowType.SelectedIndex) + "\","; }
+                if (asd.getAt(tabSpawnerShowType.SelectedIndex) == "TippedArrow")
+                {
+                    if (mcVersion == "1.8") { firstText = "/give @p minecraft:mob_spawner 1 0 {BlockEntityTag:{id:\"MobSpawner\",EntityId:Arrow,SpawnData:{"; }
+                    else { firstText = "/give @p minecraft:mob_spawner 1 0 {BlockEntityTag:{id:\"MobSpawner\",SpawnData:{id:\"Arrow\","; }
+                }
+                else
+                {
+                    if (mcVersion == "1.8") { firstText = "/give @p minecraft:mob_spawner 1 0 {BlockEntityTag:{id:\"MobSpawner\",EntityId:" + asd.getAt(tabSpawnerShowType.SelectedIndex) + ",SpawnData:{"; }
+                    else { firstText = "/give @p minecraft:mob_spawner 1 0 {BlockEntityTag:{id:\"MobSpawner\",SpawnData:{id:\"" + asd.getAt(tabSpawnerShowType.SelectedIndex) + "\","; }
+                }
             }
             else
             {
