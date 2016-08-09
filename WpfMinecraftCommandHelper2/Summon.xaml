@@ -181,13 +181,13 @@
                     <TextBox x:Name="tabSumosTags" HorizontalAlignment="Left" Height="23" Margin="328,397,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" IsEnabled="False" AcceptsReturn="True" />
                     <Grid HorizontalAlignment="Left" Height="74" Margin="542,144,0,0" VerticalAlignment="Top" Width="544">
                         <CheckBox x:Name="tabSumosMotionCheck" Content="动量" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="14" Click="tabSumosMotionCheck_Click"/>
-                        <Controls:NumericUpDown x:Name="tabSumosMotionY" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="223,3,167,39" Height="32" Value="0" IsEnabled="False" FontSize="14" HasDecimals="False" />
-                        <Controls:NumericUpDown x:Name="tabSumosMotionZ" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="382,3,10,39" Height="32" Value="0" IsEnabled="False" FontSize="14" HasDecimals="False" />
-                        <Controls:NumericUpDown x:Name="tabSumosMotionX" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="80,3,326,39" Height="32" Value="0" IsEnabled="False" FontSize="14" HasDecimals="False" />
+                        <Controls:NumericUpDown x:Name="tabSumosMotionY" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="223,3,167,39" Height="32" Value="0" IsEnabled="False" FontSize="14" />
+                        <Controls:NumericUpDown x:Name="tabSumosMotionZ" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="382,3,10,39" Height="32" Value="0" IsEnabled="False" FontSize="14" />
+                        <Controls:NumericUpDown x:Name="tabSumosMotionX" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="80,3,326,39" Height="32" Value="0" IsEnabled="False" FontSize="14" />
                         <CheckBox x:Name="tabSumosDirection" Content="方向" HorizontalAlignment="Left" Margin="0,47,0,0" VerticalAlignment="Top" FontSize="14" Click="tabSumosDirection_Click"/>
-                        <Controls:NumericUpDown x:Name="tabSumosDirectionY" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="223,40,167,2" Height="32" Value="0" IsEnabled="False" FontSize="14" HasDecimals="False" />
-                        <Controls:NumericUpDown x:Name="tabSumosDirectionZ" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="382,40,10,2" Height="32" Value="0" IsEnabled="False" FontSize="14" HasDecimals="False" />
-                        <Controls:NumericUpDown x:Name="tabSumosDirectionX" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="80,40,326,2" Height="32" Value="0" IsEnabled="False" FontSize="14" HasDecimals="False" />
+                        <Controls:NumericUpDown x:Name="tabSumosDirectionY" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="223,40,167,2" Height="32" Value="0" IsEnabled="False" FontSize="14" />
+                        <Controls:NumericUpDown x:Name="tabSumosDirectionZ" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="382,40,10,2" Height="32" Value="0" IsEnabled="False" FontSize="14" />
+                        <Controls:NumericUpDown x:Name="tabSumosDirectionX" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="80,40,326,2" Height="32" Value="0" IsEnabled="False" FontSize="14" />
                     </Grid>
                     <GroupBox x:Name="groupBox" Header="Extra" HorizontalAlignment="Left" Margin="527,258,0,0" VerticalAlignment="Top" Height="280" Width="554">
                         <Grid HorizontalAlignment="Left" Height="242" VerticalAlignment="Top" Width="544" Margin="0,0,-2,0">

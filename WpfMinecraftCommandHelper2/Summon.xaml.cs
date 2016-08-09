@@ -1475,7 +1475,7 @@ namespace WpfMinecraftCommandHelper2
                 if (sumosText.Length > 0) { sumosText += ","; }
                 if (tabSumosHasPotion.IsChecked.Value)
                 {
-                    sumosText += "tags:{CustomPotionEffects:[" + globalPotionString + "]}";
+                    sumosText += "CustomPotionEffects:[" + globalPotionString + "]";
                 }
                 if (sumosText.Length > 0) { sumosText += ",pickup:" + tabSumosEpickup.Value.Value + "b"; } else { sumosText += "pickup:" + tabSumosEpickup.Value.Value + "b"; }
                 if (sumosText.Length > 0) { sumosText += ",damage:" + tabSumosEdamage.Value.Value + "d"; } else { sumosText += "damage:" + tabSumosEdamage.Value.Value + "d"; }
@@ -1620,12 +1620,20 @@ namespace WpfMinecraftCommandHelper2
         private void tabSumosEgg_Click(object sender, RoutedEventArgs e)
         {
             AllSelData asd = new AllSelData();
-            string temp = sumosFinalStr.Substring(sumosFinalStr.IndexOf('{') + 1);
-            string temp2 = temp.Substring(0, temp.Length - 1);
-            string sumosEggNBT = "{EntityTag:{id:\"" + asd.getAt(tabSumosType.SelectedIndex) + "\"," + temp2 + "}}";
-            sumosFinalStr = "/give @p minecraft:spawn_egg 1 0 " + sumosEggNBT;
+            if (sumosFinalStr.IndexOf('{') != -1)
+            {
+                string temp = sumosFinalStr.Substring(sumosFinalStr.IndexOf('{') + 1, sumosFinalStr.Length - sumosFinalStr.IndexOf('{') - 2);
+                sumosFinalStr = "/give @p minecraft:spawn_egg 1 0 {EntityTag:{id:\"" + asd.getAt(tabSumosType.SelectedIndex) + "\"," + temp + "}}";
+            }
+            else
+            {
+                sumosFinalStr = "/give @p minecraft:spawn_egg 1 0 {EntityTag:{id:\"" + asd.getAt(tabSumosType.SelectedIndex) + "\"}}";
+            }
+            //string temp = sumosFinalStr.Substring(sumosFinalStr.IndexOf('{') + 1);
+            //string temp2 = temp.Substring(0, temp.Length - 1);
+            //string sumosEggNBT = "{" + temp + "}";
             Check cbox = new Check();
-            cbox.showText(sumosEggNBT, "");
+            cbox.showText(sumosFinalStr);
             cbox.Show();
         }
 
@@ -2646,6 +2654,14 @@ namespace WpfMinecraftCommandHelper2
             saveFavStr += "|" + HorseChestList[14].Replace("|", "[MCH_SPLIT]");
             saveFavStr += "|" + HorseChestList[15].Replace("|", "[MCH_SPLIT]");
             saveFavStr += "|" + HorseChestList[16].Replace("|", "[MCH_SPLIT]");
+            //FallingSands
+            saveFavStr += "|" + FallingSandItemSel.SelectedIndex;
+            saveFavStr += "|" + FallingSandMeta.Value.Value;
+            saveFavStr += "|" + FallingSandLifeTime.Value.Value;
+            saveFavStr += "|" + FallingSandIsDrop.IsChecked.Value;
+            saveFavStr += "|" + FallingSandIsDamage.IsChecked.Value;
+            saveFavStr += "|" + FallingSandMaxDamage.Value.Value;
+            saveFavStr += "|" + FallingSandDamageCount.Value.Value;
             //
             List<string> wtxt = new List<string>();
             wtxt.Add(saveFavStr);
@@ -2878,7 +2894,16 @@ namespace WpfMinecraftCommandHelper2
                     HorseChestList[13] = readFavStr[178].Replace("|", "[MCH_SPLIT]");
                     HorseChestList[14] = readFavStr[179].Replace("|", "[MCH_SPLIT]");
                     HorseChestList[15] = readFavStr[180].Replace("|", "[MCH_SPLIT]");
-                    HorseChestList[16] = readFavStr[171].Replace("|", "[MCH_SPLIT]");
+                    HorseChestList[16] = readFavStr[181].Replace("|", "[MCH_SPLIT]");
+                    //FallingSands
+                    FallingSandItemSel.SelectedIndex = int.Parse(readFavStr[182]);
+                    FallingSandMeta.Value = int.Parse(readFavStr[183]);
+                    FallingSandLifeTime.Value = int.Parse(readFavStr[184]);
+                    FallingSandIsDrop.IsChecked = bool.Parse(readFavStr[185]);
+                    FallingSandIsDamage.IsChecked = bool.Parse(readFavStr[186]);
+                    FallingSandMaxDamage.Value = int.Parse(readFavStr[187]);
+                    FallingSandDamageCount.Value = int.Parse(readFavStr[188]);
+                    //
                     this.ShowMessageAsync("", "已读取：" + loadNameList[loadResultIndex], MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel, AnimateShow = false, AnimateHide = false });
                 }
                 loadResultIndex++;

@@ -884,7 +884,7 @@ namespace WpfMinecraftCommandHelper2
                             "Fireball",
                             "Chicken",
                             "Arrow",
-                            "TippedArrow",
+                            "Arrow",//TippedArrow
                             "SpectralArrow",
                             "Zombie",
                             "PigZombie",
