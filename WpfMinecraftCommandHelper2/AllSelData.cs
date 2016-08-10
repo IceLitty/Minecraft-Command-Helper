@@ -1925,7 +1925,9 @@ namespace WpfMinecraftCommandHelper2
 										"/scoreboard teams empty",
 										"/scoreboard teams join",
 										"/scoreboard teams leave",
-										"/scoreboard teams option"
+                                        "/scoreboard teams option",
+                                        "< Scoreboard Trigger >",
+                                        "/stats"
                                      };
 
         private string[] scoreStr2 = {
@@ -1964,7 +1966,14 @@ namespace WpfMinecraftCommandHelper2
                                         "/testfor",
                                         "< 更多指令说明 >",
                                         "/clone",
-                                        "/fill"
+                                        "/fill",
+                                        "/achievement",
+                                        "/clear",
+                                        "/execute",
+                                        "/gamerule",
+                                        "/playsound",
+                                        "/stopsound",
+                                        "/tp /teleport"
                                    };
 
         private string[] scoreStr4 = {

@@ -14,7 +14,6 @@ namespace WpfMinecraftCommandHelper2
         {
             InitializeComponent();
             appLanguage();
-            AllSelData asd = new AllSelData();
             for (int i = 0; i < asd.getParticleStrCount(); i++)
             {
                 tabParticleSel.Items.Add(asd.getParticleStrCn(i));
@@ -22,6 +21,7 @@ namespace WpfMinecraftCommandHelper2
             clear();
         }
 
+        AllSelData asd = new AllSelData();
         private string FloatHelpTitle = "帮助";
         private string FloatConfirm = "确认";
         private string FloatCancel = "取消";
@@ -54,6 +54,7 @@ namespace WpfMinecraftCommandHelper2
                 ParticleHelpStr = templang[17];
                 FloatErrorTitle = templang[18];
                 FloatHelpFileCantFind = templang[19];
+                colorBtn.Content = templang[20];
             } catch (System.Exception) { /* throw; */ }
         }
 
@@ -80,7 +81,6 @@ namespace WpfMinecraftCommandHelper2
             if (tabParticleCN.IsChecked.Value)
             {
                 int index = tabParticleSel.SelectedIndex;
-                AllSelData asd = new AllSelData();
                 for (int i = 0; i < asd.getParticleStrCount(); i++)
                 {
                     tabParticleSel.Items.RemoveAt(0);
@@ -98,7 +98,6 @@ namespace WpfMinecraftCommandHelper2
             if (tabParticleEN.IsChecked.Value)
             {
                 int index = tabParticleSel.SelectedIndex;
-                AllSelData asd = new AllSelData();
                 for (int i = 0; i < asd.getParticleStrCount(); i++)
                 {
                     tabParticleSel.Items.RemoveAt(0);
@@ -123,7 +122,6 @@ namespace WpfMinecraftCommandHelper2
             particleSel = tabParticleSel.SelectedIndex;
             string particleOut = "/particle ";
             //particle
-            AllSelData asd = new AllSelData();
             particleOut += asd.getParticle(langIndex) + " ";
             //local
             if (tabParticleXNum.IsChecked == true)
@@ -228,7 +226,6 @@ namespace WpfMinecraftCommandHelper2
             //Count为0&Speed不为0，将可以自定义颜色，Count大于0则随机化颜色。
             if (e.Key == System.Windows.Input.Key.Enter)
             {
-                AllSelData asd = new AllSelData();
                 if (asd.getParticle(tabParticleSel.SelectedIndex) == "reddust" || asd.getParticle(tabParticleSel.SelectedIndex) == "mobSpell" || asd.getParticle(tabParticleSel.SelectedIndex) == "mobSpellAmbient")
                 {
                     tabParticleCount.Value = 0;
@@ -251,7 +248,6 @@ namespace WpfMinecraftCommandHelper2
         {
             if (e.Key == System.Windows.Input.Key.Enter)
             {
-                AllSelData asd = new AllSelData();
                 if (asd.getParticle(tabParticleSel.SelectedIndex) == "reddust" || asd.getParticle(tabParticleSel.SelectedIndex) == "mobSpell" || asd.getParticle(tabParticleSel.SelectedIndex) == "mobSpellAmbient")
                 {
                     tabParticleCount.Value = 0;
@@ -274,7 +270,6 @@ namespace WpfMinecraftCommandHelper2
         {
             if (e.Key == System.Windows.Input.Key.Enter)
             {
-                AllSelData asd = new AllSelData();
                 if (asd.getParticle(tabParticleSel.SelectedIndex) == "reddust" || asd.getParticle(tabParticleSel.SelectedIndex) == "mobSpell" || asd.getParticle(tabParticleSel.SelectedIndex) == "mobSpellAmbient")
                 {
                     tabParticleCount.Value = 0;
@@ -303,6 +298,40 @@ namespace WpfMinecraftCommandHelper2
                 atStr = at.returnStr();
             }
             atBox.Text = atStr;
+        }
+
+        private void colorBtn_Click(object sender, RoutedEventArgs e)
+        {
+            tabParticleCount.Value = 0;
+            ColorSel cs = new ColorSel();
+            cs.ShowDialog();
+            byte[] cstr = cs.reColor();
+            double r, g, b;
+            if (asd.getParticle(tabParticleSel.SelectedIndex) == "reddust")
+            {
+                if (cstr[0] != 0) r = cstr[0] / 255d + 0.001d; else r = 0.001d;
+            }
+            else
+            {
+                if (cstr[0] != 0) r = cstr[0] / 255d; else r = 0d;
+            }
+            if (cstr[1] != 0) g = cstr[1] / 255d; else g = 0d;
+            if (cstr[2] != 0) b = cstr[2] / 255d; else b = 0d;
+            tabParticleDx.Value = System.Math.Round(r, 3);
+            tabParticleDy.Value = System.Math.Round(g, 3);
+            tabParticleDz.Value = System.Math.Round(b, 3);
+        }
+
+        private void tabParticleSel_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (asd.getParticle(tabParticleSel.SelectedIndex) == "reddust" || asd.getParticle(tabParticleSel.SelectedIndex) == "mobSpell" || asd.getParticle(tabParticleSel.SelectedIndex) == "mobSpellAmbient")
+            {
+                colorBtn.IsEnabled = true;
+            }
+            else
+            {
+                colorBtn.IsEnabled = false;
+            }
         }
     }
 }

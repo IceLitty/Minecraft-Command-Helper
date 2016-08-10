@@ -921,6 +921,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["ParticleHelpStr"].ToString());
             relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["ParticleColorSel"].ToString());
             return relanglist;
         }
 
@@ -1274,6 +1275,16 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["SummonSandsDamage"].ToString());
             relanglist.Add(LangList[langID]["SummonSandsDamageMax"].ToString());
             relanglist.Add(LangList[langID]["SummonSandsDamageCount"].ToString());
+            relanglist.Add(LangList[langID]["SummonFrameHeader"].ToString());
+            relanglist.Add(LangList[langID]["SummonFrameX"].ToString());
+            relanglist.Add(LangList[langID]["SummonFrameY"].ToString());
+            relanglist.Add(LangList[langID]["SummonFrameZ"].ToString());
+            relanglist.Add(LangList[langID]["SummonFrameCoordinate"].ToString());
+            relanglist.Add(LangList[langID]["SummonFrameFacing"].ToString());
+            relanglist.Add(LangList[langID]["SummonFrameDropChance"].ToString());
+            relanglist.Add(LangList[langID]["SummonFrameRouteCount"].ToString());
+            relanglist.Add(LangList[langID]["SummonFrameHasItem"].ToString());
+            relanglist.Add(LangList[langID]["SummonFrameGetItem"].ToString());
             return relanglist;
         }
 

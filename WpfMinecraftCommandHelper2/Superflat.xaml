@@ -22,11 +22,7 @@
         <Button x:Name="preBtn" Content="上一层" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="75" Click="preBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="nextBtn" Content="下一层" HorizontalAlignment="Left" Margin="207,72,0,0" VerticalAlignment="Top" Width="75" Click="nextBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Label x:Name="layerNum" Content="-第01层-" HorizontalAlignment="Left" Margin="114,72,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="layerSel" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="272"/>
-        <Grid HorizontalAlignment="Left" Height="56" Margin="287,41,0,0" VerticalAlignment="Top" Width="132">
-            <Controls:NumericUpDown x:Name="layerCount" Minimum="1" Maximum="256" Interval="5" StringFormat="" Margin="0,0,10,28" Height="28" Value="1" />
-            <Controls:NumericUpDown x:Name="layerDamage" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="0,28,10,0" Height="28" Value="0" />
-        </Grid>
+        <ComboBox x:Name="layerSel" HorizontalAlignment="Left" Margin="99,41,0,0" VerticalAlignment="Top" Width="209"/>
         <ComboBox x:Name="biomeSel" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Width="272"/>
         <GroupBox x:Name="GroupMineshaft" Header="      废弃矿井" HorizontalAlignment="Left" Margin="424,170,0,0" VerticalAlignment="Top" Height="145" Width="204" IsEnabled="False">
             <Grid HorizontalAlignment="Left" Height="109" VerticalAlignment="Top" Width="194" Margin="0,0,-2,-2">
@@ -77,6 +73,10 @@
         <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="172,179,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="BiomeWiki" Content="wiki" HorizontalAlignment="Left" Margin="287,103,0,0" VerticalAlignment="Top" Width="127" Click="BiomeWiki_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <ListBox x:Name="pageList" HorizontalAlignment="Left" Height="301" Margin="849,14,0,0" VerticalAlignment="Top" Width="160"/>
+        <Controls:NumericUpDown x:Name="layerCount" Minimum="1" Maximum="256" Interval="5" StringFormat="" Margin="12,39,937,257" Height="28" Value="1" HideUpDownButtons="True" />
+        <Controls:NumericUpDown x:Name="layerDamage" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="321,40,628,256" Height="28" Value="0" HideUpDownButtons="True" />
+        <Label x:Name="label" Content="x" HorizontalAlignment="Left" Margin="82,42,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content=":" HorizontalAlignment="Left" Margin="308,42,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Controls:MetroWindow>

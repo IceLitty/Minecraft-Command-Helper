@@ -5,7 +5,7 @@
     "AuthorStr": "Lang File Author: ",
     "Author": "IceLitty",
     "LastUpdateStr": "Last Update: ",
-    "LastUpdate": "2016.08.09",
+    "LastUpdate": "2016.08.10",
 
     "FloatConfirm": "Confirm",
     "FloatCancel": "Cancel",
@@ -419,6 +419,7 @@
     "ParticleSpeed": "Speed",
     "ParticleCount": "Count",
     "ParticleUseNowPosition": "Use current coordinates",
+    "ParticleColorSel": "Color",
     "ParticleHelpStr": "",
 
     "PotionNotSelect": "Not choose potion type!",
@@ -649,6 +650,16 @@
     "SummonSandsDamage": "Is Falling sands give entity damage when they touch.",
     "SummonSandsDamageMax": "Falling sands max damage, default 40(20♥)",
     "SummonSandsDamageCount": "Falling sands damage count",
+    "SummonFrameHeader": "Item Frame",
+    "SummonFrameX": "The X coordinate of the block the painting/item frame is in.",
+    "SummonFrameY": "The Y coordinate of the block the painting/item frame is in.",
+    "SummonFrameZ": "The Z coordinate of the block the painting/item frame is in.",
+    "SummonFrameCoordinate": "Has Coordinate",
+    "SummonFrameFacing": "The direction the painting/item frame faces: 0-South 1-West 2-North 3-East -1-DontWriteThisValue",
+    "SummonFrameDropChance": "The chance the item will drop when the item frame breaks. 1.0 by default.",
+    "SummonFrameRouteCount": "The number of times the item has been rotated 45 degrees clockwise.",
+    "SummonFrameHasItem": "Has Item in ItemFrame",
+    "SummonFrameGetItem": "Get Item",
 
     "SuperflatAir": "Air",
     "SuperflatFirstLayer": "Always in first layer!\r\nGenerate Counter is reset to 0 layer!",

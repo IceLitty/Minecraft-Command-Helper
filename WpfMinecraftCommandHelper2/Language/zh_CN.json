@@ -5,7 +5,7 @@
     "AuthorStr": "语言文件作者：",
     "Author": "IceLitty",
     "LastUpdateStr": "最后更新：",
-    "LastUpdate": "2016.08.09",
+    "LastUpdate": "2016.08.10",
 
     "FloatConfirm": "确认",
     "FloatCancel": "取消",
@@ -419,6 +419,7 @@
     "ParticleSpeed": "速度",
     "ParticleCount": "数量",
     "ParticleUseNowPosition": "坐标采用当前坐标",
+    "ParticleColorSel": "色彩选取",
     "ParticleHelpStr": "",
 
     "PotionNotSelect": "药水类型没有选中，请检查！",
@@ -651,6 +652,16 @@
     "SummonSandsDamage": "掉落沙落下时是否产生伤害",
     "SummonSandsDamageMax": "掉落沙最大伤害值，默认40（20♥）",
     "SummonSandsDamageCount": "掉落沙伤害次数",
+    "SummonFrameHeader": "物品展示框",
+    "SummonFrameX": "展示框所在的X轴坐标",
+    "SummonFrameY": "展示框所在的Y轴坐标",
+    "SummonFrameZ": "展示框所在的Z轴坐标",
+    "SummonFrameCoordinate": "指定坐标",
+    "SummonFrameFacing": "展示框所面向的方向：0南 1西 2北 3东 -1不检测此值",
+    "SummonFrameDropChance": "展示框内物品的掉落几率",
+    "SummonFrameRouteCount": "展示框内物品被旋转次数，每一次皆45°",
+    "SummonFrameHasItem": "展示框内有物品",
+    "SummonFrameGetItem": "获取物品",
 
     "SuperflatAir": "空气",
     "SuperflatFirstLayer": "已达到第一层！\r\n生成计数器已清空至0层！",

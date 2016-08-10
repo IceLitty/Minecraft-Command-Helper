@@ -79,8 +79,8 @@ h1.shadow, h2.shadow, h3.shadow, h4.shadow, h5.shadow, h6.shadow {
 }
 
 pre, code {
-	text-shadow: 0 0 0 #ffffff !important;
-	color: #000000 !important;
+	text-shadow: 0 0 1px #6f6f6f !important;
+	color: #5d5d5d !important;
 }
 
 .pages {

@@ -294,6 +294,16 @@ namespace WpfMinecraftCommandHelper2
                 FallingSandIsDamage.Content = templang[189];
                 FallingSandMaxDamage.ToolTip = templang[190];
                 FallingSandDamageCount.ToolTip = templang[191];
+                SummonFrame.Header = templang[192];
+                FrameX.ToolTip = templang[193];
+                FrameY.ToolTip = templang[194];
+                FrameZ.ToolTip = templang[195];
+                FrameCoCheck.Content = templang[196];
+                FrameFacing.ToolTip = templang[197];
+                FrameDropChance.ToolTip = templang[198];
+                FrameRouteCount.ToolTip = templang[199];
+                FrameHasItem.Content = templang[200];
+                FrameGetItemBtn.Content = templang[201];
             } catch (System.Exception) { /* throw; */ }
         }
 
@@ -306,6 +316,7 @@ namespace WpfMinecraftCommandHelper2
             SummonHorseHeader.Visibility = Visibility.Hidden;
             SummonSHeader.Visibility = Visibility.Hidden;
             SummonSand.Visibility = Visibility.Hidden;
+            SummonFrame.Visibility = Visibility.Hidden;
             tabSumosEEnderman.IsEnabled = false;
             tabSumosEUUID.IsEnabled = false;
             tabSumosEWoolColor.IsEnabled = false;
@@ -674,6 +685,7 @@ namespace WpfMinecraftCommandHelper2
         
         //cache data
         private int globalSumosTempSel = 0;
+        private string[] globalFrameItem = { "", "", "", "" };//count damage id tag
 
         private void tabSumosPotionGetBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -1205,7 +1217,8 @@ namespace WpfMinecraftCommandHelper2
             else if (asd.getAt(tabSumosType.SelectedIndex) == "AreaEffectCloud")//选择滞留药水
             {
                 if (sumosText.Length > 0) { sumosText += ","; }
-                sumosText += "Effects:[" + globalPotionString + "],Duration:" + tabSumosEDuration.Value + ",Radius:" + tabSumosERadius.Value + "f,Particle:\"" + asd.getParticle(globalParticleSel) + "\",ParticleParam1:" + globalParticlePara1 + ",ParticleParam2:" + globalParticlePara2 + ",Color:" + globalParticleColor;
+                sumosText += "Effects:[" + globalPotionString + "],Duration:" + tabSumosEDuration.Value + ",Radius:" + tabSumosERadius.Value + "f,ParticleParam1:" + globalParticlePara1 + ",ParticleParam2:" + globalParticlePara2 + ",Color:" + globalParticleColor;
+                if (globalParticleSel != 0) { sumosText += ",Particle:\"" + asd.getParticle(globalParticleSel) + "\""; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
             else if (asd.getAt(tabSumosType.SelectedIndex) == "Chicken")
@@ -1571,6 +1584,15 @@ namespace WpfMinecraftCommandHelper2
                 if (FallingSandIsDamage.IsChecked.Value) { sands += "HurtEntities:1b,FallHurtMax:" + FallingSandMaxDamage.Value.Value + ",FallHurtAmount:" + FallingSandDamageCount.Value.Value + "f,"; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + sands.Substring(0, sands.Length - 1) + "}";
             }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "ItemFrame")
+            {
+                if (sumosText.Length > 0) { sumosText += ","; }
+                string frame = "ItemDropChance:" + FrameDropChance.Value.Value + "f,ItemRotation:" + FrameRouteCount.Value.Value + "b,";
+                if (FrameCoCheck.IsChecked.Value) { frame += "TileX:" + FrameX.Value.Value + ",TileY:" + FrameY.Value.Value + ",TileZ:" + FrameZ.Value.Value + ","; }
+                if (FrameFacing.Value.Value != -1) { frame += "Facing:" + FrameFacing.Value.Value + "b,"; }
+                if (FrameHasItem.IsChecked.Value) { frame += "Item:{Count:" + globalFrameItem[0] + "b,Damage:" + globalFrameItem[1] + "s,id:\"" + globalFrameItem[2] + "\",tag:{" + globalFrameItem[3] + "}},"; }
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + frame.Substring(0, frame.Length - 1) + "}";
+            }
             else
             {
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
@@ -1847,6 +1869,10 @@ namespace WpfMinecraftCommandHelper2
             if (asd.getAt(tabSumosType.SelectedIndex) == "FallingSand")
             {
                 SummonSand.Visibility = Visibility.Visible;
+            }
+            if (asd.getAt(tabSumosType.SelectedIndex) == "ItemFrame")
+            {
+                SummonFrame.Visibility = Visibility.Visible;
             }
         }
 
@@ -2426,10 +2452,11 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabSumosEParticleColor_Click(object sender, RoutedEventArgs e)
         {
-            Item ibox = new Item();
-            ibox.ShowDialog();
-            string[] temp = ibox.returnStr();
-            globalParticleColor = temp[7];
+            ColorSel cs = new ColorSel();
+            cs.ShowDialog();
+            byte[] temp = cs.reColor();
+            string colorhex = temp[0].ToString("x") + temp[1].ToString("x") + temp[2].ToString("x");
+            globalParticleColor = System.Convert.ToInt32(colorhex, 16).ToString();
         }
 
         private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
@@ -2471,10 +2498,10 @@ namespace WpfMinecraftCommandHelper2
         {
             string saveFavStr = "";
             //api
-            saveFavStr += "|" + globalPotionString.Replace("|", "[MCH_SPLIT]");
+            saveFavStr += globalPotionString.Replace("|", "[MCH_SPLIT]");
             saveFavStr += "|" + globalAttrString.Replace("|", "[MCH_SPLIT]");
             //spawner
-            saveFavStr += tabSpawnerShowType.SelectedIndex;
+            saveFavStr += "|" + tabSpawnerShowType.SelectedIndex;
             saveFavStr += "|null";
             saveFavStr += "|null";
             saveFavStr += "|null";
@@ -2666,8 +2693,21 @@ namespace WpfMinecraftCommandHelper2
             saveFavStr += "|" + FallingSandIsDamage.IsChecked.Value;
             saveFavStr += "|" + FallingSandMaxDamage.Value.Value;
             saveFavStr += "|" + FallingSandDamageCount.Value.Value;
+            //ItemFrame
+            saveFavStr += "|" + FrameCoCheck.IsChecked.Value;
+            saveFavStr += "|" + FrameX.Value.Value;
+            saveFavStr += "|" + FrameY.Value.Value;
+            saveFavStr += "|" + FrameZ.Value.Value;
+            saveFavStr += "|" + FrameFacing.Value.Value;
+            saveFavStr += "|" + FrameDropChance.Value.Value;
+            saveFavStr += "|" + FrameRouteCount.Value.Value;
+            saveFavStr += "|" + FrameHasItem.IsChecked.Value;
+            saveFavStr += "|" + globalFrameItem[0];
+            saveFavStr += "|" + globalFrameItem[1];
+            saveFavStr += "|" + globalFrameItem[2];
+            saveFavStr += "|" + globalFrameItem[3];
             //
-            List<string> wtxt = new List<string>();
+            List <string> wtxt = new List<string>();
             wtxt.Add(saveFavStr);
             System.DateTime dt = System.DateTime.Now;
             string time = "" + dt.Year + dt.Month + dt.Day + dt.Hour + dt.Minute + dt.Second;
@@ -2907,6 +2947,19 @@ namespace WpfMinecraftCommandHelper2
                     FallingSandIsDamage.IsChecked = bool.Parse(readFavStr[186]);
                     FallingSandMaxDamage.Value = int.Parse(readFavStr[187]);
                     FallingSandDamageCount.Value = int.Parse(readFavStr[188]);
+                    //ItemFrame
+                    FrameCoCheck.IsChecked = bool.Parse(readFavStr[189]);
+                    FrameX.Value = int.Parse(readFavStr[190]);
+                    FrameY.Value = int.Parse(readFavStr[191]);
+                    FrameZ.Value = int.Parse(readFavStr[192]);
+                    FrameFacing.Value = int.Parse(readFavStr[193]);
+                    FrameDropChance.Value = int.Parse(readFavStr[194]);
+                    FrameRouteCount.Value = int.Parse(readFavStr[195]);
+                    FrameHasItem.IsChecked = bool.Parse(readFavStr[196]);
+                    globalFrameItem[0] = readFavStr[197];
+                    globalFrameItem[1] = readFavStr[198];
+                    globalFrameItem[2] = readFavStr[199];
+                    globalFrameItem[3] = readFavStr[200];
                     //
                     this.ShowMessageAsync("", "已读取：" + loadNameList[loadResultIndex], MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel, AnimateShow = false, AnimateHide = false });
                 }
@@ -2991,6 +3044,31 @@ namespace WpfMinecraftCommandHelper2
         {
             FallingSandMaxDamage.IsEnabled = FallingSandIsDamage.IsChecked.Value;
             FallingSandDamageCount.IsEnabled = FallingSandIsDamage.IsChecked.Value;
+        }
+
+        private void FrameCoCheck_Click(object sender, RoutedEventArgs e)
+        {
+            FrameX.IsEnabled = FrameCoCheck.IsChecked.Value;
+            FrameY.IsEnabled = FrameCoCheck.IsChecked.Value;
+            FrameZ.IsEnabled = FrameCoCheck.IsChecked.Value;
+        }
+
+        private void FrameHasItem_Click(object sender, RoutedEventArgs e)
+        {
+            FrameGetItemBtn.IsEnabled = FrameHasItem.IsChecked.Value;
+        }
+
+        private void FrameGetItemBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AllSelData asd = new AllSelData();
+            Item itembox = new Item();
+            itembox.ShowDialog();
+            string[] temp = itembox.returnStr();
+            int[] temp2 = itembox.returnStrAdver();
+            globalFrameItem[0] = temp2[1].ToString();//count
+            globalFrameItem[1] = temp2[2].ToString();//damage
+            globalFrameItem[2] = asd.getItem(temp2[0]);//id
+            globalFrameItem[3] = temp[10];//tag
         }
 
         private void helpBtn_Click(object sender, RoutedEventArgs e)

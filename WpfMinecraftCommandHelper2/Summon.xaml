@@ -235,7 +235,7 @@
                     <TextBox x:Name="tabSumosTeam" HorizontalAlignment="Left" Height="23" Margin="328,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" IsEnabled="False" />
                 </Grid>
             </TabItem>
-            <TabItem x:Name="SummonSHeader" Header="召唤物品" Margin="125,0,-125,0">
+            <TabItem x:Name="SummonSHeader" Header="召唤物品" Margin="250,0,-275,0">
                 <Grid>
                     <ComboBox x:Name="tabSummonItem" HorizontalAlignment="Left" Margin="13,10,0,0" VerticalAlignment="Top" Width="580" Height="34" FontSize="14"/>
                     <Grid HorizontalAlignment="Left" Height="32" Margin="10,49,0,0" VerticalAlignment="Top" Width="583">
@@ -261,7 +261,7 @@
                     <CheckBox x:Name="tabSummonAgeCheck" Content="" HorizontalAlignment="Left" Margin="11,194,0,0" VerticalAlignment="Top" Width="21" Click="tabSummonAgeCheck_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="SummonSand" Header="掉落沙" Margin="35,0,-125,0">
+            <TabItem x:Name="SummonSand" Header="掉落沙" Margin="125,0,-125,0">
                 <Grid>
                     <ComboBox x:Name="FallingSandItemSel" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" Height="28" ToolTip="掉落沙外观方块选择"/>
                     <Controls:NumericUpDown x:Name="FallingSandLifeTime" Minimum="0" Maximum="2147483647" StringFormat="" Margin="10,43,886,479" Height="28" Value="1" FontSize="14" HasDecimals="False" ToolTip="掉落沙存活时间，0会立即删除，从1开始到600-&gt;数字越大存活时间越短" />
@@ -273,7 +273,20 @@
 
                 </Grid>
             </TabItem>
-            <TabItem x:Name="SummonVHeader" Header="村民" Margin="-15,0,15,0">
+            <TabItem x:Name="SummonFrame" Header="物品展示框" Margin="35,0,-125,0">
+                <Grid>
+                    <Controls:NumericUpDown x:Name="FrameX" Minimum="-2147483648" Maximum="2147483647" Height="28" Value="0" FontSize="14" ToolTip="展示框所在的X轴坐标" Margin="10,33,923,489" IsEnabled="False"/>
+                    <Controls:NumericUpDown x:Name="FrameY" Minimum="-2147483648" Maximum="2147483647" Height="28" Value="0" FontSize="14" ToolTip="展示框所在的Y轴坐标" Margin="346,33,587,489" IsEnabled="False"/>
+                    <Controls:NumericUpDown x:Name="FrameZ" Minimum="-2147483648" Maximum="2147483647" Height="28" Value="0" FontSize="14" ToolTip="展示框所在的Z轴坐标" Margin="178,33,755,489" IsEnabled="False"/>
+                    <CheckBox x:Name="FrameCoCheck" Content="指定坐标" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="FrameCoCheck_Click"/>
+                    <Controls:NumericUpDown x:Name="FrameFacing" Minimum="-1" Maximum="3" Height="28" Value="-1" FontSize="14" ToolTip="展示框所面向的方向：0南 1西 2北 3东 -1不检测此值" Margin="10,66,923,456" HasDecimals="False"/>
+                    <Controls:NumericUpDown x:Name="FrameDropChance" Minimum="0" Maximum="1" Height="28" Value="1" FontSize="14" ToolTip="展示框内物品的掉落几率" Margin="10,99,923,423" Interval="0.1"/>
+                    <Controls:NumericUpDown x:Name="FrameRouteCount" Minimum="0" Maximum="8" Height="28" Value="0" FontSize="14" ToolTip="展示框内物品被旋转次数，每一次皆45°" Margin="178,99,755,423" HasDecimals="False"/>
+                    <CheckBox x:Name="FrameHasItem" Content="展示框内有物品" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top" Click="FrameHasItem_Click"/>
+                    <Button x:Name="FrameGetItemBtn" Content="获取物品" HorizontalAlignment="Left" Margin="178,132,0,0" VerticalAlignment="Top" Width="163" FontSize="12" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="FrameGetItemBtn_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="SummonVHeader" Header="村民" Margin="-75,0,15,0">
                 <Grid>
                     <Label x:Name="SummonVType" Content="村民类型" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
                     <ComboBox x:Name="tabVillagerType" HorizontalAlignment="Left" Margin="81,8,0,0" VerticalAlignment="Top" Width="210" Height="30" FontSize="14"/>
@@ -327,7 +340,7 @@
                     <ListBox x:Name="pageList" HorizontalAlignment="Left" Height="502" Margin="604,5,0,0" VerticalAlignment="Top" Width="484"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="SummonArmorStandHeader" Header="盔甲架" Margin="-95,0,95,0">
+            <TabItem x:Name="SummonArmorStandHeader" Header="盔甲架" Margin="-150,0,95,0">
                 <Grid>
                     <CheckBox x:Name="tabSumosArmorCheck" Content="盔甲架动作：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14" Click="tabSumosArmorCheck_Click"/>
                     <Label x:Name="SummonOAHead" Content="头部" HorizontalAlignment="Left" Margin="31,69,0,0" VerticalAlignment="Top"/>
@@ -407,7 +420,7 @@
                     <Button x:Name="HorseChest16" Content="" HorizontalAlignment="Left" Margin="579,156,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest16_Click" Foreground="White"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="SummonBHeader" Header="属性设置" Margin="150,0,-150,0">
+            <TabItem x:Name="SummonBHeader" Header="属性设置" Margin="50,0,-50,0">
                 <Grid>
                     <GroupBox x:Name="tabItemAttrGroupbox" Header="生物特殊属性" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="264" Width="308">
                         <Grid HorizontalAlignment="Left" Height="222" VerticalAlignment="Top" Width="298" Margin="0,0,-2,0">
@@ -430,7 +443,7 @@
                     <Button x:Name="EntityAttritube" Content="生成" HorizontalAlignment="Left" Margin="10,279,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="EntityAttritube_Click" Style="{DynamicResource SquareButtonStyle}"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="ridingLoader" Header="骑乘生成" Margin="150,0,-150,0" Width="120" PreviewMouseLeftButtonDown="ridingLoader_PreviewMouseLeftButtonDown">
+            <TabItem x:Name="ridingLoader" Header="骑乘生成" Margin="50,0,-50,0" Width="120" PreviewMouseLeftButtonDown="ridingLoader_PreviewMouseLeftButtonDown">
                 <Grid Margin="0,0,0,-30">
                     <TextBox x:Name="ridingLoaderShow" HorizontalAlignment="Left" Height="527" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1076"/>
                 </Grid>

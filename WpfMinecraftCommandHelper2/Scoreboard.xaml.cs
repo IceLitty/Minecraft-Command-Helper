@@ -28,6 +28,10 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabScoreData2.Items.Add(asd.getScore4(i));
             }
+            tabScoreCommand.SelectedIndex = 0;
+            tabScoreAtVar.SelectedIndex = 0;
+            tabScoreData1.SelectedIndex = 0;
+            tabScoreData2.SelectedIndex = 0;
         }
 
         private void tabScoreCommand_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -107,6 +111,14 @@ namespace WpfMinecraftCommandHelper2
             else if (tabScoreCommand.SelectedIndex == 19)
             {
                 tabScoreBox.Text = "指令用法：/scoreboard teams option <队伍名称> <设置项目> <设置的值>\r\n\r\n针对指定队伍设定各项设置。\r\n\r\n设置项目如下：\r\n\r\ncolor 设置颜色，颜色包含：\r\n\tblack\t\t黑色\r\n\tdark_blue\t\t深蓝\r\n\tdark_green\t深绿\r\n\tdark_aqua\t湛蓝\r\n\tdark_red\t\t深红\r\n\tdark_purple\t深紫\r\n\tglod\t\t金色\r\n\tgray\t\t灰色\r\n\tdark_gray\t\t深灰\r\n\tblue\t\t蓝色\r\n\tgreen\t\t绿色\r\n\taqua\t\t青色\r\n\tred\t\t红色\r\n\tlight_purple\t亮紫\r\n\tyellow\t\t黄色\r\n\twhite\t\t白色\r\n\treset\t\t清除\r\n\t共16种颜色，1种额外功能。\r\n\r\nfriendlyFire 设置友军伤害，值为true或false，默认为true，默认状态下该组成员可互相造成伤害，当设为false后不可造成任何伤害。\r\n\r\nseeFriendlyInvisibles 设置是否可见同队伍隐身效果。当设为true后，同队伍的玩家隐身时可看见半透明的外形，反之亦然。\r\n\r\nnametagVisibility 设置指定队伍的玩家头顶上的名称标签是否隐藏，值如下：\r\n\talways 始终显示，默认。\r\n\tnever 永不显示。\r\n\thideForOtherTeams 对其他队伍隐藏。\r\n\thideForOwnTeam 只对本组隐藏。\r\n\r\ndeathMessageVisibility 设置指定队伍的玩家死亡信息隐藏，值同上。";
+            }
+            else if (tabScoreCommand.SelectedIndex == 20)
+            {
+                tabScoreBox.Text = "格式\r\n\ttrigger <对象> <add|set> <值>\r\n参数\r\n\t对象\r\n\t\t计分板对象\r\n\tadd\r\n\t\t将值加入计分板对象的原值中\r\n\tset\r\n\t\t将值赋进计分板对象的原值中\r\n";
+            }
+            else if (tabScoreCommand.SelectedIndex == 21)
+            {
+                tabScoreBox.Text = "stats指令可更新计分板对象分数或其他指令\r\n\r\n格式\r\n\tstats block <x> <y> <z> clear <状态>\r\n\tstats block <x> <y> <z> set <状态> <选择器> <对象>\r\n\tstats entity <选择器2> clear <状态>\r\n\tstats entity <选择器2> set <状态> <选择器> <对象>\r\n参数\r\n\tx y z\r\n\t\t方块坐标\r\n\t状态\r\n\t\t可以是以下几种：\r\n\t\t\tAffectedBlocks\t\t返回该指令会影响到多少方块\r\n\t\t\tAffectedEntities\t返回该指令会影响到多少实体\r\n\t\t\tAffectedItems\t\t返回该指令会影响到多少物品\r\n\t\t\tQueryResult\t\t\t返回该指令结果\r\n\t\t\tSuccessCount\t\t返回该指令成功次数\r\n\t选择器\r\n\t\t此处只有玩家名或目标选择器才能获得有用的结果，当然玩家名在这里可以是假的，不一定真实存在\r\n\t选择器2\r\n\t\t必须为玩家名或目标选择器\r\n\t对象\r\n\t\t计分板对象名\r\n举例\r\n\t离位于0,64,0的方块最近的玩家如果有任何执行成功就更新至计分板对象MyObj\r\n\t\tstats block 0 64 0 set QueryResult @p MyObj\r\n\t停止位于0,64,0的方块更新计分板对象执行成功的计数\r\n\t\tstats block 0 64 0 clear SuccessCount\r\n\t给最近的凋零骷髅更新受它影响的方块至计分板对象NumBlocks上的#FakePlayer玩家\r\n\t\tstats entity @e[type=WitherSkull,c=1] set AffectedBlocks #FakePlayer NumBlocks\r\n";
             }
             else
             {
@@ -238,15 +250,43 @@ namespace WpfMinecraftCommandHelper2
             }
             else if (tabScoreData1.SelectedIndex == 5)
             {
-                tabScoreBox.Text = "";
+                tabScoreBox.Text = "全程自翻转译，有误请提出：\r\n http://minecraft.gamepedia.com/Commands";
             }
             else if (tabScoreData1.SelectedIndex == 6)
             {
-                tabScoreBox.Text = "/clone <x1> <y1> <z1> <x2> <y2> <z2> <x> <y> <z> [Mode1] [Mode2]\r\n\r\n用于克隆批量的方块。x1 y1 z1到x2 y2 z2是确定源目标区域，用两点表示一个方体。xyz为目标区域，和x1 y1 z1对应。\r\n\r\nMode1包含replace（复制所有方块）、masked（仅复制非空气方块）、filtered（复制不想受影响的方块）。\r\nMode2包含move、force和normal。";
+                tabScoreBox.Text = "格式\r\n\tclone <x1> <y1> <z1> <x2> <y2> <z2> <x> <y> <z> [判定模式] [克隆模式] [方块名]\r\n参数\r\n\tx1 y1 z1 x2 y2 z2\r\n\t\t定义区间\r\n\tx y z\r\n\t\t粘贴的点，始终为西北方最下层的点。\r\n\t判定模式\r\n\t\tfiltered\t只复制和方块名相同的方块\r\n\t\tmasked\t\t复制非空气方块\r\n\t\treplace\t\t全部复制\r\n\t克隆模式\r\n\t\tforce\t\t即使和复制区域有重叠也强制复制\r\n\t\tmove\t\t将复制区域移过去，只有被移除的地方会被空气方块替换\r\n\t\tnormal\t\t正常复制\r\n\t方块名\r\n\t\t例minecraft:stone\r\n";
             }
             else if (tabScoreData1.SelectedIndex == 7)
             {
-                tabScoreBox.Text = "/fill <x1> <y1> <z1> <x2> <y2> <z2> <方块名> [数据值] [旧方块处理方式] [NBT标签]\r\n\r\n用于填充批量的方块。旧方块处理方式包含replace、destroy、keep、hollow、outline。";
+                tabScoreBox.Text = "格式\r\n\tfill <x1> <y1> <z1> <x2> <y2> <z2> <方块名> [Meta值] [旧方块处理] [NBT标签]\r\n\tfill指令同样可有替换方块的功能：\r\n\tfill <x1> <y1> <z1> <x2> <y2> <z2> <方块名> <Meta值> replace [要替换成的方块名] [要替换成的Meta值]\r\n参数\r\n\tx1 y1 z1 x2 y2 z2\r\n\t\t选择区域\r\n\t方块名\r\n\tMeta值\r\n\t要替换成的方块名、Meta值\r\n\t旧方块处理\r\n\t\tdestroy\t使用破坏方块的方法，会掉落正常掉落的方块\r\n\t\thollow\t仅替换掉外围一圈的方块，内部用空气代替\r\n\t\tkeep\t仅替换掉空气方块\r\n\t\toutline\t仅替换掉外围一圈的方块，内部不处理\r\n\t\treplace\t默认选项，替换掉全部方块包括空气，方块不掉落\r\n\tNBT标签\r\n\t\t例如{CustomName:Fred}\r\n举例\r\n\t将指定区域全部的橙色染色硬化粘土替换成金块\r\n\t\t/fill 52 63 -1516 33 73 -1536 minecraft:gold_block 0 replace minecraft:stained_hardened_clay 1\r\n\t将7x7x3区域内直接换成水\r\n\t\t/fill ~-3 ~-3 ~-3 ~3 ~-1 ~3 minecraft:water 0\r\n\t创建一个围绕玩家的木板小盒子\r\n\t\t/fill ~-3 ~ ~-4 ~3 ~4 ~4 minecraft:planks 2 hollow\r\n";
+            }
+            else if (tabScoreData1.SelectedIndex == 8)
+            {
+                tabScoreBox.Text = "格式\r\n\tachievement <give|take> <成就名|*> [玩家名]\r\n参数\r\n\t成就名\r\n\t\t游戏内tab键可补全，格式如achievement.成就名\r\n\t\t* 代表全成就\r\n\t玩家名\r\n\t\t可以是玩家名或选择器，如果没定义的话则是命令执行者，该命令在命令方块中不可无此参数执行\r\n\t举例\r\n\t\t给自己获得Overkill成就\r\n\t\t\tachievement give achievement.overkill\r\n\t\t给Alice获得TakingInventory成就\r\n\t\t\tachievement give achievement.openInventory Alice\r\n\t\t移除所有玩家所有成就\r\n\t\t\tachievement take * @a\r\n";
+            }
+            else if (tabScoreData1.SelectedIndex == 9)
+            {
+                tabScoreBox.Text = "格式\r\n\tclear [玩家名] [物品名] [Meta值] [最大清除数量] [NBT标签]\r\n参数\r\n\t玩家名\r\n\t\t可以是玩家名或选择器，如果没定义的话则是命令执行者，该命令在命令方块中不可无此参数执行\r\n\t物品名\r\n\t\t要清除的物品，如果没定义则清空选择玩家的全部背包\r\n\tMeta值\r\n\t\t要清除的物品Meta值，如果为-1或没定义则清空所有指定的物品，不判定Meta值\r\n\t最大清除数量\r\n\t\t最大清楚物品的数量，如果为-1或没定义则最大限度的清空物品，如果为0则不清除任何物品，但会有执行指令成功的判定，可以以此来制作冒险地图判断玩家背包是否有此物品\r\n\tNBT标签\r\n\t\t物品的NBT标签，例如“{display:{Name:Fred}}”\r\n举例\r\n\t清除你的物品\r\n\t\tclear\r\n\t清除Alice的物品\r\n\t\tclear Alice\r\n\t清除Alice背包中的羊毛\r\n\t\tclear Alice minecraft:wool\r\n\t清除Alice背包中橙色羊毛\r\n\t\tclear Alice minecraft:wool 1\r\n\t清除最近的玩家背包中带有锋利I附魔的金剑，无视数量和Meta/Damage值\r\n\t\tclear @p minecraft:golden_sword -1 -1 {ench:[{id:16s,lvl:1s}]}\r\n";
+            }
+            else if (tabScoreData1.SelectedIndex == 10)
+            {
+                tabScoreBox.Text = "格式\r\n\texecute <实体> <x> <y> <z> <指令>\r\n\t或含有检测方块指令\r\n\texecute <实体> <x> <y> <z> detect <x2> <y2> <z2> <方块名> <数据值> <指令>\r\n参数\r\n\t实体\r\n\t\t使用选择器来选择实体，如果选择了多个实体，每个实体都会执行一次判断/指令\r\n\tx y z\r\n\t\t选择实体后在实体的什么位置执行指令，也可以是实际坐标，但必须在-30000000到30000000之间的值\r\n\t指令\r\n\t\t执行的指令\r\n\tx2 y2 z2\r\n\t\t检测实体的指定位置是什么方块，也可以是实际坐标是什么方块，同上\r\n\t方块名和数据值\r\n\t\t同上\r\n举例\r\n\t在僵尸处召唤落雷\r\n\t\texecute @e[type=Zombie] ~ ~ ~ summon LightningBolt\r\n\t如果僵尸踩在任何种类的沙子上，召唤落雷\r\n\t\texecute @e[type=Zombie] ~ ~ ~ detect ~ ~-1 ~ minecraft:sand -1 summon LightningBolt\r\n\t当世界中至少有10种实体时，在离第10个实体最近的玩家处召唤爬行者\r\n\t\texecute @e[c=10] ~ ~ ~ execute @p ~ ~ ~ summon Creeper\r\n";
+            }
+            else if (tabScoreData1.SelectedIndex == 11)
+            {
+                tabScoreBox.Text = "格式\r\n\tgamerule <规则名> [值]\r\n参数\r\n\t规则名\r\n\t\t名称\t\t\t\t解释\t\t\t\t\t默认值\r\n\t\tcommandBlockOutput\t\t命令方块是否输出到聊天栏\t\ttrue\r\n\t\tdisableElytraMovementCheck\t服务端测速是否不检测滑翔翼\t\tfalse\r\n\t\tdoDaylightCycle\t\t\t时间是否流动\t\t\t\ttrue\r\n\t\tdoEntityDrops\t\t\t实体是否掉落\t\t\t\ttrue\r\n\t\tdoFireTick\t\t\t火焰是否蔓延\t\t\t\ttrue\r\n\t\tdoMobLoot\t\t\t生物是否掉落\t\t\t\ttrue\r\n\t\tdoMobSpawning\t\t\t生物是否自然生成\t\t\ttrue\r\n\t\tdoTileDrops\t\t\t方块是否掉落\t\t\t\ttrue\r\n\t\tkeepInventory\t\t\t玩家死亡是否保留背包\t\t\tfalse\r\n\t\tlogAdminCommands\t\t是否把Admin指令记录进日志\t\ttrue\r\n\t\tmobGriefing\t\t\t生物*是否破坏方块\t\t\ttrue\r\n\t\tnaturalRegeneration\t\t玩家是否在满饥饿下自然回血*\t\ttrue\r\n\t\trandomTickSpeed\t\t\t随机Tick影响*\t\t\t\t3\r\n\t\treducedDebugInfo\t\t减少F3界面显示的内容\t\t\tfalse\r\n\t\tsendCommandFeedback\t\t显示命令反馈\t\t\t\ttrue\r\n\t\tshowDeathMessages\t\t显示死亡信息\t\t\t\ttrue\r\n\t\tspawnRadius\t\t\tSpawn范围\t\t\t\t10\r\n\t\tspectatorsGenerateChunks\t\t观察者视角生成区块的范围\t\ttrue\r\n\t*这里的生物是指爬行者、僵尸、末影人、恶魂、凋零、末影龙、兔子、羊、村民\r\n\t*自然回血不指效果影响的回血，例如金苹果，自然回复的状态等\r\n\t*随机Tick如果为0则20Ticks=1秒，默认为3\r\n\t值\r\n\t\t设置对应规则的值\r\n举例\r\n\t停止昼夜交替\r\n\t\tgamerule doDaylightCycle false\r\n\t停止自然回血\r\n\t\tgamerule naturalRegeneration false\r\n\t定义新规则MyNewRule并值为10\r\n\t\tgamerule MyNewRule 10\r\n";
+            }
+            else if (tabScoreData1.SelectedIndex == 12)
+            {
+                tabScoreBox.Text = "格式\r\n\tplaysound <声音> <源> <玩家名> [x] [y] [z] [音量] [音调] [最小音量]\r\n参数\r\n\t声音\r\n\t\t在资源包或mc本体的sounds.json内定义，例如mob.pig.say\r\n\t源\r\n\t\t必须是master、music、record、weather、block、hostile、neutral、player、ambient或voice\r\n\t玩家名\r\n\t\t能听到声音的玩家，必须是玩家名或选择器\r\n\tx y z\r\n\t\t播放声音的坐标位置\r\n\t音量\r\n\t\t声音在多远距离内可以听见，必须大于0.0。当值小于1.0时，声音显得小并传播距离短，值大于1.0时，声音并不会变的更大但是能传播的更远。为1.0时范围是16个方块，相乘计算。\r\n\t音调\r\n\t\t必须为0.0和2.0之间，默认1.0。\r\n\t最小音量\r\n\t\t必须为0.0和1.0之间。\r\n";
+            }
+            else if (tabScoreData1.SelectedIndex == 13)
+            {
+                tabScoreBox.Text = "格式\r\n\tstopsound <玩家名> [源] [声音]\r\n参数\r\n\t玩家名\r\n\t\t必须是玩家名或选择器\r\n\t源\r\n\t\t必须是master、music、record、weather、block、hostile、neutral、player、ambient或voice\r\n\t声音\r\n\t\t要停止播放的声音，例如mob.pig.say\r\n";
+            }
+            else if (tabScoreData1.SelectedIndex == 14)
+            {
+                tabScoreBox.Text = "格式\r\n\ttp [目标玩家] <目的玩家>\r\n\ttp [目的玩家] <x> <y> <z> [<yaw> <pitch>]\r\n\tteleport <目标实体> <x> <y> <z> [<y-rot> <x-rot>]\r\n参数\r\n\t目标玩家\r\n\t\t将A玩家tp至B玩家处，目标玩家为A玩家，目的玩家为B玩家\r\n\t目的玩家\r\n\t\t将自己tp至B玩家处，目的玩家为B玩家\r\n\t目的实体\r\n\t\t将B实体tp至指定坐标处\r\n\tx y z\r\n\t\t坐标\r\n\tyaw y-rot\r\n\t\t-180.0为正北，-90.0为正东，0.0为正南，90.0为正西，可用~符代指保留原方向\r\n\tpitch x-rot\r\n\t\t-90.0为正上，90.0为正下，可用~符代指保留原方向\r\n";
             }
             else
             {
