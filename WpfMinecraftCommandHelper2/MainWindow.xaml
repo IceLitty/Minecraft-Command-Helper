@@ -97,7 +97,8 @@
                         </Grid>
                         <Grid Margin="10,60,0,0">
                             <RadioButton x:Name="mcvLatest" Content="Latest" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" ToolTip="MCVersion"/>
-                            <RadioButton x:Name="mcv18" Content="1.8" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Top" ToolTip="MCVersion"/>
+                            <RadioButton x:Name="mcv110" Content="1.9/1.10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65,0,0,0" ToolTip="MCVersion"/>
+                            <RadioButton x:Name="mcv18" Content="1.8" HorizontalAlignment="Left" Margin="140,0,0,0" VerticalAlignment="Top" ToolTip="MCVersion"/>
                         </Grid>
                     </Grid>
                     <Grid HorizontalAlignment="Left" Height="360" Margin="370,10,0,-57" VerticalAlignment="Top" Width="189">

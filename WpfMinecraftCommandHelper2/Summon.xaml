@@ -281,7 +281,7 @@
                     <CheckBox x:Name="FrameCoCheck" Content="指定坐标" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="FrameCoCheck_Click"/>
                     <Controls:NumericUpDown x:Name="FrameFacing" Minimum="-1" Maximum="3" Height="28" Value="-1" FontSize="14" ToolTip="展示框所面向的方向：0南 1西 2北 3东 -1不检测此值" Margin="10,66,923,456" HasDecimals="False"/>
                     <Controls:NumericUpDown x:Name="FrameDropChance" Minimum="0" Maximum="1" Height="28" Value="1" FontSize="14" ToolTip="展示框内物品的掉落几率" Margin="10,99,923,423" Interval="0.1"/>
-                    <Controls:NumericUpDown x:Name="FrameRouteCount" Minimum="0" Maximum="8" Height="28" Value="0" FontSize="14" ToolTip="展示框内物品被旋转次数，每一次皆45°" Margin="178,99,755,423" HasDecimals="False"/>
+                    <Controls:NumericUpDown x:Name="FrameRouteCount" Minimum="0" Maximum="7" Height="28" Value="0" FontSize="14" ToolTip="展示框内物品被旋转次数，每一次皆45°" Margin="178,99,755,423" HasDecimals="False"/>
                     <CheckBox x:Name="FrameHasItem" Content="展示框内有物品" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top" Click="FrameHasItem_Click"/>
                     <Button x:Name="FrameGetItemBtn" Content="获取物品" HorizontalAlignment="Left" Margin="178,132,0,0" VerticalAlignment="Top" Width="163" FontSize="12" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="FrameGetItemBtn_Click"/>
                 </Grid>
@@ -384,7 +384,7 @@
             </TabItem>
             <TabItem x:Name="SummonHorseHeader" Header="马" Margin="-175,0,175,0">
                 <Grid>
-                    <Grid HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" VerticalAlignment="Top" Width="414">
+                    <Grid x:Name="HorseType" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" VerticalAlignment="Top" Width="414">
                         <RadioButton x:Name="HorseTypeHorse" Content="Horse" HorizontalAlignment="Left" Margin="0,2,0,0" VerticalAlignment="Top" IsChecked="True"/>
                         <RadioButton x:Name="HorseTypeDonkey" Content="Donkey" HorizontalAlignment="Left" Margin="60,2,0,0" VerticalAlignment="Top"/>
                         <RadioButton x:Name="HorseTypeMule" Content="Mule" HorizontalAlignment="Left" Margin="129,2,0,0" VerticalAlignment="Top"/>

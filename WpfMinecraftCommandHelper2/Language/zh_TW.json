@@ -430,7 +430,7 @@
     "PotionEffectName": "效果名",
     "PotionTime": "持續時間",
     "PotionLevel": "效果等級",
-    "PotionTip": "「時間單位Tick,默認5分鍾 20Tick/s」",
+    "PotionTip": "「時間單位Tick,默認30秒 20Tick/s」",
     "PotionEffect1": "速度",
     "PotionEffect2": "緩慢",
     "PotionEffect3": "急迫",

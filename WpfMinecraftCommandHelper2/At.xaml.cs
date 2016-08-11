@@ -29,6 +29,8 @@ namespace WpfMinecraftCommandHelper2
                 rideEntity.Items.Add(asd.getAtNameList(i));
             }
             clear();
+            Config config = new Config();
+            mcVersion = config.getSetting("[Personalize]", "MCVersion");
         }
 
         private string FloatTipTitle = "提示";
@@ -514,11 +516,6 @@ namespace WpfMinecraftCommandHelper2
             }
         }
 
-        public void setVersion(string mcVersion)
-        {
-            this.mcVersion = mcVersion;
-        }
-
         private void itemCheck_Click(object sender, RoutedEventArgs e)
         {
             itemCheckBtn.IsEnabled = itemCheck.IsChecked.Value;
@@ -527,7 +524,6 @@ namespace WpfMinecraftCommandHelper2
         private void itemCheckBtn_Click(object sender, RoutedEventArgs e)
         {
             Summon summonbox = new Summon();
-            summonbox.setVersion(mcVersion);
             summonbox.ShowDialog();
             cmd = summonbox.returnStr()[3];
         }

@@ -16,6 +16,8 @@ namespace WpfMinecraftCommandHelper2
             InitializeComponent();
             appLanguage();
             clear();
+            Config config = new Config();
+            mcVersion = config.getSetting("[Personalize]", "MCVersion");
         }
 
         private string FloatHelpTitle = "帮助";
@@ -120,16 +122,6 @@ namespace WpfMinecraftCommandHelper2
         private string finalStr = "";
 
         private string mcVersion = "latest";
-
-        public void setVersion(string version)
-        {
-            mcVersion = version;
-            if (mcVersion == "1.8")
-            {
-                tabPotionBUFFPotion.IsEnabled = false;
-                tabPotionTipArrow.IsEnabled = false;
-            }
-        }
 
         private void clear()
         {
@@ -308,7 +300,25 @@ namespace WpfMinecraftCommandHelper2
         {
             globalPotionCount = tabPotionNum.Value.Value.ToString();
             string endStr = "";
-            if (mcVersion == "latest")
+            if (mcVersion == "1.8")
+            {
+                if (tabPotionA.IsChecked.Value)
+                {
+                    endStr = "/give " + at + " minecraft:potion " + tabPotionNum.Value.ToString() + " 0";
+                    globalPotionID = "minecraft:potion";
+                    globalPotionYN = 0;
+                }
+                else if (tabPotionB.IsChecked.Value)
+                {
+                    endStr = "/give " + at + " minecraft:potion " + tabPotionNum.Value.ToString() + " 16384";
+                    globalPotionID = "minecraft:splash_potion";
+                    globalPotionYN = 16384;
+                }
+                else if (tabPotionBUFFPotion.IsChecked.Value) { endStr = PotionNotSelect; globalPotionID = "minecraft:splash_potion"; }
+                else if (tabPotionTipArrow.IsChecked.Value) { endStr = PotionNotSelect; globalPotionID = "minecraft:splash_potion"; }
+                else { endStr = PotionNotSelect; }
+            }
+            else
             {
                 if (tabPotionA.IsChecked.Value)
                 {
@@ -334,24 +344,6 @@ namespace WpfMinecraftCommandHelper2
                 {
                     endStr = PotionNotSelect;
                 }
-            }
-            else //if(mcVersion == "1.8")
-            {
-                if (tabPotionA.IsChecked.Value)
-                {
-                    endStr = "/give " + at + " minecraft:potion " + tabPotionNum.Value.ToString() + " 0";
-                    globalPotionID = "minecraft:potion";
-                    globalPotionYN = 0;
-                }
-                else if (tabPotionB.IsChecked.Value)
-                {
-                    endStr = "/give " + at + " minecraft:potion " + tabPotionNum.Value.ToString() + " 16384";
-                    globalPotionID = "minecraft:splash_potion";
-                    globalPotionYN = 16384;
-                }
-                else if (tabPotionBUFFPotion.IsChecked.Value) { endStr = PotionNotSelect; globalPotionID = "minecraft:splash_potion"; }
-                else if (tabPotionTipArrow.IsChecked.Value) { endStr = PotionNotSelect; globalPotionID = "minecraft:splash_potion"; }
-                else { endStr = PotionNotSelect; }
             }
             string nbt = "";
             if (tabPotionHasEnchant.IsChecked.Value)

@@ -9,11 +9,13 @@ namespace WpfMinecraftCommandHelper2
     public class AllSelData
     {
         private string nowLang = "cn";
+        private string mcVersion = "latest";
 
         public AllSelData()
         {
             Config config = new Config();
             nowLang = config.getSetting("[Personalize]", "Language");
+            mcVersion = config.getSetting("[Personalize]", "MCVersion");
         }
 
         private string[] itemNameList = {
@@ -1015,6 +1017,164 @@ namespace WpfMinecraftCommandHelper2
                                     "蜘蛛",
                                     "猪"
                                  };
+
+        string[] atSel111 = {
+            "minecraft:tnt",
+            "minecraft:ocelot",
+            "minecraft:polar_bear",
+            "minecraft:bat",
+            "minecraft:boat",
+            "minecraft:villager",
+            "minecraft:egg",
+            "minecraft:wither",
+            "minecraft:wither_skull",
+            "minecraft:falling_block",
+            "minecraft:silverfish",
+            "minecraft:ghast",
+            "minecraft:painting",
+            "minecraft:fireball",
+            "minecraft:dragon_fireball",
+            "minecraft:small_fireball",
+            "minecraft:chicken",
+            "minecraft:arrow",
+            "minecraft:spectral_arrow",
+            "minecraft:zombie",
+            "minecraft:giant",
+            "minecraft:husk",
+            "minecraft:zombie_villager",
+            "minecraft:zombie_pigman",
+            "minecraft:xp_bottle",
+            "minecraft:xp_orb",
+            "minecraft:skeleton",
+            "minecraft:wither_skeleton",
+            "minecraft:stray",
+            "minecraft:minecart",
+            "minecraft:tnt_minecart",
+            "minecraft:furnace_minecart",
+            "minecraft:hopper_minecart",
+            "minecraft:commandblock_minecart",
+            "minecraft:spawner_minecart",
+            "minecraft:chest_minecart",
+            "minecraft:armor_stand",
+            "minecraft:wolf",
+            "minecraft:blaze",
+            "minecraft:horse",
+            "minecraft:zombie_horse",
+            "minecraft:skeleton_horse",
+            "minecraft:mule",
+            "minecraft:donkey",
+            "minecraft:mooshroom",
+            "minecraft:ender_dragon",
+            "minecraft:endermite",
+            "minecraft:enderman",
+            "minecraft:ender_crystal",
+            "minecraft:ender_pearl",
+            "minecraft:eye_of_ender_signal",
+            "minecraft:cow",
+            "minecraft:witch",
+            "minecraft:creeper",
+            "minecraft:shulker",
+            "minecraft:shulker_bullet",
+            "minecraft:lightning_bolt",
+            "minecraft:slime",
+            "minecraft:guardian",
+            "minecraft:elder_guardian",
+            "minecraft:leash_knot",
+            "minecraft:villager_golem",
+            "minecraft:rabbit",
+            "minecraft:item",
+            "minecraft:item_frame",
+            "minecraft:snowball",
+            "minecraft:snowman",
+            "minecraft:fireworks_rocket",
+            "minecraft:magma_cube",
+            "minecraft:sheep",
+            "minecraft:potion",
+            "minecraft:area_effect_cloud",
+            "minecraft:squid",
+            "minecraft:spider",
+            "minecraft:cave_spider",
+            "minecraft:pig"
+        };
+
+        string[] atSelNameList111 = {
+            "TNT",
+            "豹猫",
+            "北极熊",
+            "蝙蝠",
+            "船",
+            "村民",
+            "蛋",
+            "凋零骷髅",
+            "凋零骷髅头",
+            "掉落沙",
+            "蠹虫",
+            "恶魂",
+            "画",
+            "火焰弹",
+            "火焰弹 - 龙息火球",
+            "火焰弹 - 小火球",
+            "鸡",
+            "箭矢",
+            "箭矢 - 光灵箭",
+            "僵尸",
+            "僵尸 - 巨型僵尸",
+            "僵尸 - 尸壳",
+            "僵尸村民",
+            "僵尸猪人",
+            "经验瓶",
+            "经验球",
+            "骷髅",
+            "骷髅 - 凋零骷髅",
+            "骷髅 - 流髑",
+            "矿车",
+            "矿车 - TNT矿车",
+            "矿车 - 动力矿车",
+            "矿车 - 漏斗矿车",
+            "矿车 - 命令方块矿车",
+            "矿车 - 刷怪笼矿车",
+            "矿车 - 运输矿车",
+            "盔甲架",
+            "狼",
+            "烈焰人",
+            "马",
+            "马 - 僵尸马",
+            "马 - 骷髅马",
+            "马 - 骡子",
+            "马 - 驴子",
+            "蘑菇牛",
+            "末影龙",
+            "末影螨",
+            "末影人",
+            "末影水晶",
+            "末影珍珠",
+            "末影之眼",
+            "牛",
+            "女巫",
+            "爬行者",
+            "潜影贝",
+            "潜影弹",
+            "闪电",
+            "史莱姆",
+            "守卫者",
+            "守卫者 - 远古守卫者",
+            "栓绳结",
+            "铁傀儡",
+            "兔子",
+            "物品",
+            "物品展示框",
+            "雪球",
+            "雪人",
+            "烟花火箭",
+            "岩浆怪",
+            "羊",
+            "药水瓶",
+            "药水云",
+            "鱿鱼",
+            "蜘蛛",
+            "蜘蛛 - 洞穴蜘蛛",
+            "猪"
+        };
 
         string[] effectStr = {
                                 "<请选择一项>",
@@ -2675,29 +2835,57 @@ namespace WpfMinecraftCommandHelper2
 
         public string getAt(int index)
         {
-            if (index < 0 || index > (atSel.Count() - 1))
+            if (mcVersion == "latest")
             {
-                return "IndexError";
+                if (index < 0 || index > (atSel111.Count() - 1))
+                {
+                    return "IndexError";
+                }
+                else
+                {
+                    return atSel111[index];
+                }
             }
             else
             {
-                return atSel[index];
+                if (index < 0 || index > (atSel.Count() - 1))
+                {
+                    return "IndexError";
+                }
+                else
+                {
+                    return atSel[index];
+                }
             }
         }
 
         public string getAtNameList(int index) 
         {
-            if (index >= 0 && index < atSelNameList.Count())
+            if (mcVersion == "latest")
             {
-                if (nowLang != "cn") { return atSel[index]; } else { return atSelNameList[index]; }
+                if (index >= 0 && index < atSelNameList111.Count())
+                {
+                    if (nowLang != "cn") { return atSel111[index]; } else { return atSelNameList111[index]; }
+                }
+                else
+                {
+                    return "IndexError";
+                }
             }
             else
             {
-                return "IndexError";
+                if (index >= 0 && index < atSelNameList.Count())
+                {
+                    if (nowLang != "cn") { return atSel[index]; } else { return atSelNameList[index]; }
+                }
+                else
+                {
+                    return "IndexError";
+                }
             }
         }
 
-        public int getAtListCount() { return atSel.Count(); }
+        public int getAtListCount() { if (mcVersion == "latest") { return atSel111.Count(); } else { return atSel.Count(); } }
 
         public string getHideList(int index) 
         {

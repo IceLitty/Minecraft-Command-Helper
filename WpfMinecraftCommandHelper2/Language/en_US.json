@@ -430,7 +430,7 @@
     "PotionEffectName": "Effect Name",
     "PotionTime": "Duration",
     "PotionLevel": "Level",
-    "PotionTip": "「Time Unit Tick, default with 5 minutes 20Tick/s」",
+    "PotionTip": "「Time Unit Tick, default 30 seconds. 20Tick/s」",
     "PotionEffect1": "Speed",
     "PotionEffect2": "Slowness",
     "PotionEffect3": "Haste",

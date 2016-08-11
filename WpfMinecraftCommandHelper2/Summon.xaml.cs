@@ -68,6 +68,24 @@ namespace WpfMinecraftCommandHelper2
             }
             clear();
             allVisInit();
+            Config config = new Config();
+            mcVersion = config.getSetting("[Personalize]", "MCVersion");
+            if (mcVersion == "1.8")
+            {
+                tabSumosLHandBtn.IsEnabled = false;
+                tabSumosLeftHand.IsEnabled = false;
+                tabSumosDCLHand.IsEnabled = false;
+                tabSumosGlowing.IsEnabled = false;
+                tabSumosTagsCheck.IsEnabled = false;
+                tabSumosRidingV1.IsEnabled = false;
+                tabSumosRidingClear.IsEnabled = false;
+                tabSumosElytra.IsEnabled = false;
+            }
+            else if (mcVersion == "latest")
+            {
+                HorseType.IsEnabled = false;
+                HorseSaddle.IsEnabled = false;
+            }
         }
 
         private string FloatHelpTitle = "帮助";
@@ -572,22 +590,6 @@ namespace WpfMinecraftCommandHelper2
 
         private string mcVersion = "latest";
 
-        public void setVersion(string version)
-        {
-            mcVersion = version;
-            if (mcVersion =="1.8")
-            {
-                tabSumosLHandBtn.IsEnabled = false;
-                tabSumosLeftHand.IsEnabled = false;
-                tabSumosDCLHand.IsEnabled = false;
-                tabSumosGlowing.IsEnabled = false;
-                tabSumosTagsCheck.IsEnabled = false;
-                tabSumosRidingV1.IsEnabled = false;
-                tabSumosRidingClear.IsEnabled = false;
-                tabSumosElytra.IsEnabled = false;
-            }
-        }
-
         //tabSummon - Item
 
         private string[,] ridingList = new string[101,101];
@@ -690,7 +692,6 @@ namespace WpfMinecraftCommandHelper2
         private void tabSumosPotionGetBtn_Click(object sender, RoutedEventArgs e)
         {
             Potion pbox = new Potion();
-            pbox.setVersion(mcVersion);
             pbox.ShowDialog();
             string[] temp = pbox.returnStr();
             if (temp[0] != "")
@@ -1018,11 +1019,11 @@ namespace WpfMinecraftCommandHelper2
             {
                 if (mcVersion == "1.8")
                 {
-                    sumosText += "Health:" + tabSumosNowHealth.Value.Value + "f,";
+                    sumosText += "HealF:" + tabSumosNowHealth.Value.Value + ",";
                 }
                 else
                 {
-                    sumosText += "HealF:" + tabSumosNowHealth.Value.Value + ",";
+                    sumosText += "Health:" + tabSumosNowHealth.Value.Value + "f,";
                 }
             }
             if (tabSumosBaby.IsChecked.Value)
@@ -1102,7 +1103,7 @@ namespace WpfMinecraftCommandHelper2
             sumosRidingSelType = asd.getAt(tabSumosType.SelectedIndex);
             sumosRidingNBT = sumosText;
             globalSumosTypeIndex = tabSumosType.SelectedIndex;
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Villager")//选择村民
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Villager" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:villager")//选择村民
             {
                 if (tabVillagerMaxIndex >= globalVillagerMaxValue)
                 {
@@ -1143,7 +1144,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = summonVillager;
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "ArmorStand")//盔甲架
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "ArmorStand" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:armor_stand")//盔甲架
             {
                 string amtemp = "";
                 if (tabSumosArmorCheck.IsChecked.Value)
@@ -1186,7 +1187,7 @@ namespace WpfMinecraftCommandHelper2
                 if (sumosText.Length > 0) { sumosText += "," + amtemp; } else { sumosText = amtemp; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "ThrownPotion")//选择扔出的药水瓶
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "ThrownPotion" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:potion")//选择扔出的药水瓶
             {
                 if (tabSumosMotionCheck.IsChecked.Value)
                 {
@@ -1214,19 +1215,19 @@ namespace WpfMinecraftCommandHelper2
                     sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ " + globalSumosPotion;
                 }
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "AreaEffectCloud")//选择滞留药水
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "AreaEffectCloud" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:area_effect_cloud")//选择滞留药水
             {
                 if (sumosText.Length > 0) { sumosText += ","; }
                 sumosText += "Effects:[" + globalPotionString + "],Duration:" + tabSumosEDuration.Value + ",Radius:" + tabSumosERadius.Value + "f,ParticleParam1:" + globalParticlePara1 + ",ParticleParam2:" + globalParticlePara2 + ",Color:" + globalParticleColor;
                 if (globalParticleSel != 0) { sumosText += ",Particle:\"" + asd.getParticle(globalParticleSel) + "\""; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Chicken")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Chicken" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:chicken")
             {
                 if (tabSumosBaby.IsChecked.Value) { if (sumosText.Length > 0) { sumosText += ",IsChickenJockey:1b"; } else { sumosText = "IsChickenJockey:1b"; } }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Enderman")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Enderman" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:enderman")
             {
                 if (sumosEndermanCarried != -1)
                 {
@@ -1241,7 +1242,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Ozelot")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Ozelot" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:ocelot")
             {
                 if (sumosText.Length > 0)
                 {
@@ -1253,7 +1254,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Wolf")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Wolf" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:wolf")
             {
                 string temp = "";
                 if (tabSumosEUUID.Text != null || tabSumosEUUID.Text != "") { if (mcVersion == "1.8") { temp = "Owner:" + tabSumosEUUID.Text; } else { temp = "OwnerUUID:" + tabSumosEUUID.Text; } }
@@ -1270,7 +1271,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Sheep")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Sheep" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:sheep")
             {
                 if (sumosText.Length > 0)
                 {
@@ -1284,7 +1285,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Creeper")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Creeper" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:creeper")
             {
                 if (sumosText.Length > 0)
                 {
@@ -1298,7 +1299,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Slime" || asd.getAt(tabSumosType.SelectedIndex) == "LavaSlime")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Slime" || asd.getAt(tabSumosType.SelectedIndex) == "LavaSlime" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:slime" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:magma_cube")
             {
                 if (sumosText.Length > 0)
                 {
@@ -1310,7 +1311,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Shulker")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Shulker" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:shulker")
             {
                 if (sumosText.Length > 0)
                 {
@@ -1322,7 +1323,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "EnderDragon")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "EnderDragon" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:ender_dragon")
             {
                 if (tabSumosEDragon.Value.Value != -1)
                 {
@@ -1337,7 +1338,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Ghast")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Ghast" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:ghast")
             {
                 if (sumosText.Length > 0)
                 {
@@ -1349,7 +1350,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Rabbit")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Rabbit" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:rabbit")
             {
                 if (sumosText.Length > 0)
                 {
@@ -1361,7 +1362,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "WitherBoss")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "WitherBoss" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:wither")
             {
                 if (sumosText.Length > 0)
                 {
@@ -1373,7 +1374,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Endermite")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Endermite" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:endermite")
             {
                 if (tabSumosEAtkByEnderman.IsChecked.Value)
                 {
@@ -1388,13 +1389,13 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Zombie")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Zombie" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie")
             {
                 if (tabSumosECanBreakDoor.IsChecked.Value) { sumosText += ",CanBreakDoors:1b"; }
                 if (tabSumosEZombieType.Value.Value != -1) { sumosText += ",ZombieType:" + tabSumosEZombieType.Value.Value; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "PigZombie")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "PigZombie" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_pigman")
             {
                 if (tabSumosECanBreakDoor.IsChecked.Value) { sumosText += ",CanBreakDoors:1b"; }
                 if (tabSumosEZombieType.Value.Value != -1) { sumosText += ",ZombieType:" + tabSumosEZombieType.Value.Value; }
@@ -1402,7 +1403,7 @@ namespace WpfMinecraftCommandHelper2
                 if (tabSumosEUUID.Text != "") { sumosText += ",HurtBy:" + tabSumosEUUID.Text; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "VillagerGolem")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "VillagerGolem" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:villager_golem")
             {
                 if (tabSumosEPlayerCreated.IsChecked.Value)
                 {
@@ -1417,7 +1418,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Pig")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Pig" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:pig")
             {
                 if (tabSumosESaddle.IsChecked.Value)
                 {
@@ -1432,7 +1433,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Skeleton")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Skeleton" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:skeleton")
             {
                 if (sumosText.Length > 0)
                 {
@@ -1444,7 +1445,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Guardian")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Guardian" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:guardian")
             {
                 if (tabSumosEElder.IsChecked.Value)
                 {
@@ -1459,14 +1460,14 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "EntityHorse")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "EntityHorse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:horse")
             {
                 if (sumosText.Length > 0) { sumosText += ","; }
-                if (HorseTypeDonkey.IsChecked.Value) { sumosText += "Type:1"; } else if (HorseTypeMule.IsChecked.Value) { sumosText += "Type:2"; } else if (HorseTypeZombie.IsChecked.Value) { sumosText += "Type:3"; } else if (HorseTypeSkeleton.IsChecked.Value) { sumosText += "Type:4"; } else { sumosText += "Type:0"; }
+                if (mcVersion != "latest") if (HorseTypeDonkey.IsChecked.Value) { sumosText += "Type:1"; } else if (HorseTypeMule.IsChecked.Value) { sumosText += "Type:2"; } else if (HorseTypeZombie.IsChecked.Value) { sumosText += "Type:3"; } else if (HorseTypeSkeleton.IsChecked.Value) { sumosText += "Type:4"; } else { sumosText += "Type:0"; }
                 sumosText += ",Variant:" + HorseVariantValue.Value.Value;
                 if (HorseTypeDonkey.IsChecked.Value || HorseTypeMule.IsChecked.Value) { sumosText += ",ChestedHorse:1b"; }
                 if (HorseTamed.IsChecked.Value) { sumosText += ",Tame:1b"; if (HorseTamedUUID.Text != null || HorseTamedUUID.Text != "") { if (mcVersion == "1.8") { sumosText += ",OwnerName:" + HorseTamedUUID.Text; } else { sumosText += ",OwnerUUID:" + HorseTamedUUID.Text; } } }
-                if (HorseSaddle.IsChecked.Value) { sumosText += ",Saddle:1b"; }
+                if (mcVersion != "latest") if (HorseSaddle.IsChecked.Value) { sumosText += ",Saddle:1b"; }
                 if (HorseSkeletonTrap.IsChecked.Value) { sumosText += ",SkeletonTrap:1b,SkeletonTrapTime:" + HorseSkeletonTrapTime.Value.Value; }
                 sumosText += ",Items:[";
                 if (HorseChestList[0] != null && HorseChestList[0] != "") { sumosText += HorseChestList[0] + ","; }
@@ -1487,10 +1488,10 @@ namespace WpfMinecraftCommandHelper2
                 sumosText += "]";
                 if (HorseChestList[15] != null && HorseChestList[15] != "") { sumosText += ",SaddleItem:" + HorseChestList[15] + ","; }
                 if (HorseChestList[16] != null && HorseChestList[16] != "") { sumosText += ",ArmorItem:" + HorseChestList[16] + ","; }
-                sumosText = sumosText.Replace(",Items:[]", "");
+                sumosText = sumosText.Replace(",,", ",");
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "TippedArrow")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "TippedArrow" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:arrow")
             {
                 if (sumosText.Length > 0) { sumosText += ","; }
                 if (tabSumosHasPotion.IsChecked.Value)
@@ -1501,18 +1502,18 @@ namespace WpfMinecraftCommandHelper2
                 if (sumosText.Length > 0) { sumosText += ",damage:" + tabSumosEdamage.Value.Value + "d"; } else { sumosText += "damage:" + tabSumosEdamage.Value.Value + "d"; }
                 sumosFinalStr = "/summon Arrow ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "SpectralArrow" || asd.getAt(tabSumosType.SelectedIndex) == "Arrow")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "SpectralArrow" || asd.getAt(tabSumosType.SelectedIndex) == "Arrow" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:spectral_arrow" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:arrow")
             {
                 if (sumosText.Length > 0) { sumosText += ",pickup:" + tabSumosEpickup.Value.Value + "b"; } else { sumosText += "pickup:" + tabSumosEpickup.Value.Value + "b"; }
                 if (sumosText.Length > 0) { sumosText += ",damage:" + tabSumosEdamage.Value.Value + "d"; } else { sumosText += "damage:" + tabSumosEdamage.Value.Value + "d"; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Fireball")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Fireball" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:fireball")
             {
                 if (sumosText.Length > 0) { sumosText += ",ExplosionPower:" + tabSumosEExplosionPower.Value.Value; } else { sumosText += "ExplosionPower:" + tabSumosEExplosionPower.Value.Value; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Snowball" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEgg" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEnderpearl" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownExpBottle")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Snowball" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEgg" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEnderpearl" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownExpBottle" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:snowball" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:egg" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:ender_pearl" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:xp_bottle")
             {
                 if (tabSumosEUUID.Text != "")
                 {
@@ -1521,7 +1522,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Item")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Item" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:item")
             {
                 if (tabSummonItem.SelectedIndex == 0)
                 {
@@ -1561,19 +1562,19 @@ namespace WpfMinecraftCommandHelper2
                     sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + summonText + "}";
                 }
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "XPOrb")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "XPOrb" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:xp_orb")
             {
                 if (sumosText.Length > 0) { sumosText += ","; }
                 sumosText += "Value:" + tabSumosEExp.Value.Value + "s";
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "MinecartTNT")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "MinecartTNT" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:tnt_minecart")
             {
                 if (sumosText.Length > 0) { sumosText += ","; }
                 sumosText += "TNTFuse:" + tabSumosEFuse.Value.Value;
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "FallingSand")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "FallingSand" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:falling_block")
             {
                 if (sumosText.Length > 0) { sumosText += ","; }
                 string sands = "";
@@ -1584,13 +1585,13 @@ namespace WpfMinecraftCommandHelper2
                 if (FallingSandIsDamage.IsChecked.Value) { sands += "HurtEntities:1b,FallHurtMax:" + FallingSandMaxDamage.Value.Value + ",FallHurtAmount:" + FallingSandDamageCount.Value.Value + "f,"; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + sands.Substring(0, sands.Length - 1) + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "ItemFrame")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "ItemFrame" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:item_frame")
             {
                 if (sumosText.Length > 0) { sumosText += ","; }
                 string frame = "ItemDropChance:" + FrameDropChance.Value.Value + "f,ItemRotation:" + FrameRouteCount.Value.Value + "b,";
                 if (FrameCoCheck.IsChecked.Value) { frame += "TileX:" + FrameX.Value.Value + ",TileY:" + FrameY.Value.Value + ",TileZ:" + FrameZ.Value.Value + ","; }
                 if (FrameFacing.Value.Value != -1) { frame += "Facing:" + FrameFacing.Value.Value + "b,"; }
-                if (FrameHasItem.IsChecked.Value) { frame += "Item:{Count:" + globalFrameItem[0] + "b,Damage:" + globalFrameItem[1] + "s,id:\"" + globalFrameItem[2] + "\",tag:{" + globalFrameItem[3] + "}},"; }
+                if (FrameHasItem.IsChecked.Value) { frame += "Item:{Count:" + globalFrameItem[0] + "b,Damage:" + globalFrameItem[1] + "s,id:\"" + globalFrameItem[2] + "\",tag:{" + globalFrameItem[3] + "}},"; } else { frame += "Item:{},"; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + frame.Substring(0, frame.Length - 1) + "}";
             }
             else
@@ -1729,27 +1730,27 @@ namespace WpfMinecraftCommandHelper2
         {
             allVisInit();
             AllSelData asd = new AllSelData();
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Villager")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Villager" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:villager")
             {
                 SummonVHeader.Visibility = Visibility.Visible;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "ArmorStand")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "ArmorStand" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:armor_stand")
             {
                 SummonArmorStandHeader.Visibility = Visibility.Visible;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Item")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Item" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:item")
             {
                 SummonSHeader.Visibility = Visibility.Visible;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Enderman")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Enderman" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:enderman")
             {
                 tabSumosEEnderman.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Ozelot" || asd.getAt(tabSumosType.SelectedIndex) == "Wolf" || asd.getAt(tabSumosType.SelectedIndex) == "EntityHorse" || asd.getAt(tabSumosType.SelectedIndex) == "PigZombie" || asd.getAt(tabSumosType.SelectedIndex) == "Snowball" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEgg" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEnderpearl" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownExpBottle")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Ozelot" || asd.getAt(tabSumosType.SelectedIndex) == "Wolf" || asd.getAt(tabSumosType.SelectedIndex) == "EntityHorse" || asd.getAt(tabSumosType.SelectedIndex) == "PigZombie" || asd.getAt(tabSumosType.SelectedIndex) == "Snowball" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEgg" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEnderpearl" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownExpBottle" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:ocelot" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:wolf" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:skeleton_horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:mule" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:donkey" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_pigman" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:snowball" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:egg" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:ender_pearl" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:xp_bottle")
             {
                 tabSumosEUUID.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Wolf")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Wolf" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:wolf")
             {
                 tabSumosEWoolColor.IsEnabled = true;
                 tabSumosEWoolColor.Items.Clear();
@@ -1758,51 +1759,51 @@ namespace WpfMinecraftCommandHelper2
                     tabSumosEWoolColor.Items.Add(asd.getBannerColorStr(i));
                 }
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Creeper")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Creeper" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:creeper")
             {
                 tabSumosEExplosionRadius.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "EnderDragon")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "EnderDragon" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:ender_dragon")
             {
                 tabSumosEDragon.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Slime" || asd.getAt(tabSumosType.SelectedIndex) == "LavaSlime")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Slime" || asd.getAt(tabSumosType.SelectedIndex) == "LavaSlime" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:slime" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:magma_cube")
             {
                 tabSumosESize.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Shulker")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Shulker" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:shulker")
             {
                 tabSumosEShulkerPeek.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Creeper" || asd.getAt(tabSumosType.SelectedIndex) == "PrimedTnt" || asd.getAt(tabSumosType.SelectedIndex) == "MinecartTNT")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Creeper" || asd.getAt(tabSumosType.SelectedIndex) == "PrimedTnt" || asd.getAt(tabSumosType.SelectedIndex) == "MinecartTNT" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:creeper" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:tnt" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:tnt_minecart")
             {
                 tabSumosEFuse.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Ghast" || asd.getAt(tabSumosType.SelectedIndex) == "Fireball")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Ghast" || asd.getAt(tabSumosType.SelectedIndex) == "Fireball" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:ghast" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:fireball")
             {
                 tabSumosEExplosionPower.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Ozelot")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Ozelot" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:ocelot")
             {
                 tabSumosECatType.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Rabbit")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Rabbit" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:rabbit")
             {
                 tabSumosERabbitType.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "WitherBoss")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "WitherBoss" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:wither")
             {
                 tabSumosEInvul.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Creeper")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Creeper" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:creeper")
             {
                 tabSumosEPowered.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Endermite")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Endermite" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:endermite")
             {
                 tabSumosEAtkByEnderman.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Zombie" || asd.getAt(tabSumosType.SelectedIndex) == "PigZombie")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Zombie" || asd.getAt(tabSumosType.SelectedIndex) == "PigZombie" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:husk" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_villager" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_pigman")
             {
                 tabSumosECanBreakDoor.IsEnabled = true;
                 SummonVHeader.Visibility = Visibility.Visible;
@@ -1811,7 +1812,7 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabSumosEZombieType.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Sheep")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Sheep" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:sheep")
             {
                 tabSumosEWoolColor.IsEnabled = true;
                 tabSumosESheared.IsEnabled = true;
@@ -1821,7 +1822,7 @@ namespace WpfMinecraftCommandHelper2
                     tabSumosEWoolColor.Items.Add(asd.getWoolColor(i));
                 }
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "VillagerGolem")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "VillagerGolem" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:villager_golem")
             {
                 tabSumosEPlayerCreated.IsEnabled = true;
             }
@@ -1829,7 +1830,7 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabSumosEElder.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Pig")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Pig" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:pig")
             {
                 tabSumosESaddle.IsEnabled = true;
             }
@@ -1837,40 +1838,40 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabSumosEZombieType.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "PigZombie" || asd.getAt(tabSumosType.SelectedIndex) == "Wolf")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "PigZombie" || asd.getAt(tabSumosType.SelectedIndex) == "Wolf" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_pigman" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:wolf")
             {
                 tabSumosEAngry.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Arrow" || asd.getAt(tabSumosType.SelectedIndex) == "TippedArrow" || asd.getAt(tabSumosType.SelectedIndex) == "SpectralArrow")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Arrow" || asd.getAt(tabSumosType.SelectedIndex) == "TippedArrow" || asd.getAt(tabSumosType.SelectedIndex) == "SpectralArrow" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:arrow" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:spectral_arrow")
             {
                 tabSumosEpickup.IsEnabled = true;
                 tabSumosEdamage.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "EntityHorse")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "EntityHorse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:skeleton_horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:mule" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:donkey")
             {
                 SummonHorseHeader.Visibility = Visibility.Visible;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Item")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Item" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:item")
             {
                 tabSumosEOwner.IsEnabled = true;
                 tabSumosEThrower.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "XPOrb")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "XPOrb" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:xp_orb")
             {
                 tabSumosEExp.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "AreaEffectCloud")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "AreaEffectCloud" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:area_effect_cloud")
             {
                 tabSumosEDuration.IsEnabled = true;
                 tabSumosERadius.IsEnabled = true;
                 tabSumosEParticle.IsEnabled = true;
                 tabSumosEParticleColor.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "FallingSand")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "FallingSand" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:falling_block")
             {
                 SummonSand.Visibility = Visibility.Visible;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "ItemFrame")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "ItemFrame" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:item_frame")
             {
                 SummonFrame.Visibility = Visibility.Visible;
             }
@@ -2183,7 +2184,6 @@ namespace WpfMinecraftCommandHelper2
             globalPotionNBT = "";
             globalPotionDamage = 0;
             Potion pbox = new Potion();
-            pbox.setVersion(mcVersion);
             pbox.ShowDialog();
             string[] temp = pbox.returnStr();
             if (temp[0] != "")
@@ -2415,7 +2415,6 @@ namespace WpfMinecraftCommandHelper2
         private void tabSpawnerPotionGetBtn_Click(object sender, RoutedEventArgs e)
         {
             Potion pbox = new Potion();
-            pbox.setVersion(mcVersion);
             pbox.ShowDialog();
             string[] temp = pbox.returnStr();
             if (temp[0] != "")

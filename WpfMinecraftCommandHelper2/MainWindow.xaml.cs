@@ -30,12 +30,11 @@ namespace WpfMinecraftCommandHelper2
         private bool isUpdate = false;
         private bool isNeedUpdate = false;
         private bool preview = false;
-        private string version = "2.8.4.9";
+        private string version = "2.8.5.1";
         private string getversion = "0.0.0.0";
         private string passversion = "0.0.0.0";
         private bool error1 = false;
         private bool error2 = false;
-        private string mcVersion = "latest";
 
         private void win_Loaded(object sender, RoutedEventArgs e)
         {
@@ -43,14 +42,6 @@ namespace WpfMinecraftCommandHelper2
             lang = setlang.getAllLanguage();
             string templang = setlang.getLangFile();
             appLanguage(setlang.SetMain(templang));
-            if (config.getSetting("[Personalize]", "MCVersion") == "latest")
-            {
-                mcVersion = "latest";
-            }
-            else if (config.getSetting("[Personalize]", "MCVersion") == "1.8")
-            {
-                mcVersion = "1.8";
-            }
             if (config.getSetting("[Personalize]", "Avatar") != "sc")
             {
                 pictureBoxClicked();
@@ -77,7 +68,7 @@ namespace WpfMinecraftCommandHelper2
             timer.Tick += timer_Tick;
             timer.Start();
             if (config.getSetting("[Personalize]", "ColorfulFontsUse") != "Sign") { fixColorSelSign.IsChecked = false; fixColorSelCB.IsChecked = true; } else { fixColorSelCB.IsChecked = false; fixColorSelSign.IsChecked = true; }
-            if (config.getSetting("[Personalize]", "MCVersion") == "1.8") { mcv18.IsChecked = true; } else { mcvLatest.IsChecked = true; }
+            if (config.getSetting("[Personalize]", "MCVersion") == "1.8") { mcv18.IsChecked = true; } else if(config.getSetting("[Personalize]", "MCVersion") == "1.9/1.10") { mcv110.IsChecked = true; } else { mcvLatest.IsChecked = true; }
         }
 
         private int timerticks = 0;
@@ -318,7 +309,6 @@ namespace WpfMinecraftCommandHelper2
         {
             this.Hide();
             Potion potionbox = new Potion();
-            potionbox.setVersion(mcVersion);
             potionbox.ShowDialog();
             this.Show();
         }
@@ -352,7 +342,6 @@ namespace WpfMinecraftCommandHelper2
         {
             this.Hide();
             Tellraw tell = new Tellraw();
-            tell.setVersion(mcVersion);
             tell.ShowDialog();
             this.Show();
         }
@@ -369,7 +358,6 @@ namespace WpfMinecraftCommandHelper2
         {
             this.Hide();
             Summon summonbox = new Summon();
-            summonbox.setVersion(mcVersion);
             summonbox.ShowDialog();
             this.Show();
         }
@@ -754,7 +742,7 @@ namespace WpfMinecraftCommandHelper2
             config.setSetting(new Dictionary<string, string> { { "ColorfulFontsUse", ColorfulFonts } });
             string CheckingUpdate; if (Update.IsChecked.Value) CheckingUpdate = "true"; else CheckingUpdate = "false";
             config.setSetting(new Dictionary<string, string> { { "CheckingUpdate", CheckingUpdate } });
-            string MCVersionSel; if (mcv18.IsChecked.Value) { MCVersionSel = "1.8"; mcVersion = "1.8"; } else { MCVersionSel = "latest"; mcVersion = "latest"; }
+            string MCVersionSel; if (mcv18.IsChecked.Value) { MCVersionSel = "1.8"; } else if (mcv110.IsChecked.Value) { MCVersionSel = "1.9/1.10"; } else { MCVersionSel = "latest"; }
             config.setSetting(new Dictionary<string, string> { { "MCVersion", MCVersionSel } });
         }
 

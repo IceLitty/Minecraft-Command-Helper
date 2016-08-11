@@ -36,6 +36,8 @@ namespace WpfMinecraftCommandHelper2
             }
             appLanguage();
             clear();
+            Config config = new Config();
+            mcVersion = config.getSetting("[Personalize]", "MCVersion");
         }
 
         private string mcVersion = "latest";
@@ -608,15 +610,9 @@ namespace WpfMinecraftCommandHelper2
         private void bAt_Click(object sender, RoutedEventArgs e)
         {
             At atbox = new At();
-            atbox.setVersion(mcVersion);
             atbox.Show();
             string temp = atbox.returnStr();
             tText.Text = temp;
-        }
-
-        public void setVersion(string mcVersion)
-        {
-            this.mcVersion = mcVersion;
         }
 
         private void bHEShowItem_Click(object sender, RoutedEventArgs e)
