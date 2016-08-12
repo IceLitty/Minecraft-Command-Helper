@@ -1019,6 +1019,13 @@ namespace WpfMinecraftCommandHelper2
                                  };
 
         string[] atSel111 = {
+            "<NeedAnEntityName>",
+            "<NeedAPlayerName>",
+            "All",
+            "Animal",
+            "Monster",
+            "Mob",
+            "Player",
             "minecraft:tnt",
             "minecraft:ocelot",
             "minecraft:polar_bear",
@@ -1098,6 +1105,13 @@ namespace WpfMinecraftCommandHelper2
         };
 
         string[] atSelNameList111 = {
+            "<请选择一项实体>",
+            "<玩家名>",
+            "全部",
+            "动物",
+            "怪物",
+            "生物",
+            "玩家",
             "TNT",
             "豹猫",
             "北极熊",

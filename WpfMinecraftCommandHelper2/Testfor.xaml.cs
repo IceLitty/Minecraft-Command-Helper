@@ -125,6 +125,7 @@ namespace WpfMinecraftCommandHelper2
                 {
                     finalStr += executeCmd.Text;
                 }
+                finalStr = finalStr.Replace("~0", "~");
             }
         }
 

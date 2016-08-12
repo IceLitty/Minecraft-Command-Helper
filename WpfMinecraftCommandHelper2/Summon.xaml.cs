@@ -2074,14 +2074,14 @@ namespace WpfMinecraftCommandHelper2
         private void tabVillagerAGet_Click(object sender, RoutedEventArgs e)
         {
             AllSelData asd = new AllSelData();
-            if (asd.getItem(tabVillagerC.SelectedIndex) == "minecraft:splash_potion" || asd.getItem(tabVillagerC.SelectedIndex) == "minecraft:lingering_potion" || asd.getItem(tabVillagerC.SelectedIndex) == "minecraft:potion")
+            if (asd.getItem(tabVillagerA.SelectedIndex) == "minecraft:splash_potion" || asd.getItem(tabVillagerA.SelectedIndex) == "minecraft:lingering_potion" || asd.getItem(tabVillagerA.SelectedIndex) == "minecraft:potion")
             {
                 string[] receive = tabVillagerGetPotion();
-                globalVillagerCStr[tabVillagerEditIndex] = "CustomPotionEffects:[" + globalPotionString + "]" + globalPotionNBT;
-                tabVillagerCCount.Value = int.Parse(receive[1]);
-                tabVillagerCMeta.Value = int.Parse(receive[2]);
-                tabVillagerCMetaCheck.IsChecked = true;
-                tabVillagerCMeta.IsEnabled = true;
+                globalVillagerAStr[tabVillagerEditIndex] = "CustomPotionEffects:[" + globalPotionString + "]" + globalPotionNBT;
+                tabVillagerACount.Value = int.Parse(receive[1]);
+                tabVillagerAMeta.Value = int.Parse(receive[2]);
+                tabVillagerAMetaCheck.IsChecked = true;
+                tabVillagerAMeta.IsEnabled = true;
             }
             else
             {
@@ -2108,14 +2108,14 @@ namespace WpfMinecraftCommandHelper2
         private void tabVillagerBGet_Click(object sender, RoutedEventArgs e)
         {
             AllSelData asd = new AllSelData();
-            if (asd.getItem(tabVillagerC.SelectedIndex) == "minecraft:splash_potion" || asd.getItem(tabVillagerC.SelectedIndex) == "minecraft:lingering_potion" || asd.getItem(tabVillagerC.SelectedIndex) == "minecraft:potion")
+            if (asd.getItem(tabVillagerB.SelectedIndex) == "minecraft:splash_potion" || asd.getItem(tabVillagerB.SelectedIndex) == "minecraft:lingering_potion" || asd.getItem(tabVillagerB.SelectedIndex) == "minecraft:potion")
             {
                 string[] receive = tabVillagerGetPotion();
-                globalVillagerCStr[tabVillagerEditIndex] = "CustomPotionEffects:[" + globalPotionString + "]" + globalPotionNBT;
-                tabVillagerCCount.Value = int.Parse(receive[1]);
-                tabVillagerCMeta.Value = int.Parse(receive[2]);
-                tabVillagerCMetaCheck.IsChecked = true;
-                tabVillagerCMeta.IsEnabled = true;
+                globalVillagerBStr[tabVillagerEditIndex] = "CustomPotionEffects:[" + globalPotionString + "]" + globalPotionNBT;
+                tabVillagerBCount.Value = int.Parse(receive[1]);
+                tabVillagerBMeta.Value = int.Parse(receive[2]);
+                tabVillagerBMetaCheck.IsChecked = true;
+                tabVillagerBMeta.IsEnabled = true;
             }
             else
             {
