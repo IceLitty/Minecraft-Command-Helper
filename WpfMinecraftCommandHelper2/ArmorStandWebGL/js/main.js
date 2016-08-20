@@ -352,7 +352,7 @@ function updateUI(){
 
 	$("#code").text(generateCode());
 	if(generateCode().length > 100){
-		$("#codeinfo").html("<b>Please note:</b> This command is too long to be executed from chat. You need to place it inside a command block. (see below)");
+		$("#codeinfo").html("<b>请注意：</b>这段指令对于聊天栏来说太长了。你需要粘贴进命令方块中执行（见下方）。");
 	}
 
 
@@ -485,14 +485,14 @@ function getShoesItem(){
 function getLeggingsItem(){
 	if(equipLeggings == "") return "{}";
 	return "{id:\""+equipLeggings+"\",Count:1b"
-					+getLeatherColorString($("#leggingscolor"), isLeatherArmor(equipShoes))
+					+getLeatherColorString($("#leggingscolor"), isLeatherArmor(equipLeggings))
 					+"}";
 }
 
 function getChestplateItem(){
 	if(equipChestplate == "") return "{}";
 	return "{id:\""+equipChestplate+"\",Count:1b"
-				+getLeatherColorString($("#chestplatecolor"), isLeatherArmor(equipShoes))
+				+getLeatherColorString($("#chestplatecolor"), isLeatherArmor(equipChestplate))
 				+"}";
 }
 
@@ -502,7 +502,7 @@ function getHeadItem(){
 	// Use input as item
 	if(equipCustomHeadMode == "item"){
 		return "{id:\""+equipHelmet+"\",Count:1b"
-		+getLeatherColorString($("#helmetcolor"), isLeatherArmor(equipShoes))
+		+getLeatherColorString($("#helmetcolor"), isLeatherArmor(equipHelmet))
 		+"}";
 	}
 

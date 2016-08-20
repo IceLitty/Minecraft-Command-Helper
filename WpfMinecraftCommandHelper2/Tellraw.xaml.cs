@@ -588,6 +588,7 @@ namespace WpfMinecraftCommandHelper2
                 if (finalStr.Substring(finalStr.Length - 1, 1) == ",") { finalStr = finalStr.Substring(0, finalStr.Length - 1); }
                 finalStr += "}";
             }
+            finalStr = finalStr.Replace(",\\\"clickEvent\\\":{}", "").Replace(",\\\"hoverEvent\\\":{}", "").Replace(",\"clickEvent\":{}", "").Replace(",\"hoverEvent\":{}", "").Replace(",\\\"extra\\\":[]", "").Replace(",\"extra\":[]", "");
         }
 
         private void copyBtn_Click(object sender, RoutedEventArgs e)

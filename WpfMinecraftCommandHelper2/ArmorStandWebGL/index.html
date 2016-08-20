@@ -10,14 +10,14 @@
     <link href='js/Oswald.css' rel='stylesheet' type='text/css'>
     <script src="js/three.js"></script>
     <script src="js/jquery.min.js"></script>
-    <script>
+    <!-- don't use it because china can't connent google. <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-71932800-1', 'auto');
       ga('send', 'pageview');
-  </script>
+  </script>-->
 </head>
 <body>
     <script src="js/colpick.js"></script>
@@ -93,13 +93,13 @@
                 </table>
             </div>
             <select id="equipmode">
-                <option value="none">无装甲</option>
+                <option value="none">无装备</option>
                 <option value="1.8">Minecraft 1.8- 装备格式</option>
                 <option value="1.9">Minecraft 1.9+ 装备格式</option>
             </select>
             <div id="customequipment">
                 <div class="padding">
-                    输入物品文本id(例如<i>stone</i>或<i>iron_sword</i>)在对应的栏位。你可以输入任意物品在头上和手上，但是其他栏位必须是对应的物品种类。
+                    在对应的栏位输入物品文本id(例如<i>stone</i>或<i>iron_sword</i>)。你可以输入任意物品在头和手的文本框中，但是其他栏位必须是对应的物品种类。
                     <input type="text" class="equipment" name="equipHandRight" placeholder="右手物品">
                     <input type="text" class="equipment" id="equipHandLeft" name="equipHandLeft" placeholder="左手物品">
                     <input type="text" class="equipment" name="equipShoes" placeholder="靴子">
