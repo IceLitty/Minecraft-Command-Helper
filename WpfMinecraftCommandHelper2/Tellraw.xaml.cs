@@ -499,7 +499,7 @@ namespace WpfMinecraftCommandHelper2
                         {
                             string finalStr2 = "{";
                             if (type[i] == 2) { finalStr2 += "\\\"selector\\\":\\\"" + text[i] + "\\\","; } else if (type[i] == 3) { finalStr2 += "\\\"score\\\":{\\\"name\\\":\\\"" + text[i] + "\\\",\\\"objective\\\":\\\"" + text2[i] + "\\\"},"; } else { finalStr2 += "\\\"text\\\":\\\"" + text[i] + "\\\","; }
-                            if (color[i] != -1) { finalStr2 += "\\\"color\":\\\"" + asd.getColor(color[i]) + "\\\","; }
+                            if (color[i] != -1) { finalStr2 += "\\\"color\\\":\\\"" + asd.getColor(color[i]) + "\\\","; }
                             if (isBold[i]) { finalStr2 += "\\\"bold\\\":true,"; }
                             if (isItalic[i]) { finalStr2 += "\\\"italic\\\":true,"; }
                             if (isUnderline[i]) { finalStr2 += "\\\"underlined\\\":true,"; }

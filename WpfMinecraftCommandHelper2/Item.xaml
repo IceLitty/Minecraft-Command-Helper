@@ -112,7 +112,7 @@
                 <Label x:Name="ItemTip3" Content="Lore回车可换行" HorizontalAlignment="Right" Margin="0,70,10,0" VerticalAlignment="Top"/>
                 <ComboBox x:Name="tabItemNameColorSel" HorizontalAlignment="Left" Margin="236,7,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False" SelectionChanged="tabItemNameColorSel_SelectionChanged"/>
                 <ComboBox x:Name="tabItemLoreColorSel" HorizontalAlignment="Left" Margin="236,39,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False" SelectionChanged="tabItemLoreColorSel_SelectionChanged"/>
-                <Button x:Name="ColorGetBtn" Content="颜色获取" HorizontalAlignment="Left" Margin="63,71,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="ColorGetBtn_Click"/>
+                <Button x:Name="ColorGetBtn" Content="颜色获取" HorizontalAlignment="Left" Margin="63,71,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="ColorGetBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
             </Grid>
         </GroupBox>
         <CheckBox x:Name="tabItemNLCheck" Content="" HorizontalAlignment="Left" Margin="489,14,0,0" VerticalAlignment="Top" Click="tabItemNLCheck_Click"/>
