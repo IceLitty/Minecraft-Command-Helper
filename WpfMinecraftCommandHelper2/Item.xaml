@@ -134,17 +134,17 @@
                 <CheckBox x:Name="tabItemAttrArmorPer" Content="%" HorizontalAlignment="Left" Margin="222,193,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                 <CheckBox x:Name="tabItemAttrAtkSpeedCheck" Content="攻击速度" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,255,0,0" Click="tabItemAttrAtkSpeedCheck_Click"/>
                 <CheckBox x:Name="tabItemAttrAtkSpeedPer" Content="%" HorizontalAlignment="Left" Margin="222,255,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                <Controls:NumericUpDown x:Name="tabItemAttrAttack" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,2,46,271" Height="25" IsEnabled="False" Value="0" HasDecimals="False" />
-                <Controls:NumericUpDown x:Name="tabItemAttrRange" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,33,46,240" Height="25" IsEnabled="False" Value="0" HasDecimals="False" />
-                <Controls:NumericUpDown x:Name="tabItemAttrHealth" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,64,46,209" Height="25" IsEnabled="False" Value="0" HasDecimals="False" />
-                <Controls:NumericUpDown x:Name="tabItemAttrFBack" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,95,46,178" Height="25" IsEnabled="False" Value="0" HasDecimals="False" />
-                <Controls:NumericUpDown x:Name="tabItemAttrMSpeed" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,126,46,147" Height="25" IsEnabled="False" Value="0" HasDecimals="False" />
-                <Controls:NumericUpDown x:Name="tabItemAttrLuck" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,157,46,116" Height="25" IsEnabled="False" Value="0" HasDecimals="False" />
-                <Controls:NumericUpDown x:Name="tabItemAttrArmor" Minimum="0" Maximum="30" Interval="5" StringFormat="" Margin="0,188,46,85" Height="25" IsEnabled="False" Value="0" HorizontalAlignment="Right" Width="141" HasDecimals="False" />
-                <Controls:NumericUpDown x:Name="tabItemAttrAtkSpeed" Minimum="-1024" Maximum="1024" Interval="5" StringFormat="" Margin="0,250,46,23" Height="25" IsEnabled="False" Value="0" HorizontalAlignment="Right" Width="141" HasDecimals="False" />
+                <Controls:NumericUpDown x:Name="tabItemAttrAttack" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,2,46,271" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrRange" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,33,46,240" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrHealth" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,64,46,209" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrFBack" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,95,46,178" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrMSpeed" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,126,46,147" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrLuck" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="76,157,46,116" Height="25" IsEnabled="False" Value="0" />
+                <Controls:NumericUpDown x:Name="tabItemAttrArmor" Minimum="0" Maximum="30" Interval="5" StringFormat="" Margin="0,188,46,85" Height="25" IsEnabled="False" Value="0" HorizontalAlignment="Right" Width="141" />
+                <Controls:NumericUpDown x:Name="tabItemAttrAtkSpeed" Minimum="-1024" Maximum="1024" Interval="5" StringFormat="" Margin="0,250,46,23" Height="25" IsEnabled="False" Value="0" HorizontalAlignment="Right" Width="141" />
                 <CheckBox x:Name="tabItemAttrArmorToughnessCheck" Content="护甲韧性" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,224,0,0" Click="tabItemAttrArmorToughnessCheck_Click"/>
                 <CheckBox x:Name="tabItemAttrArmorToughnessPer" Content="%" HorizontalAlignment="Left" Margin="222,224,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                <Controls:NumericUpDown x:Name="tabItemAttrArmorToughness" Minimum="0" Maximum="30" Interval="5" StringFormat="" Margin="0,219,46,54" Height="25" IsEnabled="False" Value="0" HorizontalAlignment="Right" Width="141" HasDecimals="False" />
+                <Controls:NumericUpDown x:Name="tabItemAttrArmorToughness" Minimum="0" Maximum="30" Interval="5" StringFormat="" Margin="0,219,46,54" Height="25" IsEnabled="False" Value="0" HorizontalAlignment="Right" Width="141" />
             </Grid>
         </GroupBox>
         <CheckBox x:Name="tabItemAttrCheck" Content="" HorizontalAlignment="Left" Margin="489,163,0,0" VerticalAlignment="Top" Click="tabItemAttrCheck_Click"/>
