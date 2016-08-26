@@ -906,7 +906,6 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabSumosCreate_Click(object sender, RoutedEventArgs e)
         {
-            tabSumosEgg.IsEnabled = true;
             AllSelData asd = new AllSelData();
             string sumosText = "ArmorItems:[";
             int equipCount = 0;
@@ -935,6 +934,7 @@ namespace WpfMinecraftCommandHelper2
             }
             else
             {
+                tabSumosEgg.IsEnabled = true;
                 sumosText += "0:{"; if (sumosEquipmentBootId != 0) { equipCount++; sumosText += "id:" + asd.getItem(sumosEquipmentBootId) + ",Count:" + sumosEquipmentBootCount + "b,Damage:" + sumosEquipmentBootDamage + "s,tag:{" + globalSumosBoot + "}"; } sumosText += "},";
                 sumosText += "1:{"; if (sumosEquipmentLegId != 0) { equipCount++; sumosText += "id:" + asd.getItem(sumosEquipmentLegId) + ",Count:" + sumosEquipmentLegCount + "b,Damage:" + sumosEquipmentLegDamage + "s,tag:{" + globalSumosLeg + "}"; } sumosText += "},";
                 sumosText += "2:{"; if (sumosEquipmentChestId != 0) { equipCount++; sumosText += "id:" + asd.getItem(sumosEquipmentChestId) + ",Count:" + sumosEquipmentChestCount + "b,Damage:" + sumosEquipmentChestDamage + "s,tag:{" + globalSumosChest + "}"; } sumosText += "},";
@@ -1233,11 +1233,11 @@ namespace WpfMinecraftCommandHelper2
                 {
                     if (sumosText.Length > 0)
                     {
-                        sumosText += ",carried:" + asd.getItem(sumosEndermanCarried) + "s,carriedData:" + sumosEndermanCarriedMeta + "s";
+                        sumosText += ",carried:\"" + asd.getItem(sumosEndermanCarried) + "\",carriedData:" + sumosEndermanCarriedMeta + "s";
                     }
                     else
                     {
-                        sumosText = "carried:" + asd.getItem(sumosEndermanCarried) + "s,carriedData:" + sumosEndermanCarriedMeta + "s";
+                        sumosText = "carried:\"" + asd.getItem(sumosEndermanCarried) + "\",carriedData:" + sumosEndermanCarriedMeta + "s";
                     }
                 }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
@@ -1568,7 +1568,7 @@ namespace WpfMinecraftCommandHelper2
                 sumosText += "Value:" + tabSumosEExp.Value.Value + "s";
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "MinecartTNT" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:tnt_minecart")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "PrimedTnt" || asd.getAt(tabSumosType.SelectedIndex) == "MinecartTNT" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:tnt_minecart")
             {
                 if (sumosText.Length > 0) { sumosText += ","; }
                 sumosText += "TNTFuse:" + tabSumosEFuse.Value.Value;
@@ -1729,6 +1729,7 @@ namespace WpfMinecraftCommandHelper2
         private void tabSumosEEnderman_Click(object sender, RoutedEventArgs e)
         {
             Item itembox = new Item();
+            itembox.ShowDialog();
             int[] itemboxreturn = itembox.returnStrAdver();
             sumosEndermanCarried = itemboxreturn[0];
             sumosEndermanCarriedMeta = itemboxreturn[2];
