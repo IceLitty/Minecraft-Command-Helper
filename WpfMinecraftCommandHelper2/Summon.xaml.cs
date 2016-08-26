@@ -1101,7 +1101,7 @@ namespace WpfMinecraftCommandHelper2
             }
             if (sumosText != null && sumosText != "") sumosText = sumosText.Substring(0, sumosText.Length - 1);
             sumosRidingSelType = asd.getAt(tabSumosType.SelectedIndex);
-            sumosRidingNBT = sumosText;
+            //sumosRidingNBT = sumosText;
             globalSumosTypeIndex = tabSumosType.SelectedIndex;
             if (asd.getAt(tabSumosType.SelectedIndex) == "Villager" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:villager")//选择村民
             {
@@ -1599,6 +1599,14 @@ namespace WpfMinecraftCommandHelper2
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
             sumosFinalStr = sumosFinalStr.Replace(",tag:{}", "").Replace("{,", "{").Replace(" {}", "");
+            if (sumosFinalStr.IndexOf("{") == -1)
+            {
+                sumosRidingNBT = sumosText;
+            }
+            else
+            {
+                sumosRidingNBT = sumosFinalStr.Substring(sumosFinalStr.IndexOf("{") + 1, sumosFinalStr.Length - sumosFinalStr.IndexOf("{") - 2);
+            }
             //我也不知道为什么要写这么复杂
             //判断是否含有颜色代码
             if (sumosFinalStr.IndexOf("§") != -1)
@@ -3574,7 +3582,7 @@ namespace WpfMinecraftCommandHelper2
             }
             else
             {
-                string finalRidingString = "/summon FallingSand ~ ~ ~ {id:FallingSand";
+                string finalRidingString = "/summon FallingSand ~ ~1 ~ {id:FallingSand";
                 string finalRidingBackend = "}";
                 for (int i = 0; i < tabSumosRidingV1.Maximum + 1; i++)
                 {
@@ -3600,6 +3608,10 @@ namespace WpfMinecraftCommandHelper2
                 }
                 string fs = finalRidingString + finalRidingBackend;
                 ridingLoaderShow.Text = fs;//.Replace(",,", ",");
+                try
+                {
+                    Clipboard.SetData(DataFormats.UnicodeText, fs);
+                } catch (System.Exception) { }
             }
         }
     }
