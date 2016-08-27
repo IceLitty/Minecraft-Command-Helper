@@ -276,7 +276,7 @@
     "ItemEnchant62": "Lure",
     "ItemEnchant70": "Mending",
     "ItemChooseItem": "Please choose Item/Block: ",
-    "ItemTip1": "「Tip: More blocks don't have metadata.」",
+    "ItemTip1": "「Tip: More ID are blocks, and more Items/blocks don't have metadata.」",
     "ItemChooseMeta": "Please input metadata: ",
     "ItemChooseCount": "Item Count: ",
     "ItemHasEnchant": "Has Enchant",

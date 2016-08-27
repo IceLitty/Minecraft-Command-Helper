@@ -276,7 +276,7 @@
     "ItemEnchant62": "诱饵",
     "ItemEnchant70": "修复",
     "ItemChooseItem": "请选择物品/方块：",
-    "ItemTip1": "「注：部分方块只有方块ID，没有附加值」",
+    "ItemTip1": "「注：部分ID只是方块/没有附加值」",
     "ItemChooseMeta": "请填写Meta/Damage/附加值：",
     "ItemChooseCount": "请填写数量：",
     "ItemHasEnchant": "有附魔",

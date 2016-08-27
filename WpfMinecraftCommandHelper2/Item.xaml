@@ -96,7 +96,7 @@
             <Controls:NumericUpDown x:Name="tabItemEnNum9" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="250,256,159,10" Height="25" Value="0" HideUpDownButtons="True" HasDecimals="False" />
         </Grid>
         <Label x:Name="ItemChooseItem" Content="请选择物品/方块：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="ItemTip1" Content="「注：部分方块只有方块ID，没有附加值」" HorizontalAlignment="Left" Margin="173,11,0,0" VerticalAlignment="Top" Foreground="#FF919191" FontSize="11"/>
+        <Label x:Name="ItemTip1" Content="「注：部分方块只有方块ID/没有附加值」" HorizontalAlignment="Left" Margin="173,11,0,0" VerticalAlignment="Top" Foreground="#FF919191" FontSize="11"/>
         <ComboBox x:Name="tabItemSel" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="463" Height="25"/>
         <Label x:Name="ItemChooseMeta" Content="请填写Meta/Damage/附加值：" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
         <Label x:Name="ItemChooseCount" Content="请填写数量：" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top"/>
@@ -164,7 +164,7 @@
             </Grid>
         </GroupBox>
         <Button x:Name="atBtn" Content="获取At" HorizontalAlignment="Left" Margin="513,541,0,0" VerticalAlignment="Top" Width="82" Height="26" Click="atBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <TextBox x:Name="atBox" HorizontalAlignment="Left" Height="23" Margin="600,541,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308"/>
+        <TextBox x:Name="atBox" HorizontalAlignment="Left" Height="23" Margin="600,541,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Text="@p"/>
         <ComboBox x:Name="tabItemHide" HorizontalAlignment="Left" Margin="513,509,0,0" VerticalAlignment="Top" Width="395" Height="27"/>
         <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="513,572,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="593,572,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>

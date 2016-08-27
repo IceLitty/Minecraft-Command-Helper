@@ -276,7 +276,7 @@
     "ItemEnchant62": "誘餌",
     "ItemEnchant70": "修複",
     "ItemChooseItem": "請選擇物品/方塊：",
-    "ItemTip1": "「注：部分方塊只有方塊ID，沒有附加值」",
+    "ItemTip1": "「注：部分ID只是方塊/沒有附加值」",
     "ItemChooseMeta": "請填寫Meta/Damage/附加值：",
     "ItemChooseCount": "請填寫數量：",
     "ItemHasEnchant": "有附魔",
