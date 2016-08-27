@@ -396,6 +396,24 @@ namespace WpfMinecraftCommandHelper2
             }
             else if (which == 1)
             {
+                sumosEquipmentMainHandId = 0;
+                sumosEquipmentOffHandId = 0;
+                sumosEquipmentHeadId = 0;
+                sumosEquipmentChestId = 0;
+                sumosEquipmentLegId = 0;
+                sumosEquipmentBootId = 0;
+                sumosEquipmentMainHandCount = 0;
+                sumosEquipmentOffHandCount = 0;
+                sumosEquipmentHeadCount = 0;
+                sumosEquipmentChestCount = 0;
+                sumosEquipmentLegCount = 0;
+                sumosEquipmentBootCount = 0;
+                sumosEquipmentMainHandDamage = 0;
+                sumosEquipmentOffHandDamage = 0;
+                sumosEquipmentHeadDamage = 0;
+                sumosEquipmentChestDamage = 0;
+                sumosEquipmentLegDamage = 0;
+                sumosEquipmentBootDamage = 0;
                 tabSumosNoAI.IsChecked = false;
                 tabSumosSilent.IsChecked = false;
                 sumosRiding = "";
@@ -1571,7 +1589,7 @@ namespace WpfMinecraftCommandHelper2
             else if (asd.getAt(tabSumosType.SelectedIndex) == "PrimedTnt" || asd.getAt(tabSumosType.SelectedIndex) == "MinecartTNT" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:tnt_minecart")
             {
                 if (sumosText.Length > 0) { sumosText += ","; }
-                sumosText += "TNTFuse:" + tabSumosEFuse.Value.Value;
+                sumosText += "Fuse:" + tabSumosEFuse.Value.Value;
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
             else if (asd.getAt(tabSumosType.SelectedIndex) == "FallingSand" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:falling_block")
