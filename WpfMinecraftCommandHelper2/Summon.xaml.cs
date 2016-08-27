@@ -2268,7 +2268,9 @@ namespace WpfMinecraftCommandHelper2
             if (globalAttrString != "") meta += globalAttrString + ",";
             if (globalUnbreaking != "") meta += globalUnbreaking + ",";
             if (globalHideflag != "") meta += globalHideflag + ",";
-            if (globalEnchString != "" || globalNLString != "" || globalAttrString != "" || globalUnbreaking != "" || globalHideflag != "")
+            if (temp[8] != "") meta += temp[8] + ",";
+            if (temp[9] != "") meta += temp[9] + ",";
+            if (globalEnchString != "" || globalNLString != "" || globalAttrString != "" || globalUnbreaking != "" || globalHideflag != "" || temp[8] != "" || temp[9] != "")
             {
                 if (meta.Length >= 1)
                 {
