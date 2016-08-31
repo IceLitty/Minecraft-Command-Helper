@@ -5,7 +5,7 @@
     "AuthorStr": "Lang File Author: ",
     "Author": "IceLitty",
     "LastUpdateStr": "Last Update: ",
-    "LastUpdate": "2016.08.10",
+    "LastUpdate": "2016.08.31",
 
     "FloatConfirm": "Confirm",
     "FloatCancel": "Cancel",
@@ -811,7 +811,7 @@
     "LootTableConditionChanceTip": "Chance by Decimals. From 0.0 to 1.0.",
     "LootTableConditionChanceMultiTip": "If checked, Formula is BaseSuccessRate + LootEnchantLevel * (this)LootMultipler.",
     "LootTableConditionChanceMultiCheck": "Looting Enchant",
-    "LootTableConditionKillByPlayer": "Kill By Player",
+    "LootTableConditionKillByPlayer": "Kill",
     "LootTableConditionNotKillByPlayer": "Inverse(Not Killed by Player)",
     "LootTableAttributeHeader": "Attributes",
     "LootTableAttribute": "Attribute",

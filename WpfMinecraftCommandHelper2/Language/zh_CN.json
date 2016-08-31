@@ -5,7 +5,7 @@
     "AuthorStr": "语言文件作者：",
     "Author": "IceLitty",
     "LastUpdateStr": "最后更新：",
-    "LastUpdate": "2016.08.10",
+    "LastUpdate": "2016.08.31",
 
     "FloatConfirm": "确认",
     "FloatCancel": "取消",
@@ -813,7 +813,7 @@
     "LootTableConditionChanceTip": "小数的几率，范围从0.0到1.0。",
     "LootTableConditionChanceMultiTip": "如果选中则计算掠夺附魔影响到几率，公式为 基础成功率+掠夺等级*几率倍数。",
     "LootTableConditionChanceMultiCheck": "掠夺附魔",
-    "LootTableConditionKillByPlayer": "被玩家杀死",
+    "LootTableConditionKillByPlayer": "击杀",
     "LootTableConditionNotKillByPlayer": "反向判定（非玩家击杀）",
     "LootTableAttributeHeader": "属性",
     "LootTableAttribute": "特殊属性",

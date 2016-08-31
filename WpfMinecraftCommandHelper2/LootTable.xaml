@@ -56,11 +56,12 @@
                     <Grid HorizontalAlignment="Left" Height="139" Margin="506,57,0,0" VerticalAlignment="Top" Width="483">
                         <RadioButton x:Name="EntryItem" Content="Item" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0" IsChecked="True" Click="EntryItem_Click"/>
                         <RadioButton x:Name="EntryLoottable" Content="Loot Table" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,35,0,0" Click="EntryLoottable_Click"/>
-                        <ComboBox x:Name="EntryItemSel" HorizontalAlignment="Left" Margin="110,0,0,0" VerticalAlignment="Top" Width="363"/>
+                        <ComboBox x:Name="EntryItemSel" HorizontalAlignment="Left" Margin="110,0,0,0" VerticalAlignment="Top" Width="333"/>
                         <TextBox x:Name="EntryLoottableSel" HorizontalAlignment="Left" Height="23" Margin="110,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="363" Text="minecraft:empty" IsEnabled="False"/>
-                        <RadioButton x:Name="EntryNothing" Content="Nothing" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,65,0,0" Click="EntryLoottable_Click" IsChecked="True"/>
+                        <RadioButton x:Name="EntryNothing" Content="Nothing" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,65,0,0" Click="EntryNothing_Click" IsChecked="True"/>
                         <Controls:NumericUpDown x:Name="EntryWeight" Margin="0,94,254,19" Minimum="0" Maximum="100" Value="101" ToolTip="Chance weight. From 0-100." />
                         <Controls:NumericUpDown x:Name="EntryQuality" Margin="234,94,10,19" Value="1" Interval="5" ToolTip="Formula is ChanceWeight + (this)Quality * LuckAttributeValue." />
+                        <Button x:Name="EntryGetItem" Content="!" HorizontalAlignment="Left" Margin="448,1,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource SquareButtonStyle}" Height="21" Click="EntryGetItem_Click"/>
                     </Grid>
                     <Button x:Name="PoolCreateBtn" Content="生成" HorizontalAlignment="Left" Margin="81,9,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="PoolCreateBtn_Click"/>
                     <Label x:Name="PoolParaNum" Content="- 01 -" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
@@ -68,7 +69,7 @@
                     <Button x:Name="PoolCheckBtn" Content="检索" HorizontalAlignment="Left" Margin="190,9,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="PoolCheckBtn_Click"/>
                     <Button x:Name="EntryClearBtn" Content="清空" HorizontalAlignment="Left" Margin="657,9,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="EntryClearBtn_Click"/>
                     <TextBox x:Name="LootTableFileName" HorizontalAlignment="Left" Height="23" Margin="10,164,0,0" TextWrapping="Wrap" Text="minecraft:empty" VerticalAlignment="Top" Width="391" ToolTip="Loot Table File Name"/>
-                    <Button x:Name="LootTableFileNameList" Content="List" HorizontalAlignment="Left" Margin="406,162,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="LootTableFileNameList_Click"/>
+                    <Button x:Name="LootTableFileNameList" Content="List" HorizontalAlignment="Left" Margin="406,164,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="LootTableFileNameList_Click" Height="26"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabFunction" Header="←Functions">
@@ -156,8 +157,8 @@
                     <GroupBox x:Name="conditionsPropertiesGroup" Header="        属性" HorizontalAlignment="Left" Margin="8,0,0,0" VerticalAlignment="Top" Height="88" Width="364" IsEnabled="False">
                         <Grid HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="354" Margin="0,0,-2,0">
                             <RadioButton x:Name="conditionsPropertiesRBThis" Content="This" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True"/>
-                            <RadioButton x:Name="conditionsPropertiesRBKiller" Content="Killer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,0,0,0"/>
-                            <RadioButton x:Name="conditionsPropertiesRBKillerByPlayer" Content="Killer By Player" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="155,0,0,0"/>
+                            <RadioButton x:Name="conditionsPropertiesRBKiller" Content="Killer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="99,0,0,0"/>
+                            <RadioButton x:Name="conditionsPropertiesRBKillerByPlayer" Content="Killer By Player" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="206,0,0,0"/>
                             <CheckBox x:Name="conditionsPropertiesIsOnFire" Content="This entity is on fire?" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top" IsThreeState="True" ToolTip="If yes, click it to a yes checkmark, or not to a symbol like &quot;-&quot;."/>
                         </Grid>
                     </GroupBox>
@@ -165,8 +166,8 @@
                     <GroupBox x:Name="conditionsScoreGroup" Header="        分数" HorizontalAlignment="Left" Margin="8,104,0,0" VerticalAlignment="Top" Height="119" Width="364" IsEnabled="False">
                         <Grid HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="354" Margin="0,0,-2,0">
                             <RadioButton x:Name="conditionsScoreRBThis" Content="This" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True"/>
-                            <RadioButton x:Name="conditionsScoreRBKiller" Content="Killer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,0,0,0"/>
-                            <RadioButton x:Name="conditionsScoreRBKillerByPlayer" Content="Killer By Player" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="155,0,0,0"/>
+                            <RadioButton x:Name="conditionsScoreRBKiller" Content="Killer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="102,0,0,0"/>
+                            <RadioButton x:Name="conditionsScoreRBKillerByPlayer" Content="Killer By Player" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="208,0,0,0"/>
                             <CheckBox x:Name="conditionsScoreRandom" Content="Randomly" HorizontalAlignment="Left" Margin="252,27,0,0" VerticalAlignment="Top" Click="conditionsScoreRandom_Click"/>
                             <Controls:NumericUpDown x:Name="conditionsScoreScoreMin" Margin="0,23,233,32" ToolTip="Minimum" Maximum="2147483647" Minimum="-2147483648" Value="0" />
                             <Controls:NumericUpDown x:Name="conditionsScoreMax" Margin="126,23,107,32" IsEnabled="False" ToolTip="Maximum" Minimum="-2147483648" Maximum="2147483647" Value="1" />
@@ -182,7 +183,7 @@
                         </Grid>
                     </GroupBox>
                     <CheckBox x:Name="conditionsChanceCheck" Content="" HorizontalAlignment="Left" Margin="393,5,0,0" VerticalAlignment="Top" Width="18" Click="conditionsChanceCheck_Click"/>
-                    <GroupBox x:Name="conditionsKillByPlayerGroup" Header="        被玩家杀死" HorizontalAlignment="Left" Margin="387,104,0,0" VerticalAlignment="Top" Height="119" Width="364" IsEnabled="False">
+                    <GroupBox x:Name="conditionsKillByPlayerGroup" Header="        击杀" HorizontalAlignment="Left" Margin="387,104,0,0" VerticalAlignment="Top" Height="119" Width="364" IsEnabled="False">
                         <Grid HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="354" Margin="0,0,-2,0">
                             <CheckBox x:Name="conditionsKillByPlayerNot" Content="Not Killed by Player" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                         </Grid>

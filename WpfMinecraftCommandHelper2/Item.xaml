@@ -179,8 +179,16 @@
             <CheckBox x:Name="tabItemRepairCostCheck" Content="指定修复消耗" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Checked="tabItemRepairCostCheck_Checked"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="26" Margin="10,40,0,0" VerticalAlignment="Top" Width="463">
-            <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="48,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="415" PreviewKeyDown="searchBox_PreviewKeyDown"/>
-            <Label x:Name="label" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF959595"/>
+            <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="30,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="433" PreviewKeyDown="searchBox_PreviewKeyDown"/>
+            <Label x:Name="SearchLabel" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF919191">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Margin="0 -4 0 0" Fill="{Binding RelativeSource={RelativeSource AncestorType=Label}, Path=Foreground}" >
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_magnify}"></VisualBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </StackPanel>
+            </Label>
         </Grid>
         <Button x:Name="fixColorBtn" Content="§" HorizontalAlignment="Left" Margin="479,541,0,0" VerticalAlignment="Top" Width="26" Style="{DynamicResource SquareButtonStyle}" ToolTip="Using F2 to open this Manual Fix Color Code window." Height="26" Click="fixColorBtn_Click"/>
         <Button x:Name="AdventureBtn" Content="Adventure" HorizontalAlignment="Left" Margin="393,541,0,0" VerticalAlignment="Top" Width="80" Style="{DynamicResource SquareButtonStyle}" ToolTip="Open Adventure Window, give item OnlyPlace or OnlyDestroy something NBT data." Height="26" Click="AdventureBtn_Click"/>

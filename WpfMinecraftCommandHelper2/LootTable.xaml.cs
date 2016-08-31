@@ -414,6 +414,13 @@ namespace WpfMinecraftCommandHelper2
             globalEntry = "";
         }
 
+        private void EntryGetItem_Click(object sender, RoutedEventArgs e)
+        {
+            Item itembox = new Item();
+            itembox.ShowDialog();
+            EntryItemSel.SelectedIndex = itembox.returnStrAdver()[0];
+        }
+
         private void functionClear_Click(object sender, RoutedEventArgs e)
         {
             globalFunction = "";
@@ -521,7 +528,7 @@ namespace WpfMinecraftCommandHelper2
                 if (conditionsPropertiesRBThis.IsChecked.Value) { globalCondition += ",\"entity\":\"this\""; }
                 else if (conditionsPropertiesRBKiller.IsChecked.Value) { globalCondition += ",\"entity\":\"killer\""; }
                 else if(conditionsPropertiesRBKillerByPlayer.IsChecked.Value) { globalCondition += ",\"entity\":\"killer_player\""; }
-                if (conditionsPropertiesIsOnFire.IsChecked.Value) { globalCondition += ",\"properties\":{\"on_fire\":true}"; }
+                if (conditionsPropertiesIsOnFire.IsChecked.Value) { globalCondition += ",\"properties\":{\"on_fire\":true}"; } else { globalCondition += ",\"properties\":{\"on_fire\":false}"; }
                 globalCondition += "},";
                 del = true;
             }
@@ -914,14 +921,20 @@ namespace WpfMinecraftCommandHelper2
 
         private void EntryItem_Click(object sender, RoutedEventArgs e)
         {
-            EntryItemSel.IsEnabled = EntryItem.IsChecked.Value;
-            EntryLoottableSel.IsEnabled = !EntryItem.IsChecked.Value;
+            EntryItemSel.IsEnabled = true;
+            EntryLoottableSel.IsEnabled = false;
         }
 
         private void EntryLoottable_Click(object sender, RoutedEventArgs e)
         {
-            EntryLoottableSel.IsEnabled = EntryLoottable.IsChecked.Value;
-            EntryItemSel.IsEnabled = !EntryLoottable.IsChecked.Value;
+            EntryLoottableSel.IsEnabled = true;
+            EntryItemSel.IsEnabled = false;
+        }
+
+        private void EntryNothing_Click(object sender, RoutedEventArgs e)
+        {
+            EntryItemSel.IsEnabled = false;
+            EntryLoottableSel.IsEnabled = false;
         }
 
         private void PoolRollCountRandom_Click(object sender, RoutedEventArgs e)
