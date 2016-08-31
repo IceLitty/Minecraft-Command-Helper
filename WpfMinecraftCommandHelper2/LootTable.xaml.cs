@@ -473,7 +473,7 @@ namespace WpfMinecraftCommandHelper2
             if (functionNBTCheck.IsChecked.Value)
             {
                 string tempNBTText = functionNBT.Text.Replace("\"", "\\\"");
-                globalFunction += "{\"function\":\"set_nbt\",\"tag\":" + tempNBTText;
+                globalFunction += "{\"function\":\"set_nbt\",\"tag\":\"" + tempNBTText + "\"";
                 if (globalFCNBT != "") { globalFunction += "," + globalFCNBT; }
                 globalFunction += "},";
                 del = true;
