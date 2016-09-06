@@ -105,6 +105,9 @@
     <Compile Include="Banner.xaml.cs">
       <DependentUpon>Banner.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChestEdit.xaml.cs">
+      <DependentUpon>ChestEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ColorSel.xaml.cs">
       <DependentUpon>ColorSel.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Check.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChestEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1414,7 +1421,13 @@
     <Content Include="Help\Superflat.html" />
     <Content Include="Help\Tellraw.html" />
     <Content Include="Help\Testfor.html" />
-    <Resource Include="Images\HorseChest.png" />
+    <Resource Include="Images\MCGUI\chest.png" />
+    <Resource Include="Images\MCGUI\brewing_stand.png" />
+    <Resource Include="Images\MCGUI\dispenser.png" />
+    <Resource Include="Images\MCGUI\furnace.png" />
+    <Resource Include="Images\MCGUI\hopper.png" />
+    <Resource Include="Images\MainIcon\chest.png" />
+    <Resource Include="Images\MCGUI\HorseChest.png" />
     <Resource Include="Images\MainIcon\about.png" />
     <Resource Include="Images\MainIcon\adventure.png" />
     <Resource Include="Images\MainIcon\banner.png" />

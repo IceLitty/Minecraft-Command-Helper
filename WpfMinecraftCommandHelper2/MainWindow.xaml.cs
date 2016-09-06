@@ -29,7 +29,7 @@ namespace WpfMinecraftCommandHelper2
         private bool isUpdate = false;
         private bool isNeedUpdate = false;
         private bool preview = false;
-        private string version = "2.8.5.13";
+        private string version = "2.8.5.14";
         private string getversion = "0.0.0.0";
         private string passversion = "0.0.0.0";
         private bool error1 = false;
@@ -244,6 +244,7 @@ namespace WpfMinecraftCommandHelper2
             fixColorSelSign.ToolTip = templanglist[92];
             loottable.Title = templanglist[93];
             MainPreview = templanglist[94];
+            chestBtn.Title = templanglist[95];
         }
 
         private List<string> lang = new List<string>();
@@ -407,6 +408,14 @@ namespace WpfMinecraftCommandHelper2
             this.Hide();
             LootTable ltbox = new LootTable();
             ltbox.ShowDialog();
+            this.Show();
+        }
+
+        private void chestBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            ChestEdit cebox = new ChestEdit();
+            cebox.ShowDialog();
             this.Show();
         }
 

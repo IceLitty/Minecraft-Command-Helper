@@ -163,6 +163,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["FColorSelSign"].ToString());
             relanglist.Add(LangList[langID]["MainLoottable"].ToString());
             relanglist.Add(LangList[langID]["MainPreview"].ToString());
+            relanglist.Add(LangList[langID]["MainChest"].ToString());
             return relanglist;
         }
 
@@ -357,6 +358,46 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             relanglist.Add(LangList[langID]["FloatConfirm"].ToString());
             relanglist.Add(LangList[langID]["FloatCancel"].ToString());
+            return relanglist;
+        }
+
+        public List<string> SetChestEdit()
+        {
+            string nowLang = getLangFile();
+            int langID = 0;
+            for (int i = 0; i < fileCount; i++)
+            {
+                if (LangList[i]["LanguageID"].ToString() == nowLang)
+                {
+                    langID = i;
+                }
+            }
+            List<string> relanglist = new List<string>();
+            relanglist.Add(LangList[langID]["BtnAt"].ToString());
+            relanglist.Add(LangList[langID]["BtnClear"].ToString());
+            relanglist.Add(LangList[langID]["BtnCreate"].ToString());
+            relanglist.Add(LangList[langID]["BtnCheck"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());
+            relanglist.Add(LangList[langID]["ChestTitle"].ToString());
+            relanglist.Add(LangList[langID]["ChestChest"].ToString());
+            relanglist.Add(LangList[langID]["ChestFurnace"].ToString());
+            relanglist.Add(LangList[langID]["ChestTrap"].ToString());
+            relanglist.Add(LangList[langID]["ChestDispenser"].ToString());
+            relanglist.Add(LangList[langID]["ChestHopper"].ToString());
+            relanglist.Add(LangList[langID]["ChestBrew"].ToString());
+            relanglist.Add(LangList[langID]["ChestPot"].ToString());
+            relanglist.Add(LangList[langID]["ChestRecord"].ToString());
+            relanglist.Add(LangList[langID]["ChestName"].ToString());
+            relanglist.Add(LangList[langID]["ChestLock"].ToString());
+            relanglist.Add(LangList[langID]["ChestLoottablePath"].ToString());
+            relanglist.Add(LangList[langID]["ChestLoottableSeed"].ToString());
+            relanglist.Add(LangList[langID]["ChestFurnaceBurnTime"].ToString());
+            relanglist.Add(LangList[langID]["ChestFurnaceCookTime"].ToString());
+            relanglist.Add(LangList[langID]["ChestFurnaceCookTimeTotal"].ToString());
+            relanglist.Add(LangList[langID]["ChestHopperCooldown"].ToString());
+            relanglist.Add(LangList[langID]["ChestBrewTime"].ToString());
+            relanglist.Add(LangList[langID]["ChestBrewFuel"].ToString());
+            relanglist.Add(LangList[langID]["ChestRecordID"].ToString());
             return relanglist;
         }
 
@@ -654,6 +695,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["ItemAdventure"].ToString());
             relanglist.Add(LangList[langID]["ItemAdventureTip"].ToString());
             relanglist.Add(LangList[langID]["ItemColorfixTip"].ToString());
+            relanglist.Add(LangList[langID]["ItemSpawnEgg"].ToString());
+            relanglist.Add(LangList[langID]["ItemSpawnEggTip"].ToString());
             return relanglist;
         }
 

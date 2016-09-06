@@ -202,6 +202,11 @@
                 <Image Width="32" Height="32" Stretch="Fill" />
             </StackPanel>
         </Controls:Tile>
+        <Controls:Tile x:Name="chestBtn" Title="实体方块" Width="170" Height="54" Margin="230,170,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="chestBtn_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
+                <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/chest.png" />
+            </StackPanel>
+        </Controls:Tile>
         <Controls:Tile x:Name="scoreboardBtn" Title="指令帮助" Width="170" Height="54" Margin="430,380,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="scoreboardBtn_Click">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
                 <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/scoreboard.png" />
@@ -216,10 +221,5 @@
         <Label x:Name="language" Content="内置中文" Foreground="#FF3285FD" HorizontalAlignment="Right" Margin="0,370,10,0" VerticalAlignment="Top" MouseLeftButtonUp="language_MouseLeftButtonUp"/>
         <Label x:Name="author" Content="作者：IceLitty" HorizontalAlignment="Right" Margin="0,395,10,0" VerticalAlignment="Top"/>
         <Label x:Name="lastupdate" Content="最后更新：201X.XX.XX" HorizontalAlignment="Right" Margin="0,417,10,0" VerticalAlignment="Top"/>
-        <Controls:Tile Title="？？？？" Width="170" Height="54" Margin="230,170,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
-                <Image Width="32" Height="32" Stretch="Fill" />
-            </StackPanel>
-        </Controls:Tile>
     </Grid>
 </Controls:MetroWindow>

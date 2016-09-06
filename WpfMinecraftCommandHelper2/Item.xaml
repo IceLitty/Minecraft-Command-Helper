@@ -163,8 +163,8 @@
                 </Grid>
             </Grid>
         </GroupBox>
-        <Button x:Name="atBtn" Content="获取At" HorizontalAlignment="Left" Margin="513,541,0,0" VerticalAlignment="Top" Width="82" Height="26" Click="atBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <TextBox x:Name="atBox" HorizontalAlignment="Left" Height="23" Margin="600,541,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Text="@p"/>
+        <Button x:Name="atBtn" Content="获取At" HorizontalAlignment="Left" Margin="513,541,0,0" VerticalAlignment="Top" Width="75" Height="26" Click="atBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <TextBox x:Name="atBox" HorizontalAlignment="Left" Height="23" Margin="593,541,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315" Text="@p"/>
         <ComboBox x:Name="tabItemHide" HorizontalAlignment="Left" Margin="513,509,0,0" VerticalAlignment="Top" Width="395" Height="27"/>
         <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="513,572,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="593,572,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
@@ -192,5 +192,6 @@
         </Grid>
         <Button x:Name="fixColorBtn" Content="§" HorizontalAlignment="Left" Margin="479,541,0,0" VerticalAlignment="Top" Width="26" Style="{DynamicResource SquareButtonStyle}" ToolTip="Using F2 to open this Manual Fix Color Code window." Height="26" Click="fixColorBtn_Click"/>
         <Button x:Name="AdventureBtn" Content="Adventure" HorizontalAlignment="Left" Margin="393,541,0,0" VerticalAlignment="Top" Width="80" Style="{DynamicResource SquareButtonStyle}" ToolTip="Open Adventure Window, give item OnlyPlace or OnlyDestroy something NBT data." Height="26" Click="AdventureBtn_Click"/>
+        <Button x:Name="SpawnEgg" Content="spawn egg" HorizontalAlignment="Left" Margin="308,541,0,0" VerticalAlignment="Top" Width="80" Style="{DynamicResource SquareButtonStyle}" ToolTip="Open Summon Window and select a entity to set in spawn egg." Height="26" Click="SpawnEgg_Click"/>
     </Grid>
 </Controls:MetroWindow>

@@ -402,7 +402,7 @@
                     <CheckBox x:Name="HorseSkeletonTrap" Content="骷髅陷阱" HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top" Click="HorseSkeletonTrap_Click"/>
                     <Controls:NumericUpDown x:Name="HorseSkeletonTrapTime" Minimum="-2147483648" Maximum="18000" StringFormat="" Margin="114,171,757,351" Height="28" Value="0" FontSize="14" ToolTip="陷阱时间，增加至18000Ticks时自然刷新掉" />
                     <CheckBox x:Name="HorseSaddle" Content="拥有马鞍" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top"/>
-                    <Image x:Name="image" HorizontalAlignment="Left" Height="123" Margin="412,69,0,0" VerticalAlignment="Top" Width="203" Source="/Images/HorseChest.png"/>
+                    <Image x:Name="image" HorizontalAlignment="Left" Height="123" Margin="412,69,0,0" VerticalAlignment="Top" Width="203" Source="/Images/MCGUI/HorseChest.png"/>
                     <Button x:Name="HorseChest2" Content="" HorizontalAlignment="Left" Margin="417,74,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest2_Click" Foreground="White"/>
                     <Button x:Name="HorseChest3" Content="" HorizontalAlignment="Left" Margin="458,74,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest3_Click" Foreground="White"/>
                     <Button x:Name="HorseChest4" Content="" HorizontalAlignment="Left" Margin="498,74,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest4_Click" Foreground="White"/>

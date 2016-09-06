@@ -128,6 +128,8 @@ namespace WpfMinecraftCommandHelper2
                 AdventureBtn.Content = templang[77];
                 AdventureBtn.ToolTip = templang[78];
                 fixColorBtn.ToolTip = templang[79];
+                SpawnEgg.Content = tempColor[80];
+                SpawnEgg.ToolTip = tempColor[81];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -156,12 +158,14 @@ namespace WpfMinecraftCommandHelper2
         private int globalItemSelMeta = 0;
         private int globalHideSelIndex = 0;
         private string globalColor = "16777215";
+        private string summonSpawnEggCmd = "";
 
         private string atStr = "未设置AT变量！";
         private string finalStr = "";
 
         private void clear()
         {
+            summonSpawnEggCmd = "";
             globalEnchString = "";
             globalNLString = "";
             globalAttrString = "";
@@ -283,6 +287,10 @@ namespace WpfMinecraftCommandHelper2
                 globalUnbreaking = "Unbreakable:1";
             }
             string finalString = " {";
+            if (asd.getItem(tabItemSel.SelectedIndex) == "minecraft:spawn_egg")
+            {
+                finalString += summonSpawnEggCmd + ",";
+            }
             if (tabItemEnchantCheck.IsChecked.Value || enchantStr != "ench:[]")
             {
                 finalString += enchantStr + ",";
@@ -1226,6 +1234,13 @@ namespace WpfMinecraftCommandHelper2
             {
                 canplaceon = temp[1];
             }
+        }
+
+        private void SpawnEgg_Click(object sender, RoutedEventArgs e)
+        {
+            Summon summonbox = new Summon();
+            summonbox.ShowDialog();
+            summonSpawnEggCmd = summonbox.returnStr()[3];
         }
     }
 }

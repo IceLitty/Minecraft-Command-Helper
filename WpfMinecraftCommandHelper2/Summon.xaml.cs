@@ -1199,7 +1199,7 @@ namespace WpfMinecraftCommandHelper2
                 }
                 if (tabSumosMarker.IsChecked.Value)
                 {
-                    amtemp += "Marker:1b,";
+                    amtemp += "Marker:1b,Invisible:1b,";
                 }
                 if (amtemp.Length > 1) { amtemp = amtemp.Substring(0, amtemp.Length - 1); }
                 if (sumosText.Length > 0) { sumosText += "," + amtemp; } else { sumosText = amtemp; }
@@ -2309,8 +2309,14 @@ namespace WpfMinecraftCommandHelper2
             string[] temp = itembox.returnStr();
             int[] temp0 = itembox.returnStrAdver();
             AllSelData asd = new AllSelData();
-            string[] restr = { asd.getItem(temp0[0]), temp0[1].ToString(), temp0[2].ToString(), ",tag:{" + temp[10] + "}" };
-            return restr;
+            if (temp[10] == string.Empty)
+            {
+                return new string[] { asd.getItem(temp0[0]), temp0[1].ToString(), temp0[2].ToString(), string.Empty };
+            }
+            else
+            {
+                return new string[] { asd.getItem(temp0[0]), temp0[1].ToString(), temp0[2].ToString(), ",tag:{" + temp[10] + "}" };
+            }
         }
 
         private string[] HorseChestList = new string[17];
@@ -2334,6 +2340,8 @@ namespace WpfMinecraftCommandHelper2
             string[] get = HorseItemGet();
             HorseChestList[0] = "{Slot:2b,id:\"" + get[0] + "\",Count:" + get[1] + "b,Damage:" + get[2] + "s" + get[3] + "}";
             HorseChest2.Content = "√";
+            HorseChest2.ToolTip = get[1] + "x" + get[0] + ":" + get[2];
+            if (get[3] != string.Empty) HorseChest2.ToolTip += "\r\n(+NBT)";
         }
 
         private void HorseChest3_Click(object sender, RoutedEventArgs e)
@@ -2341,6 +2349,8 @@ namespace WpfMinecraftCommandHelper2
             string[] get = HorseItemGet();
             HorseChestList[1] = "{Slot:3b,id:\"" + get[0] + "\",Count:" + get[1] + "b,Damage:" + get[2] + "s" + get[3] + "}";
             HorseChest3.Content = "√";
+            HorseChest3.ToolTip = get[1] + "x" + get[0] + ":" + get[2];
+            if (get[3] != string.Empty) HorseChest3.ToolTip += "\r\n(+NBT)";
         }
 
         private void HorseChest4_Click(object sender, RoutedEventArgs e)
@@ -2348,6 +2358,8 @@ namespace WpfMinecraftCommandHelper2
             string[] get = HorseItemGet();
             HorseChestList[2] = "{Slot:4b,id:\"" + get[0] + "\",Count:" + get[1] + "b,Damage:" + get[2] + "s" + get[3] + "}";
             HorseChest4.Content = "√";
+            HorseChest4.ToolTip = get[1] + "x" + get[0] + ":" + get[2];
+            if (get[3] != string.Empty) HorseChest4.ToolTip += "\r\n(+NBT)";
         }
 
         private void HorseChest5_Click(object sender, RoutedEventArgs e)
@@ -2355,6 +2367,8 @@ namespace WpfMinecraftCommandHelper2
             string[] get = HorseItemGet();
             HorseChestList[3] = "{Slot:5b,id:\"" + get[0] + "\",Count:" + get[1] + "b,Damage:" + get[2] + "s" + get[3] + "}";
             HorseChest5.Content = "√";
+            HorseChest5.ToolTip = get[1] + "x" + get[0] + ":" + get[2];
+            if (get[3] != string.Empty) HorseChest5.ToolTip += "\r\n(+NBT)";
         }
 
         private void HorseChest6_Click(object sender, RoutedEventArgs e)
@@ -2362,6 +2376,8 @@ namespace WpfMinecraftCommandHelper2
             string[] get = HorseItemGet();
             HorseChestList[4] = "{Slot:6b,id:\"" + get[0] + "\",Count:" + get[1] + "b,Damage:" + get[2] + "s" + get[3] + "}";
             HorseChest6.Content = "√";
+            HorseChest6.ToolTip = get[1] + "x" + get[0] + ":" + get[2];
+            if (get[3] != string.Empty) HorseChest6.ToolTip += "\r\n(+NBT)";
         }
 
         private void HorseChest7_Click(object sender, RoutedEventArgs e)
@@ -2369,6 +2385,8 @@ namespace WpfMinecraftCommandHelper2
             string[] get = HorseItemGet();
             HorseChestList[5] = "{Slot:7b,id:\"" + get[0] + "\",Count:" + get[1] + "b,Damage:" + get[2] + "s" + get[3] + "}";
             HorseChest7.Content = "√";
+            HorseChest7.ToolTip = get[1] + "x" + get[0] + ":" + get[2];
+            if (get[3] != string.Empty) HorseChest7.ToolTip += "\r\n(+NBT)";
         }
 
         private void HorseChest8_Click(object sender, RoutedEventArgs e)
@@ -2376,6 +2394,8 @@ namespace WpfMinecraftCommandHelper2
             string[] get = HorseItemGet();
             HorseChestList[6] = "{Slot:8b,id:\"" + get[0] + "\",Count:" + get[1] + "b,Damage:" + get[2] + "s" + get[3] + "}";
             HorseChest8.Content = "√";
+            HorseChest8.ToolTip = get[1] + "x" + get[0] + ":" + get[2];
+            if (get[3] != string.Empty) HorseChest8.ToolTip += "\r\n(+NBT)";
         }
 
         private void HorseChest9_Click(object sender, RoutedEventArgs e)
@@ -2383,6 +2403,8 @@ namespace WpfMinecraftCommandHelper2
             string[] get = HorseItemGet();
             HorseChestList[7] = "{Slot:9b,id:\"" + get[0] + "\",Count:" + get[1] + "b,Damage:" + get[2] + "s" + get[3] + "}";
             HorseChest9.Content = "√";
+            HorseChest9.ToolTip = get[1] + "x" + get[0] + ":" + get[2];
+            if (get[3] != string.Empty) HorseChest9.ToolTip += "\r\n(+NBT)";
         }
 
         private void HorseChest10_Click(object sender, RoutedEventArgs e)
@@ -2390,6 +2412,8 @@ namespace WpfMinecraftCommandHelper2
             string[] get = HorseItemGet();
             HorseChestList[8] = "{Slot:10b,id:\"" + get[0] + "\",Count:" + get[1] + "b,Damage:" + get[2] + "s" + get[3] + "}";
             HorseChest10.Content = "√";
+            HorseChest10.ToolTip = get[1] + "x" + get[0] + ":" + get[2];
+            if (get[3] != string.Empty) HorseChest10.ToolTip += "\r\n(+NBT)";
         }
 
         private void HorseChest11_Click(object sender, RoutedEventArgs e)
@@ -2397,6 +2421,8 @@ namespace WpfMinecraftCommandHelper2
             string[] get = HorseItemGet();
             HorseChestList[9] = "{Slot:11b,id:\"" + get[0] + "\",Count:" + get[1] + "b,Damage:" + get[2] + "s" + get[3] + "}";
             HorseChest11.Content = "√";
+            HorseChest11.ToolTip = get[1] + "x" + get[0] + ":" + get[2];
+            if (get[3] != string.Empty) HorseChest11.ToolTip += "\r\n(+NBT)";
         }
 
         private void HorseChest12_Click(object sender, RoutedEventArgs e)
@@ -2404,6 +2430,8 @@ namespace WpfMinecraftCommandHelper2
             string[] get = HorseItemGet();
             HorseChestList[10] = "{Slot:12b,id:\"" + get[0] + "\",Count:" + get[1] + "b,Damage:" + get[2] + "s" + get[3] + "}";
             HorseChest12.Content = "√";
+            HorseChest12.ToolTip = get[1] + "x" + get[0] + ":" + get[2];
+            if (get[3] != string.Empty) HorseChest12.ToolTip += "\r\n(+NBT)";
         }
 
         private void HorseChest13_Click(object sender, RoutedEventArgs e)
@@ -2411,6 +2439,8 @@ namespace WpfMinecraftCommandHelper2
             string[] get = HorseItemGet();
             HorseChestList[11] = "{Slot:13b,id:\"" + get[0] + "\",Count:" + get[1] + "b,Damage:" + get[2] + "s" + get[3] + "}";
             HorseChest13.Content = "√";
+            HorseChest13.ToolTip = get[1] + "x" + get[0] + ":" + get[2];
+            if (get[3] != string.Empty) HorseChest13.ToolTip += "\r\n(+NBT)";
         }
 
         private void HorseChest14_Click(object sender, RoutedEventArgs e)
@@ -2418,6 +2448,8 @@ namespace WpfMinecraftCommandHelper2
             string[] get = HorseItemGet();
             HorseChestList[12] = "{Slot:14b,id:\"" + get[0] + "\",Count:" + get[1] + "b,Damage:" + get[2] + "s" + get[3] + "}";
             HorseChest14.Content = "√";
+            HorseChest14.ToolTip = get[1] + "x" + get[0] + ":" + get[2];
+            if (get[3] != string.Empty) HorseChest14.ToolTip += "\r\n(+NBT)";
         }
 
         private void HorseChest15_Click(object sender, RoutedEventArgs e)
@@ -2425,6 +2457,8 @@ namespace WpfMinecraftCommandHelper2
             string[] get = HorseItemGet();
             HorseChestList[13] = "{Slot:15b,id:\"" + get[0] + "\",Count:" + get[1] + "b,Damage:" + get[2] + "s" + get[3] + "}";
             HorseChest15.Content = "√";
+            HorseChest15.ToolTip = get[1] + "x" + get[0] + ":" + get[2];
+            if (get[3] != string.Empty) HorseChest15.ToolTip += "\r\n(+NBT)";
         }
 
         private void HorseChest16_Click(object sender, RoutedEventArgs e)
@@ -2432,6 +2466,8 @@ namespace WpfMinecraftCommandHelper2
             string[] get = HorseItemGet();
             HorseChestList[14] = "{Slot:16b,id:\"" + get[0] + "\",Count:" + get[1] + "b,Damage:" + get[2] + "s" + get[3] + "}";
             HorseChest16.Content = "√";
+            HorseChest16.ToolTip = get[1] + "x" + get[0] + ":" + get[2];
+            if (get[3] != string.Empty) HorseChest16.ToolTip += "\r\n(+NBT)";
         }
 
         //tabSpawner

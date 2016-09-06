@@ -14,6 +14,7 @@ namespace WpfMinecraftCommandHelper2
     /// </summary>
     public partial class OtherMap : MetroWindow
     {
+        private string mcVersion = "latest";
         public OtherMap()
         {
             InitializeComponent();
@@ -27,15 +28,13 @@ namespace WpfMinecraftCommandHelper2
                 tabOther1TestforInvItem.Items.Add(asd.getItemNameList(i));
                 tabOther1LockItem.Items.Add(asd.getItemNameList(i));
             }
-            for (int i = 0; i < asd.getAtListCount(); i++)
-            {
-                tabOther1WordEntity.Items.Add(asd.getAtNameList(i));
-            }
             tabOther1RideSel.Items.Add(OtherListNorth);
             tabOther1RideSel.Items.Add(OtherListSouth);
             tabOther1RideSel.Items.Add(OtherListWest);
             tabOther1RideSel.Items.Add(OtherListEast);
             tabOther1RideSel.SelectedIndex = 0;
+            Config config = new Config();
+            mcVersion = config.getSetting("[Personalize]", "MCVersion");
         }
 
         private string FloatHelpTitle = "帮助";
@@ -291,9 +290,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabOther1WordRemove_Click(object sender, RoutedEventArgs e)
         {
-            AllSelData asd = new AllSelData();
-            string temp = "/kill @e[type=" + asd.getAt(tabOther1WordEntity.SelectedIndex) + ",r=1]";
-            finalStr = temp;
+            finalStr = "/kill @e[tag=HoloText,type=ArmorStand,r=3,c=1]";
             Check checkbox = new Check();
             checkbox.showText(finalStr);
             checkbox.Show();
@@ -301,13 +298,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabOther1WordCreate_Click(object sender, RoutedEventArgs e)
         {
-            if (tabOther1WordEntity.SelectedIndex < 0)
-            {
-                tabOther1WordEntity.SelectedIndex = 0;
-            }
-            AllSelData asd = new AllSelData();
-            string temp = "/summon " + asd.getAt(tabOther1WordEntity.SelectedIndex) + " ~ ~1 ~ {direction:[0.0,0.0,0.0],Motion:[0.0,0.0,0.0],Fuse:100,ExplosionPower:0,CustomName:\"" + tabOther1Word.Text + "\",CustomNameVisible:true}";
-            finalStr = temp;
+            finalStr = "/summon ArmorStand ~ ~1 ~ {Tags:[\"HoloText\"],PersistenceRequired:1b,DisabledSlots:2039583,Invulnerable:1b,NoGravity:1b,Invisible:1b,CustomName:\"" + tabOther1Word.Text + "\",CustomNameVisible:true}";
             Check checkbox = new Check();
             checkbox.showText(finalStr);
             checkbox.Show();
@@ -320,7 +311,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabOther1ItemFlyRemove_Click(object sender, RoutedEventArgs e)
         {
-            string temp = "/kill @e[type=!Player,r=1]";
+            string temp = "/kill @e[tag=HoloItems,r=1]";
             finalStr = temp;
             Check checkbox = new Check();
             checkbox.showText(finalStr);
@@ -336,8 +327,7 @@ namespace WpfMinecraftCommandHelper2
             string canget = "";
             if (tabOther1ItemFlyCantGet.IsChecked.Value) canget = "32767"; else canget = "0";
             AllSelData asd = new AllSelData();
-            string temp = "/summon Item ~ ~1 ~ {Riding:{id:\"WitherSkull\",direction:[0.0,0.0,0.0],ExplosionPower:0},Item:{id:" + asd.getItem(tabOther1ItemFlySel.SelectedIndex) + ",Count:" + tabOther1ItemFlyCount.Value + "},PickupDelay:" + canget + ",Age:-32768}";
-            finalStr = temp;
+            finalStr = "/summon ArmorStand ~ ~1 ~ {Tags:[\"HoloItems\"],PersistenceRequired:1b,DisabledSlots:2039583,NoGravity:1b,Marker:1b,Invulnerable:1b,Invisible:1b,Passengers:[0:{id:Item,Tags:[\"HoloItems\"],Item:{id:\"" + asd.getItem(tabOther1ItemFlySel.SelectedIndex) + "\",Count:" + tabOther1ItemFlyCount.Value + "b,Damage:" + tabOther1ItemFlyDamage.Value + "s},PickupDelay:" + canget + ",Age:-32768}]}";
             Check checkbox = new Check();
             checkbox.showText(finalStr);
             checkbox.Show();
@@ -350,8 +340,14 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabOther1TNTCreate_Click(object sender, RoutedEventArgs e)
         {
-            string temp = "/summon PrimedTnt ~ ~ ~ {Motion:[" + tabOther1TNTDx.Value + ".0," + tabOther1TNTDy.Value + ".0," + tabOther1TNTDz.Value + ".0],Fuse:" + tabOther1TNTFuse.Value + "}";
-            finalStr = temp;
+            if (mcVersion == "1.8" || mcVersion == "1.9/1.10")
+            {
+                finalStr = "/summon PrimedTnt ~ ~ ~ {Motion:[" + tabOther1TNTDx.Value + ".0," + tabOther1TNTDy.Value + ".0," + tabOther1TNTDz.Value + ".0],Fuse:" + tabOther1TNTFuse.Value + "}";
+            }
+            else
+            {
+                finalStr = "/summon minecraft:tnt ~ ~ ~ {Motion:[" + tabOther1TNTDx.Value + ".0," + tabOther1TNTDy.Value + ".0," + tabOther1TNTDz.Value + ".0],Fuse:" + tabOther1TNTFuse.Value + "}";
+            }
             Check checkbox = new Check();
             checkbox.showText(finalStr);
             checkbox.Show();
@@ -649,7 +645,7 @@ namespace WpfMinecraftCommandHelper2
                     string pngURL = tabOther1GetHeadName.Text;
                     string com = "{textures:{SKIN:{url:\"" + pngURL + "\"}}}";
                     com = Base64Encode(com);
-                    string give = "/give @p skull 1 3 {display:{Name:\"Head\"},SkullOwner:{Properties:{textures:[{Value:\"" + com + "\"}]}}}";
+                    string give = "/give @p minecraft:skull 1 3 {display:{Name:\"Head\"},SkullOwner:{Properties:{textures:[{Value:\"" + com + "\"}]}}}";
                     Check checkbox = new Check();
                     checkbox.showText(give, OtherHelpGetHeadTitle + pngURL);
                     checkbox.Show();
@@ -757,7 +753,7 @@ namespace WpfMinecraftCommandHelper2
             //string ValueStr = "{\"profileId\":\"" + uuid + "\",\"profileName\":\"" + PlayerName + "\",\"textures\":{\"SKIN\":{\"url\":\"" + ValueURL + "\"}}}";
             //string base64ed = Base64Encode(ValueStr);
             //string mainStr = "{SkullOwner:\"" + PlayerName + "\",Id:\"" + uuid + "\",Properties:{textures:[0:{Value:\"" + base64ed + "\"}]}}";
-            string endStr = "/give @p skull 1 3 " + outputStr;
+            string endStr = "/give @p minecraft:skull 1 3 " + outputStr;
 
             finalStr = endStr;
             return finalStr;
@@ -912,7 +908,15 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabOther1RideCreate_Click(object sender, RoutedEventArgs e)
         {
-            string finalStr = "/summon EntityHorse ";
+            string finalStr = "";
+            if (mcVersion == "1.8" || mcVersion == "1.9/1.10")
+            {
+                finalStr = "/summon EntityHorse ";
+            }
+            else
+            {
+                finalStr = "/summon minecraft:horse ";
+            }
             string pos = "~ ~-2.5 ~";
             if (tabOther1RideSel.SelectedIndex == 0) { pos = "~ ~-2.5 ~-0.15"; }
             else if (tabOther1RideSel.SelectedIndex == 1) { pos = "~ ~-2.5 ~0.15"; }
@@ -948,11 +952,22 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabOther1RideHide_Click(object sender, RoutedEventArgs e)
         {
-            string finalStr = OtherHelpSofaHelp1 + "\r\n/scoreboard objectives add MCHSofa dummy\r\n\r\n";
-            finalStr += OtherHelpSofaHelp2 + "\r\n/scoreboard players set @e[type=EntityHorse] MCHSofa 1 {CustomName:\"" + OtherHelpSofa1 + "\"}\r\n" + OtherHelpSofaOR + "\r\n/scoreboard players set @e[type=EntityHorse] MCHSofa 1 {CustomName:\"" + OtherHelpSofa2 + "\"}";
-            if (tabOther1RideName.Text != OtherHelpSofa1 && tabOther1RideName.Text != OtherHelpSofa2) finalStr += "\r\n" + OtherHelpSofaOR + "\r\n/scoreboard players set @e[type=EntityHorse] MCHSofa 1 {CustomName:\"" + tabOther1RideName.Text + "\"}";
-            finalStr += "\r\n\r\n" + OtherHelpSofaHelp3 + "\r\n/effect @e[type=EntityHorse,score_MCHSofa_min=1] minecraft:invisibility 1000000 1 true";
-            finalStr += "\r\n\r\n" + OtherHelpSofaHelp4;
+            if (mcVersion == "1.8" || mcVersion == "1.9/1.10")
+            {
+                string finalStr = OtherHelpSofaHelp1 + "\r\n/scoreboard objectives add MCHSofa dummy\r\n\r\n";
+                finalStr += OtherHelpSofaHelp2 + "\r\n/scoreboard players set @e[type=EntityHorse] MCHSofa 1 {CustomName:\"" + OtherHelpSofa1 + "\"}\r\n" + OtherHelpSofaOR + "\r\n/scoreboard players set @e[type=EntityHorse] MCHSofa 1 {CustomName:\"" + OtherHelpSofa2 + "\"}";
+                if (tabOther1RideName.Text != OtherHelpSofa1 && tabOther1RideName.Text != OtherHelpSofa2) finalStr += "\r\n" + OtherHelpSofaOR + "\r\n/scoreboard players set @e[type=EntityHorse] MCHSofa 1 {CustomName:\"" + tabOther1RideName.Text + "\"}";
+                finalStr += "\r\n\r\n" + OtherHelpSofaHelp3 + "\r\n/effect @e[type=EntityHorse,score_MCHSofa_min=1] minecraft:invisibility 1000000 1 true";
+                finalStr += "\r\n\r\n" + OtherHelpSofaHelp4;
+            }
+            else
+            {
+                string finalStr = OtherHelpSofaHelp1 + "\r\n/scoreboard objectives add MCHSofa dummy\r\n\r\n";
+                finalStr += OtherHelpSofaHelp2 + "\r\n/scoreboard players set @e[type=minecraft:horse] MCHSofa 1 {CustomName:\"" + OtherHelpSofa1 + "\"}\r\n" + OtherHelpSofaOR + "\r\n/scoreboard players set @e[type=minecraft:horse] MCHSofa 1 {CustomName:\"" + OtherHelpSofa2 + "\"}";
+                if (tabOther1RideName.Text != OtherHelpSofa1 && tabOther1RideName.Text != OtherHelpSofa2) finalStr += "\r\n" + OtherHelpSofaOR + "\r\n/scoreboard players set @e[type=minecraft:horse] MCHSofa 1 {CustomName:\"" + tabOther1RideName.Text + "\"}";
+                finalStr += "\r\n\r\n" + OtherHelpSofaHelp3 + "\r\n/effect @e[type=minecraft:horse,score_MCHSofa_min=1] minecraft:invisibility 1000000 1 true";
+                finalStr += "\r\n\r\n" + OtherHelpSofaHelp4;
+            }
             Check checkbox = new Check();
             checkbox.showText(finalStr);
             checkbox.ShowDialog();
