@@ -295,7 +295,7 @@
                     <Button x:Name="tabVillagerNext" Content="下一页" HorizontalAlignment="Left" Margin="206,43,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="tabVillagerNext_Click" Style="{DynamicResource SquareButtonStyle}"/>
                     <Grid HorizontalAlignment="Left" Height="35" Margin="10,76,0,0" VerticalAlignment="Top" Width="582">
                         <ComboBox x:Name="tabVillagerA" HorizontalAlignment="Left" Margin="51,5,0,0" VerticalAlignment="Top" Width="230" Height="30" FontSize="14"/>
-                        <Controls:NumericUpDown x:Name="tabVillagerACount" Minimum="1" Maximum="64" StringFormat="" Margin="286,5,195,2" Height="28" Value="1" FontSize="14" />
+                        <Controls:NumericUpDown x:Name="tabVillagerACount" Minimum="0" Maximum="999" StringFormat="" Margin="286,5,195,2" Height="28" Value="1" FontSize="14" />
                         <Controls:NumericUpDown x:Name="tabVillagerAMeta" Minimum="0" Maximum="32767" StringFormat="" Margin="392,5,89,2" Height="28" IsEnabled="False" FontSize="14" Value="0" />
                         <Button x:Name="tabVillagerAGet" Content="获取属性" HorizontalAlignment="Left" Margin="498,5,0,0" VerticalAlignment="Top" Width="84" FontSize="12" Click="tabVillagerAGet_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <Label Content="A" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
@@ -304,7 +304,7 @@
                     <CheckBox x:Name="tabVillagerAMetaCheck" Content="Meta?" HorizontalAlignment="Left" Margin="423,116,0,0" VerticalAlignment="Top" FontSize="14" Click="tabVillagerAMetaCheck_Click"/>
                     <Grid HorizontalAlignment="Left" Height="35" Margin="10,140,0,0" VerticalAlignment="Top" Width="582">
                         <ComboBox x:Name="tabVillagerB" HorizontalAlignment="Left" Margin="51,5,0,0" VerticalAlignment="Top" Width="230" Height="30" IsEnabled="False" FontSize="14"/>
-                        <Controls:NumericUpDown x:Name="tabVillagerBCount" Minimum="1" Maximum="64" StringFormat="" Margin="286,5,195,2" Height="28" IsEnabled="False" Value="1" FontSize="14" />
+                        <Controls:NumericUpDown x:Name="tabVillagerBCount" Minimum="0" Maximum="999" StringFormat="" Margin="286,5,195,2" Height="28" IsEnabled="False" Value="1" FontSize="14" />
                         <Controls:NumericUpDown x:Name="tabVillagerBMeta" Minimum="0" Maximum="32767" StringFormat="" Margin="392,5,89,2" Height="28" IsEnabled="False" FontSize="14" Value="0" />
                         <Button x:Name="tabVillagerBGet" Content="获取属性" HorizontalAlignment="Left" Margin="498,5,0,0" VerticalAlignment="Top" Width="84" FontSize="12" IsEnabled="False" Click="tabVillagerBGet_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <Label Content="B" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
@@ -322,7 +322,7 @@
                     </Label>
                     <Grid HorizontalAlignment="Left" Height="35" Margin="10,204,0,0" VerticalAlignment="Top" Width="582">
                         <ComboBox x:Name="tabVillagerC" HorizontalAlignment="Left" Margin="51,5,0,0" VerticalAlignment="Top" Width="230" Height="30" FontSize="14"/>
-                        <Controls:NumericUpDown x:Name="tabVillagerCCount" Minimum="1" Maximum="1000000" StringFormat="" Margin="286,5,195,2" Height="28" Value="1" FontSize="14" />
+                        <Controls:NumericUpDown x:Name="tabVillagerCCount" Minimum="0" Maximum="999" StringFormat="" Margin="286,5,195,2" Height="28" Value="1" FontSize="14" />
                         <Controls:NumericUpDown x:Name="tabVillagerCMeta" Minimum="0" Maximum="32767" StringFormat="" Margin="392,5,89,2" Height="28" IsEnabled="False" FontSize="14" Value="0" />
                         <Button x:Name="tabVillagerCGet" Content="获取属性" HorizontalAlignment="Left" Margin="498,5,0,0" VerticalAlignment="Top" Width="84" FontSize="12" Click="tabVillagerCGet_Click" Style="{DynamicResource SquareButtonStyle}"/>
                         <Label Content="C" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>

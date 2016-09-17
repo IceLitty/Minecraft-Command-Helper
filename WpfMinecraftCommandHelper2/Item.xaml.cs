@@ -128,8 +128,8 @@ namespace WpfMinecraftCommandHelper2
                 AdventureBtn.Content = templang[77];
                 AdventureBtn.ToolTip = templang[78];
                 fixColorBtn.ToolTip = templang[79];
-                SpawnEgg.Content = tempColor[80];
-                SpawnEgg.ToolTip = tempColor[81];
+                SpawnEgg.Content = templang[80];
+                SpawnEgg.ToolTip = templang[81];
             } catch (Exception) { /* throw; */ }
         }
 

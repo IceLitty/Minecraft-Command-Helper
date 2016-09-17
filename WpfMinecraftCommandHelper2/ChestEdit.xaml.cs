@@ -340,10 +340,10 @@ namespace WpfMinecraftCommandHelper2
             }
             else if (tabRecordplayer.IsSelected)
             {
-                finalStr = "/give " + atBox.Text + " brewing_stand 1 0 {BlockEntityTag:{id:\"RecordPlayer\"";
+                finalStr = "/setblock ~ ~1 ~ jukebox 1 replace {";
                 if (listRecord != string.Empty)
                 {
-                    finalStr += ",RecordItem:" + listRecord;
+                    finalStr += "RecordItem:" + listRecord;
                 }
                 if (record.Value != null)
                 {
@@ -357,7 +357,7 @@ namespace WpfMinecraftCommandHelper2
                 {
                     finalStr += ",Lock:\"" + ContainerLock.Text + "\"";
                 }
-                finalStr += "}}";
+                finalStr += "}";
             }
             else
             {

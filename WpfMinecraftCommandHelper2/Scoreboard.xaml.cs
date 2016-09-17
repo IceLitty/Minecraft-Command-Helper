@@ -452,7 +452,7 @@ namespace WpfMinecraftCommandHelper2
             }
             else if (tabScoreData2.SelectedIndex == 37)
             {
-                tabScoreBox.Text = "末影龙&小&火焰弹&凋零头：\r\n{direction:[]}    格式为[0.0,0.0,0.0]共3个double类型值，表示运动方向。\r\n{life:600}    如果实体移动则重置为0，每Tick递增直到600时移除实体（Despawn）。\r\n{power:[]}    和direction相同但不含阻力。\r\n{ExplosionPower:1}    大火焰球，默认值为1。";
+                tabScoreBox.Text = "末影龙&小&火焰弹&凋零头：\r\n{direction:[]}    格式为[0.0,0.0,0.0]共3个double类型值，表示运动方向。\r\n{life:600}    如果实体移动则重置为0，每Tick递增直到600时移除实体（Despawn）。\r\n{power:[]}    和direction相同但不含阻力。\r\n{ExplosionPower:1}    爆炸威力。";
             }
             else if (tabScoreData2.SelectedIndex == 38)
             {

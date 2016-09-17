@@ -1127,7 +1127,7 @@ namespace WpfMinecraftCommandHelper2
                 {
                     tabVillagerMaxIndex = globalVillagerMaxValue - 1;
                 }
-                string summonVillager = "/summon Villager ~ ~1 ~ {Profession:" + tabVillagerType.SelectedIndex + ",Career:1,CareerLevel:9999999";
+                string summonVillager = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {Profession:" + tabVillagerType.SelectedIndex + ",Career:1,CareerLevel:9999999";
                 summonVillager += "," + sumosText;//可能出现双重逗号
                 summonVillager += ",Offers:{Recipes:[";
                 string villagerOffers = "";
