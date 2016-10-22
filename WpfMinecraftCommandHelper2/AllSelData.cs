@@ -429,7 +429,26 @@ namespace WpfMinecraftCommandHelper2
                                                 "钻石矿",
                                                 "钻石头盔",
                                                 "钻石胸甲",
-                                                "钻石靴子"
+                                                "钻石靴子",
+                                                "*潜隐盒 - 白色",
+                                                "*潜隐盒 - 橙色",
+                                                "*潜隐盒 - 品红",
+                                                "*潜隐盒 - 浅蓝",
+                                                "*潜隐盒 - 黄色",
+                                                "*潜隐盒 - 草绿",
+                                                "*潜隐盒 - 粉色",
+                                                "*潜隐盒 - 灰色",
+                                                "*潜隐盒 - 浅灰",
+                                                "*潜隐盒 - 青色",
+                                                "*潜隐盒 - 紫色",
+                                                "*潜隐盒 - 蓝色",
+                                                "*潜隐盒 - 棕色",
+                                                "*潜隐盒 - 绿色",
+                                                "*潜隐盒 - 红色",
+                                                "*潜隐盒 - 黑色",
+                                                "*潜隐壳",
+                                                "*侦测器",
+                                                "*不死图腾"
                                             };
 
         string[] itemSel = {
@@ -843,7 +862,26 @@ namespace WpfMinecraftCommandHelper2
                                 "minecraft:diamond_ore",
                                 "minecraft:diamond_helmet",
                                 "minecraft:diamond_chestplate",
-                                "minecraft:diamond_boots"
+                                "minecraft:diamond_boots",
+                                "minecraft:white_shulker_box",
+                                "minecraft:orange_shulker_box",
+                                "minecraft:magenta_shulker_box",
+                                "minecraft:light_blue_shulker_box",
+                                "minecraft:yellow_shulker_box",
+                                "minecraft:lime_shulker_box",
+                                "minecraft:pink_shulker_box",
+                                "minecraft:gray_shulker_box",
+                                "minecraft:silver_shulker_box",
+                                "minecraft:cyan_shulker_box",
+                                "minecraft:purple_shulker_box",
+                                "minecraft:blue_shulker_box",
+                                "minecraft:brown_shulker_box",
+                                "minecraft:green_shulker_box",
+                                "minecraft:red_shulker_box",
+                                "minecraft:black_shulker_box",
+                                "minecraft:shulker_shell",
+                                "minecraft:observer",
+                                "minecraft:totem"
                            };
 
         private string[] hideList = {
@@ -1115,7 +1153,13 @@ namespace WpfMinecraftCommandHelper2
             "minecraft:squid",
             "minecraft:spider",
             "minecraft:cave_spider",
-            "minecraft:pig"
+            "minecraft:pig",
+            "minecraft:evocation_fangs",
+            "minecraft:evocation_illager",
+            "minecraft:llama",
+            "minecraft:llama_spit",
+            "minecraft:vex",
+            "minecraft:vindication_illager"
         };
 
         string[] atSelNameList111 = {
@@ -1197,7 +1241,13 @@ namespace WpfMinecraftCommandHelper2
             "鱿鱼",
             "蜘蛛",
             "蜘蛛 - 洞穴蜘蛛",
-            "猪"
+            "猪",
+            "*唤魔者的尖牙",
+            "*唤魔者",
+            "*羊驼",
+            "*羊驼的口水",
+            "*猥傀",
+            "*卫道士"
         };
 
         string[] effectStr = {
@@ -1314,7 +1364,9 @@ namespace WpfMinecraftCommandHelper2
                                     "dragonbreath",
                                     "endRod",
                                     "sweepAttack",
-                                    "damageIndicator"
+                                    "damageIndicator",
+                                    "spit",
+                                    "totem"
                                };
 
         string[] particleStrEn = {
@@ -1365,7 +1417,9 @@ namespace WpfMinecraftCommandHelper2
                                 "dragonbreath",
                                 "endRod",
                                 "sweepAttack",
-                                "damageIndicator"
+                                "damageIndicator",
+                                "spit",
+                                "totem"
                                };
 
         string[] particleStrCn = {
@@ -1416,7 +1470,9 @@ namespace WpfMinecraftCommandHelper2
                                     "末影龙的龙息",
                                     "末影柱的颗粒物",
                                     "剑的攻击效果",
-                                    "伤害显示效果"
+                                    "伤害显示效果",
+                                    "羊驼吐口水效果",
+                                    "不死图腾复活效果"
                                  };
 
         string[] fireworkTypeStr = {

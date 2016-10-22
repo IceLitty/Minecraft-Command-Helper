@@ -594,7 +594,7 @@ namespace WpfMinecraftCommandHelper2
             else if (tabScoreData2.SelectedIndex == 72)
             {
                 //地图
-                tabScoreBox.Text = "{map_is_scaling:0b}    地图缩放后则为1b。\r\n{Decorations:\"{}\"}    地图上显示的标志列表。\r\n    {id:\"\"}    标志的ID。\r\n    {type:0b}    标志的类型，见texture/map/map_icons.png。\r\n    {x:0d}    X位置。\r\n    {z:0d}    Z位置。\r\n    {rot:0d}    标志的旋转角度。";
+                tabScoreBox.Text = "{map_is_scaling:0b}    地图缩放后则为1b。\r\n{Decorations:\"{}\"}    地图上显示的标志列表。\r\n    {id:\"\"}    标志的ID。\r\n    {type:0b}    标志的类型，见texture/map/map_icons.png。\r\n    {x:0d}    X位置。\r\n    {z:0d}    Z位置。\r\n    {rot:0d}    标志的旋转角度。    {ColorMap:0}    设置填充地图里覆盖/设置物品材质标记的颜色。";
             }
             else if (tabScoreData2.SelectedIndex == 73)
             {

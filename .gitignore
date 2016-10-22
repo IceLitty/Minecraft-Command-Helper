@@ -210,3 +210,6 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+/WpfMinecraftCommandHelper2/Resources/IconsNonShared.xaml
+/WpfMinecraftCommandHelper2/Images/AlipayQR.png
+/WpfMinecraftCommandHelper2/Help

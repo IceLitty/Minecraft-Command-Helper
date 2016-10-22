@@ -29,7 +29,7 @@ namespace WpfMinecraftCommandHelper2
         private bool isUpdate = false;
         private bool isNeedUpdate = false;
         private bool preview = false;
-        private string version = "2.8.5.15";
+        private string version = "2.8.5.16";
         private string getversion = "0.0.0.0";
         private string passversion = "0.0.0.0";
         private bool error1 = false;
