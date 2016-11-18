@@ -1874,21 +1874,63 @@ namespace WpfMinecraftCommandHelper2
                               };
 
         string[] villagerType = {
+                                    "棕色，村民",
                                     "棕色，农民",
-									"白色，书管",
-									"紫色，神父",
-									"黑色，铁匠",
-									"白色，屠夫",
-									"绿色，特殊"
+                                    "棕色，渔夫",
+                                    "棕色，牧羊人",
+                                    "棕色，制箭师",
+                                    "白色，村民",
+                                    "白色，图书管理员",
+                                    "白色，制图师",
+                                    "紫色，牧师",
+                                    "黑色，村民",
+                                    "黑色，盔甲商",
+                                    "黑色，武器商",
+                                    "黑色，工具商",
+                                    "白色，村民",
+                                    "白色，屠夫",
+                                    "白色，皮匠",
+                                    "绿色，傻子"
                                 };
 
         string[] villagerTypeEn = {
+                                    "Brown, Villager",
                                     "Brown, Farmer",
+                                    "Brown, Fisherman",
+                                    "Brown, Shepherd",
+                                    "Brown, Fletcher",
+                                    "White, Villager",
                                     "White, Librarian",
-                                    "Purple, Fr.",
-                                    "Black, Blacksmith",
+                                    "White, Cartographer",
+                                    "Purple, Cleric",
+                                    "Black, Villager",
+                                    "Black, Armorer",
+                                    "Black, Weapon Smith",
+                                    "Black, Tool Smith",
+                                    "White, Villager",
                                     "White, Butcher",
-                                    "Green, Special"
+                                    "White, Leatherworker",
+                                    "Green, Nitwit"
+                                };
+
+        int[,] villagerTypeID = {
+                                    { 0, 0 },
+                                    { 0, 1 },
+                                    { 0, 2 },
+                                    { 0, 3 },
+                                    { 0, 4 },
+                                    { 1, 0 },
+                                    { 1, 1 },
+                                    { 1, 2 },
+                                    { 2, 0 },
+                                    { 3, 0 },
+                                    { 3, 1 },
+                                    { 3, 2 },
+                                    { 3, 3 },
+                                    { 4, 0 },
+                                    { 4, 1 },
+                                    { 4, 2 },
+                                    { 5, 0 }
                                 };
 
         string[] bannerColor = {
@@ -2754,6 +2796,18 @@ namespace WpfMinecraftCommandHelper2
         }
 
         public int getVillagerTypeCount() { return villagerType.Count(); }
+
+        public int[,] getVillagerCareerID(int index)
+        {
+            if (index < 0 || index > (villagerType.Count() - 1))
+            {
+                return new int[0, 0];
+            }
+            else
+            {
+                return new int[villagerTypeID[index, 0], villagerTypeID[index, 1]];
+            }
+        }
 
         public string getSlot(int index)
         {
