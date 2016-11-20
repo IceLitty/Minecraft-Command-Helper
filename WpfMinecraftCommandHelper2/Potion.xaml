@@ -178,6 +178,10 @@
             <Controls:NumericUpDown x:Name="tabPotionNum" Minimum="0" Maximum="64" Interval="5" StringFormat="" Margin="70,1,10,2" Height="21" Value="1" HasDecimals="False" />
         </Grid>
         <Label x:Name="PotionHideEffect" Content="隐藏效果" HorizontalAlignment="Left" Margin="293,40,0,0" VerticalAlignment="Top"/>
+        <Grid HorizontalAlignment="Left" Height="29" Margin="669,11,0,0" VerticalAlignment="Top" Width="310">
+            <CheckBox x:Name="PotionItemColor" Content="自定颜色：" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Click="PotionItemColor_Click"/>
+            <Controls:NumericUpDown x:Name="tabPotionColor" Minimum="0" Maximum="16777215" Interval="5" StringFormat="" Margin="88,1,10,2" Height="21" Value="0" HasDecimals="False" IsEnabled="False" PreviewMouseDown="tabPotionColor_PreviewMouseDown" />
+        </Grid>
 
     </Grid>
 </Controls:MetroWindow>

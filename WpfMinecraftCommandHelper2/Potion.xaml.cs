@@ -29,6 +29,7 @@ namespace WpfMinecraftCommandHelper2
         private string FloatErrorTitle = "错误";
         private string FloatHelpFileCantFind = "";
         private string FloatSaveFileCantFind = "文件未找到，请确认文件名是否符合规范。";
+        private string FloatFavouriteFileVersionOld = "";
 
         private void appLanguage()
         {
@@ -96,6 +97,7 @@ namespace WpfMinecraftCommandHelper2
                 BtnReadFavourite.Text = templang[58];
                 BtnSaveFavourite.Text = templang[59];
                 FloatSaveFileCantFind = templang[60];
+                FloatFavouriteFileVersionOld = templang[61];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -346,6 +348,10 @@ namespace WpfMinecraftCommandHelper2
                 }
             }
             string nbt = "";
+            if (PotionItemColor.IsChecked.Value)
+            {
+                nbt += "CustomPotionColor:" + tabPotionColor.Value.Value + ",";
+            }
             if (tabPotionHasEnchant.IsChecked.Value)
             {
                 nbt += globalEnchString + ",";
@@ -362,7 +368,7 @@ namespace WpfMinecraftCommandHelper2
             {
                 nbt += globalHideflag + ",";
             }
-            if (tabPotionHasEnchant.IsChecked.Value == true || tabPotionHasNL.IsChecked.Value == true || tabPotionHasAttr.IsChecked.Value == true || globalHideflag != "")
+            if (PotionItemColor.IsChecked.Value || tabPotionHasEnchant.IsChecked.Value || tabPotionHasNL.IsChecked.Value || tabPotionHasAttr.IsChecked.Value || globalHideflag != "")
             {
                 nbt = nbt.Remove(nbt.Length - 1, 1);
             }
@@ -399,7 +405,7 @@ namespace WpfMinecraftCommandHelper2
                 format = format.Remove(format.Length - 1, 1);
             }
             globalPotionString = format;
-            if (tabPotionHasEnchant.IsChecked.Value == true || tabPotionHasNL.IsChecked.Value == true || tabPotionHasAttr.IsChecked.Value == true)
+            if (PotionItemColor.IsChecked.Value || tabPotionHasEnchant.IsChecked.Value || tabPotionHasNL.IsChecked.Value || tabPotionHasAttr.IsChecked.Value)
             {
                 endStr += " {CustomPotionEffects:[" + format + "]," + nbt + "}";
             }
@@ -457,470 +463,219 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabPotionEffect1_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect1.IsChecked.Value)
-            {
-                tabPotionEffect1Time.IsEnabled = true;
-                tabPotionEffect1Level.IsEnabled = true;
-                tabPotionEffect1H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect1Time.IsEnabled = false;
-                tabPotionEffect1Level.IsEnabled = false;
-                tabPotionEffect1H.IsEnabled = false;
-            }
+            tabPotionEffect1Time.IsEnabled = tabPotionEffect1.IsChecked.Value;
+            tabPotionEffect1Level.IsEnabled = tabPotionEffect1.IsChecked.Value;
+            tabPotionEffect1H.IsEnabled = tabPotionEffect1.IsChecked.Value;
         }
 
         private void tabPotionEffect2_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect2.IsChecked.Value)
-            {
-                tabPotionEffect2Time.IsEnabled = true;
-                tabPotionEffect2Level.IsEnabled = true;
-                tabPotionEffect2H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect2Time.IsEnabled = false;
-                tabPotionEffect2Level.IsEnabled = false;
-                tabPotionEffect2H.IsEnabled = false;
-            }
+            tabPotionEffect2Time.IsEnabled = tabPotionEffect2.IsChecked.Value;
+            tabPotionEffect2Level.IsEnabled = tabPotionEffect2.IsChecked.Value;
+            tabPotionEffect2H.IsEnabled = tabPotionEffect2.IsChecked.Value;
         }
 
         private void tabPotionEffect3_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect3.IsChecked.Value)
-            {
-                tabPotionEffect3Time.IsEnabled = true;
-                tabPotionEffect3Level.IsEnabled = true;
-                tabPotionEffect3H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect3Time.IsEnabled = false;
-                tabPotionEffect3Level.IsEnabled = false;
-                tabPotionEffect3H.IsEnabled = false;
-            }
+            tabPotionEffect3Time.IsEnabled = tabPotionEffect3.IsChecked.Value;
+            tabPotionEffect3Level.IsEnabled = tabPotionEffect3.IsChecked.Value;
+            tabPotionEffect3H.IsEnabled = tabPotionEffect3.IsChecked.Value;
         }
 
         private void tabPotionEffect4_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect4.IsChecked.Value)
-            {
-                tabPotionEffect4Time.IsEnabled = true;
-                tabPotionEffect4Level.IsEnabled = true;
-                tabPotionEffect4H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect4Time.IsEnabled = false;
-                tabPotionEffect4Level.IsEnabled = false;
-                tabPotionEffect4H.IsEnabled = false;
-            }
+            tabPotionEffect4Time.IsEnabled = tabPotionEffect4.IsChecked.Value;
+            tabPotionEffect4Level.IsEnabled = tabPotionEffect4.IsChecked.Value;
+            tabPotionEffect4H.IsEnabled = tabPotionEffect4.IsChecked.Value;
         }
 
         private void tabPotionEffect5_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect5.IsChecked.Value)
-            {
-                tabPotionEffect5Time.IsEnabled = true;
-                tabPotionEffect5Level.IsEnabled = true;
-                tabPotionEffect5H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect5Time.IsEnabled = false;
-                tabPotionEffect5Level.IsEnabled = false;
-                tabPotionEffect5H.IsEnabled = false;
-            }
+            tabPotionEffect5Time.IsEnabled = tabPotionEffect5.IsChecked.Value;
+            tabPotionEffect5Level.IsEnabled = tabPotionEffect5.IsChecked.Value;
+            tabPotionEffect5H.IsEnabled = tabPotionEffect5.IsChecked.Value;
         }
 
         private void tabPotionEffect6_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect6.IsChecked.Value)
-            {
-                tabPotionEffect6Time.IsEnabled = true;
-                tabPotionEffect6Level.IsEnabled = true;
-                tabPotionEffect6H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect6Time.IsEnabled = false;
-                tabPotionEffect6Level.IsEnabled = false;
-                tabPotionEffect6H.IsEnabled = false;
-            }
+            tabPotionEffect6Time.IsEnabled = tabPotionEffect6.IsChecked.Value;
+            tabPotionEffect6Level.IsEnabled = tabPotionEffect6.IsChecked.Value;
+            tabPotionEffect6H.IsEnabled = tabPotionEffect6.IsChecked.Value;
         }
 
         private void tabPotionEffect7_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect7.IsChecked.Value)
-            {
-                tabPotionEffect7Time.IsEnabled = true;
-                tabPotionEffect7Level.IsEnabled = true;
-                tabPotionEffect7H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect7Time.IsEnabled = false;
-                tabPotionEffect7Level.IsEnabled = false;
-                tabPotionEffect7H.IsEnabled = false;
-            }
+            tabPotionEffect7Time.IsEnabled = tabPotionEffect7.IsChecked.Value;
+            tabPotionEffect7Level.IsEnabled = tabPotionEffect7.IsChecked.Value;
+            tabPotionEffect7H.IsEnabled = tabPotionEffect7.IsChecked.Value;
         }
 
         private void tabPotionEffect8_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect8.IsChecked.Value)
-            {
-                tabPotionEffect8Time.IsEnabled = true;
-                tabPotionEffect8Level.IsEnabled = true;
-                tabPotionEffect8H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect8Time.IsEnabled = false;
-                tabPotionEffect8Level.IsEnabled = false;
-                tabPotionEffect8H.IsEnabled = false;
-            }
+            tabPotionEffect8Time.IsEnabled = tabPotionEffect8.IsChecked.Value;
+            tabPotionEffect8Level.IsEnabled = tabPotionEffect8.IsChecked.Value;
+            tabPotionEffect8H.IsEnabled = tabPotionEffect8.IsChecked.Value;
         }
 
         private void tabPotionEffect9_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect9.IsChecked.Value)
-            {
-                tabPotionEffect9Time.IsEnabled = true;
-                tabPotionEffect9Level.IsEnabled = true;
-                tabPotionEffect9H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect9Time.IsEnabled = false;
-                tabPotionEffect9Level.IsEnabled = false;
-                tabPotionEffect9H.IsEnabled = false;
-            }
+            tabPotionEffect9Time.IsEnabled = tabPotionEffect9.IsChecked.Value;
+            tabPotionEffect9Level.IsEnabled = tabPotionEffect9.IsChecked.Value;
+            tabPotionEffect9H.IsEnabled = tabPotionEffect9.IsChecked.Value;
         }
 
         private void tabPotionEffect10_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect10.IsChecked.Value)
-            {
-                tabPotionEffect10Time.IsEnabled = true;
-                tabPotionEffect10Level.IsEnabled = true;
-                tabPotionEffect10H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect10Time.IsEnabled = false;
-                tabPotionEffect10Level.IsEnabled = false;
-                tabPotionEffect10H.IsEnabled = false;
-            }
+            tabPotionEffect10Time.IsEnabled = tabPotionEffect10.IsChecked.Value;
+            tabPotionEffect10Level.IsEnabled = tabPotionEffect10.IsChecked.Value;
+            tabPotionEffect10H.IsEnabled = tabPotionEffect10.IsChecked.Value;
         }
 
         private void tabPotionEffect11_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect11.IsChecked.Value)
-            {
-                tabPotionEffect11Time.IsEnabled = true;
-                tabPotionEffect11Level.IsEnabled = true;
-                tabPotionEffect11H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect11Time.IsEnabled = false;
-                tabPotionEffect11Level.IsEnabled = false;
-                tabPotionEffect11H.IsEnabled = false;
-            }
+            tabPotionEffect11Time.IsEnabled = tabPotionEffect11.IsChecked.Value;
+            tabPotionEffect11Level.IsEnabled = tabPotionEffect11.IsChecked.Value;
+            tabPotionEffect11H.IsEnabled = tabPotionEffect11.IsChecked.Value;
         }
 
         private void tabPotionEffect12_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect12.IsChecked.Value)
-            {
-                tabPotionEffect12Time.IsEnabled = true;
-                tabPotionEffect12Level.IsEnabled = true;
-                tabPotionEffect12H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect12Time.IsEnabled = false;
-                tabPotionEffect12Level.IsEnabled = false;
-                tabPotionEffect12H.IsEnabled = false;
-            }
+            tabPotionEffect12Time.IsEnabled = tabPotionEffect12.IsChecked.Value;
+            tabPotionEffect12Level.IsEnabled = tabPotionEffect12.IsChecked.Value;
+            tabPotionEffect12H.IsEnabled = tabPotionEffect12.IsChecked.Value;
         }
 
         private void tabPotionEffect13_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect13.IsChecked.Value)
-            {
-                tabPotionEffect13Time.IsEnabled = true;
-                tabPotionEffect13Level.IsEnabled = true;
-                tabPotionEffect13H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect13Time.IsEnabled = false;
-                tabPotionEffect13Level.IsEnabled = false;
-                tabPotionEffect13H.IsEnabled = false;
-            }
+            tabPotionEffect13Time.IsEnabled = tabPotionEffect13.IsChecked.Value;
+            tabPotionEffect13Level.IsEnabled = tabPotionEffect13.IsChecked.Value;
+            tabPotionEffect13H.IsEnabled = tabPotionEffect13.IsChecked.Value;
         }
 
         private void tabPotionEffect14_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect14.IsChecked.Value)
-            {
-                tabPotionEffect14Time.IsEnabled = true;
-                tabPotionEffect14Level.IsEnabled = true;
-                tabPotionEffect14H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect14Time.IsEnabled = false;
-                tabPotionEffect14Level.IsEnabled = false;
-                tabPotionEffect14H.IsEnabled = false;
-            }
+            tabPotionEffect14Time.IsEnabled = tabPotionEffect14.IsChecked.Value;
+            tabPotionEffect14Level.IsEnabled = tabPotionEffect14.IsChecked.Value;
+            tabPotionEffect14H.IsEnabled = tabPotionEffect14.IsChecked.Value;
         }
 
         private void tabPotionEffect15_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect15.IsChecked.Value)
-            {
-                tabPotionEffect15Time.IsEnabled = true;
-                tabPotionEffect15Level.IsEnabled = true;
-                tabPotionEffect15H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect15Time.IsEnabled = false;
-                tabPotionEffect15Level.IsEnabled = false;
-                tabPotionEffect15H.IsEnabled = false;
-            }
+            tabPotionEffect15Time.IsEnabled = tabPotionEffect15.IsChecked.Value;
+            tabPotionEffect15Level.IsEnabled = tabPotionEffect15.IsChecked.Value;
+            tabPotionEffect15H.IsEnabled = tabPotionEffect15.IsChecked.Value;
         }
 
         private void tabPotionEffect16_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect16.IsChecked.Value)
-            {
-                tabPotionEffect16Time.IsEnabled = true;
-                tabPotionEffect16Level.IsEnabled = true;
-                tabPotionEffect16H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect16Time.IsEnabled = false;
-                tabPotionEffect16Level.IsEnabled = false;
-                tabPotionEffect16H.IsEnabled = false;
-            }
+            tabPotionEffect16Time.IsEnabled = tabPotionEffect16.IsChecked.Value;
+            tabPotionEffect16Level.IsEnabled = tabPotionEffect16.IsChecked.Value;
+            tabPotionEffect16H.IsEnabled = tabPotionEffect16.IsChecked.Value;
         }
 
         private void tabPotionEffect17_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect17.IsChecked.Value)
-            {
-                tabPotionEffect17Time.IsEnabled = true;
-                tabPotionEffect17Level.IsEnabled = true;
-                tabPotionEffect17H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect17Time.IsEnabled = false;
-                tabPotionEffect17Level.IsEnabled = false;
-                tabPotionEffect17H.IsEnabled = false;
-            }
+            tabPotionEffect17Time.IsEnabled = tabPotionEffect17.IsChecked.Value;
+            tabPotionEffect17Level.IsEnabled = tabPotionEffect17.IsChecked.Value;
+            tabPotionEffect17H.IsEnabled = tabPotionEffect17.IsChecked.Value;
         }
 
         private void tabPotionEffect18_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect18.IsChecked.Value)
-            {
-                tabPotionEffect18Time.IsEnabled = true;
-                tabPotionEffect18Level.IsEnabled = true;
-                tabPotionEffect18H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect18Time.IsEnabled = false;
-                tabPotionEffect18Level.IsEnabled = false;
-                tabPotionEffect18H.IsEnabled = false;
-            }
+            tabPotionEffect18Time.IsEnabled = tabPotionEffect18.IsChecked.Value;
+            tabPotionEffect18Level.IsEnabled = tabPotionEffect18.IsChecked.Value;
+            tabPotionEffect18H.IsEnabled = tabPotionEffect18.IsChecked.Value;
         }
 
         private void tabPotionEffect19_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect19.IsChecked.Value)
-            {
-                tabPotionEffect19Time.IsEnabled = true;
-                tabPotionEffect19Level.IsEnabled = true;
-                tabPotionEffect19H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect19Time.IsEnabled = false;
-                tabPotionEffect19Level.IsEnabled = false;
-                tabPotionEffect19H.IsEnabled = false;
-            }
+            tabPotionEffect19Time.IsEnabled = tabPotionEffect19.IsChecked.Value;
+            tabPotionEffect19Level.IsEnabled = tabPotionEffect19.IsChecked.Value;
+            tabPotionEffect19H.IsEnabled = tabPotionEffect19.IsChecked.Value;
         }
 
         private void tabPotionEffect20_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect20.IsChecked.Value)
-            {
-                tabPotionEffect20Time.IsEnabled = true;
-                tabPotionEffect20Level.IsEnabled = true;
-                tabPotionEffect20H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect20Time.IsEnabled = false;
-                tabPotionEffect20Level.IsEnabled = false;
-                tabPotionEffect20H.IsEnabled = false;
-            }
+            tabPotionEffect20Time.IsEnabled = tabPotionEffect20.IsChecked.Value;
+            tabPotionEffect20Level.IsEnabled = tabPotionEffect20.IsChecked.Value;
+            tabPotionEffect20H.IsEnabled = tabPotionEffect20.IsChecked.Value;
         }
 
         private void tabPotionEffect21_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect21.IsChecked.Value)
-            {
-                tabPotionEffect21Time.IsEnabled = true;
-                tabPotionEffect21Level.IsEnabled = true;
-                tabPotionEffect21H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect21Time.IsEnabled = false;
-                tabPotionEffect21Level.IsEnabled = false;
-                tabPotionEffect21H.IsEnabled = false;
-            }
+            tabPotionEffect21Time.IsEnabled = tabPotionEffect21.IsChecked.Value;
+            tabPotionEffect21Level.IsEnabled = tabPotionEffect21.IsChecked.Value;
+            tabPotionEffect21H.IsEnabled = tabPotionEffect21.IsChecked.Value;
         }
 
         private void tabPotionEffect22_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect22.IsChecked.Value)
-            {
-                tabPotionEffect22Time.IsEnabled = true;
-                tabPotionEffect22Level.IsEnabled = true;
-                tabPotionEffect22H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect22Time.IsEnabled = false;
-                tabPotionEffect22Level.IsEnabled = false;
-                tabPotionEffect22H.IsEnabled = false;
-            }
+            tabPotionEffect22Time.IsEnabled = tabPotionEffect22.IsChecked.Value;
+            tabPotionEffect22Level.IsEnabled = tabPotionEffect22.IsChecked.Value;
+            tabPotionEffect22H.IsEnabled = tabPotionEffect22.IsChecked.Value;
         }
 
         private void tabPotionEffect23_Checked(object sender, EventArgs e)
         {
-            if (tabPotionEffect23.IsChecked.Value)
-            {
-                tabPotionEffect23Time.IsEnabled = true;
-                tabPotionEffect23Level.IsEnabled = true;
-                tabPotionEffect23H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect23Time.IsEnabled = false;
-                tabPotionEffect23Level.IsEnabled = false;
-                tabPotionEffect23H.IsEnabled = false;
-            }
+            tabPotionEffect23Time.IsEnabled = tabPotionEffect23.IsChecked.Value;
+            tabPotionEffect23Level.IsEnabled = tabPotionEffect23.IsChecked.Value;
+            tabPotionEffect23H.IsEnabled = tabPotionEffect23.IsChecked.Value;
         }
 
         private void tabPotionEffect24_Click(object sender, RoutedEventArgs e)
         {
-            if (tabPotionEffect24.IsChecked.Value)
-            {
-                tabPotionEffect24Time.IsEnabled = true;
-                tabPotionEffect24Level.IsEnabled = true;
-                tabPotionEffect24H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect24Time.IsEnabled = false;
-                tabPotionEffect24Level.IsEnabled = false;
-                tabPotionEffect24H.IsEnabled = false;
-            }
+            tabPotionEffect24Time.IsEnabled = tabPotionEffect24.IsChecked.Value;
+            tabPotionEffect24Level.IsEnabled = tabPotionEffect24.IsChecked.Value;
+            tabPotionEffect24H.IsEnabled = tabPotionEffect24.IsChecked.Value;
         }
 
         private void tabPotionEffect25_Click(object sender, RoutedEventArgs e)
         {
-            if (tabPotionEffect25.IsChecked.Value)
-            {
-                tabPotionEffect25Time.IsEnabled = true;
-                tabPotionEffect25Level.IsEnabled = true;
-                tabPotionEffect25H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect25Time.IsEnabled = false;
-                tabPotionEffect25Level.IsEnabled = false;
-                tabPotionEffect25H.IsEnabled = false;
-            }
+            tabPotionEffect25Time.IsEnabled = tabPotionEffect25.IsChecked.Value;
+            tabPotionEffect25Level.IsEnabled = tabPotionEffect25.IsChecked.Value;
+            tabPotionEffect25H.IsEnabled = tabPotionEffect25.IsChecked.Value;
         }
 
         private void tabPotionEffect26_Click(object sender, RoutedEventArgs e)
         {
-            if (tabPotionEffect26.IsChecked.Value)
-            {
-                tabPotionEffect26Time.IsEnabled = true;
-                tabPotionEffect26Level.IsEnabled = true;
-                tabPotionEffect26H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect26Time.IsEnabled = false;
-                tabPotionEffect26Level.IsEnabled = false;
-                tabPotionEffect26H.IsEnabled = false;
-            }
+            tabPotionEffect26Time.IsEnabled = tabPotionEffect26.IsChecked.Value;
+            tabPotionEffect26Level.IsEnabled = tabPotionEffect26.IsChecked.Value;
+            tabPotionEffect26H.IsEnabled = tabPotionEffect26.IsChecked.Value;
         }
 
         private void tabPotionEffect27_Click(object sender, RoutedEventArgs e)
         {
-            if (tabPotionEffect27.IsChecked.Value)
-            {
-                tabPotionEffect27Time.IsEnabled = true;
-                tabPotionEffect27Level.IsEnabled = true;
-                tabPotionEffect27H.IsEnabled = true;
-            }
-            else
-            {
-                tabPotionEffect27Time.IsEnabled = false;
-                tabPotionEffect27Level.IsEnabled = false;
-                tabPotionEffect27H.IsEnabled = false;
-            }
+            tabPotionEffect27Time.IsEnabled = tabPotionEffect27.IsChecked.Value;
+            tabPotionEffect27Level.IsEnabled = tabPotionEffect27.IsChecked.Value;
+            tabPotionEffect27H.IsEnabled = tabPotionEffect27.IsChecked.Value;
         }
 
         private void tabPotionHasEnchant_Checked(object sender, EventArgs e)
         {
-            if (tabPotionHasEnchant.IsChecked.Value)
-            {
-                enchantBox.IsEnabled = true;
-            }
-            else
-            {
-                enchantBox.IsEnabled = false;
-            }
+            enchantBox.IsEnabled = tabPotionHasEnchant.IsChecked.Value;
         }
 
         private void tabPotionHasNL_Checked(object sender, EventArgs e)
         {
-            if (tabPotionHasNL.IsChecked.Value)
-            {
-                nlBox.IsEnabled = true;
-            }
-            else
-            {
-                nlBox.IsEnabled = false;
-            }
+            nlBox.IsEnabled = tabPotionHasNL.IsChecked.Value;
         }
 
         private void tabPotionHasAttr_Checked(object sender, EventArgs e)
         {
-            if (tabPotionHasAttr.IsChecked.Value)
-            {
-                attrBox.IsEnabled = true;
-            }
-            else
-            {
-                attrBox.IsEnabled = false;
-            }
+            attrBox.IsEnabled = tabPotionHasAttr.IsChecked.Value;
+        }
+
+        private void PotionItemColor_Click(object sender, RoutedEventArgs e)
+        {
+            tabPotionColor.IsEnabled = PotionItemColor.IsChecked.Value;
+        }
+
+        private void tabPotionColor_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            ColorSel cs = new ColorSel();
+            cs.setColor((int)tabPotionColor.Value.Value);
+            cs.ShowDialog();
+            tabPotionColor.Value = cs.reColorInt();
         }
 
         private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
@@ -958,10 +713,15 @@ namespace WpfMinecraftCommandHelper2
             }
         }
 
+        private int FavFileVersion = 11;
+
         private void saveFavBtn_Click(object sender, RoutedEventArgs e)
         {
             string saveFavStr = "";
-            if (tabPotionB.IsChecked.Value) saveFavStr += "B"; else if (tabPotionBUFFPotion.IsChecked.Value) saveFavStr += "BUFF"; else if (tabPotionTipArrow.IsChecked.Value) saveFavStr += "ARROW"; else saveFavStr += "A";
+            //version
+            saveFavStr += FavFileVersion;
+            //
+            if (tabPotionB.IsChecked.Value) saveFavStr += "|B"; else if (tabPotionBUFFPotion.IsChecked.Value) saveFavStr += "|BUFF"; else if (tabPotionTipArrow.IsChecked.Value) saveFavStr += "|ARROW"; else saveFavStr += "|A";
             if (tabPotionAllHideParticles.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
             saveFavStr += "|" + tabPotionNum.Value;
             if (tabPotionEffect1.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
@@ -1080,6 +840,8 @@ namespace WpfMinecraftCommandHelper2
             saveFavStr += "|" + globalAttrString.Replace("|", "[MCH_SPLIT]");
             saveFavStr += "|" + globalHideflag.Replace("|", "[MCH_SPLIT]");
             saveFavStr += "|" + at.Replace("|", "[MCH_SPLIT]");
+            if (PotionItemColor.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + tabPotionColor.Value.Value;
             //
             List<string> wtxt = new List<string>();
             wtxt.Add(saveFavStr);
@@ -1131,128 +893,134 @@ namespace WpfMinecraftCommandHelper2
                         }
                     }
                     string[] readFavStr = txt[0].Split('|');
-                    if (readFavStr[0] == "B") tabPotionB.IsChecked = true; else if (readFavStr[0] == "BUFF") tabPotionBUFFPotion.IsChecked = true; else if (readFavStr[0] == "ARROW") tabPotionTipArrow.IsChecked = true; else tabPotionA.IsChecked = true;
-                    if (readFavStr[1] == "1") tabPotionAllHideParticles.IsChecked = true; else tabPotionAllHideParticles.IsChecked = false;
-                    tabPotionNum.Value = int.Parse(readFavStr[2]);
-                    if (readFavStr[3] == "1") tabPotionEffect1.IsChecked = true; else tabPotionEffect1.IsChecked = false;
-                    tabPotionEffect1Time.Value = int.Parse(readFavStr[4]);
-                    tabPotionEffect1Level.Value = int.Parse(readFavStr[5]);
-                    if (readFavStr[6] == "1") tabPotionEffect1H.IsChecked = true; else tabPotionEffect1H.IsChecked = false;
-                    if (readFavStr[7] == "1") tabPotionEffect2.IsChecked = true; else tabPotionEffect12.IsChecked = false;
-                    tabPotionEffect2Time.Value = int.Parse(readFavStr[8]);
-                    tabPotionEffect2Level.Value = int.Parse(readFavStr[9]);
-                    if (readFavStr[10] == "1") tabPotionEffect2H.IsChecked = true; else tabPotionEffect2H.IsChecked = false;
-                    if (readFavStr[11] == "1") tabPotionEffect3.IsChecked = true; else tabPotionEffect3.IsChecked = false;
-                    tabPotionEffect3Time.Value = int.Parse(readFavStr[12]);
-                    tabPotionEffect3Level.Value = int.Parse(readFavStr[13]);
-                    if (readFavStr[14] == "1") tabPotionEffect3H.IsChecked = true; else tabPotionEffect3H.IsChecked = false;
-                    if (readFavStr[15] == "1") tabPotionEffect4.IsChecked = true; else tabPotionEffect4.IsChecked = false;
-                    tabPotionEffect4Time.Value = int.Parse(readFavStr[16]);
-                    tabPotionEffect4Level.Value = int.Parse(readFavStr[17]);
-                    if (readFavStr[18] == "1") tabPotionEffect4H.IsChecked = true; else tabPotionEffect4H.IsChecked = false;
-                    if (readFavStr[19] == "1") tabPotionEffect5.IsChecked = true; else tabPotionEffect5.IsChecked = false;
-                    tabPotionEffect5Time.Value = int.Parse(readFavStr[20]);
-                    tabPotionEffect5Level.Value = int.Parse(readFavStr[21]);
-                    if (readFavStr[22] == "1") tabPotionEffect5H.IsChecked = true; else tabPotionEffect5H.IsChecked = false;
-                    if (readFavStr[23] == "1") tabPotionEffect6.IsChecked = true; else tabPotionEffect6.IsChecked = false;
-                    tabPotionEffect6Time.Value = int.Parse(readFavStr[24]);
-                    tabPotionEffect6Level.Value = int.Parse(readFavStr[25]);
-                    if (readFavStr[26] == "1") tabPotionEffect6H.IsChecked = true; else tabPotionEffect6H.IsChecked = false;
-                    if (readFavStr[27] == "1") tabPotionEffect7.IsChecked = true; else tabPotionEffect7.IsChecked = false;
-                    tabPotionEffect7Time.Value = int.Parse(readFavStr[28]);
-                    tabPotionEffect7Level.Value = int.Parse(readFavStr[29]);
-                    if (readFavStr[30] == "1") tabPotionEffect7H.IsChecked = true; else tabPotionEffect7H.IsChecked = false;
-                    if (readFavStr[31] == "1") tabPotionEffect8.IsChecked = true; else tabPotionEffect8.IsChecked = false;
-                    tabPotionEffect8Time.Value = int.Parse(readFavStr[32]);
-                    tabPotionEffect8Level.Value = int.Parse(readFavStr[33]);
-                    if (readFavStr[34] == "1") tabPotionEffect8H.IsChecked = true; else tabPotionEffect8H.IsChecked = false;
-                    if (readFavStr[35] == "1") tabPotionEffect9.IsChecked = true; else tabPotionEffect9.IsChecked = false;
-                    tabPotionEffect9Time.Value = int.Parse(readFavStr[36]);
-                    tabPotionEffect9Level.Value = int.Parse(readFavStr[37]);
-                    if (readFavStr[38] == "1") tabPotionEffect9H.IsChecked = true; else tabPotionEffect9H.IsChecked = false;
-                    if (readFavStr[39] == "1") tabPotionEffect10.IsChecked = true; else tabPotionEffect10.IsChecked = false;
-                    tabPotionEffect10Time.Value = int.Parse(readFavStr[40]);
-                    tabPotionEffect10Level.Value = int.Parse(readFavStr[41]);
-                    if (readFavStr[42] == "1") tabPotionEffect10H.IsChecked = true; else tabPotionEffect10H.IsChecked = false;
-                    if (readFavStr[43] == "1") tabPotionEffect11.IsChecked = true; else tabPotionEffect11.IsChecked = false;
-                    tabPotionEffect11Time.Value = int.Parse(readFavStr[44]);
-                    tabPotionEffect11Level.Value = int.Parse(readFavStr[45]);
-                    if (readFavStr[46] == "1") tabPotionEffect11H.IsChecked = true; else tabPotionEffect11H.IsChecked = false;
-                    if (readFavStr[47] == "1") tabPotionEffect12.IsChecked = true; else tabPotionEffect12.IsChecked = false;
-                    tabPotionEffect12Time.Value = int.Parse(readFavStr[48]);
-                    tabPotionEffect12Level.Value = int.Parse(readFavStr[49]);
-                    if (readFavStr[50] == "1") tabPotionEffect12H.IsChecked = true; else tabPotionEffect12H.IsChecked = false;
-                    if (readFavStr[51] == "1") tabPotionEffect13.IsChecked = true; else tabPotionEffect13.IsChecked = false;
-                    tabPotionEffect13Time.Value = int.Parse(readFavStr[52]);
-                    tabPotionEffect13Level.Value = int.Parse(readFavStr[53]);
-                    if (readFavStr[54] == "1") tabPotionEffect13H.IsChecked = true; else tabPotionEffect13H.IsChecked = false;
-                    if (readFavStr[55] == "1") tabPotionEffect14.IsChecked = true; else tabPotionEffect14.IsChecked = false;
-                    tabPotionEffect14Time.Value = int.Parse(readFavStr[56]);
-                    tabPotionEffect14Level.Value = int.Parse(readFavStr[57]);
-                    if (readFavStr[58] == "1") tabPotionEffect14H.IsChecked = true; else tabPotionEffect14H.IsChecked = false;
-                    if (readFavStr[59] == "1") tabPotionEffect15.IsChecked = true; else tabPotionEffect15.IsChecked = false;
-                    tabPotionEffect15Time.Value = int.Parse(readFavStr[60]);
-                    tabPotionEffect15Level.Value = int.Parse(readFavStr[61]);
-                    if (readFavStr[62] == "1") tabPotionEffect15H.IsChecked = true; else tabPotionEffect15H.IsChecked = false;
-                    if (readFavStr[63] == "1") tabPotionEffect16.IsChecked = true; else tabPotionEffect16.IsChecked = false;
-                    tabPotionEffect16Time.Value = int.Parse(readFavStr[64]);
-                    tabPotionEffect16Level.Value = int.Parse(readFavStr[65]);
-                    if (readFavStr[66] == "1") tabPotionEffect16H.IsChecked = true; else tabPotionEffect16H.IsChecked = false;
-                    if (readFavStr[67] == "1") tabPotionEffect17.IsChecked = true; else tabPotionEffect17.IsChecked = false;
-                    tabPotionEffect17Time.Value = int.Parse(readFavStr[68]);
-                    tabPotionEffect17Level.Value = int.Parse(readFavStr[69]);
-                    if (readFavStr[70] == "1") tabPotionEffect17H.IsChecked = true; else tabPotionEffect17H.IsChecked = false;
-                    if (readFavStr[71] == "1") tabPotionEffect18.IsChecked = true; else tabPotionEffect18.IsChecked = false;
-                    tabPotionEffect18Time.Value = int.Parse(readFavStr[72]);
-                    tabPotionEffect18Level.Value = int.Parse(readFavStr[73]);
-                    if (readFavStr[74] == "1") tabPotionEffect18H.IsChecked = true; else tabPotionEffect18H.IsChecked = false;
-                    if (readFavStr[75] == "1") tabPotionEffect19.IsChecked = true; else tabPotionEffect19.IsChecked = false;
-                    tabPotionEffect19Time.Value = int.Parse(readFavStr[76]);
-                    tabPotionEffect19Level.Value = int.Parse(readFavStr[77]);
-                    if (readFavStr[78] == "1") tabPotionEffect19H.IsChecked = true; else tabPotionEffect19H.IsChecked = false;
-                    if (readFavStr[79] == "1") tabPotionEffect20.IsChecked = true; else tabPotionEffect20.IsChecked = false;
-                    tabPotionEffect20Time.Value = int.Parse(readFavStr[80]);
-                    tabPotionEffect20Level.Value = int.Parse(readFavStr[81]);
-                    if (readFavStr[82] == "1") tabPotionEffect20H.IsChecked = true; else tabPotionEffect20H.IsChecked = false;
-                    if (readFavStr[83] == "1") tabPotionEffect21.IsChecked = true; else tabPotionEffect21.IsChecked = false;
-                    tabPotionEffect21Time.Value = int.Parse(readFavStr[84]);
-                    tabPotionEffect21Level.Value = int.Parse(readFavStr[85]);
-                    if (readFavStr[86] == "1") tabPotionEffect21H.IsChecked = true; else tabPotionEffect21H.IsChecked = false;
-                    if (readFavStr[87] == "1") tabPotionEffect22.IsChecked = true; else tabPotionEffect22.IsChecked = false;
-                    tabPotionEffect22Time.Value = int.Parse(readFavStr[88]);
-                    tabPotionEffect22Level.Value = int.Parse(readFavStr[89]);
-                    if (readFavStr[90] == "1") tabPotionEffect22H.IsChecked = true; else tabPotionEffect22H.IsChecked = false;
-                    if (readFavStr[91] == "1") tabPotionEffect23.IsChecked = true; else tabPotionEffect23.IsChecked = false;
-                    tabPotionEffect23Time.Value = int.Parse(readFavStr[92]);
-                    tabPotionEffect23Level.Value = int.Parse(readFavStr[93]);
-                    if (readFavStr[94] == "1") tabPotionEffect23H.IsChecked = true; else tabPotionEffect23H.IsChecked = false;
-                    if (readFavStr[95] == "1") tabPotionEffect24.IsChecked = true; else tabPotionEffect24.IsChecked = false;
-                    tabPotionEffect24Time.Value = int.Parse(readFavStr[96]);
-                    tabPotionEffect24Level.Value = int.Parse(readFavStr[97]);
-                    if (readFavStr[98] == "1") tabPotionEffect24H.IsChecked = true; else tabPotionEffect24H.IsChecked = false;
-                    if (readFavStr[99] == "1") tabPotionEffect25.IsChecked = true; else tabPotionEffect25.IsChecked = false;
-                    tabPotionEffect25Time.Value = int.Parse(readFavStr[100]);
-                    tabPotionEffect25Level.Value = int.Parse(readFavStr[101]);
-                    if (readFavStr[102] == "1") tabPotionEffect25H.IsChecked = true; else tabPotionEffect25H.IsChecked = false;
-                    if (readFavStr[103] == "1") tabPotionEffect26.IsChecked = true; else tabPotionEffect26.IsChecked = false;
-                    tabPotionEffect26Time.Value = int.Parse(readFavStr[104]);
-                    tabPotionEffect26Level.Value = int.Parse(readFavStr[105]);
-                    if (readFavStr[106] == "1") tabPotionEffect26H.IsChecked = true; else tabPotionEffect26H.IsChecked = false;
-                    if (readFavStr[107] == "1") tabPotionEffect27.IsChecked = true; else tabPotionEffect27.IsChecked = false;
-                    tabPotionEffect27Time.Value = int.Parse(readFavStr[108]);
-                    tabPotionEffect27Level.Value = int.Parse(readFavStr[109]);
-                    if (readFavStr[110] == "1") tabPotionEffect27H.IsChecked = true; else tabPotionEffect27H.IsChecked = false;
-                    if (readFavStr[111] == "1") tabPotionHasEnchant.IsChecked = true; else tabPotionHasEnchant.IsChecked = false;
-                    globalEnchString = readFavStr[112].Replace("[MCH_SPLIT]", "|");
+                    //version
+                    int tempFavFileVersion = int.Parse(readFavStr[0]);
+                    if (tempFavFileVersion < FavFileVersion) this.ShowMessageAsync("", FloatFavouriteFileVersionOld, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                    //
+                    if (readFavStr[1] == "B") tabPotionB.IsChecked = true; else if (readFavStr[1] == "BUFF") tabPotionBUFFPotion.IsChecked = true; else if (readFavStr[1] == "ARROW") tabPotionTipArrow.IsChecked = true; else tabPotionA.IsChecked = true;
+                    if (readFavStr[2] == "1") tabPotionAllHideParticles.IsChecked = true; else tabPotionAllHideParticles.IsChecked = false;
+                    tabPotionNum.Value = int.Parse(readFavStr[3]);
+                    if (readFavStr[4] == "1") tabPotionEffect1.IsChecked = true; else tabPotionEffect1.IsChecked = false;
+                    tabPotionEffect1Time.Value = int.Parse(readFavStr[5]);
+                    tabPotionEffect1Level.Value = int.Parse(readFavStr[6]);
+                    if (readFavStr[7] == "1") tabPotionEffect1H.IsChecked = true; else tabPotionEffect1H.IsChecked = false;
+                    if (readFavStr[8] == "1") tabPotionEffect2.IsChecked = true; else tabPotionEffect12.IsChecked = false;
+                    tabPotionEffect2Time.Value = int.Parse(readFavStr[9]);
+                    tabPotionEffect2Level.Value = int.Parse(readFavStr[10]);
+                    if (readFavStr[11] == "1") tabPotionEffect2H.IsChecked = true; else tabPotionEffect2H.IsChecked = false;
+                    if (readFavStr[12] == "1") tabPotionEffect3.IsChecked = true; else tabPotionEffect3.IsChecked = false;
+                    tabPotionEffect3Time.Value = int.Parse(readFavStr[13]);
+                    tabPotionEffect3Level.Value = int.Parse(readFavStr[14]);
+                    if (readFavStr[15] == "1") tabPotionEffect3H.IsChecked = true; else tabPotionEffect3H.IsChecked = false;
+                    if (readFavStr[16] == "1") tabPotionEffect4.IsChecked = true; else tabPotionEffect4.IsChecked = false;
+                    tabPotionEffect4Time.Value = int.Parse(readFavStr[17]);
+                    tabPotionEffect4Level.Value = int.Parse(readFavStr[18]);
+                    if (readFavStr[19] == "1") tabPotionEffect4H.IsChecked = true; else tabPotionEffect4H.IsChecked = false;
+                    if (readFavStr[20] == "1") tabPotionEffect5.IsChecked = true; else tabPotionEffect5.IsChecked = false;
+                    tabPotionEffect5Time.Value = int.Parse(readFavStr[21]);
+                    tabPotionEffect5Level.Value = int.Parse(readFavStr[22]);
+                    if (readFavStr[23] == "1") tabPotionEffect5H.IsChecked = true; else tabPotionEffect5H.IsChecked = false;
+                    if (readFavStr[24] == "1") tabPotionEffect6.IsChecked = true; else tabPotionEffect6.IsChecked = false;
+                    tabPotionEffect6Time.Value = int.Parse(readFavStr[25]);
+                    tabPotionEffect6Level.Value = int.Parse(readFavStr[26]);
+                    if (readFavStr[27] == "1") tabPotionEffect6H.IsChecked = true; else tabPotionEffect6H.IsChecked = false;
+                    if (readFavStr[28] == "1") tabPotionEffect7.IsChecked = true; else tabPotionEffect7.IsChecked = false;
+                    tabPotionEffect7Time.Value = int.Parse(readFavStr[29]);
+                    tabPotionEffect7Level.Value = int.Parse(readFavStr[30]);
+                    if (readFavStr[31] == "1") tabPotionEffect7H.IsChecked = true; else tabPotionEffect7H.IsChecked = false;
+                    if (readFavStr[32] == "1") tabPotionEffect8.IsChecked = true; else tabPotionEffect8.IsChecked = false;
+                    tabPotionEffect8Time.Value = int.Parse(readFavStr[33]);
+                    tabPotionEffect8Level.Value = int.Parse(readFavStr[34]);
+                    if (readFavStr[35] == "1") tabPotionEffect8H.IsChecked = true; else tabPotionEffect8H.IsChecked = false;
+                    if (readFavStr[36] == "1") tabPotionEffect9.IsChecked = true; else tabPotionEffect9.IsChecked = false;
+                    tabPotionEffect9Time.Value = int.Parse(readFavStr[37]);
+                    tabPotionEffect9Level.Value = int.Parse(readFavStr[38]);
+                    if (readFavStr[39] == "1") tabPotionEffect9H.IsChecked = true; else tabPotionEffect9H.IsChecked = false;
+                    if (readFavStr[40] == "1") tabPotionEffect10.IsChecked = true; else tabPotionEffect10.IsChecked = false;
+                    tabPotionEffect10Time.Value = int.Parse(readFavStr[41]);
+                    tabPotionEffect10Level.Value = int.Parse(readFavStr[42]);
+                    if (readFavStr[43] == "1") tabPotionEffect10H.IsChecked = true; else tabPotionEffect10H.IsChecked = false;
+                    if (readFavStr[44] == "1") tabPotionEffect11.IsChecked = true; else tabPotionEffect11.IsChecked = false;
+                    tabPotionEffect11Time.Value = int.Parse(readFavStr[45]);
+                    tabPotionEffect11Level.Value = int.Parse(readFavStr[46]);
+                    if (readFavStr[47] == "1") tabPotionEffect11H.IsChecked = true; else tabPotionEffect11H.IsChecked = false;
+                    if (readFavStr[48] == "1") tabPotionEffect12.IsChecked = true; else tabPotionEffect12.IsChecked = false;
+                    tabPotionEffect12Time.Value = int.Parse(readFavStr[49]);
+                    tabPotionEffect12Level.Value = int.Parse(readFavStr[50]);
+                    if (readFavStr[51] == "1") tabPotionEffect12H.IsChecked = true; else tabPotionEffect12H.IsChecked = false;
+                    if (readFavStr[52] == "1") tabPotionEffect13.IsChecked = true; else tabPotionEffect13.IsChecked = false;
+                    tabPotionEffect13Time.Value = int.Parse(readFavStr[53]);
+                    tabPotionEffect13Level.Value = int.Parse(readFavStr[54]);
+                    if (readFavStr[55] == "1") tabPotionEffect13H.IsChecked = true; else tabPotionEffect13H.IsChecked = false;
+                    if (readFavStr[56] == "1") tabPotionEffect14.IsChecked = true; else tabPotionEffect14.IsChecked = false;
+                    tabPotionEffect14Time.Value = int.Parse(readFavStr[57]);
+                    tabPotionEffect14Level.Value = int.Parse(readFavStr[58]);
+                    if (readFavStr[59] == "1") tabPotionEffect14H.IsChecked = true; else tabPotionEffect14H.IsChecked = false;
+                    if (readFavStr[60] == "1") tabPotionEffect15.IsChecked = true; else tabPotionEffect15.IsChecked = false;
+                    tabPotionEffect15Time.Value = int.Parse(readFavStr[61]);
+                    tabPotionEffect15Level.Value = int.Parse(readFavStr[62]);
+                    if (readFavStr[63] == "1") tabPotionEffect15H.IsChecked = true; else tabPotionEffect15H.IsChecked = false;
+                    if (readFavStr[64] == "1") tabPotionEffect16.IsChecked = true; else tabPotionEffect16.IsChecked = false;
+                    tabPotionEffect16Time.Value = int.Parse(readFavStr[65]);
+                    tabPotionEffect16Level.Value = int.Parse(readFavStr[66]);
+                    if (readFavStr[67] == "1") tabPotionEffect16H.IsChecked = true; else tabPotionEffect16H.IsChecked = false;
+                    if (readFavStr[68] == "1") tabPotionEffect17.IsChecked = true; else tabPotionEffect17.IsChecked = false;
+                    tabPotionEffect17Time.Value = int.Parse(readFavStr[69]);
+                    tabPotionEffect17Level.Value = int.Parse(readFavStr[70]);
+                    if (readFavStr[71] == "1") tabPotionEffect17H.IsChecked = true; else tabPotionEffect17H.IsChecked = false;
+                    if (readFavStr[72] == "1") tabPotionEffect18.IsChecked = true; else tabPotionEffect18.IsChecked = false;
+                    tabPotionEffect18Time.Value = int.Parse(readFavStr[73]);
+                    tabPotionEffect18Level.Value = int.Parse(readFavStr[74]);
+                    if (readFavStr[75] == "1") tabPotionEffect18H.IsChecked = true; else tabPotionEffect18H.IsChecked = false;
+                    if (readFavStr[76] == "1") tabPotionEffect19.IsChecked = true; else tabPotionEffect19.IsChecked = false;
+                    tabPotionEffect19Time.Value = int.Parse(readFavStr[77]);
+                    tabPotionEffect19Level.Value = int.Parse(readFavStr[78]);
+                    if (readFavStr[79] == "1") tabPotionEffect19H.IsChecked = true; else tabPotionEffect19H.IsChecked = false;
+                    if (readFavStr[80] == "1") tabPotionEffect20.IsChecked = true; else tabPotionEffect20.IsChecked = false;
+                    tabPotionEffect20Time.Value = int.Parse(readFavStr[81]);
+                    tabPotionEffect20Level.Value = int.Parse(readFavStr[82]);
+                    if (readFavStr[83] == "1") tabPotionEffect20H.IsChecked = true; else tabPotionEffect20H.IsChecked = false;
+                    if (readFavStr[84] == "1") tabPotionEffect21.IsChecked = true; else tabPotionEffect21.IsChecked = false;
+                    tabPotionEffect21Time.Value = int.Parse(readFavStr[85]);
+                    tabPotionEffect21Level.Value = int.Parse(readFavStr[86]);
+                    if (readFavStr[87] == "1") tabPotionEffect21H.IsChecked = true; else tabPotionEffect21H.IsChecked = false;
+                    if (readFavStr[88] == "1") tabPotionEffect22.IsChecked = true; else tabPotionEffect22.IsChecked = false;
+                    tabPotionEffect22Time.Value = int.Parse(readFavStr[89]);
+                    tabPotionEffect22Level.Value = int.Parse(readFavStr[90]);
+                    if (readFavStr[91] == "1") tabPotionEffect22H.IsChecked = true; else tabPotionEffect22H.IsChecked = false;
+                    if (readFavStr[92] == "1") tabPotionEffect23.IsChecked = true; else tabPotionEffect23.IsChecked = false;
+                    tabPotionEffect23Time.Value = int.Parse(readFavStr[93]);
+                    tabPotionEffect23Level.Value = int.Parse(readFavStr[94]);
+                    if (readFavStr[95] == "1") tabPotionEffect23H.IsChecked = true; else tabPotionEffect23H.IsChecked = false;
+                    if (readFavStr[96] == "1") tabPotionEffect24.IsChecked = true; else tabPotionEffect24.IsChecked = false;
+                    tabPotionEffect24Time.Value = int.Parse(readFavStr[97]);
+                    tabPotionEffect24Level.Value = int.Parse(readFavStr[98]);
+                    if (readFavStr[99] == "1") tabPotionEffect24H.IsChecked = true; else tabPotionEffect24H.IsChecked = false;
+                    if (readFavStr[100] == "1") tabPotionEffect25.IsChecked = true; else tabPotionEffect25.IsChecked = false;
+                    tabPotionEffect25Time.Value = int.Parse(readFavStr[101]);
+                    tabPotionEffect25Level.Value = int.Parse(readFavStr[102]);
+                    if (readFavStr[103] == "1") tabPotionEffect25H.IsChecked = true; else tabPotionEffect25H.IsChecked = false;
+                    if (readFavStr[104] == "1") tabPotionEffect26.IsChecked = true; else tabPotionEffect26.IsChecked = false;
+                    tabPotionEffect26Time.Value = int.Parse(readFavStr[105]);
+                    tabPotionEffect26Level.Value = int.Parse(readFavStr[106]);
+                    if (readFavStr[107] == "1") tabPotionEffect26H.IsChecked = true; else tabPotionEffect26H.IsChecked = false;
+                    if (readFavStr[108] == "1") tabPotionEffect27.IsChecked = true; else tabPotionEffect27.IsChecked = false;
+                    tabPotionEffect27Time.Value = int.Parse(readFavStr[109]);
+                    tabPotionEffect27Level.Value = int.Parse(readFavStr[110]);
+                    if (readFavStr[111] == "1") tabPotionEffect27H.IsChecked = true; else tabPotionEffect27H.IsChecked = false;
+                    if (readFavStr[112] == "1") tabPotionHasEnchant.IsChecked = true; else tabPotionHasEnchant.IsChecked = false;
+                    globalEnchString = readFavStr[113].Replace("[MCH_SPLIT", "|");
                     enchantBox.Text = globalEnchString;
-                    if (readFavStr[113] == "1") tabPotionHasNL.IsChecked = true; else tabPotionHasNL.IsChecked = false;
-                    globalNLString = readFavStr[114].Replace("[MCH_SPLIT]", "|");
+                    if (readFavStr[114] == "1") tabPotionHasNL.IsChecked = true; else tabPotionHasNL.IsChecked = false;
+                    globalNLString = readFavStr[115].Replace("[MCH_SPLIT", "|");
                     nlBox.Text = globalNLString;
-                    if (readFavStr[115] == "1") tabPotionHasAttr.IsChecked = true; else tabPotionHasAttr.IsChecked = false;
-                    globalAttrString = readFavStr[116].Replace("[MCH_SPLIT]", "|");
+                    if (readFavStr[116] == "1") tabPotionHasAttr.IsChecked = true; else tabPotionHasAttr.IsChecked = false;
+                    globalAttrString = readFavStr[117].Replace("[MCH_SPLIT", "|");
                     attrBox.Text = globalAttrString;
-                    globalHideflag = readFavStr[117].Replace("[MCH_SPLIT]", "|");
-                    at = readFavStr[118].Replace("[MCH_SPLIT]", "|");
+                    globalHideflag = readFavStr[118].Replace("[MCH_SPLIT", "|");
+                    at = readFavStr[119].Replace("[MCH_SPLIT", "|");
+                    if (readFavStr[120] == "1") PotionItemColor.IsChecked = true; else PotionItemColor.IsChecked = false;
+                    tabPotionColor.Value = int.Parse(readFavStr[121]);
                     this.ShowMessageAsync("", "已读取：" + loadNameList[loadResultIndex], MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel, AnimateShow = false, AnimateHide = false });
                 }
                 loadResultIndex++;

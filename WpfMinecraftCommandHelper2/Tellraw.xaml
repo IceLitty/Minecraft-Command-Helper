@@ -19,12 +19,13 @@
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="19" Margin="10,10,0,0" VerticalAlignment="Top" Width="444">
+        <Grid HorizontalAlignment="Left" Height="19" Margin="10,10,0,0" VerticalAlignment="Top" Width="556">
             <RadioButton x:Name="rbTellraw" Content="Tellraw" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True" Click="rbTellraw_Click"/>
             <RadioButton x:Name="rbTitle" Content="Title" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="88,0,0,0" Click="rbTitle_Click"/>
             <RadioButton x:Name="rbSubtitle" Content="Subtitle" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="163,0,0,0" Click="rbSubtitle_Click"/>
-            <RadioButton x:Name="rbBook" Content="Book" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="259,0,0,0" Click="rbBook_Click"/>
-            <RadioButton x:Name="rbSign" Content="Sign" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="346,0,0,0" Click="rbSign_Click"/>
+            <RadioButton x:Name="rbBook" Content="Book" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="345,0,0,0" Click="rbBook_Click"/>
+            <RadioButton x:Name="rbSign" Content="Sign" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="432,0,0,0" Click="rbSign_Click"/>
+            <RadioButton x:Name="rbActionbar" Content="Actionbar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="252,0,0,0" Click="rbActionbar_Click"/>
         </Grid>
         <TextBox x:Name="tText" HorizontalAlignment="Left" Height="23" Margin="10,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="341" ToolTip="用作文本、选择器文本、分数的对象名"/>
         <TextBox x:Name="tScoreboardName" HorizontalAlignment="Left" Height="23" Margin="383,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" ToolTip="分数的计分板名" IsEnabled="False"/>

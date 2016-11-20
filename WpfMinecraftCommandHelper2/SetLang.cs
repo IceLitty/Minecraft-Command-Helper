@@ -697,6 +697,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["ItemColorfixTip"].ToString());
             relanglist.Add(LangList[langID]["ItemSpawnEgg"].ToString());
             relanglist.Add(LangList[langID]["ItemSpawnEggTip"].ToString());
+            relanglist.Add(LangList[langID]["FloatFavouriteFileVersionOld"].ToString());
             return relanglist;
         }
 
@@ -1041,6 +1042,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["BtnReadFavourite"].ToString());
             relanglist.Add(LangList[langID]["BtnSaveFavourite"].ToString());
             relanglist.Add(LangList[langID]["FloatSaveFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["FloatFavouriteFileVersionOld"].ToString());
             return relanglist;
         }
 
@@ -1328,6 +1330,7 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["SummonFrameRouteCount"].ToString());
             relanglist.Add(LangList[langID]["SummonFrameHasItem"].ToString());
             relanglist.Add(LangList[langID]["SummonFrameGetItem"].ToString());
+            relanglist.Add(LangList[langID]["FloatFavouriteFileVersionOld"].ToString());
             return relanglist;
         }
 

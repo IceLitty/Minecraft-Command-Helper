@@ -33,21 +33,21 @@
             <Controls:NumericUpDown x:Name="tabRItemZ" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="413,0,10,0" Height="28" />
         </Grid>
         <Button x:Name="atBtn" Content="At获取" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Width="269" Click="atBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="attrBtn" Content="Enchant&amp;NameLore&amp;Attribute获取" HorizontalAlignment="Left" Margin="291,74,0,0" VerticalAlignment="Top" Width="269" Click="attrBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="attrBtn" Content="物品全属性获取" HorizontalAlignment="Left" Margin="291,74,0,0" VerticalAlignment="Top" Width="269" Click="attrBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <ComboBox x:Name="tabRItemSlot" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Width="269"/>
         <ComboBox x:Name="tabRItemItem" HorizontalAlignment="Left" Margin="291,104,0,0" VerticalAlignment="Top" Width="269"/>
         <Label x:Name="ReplaceItemMeta" Content="请填写Meta/Damage/附加值：" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top"/>
         <Label x:Name="ReplaceItemCount" Content="请填写数量：" HorizontalAlignment="Left" Margin="110,173,0,0" VerticalAlignment="Top"/>
         <Grid HorizontalAlignment="Left" Height="64" Margin="197,135,0,0" VerticalAlignment="Top" Width="363">
-            <Controls:NumericUpDown x:Name="tabRItemMeta" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="0,3,0,33" Height="28" />
+            <Controls:NumericUpDown x:Name="tabRItemMeta" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="0,3,0,33" Height="28" Value="0" />
             <Controls:NumericUpDown x:Name="tabRItemCount" Minimum="0" Maximum="64" Interval="5" StringFormat="" Margin="0,36,0,0" Height="28" Value="1" />
         </Grid>
-        <CheckBox x:Name="tabRItemHasEnchant" Content="有附魔√ （请点击上方Enchant按钮获取代码）" HorizontalAlignment="Left" Margin="10,213,0,0" VerticalAlignment="Top" Click="tabRItemHasEnchant_Checked"/>
-        <CheckBox x:Name="tabRItemHasNL" Content="有自定义名称或Lore√ （同上）" HorizontalAlignment="Left" Margin="10,244,0,0" VerticalAlignment="Top" Click="tabRItemHasNL_Checked"/>
-        <TextBox x:Name="enchantStrBox" HorizontalAlignment="Left" Height="23" Margin="284,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="276"/>
-        <TextBox x:Name="NLStrBox" HorizontalAlignment="Left" Height="23" Margin="284,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="276"/>
-        <TextBox x:Name="AttrStrBox" HorizontalAlignment="Left" Height="23" Margin="284,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="276"/>
-        <CheckBox x:Name="tabRItemHasAttr" Content="有自定义物品属性√ （同上）" HorizontalAlignment="Left" Margin="10,275,0,0" VerticalAlignment="Top" Click="tabRItemHasAttr_Checked"/>
+        <CheckBox x:Name="tabRItemHasEnchant" Content="有附魔" HorizontalAlignment="Left" Margin="10,213,0,0" VerticalAlignment="Top" Click="tabRItemHasEnchant_Checked"/>
+        <CheckBox x:Name="tabRItemHasNL" Content="有自定义名称或Lore" HorizontalAlignment="Left" Margin="10,244,0,0" VerticalAlignment="Top" Click="tabRItemHasNL_Checked"/>
+        <TextBox x:Name="enchantStrBox" HorizontalAlignment="Left" Height="23" Margin="197,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="363"/>
+        <TextBox x:Name="NLStrBox" HorizontalAlignment="Left" Height="23" Margin="197,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="363"/>
+        <TextBox x:Name="AttrStrBox" HorizontalAlignment="Left" Height="23" Margin="197,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="363"/>
+        <CheckBox x:Name="tabRItemHasAttr" Content="有自定义物品属性" HorizontalAlignment="Left" Margin="10,275,0,0" VerticalAlignment="Top" Click="tabRItemHasAttr_Checked"/>
         <CheckBox x:Name="tabRItemUnbreaking" Content="不可破坏" HorizontalAlignment="Left" Margin="10,176,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="tabRItemHide" HorizontalAlignment="Left" Margin="10,298,0,0" VerticalAlignment="Top" Width="550"/>
         <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="11,329,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>

@@ -141,6 +141,18 @@ namespace WpfMinecraftCommandHelper2
             {
                 globalAttrString = temp[2];
             }
+            if (temp[4] == "Unbreakable:1")
+            {
+                tabRItemUnbreaking.IsChecked = true;
+            }
+            int[] temp2 = itembox.returnStrAdver();
+            if (temp2[0] != 0)
+            {
+                tabRItemItem.SelectedIndex = temp2[0];
+            }
+            tabRItemCount.Value = temp2[1];
+            tabRItemMeta.Value = temp2[2];
+            tabRItemHide.SelectedIndex = temp2[3];
             enchantStrBox.Text = globalEnchString;
             NLStrBox.Text = globalNLString;
             AttrStrBox.Text = globalAttrString;

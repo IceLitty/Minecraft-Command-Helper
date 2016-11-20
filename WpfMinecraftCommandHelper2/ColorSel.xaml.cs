@@ -72,7 +72,7 @@ namespace WpfMinecraftCommandHelper2
             if (!init) { flushImagebox(); }
         }
 
-        private void createBtn_Click(object sender, RoutedEventArgs e)
+        private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             returnColor[0] = _R;
             returnColor[1] = _G;
@@ -85,11 +85,44 @@ namespace WpfMinecraftCommandHelper2
             _R = R;
             _G = G;
             _B = B;
+            flush();
+        }
+
+        public void setColor(int integer)
+        {
+            if (integer > 16777215)
+            {
+                integer = 16777215;
+            }
+            else if (integer < 0)
+            {
+                integer = 0;
+            }
+            char[] format16 = integer.ToString("x8").ToCharArray();
+            _R = byte.Parse(format16[2] + "" + format16[3], System.Globalization.NumberStyles.HexNumber);
+            _G = byte.Parse(format16[4] + "" + format16[5], System.Globalization.NumberStyles.HexNumber);
+            _B = byte.Parse(format16[6] + "" + format16[7], System.Globalization.NumberStyles.HexNumber);
+            flush();
         }
 
         public byte[] reColor()
         {
             return returnColor;
+        }
+
+        public int reColorInt()
+        {
+            string format16_R = "" + returnColor[0].ToString("x8").ToCharArray()[6] + returnColor[0].ToString("x8").ToCharArray()[7];
+            string format16_G = "" + returnColor[1].ToString("x8").ToCharArray()[6] + returnColor[1].ToString("x8").ToCharArray()[7];
+            string format16_B = "" + returnColor[2].ToString("x8").ToCharArray()[6] + returnColor[2].ToString("x8").ToCharArray()[7];
+            return int.Parse(format16_R + format16_G + format16_B, System.Globalization.NumberStyles.HexNumber);
+        }
+
+        private void flush()
+        {
+            Rs.Value = _R;
+            Gs.Value = _G;
+            Bs.Value = _B;
         }
 
         private void flushImagebox()

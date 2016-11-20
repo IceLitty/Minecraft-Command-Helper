@@ -108,6 +108,7 @@ namespace WpfMinecraftCommandHelper2
         private string FloatErrorTitle = "错误";
         private string FloatHelpFileCantFind = "";
         private string FloatSaveFileCantFind = "";
+        private string FloatFavouriteFileVersionOld = "";
 
         private void appLanguage()
         {
@@ -322,6 +323,7 @@ namespace WpfMinecraftCommandHelper2
                 FrameRouteCount.ToolTip = templang[199];
                 FrameHasItem.Content = templang[200];
                 FrameGetItemBtn.Content = templang[201];
+                FloatFavouriteFileVersionOld = templang[202];
             } catch (System.Exception) { /* throw; */ }
         }
 
@@ -1110,11 +1112,9 @@ namespace WpfMinecraftCommandHelper2
             {
                 int bx = tabSumosDirectionX.Value.ToString().IndexOf('.');
                 int by = tabSumosDirectionY.Value.ToString().IndexOf('.');
-                int bz = tabSumosDirectionZ.Value.ToString().IndexOf('.');
-                sumosText = sumosText + "direction:[";
-                if (bx == -1) sumosText += tabSumosDirectionX.Value + ".0,"; else sumosText += tabSumosDirectionX.Value + ",";
-                if (by == -1) sumosText += tabSumosDirectionY.Value + ".0,"; else sumosText += tabSumosDirectionY.Value + ",";
-                if (bz == -1) sumosText += tabSumosDirectionZ.Value + ".0"; else sumosText += tabSumosDirectionZ.Value;
+                sumosText = sumosText + "Rotation:[";
+                if (by == -1) sumosText += tabSumosDirectionY.Value + ".0f,"; else sumosText += tabSumosDirectionY.Value + "f,";
+                if (bx == -1) sumosText += tabSumosDirectionX.Value + ".0f,"; else sumosText += tabSumosDirectionX.Value + "f";
                 sumosText += "],";
             }
             if (sumosText != null && sumosText != "") sumosText = sumosText.Substring(0, sumosText.Length - 1);
@@ -1726,7 +1726,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabSumosDirection_Click(object sender, RoutedEventArgs e)
         {
-            tabSumosDirectionX.IsEnabled = tabSumosDirectionY.IsEnabled = tabSumosDirectionZ.IsEnabled = tabSumosDirection.IsChecked.Value;
+            tabSumosDirectionX.IsEnabled = tabSumosDirectionY.IsEnabled = tabSumosDirection.IsChecked.Value;
         }
 
         private void tabSumosFireCheck_Click(object sender, RoutedEventArgs e)
@@ -2558,20 +2558,18 @@ namespace WpfMinecraftCommandHelper2
             }
         }
 
+        private int FavFileVersion = 11;
+
         private void saveFavBtn_Click(object sender, RoutedEventArgs e)
         {
             string saveFavStr = "";
+            //version
+            saveFavStr += FavFileVersion;
             //api
-            saveFavStr += globalPotionString.Replace("|", "[MCH_SPLIT]");
+            saveFavStr += "|" + globalPotionString.Replace("|", "[MCH_SPLIT]");
             saveFavStr += "|" + globalAttrString.Replace("|", "[MCH_SPLIT]");
             //spawner
             saveFavStr += "|" + tabSpawnerShowType.SelectedIndex;
-            saveFavStr += "|null";
-            saveFavStr += "|null";
-            saveFavStr += "|null";
-            saveFavStr += "|null";
-            saveFavStr += "|null";
-            saveFavStr += "|null";
             saveFavStr += "|" + tabSpawnerHasName.IsChecked.Value;
             saveFavStr += "|" + tabSpawnerName.Text.Replace("|", "[MCH_SPLIT]");
             saveFavStr += "|" + tabSpawnerHasItemNL.IsChecked.Value;
@@ -2645,7 +2643,6 @@ namespace WpfMinecraftCommandHelper2
             saveFavStr += "|" + tabSumosDirection.IsChecked.Value;
             saveFavStr += "|" + tabSumosDirectionX.Value.Value;
             saveFavStr += "|" + tabSumosDirectionY.Value.Value;
-            saveFavStr += "|" + tabSumosDirectionZ.Value.Value;
             saveFavStr += "|" + tabSumosEUUID.Text.Replace("|", "[MCH_SPLIT]");
             saveFavStr += "|" + tabSumosEWoolColor.SelectedIndex;
             saveFavStr += "|" + tabSumosEdamage.Value.Value;
@@ -2821,209 +2818,211 @@ namespace WpfMinecraftCommandHelper2
                         }
                     }
                     string[] readFavStr = txt[0].Split('|');
+                    //version
+                    int tempFavFileVersion = int.Parse(readFavStr[0]);
+                    if (tempFavFileVersion < FavFileVersion) this.ShowMessageAsync("", FloatFavouriteFileVersionOld, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
                     //api
-                    globalPotionString = readFavStr[0].Replace("|", "[MCH_SPLIT]");
-                    globalAttrString = readFavStr[1].Replace("|", "[MCH_SPLIT]");
+                    globalPotionString = readFavStr[1].Replace("|", "[MCH_SPLIT]");
+                    globalAttrString = readFavStr[2].Replace("|", "[MCH_SPLIT]");
                     //spawner
-                    tabSpawnerShowType.SelectedIndex = int.Parse(readFavStr[2]);
-                    tabSpawnerHasName.IsChecked = bool.Parse(readFavStr[9]);
-                    tabSpawnerName.Text = readFavStr[10].Replace("|", "[MCH_SPLIT]");
-                    tabSpawnerHasItemNL.IsChecked = bool.Parse(readFavStr[11]);
-                    tabSpawnerSpawnCount.Value = int.Parse(readFavStr[12]);
-                    tabSpawnerSpawnRange.Value = int.Parse(readFavStr[13]);
-                    tabSpawnerRequiredPlayerRange.Value = int.Parse(readFavStr[14]);
-                    tabSpawnerDelay.Value = int.Parse(readFavStr[15]);
-                    tabSpawnerMinSpawnDelay.Value = int.Parse(readFavStr[16]);
-                    tabSpawnerMaxSpawnDelay.Value = int.Parse(readFavStr[17]);
-                    tabSpawnerMaxNearbyEntities.Value = int.Parse(readFavStr[18]);
-                    tabSpawnerAddToInv.IsChecked = bool.Parse(readFavStr[19]);
-                    tabSpawnerAddToMap.IsChecked = bool.Parse(readFavStr[20]);
-                    tabSpawnerX.Value = int.Parse(readFavStr[21]);
-                    tabSpawnerY.Value = int.Parse(readFavStr[22]);
-                    tabSpawnerZ.Value = int.Parse(readFavStr[23]);
+                    tabSpawnerShowType.SelectedIndex = int.Parse(readFavStr[3]);
+                    tabSpawnerHasName.IsChecked = bool.Parse(readFavStr[4]);
+                    tabSpawnerName.Text = readFavStr[5].Replace("|", "[MCH_SPLIT");
+                    tabSpawnerHasItemNL.IsChecked = bool.Parse(readFavStr[6]);
+                    tabSpawnerSpawnCount.Value = int.Parse(readFavStr[7]);
+                    tabSpawnerSpawnRange.Value = int.Parse(readFavStr[8]);
+                    tabSpawnerRequiredPlayerRange.Value = int.Parse(readFavStr[9]);
+                    tabSpawnerDelay.Value = int.Parse(readFavStr[10]);
+                    tabSpawnerMinSpawnDelay.Value = int.Parse(readFavStr[11]);
+                    tabSpawnerMaxSpawnDelay.Value = int.Parse(readFavStr[12]);
+                    tabSpawnerMaxNearbyEntities.Value = int.Parse(readFavStr[13]);
+                    tabSpawnerAddToInv.IsChecked = bool.Parse(readFavStr[14]);
+                    tabSpawnerAddToMap.IsChecked = bool.Parse(readFavStr[15]);
+                    tabSpawnerX.Value = int.Parse(readFavStr[16]);
+                    tabSpawnerY.Value = int.Parse(readFavStr[17]);
+                    tabSpawnerZ.Value = int.Parse(readFavStr[18]);
                     //sumos
-                    tabSumosType.SelectedIndex = int.Parse(readFavStr[24]);
-                    tabSumosHasPotion.IsChecked = bool.Parse(readFavStr[25]);
-                    tabSumosHasMetaData.IsChecked = bool.Parse(readFavStr[26]);
-                    tabSumosNoAI.IsChecked = bool.Parse(readFavStr[27]);
-                    tabSumosInvulnerable.IsChecked = bool.Parse(readFavStr[28]);
-                    tabSumosSilent.IsChecked = bool.Parse(readFavStr[29]);
-                    tabSumosBaby.IsChecked = bool.Parse(readFavStr[30]);
-                    tabSumosHasName.IsChecked = bool.Parse(readFavStr[31]);
-                    tabSumosName.Text = readFavStr[32].Replace("|", "[MCH_SPLIT]");
-                    tabSumosNameVisible.IsChecked = bool.Parse(readFavStr[33]);
-                    tabSumosNowHealthCheck.IsChecked = bool.Parse(readFavStr[34]);
-                    tabSumosNowHealth.Value = int.Parse(readFavStr[35]);
-                    tabSumosLHand.SelectedIndex = int.Parse(readFavStr[36]);
-                    tabSumosNumLHand.Value = int.Parse(readFavStr[37]);
-                    globalSumosLHand = readFavStr[38].Replace("|", "[MCH_SPLIT]");
-                    tabSumosHand.SelectedIndex = int.Parse(readFavStr[39]);
-                    tabSumosNumHand.Value = int.Parse(readFavStr[40]);
-                    globalSumosHand = readFavStr[41].Replace("|", "[MCH_SPLIT]");
-                    tabSumosBoot.SelectedIndex = int.Parse(readFavStr[42]);
-                    tabSumosNumBoot.Value = int.Parse(readFavStr[43]);
-                    globalSumosBoot = readFavStr[44].Replace("|", "[MCH_SPLIT]");
-                    tabSumosLeg.SelectedIndex = int.Parse(readFavStr[45]);
-                    tabSumosNumLeg.Value = int.Parse(readFavStr[46]);
-                    globalSumosLeg = readFavStr[47].Replace("|", "[MCH_SPLIT]");
-                    tabSumosChest.SelectedIndex = int.Parse(readFavStr[48]);
-                    tabSumosNumChest.Value = int.Parse(readFavStr[49]);
-                    globalSumosChest = readFavStr[50].Replace("|", "[MCH_SPLIT]");
-                    tabSumosHead.SelectedIndex = int.Parse(readFavStr[51]);
-                    tabSumosNumHead.Value = int.Parse(readFavStr[52]);
-                    globalSumosHead = readFavStr[53].Replace("|", "[MCH_SPLIT]");
-                    tabSumosHasHeadID.IsChecked = bool.Parse(readFavStr[54]);
-                    tabSumosHeadID.Text = readFavStr[55].Replace("|", "[MCH_SPLIT]");
-                    tabSumosLeftHand.IsChecked = bool.Parse(readFavStr[56]);
-                    tabSumosGlowing.IsChecked = bool.Parse(readFavStr[57]);
-                    tabSumosFireCheck.IsChecked = bool.Parse(readFavStr[58]);
-                    tabSumosFireNum.Value = int.Parse(readFavStr[59]);
-                    tabSumosPersistenceRequired.IsChecked = bool.Parse(readFavStr[60]);
-                    tabSumosElytra.IsChecked = bool.Parse(readFavStr[61]);
-                    tabSumosTagsCheck.IsChecked = bool.Parse(readFavStr[62]);
-                    tabSumosTags.Text = readFavStr[63].Replace("|", "[MCH_SPLIT]").Replace("\r\n", "[MCH_ENTER]");
-                    tabSumosArmorNogravity.IsChecked = bool.Parse(readFavStr[64]);
-                    tabSumosTeamCheck.IsChecked = bool.Parse(readFavStr[65]);
-                    tabSumosTeam.Text = readFavStr[66].Replace("|", "[MCH_SPLIT]");
-                    tabSumosDropchance.IsChecked = bool.Parse(readFavStr[67]);
-                    tabSumosDCHand.Value = float.Parse(readFavStr[68]);
-                    tabSumosDCChest.Value = float.Parse(readFavStr[69]);
-                    tabSumosDCBoot.Value = float.Parse(readFavStr[70]);
-                    tabSumosDCHead.Value = float.Parse(readFavStr[71]);
-                    tabSumosDCLeg.Value = float.Parse(readFavStr[72]);
-                    tabSumosDCLHand.Value = float.Parse(readFavStr[73]);
-                    tabSumosMotionCheck.IsChecked = bool.Parse(readFavStr[74]);
-                    tabSumosMotionX.Value = float.Parse(readFavStr[75]);
-                    tabSumosMotionY.Value = float.Parse(readFavStr[76]);
-                    tabSumosMotionZ.Value = float.Parse(readFavStr[77]);
-                    tabSumosDirection.IsChecked = bool.Parse(readFavStr[78]);
-                    tabSumosDirectionX.Value = float.Parse(readFavStr[79]);
-                    tabSumosDirectionY.Value = float.Parse(readFavStr[80]);
-                    tabSumosDirectionZ.Value = float.Parse(readFavStr[81]);
-                    tabSumosEUUID.Text = readFavStr[82].Replace("|", "[MCH_SPLIT]");
-                    tabSumosEWoolColor.SelectedIndex = int.Parse(readFavStr[83]);
-                    tabSumosEdamage.Value = int.Parse(readFavStr[84]);
-                    tabSumosEOwner.Text = readFavStr[85].Replace("|", "[MCH_SPLIT]");
-                    tabSumosEZombieType.Value = int.Parse(readFavStr[86]);
-                    tabSumosEExplosionRadius.Value = int.Parse(readFavStr[87]);
-                    tabSumosEDragon.Value = int.Parse(readFavStr[88]);
-                    tabSumosESize.Value = int.Parse(readFavStr[89]);
-                    tabSumosEShulkerPeek.Value = int.Parse(readFavStr[90]);
-                    tabSumosEpickup.Value = int.Parse(readFavStr[91]);
-                    tabSumosEThrower.Text = readFavStr[92].Replace("|", "[MCH_SPLIT]");
-                    tabSumosEFuse.Value = int.Parse(readFavStr[93]);
-                    tabSumosEExplosionPower.Value = int.Parse(readFavStr[94]);
-                    tabSumosECatType.Value = int.Parse(readFavStr[95]);
-                    tabSumosERabbitType.Value = int.Parse(readFavStr[96]);
-                    tabSumosEInvul.Value = int.Parse(readFavStr[97]);
-                    tabSumosEExp.Value = int.Parse(readFavStr[98]);
-                    tabSumosEPowered.IsChecked = bool.Parse(readFavStr[99]);
-                    tabSumosEAtkByEnderman.IsChecked = bool.Parse(readFavStr[100]);
-                    tabSumosECanBreakDoor.IsChecked = bool.Parse(readFavStr[101]);
-                    tabSumosESheared.IsChecked = bool.Parse(readFavStr[102]);
-                    tabSumosEElder.IsChecked = bool.Parse(readFavStr[103]);
-                    tabSumosESaddle.IsChecked = bool.Parse(readFavStr[104]);
-                    tabSumosEAngry.IsChecked = bool.Parse(readFavStr[105]);
-                    tabSumosEPlayerCreated.IsChecked = bool.Parse(readFavStr[106]);
-                    tabSumosEDuration.Value = float.Parse(readFavStr[107]);
-                    tabSumosERadius.Value = float.Parse(readFavStr[108]);
-                    globalParticleSel = int.Parse(readFavStr[109]);
-                    globalParticlePara1 = int.Parse(readFavStr[110]);
-                    globalParticlePara2 = int.Parse(readFavStr[111]);
-                    globalParticleColor = readFavStr[112];
+                    tabSumosType.SelectedIndex = int.Parse(readFavStr[19]);
+                    tabSumosHasPotion.IsChecked = bool.Parse(readFavStr[20]);
+                    tabSumosHasMetaData.IsChecked = bool.Parse(readFavStr[21]);
+                    tabSumosNoAI.IsChecked = bool.Parse(readFavStr[22]);
+                    tabSumosInvulnerable.IsChecked = bool.Parse(readFavStr[23]);
+                    tabSumosSilent.IsChecked = bool.Parse(readFavStr[24]);
+                    tabSumosBaby.IsChecked = bool.Parse(readFavStr[25]);
+                    tabSumosHasName.IsChecked = bool.Parse(readFavStr[26]);
+                    tabSumosName.Text = readFavStr[27].Replace("|", "[MCH_SPLIT");
+                    tabSumosNameVisible.IsChecked = bool.Parse(readFavStr[28]);
+                    tabSumosNowHealthCheck.IsChecked = bool.Parse(readFavStr[29]);
+                    tabSumosNowHealth.Value = int.Parse(readFavStr[30]);
+                    tabSumosLHand.SelectedIndex = int.Parse(readFavStr[31]);
+                    tabSumosNumLHand.Value = int.Parse(readFavStr[32]);
+                    globalSumosLHand = readFavStr[33].Replace("|", "[MCH_SPLIT");
+                    tabSumosHand.SelectedIndex = int.Parse(readFavStr[34]);
+                    tabSumosNumHand.Value = int.Parse(readFavStr[35]);
+                    globalSumosHand = readFavStr[36].Replace("|", "[MCH_SPLIT");
+                    tabSumosBoot.SelectedIndex = int.Parse(readFavStr[37]);
+                    tabSumosNumBoot.Value = int.Parse(readFavStr[38]);
+                    globalSumosBoot = readFavStr[39].Replace("|", "[MCH_SPLIT");
+                    tabSumosLeg.SelectedIndex = int.Parse(readFavStr[40]);
+                    tabSumosNumLeg.Value = int.Parse(readFavStr[41]);
+                    globalSumosLeg = readFavStr[42].Replace("|", "[MCH_SPLIT");
+                    tabSumosChest.SelectedIndex = int.Parse(readFavStr[43]);
+                    tabSumosNumChest.Value = int.Parse(readFavStr[44]);
+                    globalSumosChest = readFavStr[45].Replace("|", "[MCH_SPLIT");
+                    tabSumosHead.SelectedIndex = int.Parse(readFavStr[46]);
+                    tabSumosNumHead.Value = int.Parse(readFavStr[47]);
+                    globalSumosHead = readFavStr[48].Replace("|", "[MCH_SPLIT");
+                    tabSumosHasHeadID.IsChecked = bool.Parse(readFavStr[49]);
+                    tabSumosHeadID.Text = readFavStr[50].Replace("|", "[MCH_SPLIT");
+                    tabSumosLeftHand.IsChecked = bool.Parse(readFavStr[51]);
+                    tabSumosGlowing.IsChecked = bool.Parse(readFavStr[52]);
+                    tabSumosFireCheck.IsChecked = bool.Parse(readFavStr[53]);
+                    tabSumosFireNum.Value = int.Parse(readFavStr[54]);
+                    tabSumosPersistenceRequired.IsChecked = bool.Parse(readFavStr[55]);
+                    tabSumosElytra.IsChecked = bool.Parse(readFavStr[56]);
+                    tabSumosTagsCheck.IsChecked = bool.Parse(readFavStr[57]);
+                    tabSumosTags.Text = readFavStr[58].Replace("|", "[MCH_SPLIT").Replace("\r\n", "[MCH_ENTER");
+                    tabSumosArmorNogravity.IsChecked = bool.Parse(readFavStr[59]);
+                    tabSumosTeamCheck.IsChecked = bool.Parse(readFavStr[60]);
+                    tabSumosTeam.Text = readFavStr[61].Replace("|", "[MCH_SPLIT");
+                    tabSumosDropchance.IsChecked = bool.Parse(readFavStr[62]);
+                    tabSumosDCHand.Value = float.Parse(readFavStr[63]);
+                    tabSumosDCChest.Value = float.Parse(readFavStr[64]);
+                    tabSumosDCBoot.Value = float.Parse(readFavStr[65]);
+                    tabSumosDCHead.Value = float.Parse(readFavStr[66]);
+                    tabSumosDCLeg.Value = float.Parse(readFavStr[67]);
+                    tabSumosDCLHand.Value = float.Parse(readFavStr[68]);
+                    tabSumosMotionCheck.IsChecked = bool.Parse(readFavStr[69]);
+                    tabSumosMotionX.Value = float.Parse(readFavStr[70]);
+                    tabSumosMotionY.Value = float.Parse(readFavStr[71]);
+                    tabSumosMotionZ.Value = float.Parse(readFavStr[72]);
+                    tabSumosDirection.IsChecked = bool.Parse(readFavStr[73]);
+                    tabSumosDirectionX.Value = float.Parse(readFavStr[74]);
+                    tabSumosDirectionY.Value = float.Parse(readFavStr[75]);
+                    tabSumosEUUID.Text = readFavStr[76].Replace("|", "[MCH_SPLIT");
+                    tabSumosEWoolColor.SelectedIndex = int.Parse(readFavStr[77]);
+                    tabSumosEdamage.Value = int.Parse(readFavStr[78]);
+                    tabSumosEOwner.Text = readFavStr[79].Replace("|", "[MCH_SPLIT");
+                    tabSumosEZombieType.Value = int.Parse(readFavStr[80]);
+                    tabSumosEExplosionRadius.Value = int.Parse(readFavStr[81]);
+                    tabSumosEDragon.Value = int.Parse(readFavStr[82]);
+                    tabSumosESize.Value = int.Parse(readFavStr[83]);
+                    tabSumosEShulkerPeek.Value = int.Parse(readFavStr[84]);
+                    tabSumosEpickup.Value = int.Parse(readFavStr[85]);
+                    tabSumosEThrower.Text = readFavStr[86].Replace("|", "[MCH_SPLIT");
+                    tabSumosEFuse.Value = int.Parse(readFavStr[87]);
+                    tabSumosEExplosionPower.Value = int.Parse(readFavStr[88]);
+                    tabSumosECatType.Value = int.Parse(readFavStr[89]);
+                    tabSumosERabbitType.Value = int.Parse(readFavStr[90]);
+                    tabSumosEInvul.Value = int.Parse(readFavStr[91]);
+                    tabSumosEExp.Value = int.Parse(readFavStr[92]);
+                    tabSumosEPowered.IsChecked = bool.Parse(readFavStr[93]);
+                    tabSumosEAtkByEnderman.IsChecked = bool.Parse(readFavStr[94]);
+                    tabSumosECanBreakDoor.IsChecked = bool.Parse(readFavStr[95]);
+                    tabSumosESheared.IsChecked = bool.Parse(readFavStr[96]);
+                    tabSumosEElder.IsChecked = bool.Parse(readFavStr[97]);
+                    tabSumosESaddle.IsChecked = bool.Parse(readFavStr[98]);
+                    tabSumosEAngry.IsChecked = bool.Parse(readFavStr[99]);
+                    tabSumosEPlayerCreated.IsChecked = bool.Parse(readFavStr[100]);
+                    tabSumosEDuration.Value = float.Parse(readFavStr[101]);
+                    tabSumosERadius.Value = float.Parse(readFavStr[102]);
+                    globalParticleSel = int.Parse(readFavStr[103]);
+                    globalParticlePara1 = int.Parse(readFavStr[104]);
+                    globalParticlePara2 = int.Parse(readFavStr[105]);
+                    globalParticleColor = readFavStr[106];
                     //summon item
-                    tabSummonItem.SelectedIndex = int.Parse(readFavStr[113]);
-                    tabSummonCount.Value = int.Parse(readFavStr[114]);
-                    tabSummonMeta.Value = int.Parse(readFavStr[115]);
-                    tabSummonHasEnchant.IsChecked = bool.Parse(readFavStr[116]);
-                    tabSummonHasNL.IsChecked = bool.Parse(readFavStr[117]);
-                    tabSummonHasAttr.IsChecked = bool.Parse(readFavStr[118]);
-                    tabSummonUnbreaking.IsChecked = bool.Parse(readFavStr[119]);
-                    tabSummonHide.SelectedIndex = int.Parse(readFavStr[120]);
-                    tabSummonPickupdelayCheck.IsChecked = bool.Parse(readFavStr[121]);
-                    tabSummonPickupdelay.Value = int.Parse(readFavStr[122]);
-                    tabSummonAgeCheck.IsChecked = bool.Parse(readFavStr[123]);
-                    tabSummonAge.Value = int.Parse(readFavStr[124]);
+                    tabSummonItem.SelectedIndex = int.Parse(readFavStr[107]);
+                    tabSummonCount.Value = int.Parse(readFavStr[108]);
+                    tabSummonMeta.Value = int.Parse(readFavStr[109]);
+                    tabSummonHasEnchant.IsChecked = bool.Parse(readFavStr[110]);
+                    tabSummonHasNL.IsChecked = bool.Parse(readFavStr[111]);
+                    tabSummonHasAttr.IsChecked = bool.Parse(readFavStr[112]);
+                    tabSummonUnbreaking.IsChecked = bool.Parse(readFavStr[113]);
+                    tabSummonHide.SelectedIndex = int.Parse(readFavStr[114]);
+                    tabSummonPickupdelayCheck.IsChecked = bool.Parse(readFavStr[115]);
+                    tabSummonPickupdelay.Value = int.Parse(readFavStr[116]);
+                    tabSummonAgeCheck.IsChecked = bool.Parse(readFavStr[117]);
+                    tabSummonAge.Value = int.Parse(readFavStr[118]);
                     //armorstand
-                    tabSumosArmorCheck.IsChecked = bool.Parse(readFavStr[125]);
-                    tabSumosMarker.IsChecked = bool.Parse(readFavStr[126]);
-                    tabSumosArmorHeadX.Value = int.Parse(readFavStr[127]);
-                    tabSumosArmorHeadY.Value = int.Parse(readFavStr[128]);
-                    tabSumosArmorHeadZ.Value = int.Parse(readFavStr[129]);
-                    tabSumosArmorBodyX.Value = int.Parse(readFavStr[130]);
-                    tabSumosArmorBodyY.Value = int.Parse(readFavStr[131]);
-                    tabSumosArmorBodyZ.Value = int.Parse(readFavStr[132]);
-                    tabSumosArmorLArmX.Value = int.Parse(readFavStr[133]);
-                    tabSumosArmorLArmY.Value = int.Parse(readFavStr[134]);
-                    tabSumosArmorLArmZ.Value = int.Parse(readFavStr[135]);
-                    tabSumosArmorRArmX.Value = int.Parse(readFavStr[136]);
-                    tabSumosArmorRArmY.Value = int.Parse(readFavStr[137]);
-                    tabSumosArmorRArmZ.Value = int.Parse(readFavStr[138]);
-                    tabSumosArmorLLegX.Value = int.Parse(readFavStr[139]);
-                    tabSumosArmorLLegY.Value = int.Parse(readFavStr[140]);
-                    tabSumosArmorLLegZ.Value = int.Parse(readFavStr[141]);
-                    tabSumosArmorRLegX.Value = int.Parse(readFavStr[142]);
-                    tabSumosArmorRLegY.Value = int.Parse(readFavStr[143]);
-                    tabSumosArmorRLegZ.Value = int.Parse(readFavStr[144]);
-                    tabSumosArmorRotationCheck.IsChecked = bool.Parse(readFavStr[145]);
-                    tabSumosArmorRotationX.Value = int.Parse(readFavStr[146]);
-                    tabSumosArmorRotationY.Value = int.Parse(readFavStr[147]);
-                    tabSumosArmorRotationZ.Value = int.Parse(readFavStr[148]);
-                    tabSumosArmorShowarmor.IsChecked = bool.Parse(readFavStr[149]);
-                    tabSumosArmorNochestplate.IsChecked = bool.Parse(readFavStr[150]);
-                    tabSumosArmorCant.IsChecked = bool.Parse(readFavStr[151]);
+                    tabSumosArmorCheck.IsChecked = bool.Parse(readFavStr[119]);
+                    tabSumosMarker.IsChecked = bool.Parse(readFavStr[120]);
+                    tabSumosArmorHeadX.Value = int.Parse(readFavStr[121]);
+                    tabSumosArmorHeadY.Value = int.Parse(readFavStr[122]);
+                    tabSumosArmorHeadZ.Value = int.Parse(readFavStr[123]);
+                    tabSumosArmorBodyX.Value = int.Parse(readFavStr[124]);
+                    tabSumosArmorBodyY.Value = int.Parse(readFavStr[125]);
+                    tabSumosArmorBodyZ.Value = int.Parse(readFavStr[126]);
+                    tabSumosArmorLArmX.Value = int.Parse(readFavStr[127]);
+                    tabSumosArmorLArmY.Value = int.Parse(readFavStr[128]);
+                    tabSumosArmorLArmZ.Value = int.Parse(readFavStr[129]);
+                    tabSumosArmorRArmX.Value = int.Parse(readFavStr[130]);
+                    tabSumosArmorRArmY.Value = int.Parse(readFavStr[131]);
+                    tabSumosArmorRArmZ.Value = int.Parse(readFavStr[132]);
+                    tabSumosArmorLLegX.Value = int.Parse(readFavStr[133]);
+                    tabSumosArmorLLegY.Value = int.Parse(readFavStr[134]);
+                    tabSumosArmorLLegZ.Value = int.Parse(readFavStr[135]);
+                    tabSumosArmorRLegX.Value = int.Parse(readFavStr[136]);
+                    tabSumosArmorRLegY.Value = int.Parse(readFavStr[137]);
+                    tabSumosArmorRLegZ.Value = int.Parse(readFavStr[138]);
+                    tabSumosArmorRotationCheck.IsChecked = bool.Parse(readFavStr[139]);
+                    tabSumosArmorRotationX.Value = int.Parse(readFavStr[140]);
+                    tabSumosArmorRotationY.Value = int.Parse(readFavStr[141]);
+                    tabSumosArmorRotationZ.Value = int.Parse(readFavStr[142]);
+                    tabSumosArmorShowarmor.IsChecked = bool.Parse(readFavStr[143]);
+                    tabSumosArmorNochestplate.IsChecked = bool.Parse(readFavStr[144]);
+                    tabSumosArmorCant.IsChecked = bool.Parse(readFavStr[145]);
                     //horse
-                    HorseTypeHorse.IsChecked = bool.Parse(readFavStr[152]);
-                    HorseTypeDonkey.IsChecked = bool.Parse(readFavStr[153]);
-                    HorseTypeMule.IsChecked = bool.Parse(readFavStr[154]);
-                    HorseTypeZombie.IsChecked = bool.Parse(readFavStr[155]);
-                    HorseTypeSkeleton.IsChecked = bool.Parse(readFavStr[156]);
-                    HorseHasChest.IsChecked = bool.Parse(readFavStr[157]);
-                    HorseTamedUUID.Text = readFavStr[158].Replace("|", "[MCH_SPLIT]");
-                    HorseVariantValue.Value = int.Parse(readFavStr[159]);
-                    HorseTemper.Value = int.Parse(readFavStr[160]);
-                    HorseSkeletonTrapTime.Value = int.Parse(readFavStr[161]);
-                    HorseTamed.IsChecked = bool.Parse(readFavStr[162]);
-                    HorseSkeletonTrap.IsChecked = bool.Parse(readFavStr[163]);
-                    HorseSaddle.IsChecked = bool.Parse(readFavStr[164]);
-                    HorseChestList[0] = readFavStr[165].Replace("|", "[MCH_SPLIT]");
-                    HorseChestList[1] = readFavStr[166].Replace("|", "[MCH_SPLIT]");
-                    HorseChestList[2] = readFavStr[167].Replace("|", "[MCH_SPLIT]");
-                    HorseChestList[3] = readFavStr[168].Replace("|", "[MCH_SPLIT]");
-                    HorseChestList[4] = readFavStr[169].Replace("|", "[MCH_SPLIT]");
-                    HorseChestList[5] = readFavStr[170].Replace("|", "[MCH_SPLIT]");
-                    HorseChestList[6] = readFavStr[171].Replace("|", "[MCH_SPLIT]");
-                    HorseChestList[7] = readFavStr[172].Replace("|", "[MCH_SPLIT]");
-                    HorseChestList[8] = readFavStr[173].Replace("|", "[MCH_SPLIT]");
-                    HorseChestList[9] = readFavStr[174].Replace("|", "[MCH_SPLIT]");
-                    HorseChestList[10] = readFavStr[175].Replace("|", "[MCH_SPLIT]");
-                    HorseChestList[11] = readFavStr[176].Replace("|", "[MCH_SPLIT]");
-                    HorseChestList[12] = readFavStr[177].Replace("|", "[MCH_SPLIT]");
-                    HorseChestList[13] = readFavStr[178].Replace("|", "[MCH_SPLIT]");
-                    HorseChestList[14] = readFavStr[179].Replace("|", "[MCH_SPLIT]");
-                    HorseChestList[15] = readFavStr[180].Replace("|", "[MCH_SPLIT]");
-                    HorseChestList[16] = readFavStr[181].Replace("|", "[MCH_SPLIT]");
+                    HorseTypeHorse.IsChecked = bool.Parse(readFavStr[146]);
+                    HorseTypeDonkey.IsChecked = bool.Parse(readFavStr[147]);
+                    HorseTypeMule.IsChecked = bool.Parse(readFavStr[148]);
+                    HorseTypeZombie.IsChecked = bool.Parse(readFavStr[149]);
+                    HorseTypeSkeleton.IsChecked = bool.Parse(readFavStr[150]);
+                    HorseHasChest.IsChecked = bool.Parse(readFavStr[151]);
+                    HorseTamedUUID.Text = readFavStr[152].Replace("|", "[MCH_SPLIT");
+                    HorseVariantValue.Value = int.Parse(readFavStr[153]);
+                    HorseTemper.Value = int.Parse(readFavStr[154]);
+                    HorseSkeletonTrapTime.Value = int.Parse(readFavStr[155]);
+                    HorseTamed.IsChecked = bool.Parse(readFavStr[156]);
+                    HorseSkeletonTrap.IsChecked = bool.Parse(readFavStr[157]);
+                    HorseSaddle.IsChecked = bool.Parse(readFavStr[158]);
+                    HorseChestList[-6] = readFavStr[159].Replace("|", "[MCH_SPLIT");
+                    HorseChestList[-5] = readFavStr[160].Replace("|", "[MCH_SPLIT");
+                    HorseChestList[-4] = readFavStr[161].Replace("|", "[MCH_SPLIT");
+                    HorseChestList[-3] = readFavStr[162].Replace("|", "[MCH_SPLIT");
+                    HorseChestList[-2] = readFavStr[163].Replace("|", "[MCH_SPLIT");
+                    HorseChestList[-1] = readFavStr[164].Replace("|", "[MCH_SPLIT");
+                    HorseChestList[0] = readFavStr[165].Replace("|", "[MCH_SPLIT");
+                    HorseChestList[1] = readFavStr[166].Replace("|", "[MCH_SPLIT");
+                    HorseChestList[2] = readFavStr[167].Replace("|", "[MCH_SPLIT");
+                    HorseChestList[3] = readFavStr[168].Replace("|", "[MCH_SPLIT");
+                    HorseChestList[4] = readFavStr[169].Replace("|", "[MCH_SPLIT");
+                    HorseChestList[5] = readFavStr[170].Replace("|", "[MCH_SPLIT");
+                    HorseChestList[6] = readFavStr[171].Replace("|", "[MCH_SPLIT");
+                    HorseChestList[7] = readFavStr[172].Replace("|", "[MCH_SPLIT");
+                    HorseChestList[8] = readFavStr[173].Replace("|", "[MCH_SPLIT");
+                    HorseChestList[9] = readFavStr[174].Replace("|", "[MCH_SPLIT");
+                    HorseChestList[10] = readFavStr[175].Replace("|", "[MCH_SPLIT");
                     //FallingSands
-                    FallingSandItemSel.SelectedIndex = int.Parse(readFavStr[182]);
-                    FallingSandMeta.Value = int.Parse(readFavStr[183]);
-                    FallingSandLifeTime.Value = int.Parse(readFavStr[184]);
-                    FallingSandIsDrop.IsChecked = bool.Parse(readFavStr[185]);
-                    FallingSandIsDamage.IsChecked = bool.Parse(readFavStr[186]);
-                    FallingSandMaxDamage.Value = int.Parse(readFavStr[187]);
-                    FallingSandDamageCount.Value = int.Parse(readFavStr[188]);
+                    FallingSandItemSel.SelectedIndex = int.Parse(readFavStr[176]);
+                    FallingSandMeta.Value = int.Parse(readFavStr[177]);
+                    FallingSandLifeTime.Value = int.Parse(readFavStr[178]);
+                    FallingSandIsDrop.IsChecked = bool.Parse(readFavStr[179]);
+                    FallingSandIsDamage.IsChecked = bool.Parse(readFavStr[180]);
+                    FallingSandMaxDamage.Value = int.Parse(readFavStr[181]);
+                    FallingSandDamageCount.Value = int.Parse(readFavStr[182]);
                     //ItemFrame
-                    FrameCoCheck.IsChecked = bool.Parse(readFavStr[189]);
-                    FrameX.Value = int.Parse(readFavStr[190]);
-                    FrameY.Value = int.Parse(readFavStr[191]);
-                    FrameZ.Value = int.Parse(readFavStr[192]);
-                    FrameFacing.Value = int.Parse(readFavStr[193]);
-                    FrameDropChance.Value = int.Parse(readFavStr[194]);
-                    FrameRouteCount.Value = int.Parse(readFavStr[195]);
-                    FrameHasItem.IsChecked = bool.Parse(readFavStr[196]);
-                    globalFrameItem[0] = readFavStr[197];
-                    globalFrameItem[1] = readFavStr[198];
-                    globalFrameItem[2] = readFavStr[199];
-                    globalFrameItem[3] = readFavStr[200];
+                    FrameCoCheck.IsChecked = bool.Parse(readFavStr[183]);
+                    FrameX.Value = int.Parse(readFavStr[184]);
+                    FrameY.Value = int.Parse(readFavStr[185]);
+                    FrameZ.Value = int.Parse(readFavStr[186]);
+                    FrameFacing.Value = int.Parse(readFavStr[187]);
+                    FrameDropChance.Value = int.Parse(readFavStr[188]);
+                    FrameRouteCount.Value = int.Parse(readFavStr[189]);
+                    FrameHasItem.IsChecked = bool.Parse(readFavStr[190]);
+                    globalFrameItem[-6] = readFavStr[191];
+                    globalFrameItem[-5] = readFavStr[192];
+                    globalFrameItem[-4] = readFavStr[193];
+                    globalFrameItem[-3] = readFavStr[194];
                     //
                     this.ShowMessageAsync("", "已读取：" + loadNameList[loadResultIndex], MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel, AnimateShow = false, AnimateHide = false });
                 }
@@ -3639,7 +3638,11 @@ namespace WpfMinecraftCommandHelper2
             }
             else
             {
-                string finalRidingString = "/summon FallingSand ~ ~1 ~ {id:FallingSand";
+                string finalRidingString = "/summon minecraft:falling_block ~ ~1 ~ {id:minecraft:falling_block";
+                if (mcVersion == "1.8" || mcVersion == "1.9/1.10")
+                {
+                    finalRidingString = "/summon FallingSand ~ ~1 ~ {id:FallingSand";
+                }
                 string finalRidingBackend = "}";
                 for (int i = 0; i < tabSumosRidingV1.Maximum + 1; i++)
                 {

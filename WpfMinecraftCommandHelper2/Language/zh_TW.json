@@ -5,7 +5,7 @@
     "AuthorStr": "語言文件作者：",
     "Author": "IceLitty",
     "LastUpdateStr": "最後更新：",
-    "LastUpdate": "2016.09.03",
+    "LastUpdate": "2016.11.20",
 
     "FloatConfirm": "確認",
     "FloatCancel": "取消",
@@ -23,6 +23,7 @@
     "FloatUpdateError1": "檢測更新失敗，請告知作者:",
     "FloatUpdateError2": "更新內容分析失敗，請告知作者:",
     "FloatPassVersion": "跳過當前版本",
+    "FloatFavouriteFileVersionOld": "界面保存文件版本過舊，只能在舊版本中使用！",
 
     "BtnAt": "獲取AT",
     "BtnClear": "清空",
@@ -500,12 +501,12 @@
     "ReplaceItemBlock": "容器方塊",
     "ReplaceItemUseNowPosition": "坐標采用當前坐標",
     "ReplaceItemX": "坐標X:",
-    "ReplaceItemNBTGet": "Enchant&NameLore&Attribute獲取",
+    "ReplaceItemNBTGet": "物品全屬性獲取",
     "ReplaceItemMeta": "請填寫Meta/Damage/附加值：",
     "ReplaceItemCount": "請填寫數量：",
-    "ReplaceItemHasEnchant": "有附魔（請點擊上方Enchant按鈕獲取代碼）",
-    "ReplaceItemHasNameLore": "有自定義名稱或Lore（同上）",
-    "ReplaceItemHasAttribute": "有自定義物品屬性（同上）",
+    "ReplaceItemHasEnchant": "有附魔",
+    "ReplaceItemHasNameLore": "有自定義名稱或Lore",
+    "ReplaceItemHasAttribute": "有自定義物品屬性",
     "ReplaceItemCantBroke": "不可破壞",
 
     "SpreadPlayerTitle": "隨機傳送",

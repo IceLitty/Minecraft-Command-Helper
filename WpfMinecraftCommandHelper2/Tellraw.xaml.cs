@@ -429,11 +429,12 @@ namespace WpfMinecraftCommandHelper2
         private void createBtn_Click(object sender, RoutedEventArgs e)
         {
             AllSelData asd = new AllSelData();
-            if (rbTellraw.IsChecked.Value || rbTitle.IsChecked.Value || rbSubtitle.IsChecked.Value)
+            if (rbTellraw.IsChecked.Value || rbTitle.IsChecked.Value || rbSubtitle.IsChecked.Value || rbActionbar.IsChecked.Value)
             {
                 if (rbTellraw.IsChecked.Value) { finalStr = "/tellraw @a "; }
                 if (rbTitle.IsChecked.Value) { finalStr = "/title @a title "; }
                 if (rbSubtitle.IsChecked.Value) { finalStr = "/title @a subtitle "; }
+                if (rbActionbar.IsChecked.Value) { finalStr = "/title @a actionbar "; }
                 finalStr += "{\"text\":\"\",\"extra\":[";
                 for (int i = 0; i < text.Count(); i++)
                 {
@@ -676,6 +677,13 @@ namespace WpfMinecraftCommandHelper2
         }
 
         private void rbSubtitle_Click(object sender, RoutedEventArgs e)
+        {
+            PageNum.IsEnabled = false;
+            cCE.IsEnabled = false;
+            cHE.IsEnabled = false;
+        }
+
+        private void rbActionbar_Click(object sender, RoutedEventArgs e)
         {
             PageNum.IsEnabled = false;
             cCE.IsEnabled = false;

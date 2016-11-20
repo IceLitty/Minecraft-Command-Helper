@@ -186,7 +186,6 @@
                         <Controls:NumericUpDown x:Name="tabSumosMotionX" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="80,3,326,39" Height="32" Value="0" IsEnabled="False" FontSize="14" />
                         <CheckBox x:Name="tabSumosDirection" Content="方向" HorizontalAlignment="Left" Margin="0,47,0,0" VerticalAlignment="Top" FontSize="14" Click="tabSumosDirection_Click"/>
                         <Controls:NumericUpDown x:Name="tabSumosDirectionY" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="223,40,167,2" Height="32" Value="0" IsEnabled="False" FontSize="14" />
-                        <Controls:NumericUpDown x:Name="tabSumosDirectionZ" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="382,40,10,2" Height="32" Value="0" IsEnabled="False" FontSize="14" />
                         <Controls:NumericUpDown x:Name="tabSumosDirectionX" Minimum="-360" Maximum="360" Interval="0.2" StringFormat="" Margin="80,40,326,2" Height="32" Value="0" IsEnabled="False" FontSize="14" />
                     </Grid>
                     <GroupBox x:Name="groupBox" Header="Extra" HorizontalAlignment="Left" Margin="527,258,0,0" VerticalAlignment="Top" Height="280" Width="554">

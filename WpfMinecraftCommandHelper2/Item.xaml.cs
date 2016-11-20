@@ -42,6 +42,7 @@ namespace WpfMinecraftCommandHelper2
         private string FloatSearch1 = "正在显示：";
         private string FloatSearch2 = "的搜索结果。";
         private string FloatSaveFileCantFind = "文件未找到，请确认文件名是否符合规范。";
+        private string FloatFavouriteFileVersionOld = "";
 
         private void appLanguage()
         {
@@ -130,6 +131,7 @@ namespace WpfMinecraftCommandHelper2
                 fixColorBtn.ToolTip = templang[79];
                 SpawnEgg.Content = templang[80];
                 SpawnEgg.ToolTip = templang[81];
+                FloatFavouriteFileVersionOld = templang[82];
             } catch (Exception) { /* throw; */ }
         }
 
@@ -359,6 +361,7 @@ namespace WpfMinecraftCommandHelper2
                 if (tabItemEnchant7.IsChecked.Value) { enchant += "{id:7s,lvl:" + tabItemEnNum7.Value.Value + "s},"; globalEnchList += "thorns,"; }
                 if (tabItemEnchant8.IsChecked.Value) { enchant += "{id:8s,lvl:" + tabItemEnNum8.Value.Value + "s},"; globalEnchList += "depth_strider,"; }
                 if (tabItemEnchant9.IsChecked.Value) { enchant += "{id:9s,lvl:" + tabItemEnNum9.Value.Value + "s},"; globalEnchList += "frost_walker,"; }
+                if (tabItemEnchant10.IsChecked.Value) { enchant += "{id:10s,lvl:" + tabItemEnNum10.Value.Value + "s},"; globalEnchList += "binding_curse,"; }
                 if (tabItemEnchant16.IsChecked.Value) { enchant += "{id:16s,lvl:" + tabItemEnNum16.Value.Value + "s},"; globalEnchList += "sharpness,"; }
                 if (tabItemEnchant17.IsChecked.Value) { enchant += "{id:17s,lvl:" + tabItemEnNum17.Value.Value + "s},"; globalEnchList += "smite,"; }
                 if (tabItemEnchant18.IsChecked.Value) { enchant += "{id:18s,lvl:" + tabItemEnNum18.Value.Value + "s},"; globalEnchList += "bane_of_arthropods,"; }
@@ -376,6 +379,7 @@ namespace WpfMinecraftCommandHelper2
                 if (tabItemEnchant61.IsChecked.Value) { enchant += "{id:61s,lvl:" + tabItemEnNum61.Value.Value + "s},"; globalEnchList += "luck_of_the_sea,"; }
                 if (tabItemEnchant62.IsChecked.Value) { enchant += "{id:62s,lvl:" + tabItemEnNum62.Value.Value + "s},"; globalEnchList += "lure,"; }
                 if (tabItemEnchant70.IsChecked.Value) { enchant += "{id:70s,lvl:" + tabItemEnNum70.Value.Value + "s},"; globalEnchList += "mending,"; }
+                if (tabItemEnchant71.IsChecked.Value) { enchant += "{id:71s,lvl:" + tabItemEnNum71.Value.Value + "s},"; globalEnchList += "vanishing_curse,"; }
                 if (globalEnchList.Length != 0) globalEnchList = globalEnchList.Substring(0, globalEnchList.Length - 1);
                 if (enchant != "")
                 {
@@ -840,17 +844,9 @@ namespace WpfMinecraftCommandHelper2
         private void ColorGetBtn_Click(object sender, RoutedEventArgs e)
         {
             ColorSel csl = new ColorSel();
-            if (tempColor[0] != 255 && tempColor[1] != 255 && tempColor[2] != 255)
-            {
-                csl.setColor(tempColor[0], tempColor[1], tempColor[2]);
-            }
+            csl.setColor(int.Parse(globalColor));
             csl.ShowDialog();
-            byte[] colorList = csl.reColor();
-            tempColor[0] = colorList[0];
-            tempColor[1] = colorList[1];
-            tempColor[2] = colorList[2];
-            string colorhex = colorList[0].ToString("x") + colorList[1].ToString("x") + colorList[2].ToString("x");
-            globalColor = Convert.ToInt32(colorhex, 16).ToString();
+            globalColor = csl.reColorInt().ToString();
         }
 
         private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
@@ -891,10 +887,17 @@ namespace WpfMinecraftCommandHelper2
                 showFixColorWindow();
             }
         }
+        
+        private int FavFileVersion = 11;
 
         private void saveFavBtn_Click(object sender, RoutedEventArgs e)
         {
-            string saveFavStr = globalItemSel + "|" + globalItemCount + "|" + globalItemSelMeta + "|" + globalHideSelIndex;
+            string saveFavStr = string.Empty;
+            //version
+            saveFavStr += FavFileVersion;
+            //api
+            saveFavStr += "|" + globalItemSel + "|" + globalItemCount + "|" + globalItemSelMeta + "|" + globalHideSelIndex;
+            //
             if (tabItemEnchantCheck.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
             if (tabItemEnchant1.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
             saveFavStr += "|" + tabItemEnNum1.Value.Value.ToString();
@@ -1049,115 +1052,120 @@ namespace WpfMinecraftCommandHelper2
                         }
                     }
                     string[] readFavStr = txt[0].Split('|');
-                    globalItemSel = int.Parse(readFavStr[0]);
+                    //version
+                    int tempFavFileVersion = int.Parse(readFavStr[0]);
+                    if (tempFavFileVersion < FavFileVersion) this.ShowMessageAsync("", FloatFavouriteFileVersionOld, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
+                    //api
+                    globalItemSel = int.Parse(readFavStr[1]);
                     tabItemSel.SelectedIndex = globalItemSel;
-                    globalItemCount = int.Parse(readFavStr[1]);
-                    globalItemSelMeta = int.Parse(readFavStr[2]);
-                    globalHideSelIndex = int.Parse(readFavStr[3]);
+                    globalItemCount = int.Parse(readFavStr[2]);
+                    globalItemSelMeta = int.Parse(readFavStr[3]);
+                    globalHideSelIndex = int.Parse(readFavStr[4]);
                     tabItemHide.SelectedIndex = globalHideSelIndex;
-                    if (int.Parse(readFavStr[4]) == 1) tabItemEnchantCheck.IsChecked = true; else tabItemEnchantCheck.IsChecked = false;
-                    if (int.Parse(readFavStr[5]) == 1) tabItemEnchant1.IsChecked = true; else tabItemEnchant1.IsChecked = false;
-                    tabItemEnNum1.Value = int.Parse(readFavStr[6]);
-                    if (int.Parse(readFavStr[7]) == 1) tabItemEnchant2.IsChecked = true; else tabItemEnchant2.IsChecked = false;
-                    tabItemEnNum2.Value = int.Parse(readFavStr[8]);
-                    if (int.Parse(readFavStr[9]) == 1) tabItemEnchant3.IsChecked = true; else tabItemEnchant3.IsChecked = false;
-                    tabItemEnNum3.Value = int.Parse(readFavStr[10]);
-                    if (int.Parse(readFavStr[11]) == 1) tabItemEnchant4.IsChecked = true; else tabItemEnchant4.IsChecked = false;
-                    tabItemEnNum4.Value = int.Parse(readFavStr[12]);
-                    if (int.Parse(readFavStr[13]) == 1) tabItemEnchant5.IsChecked = true; else tabItemEnchant5.IsChecked = false;
-                    tabItemEnNum5.Value = int.Parse(readFavStr[14]);
-                    if (int.Parse(readFavStr[15]) == 1) tabItemEnchant6.IsChecked = true; else tabItemEnchant6.IsChecked = false;
-                    tabItemEnNum6.Value = int.Parse(readFavStr[16]);
-                    if (int.Parse(readFavStr[17]) == 1) tabItemEnchant7.IsChecked = true; else tabItemEnchant7.IsChecked = false;
-                    tabItemEnNum7.Value = int.Parse(readFavStr[18]);
-                    if (int.Parse(readFavStr[19]) == 1) tabItemEnchant8.IsChecked = true; else tabItemEnchant8.IsChecked = false;
-                    tabItemEnNum8.Value = int.Parse(readFavStr[20]);
-                    if (int.Parse(readFavStr[21]) == 1) tabItemEnchant16.IsChecked = true; else tabItemEnchant16.IsChecked = false;
-                    tabItemEnNum16.Value = int.Parse(readFavStr[22]);
-                    if (int.Parse(readFavStr[23]) == 1) tabItemEnchant17.IsChecked = true; else tabItemEnchant17.IsChecked = false;
-                    tabItemEnNum17.Value = int.Parse(readFavStr[24]);
-                    if (int.Parse(readFavStr[25]) == 1) tabItemEnchant18.IsChecked = true; else tabItemEnchant18.IsChecked = false;
-                    tabItemEnNum18.Value = int.Parse(readFavStr[26]);
-                    if (int.Parse(readFavStr[27]) == 1) tabItemEnchant19.IsChecked = true; else tabItemEnchant19.IsChecked = false;
-                    tabItemEnNum19.Value = int.Parse(readFavStr[28]);
-                    if (int.Parse(readFavStr[29]) == 1) tabItemEnchant20.IsChecked = true; else tabItemEnchant20.IsChecked = false;
-                    tabItemEnNum20.Value = int.Parse(readFavStr[30]);
-                    if (int.Parse(readFavStr[31]) == 1) tabItemEnchant21.IsChecked = true; else tabItemEnchant21.IsChecked = false;
-                    tabItemEnNum21.Value = int.Parse(readFavStr[32]);
-                    if (int.Parse(readFavStr[33]) == 1) tabItemEnchant32.IsChecked = true; else tabItemEnchant32.IsChecked = false;
-                    tabItemEnNum32.Value = int.Parse(readFavStr[34]);
-                    if (int.Parse(readFavStr[35]) == 1) tabItemEnchant33.IsChecked = true; else tabItemEnchant33.IsChecked = false;
-                    tabItemEnNum33.Value = int.Parse(readFavStr[36]);
-                    if (int.Parse(readFavStr[37]) == 1) tabItemEnchant34.IsChecked = true; else tabItemEnchant34.IsChecked = false;
-                    tabItemEnNum34.Value = int.Parse(readFavStr[38]);
-                    if (int.Parse(readFavStr[39]) == 1) tabItemEnchant35.IsChecked = true; else tabItemEnchant35.IsChecked = false;
-                    tabItemEnNum35.Value = int.Parse(readFavStr[40]);
-                    if (int.Parse(readFavStr[41]) == 1) tabItemEnchant48.IsChecked = true; else tabItemEnchant48.IsChecked = false;
-                    tabItemEnNum48.Value = int.Parse(readFavStr[42]);
-                    if (int.Parse(readFavStr[43]) == 1) tabItemEnchant49.IsChecked = true; else tabItemEnchant49.IsChecked = false;
-                    tabItemEnNum49.Value = int.Parse(readFavStr[44]);
-                    if (int.Parse(readFavStr[45]) == 1) tabItemEnchant50.IsChecked = true; else tabItemEnchant50.IsChecked = false;
-                    tabItemEnNum50.Value = int.Parse(readFavStr[46]);
-                    if (int.Parse(readFavStr[47]) == 1) tabItemEnchant51.IsChecked = true; else tabItemEnchant51.IsChecked = false;
-                    tabItemEnNum51.Value = int.Parse(readFavStr[48]);
-                    if (int.Parse(readFavStr[49]) == 1) tabItemEnchant61.IsChecked = true; else tabItemEnchant61.IsChecked = false;
-                    tabItemEnNum61.Value = int.Parse(readFavStr[50]);
-                    if (int.Parse(readFavStr[51]) == 1) tabItemEnchant62.IsChecked = true; else tabItemEnchant62.IsChecked = false;
-                    tabItemEnNum62.Value = int.Parse(readFavStr[52]);
-                    if (int.Parse(readFavStr[53]) == 1) tabItemEnchant0.IsChecked = true; else tabItemEnchant0.IsChecked = false;
-                    tabItemEnNum0.Value = int.Parse(readFavStr[54]);
-                    if (int.Parse(readFavStr[55]) == 1) tabItemEnchant9.IsChecked = true; else tabItemEnchant9.IsChecked = false;
-                    tabItemEnNum9.Value = int.Parse(readFavStr[56]);
-                    if (int.Parse(readFavStr[57]) == 1) tabItemEnchant70.IsChecked = true; else tabItemEnchant70.IsChecked = false;
-                    tabItemEnNum70.Value = int.Parse(readFavStr[58]);
-                    if (int.Parse(readFavStr[59]) == 1) tabItemNLCheck.IsChecked = true; else tabItemNLCheck.IsChecked = false;
-                    if (int.Parse(readFavStr[60]) == 1) tabItemNameCheck.IsChecked = true; else tabItemNameCheck.IsChecked = false;
-                    tabItemName.Text = readFavStr[61].Replace("[MCH_SPLIT]", "|");
-                    if (int.Parse(readFavStr[62]) == 1) tabItemLoreCheck.IsChecked = true; else tabItemLoreCheck.IsChecked = false;
-                    tabItemLore.Text = readFavStr[63].Replace("[MCH_SPLIT]", "|").Replace("[MCH_ENTER]", "\r\n");
-                    if (int.Parse(readFavStr[64]) == 1) tabItemColorCheck.IsChecked = true; else tabItemColorCheck.IsChecked = false;
-                    globalColor = readFavStr[65];
-                    if (int.Parse(readFavStr[66]) == 1) tabItemAttrCheck.IsChecked = true; else tabItemAttrCheck.IsChecked = false;
-                    if (int.Parse(readFavStr[67]) == 1) tabItemAttrAttackCheck.IsChecked = true; else tabItemAttrAttackCheck.IsChecked = false;
-                    tabItemAttrAttack.Value = int.Parse(readFavStr[68]);
-                    if (int.Parse(readFavStr[69]) == 1) tabItemAttrAttackPer.IsChecked = true; else tabItemAttrAttackPer.IsChecked = false;
-                    if (int.Parse(readFavStr[70]) == 1) tabItemAttrRangeCheck.IsChecked = true; else tabItemAttrRangeCheck.IsChecked = false;
-                    tabItemAttrRange.Value = int.Parse(readFavStr[71]);
-                    if (int.Parse(readFavStr[72]) == 1) tabItemAttrRangePer.IsChecked = true; else tabItemAttrRangePer.IsChecked = false;
-                    if (int.Parse(readFavStr[73]) == 1) tabItemAttrHealthCheck.IsChecked = true; else tabItemAttrHealthCheck.IsChecked = false;
-                    tabItemAttrHealth.Value = int.Parse(readFavStr[74]);
-                    if (int.Parse(readFavStr[75]) == 1) tabItemAttrHealthPer.IsChecked = true; else tabItemAttrHealthPer.IsChecked = false;
-                    if (int.Parse(readFavStr[76]) == 1) tabItemAttrFBackCheck.IsChecked = true; else tabItemAttrFBackCheck.IsChecked = false;
-                    tabItemAttrFBack.Value = int.Parse(readFavStr[77]);
-                    if (int.Parse(readFavStr[78]) == 1) tabItemAttrFBackPer.IsChecked = true; else tabItemAttrFBackPer.IsChecked = false;
-                    if (int.Parse(readFavStr[79]) == 1) tabItemAttrMSpeedCheck.IsChecked = true; else tabItemAttrMSpeedCheck.IsChecked = false;
-                    tabItemAttrMSpeed.Value = int.Parse(readFavStr[80]);
-                    if (int.Parse(readFavStr[81]) == 1) tabItemAttrMSpeedPer.IsChecked = true; else tabItemAttrMSpeedPer.IsChecked = false;
-                    if (int.Parse(readFavStr[82]) == 1) tabItemAttrLuckCheck.IsChecked = true; else tabItemAttrLuckCheck.IsChecked = false;
-                    tabItemAttrLuck.Value = int.Parse(readFavStr[83]);
-                    if (int.Parse(readFavStr[84]) == 1) tabItemAttrLuckPer.IsChecked = true; else tabItemAttrLuckPer.IsChecked = false;
-                    if (int.Parse(readFavStr[85]) == 1) tabItemAttrArmorCheck.IsChecked = true; else tabItemAttrArmorCheck.IsChecked = false;
-                    tabItemAttrArmor.Value = int.Parse(readFavStr[86]);
-                    if (int.Parse(readFavStr[87]) == 1) tabItemAttrArmorPer.IsChecked = true; else tabItemAttrArmorPer.IsChecked = false;
-                    if (int.Parse(readFavStr[88]) == 1) tabItemAttrArmorToughnessCheck.IsChecked = true; else tabItemAttrArmorToughnessCheck.IsChecked = false;
-                    tabItemAttrArmorToughness.Value = int.Parse(readFavStr[89]);
-                    if (int.Parse(readFavStr[90]) == 1) tabItemAttrArmorToughnessPer.IsChecked = true; else tabItemAttrArmorToughnessPer.IsChecked = false;
-                    if (int.Parse(readFavStr[91]) == 1) tabItemAttrAtkSpeedCheck.IsChecked = true; else tabItemAttrAtkSpeedCheck.IsChecked = false;
-                    tabItemAttrAtkSpeed.Value = int.Parse(readFavStr[92]);
-                    if (int.Parse(readFavStr[93]) == 1) tabItemAttrAtkSpeedPer.IsChecked = true; else tabItemAttrAtkSpeedPer.IsChecked = false;
-                    if (int.Parse(readFavStr[94]) == 1) tabItemUnbreaking.IsChecked = true; else tabItemUnbreaking.IsChecked = false;
-                    if (int.Parse(readFavStr[95]) == 1) AttrMainHand.IsChecked = true; else AttrMainHand.IsChecked = false;
-                    if (int.Parse(readFavStr[96]) == 1) AttrOffHand.IsChecked = true; else AttrOffHand.IsChecked = false;
-                    if (int.Parse(readFavStr[97]) == 1) AttrHead.IsChecked = true; else AttrHead.IsChecked = false;
-                    if (int.Parse(readFavStr[98]) == 1) AttrChest.IsChecked = true; else AttrChest.IsChecked = false;
-                    if (int.Parse(readFavStr[99]) == 1) AttrLegs.IsChecked = true; else AttrLegs.IsChecked = false;
-                    if (int.Parse(readFavStr[100]) == 1) AttrFeet.IsChecked = true; else AttrFeet.IsChecked = false;
-                    if (int.Parse(readFavStr[101]) == 1) AttrAll.IsChecked = true; else AttrAll.IsChecked = false;
-                    if (int.Parse(readFavStr[102]) == 1) tabItemRepairCostCheck.IsChecked = true; else tabItemRepairCostCheck.IsChecked = false;
-                    tabItemRepairCost.Value = int.Parse(readFavStr[103]);
-                    atBox.Text = readFavStr[104];
-                    tabItemCount.Value = int.Parse(readFavStr[105]);
-                    tabItemMeta.Value = int.Parse(readFavStr[106]);
+                    //
+                    if (int.Parse(readFavStr[5]) == 1) tabItemEnchantCheck.IsChecked = true; else tabItemEnchantCheck.IsChecked = false;
+                    if (int.Parse(readFavStr[6]) == 1) tabItemEnchant1.IsChecked = true; else tabItemEnchant1.IsChecked = false;
+                    tabItemEnNum1.Value = int.Parse(readFavStr[7]);
+                    if (int.Parse(readFavStr[8]) == 1) tabItemEnchant2.IsChecked = true; else tabItemEnchant2.IsChecked = false;
+                    tabItemEnNum2.Value = int.Parse(readFavStr[9]);
+                    if (int.Parse(readFavStr[10]) == 1) tabItemEnchant3.IsChecked = true; else tabItemEnchant3.IsChecked = false;
+                    tabItemEnNum3.Value = int.Parse(readFavStr[11]);
+                    if (int.Parse(readFavStr[12]) == 1) tabItemEnchant4.IsChecked = true; else tabItemEnchant4.IsChecked = false;
+                    tabItemEnNum4.Value = int.Parse(readFavStr[13]);
+                    if (int.Parse(readFavStr[14]) == 1) tabItemEnchant5.IsChecked = true; else tabItemEnchant5.IsChecked = false;
+                    tabItemEnNum5.Value = int.Parse(readFavStr[15]);
+                    if (int.Parse(readFavStr[16]) == 1) tabItemEnchant6.IsChecked = true; else tabItemEnchant6.IsChecked = false;
+                    tabItemEnNum6.Value = int.Parse(readFavStr[17]);
+                    if (int.Parse(readFavStr[18]) == 1) tabItemEnchant7.IsChecked = true; else tabItemEnchant7.IsChecked = false;
+                    tabItemEnNum7.Value = int.Parse(readFavStr[19]);
+                    if (int.Parse(readFavStr[20]) == 1) tabItemEnchant8.IsChecked = true; else tabItemEnchant8.IsChecked = false;
+                    tabItemEnNum8.Value = int.Parse(readFavStr[21]);
+                    if (int.Parse(readFavStr[22]) == 1) tabItemEnchant16.IsChecked = true; else tabItemEnchant16.IsChecked = false;
+                    tabItemEnNum16.Value = int.Parse(readFavStr[23]);
+                    if (int.Parse(readFavStr[24]) == 1) tabItemEnchant17.IsChecked = true; else tabItemEnchant17.IsChecked = false;
+                    tabItemEnNum17.Value = int.Parse(readFavStr[25]);
+                    if (int.Parse(readFavStr[26]) == 1) tabItemEnchant18.IsChecked = true; else tabItemEnchant18.IsChecked = false;
+                    tabItemEnNum18.Value = int.Parse(readFavStr[27]);
+                    if (int.Parse(readFavStr[28]) == 1) tabItemEnchant19.IsChecked = true; else tabItemEnchant19.IsChecked = false;
+                    tabItemEnNum19.Value = int.Parse(readFavStr[29]);
+                    if (int.Parse(readFavStr[30]) == 1) tabItemEnchant20.IsChecked = true; else tabItemEnchant20.IsChecked = false;
+                    tabItemEnNum20.Value = int.Parse(readFavStr[31]);
+                    if (int.Parse(readFavStr[32]) == 1) tabItemEnchant21.IsChecked = true; else tabItemEnchant21.IsChecked = false;
+                    tabItemEnNum21.Value = int.Parse(readFavStr[33]);
+                    if (int.Parse(readFavStr[34]) == 1) tabItemEnchant32.IsChecked = true; else tabItemEnchant32.IsChecked = false;
+                    tabItemEnNum32.Value = int.Parse(readFavStr[35]);
+                    if (int.Parse(readFavStr[36]) == 1) tabItemEnchant33.IsChecked = true; else tabItemEnchant33.IsChecked = false;
+                    tabItemEnNum33.Value = int.Parse(readFavStr[37]);
+                    if (int.Parse(readFavStr[38]) == 1) tabItemEnchant34.IsChecked = true; else tabItemEnchant34.IsChecked = false;
+                    tabItemEnNum34.Value = int.Parse(readFavStr[39]);
+                    if (int.Parse(readFavStr[40]) == 1) tabItemEnchant35.IsChecked = true; else tabItemEnchant35.IsChecked = false;
+                    tabItemEnNum35.Value = int.Parse(readFavStr[41]);
+                    if (int.Parse(readFavStr[42]) == 1) tabItemEnchant48.IsChecked = true; else tabItemEnchant48.IsChecked = false;
+                    tabItemEnNum48.Value = int.Parse(readFavStr[43]);
+                    if (int.Parse(readFavStr[44]) == 1) tabItemEnchant49.IsChecked = true; else tabItemEnchant49.IsChecked = false;
+                    tabItemEnNum49.Value = int.Parse(readFavStr[45]);
+                    if (int.Parse(readFavStr[46]) == 1) tabItemEnchant50.IsChecked = true; else tabItemEnchant50.IsChecked = false;
+                    tabItemEnNum50.Value = int.Parse(readFavStr[47]);
+                    if (int.Parse(readFavStr[48]) == 1) tabItemEnchant51.IsChecked = true; else tabItemEnchant51.IsChecked = false;
+                    tabItemEnNum51.Value = int.Parse(readFavStr[49]);
+                    if (int.Parse(readFavStr[50]) == 1) tabItemEnchant61.IsChecked = true; else tabItemEnchant61.IsChecked = false;
+                    tabItemEnNum61.Value = int.Parse(readFavStr[51]);
+                    if (int.Parse(readFavStr[52]) == 1) tabItemEnchant62.IsChecked = true; else tabItemEnchant62.IsChecked = false;
+                    tabItemEnNum62.Value = int.Parse(readFavStr[53]);
+                    if (int.Parse(readFavStr[54]) == 1) tabItemEnchant0.IsChecked = true; else tabItemEnchant0.IsChecked = false;
+                    tabItemEnNum0.Value = int.Parse(readFavStr[55]);
+                    if (int.Parse(readFavStr[56]) == 1) tabItemEnchant9.IsChecked = true; else tabItemEnchant9.IsChecked = false;
+                    tabItemEnNum9.Value = int.Parse(readFavStr[57]);
+                    if (int.Parse(readFavStr[58]) == 1) tabItemEnchant70.IsChecked = true; else tabItemEnchant70.IsChecked = false;
+                    tabItemEnNum70.Value = int.Parse(readFavStr[59]);
+                    if (int.Parse(readFavStr[60]) == 1) tabItemNLCheck.IsChecked = true; else tabItemNLCheck.IsChecked = false;
+                    if (int.Parse(readFavStr[61]) == 1) tabItemNameCheck.IsChecked = true; else tabItemNameCheck.IsChecked = false;
+                    tabItemName.Text = readFavStr[62].Replace("[MCH_SPLIT", "|");
+                    if (int.Parse(readFavStr[63]) == 1) tabItemLoreCheck.IsChecked = true; else tabItemLoreCheck.IsChecked = false;
+                    tabItemLore.Text = readFavStr[64].Replace("[MCH_SPLIT", "|").Replace("[MCH_ENTER", "\r\n");
+                    if (int.Parse(readFavStr[65]) == 1) tabItemColorCheck.IsChecked = true; else tabItemColorCheck.IsChecked = false;
+                    globalColor = readFavStr[66];
+                    if (int.Parse(readFavStr[67]) == 1) tabItemAttrCheck.IsChecked = true; else tabItemAttrCheck.IsChecked = false;
+                    if (int.Parse(readFavStr[68]) == 1) tabItemAttrAttackCheck.IsChecked = true; else tabItemAttrAttackCheck.IsChecked = false;
+                    tabItemAttrAttack.Value = int.Parse(readFavStr[69]);
+                    if (int.Parse(readFavStr[70]) == 1) tabItemAttrAttackPer.IsChecked = true; else tabItemAttrAttackPer.IsChecked = false;
+                    if (int.Parse(readFavStr[71]) == 1) tabItemAttrRangeCheck.IsChecked = true; else tabItemAttrRangeCheck.IsChecked = false;
+                    tabItemAttrRange.Value = int.Parse(readFavStr[72]);
+                    if (int.Parse(readFavStr[73]) == 1) tabItemAttrRangePer.IsChecked = true; else tabItemAttrRangePer.IsChecked = false;
+                    if (int.Parse(readFavStr[74]) == 1) tabItemAttrHealthCheck.IsChecked = true; else tabItemAttrHealthCheck.IsChecked = false;
+                    tabItemAttrHealth.Value = int.Parse(readFavStr[75]);
+                    if (int.Parse(readFavStr[76]) == 1) tabItemAttrHealthPer.IsChecked = true; else tabItemAttrHealthPer.IsChecked = false;
+                    if (int.Parse(readFavStr[77]) == 1) tabItemAttrFBackCheck.IsChecked = true; else tabItemAttrFBackCheck.IsChecked = false;
+                    tabItemAttrFBack.Value = int.Parse(readFavStr[78]);
+                    if (int.Parse(readFavStr[79]) == 1) tabItemAttrFBackPer.IsChecked = true; else tabItemAttrFBackPer.IsChecked = false;
+                    if (int.Parse(readFavStr[80]) == 1) tabItemAttrMSpeedCheck.IsChecked = true; else tabItemAttrMSpeedCheck.IsChecked = false;
+                    tabItemAttrMSpeed.Value = int.Parse(readFavStr[81]);
+                    if (int.Parse(readFavStr[82]) == 1) tabItemAttrMSpeedPer.IsChecked = true; else tabItemAttrMSpeedPer.IsChecked = false;
+                    if (int.Parse(readFavStr[83]) == 1) tabItemAttrLuckCheck.IsChecked = true; else tabItemAttrLuckCheck.IsChecked = false;
+                    tabItemAttrLuck.Value = int.Parse(readFavStr[84]);
+                    if (int.Parse(readFavStr[85]) == 1) tabItemAttrLuckPer.IsChecked = true; else tabItemAttrLuckPer.IsChecked = false;
+                    if (int.Parse(readFavStr[86]) == 1) tabItemAttrArmorCheck.IsChecked = true; else tabItemAttrArmorCheck.IsChecked = false;
+                    tabItemAttrArmor.Value = int.Parse(readFavStr[87]);
+                    if (int.Parse(readFavStr[88]) == 1) tabItemAttrArmorPer.IsChecked = true; else tabItemAttrArmorPer.IsChecked = false;
+                    if (int.Parse(readFavStr[89]) == 1) tabItemAttrArmorToughnessCheck.IsChecked = true; else tabItemAttrArmorToughnessCheck.IsChecked = false;
+                    tabItemAttrArmorToughness.Value = int.Parse(readFavStr[90]);
+                    if (int.Parse(readFavStr[91]) == 1) tabItemAttrArmorToughnessPer.IsChecked = true; else tabItemAttrArmorToughnessPer.IsChecked = false;
+                    if (int.Parse(readFavStr[92]) == 1) tabItemAttrAtkSpeedCheck.IsChecked = true; else tabItemAttrAtkSpeedCheck.IsChecked = false;
+                    tabItemAttrAtkSpeed.Value = int.Parse(readFavStr[93]);
+                    if (int.Parse(readFavStr[94]) == 1) tabItemAttrAtkSpeedPer.IsChecked = true; else tabItemAttrAtkSpeedPer.IsChecked = false;
+                    if (int.Parse(readFavStr[95]) == 1) tabItemUnbreaking.IsChecked = true; else tabItemUnbreaking.IsChecked = false;
+                    if (int.Parse(readFavStr[96]) == 1) AttrMainHand.IsChecked = true; else AttrMainHand.IsChecked = false;
+                    if (int.Parse(readFavStr[97]) == 1) AttrOffHand.IsChecked = true; else AttrOffHand.IsChecked = false;
+                    if (int.Parse(readFavStr[98]) == 1) AttrHead.IsChecked = true; else AttrHead.IsChecked = false;
+                    if (int.Parse(readFavStr[99]) == 1) AttrChest.IsChecked = true; else AttrChest.IsChecked = false;
+                    if (int.Parse(readFavStr[100]) == 1) AttrLegs.IsChecked = true; else AttrLegs.IsChecked = false;
+                    if (int.Parse(readFavStr[101]) == 1) AttrFeet.IsChecked = true; else AttrFeet.IsChecked = false;
+                    if (int.Parse(readFavStr[102]) == 1) AttrAll.IsChecked = true; else AttrAll.IsChecked = false;
+                    if (int.Parse(readFavStr[103]) == 1) tabItemRepairCostCheck.IsChecked = true; else tabItemRepairCostCheck.IsChecked = false;
+                    tabItemRepairCost.Value = int.Parse(readFavStr[104]);
+                    atBox.Text = readFavStr[105];
+                    tabItemCount.Value = int.Parse(readFavStr[106]);
+                    tabItemMeta.Value = int.Parse(readFavStr[107]);
                     this.ShowMessageAsync("", "已读取：" + loadNameList[loadResultIndex], MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel, AnimateShow = false, AnimateHide = false });
                 }
                 loadResultIndex++;
