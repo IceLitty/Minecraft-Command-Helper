@@ -453,12 +453,14 @@ namespace WpfMinecraftCommandHelper2
         }
 
         /// <summary>
-        /// 0：药水NBT，1：物品NBT，2：位于1.8及以下的Damage值，3：药水数量，4：药水英文ID
+        /// 0：药水NBT，1：物品NBT，2：位于1.8及以下的Damage值，3：药水数量，4：药水英文ID，5：药水等自定义颜色
         /// </summary>
         /// <returns></returns>
         public string[] returnStr()
         {
-            return new string[] { globalPotionString, globalPotionNBT, globalPotionYN.ToString(), globalPotionCount, globalPotionID };
+            string tempcolor = string.Empty;
+            if (PotionItemColor.IsChecked.Value) tempcolor = tabPotionColor.Value.Value.ToString();
+            return new string[] { globalPotionString, globalPotionNBT, globalPotionYN.ToString(), globalPotionCount, globalPotionID, tempcolor };
         }
 
         private void tabPotionEffect1_Checked(object sender, EventArgs e)
@@ -1009,16 +1011,16 @@ namespace WpfMinecraftCommandHelper2
                     tabPotionEffect27Level.Value = int.Parse(readFavStr[110]);
                     if (readFavStr[111] == "1") tabPotionEffect27H.IsChecked = true; else tabPotionEffect27H.IsChecked = false;
                     if (readFavStr[112] == "1") tabPotionHasEnchant.IsChecked = true; else tabPotionHasEnchant.IsChecked = false;
-                    globalEnchString = readFavStr[113].Replace("[MCH_SPLIT", "|");
+                    globalEnchString = readFavStr[113].Replace("[MCH_SPLIT]", "|");
                     enchantBox.Text = globalEnchString;
                     if (readFavStr[114] == "1") tabPotionHasNL.IsChecked = true; else tabPotionHasNL.IsChecked = false;
-                    globalNLString = readFavStr[115].Replace("[MCH_SPLIT", "|");
+                    globalNLString = readFavStr[115].Replace("[MCH_SPLIT]", "|");
                     nlBox.Text = globalNLString;
                     if (readFavStr[116] == "1") tabPotionHasAttr.IsChecked = true; else tabPotionHasAttr.IsChecked = false;
-                    globalAttrString = readFavStr[117].Replace("[MCH_SPLIT", "|");
+                    globalAttrString = readFavStr[117].Replace("[MCH_SPLIT]", "|");
                     attrBox.Text = globalAttrString;
-                    globalHideflag = readFavStr[118].Replace("[MCH_SPLIT", "|");
-                    at = readFavStr[119].Replace("[MCH_SPLIT", "|");
+                    globalHideflag = readFavStr[118].Replace("[MCH_SPLIT]", "|");
+                    at = readFavStr[119].Replace("[MCH_SPLIT]", "|");
                     if (readFavStr[120] == "1") PotionItemColor.IsChecked = true; else PotionItemColor.IsChecked = false;
                     tabPotionColor.Value = int.Parse(readFavStr[121]);
                     this.ShowMessageAsync("", "已读取：" + loadNameList[loadResultIndex], MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel, AnimateShow = false, AnimateHide = false });

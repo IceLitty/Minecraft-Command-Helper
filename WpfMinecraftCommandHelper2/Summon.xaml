@@ -390,8 +390,8 @@
                         <RadioButton x:Name="HorseTypeZombie" Content="Zombie" HorizontalAlignment="Left" Margin="185,2,0,0" VerticalAlignment="Top"/>
                         <RadioButton x:Name="HorseTypeSkeleton" Content="Skeleton" HorizontalAlignment="Left" Margin="254,2,0,0" VerticalAlignment="Top"/>
                     </Grid>
-                    <CheckBox x:Name="HorseHasChest" Content="有箱子" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="HorseTamedUUID" HorizontalAlignment="Left" Height="23" Margin="86,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" ToolTip="驯养的玩家名(1.8-)/UUID(1.8+)，保持空则不生成该标签" IsEnabled="False"/>
+                    <CheckBox x:Name="HorseHasChest" Content="有箱子" HorizontalAlignment="Left" Margin="480,37,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="HorseTamedUUID" HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="329" ToolTip="驯养的玩家名(1.8-)/UUID(1.8+)，保持空则不生成该标签" IsEnabled="False"/>
                     <Button x:Name="HorseArmorBtn" Content="盔甲物品" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Width="163" Style="{DynamicResource SquareButtonStyle}" Click="HorseArmorBtn_Click"/>
                     <Button x:Name="HorseSaddleBtn" Content="鞍物品" HorizontalAlignment="Left" Margin="176,69,0,0" VerticalAlignment="Top" Width="163" Style="{DynamicResource SquareButtonStyle}" Click="HorseSaddleBtn_Click"/>
                     <Controls:NumericUpDown x:Name="HorseVariantValue" Minimum="0" Maximum="32767" StringFormat="" Margin="53,105,757,417" Height="28" Value="0" FontSize="14" />
@@ -417,6 +417,11 @@
                     <Button x:Name="HorseChest14" Content="" HorizontalAlignment="Left" Margin="498,156,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest14_Click" Foreground="White"/>
                     <Button x:Name="HorseChest15" Content="" HorizontalAlignment="Left" Margin="539,156,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest15_Click" Foreground="White"/>
                     <Button x:Name="HorseChest16" Content="" HorizontalAlignment="Left" Margin="579,156,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource SquareButtonStyle}" Height="30" Background="#00000000" BorderBrush="#00000000" Click="HorseChest16_Click" Foreground="White"/>
+                    <ComboBox x:Name="LlamaCarpetSel" HorizontalAlignment="Left" Margin="805,10,0,0" VerticalAlignment="Top" Width="281" IsEnabled="False"/>
+                    <CheckBox x:Name="LlamaCarpetCheck" Content="羊驼身上的羊毛毯" HorizontalAlignment="Left" Margin="652,12,0,0" VerticalAlignment="Top" Click="LlamaCarpetCheck_Click"/>
+                    <Controls:NumericUpDown x:Name="LlamaVariantValue" Minimum="-1" Maximum="3" StringFormat="" Margin="805,41,10,481" Height="28" Value="-1" FontSize="14"/>
+                    <Label x:Name="LlamaVariantText" Content="羊驼变种" HorizontalAlignment="Left" Margin="652,41,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="HorseBackpackText" Content="背包" HorizontalAlignment="Left" Margin="412,32,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="SummonBHeader" Header="属性设置" Margin="50,0,-50,0">

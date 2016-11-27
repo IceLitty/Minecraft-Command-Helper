@@ -5,7 +5,7 @@
     "AuthorStr": "語言文件作者：",
     "Author": "IceLitty",
     "LastUpdateStr": "最後更新：",
-    "LastUpdate": "2016.11.20",
+    "LastUpdate": "2016.11.27",
 
     "FloatConfirm": "確認",
     "FloatCancel": "取消",
@@ -687,6 +687,9 @@
     "SummonFrameRouteCount": "展示框內物品被旋轉次數，每壹次皆45°",
     "SummonFrameHasItem": "展示框內有物品",
     "SummonFrameGetItem": "獲取物品",
+    "SummonHorseBackpackText": "背包",
+    "SummonLlamaCarpetText": "羊駝身上的羊毛毯",
+    "SummonLlamaVariantText": "羊駝變種",
 
     "SuperflatAir": "空氣",
     "SuperflatFirstLayer": "已達到第一層！\r\n生成計數器已清空至0層！",

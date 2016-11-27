@@ -61,6 +61,7 @@ namespace WpfMinecraftCommandHelper2
             for (int i = 0; i < asd.getWoolColorCount(); i++)
             {
                 tabSumosEWoolColor.Items.Add(asd.getWoolColor(i));
+                LlamaCarpetSel.Items.Add(asd.getWoolColor(i));
             }
             for (int i = 0; i < HorseChestList.Length; i++)
             {
@@ -324,6 +325,9 @@ namespace WpfMinecraftCommandHelper2
                 FrameHasItem.Content = templang[200];
                 FrameGetItemBtn.Content = templang[201];
                 FloatFavouriteFileVersionOld = templang[202];
+                HorseBackpackText.Content = templang[203];
+                LlamaCarpetCheck.Content = templang[204];
+                LlamaVariantText.Content = templang[205];
             } catch (System.Exception) { /* throw; */ }
         }
 
@@ -708,6 +712,7 @@ namespace WpfMinecraftCommandHelper2
         //cache data
         private int globalSumosTempSel = 0;
         private string[] globalFrameItem = { "", "", "", "" };//count damage id tag
+        private string globalPotionColor = string.Empty;
 
         private void tabSumosPotionGetBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -719,13 +724,16 @@ namespace WpfMinecraftCommandHelper2
                 globalPotionString = temp[0];
             }
             globalPotionDamage = int.Parse(temp[2]);
+            globalPotionColor = temp[5];
             if (mcVersion == "1.8")
             {
                 globalSumosPotion = "{Potion:{id:\"minecraft:splash_potion\",Damage:" + globalPotionDamage + "s,Count:1b,tag:{CustomPotionEffects:[" + globalPotionString + "]}}}";
             }
             else
             {
-                globalSumosPotion = "{Potion:{id:\"minecraft:splash_potion\",Damage:0s,Count:1b,tag:{CustomPotionEffects:[" + globalPotionString + "]}}}";
+                globalSumosPotion = "{Potion:{id:\"minecraft:splash_potion\",Damage:0s,Count:1b,tag:{";
+                if (globalPotionColor != string.Empty) globalSumosPotion += "CustomPotionColor:" + globalPotionColor + ",";
+                globalSumosPotion += "CustomPotionEffects:[" + globalPotionString + "]}}}";
             }
         }
 
@@ -1121,7 +1129,7 @@ namespace WpfMinecraftCommandHelper2
             sumosRidingSelType = asd.getAt(tabSumosType.SelectedIndex);
             //sumosRidingNBT = sumosText;
             globalSumosTypeIndex = tabSumosType.SelectedIndex;
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Villager" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:villager")//选择村民
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Villager" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:villager" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:husk" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_villager" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_pigman")//选择村民
             {
                 if (tabVillagerMaxIndex >= globalVillagerMaxValue)
                 {
@@ -1483,30 +1491,69 @@ namespace WpfMinecraftCommandHelper2
                 if (sumosText.Length > 0) { sumosText += ","; }
                 if (mcVersion != "latest") if (HorseTypeDonkey.IsChecked.Value) { sumosText += "Type:1"; } else if (HorseTypeMule.IsChecked.Value) { sumosText += "Type:2"; } else if (HorseTypeZombie.IsChecked.Value) { sumosText += "Type:3"; } else if (HorseTypeSkeleton.IsChecked.Value) { sumosText += "Type:4"; } else { sumosText += "Type:0"; }
                 sumosText += ",Variant:" + HorseVariantValue.Value.Value;
-                if (HorseTypeDonkey.IsChecked.Value || HorseTypeMule.IsChecked.Value) { sumosText += ",ChestedHorse:1b"; }
                 if (HorseTamed.IsChecked.Value) { sumosText += ",Tame:1b"; if (HorseTamedUUID.Text != null || HorseTamedUUID.Text != "") { if (mcVersion == "1.8") { sumosText += ",OwnerName:" + HorseTamedUUID.Text; } else { sumosText += ",OwnerUUID:" + HorseTamedUUID.Text; } } }
                 if (mcVersion != "latest") if (HorseSaddle.IsChecked.Value) { sumosText += ",Saddle:1b"; }
                 if (HorseSkeletonTrap.IsChecked.Value) { sumosText += ",SkeletonTrap:1b,SkeletonTrapTime:" + HorseSkeletonTrapTime.Value.Value; }
-                sumosText += ",Items:[";
-                if (HorseChestList[0] != null && HorseChestList[0] != "") { sumosText += HorseChestList[0] + ","; }
-                if (HorseChestList[1] != null && HorseChestList[1] != "") { sumosText += HorseChestList[1] + ","; }
-                if (HorseChestList[2] != null && HorseChestList[2] != "") { sumosText += HorseChestList[2] + ","; }
-                if (HorseChestList[3] != null && HorseChestList[3] != "") { sumosText += HorseChestList[3] + ","; }
-                if (HorseChestList[4] != null && HorseChestList[4] != "") { sumosText += HorseChestList[4] + ","; }
-                if (HorseChestList[5] != null && HorseChestList[5] != "") { sumosText += HorseChestList[5] + ","; }
-                if (HorseChestList[6] != null && HorseChestList[6] != "") { sumosText += HorseChestList[6] + ","; }
-                if (HorseChestList[7] != null && HorseChestList[7] != "") { sumosText += HorseChestList[7] + ","; }
-                if (HorseChestList[8] != null && HorseChestList[8] != "") { sumosText += HorseChestList[8] + ","; }
-                if (HorseChestList[9] != null && HorseChestList[9] != "") { sumosText += HorseChestList[9] + ","; }
-                if (HorseChestList[10] != null && HorseChestList[10] != "") { sumosText += HorseChestList[10] + ","; }
-                if (HorseChestList[11] != null && HorseChestList[11] != "") { sumosText += HorseChestList[11] + ","; }
-                if (HorseChestList[12] != null && HorseChestList[12] != "") { sumosText += HorseChestList[12] + ","; }
-                if (HorseChestList[13] != null && HorseChestList[13] != "") { sumosText += HorseChestList[13] + ","; }
-                if (HorseChestList[14] != null && HorseChestList[14] != "") { sumosText += HorseChestList[14] + ","; }
-                sumosText += "]";
+                if (HorseTypeDonkey.IsChecked.Value || HorseTypeMule.IsChecked.Value)
+                {
+                    if (HorseHasChest.IsChecked.Value)
+                    {
+                        sumosText += ",ChestedHorse:1b,Items:[";
+                        if (HorseChestList[0] != null && HorseChestList[0] != "") { sumosText += HorseChestList[0] + ","; }
+                        if (HorseChestList[1] != null && HorseChestList[1] != "") { sumosText += HorseChestList[1] + ","; }
+                        if (HorseChestList[2] != null && HorseChestList[2] != "") { sumosText += HorseChestList[2] + ","; }
+                        if (HorseChestList[3] != null && HorseChestList[3] != "") { sumosText += HorseChestList[3] + ","; }
+                        if (HorseChestList[4] != null && HorseChestList[4] != "") { sumosText += HorseChestList[4] + ","; }
+                        if (HorseChestList[5] != null && HorseChestList[5] != "") { sumosText += HorseChestList[5] + ","; }
+                        if (HorseChestList[6] != null && HorseChestList[6] != "") { sumosText += HorseChestList[6] + ","; }
+                        if (HorseChestList[7] != null && HorseChestList[7] != "") { sumosText += HorseChestList[7] + ","; }
+                        if (HorseChestList[8] != null && HorseChestList[8] != "") { sumosText += HorseChestList[8] + ","; }
+                        if (HorseChestList[9] != null && HorseChestList[9] != "") { sumosText += HorseChestList[9] + ","; }
+                        if (HorseChestList[10] != null && HorseChestList[10] != "") { sumosText += HorseChestList[10] + ","; }
+                        if (HorseChestList[11] != null && HorseChestList[11] != "") { sumosText += HorseChestList[11] + ","; }
+                        if (HorseChestList[12] != null && HorseChestList[12] != "") { sumosText += HorseChestList[12] + ","; }
+                        if (HorseChestList[13] != null && HorseChestList[13] != "") { sumosText += HorseChestList[13] + ","; }
+                        if (HorseChestList[14] != null && HorseChestList[14] != "") { sumosText += HorseChestList[14] + ","; }
+                        sumosText += "]";
+                    }
+                }
                 if (HorseChestList[15] != null && HorseChestList[15] != "") { sumosText += ",SaddleItem:" + HorseChestList[15] + ","; }
                 if (HorseChestList[16] != null && HorseChestList[16] != "") { sumosText += ",ArmorItem:" + HorseChestList[16] + ","; }
                 sumosText = sumosText.Replace(",,", ",");
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
+            }
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "minecraft:llama")
+            {
+                if (sumosText.Length > 0) { sumosText += ","; }
+                if (HorseTamed.IsChecked.Value) { sumosText += "Tame:1b,"; if (HorseTamedUUID.Text != null || HorseTamedUUID.Text != "") { sumosText += "OwnerUUID:" + HorseTamedUUID.Text + ","; } }
+                if (HorseHasChest.IsChecked.Value)
+                {
+                    sumosText += "ChestedHorse:1b,Items:[";
+                    if (HorseChestList[0] != null && HorseChestList[0] != "") { sumosText += HorseChestList[0] + ","; }
+                    if (HorseChestList[1] != null && HorseChestList[1] != "") { sumosText += HorseChestList[1] + ","; }
+                    if (HorseChestList[2] != null && HorseChestList[2] != "") { sumosText += HorseChestList[2] + ","; }
+                    if (HorseChestList[3] != null && HorseChestList[3] != "") { sumosText += HorseChestList[3] + ","; }
+                    if (HorseChestList[4] != null && HorseChestList[4] != "") { sumosText += HorseChestList[4] + ","; }
+                    if (HorseChestList[5] != null && HorseChestList[5] != "") { sumosText += HorseChestList[5] + ","; }
+                    if (HorseChestList[6] != null && HorseChestList[6] != "") { sumosText += HorseChestList[6] + ","; }
+                    if (HorseChestList[7] != null && HorseChestList[7] != "") { sumosText += HorseChestList[7] + ","; }
+                    if (HorseChestList[8] != null && HorseChestList[8] != "") { sumosText += HorseChestList[8] + ","; }
+                    if (HorseChestList[9] != null && HorseChestList[9] != "") { sumosText += HorseChestList[9] + ","; }
+                    if (HorseChestList[10] != null && HorseChestList[10] != "") { sumosText += HorseChestList[10] + ","; }
+                    if (HorseChestList[11] != null && HorseChestList[11] != "") { sumosText += HorseChestList[11] + ","; }
+                    if (HorseChestList[12] != null && HorseChestList[12] != "") { sumosText += HorseChestList[12] + ","; }
+                    if (HorseChestList[13] != null && HorseChestList[13] != "") { sumosText += HorseChestList[13] + ","; }
+                    if (HorseChestList[14] != null && HorseChestList[14] != "") { sumosText += HorseChestList[14] + ","; }
+                    sumosText += "],";
+                }
+                if (LlamaCarpetCheck.IsChecked.Value)
+                {
+                    sumosText += "DecorItem:{id:\"minecraft: carpet\",Count:1b,Damage:" + LlamaCarpetSel.SelectedIndex + "s},";
+                }
+                if (LlamaVariantValue.Value != null && LlamaVariantValue.Value.Value != -1)
+                {
+                    sumosText += "Variant:" + LlamaVariantValue.Value.Value + ",";
+                }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
             else if (asd.getAt(tabSumosType.SelectedIndex) == "TippedArrow" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:arrow")
@@ -1518,9 +1565,9 @@ namespace WpfMinecraftCommandHelper2
                 }
                 if (sumosText.Length > 0) { sumosText += ",pickup:" + tabSumosEpickup.Value.Value + "b"; } else { sumosText += "pickup:" + tabSumosEpickup.Value.Value + "b"; }
                 if (sumosText.Length > 0) { sumosText += ",damage:" + tabSumosEdamage.Value.Value + "d"; } else { sumosText += "damage:" + tabSumosEdamage.Value.Value + "d"; }
-                sumosFinalStr = "/summon Arrow ~ ~1 ~ {" + sumosText + "}";
+                sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "SpectralArrow" || asd.getAt(tabSumosType.SelectedIndex) == "Arrow" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:spectral_arrow" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:arrow")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "SpectralArrow" || asd.getAt(tabSumosType.SelectedIndex) == "Arrow" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:spectral_arrow")
             {
                 if (sumosText.Length > 0) { sumosText += ",pickup:" + tabSumosEpickup.Value.Value + "b"; } else { sumosText += "pickup:" + tabSumosEpickup.Value.Value + "b"; }
                 if (sumosText.Length > 0) { sumosText += ",damage:" + tabSumosEdamage.Value.Value + "d"; } else { sumosText += "damage:" + tabSumosEdamage.Value.Value + "d"; }
@@ -1773,7 +1820,7 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabSumosEEnderman.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Ozelot" || asd.getAt(tabSumosType.SelectedIndex) == "Wolf" || asd.getAt(tabSumosType.SelectedIndex) == "EntityHorse" || asd.getAt(tabSumosType.SelectedIndex) == "PigZombie" || asd.getAt(tabSumosType.SelectedIndex) == "Snowball" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEgg" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEnderpearl" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownExpBottle" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:ocelot" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:wolf" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:skeleton_horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:mule" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:donkey" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_pigman" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:snowball" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:egg" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:ender_pearl" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:xp_bottle")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Ozelot" || asd.getAt(tabSumosType.SelectedIndex) == "Wolf" || asd.getAt(tabSumosType.SelectedIndex) == "EntityHorse" || asd.getAt(tabSumosType.SelectedIndex) == "PigZombie" || asd.getAt(tabSumosType.SelectedIndex) == "Snowball" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEgg" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEnderpearl" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownExpBottle" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:ocelot" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:wolf" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:skeleton_horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:mule" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:donkey" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_pigman" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:snowball" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:egg" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:ender_pearl" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:xp_bottle" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:llama")
             {
                 tabSumosEUUID.IsEnabled = true;
             }
@@ -1874,7 +1921,7 @@ namespace WpfMinecraftCommandHelper2
                 tabSumosEpickup.IsEnabled = true;
                 tabSumosEdamage.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "EntityHorse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:skeleton_horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:mule" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:donkey")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "EntityHorse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:skeleton_horse" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:mule" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:donkey" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:llama")
             {
                 SummonHorseHeader.Visibility = Visibility.Visible;
             }
@@ -1907,6 +1954,11 @@ namespace WpfMinecraftCommandHelper2
         private void tabSumosTeamCheck_Click(object sender, RoutedEventArgs e)
         {
             tabSumosTeam.IsEnabled = tabSumosTeamCheck.IsChecked.Value;
+        }
+
+        private void LlamaCarpetCheck_Click(object sender, RoutedEventArgs e)
+        {
+            LlamaCarpetSel.IsEnabled = LlamaCarpetCheck.IsChecked.Value;
         }
 
         //tabVillager
@@ -2558,7 +2610,7 @@ namespace WpfMinecraftCommandHelper2
             }
         }
 
-        private int FavFileVersion = 11;
+        private int FavFileVersion = 12;
 
         private void saveFavBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -2767,6 +2819,10 @@ namespace WpfMinecraftCommandHelper2
             saveFavStr += "|" + globalFrameItem[1];
             saveFavStr += "|" + globalFrameItem[2];
             saveFavStr += "|" + globalFrameItem[3];
+            //llama
+            if (LlamaCarpetCheck.IsChecked.Value) saveFavStr += "|1"; else saveFavStr += "|0";
+            saveFavStr += "|" + LlamaCarpetSel.SelectedIndex;
+            saveFavStr += "|" + LlamaVariantValue.Value.Value;
             //
             List <string> wtxt = new List<string>();
             wtxt.Add(saveFavStr);
@@ -2827,7 +2883,7 @@ namespace WpfMinecraftCommandHelper2
                     //spawner
                     tabSpawnerShowType.SelectedIndex = int.Parse(readFavStr[3]);
                     tabSpawnerHasName.IsChecked = bool.Parse(readFavStr[4]);
-                    tabSpawnerName.Text = readFavStr[5].Replace("|", "[MCH_SPLIT");
+                    tabSpawnerName.Text = readFavStr[5].Replace("|", "[MCH_SPLIT]");
                     tabSpawnerHasItemNL.IsChecked = bool.Parse(readFavStr[6]);
                     tabSpawnerSpawnCount.Value = int.Parse(readFavStr[7]);
                     tabSpawnerSpawnRange.Value = int.Parse(readFavStr[8]);
@@ -2850,30 +2906,30 @@ namespace WpfMinecraftCommandHelper2
                     tabSumosSilent.IsChecked = bool.Parse(readFavStr[24]);
                     tabSumosBaby.IsChecked = bool.Parse(readFavStr[25]);
                     tabSumosHasName.IsChecked = bool.Parse(readFavStr[26]);
-                    tabSumosName.Text = readFavStr[27].Replace("|", "[MCH_SPLIT");
+                    tabSumosName.Text = readFavStr[27].Replace("|", "[MCH_SPLIT]");
                     tabSumosNameVisible.IsChecked = bool.Parse(readFavStr[28]);
                     tabSumosNowHealthCheck.IsChecked = bool.Parse(readFavStr[29]);
                     tabSumosNowHealth.Value = int.Parse(readFavStr[30]);
                     tabSumosLHand.SelectedIndex = int.Parse(readFavStr[31]);
                     tabSumosNumLHand.Value = int.Parse(readFavStr[32]);
-                    globalSumosLHand = readFavStr[33].Replace("|", "[MCH_SPLIT");
+                    globalSumosLHand = readFavStr[33].Replace("|", "[MCH_SPLIT]");
                     tabSumosHand.SelectedIndex = int.Parse(readFavStr[34]);
                     tabSumosNumHand.Value = int.Parse(readFavStr[35]);
-                    globalSumosHand = readFavStr[36].Replace("|", "[MCH_SPLIT");
+                    globalSumosHand = readFavStr[36].Replace("|", "[MCH_SPLIT]");
                     tabSumosBoot.SelectedIndex = int.Parse(readFavStr[37]);
                     tabSumosNumBoot.Value = int.Parse(readFavStr[38]);
-                    globalSumosBoot = readFavStr[39].Replace("|", "[MCH_SPLIT");
+                    globalSumosBoot = readFavStr[39].Replace("|", "[MCH_SPLIT]");
                     tabSumosLeg.SelectedIndex = int.Parse(readFavStr[40]);
                     tabSumosNumLeg.Value = int.Parse(readFavStr[41]);
-                    globalSumosLeg = readFavStr[42].Replace("|", "[MCH_SPLIT");
+                    globalSumosLeg = readFavStr[42].Replace("|", "[MCH_SPLIT]");
                     tabSumosChest.SelectedIndex = int.Parse(readFavStr[43]);
                     tabSumosNumChest.Value = int.Parse(readFavStr[44]);
-                    globalSumosChest = readFavStr[45].Replace("|", "[MCH_SPLIT");
+                    globalSumosChest = readFavStr[45].Replace("|", "[MCH_SPLIT]");
                     tabSumosHead.SelectedIndex = int.Parse(readFavStr[46]);
                     tabSumosNumHead.Value = int.Parse(readFavStr[47]);
-                    globalSumosHead = readFavStr[48].Replace("|", "[MCH_SPLIT");
+                    globalSumosHead = readFavStr[48].Replace("|", "[MCH_SPLIT]");
                     tabSumosHasHeadID.IsChecked = bool.Parse(readFavStr[49]);
-                    tabSumosHeadID.Text = readFavStr[50].Replace("|", "[MCH_SPLIT");
+                    tabSumosHeadID.Text = readFavStr[50].Replace("|", "[MCH_SPLIT]");
                     tabSumosLeftHand.IsChecked = bool.Parse(readFavStr[51]);
                     tabSumosGlowing.IsChecked = bool.Parse(readFavStr[52]);
                     tabSumosFireCheck.IsChecked = bool.Parse(readFavStr[53]);
@@ -2881,10 +2937,10 @@ namespace WpfMinecraftCommandHelper2
                     tabSumosPersistenceRequired.IsChecked = bool.Parse(readFavStr[55]);
                     tabSumosElytra.IsChecked = bool.Parse(readFavStr[56]);
                     tabSumosTagsCheck.IsChecked = bool.Parse(readFavStr[57]);
-                    tabSumosTags.Text = readFavStr[58].Replace("|", "[MCH_SPLIT").Replace("\r\n", "[MCH_ENTER");
+                    tabSumosTags.Text = readFavStr[58].Replace("|", "[MCH_SPLIT]").Replace("\r\n", "[MCH_ENTER]");
                     tabSumosArmorNogravity.IsChecked = bool.Parse(readFavStr[59]);
                     tabSumosTeamCheck.IsChecked = bool.Parse(readFavStr[60]);
-                    tabSumosTeam.Text = readFavStr[61].Replace("|", "[MCH_SPLIT");
+                    tabSumosTeam.Text = readFavStr[61].Replace("|", "[MCH_SPLIT]");
                     tabSumosDropchance.IsChecked = bool.Parse(readFavStr[62]);
                     tabSumosDCHand.Value = float.Parse(readFavStr[63]);
                     tabSumosDCChest.Value = float.Parse(readFavStr[64]);
@@ -2899,17 +2955,17 @@ namespace WpfMinecraftCommandHelper2
                     tabSumosDirection.IsChecked = bool.Parse(readFavStr[73]);
                     tabSumosDirectionX.Value = float.Parse(readFavStr[74]);
                     tabSumosDirectionY.Value = float.Parse(readFavStr[75]);
-                    tabSumosEUUID.Text = readFavStr[76].Replace("|", "[MCH_SPLIT");
+                    tabSumosEUUID.Text = readFavStr[76].Replace("|", "[MCH_SPLIT]");
                     tabSumosEWoolColor.SelectedIndex = int.Parse(readFavStr[77]);
                     tabSumosEdamage.Value = int.Parse(readFavStr[78]);
-                    tabSumosEOwner.Text = readFavStr[79].Replace("|", "[MCH_SPLIT");
+                    tabSumosEOwner.Text = readFavStr[79].Replace("|", "[MCH_SPLIT]");
                     tabSumosEZombieType.Value = int.Parse(readFavStr[80]);
                     tabSumosEExplosionRadius.Value = int.Parse(readFavStr[81]);
                     tabSumosEDragon.Value = int.Parse(readFavStr[82]);
                     tabSumosESize.Value = int.Parse(readFavStr[83]);
                     tabSumosEShulkerPeek.Value = int.Parse(readFavStr[84]);
                     tabSumosEpickup.Value = int.Parse(readFavStr[85]);
-                    tabSumosEThrower.Text = readFavStr[86].Replace("|", "[MCH_SPLIT");
+                    tabSumosEThrower.Text = readFavStr[86].Replace("|", "[MCH_SPLIT]");
                     tabSumosEFuse.Value = int.Parse(readFavStr[87]);
                     tabSumosEExplosionPower.Value = int.Parse(readFavStr[88]);
                     tabSumosECatType.Value = int.Parse(readFavStr[89]);
@@ -2978,30 +3034,30 @@ namespace WpfMinecraftCommandHelper2
                     HorseTypeZombie.IsChecked = bool.Parse(readFavStr[149]);
                     HorseTypeSkeleton.IsChecked = bool.Parse(readFavStr[150]);
                     HorseHasChest.IsChecked = bool.Parse(readFavStr[151]);
-                    HorseTamedUUID.Text = readFavStr[152].Replace("|", "[MCH_SPLIT");
+                    HorseTamedUUID.Text = readFavStr[152].Replace("|", "[MCH_SPLIT]");
                     HorseVariantValue.Value = int.Parse(readFavStr[153]);
                     HorseTemper.Value = int.Parse(readFavStr[154]);
                     HorseSkeletonTrapTime.Value = int.Parse(readFavStr[155]);
                     HorseTamed.IsChecked = bool.Parse(readFavStr[156]);
                     HorseSkeletonTrap.IsChecked = bool.Parse(readFavStr[157]);
                     HorseSaddle.IsChecked = bool.Parse(readFavStr[158]);
-                    HorseChestList[-6] = readFavStr[159].Replace("|", "[MCH_SPLIT");
-                    HorseChestList[-5] = readFavStr[160].Replace("|", "[MCH_SPLIT");
-                    HorseChestList[-4] = readFavStr[161].Replace("|", "[MCH_SPLIT");
-                    HorseChestList[-3] = readFavStr[162].Replace("|", "[MCH_SPLIT");
-                    HorseChestList[-2] = readFavStr[163].Replace("|", "[MCH_SPLIT");
-                    HorseChestList[-1] = readFavStr[164].Replace("|", "[MCH_SPLIT");
-                    HorseChestList[0] = readFavStr[165].Replace("|", "[MCH_SPLIT");
-                    HorseChestList[1] = readFavStr[166].Replace("|", "[MCH_SPLIT");
-                    HorseChestList[2] = readFavStr[167].Replace("|", "[MCH_SPLIT");
-                    HorseChestList[3] = readFavStr[168].Replace("|", "[MCH_SPLIT");
-                    HorseChestList[4] = readFavStr[169].Replace("|", "[MCH_SPLIT");
-                    HorseChestList[5] = readFavStr[170].Replace("|", "[MCH_SPLIT");
-                    HorseChestList[6] = readFavStr[171].Replace("|", "[MCH_SPLIT");
-                    HorseChestList[7] = readFavStr[172].Replace("|", "[MCH_SPLIT");
-                    HorseChestList[8] = readFavStr[173].Replace("|", "[MCH_SPLIT");
-                    HorseChestList[9] = readFavStr[174].Replace("|", "[MCH_SPLIT");
-                    HorseChestList[10] = readFavStr[175].Replace("|", "[MCH_SPLIT");
+                    HorseChestList[0] = readFavStr[159].Replace("|", "[MCH_SPLIT]");
+                    HorseChestList[1] = readFavStr[160].Replace("|", "[MCH_SPLIT]");
+                    HorseChestList[2] = readFavStr[161].Replace("|", "[MCH_SPLIT]");
+                    HorseChestList[3] = readFavStr[162].Replace("|", "[MCH_SPLIT]");
+                    HorseChestList[4] = readFavStr[163].Replace("|", "[MCH_SPLIT]");
+                    HorseChestList[5] = readFavStr[164].Replace("|", "[MCH_SPLIT]");
+                    HorseChestList[6] = readFavStr[165].Replace("|", "[MCH_SPLIT]");
+                    HorseChestList[7] = readFavStr[166].Replace("|", "[MCH_SPLIT]");
+                    HorseChestList[8] = readFavStr[167].Replace("|", "[MCH_SPLIT]");
+                    HorseChestList[9] = readFavStr[168].Replace("|", "[MCH_SPLIT]");
+                    HorseChestList[10] = readFavStr[169].Replace("|", "[MCH_SPLIT]");
+                    HorseChestList[11] = readFavStr[170].Replace("|", "[MCH_SPLIT]");
+                    HorseChestList[12] = readFavStr[171].Replace("|", "[MCH_SPLIT]");
+                    HorseChestList[13] = readFavStr[172].Replace("|", "[MCH_SPLIT]");
+                    HorseChestList[14] = readFavStr[173].Replace("|", "[MCH_SPLIT]");
+                    HorseChestList[15] = readFavStr[174].Replace("|", "[MCH_SPLIT]");
+                    HorseChestList[16] = readFavStr[175].Replace("|", "[MCH_SPLIT]");
                     //FallingSands
                     FallingSandItemSel.SelectedIndex = int.Parse(readFavStr[176]);
                     FallingSandMeta.Value = int.Parse(readFavStr[177]);
@@ -3019,10 +3075,14 @@ namespace WpfMinecraftCommandHelper2
                     FrameDropChance.Value = int.Parse(readFavStr[188]);
                     FrameRouteCount.Value = int.Parse(readFavStr[189]);
                     FrameHasItem.IsChecked = bool.Parse(readFavStr[190]);
-                    globalFrameItem[-6] = readFavStr[191];
-                    globalFrameItem[-5] = readFavStr[192];
-                    globalFrameItem[-4] = readFavStr[193];
-                    globalFrameItem[-3] = readFavStr[194];
+                    globalFrameItem[0] = readFavStr[191];
+                    globalFrameItem[1] = readFavStr[192];
+                    globalFrameItem[2] = readFavStr[193];
+                    globalFrameItem[3] = readFavStr[194];
+                    //llama
+                    if (readFavStr[195] == "1") LlamaCarpetCheck.IsChecked = true; else LlamaCarpetCheck.IsChecked = false;
+                    LlamaCarpetSel.SelectedIndex = int.Parse(readFavStr[196]);
+                    LlamaVariantValue.Value = int.Parse(readFavStr[197]);
                     //
                     this.ShowMessageAsync("", "已读取：" + loadNameList[loadResultIndex], MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel, AnimateShow = false, AnimateHide = false });
                 }

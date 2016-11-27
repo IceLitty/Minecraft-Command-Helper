@@ -1331,6 +1331,9 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["SummonFrameHasItem"].ToString());
             relanglist.Add(LangList[langID]["SummonFrameGetItem"].ToString());
             relanglist.Add(LangList[langID]["FloatFavouriteFileVersionOld"].ToString());
+            relanglist.Add(LangList[langID]["SummonHorseBackpackText"].ToString());
+            relanglist.Add(LangList[langID]["SummonLlamaCarpetText"].ToString());
+            relanglist.Add(LangList[langID]["SummonLlamaVariantText"].ToString());
             return relanglist;
         }
 

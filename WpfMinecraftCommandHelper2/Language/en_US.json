@@ -5,7 +5,7 @@
     "AuthorStr": "Lang File Author: ",
     "Author": "IceLitty",
     "LastUpdateStr": "Last Update: ",
-    "LastUpdate": "2016.11.20",
+    "LastUpdate": "2016.11.27",
 
     "FloatConfirm": "Confirm",
     "FloatCancel": "Cancel",
@@ -685,6 +685,9 @@
     "SummonFrameRouteCount": "The number of times the item has been rotated 45 degrees clockwise.",
     "SummonFrameHasItem": "Has Item in ItemFrame",
     "SummonFrameGetItem": "Get Item",
+    "SummonHorseBackpackText": "Backpack",
+    "SummonLlamaCarpetText": "Llama's Carpet",
+    "SummonLlamaVariantText": "Llama Variant",
 
     "SuperflatAir": "Air",
     "SuperflatFirstLayer": "Always in first layer!\r\nGenerate Counter is reset to 0 layer!",

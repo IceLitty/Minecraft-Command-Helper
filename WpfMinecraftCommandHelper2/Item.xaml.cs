@@ -1120,9 +1120,9 @@ namespace WpfMinecraftCommandHelper2
                     tabItemEnNum70.Value = int.Parse(readFavStr[59]);
                     if (int.Parse(readFavStr[60]) == 1) tabItemNLCheck.IsChecked = true; else tabItemNLCheck.IsChecked = false;
                     if (int.Parse(readFavStr[61]) == 1) tabItemNameCheck.IsChecked = true; else tabItemNameCheck.IsChecked = false;
-                    tabItemName.Text = readFavStr[62].Replace("[MCH_SPLIT", "|");
+                    tabItemName.Text = readFavStr[62].Replace("[MCH_SPLIT]", "|");
                     if (int.Parse(readFavStr[63]) == 1) tabItemLoreCheck.IsChecked = true; else tabItemLoreCheck.IsChecked = false;
-                    tabItemLore.Text = readFavStr[64].Replace("[MCH_SPLIT", "|").Replace("[MCH_ENTER", "\r\n");
+                    tabItemLore.Text = readFavStr[64].Replace("[MCH_SPLIT]", "|").Replace("[MCH_ENTER]", "\r\n");
                     if (int.Parse(readFavStr[65]) == 1) tabItemColorCheck.IsChecked = true; else tabItemColorCheck.IsChecked = false;
                     globalColor = readFavStr[66];
                     if (int.Parse(readFavStr[67]) == 1) tabItemAttrCheck.IsChecked = true; else tabItemAttrCheck.IsChecked = false;
