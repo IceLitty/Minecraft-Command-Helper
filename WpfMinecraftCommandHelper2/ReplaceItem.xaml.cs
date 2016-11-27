@@ -95,7 +95,7 @@ namespace WpfMinecraftCommandHelper2
         private string globalEnchString = "";
         private string globalNLString = "";
         private string globalAttrString = "";
-        private string atStr = "";
+        private string atStr = "@p";
 
         private void tabRItemXNum_Checked(object sender, RoutedEventArgs e)
         {
@@ -225,7 +225,19 @@ namespace WpfMinecraftCommandHelper2
                 string meta = tabRItemGetBackMeta();
                 if (tabRItemHasEnchant.IsChecked == true || tabRItemHasNL.IsChecked == true || tabRItemHasAttr.IsChecked == true)
                 {
-                    replaceItemStr = replaceItemStr + " {" + meta + "}";
+                    replaceItemStr += " {" + meta;
+                }
+                if (tabRItemUnbreaking.IsChecked == true && (tabRItemHasEnchant.IsChecked == true || tabRItemHasNL.IsChecked == true || tabRItemHasAttr.IsChecked == true))
+                {
+                    replaceItemStr += ",Unbreakable:1}";
+                }
+                else if (tabRItemUnbreaking.IsChecked == true && tabRItemHasEnchant.IsChecked == false && tabRItemHasNL.IsChecked == false && tabRItemHasAttr.IsChecked == false)
+                {
+                    replaceItemStr += " {Unbreakable:1}";
+                }
+                else if (tabRItemUnbreaking.IsChecked == false && (tabRItemHasEnchant.IsChecked == true || tabRItemHasNL.IsChecked == true || tabRItemHasAttr.IsChecked == true))
+                {
+                    replaceItemStr += "}";
                 }
                 finalStr = replaceItemStr;
             }
@@ -247,7 +259,7 @@ namespace WpfMinecraftCommandHelper2
                 string meta = tabRItemGetBackMeta();
                 if (tabRItemHasEnchant.IsChecked == true || tabRItemHasNL.IsChecked == true || tabRItemHasAttr.IsChecked == true)
                 {
-                    replaceItemStr = replaceItemStr + " {" + meta;
+                    replaceItemStr += " {" + meta;
                 }
                 if (tabRItemUnbreaking.IsChecked == true && (tabRItemHasEnchant.IsChecked == true || tabRItemHasNL.IsChecked == true || tabRItemHasAttr.IsChecked == true))
                 {
