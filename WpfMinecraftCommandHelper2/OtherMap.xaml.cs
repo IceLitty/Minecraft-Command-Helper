@@ -290,7 +290,14 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabOther1WordRemove_Click(object sender, RoutedEventArgs e)
         {
-            finalStr = "/kill @e[tag=HoloText,type=ArmorStand,r=3,c=1]";
+            if (mcVersion == "1.8" || mcVersion == "1.9/1.10")
+            {
+                finalStr = "/kill @e[tag=HoloText,type=ArmorStand,r=3,c=1]";
+            }
+            else
+            {
+                finalStr = "/kill @e[tag=HoloText,type=armor_stand,r=3,c=1]";
+            }
             Check checkbox = new Check();
             checkbox.showText(finalStr);
             checkbox.Show();
@@ -298,7 +305,14 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabOther1WordCreate_Click(object sender, RoutedEventArgs e)
         {
-            finalStr = "/summon ArmorStand ~ ~1 ~ {Tags:[\"HoloText\"],PersistenceRequired:1b,DisabledSlots:2039583,Invulnerable:1b,NoGravity:1b,Invisible:1b,CustomName:\"" + tabOther1Word.Text + "\",CustomNameVisible:true}";
+            if (mcVersion == "1.8" || mcVersion == "1.9/1.10")
+            {
+                finalStr = "/summon ArmorStand ~ ~1 ~ {Tags:[\"HoloText\"],PersistenceRequired:1b,DisabledSlots:2039583,Invulnerable:1b,NoGravity:1b,Invisible:1b,CustomName:\"" + tabOther1Word.Text + "\",CustomNameVisible:true}";
+            }
+            else
+            {
+                finalStr = "/summon armor_stand ~ ~1 ~ {Tags:[\"HoloText\"],PersistenceRequired:1b,DisabledSlots:2039583,Invulnerable:1b,NoGravity:1b,Invisible:1b,CustomName:\"" + tabOther1Word.Text + "\",CustomNameVisible:true}";
+            }
             Check checkbox = new Check();
             checkbox.showText(finalStr);
             checkbox.Show();
@@ -327,7 +341,14 @@ namespace WpfMinecraftCommandHelper2
             string canget = "";
             if (tabOther1ItemFlyCantGet.IsChecked.Value) canget = "32767"; else canget = "0";
             AllSelData asd = new AllSelData();
-            finalStr = "/summon ArmorStand ~ ~1 ~ {Tags:[\"HoloItems\"],PersistenceRequired:1b,DisabledSlots:2039583,NoGravity:1b,Marker:1b,Invulnerable:1b,Invisible:1b,Passengers:[0:{id:Item,Tags:[\"HoloItems\"],Item:{id:\"" + asd.getItem(tabOther1ItemFlySel.SelectedIndex) + "\",Count:" + tabOther1ItemFlyCount.Value + "b,Damage:" + tabOther1ItemFlyDamage.Value + "s},PickupDelay:" + canget + ",Age:-32768}]}";
+            if (mcVersion == "1.8" || mcVersion == "1.9/1.10")
+            {
+                finalStr = "/summon ArmorStand ~ ~1 ~ {Tags:[\"HoloItems\"],PersistenceRequired:1b,DisabledSlots:2039583,NoGravity:1b,Marker:1b,Invulnerable:1b,Invisible:1b,Passengers:[0:{id:Item,Tags:[\"HoloItems\"],Item:{id:\"" + asd.getItem(tabOther1ItemFlySel.SelectedIndex) + "\",Count:" + tabOther1ItemFlyCount.Value + "b,Damage:" + tabOther1ItemFlyDamage.Value + "s},PickupDelay:" + canget + ",Age:-32768}]}";
+            }
+            else
+            {
+                finalStr = "/summon armor_stand ~ ~1 ~ {Tags:[\"HoloItems\"],PersistenceRequired:1b,DisabledSlots:2039583,NoGravity:1b,Marker:1b,Invulnerable:1b,Invisible:1b,Passengers:[0:{id:Item,Tags:[\"HoloItems\"],Item:{id:\"" + asd.getItem(tabOther1ItemFlySel.SelectedIndex) + "\",Count:" + tabOther1ItemFlyCount.Value + "b,Damage:" + tabOther1ItemFlyDamage.Value + "s},PickupDelay:" + canget + ",Age:-32768}]}";
+            }
             Check checkbox = new Check();
             checkbox.showText(finalStr);
             checkbox.Show();

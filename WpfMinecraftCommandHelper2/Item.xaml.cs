@@ -195,6 +195,7 @@ namespace WpfMinecraftCommandHelper2
             tabItemEnchant19.IsChecked = false;
             tabItemEnchant20.IsChecked = false;
             tabItemEnchant21.IsChecked = false;
+            tabItemEnchant22.IsChecked = false;
             tabItemEnchant32.IsChecked = false;
             tabItemEnchant33.IsChecked = false;
             tabItemEnchant34.IsChecked = false;
@@ -222,6 +223,7 @@ namespace WpfMinecraftCommandHelper2
             tabItemEnNum19.Value = 0;
             tabItemEnNum20.Value = 0;
             tabItemEnNum21.Value = 0;
+            tabItemEnNum22.Value = 0;
             tabItemEnNum32.Value = 0;
             tabItemEnNum33.Value = 0;
             tabItemEnNum34.Value = 0;
@@ -368,6 +370,7 @@ namespace WpfMinecraftCommandHelper2
                 if (tabItemEnchant19.IsChecked.Value) { enchant += "{id:19s,lvl:" + tabItemEnNum19.Value.Value + "s},"; globalEnchList += "knockback,"; }
                 if (tabItemEnchant20.IsChecked.Value) { enchant += "{id:20s,lvl:" + tabItemEnNum20.Value.Value + "s},"; globalEnchList += "fire_aspect,"; }
                 if (tabItemEnchant21.IsChecked.Value) { enchant += "{id:21s,lvl:" + tabItemEnNum21.Value.Value + "s},"; globalEnchList += "looting,"; }
+                if (tabItemEnchant22.IsChecked.Value) { enchant += "{id:22s,lvl:" + tabItemEnNum22.Value.Value + "s},"; globalEnchList += "sweeping_edge,"; }
                 if (tabItemEnchant32.IsChecked.Value) { enchant += "{id:32s,lvl:" + tabItemEnNum32.Value.Value + "s},"; globalEnchList += "efficiency,"; }
                 if (tabItemEnchant33.IsChecked.Value) { enchant += "{id:33s,lvl:" + tabItemEnNum33.Value.Value + "s},"; globalEnchList += "silk_touch,"; }
                 if (tabItemEnchant34.IsChecked.Value) { enchant += "{id:34s,lvl:" + tabItemEnNum34.Value.Value + "s},"; globalEnchList += "unbreaking,"; }

@@ -20,6 +20,8 @@ namespace WpfMinecraftCommandHelper2
                 tabFireType.Items.Add(asd.getFireworkTypeStr(i));
             }
             clear();
+            Config config = new Config();
+            mcVersion = config.getSetting("[Personalize]", "MCVersion");
         }
 
         private string FloatHelpTitle = "帮助";
@@ -34,6 +36,8 @@ namespace WpfMinecraftCommandHelper2
         private string FireworkHelpStr = "";
         private string FloatErrorTitle = "错误";
         private string FloatHelpFileCantFind = "";
+
+        private string mcVersion = "latest";
 
         private void appLanguage()
         {
@@ -219,7 +223,15 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabFireMaxIndex = globalFireMaxIndex - 1;
             }
-            string fireworksStr = "/summon FireworksRocketEntity ";
+            string fireworksStr = "/summon ";
+            if (mcVersion == "1.8" || mcVersion == "1.9/1.10")
+            {
+                fireworksStr += "FireworksRocketEntity ";
+            }
+            else
+            {
+                fireworksStr += "minecraft:fireworks_rocket ";
+            }
             if (tabFireXNum.IsChecked.Value)
             {
                 fireworksStr += "~ ~ ~ ";
