@@ -205,6 +205,11 @@ namespace WpfMinecraftCommandHelper2
             }
         }
 
+        public string returnCmd()
+        {
+            return finalStr;
+        }
+
         private void clearBtn_Click(object sender, RoutedEventArgs e)
         {
             clear();

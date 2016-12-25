@@ -11,11 +11,12 @@ namespace WpfMinecraftCommandHelper2
     /// </summary>
     public partial class Summon : MetroWindow
     {
+        AllSelData asd = new AllSelData();
+
         public Summon()
         {
             InitializeComponent();
             appLanguage();
-            AllSelData asd = new AllSelData();
             for (int i = 0; i < asd.getAtListCount(); i++)
             {
                 tabSumosType.Items.Add(asd.getAtNameList(i));
@@ -379,7 +380,6 @@ namespace WpfMinecraftCommandHelper2
             {
                 clear(i);
             }
-            AllSelData asd = new AllSelData();
             for (int i = 0; i < asd.getItemNameListCount(); i++)
             {
                 if (asd.getItem(i) == "minecraft:sand") { FallingSandItemSel.SelectedIndex = i; continue; }
@@ -811,7 +811,6 @@ namespace WpfMinecraftCommandHelper2
                 tabSumosHeadID.IsEnabled = true;
                 tabSumosHead.IsEnabled = false;
                 globalSumosTempSel = tabSumosHead.SelectedIndex;
-                AllSelData asd = new AllSelData();
                 int tempIndex = 0;
                 for (int i = 0; i < asd.getItemNameListCount(); i++)
                 {
@@ -934,7 +933,6 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabSumosCreate_Click(object sender, RoutedEventArgs e)
         {
-            AllSelData asd = new AllSelData();
             string sumosText = "ArmorItems:[";
             int equipCount = 0;
             if (mcVersion == "1.8")
@@ -1687,7 +1685,6 @@ namespace WpfMinecraftCommandHelper2
         {
             if (mcVersion == "1.8")
             {
-                AllSelData asd = new AllSelData();
                 string finaltext = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {Riding:{";
                 if (sumosRidingNBT != "")
                 {
@@ -1722,7 +1719,6 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabSumosEgg_Click(object sender, RoutedEventArgs e)
         {
-            AllSelData asd = new AllSelData();
             if (sumosFinalStr.IndexOf('{') != -1)
             {
                 string temp = sumosFinalStr.Substring(sumosFinalStr.IndexOf('{') + 1, sumosFinalStr.Length - sumosFinalStr.IndexOf('{') - 2);
@@ -1803,7 +1799,6 @@ namespace WpfMinecraftCommandHelper2
         private void tabSumosType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             allVisInit();
-            AllSelData asd = new AllSelData();
             if (asd.getAt(tabSumosType.SelectedIndex) == "Villager" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:villager")
             {
                 SummonVHeader.Visibility = Visibility.Visible;
@@ -2104,7 +2099,6 @@ namespace WpfMinecraftCommandHelper2
         private void listFlush()
         {
             pageList.Items.Clear();
-            AllSelData asd = new AllSelData();
             for (int i = 0; i <= tabVillagerMaxIndex; i++)
             {
                 if (i < globalVillagerMaxValue)
@@ -2152,7 +2146,6 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabVillagerAGet_Click(object sender, RoutedEventArgs e)
         {
-            AllSelData asd = new AllSelData();
             if (asd.getItem(tabVillagerA.SelectedIndex) == "minecraft:splash_potion" || asd.getItem(tabVillagerA.SelectedIndex) == "minecraft:lingering_potion" || asd.getItem(tabVillagerA.SelectedIndex) == "minecraft:potion")
             {
                 string[] receive = tabVillagerGetPotion();
@@ -2186,7 +2179,6 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabVillagerBGet_Click(object sender, RoutedEventArgs e)
         {
-            AllSelData asd = new AllSelData();
             if (asd.getItem(tabVillagerB.SelectedIndex) == "minecraft:splash_potion" || asd.getItem(tabVillagerB.SelectedIndex) == "minecraft:lingering_potion" || asd.getItem(tabVillagerB.SelectedIndex) == "minecraft:potion")
             {
                 string[] receive = tabVillagerGetPotion();
@@ -2220,7 +2212,6 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabVillagerCGet_Click(object sender, RoutedEventArgs e)
         {
-            AllSelData asd = new AllSelData();
             if (asd.getItem(tabVillagerC.SelectedIndex) == "minecraft:splash_potion" || asd.getItem(tabVillagerC.SelectedIndex) == "minecraft:lingering_potion" || asd.getItem(tabVillagerC.SelectedIndex) == "minecraft:potion")
             {
                 string[] receive = tabVillagerGetPotion();
@@ -2360,7 +2351,6 @@ namespace WpfMinecraftCommandHelper2
             itembox.ShowDialog();
             string[] temp = itembox.returnStr();
             int[] temp0 = itembox.returnStrAdver();
-            AllSelData asd = new AllSelData();
             if (temp[10] == string.Empty)
             {
                 return new string[] { asd.getItem(temp0[0]), temp0[1].ToString(), temp0[2].ToString(), string.Empty };
@@ -3183,7 +3173,6 @@ namespace WpfMinecraftCommandHelper2
 
         private void FrameGetItemBtn_Click(object sender, RoutedEventArgs e)
         {
-            AllSelData asd = new AllSelData();
             Item itembox = new Item();
             itembox.ShowDialog();
             string[] temp = itembox.returnStr();
@@ -3364,8 +3353,16 @@ namespace WpfMinecraftCommandHelper2
             clear(3);
         }
 
+        private string SpawnerOtherStr = string.Empty;
+
         private void tabSpawnerGetNBT_Click(object sender, RoutedEventArgs e)
         {
+            if (asd.getAt(tabSpawnerShowType.SelectedIndex) == "minecraft:fireworks_rocket")
+            {
+                Firework fwbox = new Firework();
+                string fireworkCmd = fwbox.returnCmd();
+                SpawnerOtherStr = fireworkCmd.Substring(fireworkCmd.IndexOf('{'), fireworkCmd.Length - fireworkCmd.IndexOf('{') - 1) + ",";
+            }
             if (sumosFinalStr != "" && sumosFinalStr.IndexOf('{') != -1)
             {
                 globalSummonNBT = sumosFinalStr.Substring(sumosFinalStr.IndexOf('{') + 1, sumosFinalStr.LastIndexOf('}') - sumosFinalStr.IndexOf('{') - 1);
@@ -3398,7 +3395,6 @@ namespace WpfMinecraftCommandHelper2
             }
             if (tabSpawnerAddToInv.IsChecked.Value)
             {
-                AllSelData asd = new AllSelData();
                 firstText = "";
                 if (asd.getAt(tabSpawnerShowType.SelectedIndex) == "TippedArrow")
                 {
@@ -3407,20 +3403,19 @@ namespace WpfMinecraftCommandHelper2
                 }
                 else
                 {
-                    if (mcVersion == "1.8") { firstText = "/give @p minecraft:mob_spawner 1 0 {BlockEntityTag:{id:\"MobSpawner\",EntityId:" + asd.getAt(tabSpawnerShowType.SelectedIndex) + ",SpawnData:{"; }
-                    else { firstText = "/give @p minecraft:mob_spawner 1 0 {BlockEntityTag:{id:\"MobSpawner\",SpawnData:{id:\"" + asd.getAt(tabSpawnerShowType.SelectedIndex) + "\","; }
+                    if (mcVersion == "1.8") { firstText = "/give @p minecraft:mob_spawner 1 0 {BlockEntityTag:{id:\"MobSpawner\",EntityId:" + asd.getAt(tabSpawnerShowType.SelectedIndex) + ",SpawnData:{" + SpawnerOtherStr; }
+                    else { firstText = "/give @p minecraft:mob_spawner 1 0 {BlockEntityTag:{id:\"MobSpawner\",SpawnData:{id:\"" + asd.getAt(tabSpawnerShowType.SelectedIndex) + "\"," + SpawnerOtherStr; }
                 }
             }
             else
             {
-                AllSelData asd = new AllSelData();
                 string dx = "", dy = "", dz = "";
                 if (tabSpawnerX.Value == 0) dx = "~"; else dx = tabSpawnerX.Value.ToString();
                 if (tabSpawnerY.Value == 0) dy = "~"; else dy = tabSpawnerY.Value.ToString();
                 if (tabSpawnerZ.Value == 0) dz = "~"; else dz = tabSpawnerZ.Value.ToString();
                 firstText = "";
-                if (mcVersion == "1.8") { firstText = "/setblock " + dx + " " + dy + " " + dz + " minecraft:mob_spawner 0 replace {BlockEntityTag:{id:\"MobSpawner\",EntityId:" + asd.getAt(tabSpawnerShowType.SelectedIndex) + ",SpawnData:{"; }
-                else { firstText = "/setblock " + dx + " " + dy + " " + dz + " minecraft:mob_spawner 0 replace {BlockEntityTag:{id:\"MobSpawner\",SpawnData:{id:" + asd.getAt(tabSpawnerShowType.SelectedIndex) + "\","; }
+                if (mcVersion == "1.8") { firstText = "/setblock " + dx + " " + dy + " " + dz + " minecraft:mob_spawner 0 replace {BlockEntityTag:{id:\"MobSpawner\",EntityId:" + asd.getAt(tabSpawnerShowType.SelectedIndex) + ",SpawnData:{" + SpawnerOtherStr; }
+                else { firstText = "/setblock " + dx + " " + dy + " " + dz + " minecraft:mob_spawner 0 replace {BlockEntityTag:{id:\"MobSpawner\",SpawnData:{id:" + asd.getAt(tabSpawnerShowType.SelectedIndex) + "\"," + SpawnerOtherStr; }
             }
             string secondText = "";
             if (tabSpawnerHasName.IsChecked.Value) secondText += "CustomName:\"" + tabSpawnerName.Text + "\",";
@@ -3433,7 +3428,6 @@ namespace WpfMinecraftCommandHelper2
             secondText += "}";
             if (!tabSpawnerHasItemNL.IsChecked.Value)
             {
-                AllSelData asd = new AllSelData();
                 secondText += ",display:{Name:\"" + asd.getAtNameList(tabSpawnerShowType.SelectedIndex) + "\"}";
             }
             else
@@ -3449,7 +3443,6 @@ namespace WpfMinecraftCommandHelper2
             {
                 if (mcVersion == "1.8")
                 {
-                    AllSelData asd = new AllSelData();
                     thirdText += "{Type:\"" + asd.getAt(tabSpawner1Type.SelectedIndex) + "\",Weight:" + tabSpawner1Weight.Value + ",Properties:{" + edata1 + "}}";
                     if (tabSpawner2.IsChecked.Value)
                     {
@@ -3466,7 +3459,6 @@ namespace WpfMinecraftCommandHelper2
                 }
                 else
                 {
-                    AllSelData asd = new AllSelData();
                     thirdText += "{Weight:" + tabSpawner1Weight.Value + ",Entity:{id:\"" + asd.getAt(tabSpawner1Type.SelectedIndex) + "\"," + edata1 + "}}";
                     if (tabSpawner2.IsChecked.Value)
                     {
@@ -3526,6 +3518,7 @@ namespace WpfMinecraftCommandHelper2
                 spawnerFinalStr = firstText + secondText + thirdText + "}}";
             }
             spawnerFinalStr = spawnerFinalStr.Replace(",,", ",");
+            SpawnerOtherStr = string.Empty;
         }
 
         private void tabSpawnerCopy_Click(object sender, RoutedEventArgs e)

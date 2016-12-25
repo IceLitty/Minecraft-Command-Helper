@@ -472,7 +472,7 @@ namespace WpfMinecraftCommandHelper2
                                 "minecraft:glass",
                                 "minecraft:glass_pane",
                                 "minecraft:glass_bottle",
-                                "minecraft:totem",
+                                "minecraft:totem_of_undying",
                                 "minecraft:grass",
                                 "minecraft:grass_path",
                                 "minecraft:record_11",

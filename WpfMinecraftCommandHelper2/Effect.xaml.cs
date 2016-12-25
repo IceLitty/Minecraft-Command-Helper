@@ -112,6 +112,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void createBtn_Click(object sender, RoutedEventArgs e)
         {
+            int level = (int)tabEffectLevel.Value.Value - 1;
             if (tabEffectSel.SelectedIndex < 0)
             {
                 tabEffectSel.SelectedIndex = 0;
@@ -132,11 +133,11 @@ namespace WpfMinecraftCommandHelper2
                 {
                     if (tabEffectHide.IsChecked.Value == true)
                     {
-                        andAt += asd.getEffect(tabEffectSel.SelectedIndex, true) + " " + tabEffectTime.Value + " " + tabEffectLevel.Value + " true";
+                        andAt += asd.getEffect(tabEffectSel.SelectedIndex, true) + " " + tabEffectTime.Value + " " + level + " true";
                     }
                     else
                     {
-                        andAt += asd.getEffect(tabEffectSel.SelectedIndex, true) + " " + tabEffectTime.Value + " " + tabEffectLevel.Value;
+                        andAt += asd.getEffect(tabEffectSel.SelectedIndex, true) + " " + tabEffectTime.Value + " " + level;
                     }
 
                 }
@@ -144,11 +145,11 @@ namespace WpfMinecraftCommandHelper2
                 {
                     if (tabEffectHide.IsChecked.Value == true)
                     {
-                        andAt += asd.getEffect(tabEffectSel.SelectedIndex, false) + " " + tabEffectTime.Value + " " + tabEffectLevel.Value + " true";
+                        andAt += asd.getEffect(tabEffectSel.SelectedIndex, false) + " " + tabEffectTime.Value + " " + level + " true";
                     }
                     else
                     {
-                        andAt += asd.getEffect(tabEffectSel.SelectedIndex, false) + " " + tabEffectTime.Value + " " + tabEffectLevel.Value;
+                        andAt += asd.getEffect(tabEffectSel.SelectedIndex, false) + " " + tabEffectTime.Value + " " + level;
                     }
                 }
                 else

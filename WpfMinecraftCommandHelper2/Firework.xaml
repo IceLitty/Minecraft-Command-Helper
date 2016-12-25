@@ -25,7 +25,7 @@
             <Label x:Name="FireworkFlyTime" Content="飞行时间（Tick）：" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top"/>
             <Label x:Name="FireworkX" Content="坐标X：" HorizontalAlignment="Left" Margin="0,36,0,0" VerticalAlignment="Top"/>
             <Label x:Name="FireworkFlyHeight" Content="飞行高度：" HorizontalAlignment="Left" Margin="300,8,0,0" VerticalAlignment="Top"/>
-            <Controls:NumericUpDown x:Name="tabFireFlight" Minimum="0" Maximum="10" StringFormat="" Margin="375,6,10,30" Height="28" Value="2" />
+            <Controls:NumericUpDown x:Name="tabFireFlight" Minimum="-5" Maximum="10" StringFormat="" Margin="375,6,10,30" Height="28" Value="2" />
             <Label x:Name="FireworkY" Content="Y：" HorizontalAlignment="Left" Margin="202,36,0,0" VerticalAlignment="Top"/>
             <Controls:NumericUpDown x:Name="tabFireY" Minimum="-1000000" Maximum="1000000" StringFormat="" Margin="231,36,207,0" Height="28" Value="0" IsEnabled="False" />
             <Label x:Name="FireworkZ" Content="Z：" HorizontalAlignment="Left" Margin="374,36,0,0" VerticalAlignment="Top"/>
