@@ -21,9 +21,9 @@
     <Grid>
         <Label x:Name="EffectChooseEffect2" Content="请选择状态效果：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="tabEffectSel" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="338" SelectionChanged="tabEffectSel_SelectionChanged"/>
-        <Grid HorizontalAlignment="Left" Height="20" Margin="10,71,0,0" VerticalAlignment="Top" Width="193">
+        <Grid HorizontalAlignment="Left" Height="20" Margin="10,71,0,0" VerticalAlignment="Top" Width="338">
             <RadioButton x:Name="tabEffectSelName" Content="名称形式代码" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Top" IsChecked="True"/>
-            <RadioButton x:Name="tabEffectSelID" Content="ID形式代码" HorizontalAlignment="Left" Margin="103,0,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="tabEffectSelID" Content="ID形式代码" HorizontalAlignment="Left" Margin="103,0,0,0" VerticalAlignment="Top" Width="170"/>
         </Grid>
         <Label x:Name="EffectTime" Content="状态持续时间：" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top"/>
         <Label x:Name="EffectLevel" Content="状态效果等级：" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>

@@ -14,7 +14,7 @@
         <Label x:Name="weibo" Content="Weibo" HorizontalAlignment="Left" Margin="45,162,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="weibo_MouseLeftButtonDown"/>
         <Label x:Name="mail" Content="@Mail" HorizontalAlignment="Left" Margin="98,162,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="mail_MouseLeftButtonDown"/>
         <Label x:Name="mcbbs" Content="MCBBS" HorizontalAlignment="Left" Margin="150,162,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="mcbbs_MouseLeftButtonDown"/>
-        <Label x:Name="website" Content="WebSite" HorizontalAlignment="Left" Margin="207,162,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="website_MouseLeftButtonDown"/>
+        <Label x:Name="website" Content="Github" HorizontalAlignment="Left" Margin="207,162,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="website_MouseLeftButtonDown"/>
         <Label x:Name="love" Content="&lt;3" HorizontalAlignment="Left" Margin="270,162,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="love_MouseLeftButtonDown"/>
         <Label x:Name="bbs1" Content="MCBBS - PotatoMaster101" HorizontalAlignment="Left" Margin="10,222,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="bbs1_MouseLeftButtonDown"/>
         <Label x:Name="bbs2" Content="MCBBS - sylqiuyifeng" HorizontalAlignment="Left" Margin="178,222,0,0" VerticalAlignment="Top" Foreground="#FF3285FD" MouseLeftButtonDown="bbs2_MouseLeftButtonDown"/>
@@ -33,12 +33,12 @@
             </Grid.ToolTip>
             <Label Content="by IceLitty" Foreground="#FF3285FD"/>
         </Grid>
-        <Image x:Name="ccIMG" HorizontalAlignment="Left" Height="31" Margin="566,292,0,0" VerticalAlignment="Top" Width="88" Source="Images/cc.png" ToolTip="This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/." MouseLeftButtonDown="ccIMG_MouseLeftButtonDown"/>
         <Grid HorizontalAlignment="Right" Margin="0,323,230,0" VerticalAlignment="Top">
             <Grid.ToolTip>
                 <Image Source="Images/AlipayQR.png" Width="150" Height="150"/>
             </Grid.ToolTip>
             <Label x:Name="alipay" Content="支付宝投食二维码(Donate w/ Alipay)" Foreground="#FFDA656D" />
         </Grid>
+        <Label x:Name="License" Content="Use LGPL License" HorizontalAlignment="Right" Margin="0,302,20,0" VerticalAlignment="Top"/>
     </Grid>
 </Controls:MetroWindow>

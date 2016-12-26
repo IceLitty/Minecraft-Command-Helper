@@ -58,10 +58,10 @@ namespace WpfMinecraftCommandHelper2
                 tabBrewingStand.Header = templang[11];
                 tabFlowerpot.Header = templang[12];
                 tabRecordplayer.Header = templang[13];
-                ContainerName.ToolTip = templang[14];
-                ContainerLock.ToolTip = templang[15];
-                ContainerLTPath.ToolTip = templang[16];
-                ContainerLTSeed.ToolTip = templang[17];
+                TextBoxHelper.SetWatermark(ContainerName, templang[14]);
+                TextBoxHelper.SetWatermark(ContainerLock, templang[15]);
+                TextBoxHelper.SetWatermark(ContainerLTPath, templang[16]);
+                TextBoxHelper.SetWatermark(ContainerLTSeed, templang[17]);
                 furnaceBurnTime.ToolTip = templang[18];
                 furnaceCookTime.ToolTip = templang[19];
                 furnaceCookTimeTotal.ToolTip = templang[20];

@@ -65,12 +65,14 @@ namespace WpfMinecraftCommandHelper2
                 tabItemEnchant7.Content = templang[12];
                 tabItemEnchant8.Content = templang[13];
                 tabItemEnchant9.Content = templang[14];
+                tabItemEnchant10.Content = templang[83];
                 tabItemEnchant16.Content = templang[15];
                 tabItemEnchant17.Content = templang[16];
                 tabItemEnchant18.Content = templang[17];
                 tabItemEnchant19.Content = templang[18];
                 tabItemEnchant20.Content = templang[19];
                 tabItemEnchant21.Content = templang[20];
+                tabItemEnchant22.Content = templang[84];
                 tabItemEnchant32.Content = templang[21];
                 tabItemEnchant33.Content = templang[22];
                 tabItemEnchant34.Content = templang[23];
@@ -82,6 +84,7 @@ namespace WpfMinecraftCommandHelper2
                 tabItemEnchant61.Content = templang[29];
                 tabItemEnchant62.Content = templang[30];
                 tabItemEnchant70.Content = templang[31];
+                tabItemEnchant71.Content = templang[85];
                 ItemChooseItem.Content = templang[32];
                 ItemTip1.Content = templang[33];
                 ItemChooseMeta.Content = templang[34];
@@ -132,6 +135,37 @@ namespace WpfMinecraftCommandHelper2
                 SpawnEgg.Content = templang[80];
                 SpawnEgg.ToolTip = templang[81];
                 FloatFavouriteFileVersionOld = templang[82];
+                tabItemEnchant0.ToolTip = templang[5];
+                tabItemEnchant1.ToolTip = templang[6];
+                tabItemEnchant2.ToolTip = templang[7];
+                tabItemEnchant3.ToolTip = templang[8];
+                tabItemEnchant4.ToolTip = templang[9];
+                tabItemEnchant5.ToolTip = templang[10];
+                tabItemEnchant6.ToolTip = templang[11];
+                tabItemEnchant7.ToolTip = templang[12];
+                tabItemEnchant8.ToolTip = templang[13];
+                tabItemEnchant9.ToolTip = templang[14];
+                tabItemEnchant10.ToolTip = templang[83];
+                tabItemEnchant16.ToolTip = templang[15];
+                tabItemEnchant17.ToolTip = templang[16];
+                tabItemEnchant18.ToolTip = templang[17];
+                tabItemEnchant19.ToolTip = templang[18];
+                tabItemEnchant20.ToolTip = templang[19];
+                tabItemEnchant21.ToolTip = templang[20];
+                tabItemEnchant22.ToolTip = templang[84];
+                tabItemEnchant32.ToolTip = templang[21];
+                tabItemEnchant33.ToolTip = templang[22];
+                tabItemEnchant34.ToolTip = templang[23];
+                tabItemEnchant35.ToolTip = templang[24];
+                tabItemEnchant48.ToolTip = templang[25];
+                tabItemEnchant49.ToolTip = templang[26];
+                tabItemEnchant50.ToolTip = templang[27];
+                tabItemEnchant51.ToolTip = templang[28];
+                tabItemEnchant61.ToolTip = templang[29];
+                tabItemEnchant62.ToolTip = templang[30];
+                tabItemEnchant70.ToolTip = templang[31];
+                tabItemEnchant71.ToolTip = templang[85];
+                tabItemAttrArmorToughnessCheck.Content = templang[86];
             } catch (Exception) { /* throw; */ }
         }
 

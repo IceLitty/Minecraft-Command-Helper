@@ -114,7 +114,7 @@
                         <RadioButton x:Name="zero" Content="Zero" HorizontalAlignment="Left" Margin="10,214,0,0" VerticalAlignment="Top" Click="zero_Checked"/>
                         <RadioButton x:Name="sasa" Content="撒撒" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Click="sasa_Click"/>
                         <RadioButton x:Name="style" Content="格调" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top" Click="style_Click"/>
-                        <RadioButton x:Name="temp" Content="手稿" HorizontalAlignment="Left" Margin="10,283,0,0" VerticalAlignment="Top" Click="temp_Click"/>
+                        <RadioButton x:Name="temp" Content="手稿" HorizontalAlignment="Left" Margin="10,283,0,0" VerticalAlignment="Top" Click="temp_Click" IsEnabled="False"/>
                         <Label x:Name="sclabel" Content="仅显示SC已收集头像" HorizontalAlignment="Left" Margin="0,306,0,0" VerticalAlignment="Top" Foreground="#FFA0A0A0" MouseDown="sclabel_MouseDown"/>
                     </Grid>
                 </Grid>

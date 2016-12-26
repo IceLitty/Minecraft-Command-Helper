@@ -24,9 +24,7 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabOther1HatSel.Items.Add(asd.getItemNameList(i));
                 tabOther1ItemFlySel.Items.Add(asd.getItemNameList(i));
-                tabOther1JukeboxItemSel.Items.Add(asd.getItemNameList(i));
                 tabOther1TestforInvItem.Items.Add(asd.getItemNameList(i));
-                tabOther1LockItem.Items.Add(asd.getItemNameList(i));
             }
             tabOther1RideSel.Items.Add(OtherListNorth);
             tabOther1RideSel.Items.Add(OtherListSouth);
@@ -43,13 +41,8 @@ namespace WpfMinecraftCommandHelper2
         private string OtherHelpHat = "所需参数如下：\r\n物品名 数量 损耗值 NBT标签\r\n\r\n格式如下：\r\n/replaceitem entity <选择器> <栏位> <物品名> [数量] [损耗值] [NBT标签]";
         private string OtherHelpWord = "所需参数如下：\r\n实体名 显示的文字\r\n\r\n格式如下：\r\n/summon <实体名> <X> <Y> <Z> [NBT标签]\r\n\r\n适合做浮空字的实体：\r\n凋零头、雪球、箭矢、小火球、大火球、投掷药水、经验瓶、末影之眼、末影珍珠等";
         private string OtherHelpFlyItem = "所需参数如下：\r\n物品名 数量 是否允许拾取物品\r\n\r\n格式如下：\r\n/summon Item <X> <Y> <Z> [NBT标签]";
-        private string OtherHelpTNT = "所需参数如下：\r\n向x轴的动量 向y轴的动量 向z轴的动量\r\n\r\n格式如下：\r\n/summon PrimedTnt <x> <y> <z> [NBT标签]";
-        private string OtherHelpJukebox = "所需参数如下：\r\n物品名 数量 损耗值 NBT标签\r\n\r\n格式如下：\r\n/setblock <x> <y> <z> <物品名> [Meta值] [NBT标签]\r\n\r\n勾上NBT同样会检测是否隐藏物品属性显示的框~\r\nHave fun <3";
         private string OtherHelpTestforInv = "快捷栏槽位为0-8共9格，剩余都是背包槽位了。如果不知道槽位可手动删除“Slot:0b,”字符串。\r\n从左到右的控件功能分别为：\r\n选择物品、数量、Meta值、槽位。\r\n\r\n背包槽位细讲：\r\n0-8为快捷栏槽位，9-35为背包槽位，最上行的第一格为9，第三行的第9格为35。\r\n此外，头盔、胸甲、护腿、靴子的四格分别为103、102、101、100。\r\n背包合成台的四格从左上到右下分别为80、81、82、83。\r\n副手槽位为-106。";
         private string OtherHelpTestforHotbar = "可以探测玩家是否正在使用指定快捷栏的物品。选中则输出。";
-        private string OtherHelpLock = "可以将箱子等容器上锁，钥匙就是用密码重命名后的道具，手握该道具即可右键打开。";
-        private string OtherHelpUnlockKeyLore = "测试形钥匙①号";
-        private string OtherHelpUnlock = "解锁的话其实只要物品名和密码一模一样就行了……你可以试试将密码复制到物品标签页的名称中生成。\r\n\r\n已复制：\r\n";
         private string OtherHelpClear = "所需参数如下：\r\n是否拥有某种属性\r\n\r\n格式如下：\r\n/clear [玩家名] [物品名] [数量] [Meta值] [NBT标签]\r\n\r\n请在物品标签页中选择所需要清理的物品、数量、Meta值和相应属性！";
         private string OtherHelpGetHead = "该项为了1.8.1及以上用户无法通过旧方法获得正版ID的头部而设定的。\r\n\r\n文本框内填上正版用户的ID即可，点击生成即向Mojang服务器请求数据并编译成NBT数据生成。\r\n注：如果返回404错误即为找不到此ID，请确认该玩家ID是正版ID！\r\n后数值为预览图旋转角度。";
         private string OtherHelpGetHeadNeedInternet = "需要向Minecraft服务器传输数据";
@@ -91,11 +84,8 @@ namespace WpfMinecraftCommandHelper2
                 tabOther1HatCreate.Content = templang[3];
                 tabOther1WordCreate.Content = templang[3];
                 tabOther1ItemFlyCreate.Content = templang[3];
-                tabOther1TNTCreate.Content = templang[3];
-                tabOther1JukeboxCreate.Content = templang[3];
                 tabOther1TestforInvCreate.Content = templang[3];
                 tabOther1TestforHotCreate.Content = templang[3];
-                tabOther1LockCreate.Content = templang[3];
                 tabOther1ClearCreate.Content = templang[3];
                 tabOther1GetHeadCreate.Content = templang[3];
                 tabOther1GatewayBtn.Content = templang[3];
@@ -108,13 +98,8 @@ namespace WpfMinecraftCommandHelper2
                 OtherHelpHat = templang[6];
                 OtherHelpWord = templang[7];
                 OtherHelpFlyItem = templang[8];
-                OtherHelpTNT = templang[9];
-                OtherHelpJukebox = templang[10];
                 OtherHelpTestforInv = templang[11];
                 OtherHelpTestforHotbar = templang[12];
-                OtherHelpLock = templang[13];
-                OtherHelpUnlockKeyLore = templang[14];
-                OtherHelpUnlock = templang[15];
                 OtherHelpClear = templang[16];
                 OtherHelpGetHead = templang[17];
                 OtherHelpGetHeadNeedInternet = templang[18];
@@ -142,12 +127,8 @@ namespace WpfMinecraftCommandHelper2
                 OtherFlyWord.Content = templang[39];
                 OtherFlyItem.Content = templang[40];
                 tabOther1ItemFlyCantGet.Content = templang[41];
-                OtherTNT.Content = templang[42];
-                OtherJukebox.Content = templang[43];
                 OtherTestforInv.Content = templang[44];
                 OtherTestforHotbar.Content = templang[45];
-                OtherLock.Content = templang[46];
-                tabOther1LockUnlock.Content = templang[47];
                 OtherClear.Content = templang[48];
                 tabOther1ClearHasName.Content = templang[49];
                 tabOther1ClearItemSel.Content = templang[50];
@@ -354,115 +335,6 @@ namespace WpfMinecraftCommandHelper2
             checkbox.Show();
         }
 
-        private void tabOther1TNTHelp_Click(object sender, RoutedEventArgs e)
-        {
-            this.ShowMessageAsync(FloatHelpTitle, OtherHelpTNT, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-        }
-
-        private void tabOther1TNTCreate_Click(object sender, RoutedEventArgs e)
-        {
-            if (mcVersion == "1.8" || mcVersion == "1.9/1.10")
-            {
-                finalStr = "/summon PrimedTnt ~ ~ ~ {Motion:[" + tabOther1TNTDx.Value + ".0," + tabOther1TNTDy.Value + ".0," + tabOther1TNTDz.Value + ".0],Fuse:" + tabOther1TNTFuse.Value + "}";
-            }
-            else
-            {
-                finalStr = "/summon minecraft:tnt ~ ~ ~ {Motion:[" + tabOther1TNTDx.Value + ".0," + tabOther1TNTDy.Value + ".0," + tabOther1TNTDz.Value + ".0],Fuse:" + tabOther1TNTFuse.Value + "}";
-            }
-            Check checkbox = new Check();
-            checkbox.showText(finalStr);
-            checkbox.Show();
-        }
-
-        private void tabOther1JukeboxHelp_Click(object sender, RoutedEventArgs e)
-        {
-            this.ShowMessageAsync(FloatHelpTitle, OtherHelpJukebox, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-        }
-
-        private void tabOther1JukeboxCreate_Click(object sender, RoutedEventArgs e)
-        {
-            if (tabOther1JukeboxItemSel.SelectedIndex < 0)
-            {
-                tabOther1JukeboxItemSel.SelectedIndex = 0;
-            }
-            AllSelData asd = new AllSelData();
-            string temp = "/setblock ~ ~1 ~ minecraft:jukebox 1 replace {RecordItem:{id:\"" + asd.getItem(tabOther1JukeboxItemSel.SelectedIndex) + "\",Count:" + tabOther1JukeboxCount.Value + "b,Damage:" + tabOther1JukeboxMeta.Value + "s";
-            string nbt = "";
-            if (tabOther1JukeboxHasNBT.IsChecked.Value)
-            {
-                if (globalEnchString != "")
-                {
-                    nbt += globalEnchString + ",";
-                }
-                if (globalNLString != "")
-                {
-                    nbt += globalNLString + ",";
-                }
-                if (globalAttrString != "")
-                {
-                    nbt += globalAttrString + ",";
-                }
-                if (globalHideflag != "")
-                {
-                    nbt += globalHideflag + ",";
-                }
-                if (globalEnchString != "" || globalNLString != "" || globalAttrString != "" || globalHideflag != "")
-                {
-                    if (nbt.Length >= 1)
-                    {
-                        nbt = nbt.Remove(nbt.Length - 1, 1);
-                    }
-                    else
-                    {
-                        //errorC = true;
-                    }
-                }
-                if (nbt != "") nbt += ",";
-                temp = temp + ",tag:{" + nbt + "HideFlags:" + globalHideSelIndex + "}";
-            }
-            temp += "}}";
-            finalStr = temp;
-            Check checkbox = new Check();
-            checkbox.showText(finalStr);
-            checkbox.Show();
-        }
-
-        private void tabOther1JukeboxHasNBT_Click(object sender, RoutedEventArgs e)
-        {
-            globalEnchString = "";
-            globalNLString = "";
-            globalAttrString = "";
-            globalHideflag = "";
-            globalItemSel = 0;
-            globalItemCount = 0;
-            globalItemMeta = 0;
-            globalHideSelIndex = 0;
-            if (tabOther1JukeboxHasNBT.IsChecked.Value)
-            {
-                Item itembox = new Item();
-                itembox.ShowDialog();
-                string[] tempa = itembox.returnStr();
-                int[] tempb = itembox.returnStrAdver();
-                if (tempa[0] != "ench:[]")
-                {
-                    globalEnchString = tempa[0];
-                }
-                if (tempa[1] != "display:{}")
-                {
-                    globalNLString = tempa[1];
-                }
-                if (tempa[2] != "AttributeModifiers:[]")
-                {
-                    globalAttrString = tempa[2];
-                }
-                if (tempa[5] != "")
-                {
-                    globalHideflag = tempa[5];
-                }
-                globalHideSelIndex = tempb[3];
-            }
-        }
-
         private void tabOther1TestforInvHelp_Click(object sender, RoutedEventArgs e)
         {
             this.ShowMessageAsync(FloatHelpTitle, OtherHelpTestforInv, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
@@ -520,31 +392,6 @@ namespace WpfMinecraftCommandHelper2
         private void tabOther1TestforHotCreate_Click(object sender, RoutedEventArgs e)
         {
             string temp = "/testfor @p {SelectedItemSlot:" + tabOther1TestforHotNum.Value + "}";
-            finalStr = temp;
-            Check checkbox = new Check();
-            checkbox.showText(finalStr);
-            checkbox.Show();
-        }
-
-        private void tabOther1LockHelp_Click(object sender, RoutedEventArgs e)
-        {
-            this.ShowMessageAsync(FloatHelpTitle, OtherHelpLock, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-        }
-
-        private void tabOther1LockUnlock_Click(object sender, RoutedEventArgs e)
-        {
-            AllSelData asd = new AllSelData();
-            string temp = "/give @p " + asd.getItem(tabOther1LockItem.SelectedIndex) + " 1 0 {display:{Name:\"" + tabOther1LockPassword.Text + "\",Lore:[\"" + OtherHelpUnlockKeyLore + "\"]}}";
-            finalStr = temp;
-            Clipboard.SetData(DataFormats.UnicodeText, temp);
-            string temp2 = OtherHelpUnlock + temp;
-            this.ShowMessageAsync(FloatHelpTitle, temp2, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-        }
-
-        private void tabOther1LockCreate_Click(object sender, RoutedEventArgs e)
-        {
-            AllSelData asd = new AllSelData();
-            string temp = "/setblock ~ ~1 ~ " + asd.getItem(tabOther1LockItem.SelectedIndex) + " 0 replace {Lock:\"" + tabOther1LockPassword.Text + "\"}";
             finalStr = temp;
             Check checkbox = new Check();
             checkbox.showText(finalStr);

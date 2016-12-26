@@ -29,7 +29,7 @@ namespace WpfMinecraftCommandHelper2
         private bool isUpdate = false;
         private bool isNeedUpdate = false;
         private bool preview = false;
-        private string version = "2.8.6.4";
+        private string version = "2.8.6.5";
         private string getversion = "0.0.0.0";
         private string passversion = "0.0.0.0";
         private bool error1 = false;
@@ -245,6 +245,11 @@ namespace WpfMinecraftCommandHelper2
             loottable.Title = templanglist[93];
             MainPreview = templanglist[94];
             chestBtn.Title = templanglist[95];
+            sasa.Content = templanglist[96];
+            style.Content = templanglist[97];
+            temp.Content = templanglist[98];
+            MainFloatPersonalizeTitle.Content = templanglist[99];
+            Update.Content = templanglist[100];
         }
 
         private List<string> lang = new List<string>();

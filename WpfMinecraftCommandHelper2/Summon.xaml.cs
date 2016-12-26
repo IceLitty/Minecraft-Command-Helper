@@ -143,6 +143,7 @@ namespace WpfMinecraftCommandHelper2
                 tabVillagerAGet.Content = templang[8];
                 tabVillagerBGet.Content = templang[8];
                 tabVillagerCGet.Content = templang[8];
+                tabSpawnerGetNBT.Content = templang[8];
                 SummonAGetData2 = templang[9];
                 SummonAVillagerName = templang[11];
                 SummonSNotChooseItemType = templang[12];
@@ -520,7 +521,7 @@ namespace WpfMinecraftCommandHelper2
                 tabVillagerB.SelectedIndex = 0;
                 tabVillagerC.SelectedIndex = 0;
                 tabVillagerMaxUses.Value = 9999999;
-                tabVillagerPageIndex.Content = "-第01页-";
+                tabVillagerPageIndex.Content = "-" + SummonVNum1 + "01" + SummonVNum2 + "-";
                 tabVillagerBCheck.IsChecked = false;
                 tabVillagerEditIndex = 0;
                 tabVillagerMaxIndex = 0;
@@ -1631,7 +1632,7 @@ namespace WpfMinecraftCommandHelper2
                 sumosText += "Value:" + tabSumosEExp.Value.Value + "s";
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "PrimedTnt" || asd.getAt(tabSumosType.SelectedIndex) == "MinecartTNT" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:tnt_minecart")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "PrimedTnt" || asd.getAt(tabSumosType.SelectedIndex) == "MinecartTNT" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:tnt_minecart" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:tnt")
             {
                 if (sumosText.Length > 0) { sumosText += ","; }
                 sumosText += "Fuse:" + tabSumosEFuse.Value.Value;

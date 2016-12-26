@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="其他零部件" Height="547.929" Width="609.901" PreviewKeyDown="MetroWindow_PreviewKeyDown">
+        Title="其他零部件" Height="418.929" Width="609.901" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Grid>
         <Grid HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="591">
             <Button x:Name="tabOther1HatHelp" Content="?" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="31" Margin="0,0,0,1" Click="tabOther1HatHelp_Click" Style="{DynamicResource SquareButtonStyle}"/>
@@ -33,56 +33,30 @@
             <Controls:NumericUpDown x:Name="tabOther1ItemFlyDamage" Minimum="0" Maximum="32767" Interval="5" StringFormat="" Margin="356,0,173,0" Height="25" Value="1" HideUpDownButtons="True" />
         </Grid>
         <Grid HorizontalAlignment="Left" Height="26" Margin="10,103,0,0" VerticalAlignment="Top" Width="591">
-            <Button x:Name="tabOther1TNTHelp" Content="?" Margin="0,0,560,1" Click="tabOther1TNTHelp_Click" Style="{DynamicResource SquareButtonStyle}"/>
-            <Label x:Name="OtherTNT" Content="TNT大炮" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
-            <Controls:NumericUpDown x:Name="tabOther1TNTDz" Minimum="-32767" Maximum="32767" Interval="5" StringFormat="" Margin="321,0,167,0" Height="25" Value="0" />
-            <Controls:NumericUpDown x:Name="tabOther1TNTFuse" Minimum="0" Maximum="32767" Interval="5" StringFormat="" Margin="429,0,53,0" Height="25" Value="20" />
-            <Button x:Name="tabOther1TNTCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,0,0,0" Click="tabOther1TNTCreate_Click" Style="{DynamicResource SquareButtonStyle}"/>
-            <Controls:NumericUpDown x:Name="tabOther1TNTDx" Minimum="-32767" Maximum="32767" Interval="5" StringFormat="" Margin="99,0,386,0" Height="25" Value="0" />
-            <Controls:NumericUpDown x:Name="tabOther1TNTDy" Minimum="-32767" Maximum="32767" Interval="5" StringFormat="" Margin="210,0,275,0" Height="25" Value="0" />
-        </Grid>
-        <Grid HorizontalAlignment="Left" Height="26" Margin="10,134,0,0" VerticalAlignment="Top" Width="591">
-            <Button x:Name="tabOther1JukeboxHelp" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1JukeboxHelp_Click" Style="{DynamicResource SquareButtonStyle}"/>
-            <Label x:Name="OtherJukebox" Content="物品唱片机" HorizontalAlignment="Left" Margin="31,0,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="tabOther1JukeboxItemSel" HorizontalAlignment="Left" Margin="99,0,0,0" VerticalAlignment="Top" Width="218"/>
-            <Controls:NumericUpDown x:Name="tabOther1JukeboxCount" Minimum="0" Maximum="32767" Interval="5" StringFormat="" Margin="322,0,194,0" Height="25" Value="1" />
-            <Controls:NumericUpDown x:Name="tabOther1JukeboxMeta" Minimum="0" Maximum="32767" Interval="5" StringFormat="" Margin="402,-1,126,1" Height="25" Value="0" />
-            <CheckBox x:Name="tabOther1JukeboxHasNBT" Content="NBT" HorizontalAlignment="Left" Margin="480,3,0,0" VerticalAlignment="Top" Click="tabOther1JukeboxHasNBT_Click"/>
-            <Button x:Name="tabOther1JukeboxCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,0,0,0" Click="tabOther1JukeboxCreate_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        </Grid>
-        <Grid HorizontalAlignment="Left" Height="26" Margin="10,165,0,0" VerticalAlignment="Top" Width="591">
             <Button x:Name="tabOther1TestforInvHelp" Content="?" HorizontalAlignment="Left" Width="31" Margin="0,0,0,1" Click="tabOther1TestforInvHelp_Click" Style="{DynamicResource SquareButtonStyle}"/>
-            <Label x:Name="OtherTestforInv" Content="背包物品检测" HorizontalAlignment="Left" Margin="23,0,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="OtherTestforInv" Content="背包检测" HorizontalAlignment="Left" Margin="31,1,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="tabOther1TestforInvItem" HorizontalAlignment="Left" Margin="99,0,0,0" VerticalAlignment="Top" Width="218"/>
             <Controls:NumericUpDown x:Name="tabOther1TestforInvCount" Minimum="0" Maximum="32767" Interval="5" StringFormat="" Margin="322,0,194,0" Height="25" Value="1" />
             <Controls:NumericUpDown x:Name="tabOther1TestforInvMeta" Minimum="0" Maximum="32767" Interval="5" StringFormat="" Margin="402,0,126,0" Height="25" Value="0" />
             <Button x:Name="tabOther1TestforInvCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,0,0,0" Click="tabOther1TestforInvCreate_Click" Style="{DynamicResource SquareButtonStyle}"/>
             <Controls:NumericUpDown x:Name="tabOther1TestforInvSlot" Minimum="-106" Maximum="103" Interval="5" StringFormat="" Margin="470,0,53,0" Height="25" Value="0" />
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="26" Margin="10,196,0,0" VerticalAlignment="Top" Width="591">
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,134,0,0" VerticalAlignment="Top" Width="591">
             <Button x:Name="tabOther1TestforHotHelp" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1TestforHotHelp_Click" Style="{DynamicResource SquareButtonStyle}"/>
             <Label x:Name="OtherTestforHotbar" Content="探测玩家选择的快捷栏" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
             <Controls:NumericUpDown x:Name="tabOther1TestforHotNum" Minimum="0" Maximum="8" Interval="5" StringFormat="" Margin="171,0,53,0" Height="25" Value="0" />
             <Button x:Name="tabOther1TestforHotCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,0,0,0" Click="tabOther1TestforHotCreate_Click" Style="{DynamicResource SquareButtonStyle}"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="26" Margin="10,227,0,0" VerticalAlignment="Top" Width="591">
-            <Button x:Name="tabOther1LockHelp" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1LockHelp_Click" Style="{DynamicResource SquareButtonStyle}"/>
-            <Label x:Name="OtherLock" Content="上锁的容器" HorizontalAlignment="Left" Margin="31,0,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="tabOther1LockItem" HorizontalAlignment="Left" Margin="99,0,0,0" VerticalAlignment="Top" Width="218"/>
-            <Button x:Name="tabOther1LockCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,0,0,0" Click="tabOther1LockCreate_Click" Style="{DynamicResource SquareButtonStyle}"/>
-            <TextBox x:Name="tabOther1LockPassword" HorizontalAlignment="Left" Height="23" Margin="322,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173"/>
-            <Button x:Name="tabOther1LockUnlock" Content="解锁" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="500,0,0,0" Click="tabOther1LockUnlock_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        </Grid>
-        <Grid HorizontalAlignment="Left" Height="26" Margin="10,258,0,0" VerticalAlignment="Top" Width="591">
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,165,0,0" VerticalAlignment="Top" Width="591">
             <Button x:Name="tabOther1ClearHelp" Content="?" HorizontalAlignment="Left" Width="31" Margin="0,0,0,1" Click="tabOther1ClearHelp_Click" Style="{DynamicResource SquareButtonStyle}"/>
             <Label x:Name="OtherClear" Content="高级Clear" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
-            <CheckBox x:Name="tabOther1ClearHasName" Content="名称&amp;Lore" HorizontalAlignment="Left" Margin="178,3,0,0" VerticalAlignment="Top"/>
+            <CheckBox x:Name="tabOther1ClearHasName" Content="名称&amp;Lore" HorizontalAlignment="Left" Margin="178,3,0,0" VerticalAlignment="Top" Width="86"/>
             <Button x:Name="tabOther1ClearCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,0,0,0" Click="tabOther1ClearCreate_Click" Style="{DynamicResource SquareButtonStyle}"/>
-            <Button x:Name="tabOther1ClearItemSel" Content="选择物品" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Margin="104,0,0,0" Click="tabOther1ClearItemSel_Click" Style="{DynamicResource SquareButtonStyle}"/>
+            <Button x:Name="tabOther1ClearItemSel" Content="选择物品" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Margin="99,0,0,0" Click="tabOther1ClearItemSel_Click" Style="{DynamicResource SquareButtonStyle}"/>
             <CheckBox x:Name="tabOther1ClearHasEnchant" Content="附魔" HorizontalAlignment="Left" Margin="264,3,0,0" VerticalAlignment="Top"/>
             <CheckBox x:Name="tabOther1ClearHasAttr" Content="特殊属性" HorizontalAlignment="Left" Margin="317,3,0,0" VerticalAlignment="Top"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="26" Margin="10,289,0,0" VerticalAlignment="Top" Width="591">
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,196,0,0" VerticalAlignment="Top" Width="591">
             <Button x:Name="tabOther1GetHead" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1GetHead_Click" Style="{DynamicResource SquareButtonStyle}"/>
             <Label x:Name="OtherHead" Content="获取头" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
             <Button x:Name="tabOther1GetHeadCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="500,0,0,0" Click="tabOther1GetHeadCreate_Click" Style="{DynamicResource SquareButtonStyle}"/>
@@ -93,23 +67,23 @@
             <Controls:NumericUpDown x:Name="tabOther1GetHeadHrh" Minimum="0" Maximum="360" Interval="5" StringFormat="" Margin="247,-1,253,1" Height="25" Value="0" />
             <CheckBox x:Name="tabOther1GetHeadCode" Content="代码" HorizontalAlignment="Left" Margin="194,4,0,0" VerticalAlignment="Top"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="26" Margin="10,320,0,0" VerticalAlignment="Top" Width="591">
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,227,0,0" VerticalAlignment="Top" Width="591">
             <Button x:Name="tabOther1CustomCraft" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1CustomCraft_Click" Style="{DynamicResource SquareButtonStyle}"/>
             <Label x:Name="OtherCustomCraft" Content="自定义合成" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
             <Button x:Name="tabOther1CustomCraftOpenBtn" Content="打开" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,1,0,0" Click="tabOther1CustomCraftOpenBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="26" Margin="10,351,0,0" VerticalAlignment="Top" Width="591">
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,258,0,0" VerticalAlignment="Top" Width="591">
             <Button x:Name="tabOther1ArmorStand" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1ArmorStand_Click" Style="{DynamicResource SquareButtonStyle}"/>
             <Label x:Name="OtherArmorStand" Content="网页版高级盔甲架（含预览）" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
             <Button x:Name="tabOther1ArmorStandOpenBtn" Content="打开" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,1,0,0" Click="tabOther1ArmorStandOpenBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
             <Button x:Name="tabOther1ArmorStandOpenOfflineBtn" Content="离线汉化版" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="462,1,0,0" Style="{DynamicResource SquareButtonStyle}" Click="tabOther1ArmorStandOpenOfflineBtn_Click"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="26" Margin="10,382,0,0" VerticalAlignment="Top" Width="591">
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,289,0,0" VerticalAlignment="Top" Width="591">
             <Button x:Name="tabOther1Superflat" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1Superflat_Click" Style="{DynamicResource SquareButtonStyle}"/>
             <Label x:Name="OtherSuperflat" Content="超平坦编辑（1.7.2以上支持）" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
             <Button x:Name="tabOther1SuperflatOpenBtn" Content="打开" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,1,0,0" Click="tabOther1SuperflatOpenBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="26" Margin="10,413,0,0" VerticalAlignment="Top" Width="591">
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,320,0,0" VerticalAlignment="Top" Width="591">
             <Button x:Name="tabOther1Gateway" Content="?" HorizontalAlignment="Left" Width="31" Margin="0,0,0,1" Click="tabOther1Gateway_Click" Style="{DynamicResource SquareButtonStyle}"/>
             <Label x:Name="OtherGateway" Content="单/双向传送门" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
             <Button x:Name="tabOther1GatewayBtn" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,1,0,0" Click="tabOther1GatewayBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
@@ -118,7 +92,7 @@
             <Controls:NumericUpDown x:Name="tabOther1GatewayZ" Minimum="-1000000" Maximum="1000000" Interval="0.5" StringFormat="" Margin="374,0,97,0" Height="25" Value="0" />
             <CheckBox x:Name="tabOther1GatewayIsExact" Content="" HorizontalAlignment="Left" Margin="509,4,0,0" VerticalAlignment="Top"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="26" Margin="10,444,0,0" VerticalAlignment="Top" Width="591">
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,351,0,0" VerticalAlignment="Top" Width="591">
             <Button x:Name="tabOther1Ride" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1Ride_Click" Style="{DynamicResource SquareButtonStyle}"/>
             <Label x:Name="OtherSofa" Content="座椅" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="tabOther1RideSel" HorizontalAlignment="Left" Margin="75,0,0,0" VerticalAlignment="Top" Width="163"/>

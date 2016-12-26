@@ -204,6 +204,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabEffectBitmapDraw()
         {
+            AllSelData asd = new AllSelData();
             ImageFix ifx = new ImageFix();
             if (tabEffectSel.SelectedIndex == 0 || tabEffectSel.SelectedIndex == 1)
             {
@@ -211,153 +212,165 @@ namespace WpfMinecraftCommandHelper2
                 tempBitmap = ifx.ChangeSize(tempBitmap, 8);
                 tabEffectPic.Source = tempBitmap;
             }
-            else if (tabEffectSel.SelectedIndex == 2)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 34, 35, 243, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 3)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 66, 189, 214, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 4)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 57, 152, 224, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 5)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 57, 68, 151, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 6)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 34, 35, 145, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 7)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 206, 103, 61, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 8)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 168, 91, 202, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 9)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 15, 117, 226, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 10)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 151, 81, 45, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 11)
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:saturation")
             {
                 BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 35, 36, 248, 255 });
                 tempBitmap = ifx.ChangeSize(tempBitmap, 8);
                 tabEffectPic.Source = tempBitmap;
             }
-            else if (tabEffectSel.SelectedIndex == 12)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 195, 172, 122, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 13)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 75, 250, 33, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 14)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 158, 31, 31, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 15)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 144, 129, 125, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 16)
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:wither")
             {
                 BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 39, 42, 53, 255 });
                 tempBitmap = ifx.ChangeSize(tempBitmap, 8);
                 tabEffectPic.Source = tempBitmap;
             }
-            else if (tabEffectSel.SelectedIndex == 17)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 84, 29, 73, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 18)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 127, 106, 89, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 19)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 82, 116, 87, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 20)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 34, 31, 31, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 21)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 9, 10, 67, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 22)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 23, 65, 73, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 23)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 71, 76, 71, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 24)
-            {
-                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 48, 145, 77, 255 });
-                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
-                tabEffectPic.Source = tempBitmap;
-            }
-            else if (tabEffectSel.SelectedIndex == 25)
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:glowing")
             {
                 BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 97, 160, 148, 255 });
                 tempBitmap = ifx.ChangeSize(tempBitmap, 8);
                 tabEffectPic.Source = tempBitmap;
             }
-            else if (tabEffectSel.SelectedIndex == 26)
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:nausea")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 74, 29, 85, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:slowness")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 129, 108, 90, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:hunger")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 83, 118, 88, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:haste")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 67, 192, 217, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:fire_resistance")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 58, 154, 228, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:resistance")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 58, 69, 153, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:strength")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 35, 36, 147, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:unluck")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 77, 164, 192, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:levitation")
             {
                 BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 255, 255, 206, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:absorption")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 58, 69, 153, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:regeneration")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 171, 92, 205, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:health_boost")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 35, 125, 248, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:blindness")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 35, 31, 31, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:water_breathing")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 153, 82, 46, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:instant_damage")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 9, 10, 67, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:instant_health")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 35, 36, 248, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:speed")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 198, 175, 124, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:jump_boost")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 151, 98, 120, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:mining_fatigue")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 23, 66, 74, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:luck")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 0, 153, 51, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:weakness")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 72, 77, 72, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:night_vision")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 161, 31, 31, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:invisibility")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 146, 131, 127, 255 });
+                tempBitmap = ifx.ChangeSize(tempBitmap, 8);
+                tabEffectPic.Source = tempBitmap;
+            }
+            else if (asd.getEffect(tabEffectSel.SelectedIndex, false) == "minecraft:poison")
+            {
+                BitmapSource tempBitmap = ifx.ChangeColor(tabEffectRandomBitmap(), new byte[] { 27, 27, 27, 255 }, new byte[] { 49, 147, 78, 255 });
                 tempBitmap = ifx.ChangeSize(tempBitmap, 8);
                 tabEffectPic.Source = tempBitmap;
             }

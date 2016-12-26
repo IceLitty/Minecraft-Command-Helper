@@ -48,7 +48,7 @@
                     <Button x:Name="b8" Content="设置物品" Margin="165,274,570,207" Click="b8_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb9" HorizontalAlignment="Left" Margin="297,243,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
                     <Button x:Name="b9" Content="设置物品" Margin="297,274,438,207" Click="b9_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
-                    <CheckBox x:Name="CustomNameCheck" Content="自定义名称" HorizontalAlignment="Left" Margin="55,326,0,0" VerticalAlignment="Top" Click="CustomNameCheck_Click"/>
+                    <CheckBox x:Name="CustomNameCheck" Content="自定义名称" HorizontalAlignment="Left" Margin="33,326,0,0" VerticalAlignment="Top" Click="CustomNameCheck_Click" Width="106"/>
                     <TextBox x:Name="CustomNameBox" Height="23" TextWrapping="Wrap" Margin="144,321,550,161" IsEnabled="False"/>
                     <ComboBox x:Name="CustomNameColor" HorizontalAlignment="Left" VerticalAlignment="Top" Width="93" Margin="317,321,0,0" IsEnabled="False" SelectionChanged="CustomNameColor_SelectionChanged"/>
                     <Label x:Name="CCTip4" Content="将会弹出两个检索框，请看清标题填写。" Margin="284,372,273,106"/>
@@ -78,7 +78,7 @@
                     <Button x:Name="b8_Copy" Content="设置物品" Margin="570,274,165,207" Click="b8_Copy_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
                     <ComboBox x:Name="cb9_Copy" HorizontalAlignment="Left" Margin="702,243,0,0" VerticalAlignment="Top" Width="127" IsEnabled="False"/>
                     <Button x:Name="b9_Copy" Content="设置物品" Margin="702,274,33,207" Click="b9_Copy_Click" Style="{DynamicResource SquareButtonStyle}" FontSize="12"/>
-                    <CheckBox x:Name="CustomNameCheck_Copy" Content="自定义名称" HorizontalAlignment="Left" Margin="452,326,0,0" VerticalAlignment="Top" Click="CustomNameCheck_Copy_Click"/>
+                    <CheckBox x:Name="CustomNameCheck_Copy" Content="自定义名称" HorizontalAlignment="Left" Margin="438,326,0,0" VerticalAlignment="Top" Click="CustomNameCheck_Copy_Click" Width="98"/>
                     <TextBox x:Name="CustomNameBox_Copy" Height="23" TextWrapping="Wrap" Margin="541,321,153,161" IsEnabled="False"/>
                     <ComboBox x:Name="CustomNameColor_Copy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="93" Margin="714,321,0,0" IsEnabled="False" SelectionChanged="CustomNameColor_Copy_SelectionChanged"/>
                 </Grid>

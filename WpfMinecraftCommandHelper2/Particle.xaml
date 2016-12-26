@@ -21,9 +21,9 @@
     <Grid>
         <Label x:Name="ParticleChooseEffect" Content="请选择效果：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="tabParticleSel" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="520" SelectionChanged="tabParticleSel_SelectionChanged"/>
-        <Grid HorizontalAlignment="Left" Height="24" Margin="372,10,0,0" VerticalAlignment="Top" Width="158">
-            <RadioButton x:Name="tabParticleCN" Content="解释文本" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="tabParticleCN_Checked"/>
-            <RadioButton x:Name="tabParticleEN" Content="内部ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="77,0,0,0" Checked="tabParticleEN_Checked"/>
+        <Grid HorizontalAlignment="Right" Height="24" Margin="0,10,76,0" VerticalAlignment="Top" Width="200">
+            <RadioButton x:Name="tabParticleCN" Content="解释文本" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="tabParticleCN_Checked" Margin="10,0,0,0"/>
+            <RadioButton x:Name="tabParticleEN" Content="内部ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="130,0,0,0" Checked="tabParticleEN_Checked"/>
         </Grid>
         <Label Content="ID:" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top"/>
         <Grid HorizontalAlignment="Left" Height="133" Margin="64,71,0,0" VerticalAlignment="Top" Width="145">
@@ -55,14 +55,14 @@
         <Button x:Name="tabParticleCreate" Content="生成" HorizontalAlignment="Left" Margin="96,249,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="256,249,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <Button x:Name="tabParticleCopy" Content="复制" HorizontalAlignment="Left" Margin="176,249,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
-        <CheckBox x:Name="tabParticleXNum" Content="坐标采用当前坐标" HorizontalAlignment="Left" Margin="416,179,0,0" VerticalAlignment="Top" Click="tabParticleXNum_Checked"/>
+        <CheckBox x:Name="tabParticleXNum" Content="坐标采用当前坐标" HorizontalAlignment="Left" Margin="457,179,0,0" VerticalAlignment="Top" Click="tabParticleXNum_Checked"/>
         <Grid HorizontalAlignment="Left" Height="24" Margin="10,209,0,0" VerticalAlignment="Top" Width="397">
             <RadioButton x:Name="modeNormal" Content="Normal" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <RadioButton x:Name="modeTarget" Content="Force" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="81,0,0,0"/>
             <TextBox x:Name="atBox" HorizontalAlignment="Left" Height="23" Margin="157,0,0,-2" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" Text="@a"/>
             <Button x:Name="atBtn" Content="At" HorizontalAlignment="Left" Margin="285,0,0,-1" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="atBtn_Click"/>
         </Grid>
-        <Button x:Name="colorBtn" Content="Color" HorizontalAlignment="Left" Margin="541,174,0,0" VerticalAlignment="Top" Width="49" Style="{DynamicResource SquareButtonStyle}" Click="colorBtn_Click" IsEnabled="False"/>
+        <Button x:Name="colorBtn" Content="Color" HorizontalAlignment="Left" Margin="513,206,0,0" VerticalAlignment="Top" Width="64" Style="{DynamicResource SquareButtonStyle}" Click="colorBtn_Click" IsEnabled="False"/>
 
     </Grid>
 </Controls:MetroWindow>

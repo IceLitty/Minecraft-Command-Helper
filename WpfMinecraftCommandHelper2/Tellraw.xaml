@@ -74,7 +74,7 @@
             </Grid>
         </GroupBox>
         <Button x:Name="bGetNow" Content="获取本段代码" HorizontalAlignment="Left" Margin="10,450,0,0" VerticalAlignment="Top" Width="116" Style="{DynamicResource SquareButtonStyle}" ToolTip="用于悬浮事件的显示文本，勾上后方的勾再将点击此按钮获得的文本粘入其中即可，只有颜色等样式，无事件代码！如果需要Extra文本，请直接生成-复制后再编辑此处，粘贴至事件框中。" Click="bGetNow_Click"/>
-        <Controls:NumericUpDown x:Name="PageNum" HorizontalAlignment="Left" Height="28" Margin="218,450,0,0" VerticalAlignment="Top" Width="130" ToolTip="" Value="1" Minimum="1" Maximum="50" ValueChanged="PageNum_ValueChanged" HasDecimals="False"/>
+        <Controls:NumericUpDown x:Name="PageNum" HorizontalAlignment="Left" Height="28" Margin="231,450,0,0" VerticalAlignment="Top" Width="117" ToolTip="" Value="1" Minimum="1" Maximum="50" ValueChanged="PageNum_ValueChanged" HasDecimals="False"/>
         <Label x:Name="LineLabel" Content="当前页/行数：" HorizontalAlignment="Left" Margin="131,452,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnParaPre" Content="上一段" HorizontalAlignment="Left" Margin="356,450,0,0" VerticalAlignment="Top" Width="120" Style="{DynamicResource SquareButtonStyle}" ToolTip="" Click="btnParaPre_Click" IsEnabled="False"/>
         <Button x:Name="btnParaNext" Content="下一段" HorizontalAlignment="Left" Margin="552,450,0,0" VerticalAlignment="Top" Width="120" Style="{DynamicResource SquareButtonStyle}" ToolTip="" Click="btnParaNext_Click"/>

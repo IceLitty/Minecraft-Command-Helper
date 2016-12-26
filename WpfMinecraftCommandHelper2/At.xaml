@@ -51,8 +51,8 @@
             <Controls:NumericUpDown x:Name="rx" Minimum="-360" Maximum="360" Interval="5" StringFormat="" Margin="110,0,410,4" Height="25" IsEnabled="False" Value="0" />
             <CheckBox x:Name="rxmCheck" Content="最小垂直旋转" HorizontalAlignment="Left" Margin="252,2,0,0" VerticalAlignment="Top" Click="rxmCheck_Click"/>
             <Controls:NumericUpDown x:Name="rxm" Minimum="-360" Maximum="360" Interval="5" StringFormat="" Margin="353,0,167,4" Height="25" IsEnabled="False" Value="0" />
-            <CheckBox x:Name="cCheck" Content="数量" HorizontalAlignment="Left" Margin="498,2,0,0" VerticalAlignment="Top" Click="cCheck_Click"/>
-            <Controls:NumericUpDown x:Name="c" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="551,0,0,4" Height="25" Value="1" IsEnabled="False" />
+            <CheckBox x:Name="cCheck" Content="数量" HorizontalAlignment="Left" Margin="498,2,0,0" VerticalAlignment="Top" Click="cCheck_Click" Width="64"/>
+            <Controls:NumericUpDown x:Name="c" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="567,0,0,4" Height="25" Value="1" IsEnabled="False" />
         </Grid>
         <Grid HorizontalAlignment="Left" Height="30" Margin="10,190,0,0" VerticalAlignment="Top" Width="660">
             <CheckBox x:Name="ryCheck" Content="最大水平旋转" HorizontalAlignment="Left" Margin="8,2,0,0" VerticalAlignment="Top" Click="ryCheck_Click"/>
@@ -75,19 +75,19 @@
             <TextBox x:Name="scoreMinName" HorizontalAlignment="Left" Height="23" Margin="450,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" IsEnabled="False"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="30" Margin="10,294,0,0" VerticalAlignment="Top" Width="660">
-            <CheckBox x:Name="teamCheck" Content="队伍名" HorizontalAlignment="Left" Margin="7,2,0,0" VerticalAlignment="Top" Click="teamCheck_Click"/>
-            <TextBox x:Name="team" HorizontalAlignment="Left" Height="23" Margin="72,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" IsEnabled="False"/>
+            <CheckBox x:Name="teamCheck" Content="队伍名" HorizontalAlignment="Left" Margin="7,2,0,0" VerticalAlignment="Top" Click="teamCheck_Click" Width="83"/>
+            <TextBox x:Name="team" HorizontalAlignment="Left" Height="23" Margin="95,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" IsEnabled="False"/>
             <CheckBox x:Name="teamUN" Content="非" HorizontalAlignment="Left" Margin="234,2,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-            <CheckBox x:Name="nameCheck" Content="名称" HorizontalAlignment="Left" Margin="338,2,0,0" VerticalAlignment="Top" Click="nameCheck_Click"/>
-            <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="391,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" IsEnabled="False"/>
+            <CheckBox x:Name="nameCheck" Content="名称" HorizontalAlignment="Left" Margin="338,2,0,0" VerticalAlignment="Top" Click="nameCheck_Click" Width="60"/>
+            <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="403,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" IsEnabled="False"/>
             <CheckBox x:Name="nameUN" Content="非" HorizontalAlignment="Left" Margin="560,2,0,0" VerticalAlignment="Top" IsEnabled="False"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="30" Margin="10,329,0,0" VerticalAlignment="Top" Width="660">
-            <CheckBox x:Name="typeCheck" Content="类型" HorizontalAlignment="Left" Margin="337,6,0,0" VerticalAlignment="Top" Click="typeCheck_Click"/>
+            <CheckBox x:Name="typeCheck" Content="类型" HorizontalAlignment="Left" Margin="337,6,0,0" VerticalAlignment="Top" Click="typeCheck_Click" Width="63"/>
             <CheckBox x:Name="typeUN" Content="非" HorizontalAlignment="Left" Margin="560,7,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-            <ComboBox x:Name="type" HorizontalAlignment="Left" Margin="390,3,0,0" VerticalAlignment="Top" Width="165" IsEnabled="False"/>
-            <CheckBox x:Name="tagCheck" Content="标签" HorizontalAlignment="Left" Margin="8,6,0,0" VerticalAlignment="Top" Click="tagCheck_Click"/>
-            <TextBox x:Name="tags" HorizontalAlignment="Left" Height="23" Margin="72,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" IsEnabled="False"/>
+            <ComboBox x:Name="type" HorizontalAlignment="Left" Margin="405,3,0,0" VerticalAlignment="Top" Width="150" IsEnabled="False"/>
+            <CheckBox x:Name="tagCheck" Content="标签" HorizontalAlignment="Left" Margin="8,6,0,0" VerticalAlignment="Top" Click="tagCheck_Click" Width="83"/>
+            <TextBox x:Name="tags" HorizontalAlignment="Left" Height="23" Margin="96,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" IsEnabled="False"/>
         </Grid>
         <Label x:Name="AtTip" Content="- 以下为额外附加NBT标签，只能使用于testfor指令！ -" HorizontalAlignment="Left" Margin="10,359,0,0" VerticalAlignment="Top" Foreground="#FF646464" FontSize="11"/>
         <Grid HorizontalAlignment="Left" Height="30" Margin="10,383,0,0" VerticalAlignment="Top" Width="660">

@@ -53,6 +53,16 @@ namespace WpfMinecraftCommandHelper2
             List<string> templang = setlang.SetLootTable();
             try
             {
+                AttrMaxHealth.ToolTip = "See Tip.";
+                AttrRange.ToolTip = "See Tip.";
+                AttrKnockBack.ToolTip = "See Tip.";
+                AttrMoveSpeed.ToolTip = "See Tip.";
+                AttrAtkDmg.ToolTip = "See Tip.";
+                AttrArmor.ToolTip = "See Tip.";
+                AttrAtkSpeed.ToolTip = "See Tip.";
+                AttrLuck.ToolTip = "See Tip.";
+                AttrJump.ToolTip = "See Tip.";
+                AttrZombie.ToolTip = "See Tip.";
                 EntryClearBtn.Content = templang[0];
                 functionClear.Content = templang[0];
                 conditionsClearBtn.Content = templang[0];

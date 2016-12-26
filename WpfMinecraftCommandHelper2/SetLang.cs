@@ -164,6 +164,11 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["MainLoottable"].ToString());
             relanglist.Add(LangList[langID]["MainPreview"].ToString());
             relanglist.Add(LangList[langID]["MainChest"].ToString());
+            relanglist.Add(LangList[langID]["MainAvatarSaSa"].ToString());
+            relanglist.Add(LangList[langID]["MainAvatarStyle"].ToString());
+            relanglist.Add(LangList[langID]["MainAvatarLine"].ToString());
+            relanglist.Add(LangList[langID]["MainPreferences"].ToString());
+            relanglist.Add(LangList[langID]["MainAutoUpdates"].ToString());
             return relanglist;
         }
 
@@ -698,6 +703,10 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["ItemSpawnEgg"].ToString());
             relanglist.Add(LangList[langID]["ItemSpawnEggTip"].ToString());
             relanglist.Add(LangList[langID]["FloatFavouriteFileVersionOld"].ToString());
+            relanglist.Add(LangList[langID]["ItemEnchant10"].ToString());
+            relanglist.Add(LangList[langID]["ItemEnchant71"].ToString());
+            relanglist.Add(LangList[langID]["ItemEnchant22"].ToString());
+            relanglist.Add(LangList[langID]["ItemAttrArmorToughness"].ToString());
             return relanglist;
         }
 
@@ -864,13 +873,13 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["OtherHelpHat"].ToString());
             relanglist.Add(LangList[langID]["OtherHelpWord"].ToString());
             relanglist.Add(LangList[langID]["OtherHelpFlyItem"].ToString());
-            relanglist.Add(LangList[langID]["OtherHelpTNT"].ToString());
-            relanglist.Add(LangList[langID]["OtherHelpJukebox"].ToString());
+            relanglist.Add(LangList[langID]["BtnOpen"].ToString());
+            relanglist.Add(LangList[langID]["BtnOpen"].ToString());
             relanglist.Add(LangList[langID]["OtherHelpTestforInv"].ToString());
             relanglist.Add(LangList[langID]["OtherHelpTestforHotbar"].ToString());
-            relanglist.Add(LangList[langID]["OtherHelpLock"].ToString());
-            relanglist.Add(LangList[langID]["OtherHelpUnlockKeyLore"].ToString());
-            relanglist.Add(LangList[langID]["OtherHelpUnlock"].ToString());
+            relanglist.Add(LangList[langID]["BtnOpen"].ToString());
+            relanglist.Add(LangList[langID]["BtnOpen"].ToString());
+            relanglist.Add(LangList[langID]["BtnOpen"].ToString());
             relanglist.Add(LangList[langID]["OtherHelpClear"].ToString());
             relanglist.Add(LangList[langID]["OtherHelpGetHead"].ToString());
             relanglist.Add(LangList[langID]["OtherHelpGetHeadNeedInternet"].ToString());
@@ -897,12 +906,12 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["OtherFlyWord"].ToString());
             relanglist.Add(LangList[langID]["OtherFlyItem"].ToString());
             relanglist.Add(LangList[langID]["OtherCantPickup"].ToString());
-            relanglist.Add(LangList[langID]["OtherTNT"].ToString());
-            relanglist.Add(LangList[langID]["OtherJukebox"].ToString());
+            relanglist.Add(LangList[langID]["BtnOpen"].ToString());
+            relanglist.Add(LangList[langID]["BtnOpen"].ToString());
             relanglist.Add(LangList[langID]["OtherTestforInv"].ToString());
             relanglist.Add(LangList[langID]["OtherTestforHotbar"].ToString());
-            relanglist.Add(LangList[langID]["OtherLock"].ToString());
-            relanglist.Add(LangList[langID]["OtherUnlock"].ToString());
+            relanglist.Add(LangList[langID]["BtnOpen"].ToString());
+            relanglist.Add(LangList[langID]["BtnOpen"].ToString());
             relanglist.Add(LangList[langID]["OtherClear"].ToString());
             relanglist.Add(LangList[langID]["OtherClearNameAndLore"].ToString());
             relanglist.Add(LangList[langID]["OtherClearChooseItem"].ToString());

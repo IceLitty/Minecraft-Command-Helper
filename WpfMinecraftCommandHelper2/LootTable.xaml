@@ -227,16 +227,16 @@
                             <CheckBox x:Name="AttrLuck_Copy" Content="Random" HorizontalAlignment="Left" Margin="450,227,0,0" VerticalAlignment="Top" Width="79" IsEnabled="False"/>
                             <CheckBox x:Name="AttrJump_Copy" Content="Random" HorizontalAlignment="Left" Margin="450,258,0,0" VerticalAlignment="Top" Width="79" IsEnabled="False"/>
                             <CheckBox x:Name="AttrZombie_Copy" Content="Random" HorizontalAlignment="Left" Margin="450,289,0,0" VerticalAlignment="Top" Width="79" IsEnabled="False"/>
-                            <Controls:NumericUpDown x:Name="AttrMaxHealthO" Margin="119,6,705,308" Height="25" IsEnabled="False" Minimum="0" Value="20" Interval="0.5" ToolTip="Minimum"/>
-                            <Controls:NumericUpDown x:Name="AttrRangeO" Margin="119,37,705,277" Height="25" IsEnabled="False" Value="32" Minimum="0" Maximum="2048" Interval="0.5" ToolTip="Minimum"/>
-                            <Controls:NumericUpDown x:Name="AttrKnockBackO" Margin="119,68,705,246" Height="25" IsEnabled="False" Interval="0" Minimum="0" Maximum="1" Value="0" ToolTip="Minimum"/>
-                            <Controls:NumericUpDown x:Name="AttrMoveSpeedO" Margin="119,99,705,215" Height="25" IsEnabled="False" Value="0.7" Minimum="0" Interval="0.5" ToolTip="Minimum"/>
-                            <Controls:NumericUpDown x:Name="AttrAtkDmgO" Margin="119,130,705,184" Height="25" IsEnabled="False" Value="2" Minimum="0" Interval="0.5" ToolTip="Minimum"/>
-                            <Controls:NumericUpDown x:Name="AttrArmorO" Margin="119,161,705,153" Height="25" IsEnabled="False" Value="0" Minimum="0" Maximum="30" Interval="0.5" ToolTip="Minimum"/>
-                            <Controls:NumericUpDown x:Name="AttrAtkSpeedO" Margin="119,192,705,122" Height="25" IsEnabled="False" Value="4" Minimum="0" Maximum="1024" Interval="0.5" ToolTip="Minimum"/>
-                            <Controls:NumericUpDown x:Name="AttrLuckO" Margin="119,223,705,91" Height="25" IsEnabled="False" Value="0" Minimum="-1024" Maximum="1024" Interval="0.5" ToolTip="Minimum"/>
-                            <Controls:NumericUpDown x:Name="AttrJumpO" Margin="119,254,705,60" Height="25" IsEnabled="False" Minimum="0" Maximum="2" Value="0.7" Interval="0.2" ToolTip="Minimum"/>
-                            <Controls:NumericUpDown x:Name="AttrZombieO" Margin="119,285,705,29" Height="25" IsEnabled="False" Minimum="0" Maximum="1" Value="0" Interval="0.5" ToolTip="Minimum"/>
+                            <Controls:NumericUpDown x:Name="AttrMaxHealthO" Margin="138,6,705,308" Height="25" IsEnabled="False" Minimum="0" Value="20" Interval="0.5" ToolTip="Minimum"/>
+                            <Controls:NumericUpDown x:Name="AttrRangeO" Margin="138,37,705,277" Height="25" IsEnabled="False" Value="32" Minimum="0" Maximum="2048" Interval="0.5" ToolTip="Minimum"/>
+                            <Controls:NumericUpDown x:Name="AttrKnockBackO" Margin="138,68,705,246" Height="25" IsEnabled="False" Interval="0" Minimum="0" Maximum="1" Value="0" ToolTip="Minimum"/>
+                            <Controls:NumericUpDown x:Name="AttrMoveSpeedO" Margin="138,99,705,215" Height="25" IsEnabled="False" Value="0.7" Minimum="0" Interval="0.5" ToolTip="Minimum"/>
+                            <Controls:NumericUpDown x:Name="AttrAtkDmgO" Margin="138,130,705,184" Height="25" IsEnabled="False" Value="2" Minimum="0" Interval="0.5" ToolTip="Minimum"/>
+                            <Controls:NumericUpDown x:Name="AttrArmorO" Margin="138,161,705,153" Height="25" IsEnabled="False" Value="0" Minimum="0" Maximum="30" Interval="0.5" ToolTip="Minimum"/>
+                            <Controls:NumericUpDown x:Name="AttrAtkSpeedO" Margin="138,192,705,122" Height="25" IsEnabled="False" Value="4" Minimum="0" Maximum="1024" Interval="0.5" ToolTip="Minimum"/>
+                            <Controls:NumericUpDown x:Name="AttrLuckO" Margin="138,223,705,91" Height="25" IsEnabled="False" Value="0" Minimum="-1024" Maximum="1024" Interval="0.5" ToolTip="Minimum"/>
+                            <Controls:NumericUpDown x:Name="AttrJumpO" Margin="138,254,705,60" Height="25" IsEnabled="False" Minimum="0" Maximum="2" Value="0.7" Interval="0.2" ToolTip="Minimum"/>
+                            <Controls:NumericUpDown x:Name="AttrZombieO" Margin="138,285,705,29" Height="25" IsEnabled="False" Minimum="0" Maximum="1" Value="0" Interval="0.5" ToolTip="Minimum"/>
                             <Controls:NumericUpDown x:Name="AttrMaxHealthO_Copy" Margin="273,6,551,308" Height="25" IsEnabled="False" Minimum="0" Value="20" Interval="0.5" ToolTip="Maximum"/>
                             <Controls:NumericUpDown x:Name="AttrRangeO_Copy" Margin="273,37,551,277" Height="25" IsEnabled="False" Value="32" Minimum="0" Maximum="2048" Interval="0.5" ToolTip="Maximum"/>
                             <Controls:NumericUpDown x:Name="AttrKnockBackO_Copy" Margin="273,68,551,246" Height="25" IsEnabled="False" Interval="0" Minimum="0" Maximum="1" Value="0" ToolTip="Maximum"/>

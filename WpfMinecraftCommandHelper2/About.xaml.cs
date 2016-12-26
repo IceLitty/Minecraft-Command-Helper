@@ -124,11 +124,11 @@ namespace WpfMinecraftCommandHelper2
         {
             if (ieMode)
             {
-                Process.Start(value, "http://icyr.net");
+                Process.Start(value, "https://github.com/IceLitty/Minecraft-Command-Helper");
             }
             else
             {
-                Process.Start("http://icyr.net");
+                Process.Start("https://github.com/IceLitty/Minecraft-Command-Helper");
             }
         }
 
@@ -208,18 +208,6 @@ namespace WpfMinecraftCommandHelper2
             else
             {
                 Process.Start("http://mahapps.com/");
-            }
-        }
-
-        private void ccIMG_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (ieMode)
-            {
-                Process.Start(value, "http://creativecommons.org/licenses/by-nc-sa/4.0/");
-            }
-            else
-            {
-                Process.Start("http://creativecommons.org/licenses/by-nc-sa/4.0/");
             }
         }
 

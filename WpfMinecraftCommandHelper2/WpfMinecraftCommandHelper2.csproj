@@ -1388,9 +1388,6 @@
     <Resource Include="Images\Head\Character\55.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\cc.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\ColorSelIMG.png" />
   </ItemGroup>
   <ItemGroup>

@@ -30,11 +30,11 @@
         </Grid>
         <GroupBox x:Name="detectGpb" Header="Detect" HorizontalAlignment="Left" Margin="83,74,0,0" VerticalAlignment="Top" Height="75" Width="626" IsEnabled="False">
             <Grid HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="616" Margin="0,0,-2,0">
-                <Grid HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="235" Margin="225,0,0,0">
+                <Grid HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="235" Margin="305,0,0,0">
                     <Controls:NumericUpDown x:Name="x2" Margin="0,4,160,4" HideUpDownButtons="True" ToolTip="X" Value="0" />
                     <Controls:NumericUpDown x:Name="y2" Margin="80,4" HideUpDownButtons="True" ToolTip="Y" Value="0" />
                     <Controls:NumericUpDown x:Name="z2" Margin="160,4,0,4" HideUpDownButtons="True" ToolTip="Z" Value="0" />
-                    <Controls:NumericUpDown x:Name="blockData" Margin="240,4,-80,4" HideUpDownButtons="True" ToolTip="Z" Value="-1" Minimum="-1" />
+                    <Controls:NumericUpDown x:Name="blockData" Margin="-80,4,240,4" HideUpDownButtons="True" ToolTip="Z" Value="-1" Minimum="-1" />
                 </Grid>
                 <ComboBox x:Name="itemSel" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="220"/>
                 <Button x:Name="getBlockBtn" Content="Get block" HorizontalAlignment="Left" Margin="545,4,0,0" VerticalAlignment="Top" Width="71" Style="{DynamicResource SquareButtonStyle}" Click="getBlockBtn_Click"/>

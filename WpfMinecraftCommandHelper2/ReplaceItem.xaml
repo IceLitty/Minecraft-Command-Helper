@@ -19,14 +19,14 @@
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="144">
-            <RadioButton x:Name="tabRItemEntity" Content="实体" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Click="tabRItemEntity_Checked"/>
-            <RadioButton x:Name="tabRItemBlock" Content="容器方块" HorizontalAlignment="Left" Margin="63,4,0,0" VerticalAlignment="Top" Click="tabRItemBlock_Checked"/>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="236">
+            <RadioButton x:Name="tabRItemEntity" Content="实体" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Click="tabRItemEntity_Checked" Width="79"/>
+            <RadioButton x:Name="tabRItemBlock" Content="容器方块" HorizontalAlignment="Left" Margin="94,4,0,0" VerticalAlignment="Top" Click="tabRItemBlock_Checked" Width="132"/>
         </Grid>
-        <CheckBox x:Name="tabRItemXNum" Content="坐标采用当前坐标" HorizontalAlignment="Left" Margin="451,14,0,0" VerticalAlignment="Top" Click="tabRItemXNum_Checked"/>
+        <CheckBox x:Name="tabRItemXNum" Content="坐标采用当前坐标" HorizontalAlignment="Right" Margin="0,10,21,0" VerticalAlignment="Top" Click="tabRItemXNum_Checked" IsChecked="True"/>
         <Grid HorizontalAlignment="Left" Height="28" Margin="10,41,0,0" VerticalAlignment="Top" Width="561">
             <Label x:Name="ReplaceItemX" Content="坐标X:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Controls:NumericUpDown x:Name="tabRItemX" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="59,0,369,0" Height="28" />
+            <Controls:NumericUpDown x:Name="tabRItemX" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="45,0,369,0" Height="28" />
             <Label Content="Y:" HorizontalAlignment="Left" Margin="197,3,0,0" VerticalAlignment="Top"/>
             <Controls:NumericUpDown x:Name="tabRItemY" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="226,0,187,0" Height="28" />
             <Label Content="Z:" HorizontalAlignment="Left" Margin="379,3,0,0" VerticalAlignment="Top"/>
@@ -36,8 +36,8 @@
         <Button x:Name="attrBtn" Content="物品全属性获取" HorizontalAlignment="Left" Margin="291,74,0,0" VerticalAlignment="Top" Width="269" Click="attrBtn_Click" Style="{DynamicResource SquareButtonStyle}"/>
         <ComboBox x:Name="tabRItemSlot" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Width="269"/>
         <ComboBox x:Name="tabRItemItem" HorizontalAlignment="Left" Margin="291,104,0,0" VerticalAlignment="Top" Width="269"/>
-        <Label x:Name="ReplaceItemMeta" Content="请填写Meta/Damage/附加值：" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="ReplaceItemCount" Content="请填写数量：" HorizontalAlignment="Left" Margin="110,173,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ReplaceItemMeta" Content="请填写Meta/Damage/附加值：" HorizontalAlignment="Right" Margin="0,140,389,0" VerticalAlignment="Top"/>
+        <Label x:Name="ReplaceItemCount" Content="请填写数量：" HorizontalAlignment="Right" Margin="0,174,389,0" VerticalAlignment="Top"/>
         <Grid HorizontalAlignment="Left" Height="64" Margin="197,135,0,0" VerticalAlignment="Top" Width="363">
             <Controls:NumericUpDown x:Name="tabRItemMeta" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="0,3,0,33" Height="28" Value="0" />
             <Controls:NumericUpDown x:Name="tabRItemCount" Minimum="0" Maximum="64" Interval="5" StringFormat="" Margin="0,36,0,0" Height="28" Value="1" />

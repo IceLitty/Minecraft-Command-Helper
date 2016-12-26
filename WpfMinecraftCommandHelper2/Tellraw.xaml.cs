@@ -188,7 +188,8 @@ namespace WpfMinecraftCommandHelper2
                 LineLabel.Content = templang[55];
                 btnParaPre.Content = templang[56];
                 btnParaNext.Content = templang[57];
-                ParaNum.Content = "- " + templang[58] + "01" + templang[59] + " -";
+                TellrawNum0 = templang[58];
+                TellrawNum1 = templang[59];
                 TellrawWarningStr = templang[60];
                 FloatWarningTitle = templang[61];
                 FloatErrorTitle = templang[62];
