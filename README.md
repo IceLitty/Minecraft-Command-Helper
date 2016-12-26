@@ -1,57 +1,24 @@
 # Minecraft Command Helper 2
-用于方便生成MC高级又复杂指令的程序。
+To quickly generate Minecraft command with nbt data.
 
 ## Features
-从生成单个的物品，到药水，乃至烟花火箭
+Give you item, potion or firerocket.
 
-继续涉及到召唤的生物等实体，旗帜生成和Testfor
+And Summon entity, create banner or /testfor.
 
-以及重置过后的JSON文本编辑
+More interesting function and loottable json editor.
 
-再到各种现成就有，好玩有趣的其他指令
+Anything!
 
-应有尽有
-
-集合多种功能，然而这并不是洗衣机
-
-没错，它就是……！
-
-就是啥来着……
+Like Minecraft :P
 
 ## Contact me
-[软件首发论坛](http://www.mcbbs.net/thread-381131-1-1.html)
-
-哦另外贴吧也曾经发过一帖
-
-之前做了自己的本地化系统，语言文件格式是json
-
-如果有爱好者能提供高质量翻译的话那再好不过啦~
-
-PS：目前只在MCBBS、网易MC论坛、百度贴吧和github这里发布过软件
-
-    如果有人恶意修改并转载的话……
-    
-    我也没办法╮(╯口╰)╭
-    
-    反正在bbs上每次更新都附赠指纹的……
+[From China Minecraft Forum](http://www.mcbbs.net/thread-381131-1-1.html)
 
 ## Wiki
-教程方面，现除了[教程视频](http://www.bilibili.com/video/av2931204/)，B站投稿之外，软件内置了离线网页图文教程，按F1即可打开。
+Program Build-in Tutorial with html, Almost all window press F1 can open they help in your browser.
 
-也可在很多窗口中直接F1打开对应的页面哟~
+[And here is video in BiliBili(Chinese)](http://www.bilibili.com/video/av2931204/)
 
----
-
-感谢投喂
-
-非常感谢那些提供点子的朋友们
-
-以及在座的各位，没错，就是捧着爆米花的你
-
-什么？你说你没有爆米花？
-
-没关系，我有就行！
-
-先去睡了zzZ
-
-- [x] 
+## End
+Thanks for feed :D
