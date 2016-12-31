@@ -221,7 +221,7 @@ namespace WpfMinecraftCommandHelper2
                 //if (tabRItemSlot.SelectedIndex == 0) errorC = true;
                 //if (tabRItemItem.SelectedIndex == 0) errorC = true;
                 AllSelData asd = new AllSelData();
-                replaceItemStr = replaceItemStr + asd.getSlot(tabRItemSlot.SelectedIndex) + " " + asd.getItem(tabRItemItem.SelectedIndex) + " " + tabRItemCount.Value + " " + tabRItemMeta.Value;
+                replaceItemStr = replaceItemStr + asd.getSlot(tabRItemSlot.SelectedIndex) + " " + asd.getItem(tabRItemItem.SelectedIndex) + " " + tabRItemCount.Value.Value + " " + tabRItemMeta.Value.Value;
                 string meta = tabRItemGetBackMeta();
                 if (tabRItemHasEnchant.IsChecked == true || tabRItemHasNL.IsChecked == true || tabRItemHasAttr.IsChecked == true)
                 {
@@ -255,7 +255,7 @@ namespace WpfMinecraftCommandHelper2
                     replaceItemStr = replaceItemStr + tabRItemX.Value + " " + tabRItemY.Value + " " + tabRItemZ.Value + " ";
                 }
                 AllSelData asd = new AllSelData();
-                replaceItemStr = replaceItemStr + asd.getSlot(tabRItemSlot.SelectedIndex) + " " + asd.getItem(tabRItemItem.SelectedIndex) + " " + tabRItemCount.Value + " " + tabRItemMeta.Value;
+                replaceItemStr = replaceItemStr + asd.getSlot(tabRItemSlot.SelectedIndex) + " " + asd.getItem(tabRItemItem.SelectedIndex) + " " + tabRItemCount.Value.Value + " " + tabRItemMeta.Value.Value;
                 string meta = tabRItemGetBackMeta();
                 if (tabRItemHasEnchant.IsChecked == true || tabRItemHasNL.IsChecked == true || tabRItemHasAttr.IsChecked == true)
                 {
@@ -300,6 +300,34 @@ namespace WpfMinecraftCommandHelper2
                 }
             }
             return meta;
+        }
+
+        /// <summary>
+        /// 为At窗口传值
+        /// </summary>
+        /// <returns>0：物品槽位，已转换成id\r\n1：物品英文id\r\n2：物品数量\r\n3：物品损害值\r\n4：物品的NBT数据，如无则空。</returns>
+        public string[] returnStr()
+        {
+            AllSelData asd = new AllSelData();
+            int itemslotindex = -1;
+            if (tabRItemSlot.SelectedIndex < 7)
+            {
+                if (tabRItemSlot.SelectedIndex == 2) { itemslotindex = -106; }
+                if (tabRItemSlot.SelectedIndex == 3) { itemslotindex = 100; }
+                if (tabRItemSlot.SelectedIndex == 4) { itemslotindex = 101; }
+                if (tabRItemSlot.SelectedIndex == 5) { itemslotindex = 102; }
+                if (tabRItemSlot.SelectedIndex == 6) { itemslotindex = 103; }
+            }
+            else if (tabRItemSlot.SelectedIndex < 43)
+            {
+                itemslotindex = tabRItemSlot.SelectedIndex - 7;
+            }
+            string nbtdata = string.Empty;
+            try
+            {
+                nbtdata = finalStr.Substring(finalStr.IndexOf('{') + 1, finalStr.Length - finalStr.IndexOf('{') - 2);
+            } catch (System.Exception) { }
+            return new string[] { itemslotindex.ToString(), asd.getItem(tabRItemItem.SelectedIndex), tabRItemCount.Value.Value.ToString(), tabRItemMeta.Value.Value.ToString(), nbtdata };
         }
 
         private void copyBtn_Click(object sender, RoutedEventArgs e)

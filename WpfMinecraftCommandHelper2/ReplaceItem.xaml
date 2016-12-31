@@ -39,8 +39,8 @@
         <Label x:Name="ReplaceItemMeta" Content="请填写Meta/Damage/附加值：" HorizontalAlignment="Right" Margin="0,140,389,0" VerticalAlignment="Top"/>
         <Label x:Name="ReplaceItemCount" Content="请填写数量：" HorizontalAlignment="Right" Margin="0,174,389,0" VerticalAlignment="Top"/>
         <Grid HorizontalAlignment="Left" Height="64" Margin="197,135,0,0" VerticalAlignment="Top" Width="363">
-            <Controls:NumericUpDown x:Name="tabRItemMeta" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="0,3,0,33" Height="28" Value="0" />
-            <Controls:NumericUpDown x:Name="tabRItemCount" Minimum="0" Maximum="64" Interval="5" StringFormat="" Margin="0,36,0,0" Height="28" Value="1" />
+            <Controls:NumericUpDown x:Name="tabRItemMeta" Minimum="-1" Maximum="1000000" Interval="5" StringFormat="" Margin="0,3,0,33" Height="28" Value="0" />
+            <Controls:NumericUpDown x:Name="tabRItemCount" Minimum="-1" Maximum="64" Interval="5" StringFormat="" Margin="0,36,0,0" Height="28" Value="1" />
         </Grid>
         <CheckBox x:Name="tabRItemHasEnchant" Content="有附魔" HorizontalAlignment="Left" Margin="10,213,0,0" VerticalAlignment="Top" Click="tabRItemHasEnchant_Checked"/>
         <CheckBox x:Name="tabRItemHasNL" Content="有自定义名称或Lore" HorizontalAlignment="Left" Margin="10,244,0,0" VerticalAlignment="Top" Click="tabRItemHasNL_Checked"/>

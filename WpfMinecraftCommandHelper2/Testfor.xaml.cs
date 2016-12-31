@@ -116,6 +116,10 @@ namespace WpfMinecraftCommandHelper2
             else
             {
                 finalStr = "/execute " + at + " ~" + x.Value.Value + " ~" + y.Value.Value + " ~" + z.Value.Value + " ";
+                if (executeCmd.Text.Substring(0, 1) == "/")
+                {
+                    executeCmd.Text = executeCmd.Text.Substring(1, executeCmd.Text.Length - 1);
+                }
                 if (detectCheck.IsChecked.Value)
                 {
                     AllSelData asd = new AllSelData();

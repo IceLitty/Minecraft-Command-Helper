@@ -43,6 +43,7 @@ namespace WpfMinecraftCommandHelper2
         private string FloatHelpFileCantFind = "";
         
         private string cmd = "";
+        private string inv = "";
         private string mcVersion = "latest";
 
         private void appLanguage()
@@ -304,9 +305,13 @@ namespace WpfMinecraftCommandHelper2
                 }
                 nbt += "SelectedItem:{id:" + asd.getItem(hand.SelectedIndex) + ",Count:" + handCount.Value + "b" + temp + temp2 + "},";
             }
-            if (itemCheck.IsChecked.Value && cmd != "")
+            if (itemCheck.IsChecked.Value && cmd != string.Empty)
             {
                 nbt += cmd + ",";
+            }
+            if (InvCheck.IsChecked.Value && inv != string.Empty)
+            {
+                nbt += inv + ",";
             }
             if (rideCheck.IsChecked.Value)
             {
@@ -526,6 +531,40 @@ namespace WpfMinecraftCommandHelper2
             Summon summonbox = new Summon();
             summonbox.ShowDialog();
             cmd = summonbox.returnStr()[3];
+        }
+
+        private void InvCheck_Click(object sender, RoutedEventArgs e)
+        {
+            InvCheckCount.IsEnabled = InvCheck.IsChecked.Value;
+            InvCheckGetBtn.IsEnabled = InvCheck.IsChecked.Value;
+        }
+
+        private void InvCheckGetBtn_Click(object sender, RoutedEventArgs e)
+        {
+            int itemcount = (int)InvCheckCount.Value.Value;
+            List<string> invList = new List<string>();
+            for (int i = 1; i <= itemcount; i++)
+            {
+                ReplaceItem ribox = new ReplaceItem();
+                ribox.ShowDialog();
+                string[] temp = ribox.returnStr();
+                string tempcount = "";
+                if (temp[2] != "-1") { tempcount = ",Count:" + temp[2] + "b"; }
+                string tempdamage = "";
+                if (temp[3] != "-1") { tempcount = ",Damage:" + temp[3] + "s"; }
+                string tempnbt = "";
+                if (temp[4] != string.Empty) { tempcount = ",tag:{" + temp[4] + "}"; }
+                invList.Add("{Slot:" + temp[0] + "b,id:" + temp[1] + tempcount + tempdamage + tempnbt + "}");
+            }
+            if (invList.Count > 0)
+            {
+                inv = "Inventory:[";
+                for (int i = 0; i < invList.Count; i++)
+                {
+                    inv += invList[i] + ",";
+                }
+                inv += "],";
+            }
         }
     }
 }

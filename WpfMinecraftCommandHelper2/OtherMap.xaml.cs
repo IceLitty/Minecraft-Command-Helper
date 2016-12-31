@@ -444,7 +444,7 @@ namespace WpfMinecraftCommandHelper2
         private void tabOther1ClearCreate_Click(object sender, RoutedEventArgs e)
         {
             AllSelData asd = new AllSelData();
-            string temp = "/clear @p " + asd.getItem(globalItemSel) + " " + globalItemCount + " " + globalItemMeta;
+            string temp = "/clear @p " + asd.getItem(globalItemSel) + " " + globalItemMeta + " " + globalItemCount;
             if (tabOther1ClearHasName.IsChecked.Value || tabOther1ClearHasEnchant.IsChecked.Value || tabOther1ClearHasAttr.IsChecked.Value)
             {
                 temp += " {";

@@ -92,6 +92,9 @@
         <Label x:Name="AtTip" Content="- 以下为额外附加NBT标签，只能使用于testfor指令！ -" HorizontalAlignment="Left" Margin="10,359,0,0" VerticalAlignment="Top" Foreground="#FF646464" FontSize="11"/>
         <Grid HorizontalAlignment="Left" Height="30" Margin="10,383,0,0" VerticalAlignment="Top" Width="660">
             <CheckBox x:Name="flyCheck" Content="是否飞行" HorizontalAlignment="Left" Margin="7,6,0,0" VerticalAlignment="Top"/>
+            <CheckBox x:Name="InvCheck" Content="检测背包物品" HorizontalAlignment="Left" Margin="307,6,0,0" VerticalAlignment="Top" Click="InvCheck_Click"/>
+            <Controls:NumericUpDown x:Name="InvCheckCount" Minimum="1" Maximum="41" Interval="5" StringFormat="" Margin="408,0,163,2" Height="28" Value="1" ToolTip="要同时检测物品的数量" IsEnabled="False" />
+            <Button x:Name="InvCheckGetBtn" Content="Get" HorizontalAlignment="Left" Margin="502,0,0,0" VerticalAlignment="Top" Width="75" FontSize="10" Style="{DynamicResource SquareButtonStyle}" Height="28" IsEnabled="False" Click="InvCheckGetBtn_Click"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="30" Margin="10,418,0,0" VerticalAlignment="Top" Width="660">
             <CheckBox x:Name="handCheck" Content="是否手持物品" HorizontalAlignment="Left" Margin="7,5,0,0" VerticalAlignment="Top" Click="handCheck_Click"/>
