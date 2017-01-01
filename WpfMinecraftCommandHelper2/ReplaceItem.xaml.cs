@@ -323,10 +323,10 @@ namespace WpfMinecraftCommandHelper2
                 itemslotindex = tabRItemSlot.SelectedIndex - 7;
             }
             string nbtdata = string.Empty;
-            try
+            if (finalStr.IndexOf('{') != -1)
             {
                 nbtdata = finalStr.Substring(finalStr.IndexOf('{') + 1, finalStr.Length - finalStr.IndexOf('{') - 2);
-            } catch (System.Exception) { }
+            }
             return new string[] { itemslotindex.ToString(), asd.getItem(tabRItemItem.SelectedIndex), tabRItemCount.Value.Value.ToString(), tabRItemMeta.Value.Value.ToString(), nbtdata };
         }
 

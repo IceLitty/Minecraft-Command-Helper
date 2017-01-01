@@ -298,6 +298,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
             relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
             relanglist.Add(LangList[langID]["AtItems"].ToString());
+            relanglist.Add(LangList[langID]["AtInv"].ToString());
+            relanglist.Add(LangList[langID]["AtInvCount"].ToString());
             return relanglist;
         }
 

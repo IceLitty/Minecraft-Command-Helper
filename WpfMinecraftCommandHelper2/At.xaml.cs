@@ -92,6 +92,8 @@ namespace WpfMinecraftCommandHelper2
                 FloatErrorTitle = templang[38];
                 FloatHelpFileCantFind = templang[39];
                 itemCheck.Content = templang[40];
+                InvCheck.Content = templang[41];
+                InvCheckCount.ToolTip = templang[42];
             } catch (Exception) { /* throw; */ }
         }
 

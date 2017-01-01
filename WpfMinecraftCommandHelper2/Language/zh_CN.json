@@ -5,7 +5,7 @@
     "AuthorStr": "语言文件作者：",
     "Author": "IceLitty",
     "LastUpdateStr": "最后更新：",
-    "LastUpdate": "2016.12.26",
+    "LastUpdate": "2016.12.31",
 
     "FloatConfirm": "确认",
     "FloatCancel": "取消",
@@ -164,6 +164,8 @@
     "AtHelpStr": "",
     "AtTags": "标签",
     "AtItems": "自定义物品实体",
+    "AtInv": "检测背包物品",
+    "AtInvCount": "要同时检测物品的数量",
 
     "BannerNum1": "第",
     "BannerNum2": "层",
