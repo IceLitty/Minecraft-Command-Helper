@@ -1574,7 +1574,7 @@ namespace WpfMinecraftCommandHelper2
             }
             else if (asd.getAt(tabSumosType.SelectedIndex) == "Fireball" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:fireball")
             {
-                if (sumosText.Length > 0) { sumosText += ",ExplosionPower:" + tabSumosEExplosionPower.Value.Value; } else { sumosText += "ExplosionPower:" + tabSumosEExplosionPower.Value.Value; }
+                if (sumosText.Length > 0) { sumosText += ",direction:[0.0,0.0,0.0],ExplosionPower:" + tabSumosEExplosionPower.Value.Value; } else { sumosText += "direction:[0.0,0.0,0.0],ExplosionPower:" + tabSumosEExplosionPower.Value.Value; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
             else if (asd.getAt(tabSumosType.SelectedIndex) == "Snowball" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEgg" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownEnderpearl" || asd.getAt(tabSumosType.SelectedIndex) == "ThrownExpBottle" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:snowball" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:egg" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:ender_pearl" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:xp_bottle")

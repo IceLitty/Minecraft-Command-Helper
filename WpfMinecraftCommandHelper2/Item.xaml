@@ -96,10 +96,10 @@
             <Controls:NumericUpDown x:Name="tabItemEnNum9" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="250,256,159,58" Height="25" Value="0" HideUpDownButtons="True" HasDecimals="False" />
             <CheckBox x:Name="tabItemEnchant10" Content="绑定诅咒" HorizontalAlignment="Left" Margin="7,291,0,0" VerticalAlignment="Top"/>
             <Controls:NumericUpDown x:Name="tabItemEnNum10" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="87,287,322,27" Height="25" Value="0" HideUpDownButtons="True" HasDecimals="False" />
-            <CheckBox x:Name="tabItemEnchant71" Content="消失诅咒" HorizontalAlignment="Left" Margin="163,291,0,0" VerticalAlignment="Top"/>
-            <Controls:NumericUpDown x:Name="tabItemEnNum71" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="250,287,159,27" Height="25" Value="0" HideUpDownButtons="True" HasDecimals="False" />
-            <CheckBox x:Name="tabItemEnchant22" Content="横扫之刃" HorizontalAlignment="Left" Margin="322,291,0,0" VerticalAlignment="Top"/>
-            <Controls:NumericUpDown x:Name="tabItemEnNum22" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="403,287,6,27" Height="25" Value="0" HideUpDownButtons="True" HasDecimals="False" />
+            <CheckBox x:Name="tabItemEnchant22" Content="消失诅咒" HorizontalAlignment="Left" Margin="163,291,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum22" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="250,287,159,27" Height="25" Value="0" HideUpDownButtons="True" HasDecimals="False" />
+            <CheckBox x:Name="tabItemEnchant71" Content="横扫之刃" HorizontalAlignment="Left" Margin="322,291,0,0" VerticalAlignment="Top"/>
+            <Controls:NumericUpDown x:Name="tabItemEnNum71" Minimum="-999999999" Maximum="999999999" Interval="5" StringFormat="" Margin="403,287,6,27" Height="25" Value="0" HideUpDownButtons="True" HasDecimals="False" />
         </Grid>
         <Label x:Name="ItemChooseItem" Content="请选择物品/方块：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="ItemTip1" Content="「注：部分方块只有方块ID/没有附加值」" HorizontalAlignment="Left" Margin="173,11,0,0" VerticalAlignment="Top" Foreground="#FF919191" FontSize="11"/>
