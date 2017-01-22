@@ -1346,6 +1346,7 @@ namespace WpfMinecraftCommandHelper2
                 {
                     sumosText = "Peek:" + tabSumosEShulkerPeek.Value.Value + "b";
                 }
+                sumosText += ",Color:" + tabSumosEWoolColor.SelectedIndex + "b";
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
             else if (asd.getAt(tabSumosType.SelectedIndex) == "EnderDragon" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:ender_dragon")
@@ -1572,7 +1573,7 @@ namespace WpfMinecraftCommandHelper2
                 if (sumosText.Length > 0) { sumosText += ",damage:" + tabSumosEdamage.Value.Value + "d"; } else { sumosText += "damage:" + tabSumosEdamage.Value.Value + "d"; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
             }
-            else if (asd.getAt(tabSumosType.SelectedIndex) == "Fireball" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:fireball")
+            else if (asd.getAt(tabSumosType.SelectedIndex) == "Fireball" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:fireball" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:small_fireball" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:dragon_fireball")
             {
                 if (sumosText.Length > 0) { sumosText += ",direction:[0.0,0.0,0.0],ExplosionPower:" + tabSumosEExplosionPower.Value.Value; } else { sumosText += "direction:[0.0,0.0,0.0],ExplosionPower:" + tabSumosEExplosionPower.Value.Value; }
                 sumosFinalStr = "/summon " + asd.getAt(tabSumosType.SelectedIndex) + " ~ ~1 ~ {" + sumosText + "}";
@@ -1844,6 +1845,7 @@ namespace WpfMinecraftCommandHelper2
             if (asd.getAt(tabSumosType.SelectedIndex) == "Shulker" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:shulker")
             {
                 tabSumosEShulkerPeek.IsEnabled = true;
+                tabSumosEWoolColor.IsEnabled = true;
             }
             if (asd.getAt(tabSumosType.SelectedIndex) == "Creeper" || asd.getAt(tabSumosType.SelectedIndex) == "PrimedTnt" || asd.getAt(tabSumosType.SelectedIndex) == "MinecartTNT" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:creeper" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:tnt" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:tnt_minecart")
             {
