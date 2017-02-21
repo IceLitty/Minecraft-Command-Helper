@@ -49,7 +49,7 @@
             <CheckBox x:Name="tabPotionEffect2" Content="缓慢" HorizontalAlignment="Left" Margin="336,0,0,0" VerticalAlignment="Top" Click="tabPotionEffect2_Checked" Width="84"/>
             <CheckBox x:Name="tabPotionEffect3" Content="急迫" HorizontalAlignment="Right" Margin="0,31,590,0" VerticalAlignment="Top" Click="tabPotionEffect3_Checked" Width="78"/>
             <CheckBox x:Name="tabPotionEffect4" Content="挖掘疲劳" HorizontalAlignment="Left" Margin="336,31,0,0" VerticalAlignment="Top" Click="tabPotionEffect4_Checked" Width="84"/>
-            <CheckBox x:Name="tabPotionEffect5" Content="力量" HorizontalAlignment="Left" Margin="3,62,0,0" VerticalAlignment="Top" Width="78"/>
+            <CheckBox x:Name="tabPotionEffect5" Content="力量" HorizontalAlignment="Left" Margin="3,62,0,0" VerticalAlignment="Top" Width="78" Click="tabPotionEffect5_Checked"/>
             <CheckBox x:Name="tabPotionEffect6" Content="瞬间治疗" HorizontalAlignment="Left" Margin="336,62,0,0" VerticalAlignment="Top" Click="tabPotionEffect6_Checked" Width="84"/>
             <CheckBox x:Name="tabPotionEffect7" Content="瞬间伤害" HorizontalAlignment="Left" Margin="3,93,0,0" VerticalAlignment="Top" Click="tabPotionEffect7_Checked" Width="78"/>
             <CheckBox x:Name="tabPotionEffect8" Content="跳跃提升" HorizontalAlignment="Left" Margin="336,93,0,0" VerticalAlignment="Top" Click="tabPotionEffect8_Checked" Width="84"/>

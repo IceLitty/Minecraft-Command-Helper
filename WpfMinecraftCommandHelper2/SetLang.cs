@@ -706,8 +706,8 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["ItemSpawnEggTip"].ToString());
             relanglist.Add(LangList[langID]["FloatFavouriteFileVersionOld"].ToString());
             relanglist.Add(LangList[langID]["ItemEnchant10"].ToString());
-            relanglist.Add(LangList[langID]["ItemEnchant71"].ToString());
             relanglist.Add(LangList[langID]["ItemEnchant22"].ToString());
+            relanglist.Add(LangList[langID]["ItemEnchant71"].ToString());
             relanglist.Add(LangList[langID]["ItemAttrArmorToughness"].ToString());
             return relanglist;
         }
