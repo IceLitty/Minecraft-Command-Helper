@@ -7,7 +7,7 @@
         Title="Minecraft Command Helper versionInCode - Guide" Height="485" Width="797" SaveWindowPosition="False" PreviewKeyDown="win_PreviewKeyDown" Loaded="win_Loaded" >
     <Controls:MetroWindow.LeftWindowCommands>
         <Controls:WindowCommands>
-
+ 
         </Controls:WindowCommands>
     </Controls:MetroWindow.LeftWindowCommands>
     <Controls:MetroWindow.RightWindowCommands>
