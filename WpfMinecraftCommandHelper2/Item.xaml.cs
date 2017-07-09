@@ -634,6 +634,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void copyBtn_Click(object sender, RoutedEventArgs e)
         {
+            //Clipboard.SetDataObject(finalStr, true);
             Clipboard.SetData(DataFormats.UnicodeText, finalStr);
         }
 
