@@ -1076,7 +1076,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void MetroWindow_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\HeadLib.html";
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\docs\HeadLib.html";
             if (e.Key == Key.F1)
             {
                 if (System.IO.File.Exists(path))

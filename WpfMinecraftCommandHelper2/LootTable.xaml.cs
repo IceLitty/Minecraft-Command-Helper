@@ -1101,7 +1101,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            string path = Directory.GetCurrentDirectory() + @"\Help\LootTable.html";
+            string path = Directory.GetCurrentDirectory() + @"\docs\LootTable.html";
             if (e.Key == System.Windows.Input.Key.F1)
             {
                 if (File.Exists(path))
@@ -1136,7 +1136,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void HelpBtn_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start(Directory.GetCurrentDirectory() + @"\Help\LootTable.html");
+            System.Diagnostics.Process.Start(Directory.GetCurrentDirectory() + @"\docs\LootTable.html");
         }
     }
 }

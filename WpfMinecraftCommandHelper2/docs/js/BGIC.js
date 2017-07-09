@@ -1,0 +1,18 @@
+var BGIA = [];
+BGIA[0] = "img/BGI/bg0.jpg";
+BGIA[1] = "img/BGI/bg1.jpg";
+BGIA[2] = "img/BGI/bg2.jpg";
+BGIA[3] = "img/BGI/bg3.jpg";
+BGIA[4] = "img/BGI/bg4.jpg";
+BGIA[5] = "img/BGI/bg5.jpg";
+BGIA[6] = "img/BGI/bg6.jpg";
+BGIA[7] = "img/BGI/bg7.jpg";
+BGIA[8] = "img/BGI/bg8.jpg";
+BGIA[9] = "img/BGI/bg9.jpg";
+BGIA[10] = "img/BGI/bg10.jpg";
+BGIA[11] = "img/BGI/bg11.jpg";
+BGIA[12] = "img/BGI/bg12.jpg";
+BGIA[13] = "img/BGI/bg13.jpg";
+BGIA[14] = "img/BGI/bg14.jpg";
+var randomBGI = Math.round(Math.random()*(BGIA.length-1));
+document.write('<style>body{background:#000000 url(' + BGIA[randomBGI] + ') no-repeat 0 0}</style>');

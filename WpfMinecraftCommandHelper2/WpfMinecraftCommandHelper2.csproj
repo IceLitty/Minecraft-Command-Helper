@@ -1394,30 +1394,30 @@
     <Resource Include="Images\AlipayQR.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Help\About.html" />
-    <Content Include="Help\AdventureMode.html" />
-    <Content Include="Help\At.html" />
-    <Content Include="Help\Banner.html" />
-    <Content Include="Help\Check.html" />
-    <Content Include="Help\ColorSel.html" />
-    <Content Include="Help\css\MainStyle.css" />
-    <Content Include="Help\CustomCraft.html" />
-    <Content Include="Help\Effect.html" />
-    <Content Include="Help\Favourite.html" />
-    <Content Include="Help\Firework.html" />
-    <Content Include="Help\HeadLib.html" />
-    <Content Include="Help\Item.html" />
-    <Content Include="Help\LootTable.html" />
-    <Content Include="Help\Main.html" />
-    <Content Include="Help\Other.html" />
-    <Content Include="Help\Particle.html" />
-    <Content Include="Help\Potion.html" />
-    <Content Include="Help\ReplaceItem.html" />
-    <Content Include="Help\SpreadPlayer.html" />
-    <Content Include="Help\Summon.html" />
-    <Content Include="Help\Superflat.html" />
-    <Content Include="Help\Tellraw.html" />
-    <Content Include="Help\Testfor.html" />
+    <Content Include="docs\About.html" />
+    <Content Include="docs\AdventureMode.html" />
+    <Content Include="docs\At.html" />
+    <Content Include="docs\Banner.html" />
+    <Content Include="docs\Check.html" />
+    <Content Include="docs\ColorSel.html" />
+    <Content Include="docs\css\MainStyle.css" />
+    <Content Include="docs\CustomCraft.html" />
+    <Content Include="docs\Effect.html" />
+    <Content Include="docs\Favourite.html" />
+    <Content Include="docs\Firework.html" />
+    <Content Include="docs\HeadLib.html" />
+    <Content Include="docs\Item.html" />
+    <Content Include="docs\LootTable.html" />
+    <Content Include="docs\Index.html" />
+    <Content Include="docs\Other.html" />
+    <Content Include="docs\Particle.html" />
+    <Content Include="docs\Potion.html" />
+    <Content Include="docs\ReplaceItem.html" />
+    <Content Include="docs\SpreadPlayer.html" />
+    <Content Include="docs\Summon.html" />
+    <Content Include="docs\Superflat.html" />
+    <Content Include="docs\Tellraw.html" />
+    <Content Include="docs\Testfor.html" />
     <Resource Include="Images\MCGUI\chest.png" />
     <Resource Include="Images\MCGUI\brewing_stand.png" />
     <Resource Include="Images\MCGUI\dispenser.png" />
@@ -1504,7 +1504,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ArmorStandWebGL\" />
-    <Folder Include="Help\img\" />
+    <Folder Include="docs\img\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

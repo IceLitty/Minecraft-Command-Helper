@@ -607,7 +607,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void helpBtn_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\Help\Tellraw.html");
+            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\docs\Tellraw.html");
         }
 
         private void bAt_Click(object sender, RoutedEventArgs e)
@@ -707,7 +707,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void MetroWindow_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Tellraw.html";
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\docs\Tellraw.html";
             if (e.Key == System.Windows.Input.Key.F1)
             {
                 if (System.IO.File.Exists(path))

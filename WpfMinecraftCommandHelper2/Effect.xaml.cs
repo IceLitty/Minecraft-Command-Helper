@@ -175,7 +175,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void helpBtn_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\Help\Effect.html");
+            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\docs\Effect.html");
         }
 
         private int playEffect = 0;
@@ -400,7 +400,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Effect.html";
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\docs\Effect.html";
             if (e.Key == System.Windows.Input.Key.F1)
             {
                 if (System.IO.File.Exists(path))

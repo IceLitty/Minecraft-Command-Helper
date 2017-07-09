@@ -344,7 +344,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void helpBtn_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\Help\ReplaceItem.html");
+            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\docs\ReplaceItem.html");
         }
 
         private void tabRItemEntity_Checked(object sender, RoutedEventArgs e)
@@ -390,7 +390,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\ReplaceItem.html";
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\docs\ReplaceItem.html";
             if (e.Key == System.Windows.Input.Key.F1)
             {
                 if (System.IO.File.Exists(path))

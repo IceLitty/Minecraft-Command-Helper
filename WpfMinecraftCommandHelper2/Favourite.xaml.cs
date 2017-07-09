@@ -321,7 +321,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void MetroWindow_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            string path = Directory.GetCurrentDirectory() + @"\Help\Favourite.html";
+            string path = Directory.GetCurrentDirectory() + @"\docs\Favourite.html";
             if (e.Key == Key.F1)
             {
                 if (File.Exists(path))

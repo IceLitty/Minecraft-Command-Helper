@@ -1,0 +1,3 @@
+$(function () {
+	$(".tile").each(addTileTilt);
+})

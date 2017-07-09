@@ -29,7 +29,7 @@ namespace WpfMinecraftCommandHelper2
         private bool isUpdate = false;
         private bool isNeedUpdate = false;
         private bool preview = false;
-        private string version = "2.8.6.9";
+        private string version = "2.8.6.10";
         private string getversion = "0.0.0.0";
         private string passversion = "0.0.0.0";
         private bool error1 = false;
@@ -49,9 +49,7 @@ namespace WpfMinecraftCommandHelper2
             if (config.getSetting("[Personalize]", "CheckingUpdate") != "false")
             {
                 Update.IsChecked = true;
-                Thread t = new Thread(() => {
-                    UpdateCheck();
-                });
+                Thread t = new Thread(UpdateCheck);
                 t.Start();
             }
             else
@@ -1068,7 +1066,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void win_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            string path = Directory.GetCurrentDirectory() + @"\Help\Main.html";
+            string path = Directory.GetCurrentDirectory() + @"\docs\Index.html";
             if (e.Key == Key.F1)
             {
                 if (File.Exists(path))

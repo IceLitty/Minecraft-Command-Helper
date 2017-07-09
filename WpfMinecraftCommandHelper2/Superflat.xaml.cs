@@ -383,7 +383,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void helpBtn_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\Help\Superflat.html");
+            System.Diagnostics.Process.Start(System.IO.Directory.GetCurrentDirectory() + @"\docs\Superflat.html");
         }
 
         private void HelpVillage_Click(object sender, RoutedEventArgs e)
@@ -551,7 +551,7 @@ namespace WpfMinecraftCommandHelper2
 
         private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            string path = System.IO.Directory.GetCurrentDirectory() + @"\Help\Superflat.html";
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\docs\Superflat.html";
             if (e.Key == System.Windows.Input.Key.F1)
             {
                 if (System.IO.File.Exists(path))
