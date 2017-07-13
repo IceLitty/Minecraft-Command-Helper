@@ -402,6 +402,14 @@ namespace WpfMinecraftCommandHelper2
                     this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
                 }
             }
+            else if (e.Key == System.Windows.Input.Key.F2)
+            {
+                FixColorCode fcc = new FixColorCode();
+                if (finalStr != "") { fcc.setStr(finalStr); }
+                else { fcc.setStr(""); }
+                fcc.ShowDialog();
+                finalStr = fcc.getStr();
+            }
         }
     }
 }

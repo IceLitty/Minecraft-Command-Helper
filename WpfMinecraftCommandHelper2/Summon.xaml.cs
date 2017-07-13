@@ -3518,98 +3518,47 @@ namespace WpfMinecraftCommandHelper2
 
         private void tabSumosTagsCheck_Click(object sender, RoutedEventArgs e)
         {
-            if (tabSumosTagsCheck.IsChecked.Value)
-            {
-                tabSumosTags.IsEnabled = true;
-            }
-            else
-            {
-                tabSumosTags.IsEnabled = false;
-            }
+            tabSumosTags.IsEnabled = tabSumosTagsCheck.IsChecked.Value;
         }
 
         private void tabItemAttrAttackCheck_Checked(object sender, RoutedEventArgs e)
         {
-            if (tabItemAttrAttackCheck.IsChecked.Value)
-            {
-                tabItemAttrAttack.IsEnabled = true;
-            }
-            else
-            {
-                tabItemAttrAttack.IsEnabled = false;
-            }
+            tabItemAttrAttack.IsEnabled = tabItemAttrAttackCheck.IsChecked.Value;
         }
 
         private void tabItemAttrRangeCheck_Checked(object sender, RoutedEventArgs e)
         {
-            if (tabItemAttrRangeCheck.IsChecked.Value)
-            {
-                tabItemAttrRange.IsEnabled = true;
-            }
-            else
-            {
-                tabItemAttrRange.IsEnabled = false;
-            }
+            tabItemAttrRange.IsEnabled = tabItemAttrRangeCheck.IsChecked.Value;
         }
 
         private void tabItemAttrHealthCheck_Checked(object sender, RoutedEventArgs e)
         {
-            if (tabItemAttrHealthCheck.IsChecked.Value)
-            {
-                tabItemAttrHealth.IsEnabled = true;
-            }
-            else
-            {
-                tabItemAttrHealth.IsEnabled = false;
-            }
+            tabItemAttrHealth.IsEnabled = tabItemAttrHealthCheck.IsChecked.Value;
         }
 
         private void tabItemAttrFBackCheck_Checked(object sender, RoutedEventArgs e)
         {
-            if (tabItemAttrFBackCheck.IsChecked.Value)
-            {
-                tabItemAttrFBack.IsEnabled = true;
-            }
-            else
-            {
-                tabItemAttrFBack.IsEnabled = false;
-            }
+            tabItemAttrFBack.IsEnabled = tabItemAttrFBackCheck.IsChecked.Value;
         }
 
         private void tabItemAttrMSpeedCheck_Checked(object sender, RoutedEventArgs e)
         {
-            if (tabItemAttrMSpeedCheck.IsChecked.Value)
-            {
-                tabItemAttrMSpeed.IsEnabled = true;
-            }
-            else
-            {
-                tabItemAttrMSpeed.IsEnabled = false;
-            }
+            tabItemAttrMSpeed.IsEnabled = tabItemAttrMSpeedCheck.IsChecked.Value;
         }
 
         private void tabItemAttrJumpStrengthCheck_Checked(object sender, RoutedEventArgs e)
         {
-            if (tabItemAttrJumpStrengthCheck.IsChecked.Value)
-            {
-                tabItemAttrJumpStrength.IsEnabled = true;
-            }
-            else
-            {
-                tabItemAttrJumpStrength.IsEnabled = false;
-            }
+            tabItemAttrJumpStrength.IsEnabled = tabItemAttrJumpStrengthCheck.IsChecked.Value;
         }
 
         private void tabItemAttrZombieRCheck_Click(object sender, RoutedEventArgs e)
         {
-            if (tabItemAttrZombieRCheck.IsChecked.Value)
-            {
-                tabItemAttrZombieR.IsEnabled = true;
-            }
-            else
-            {
-                tabItemAttrZombieR.IsEnabled = false;
-            }
+            tabItemAttrZombieR.IsEnabled = tabItemAttrZombieRCheck.IsChecked.Value;
+        }
+
+        private void tabItemAttrFlySpdCheck_Click(object sender, RoutedEventArgs e)
+        {
+            tabItemAttrFlySpd.IsEnabled = tabItemAttrFlySpdCheck.IsChecked.Value;
         }
 
         public string[] returnStr()
@@ -3655,6 +3604,10 @@ namespace WpfMinecraftCommandHelper2
             if (tabItemAttrZombieRCheck.IsChecked.Value)
             {
                 attrReturn += "{Name:zombie.spawnReinforcements,Base:" + tabItemAttrZombieR.Value.ToString() + "d},";
+            }
+            if (tabItemAttrFlySpdCheck.IsChecked.Value)
+            {
+                attrReturn += "{Name:generic.flyingSpeed,Base:" + tabItemAttrFlySpd.Value.ToString() + "d},";
             }
             if (attrReturn.Length >= 1)
             {

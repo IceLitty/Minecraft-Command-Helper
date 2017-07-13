@@ -426,25 +426,27 @@
             </TabItem>
             <TabItem x:Name="SummonBHeader" Header="属性设置" Margin="50,0,-50,0">
                 <Grid>
-                    <GroupBox x:Name="tabItemAttrGroupbox" Header="生物特殊属性" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="264" Width="308">
-                        <Grid HorizontalAlignment="Left" Height="222" VerticalAlignment="Top" Width="298" Margin="0,0,-2,0">
+                    <GroupBox x:Name="tabItemAttrGroupbox" Header="生物特殊属性" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="295" Width="308">
+                        <Grid HorizontalAlignment="Left" Height="258" VerticalAlignment="Top" Width="298" Margin="0,0,-2,-1">
                             <CheckBox x:Name="tabItemAttrAttackCheck" Content="攻击力" VerticalAlignment="Top" Margin="1,7,205,0" Click="tabItemAttrAttackCheck_Checked"/>
                             <CheckBox x:Name="tabItemAttrRangeCheck" Content="仇恨跟踪" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,39,205,0" Click="tabItemAttrRangeCheck_Checked" Width="92"/>
                             <CheckBox x:Name="tabItemAttrHealthCheck" Content="最大血量" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,69,0,0" Click="tabItemAttrHealthCheck_Checked" Width="92"/>
                             <CheckBox x:Name="tabItemAttrFBackCheck" Content="防击退几率" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,100,0,0" Click="tabItemAttrFBackCheck_Checked" Width="92"/>
                             <CheckBox x:Name="tabItemAttrMSpeedCheck" Content="移动速度" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,131,0,0" Click="tabItemAttrMSpeedCheck_Checked" Width="92"/>
-                            <Controls:NumericUpDown x:Name="tabItemAttrAttack" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="93,5,10,191" Height="25" IsEnabled="False" Value="2" />
-                            <Controls:NumericUpDown x:Name="tabItemAttrRange" Minimum="0" Maximum="2048" Interval="5" StringFormat="" Margin="93,35,10,161" Height="25" IsEnabled="False" Value="32" />
-                            <Controls:NumericUpDown x:Name="tabItemAttrHealth" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="93,67,10,129" Height="25" IsEnabled="False" Value="20" />
-                            <Controls:NumericUpDown x:Name="tabItemAttrFBack" Minimum="0" Maximum="1" Interval="5" StringFormat="" Margin="93,97,10,99" Height="25" IsEnabled="False" Value="0" />
-                            <Controls:NumericUpDown x:Name="tabItemAttrMSpeed" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="93,129,10,67" Height="25" IsEnabled="False" Value="0.7" />
                             <CheckBox x:Name="tabItemAttrJumpStrengthCheck" Content="马跳跃高度" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,162,0,0" Click="tabItemAttrJumpStrengthCheck_Checked" Width="92"/>
-                            <Controls:NumericUpDown x:Name="tabItemAttrJumpStrength" Minimum="0" Maximum="2" Interval="5" StringFormat="" Margin="93,159,10,37" Height="25" IsEnabled="False" Value="0.7" />
                             <CheckBox x:Name="tabItemAttrZombieRCheck" Content="僵尸呼唤" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,193,0,0" Click="tabItemAttrZombieRCheck_Click" Width="92"/>
-                            <Controls:NumericUpDown x:Name="tabItemAttrZombieR" Minimum="0" Maximum="1" Interval="5" StringFormat="" Margin="93,190,10,6" Height="25" IsEnabled="False" Value="0" />
+                            <Controls:NumericUpDown x:Name="tabItemAttrAttack" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="93,5,10,227" Height="25" IsEnabled="False" Value="2" />
+                            <Controls:NumericUpDown x:Name="tabItemAttrRange" Minimum="0" Maximum="2048" Interval="5" StringFormat="" Margin="93,35,10,197" Height="25" IsEnabled="False" Value="32" />
+                            <Controls:NumericUpDown x:Name="tabItemAttrHealth" Minimum="0" Maximum="1000000" Interval="5" StringFormat="" Margin="93,67,10,165" Height="25" IsEnabled="False" Value="20" />
+                            <Controls:NumericUpDown x:Name="tabItemAttrFBack" Minimum="0" Maximum="1" Interval="5" StringFormat="" Margin="93,97,10,135" Height="25" IsEnabled="False" Value="0" />
+                            <Controls:NumericUpDown x:Name="tabItemAttrMSpeed" Minimum="0" Maximum="1024" Interval="5" StringFormat="" Margin="93,129,10,103" Height="25" IsEnabled="False" Value="0.7" />
+                            <Controls:NumericUpDown x:Name="tabItemAttrJumpStrength" Minimum="0" Maximum="2" Interval="5" StringFormat="" Margin="93,159,10,73" Height="25" IsEnabled="False" Value="0.7" />
+                            <Controls:NumericUpDown x:Name="tabItemAttrZombieR" Minimum="0" Maximum="1" Interval="5" StringFormat="" Margin="93,190,10,42" Height="25" IsEnabled="False" Value="0" />
+                            <CheckBox x:Name="tabItemAttrFlySpdCheck" Content="飞行速度" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,224,0,0" Width="92" Click="tabItemAttrFlySpdCheck_Click"/>
+                            <Controls:NumericUpDown x:Name="tabItemAttrFlySpd" Minimum="0" Maximum="1" Interval="5" StringFormat="" Margin="93,221,10,11" Height="25" IsEnabled="False" Value="0.4" />
                         </Grid>
                     </GroupBox>
-                    <Button x:Name="EntityAttritube" Content="生成" HorizontalAlignment="Left" Margin="10,279,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="EntityAttritube_Click" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="EntityAttritube" Content="生成" HorizontalAlignment="Left" Margin="10,321,0,0" VerticalAlignment="Top" Width="75" FontSize="12" Click="EntityAttritube_Click" Style="{DynamicResource SquareButtonStyle}"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="ridingLoader" Header="骑乘生成" Margin="50,0,-50,0" Width="120" PreviewMouseLeftButtonDown="ridingLoader_PreviewMouseLeftButtonDown">

@@ -411,10 +411,26 @@ namespace WpfMinecraftCommandHelper2
                                                 "云杉木栅栏门",
                                                 "栅栏",
                                                 "栅栏门",
-                                                "粘土 - 白色染色粘土",
-                                                "粘土 - 硬化粘土",
-                                                "粘土",
-                                                "粘土块",
+                                                "陶瓦 - 白色染色陶瓦",
+                                                "陶瓦 - 硬化陶瓦",
+                                                "陶瓦",
+                                                "陶瓦块",
+                                                "陶瓦 - 白色带釉陶瓦",
+                                                "陶瓦 - 橙色带釉陶瓦",
+                                                "陶瓦 - 品红色带釉陶瓦",
+                                                "陶瓦 - 淡蓝色带釉陶瓦",
+                                                "陶瓦 - 黄色带釉陶瓦",
+                                                "陶瓦 - 黄绿色带釉陶瓦",
+                                                "陶瓦 - 粉红色带釉陶瓦",
+                                                "陶瓦 - 灰色带釉陶瓦",
+                                                "陶瓦 - 淡灰色带釉陶瓦",
+                                                "陶瓦 - 青色带釉陶瓦",
+                                                "陶瓦 - 紫色带釉陶瓦",
+                                                "陶瓦 - 蓝色带釉陶瓦",
+                                                "陶瓦 - 棕色带釉陶瓦",
+                                                "陶瓦 - 绿色带釉陶瓦",
+                                                "陶瓦 - 红色带釉陶瓦",
+                                                "陶瓦 - 黑色带釉陶瓦",
                                                 "侦测器",
                                                 "蜘蛛网",
                                                 "蜘蛛眼 - 发酵蛛眼",
@@ -449,7 +465,10 @@ namespace WpfMinecraftCommandHelper2
                                                 "钻石矿",
                                                 "钻石头盔",
                                                 "钻石胸甲",
-                                                "钻石靴子"
+                                                "钻石靴子",
+                                                "混凝土",
+                                                "混凝土粉末",
+                                                "知识之书"
                                             };
 
         string[] itemSel = {
@@ -849,6 +868,22 @@ namespace WpfMinecraftCommandHelper2
                                 "minecraft:hardened_clay",
                                 "minecraft:clay_ball",
                                 "minecraft:clay",
+                                "minecraft:white_glazed_terracotta",
+                                "minecraft:orange_glazed_terracotta",
+                                "minecraft:magenta_glazed_terracotta",
+                                "minecraft:light_blue_glazed_terracotta",
+                                "minecraft:yellow_glazed_terracotta",
+                                "minecraft:lime_glazed_terracotta",
+                                "minecraft:pink_glazed_terracotta",
+                                "minecraft:gray_glazed_terracotta",
+                                "minecraft:silver_glazed_terracotta",
+                                "minecraft:cyan_glazed_terracotta",
+                                "minecraft:pruple_glazed_terracotta",
+                                "minecraft:blue_glazed_terracotta",
+                                "minecraft:brown_glazed_terracotta",
+                                "minecraft:green_glazed_terracotta",
+                                "minecraft:red_glazed_terracotta",
+                                "minecraft:black_glazed_terracotta",
                                 "minecraft:observer",
                                 "minecraft:web",
                                 "minecraft:fermented_spider_eye",
@@ -883,7 +918,10 @@ namespace WpfMinecraftCommandHelper2
                                 "minecraft:diamond_ore",
                                 "minecraft:diamond_helmet",
                                 "minecraft:diamond_chestplate",
-                                "minecraft:diamond_boots"
+                                "minecraft:diamond_boots",
+                                "minecraft:concrete",
+                                "minecraft:concrete_powder",
+                                "minecraft:knowledge_book"
                            };
 
         private string[] hideList = {
@@ -1087,6 +1125,7 @@ namespace WpfMinecraftCommandHelper2
             "minecraft:boat",
             "minecraft:evocation_illager",
             "minecraft:evocation_fangs",
+            "minecraft:illusion_illager",
             "minecraft:vindication_illager",
             "minecraft:villager",
             "minecraft:egg",
@@ -1159,6 +1198,7 @@ namespace WpfMinecraftCommandHelper2
             "minecraft:potion",
             "minecraft:area_effect_cloud",
             "minecraft:squid",
+            "minecraft:parrot",
             "minecraft:cave_spider",
             "minecraft:spider",
             "minecraft:pig"
@@ -1175,6 +1215,7 @@ namespace WpfMinecraftCommandHelper2
             "船",
             "村/刌民 - 唤魔者",
             "村/刌民 - 唤魔者的尖牙",
+            "村/刌民 - 幻术师",
             "村/刌民 - 卫道士",
             "村民",
             "蛋",
@@ -1247,9 +1288,10 @@ namespace WpfMinecraftCommandHelper2
             "药水瓶",
             "药水云",
             "鱿鱼",
+            "鹦鹉",
             "蜘蛛 - 洞穴蜘蛛",
             "蜘蛛",
-            "猪"
+            "猪",
         };
 
         string[] effectStr = {
