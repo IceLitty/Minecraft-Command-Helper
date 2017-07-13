@@ -174,6 +174,10 @@ namespace WpfMinecraftCommandHelper2
             {
                 createText = "@e";
             }
+            else if (atS.IsChecked.Value)
+            {
+                createText = "@s";
+            }
             else
             {
                 createText = "@p";
@@ -282,6 +286,12 @@ namespace WpfMinecraftCommandHelper2
             {
                 extra += "tag=" + tags.Text + ",";
             }
+            if (NBTCheck.IsChecked.Value)
+            {
+                extra += "nbt=";
+                if (NBTUN.IsChecked.Value) extra += "!";
+                extra += NBTTextbox.Text + ",";
+            }
             if (extra.Length != 0)
             {
                 extra = extra.Remove(extra.Length - 1, 1);
@@ -305,7 +315,7 @@ namespace WpfMinecraftCommandHelper2
                 {
                     temp2 = ",tag:{" + getItemText.Text + "}";
                 }
-                nbt += "SelectedItem:{id:" + asd.getItem(hand.SelectedIndex) + ",Count:" + handCount.Value + "b" + temp + temp2 + "},";
+                nbt += "SelectedItem:{id:\"" + asd.getItem(hand.SelectedIndex) + "\",Count:" + handCount.Value + "b" + temp + temp2 + "},";
             }
             if (itemCheck.IsChecked.Value && cmd != string.Empty)
             {
@@ -488,6 +498,11 @@ namespace WpfMinecraftCommandHelper2
             tags.IsEnabled = tagCheck.IsChecked.Value;
         }
 
+        private void NBTCheck_Click(object sender, RoutedEventArgs e)
+        {
+            NBTTextbox.IsEnabled = NBTCheck.IsChecked.Value;
+        }
+
         private void MetroWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             string path = System.IO.Directory.GetCurrentDirectory() + @"\docs\At.html";
@@ -500,25 +515,6 @@ namespace WpfMinecraftCommandHelper2
                 else
                 {
                     this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-                }
-            }
-            else if (e.Key == System.Windows.Input.Key.Z)
-            {
-                int i, j, k;
-                for (i = 1; i <= 3; i++)
-                {
-                    for (j = 1; j <= 10; j++)
-                    {
-                        this.Top += 1;
-                        this.Left += 1;
-                        System.Threading.Thread.Sleep(1);
-                    }
-                    for (k = 1; k <= 10; k++)
-                    {
-                        this.Top -= 1;
-                        this.Left -= 1;
-                        System.Threading.Thread.Sleep(1);
-                    }
                 }
             }
         }
@@ -556,7 +552,7 @@ namespace WpfMinecraftCommandHelper2
                 if (temp[3] != "-1") { tempcount = ",Damage:" + temp[3] + "s"; }
                 string tempnbt = "";
                 if (temp[4] != string.Empty) { tempcount = ",tag:{" + temp[4] + "}"; }
-                invList.Add("{Slot:" + temp[0] + "b,id:" + temp[1] + tempcount + tempdamage + tempnbt + "}");
+                invList.Add("{Slot:" + temp[0] + "b,id:\"" + temp[1] + "\"" + tempcount + tempdamage + tempnbt + "}");
             }
             if (invList.Count > 0)
             {

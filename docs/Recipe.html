@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<script type="text/javascript" src="js/BGIC.js"></script>
+	<link rel="stylesheet" href="css/MainStyle.css" type="text/css">
+	<link rel="stylesheet" href="css/blog.css" type="text/css">
+	<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.metro.js"></script>
+	<script type="text/javascript" src="js/tilt.js"></script>
+</head>
+<body>
+	<div class="layerMasks"></div>
+	<div class="cp">Metro content theme by Code52, Pages made by IceLitty</div>
+	<div class="pages">
+		<div class="page">
+			<section>
+				<a class="lime cpfont" href="JsonOpen.html"><- 有的时候你需要-1s来返回上一页</a>
+				<h3 class="orange bold cpfont shadow">MCH -> 合成表生成器</h3>
+			</section>
+			<article class="brown shadow">
+				<img class="right" src="img/recipe/1.png" style="width:100%">
+				<p>操作说明：</p>
+				<p>· 此合成器中的勾选均为是否带Meta值的选项，即为勾上则会生成Meta值对应输出。</p>
+				<p>· 右键物品选单可打开物品窗口进行详细的ID/Meta值设定</p>
+				<p>· 鼠标悬浮物品选单则会看到Meta值</p>
+				<p>· 结果如同第三方合成表插件类似</p>
+				<p>· 合成图案会自动进行优化</p>
+				<p>1.12版本加入此功能，但将json文件放入存档目录不会起作用，只有使用服务端jar插入assets/minecraft/recipes才能起作用。另：此处不会更新合成书里的合成方式</p>
+				<p>举例：</p>
+				<p>材料TNT放左侧，白色染色玻璃放右侧，可以合成5块冰块</p>
+				<pre class="autobreak">{
+  "type": "crafting_shaped",
+  "group": "ICY",
+  "pattern": [
+    "&^"
+  ],
+  "key": {
+    "&": {
+      "item": "minecraft:tnt"
+    },
+    "^": {
+      "item": "minecraft:stained_glass",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "minecraft:ice",
+    "count": 5
+  }
+}</pre>
+			</article>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/load-table.js"></script>
+	<script type="text/javascript" src="js/load-tilt.js"></script>
+</body>
+</html>

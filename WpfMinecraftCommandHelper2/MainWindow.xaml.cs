@@ -26,10 +26,11 @@ namespace WpfMinecraftCommandHelper2
             InitializeComponent();
         }
 
+        private bool debugMode = false;
         private bool isUpdate = false;
         private bool isNeedUpdate = false;
         private bool preview = false;
-        private string version = "2.8.6.10";
+        private string version = "2.8.7.0";
         private string getversion = "0.0.0.0";
         private string passversion = "0.0.0.0";
         private bool error1 = false;
@@ -66,6 +67,7 @@ namespace WpfMinecraftCommandHelper2
             timer.Start();
             if (config.getSetting("[Personalize]", "ColorfulFontsUse") != "Sign") { fixColorSelSign.IsChecked = false; fixColorSelCB.IsChecked = true; } else { fixColorSelCB.IsChecked = false; fixColorSelSign.IsChecked = true; }
             if (config.getSetting("[Personalize]", "MCVersion") == "1.8") { mcv18.IsChecked = true; } else if(config.getSetting("[Personalize]", "MCVersion") == "1.9/1.10") { mcv110.IsChecked = true; } else { mcvLatest.IsChecked = true; }
+            if (File.Exists(Directory.GetCurrentDirectory() + @"\debug_mode.txt")) { debugMode = true; }
         }
 
         private int timerticks = 0;
@@ -240,7 +242,7 @@ namespace WpfMinecraftCommandHelper2
             FloatUpdateError2 = templanglist[90];
             fixColorSelCB.ToolTip = templanglist[91];
             fixColorSelSign.ToolTip = templanglist[92];
-            loottable.Title = templanglist[93];
+            jsonopen.Title = templanglist[93];
             MainPreview = templanglist[94];
             chestBtn.Title = templanglist[95];
             sasa.Content = templanglist[96];
@@ -389,14 +391,6 @@ namespace WpfMinecraftCommandHelper2
             this.Show();
         }
 
-        private void adventureBtn_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            AdventureMode ambox = new AdventureMode();
-            ambox.ShowDialog();
-            this.Show();
-        }
-
         private void otherBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
@@ -406,11 +400,11 @@ namespace WpfMinecraftCommandHelper2
             this.Show();
         }
 
-        private void loottable_Click(object sender, RoutedEventArgs e)
+        private void jsonopen_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            LootTable ltbox = new LootTable();
-            ltbox.ShowDialog();
+            JsonOpen jo = new JsonOpen(debugMode);
+            jo.ShowDialog();
             this.Show();
         }
 
@@ -1076,25 +1070,6 @@ namespace WpfMinecraftCommandHelper2
                 else
                 {
                     this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-                }
-            }
-            else if (e.Key == Key.Z)
-            {
-                int i, j, k;
-                for (i = 1; i <= 3; i++)
-                {
-                    for (j = 1; j <= 10; j++)
-                    {
-                        this.Top += 1;
-                        this.Left += 1;
-                        System.Threading.Thread.Sleep(1);
-                    }
-                    for (k = 1; k <= 10; k++)
-                    {
-                        this.Top -= 1;
-                        this.Left -= 1;
-                        System.Threading.Thread.Sleep(1);
-                    }
                 }
             }
         }

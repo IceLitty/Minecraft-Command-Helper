@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         WindowStartupLocation="CenterOwner" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
-        Title="寻找玩家" Height="566.366" Width="685.803" PreviewKeyDown="MetroWindow_PreviewKeyDown">
+        Title="寻找玩家" Height="606.821" Width="685.803" PreviewKeyDown="MetroWindow_PreviewKeyDown">
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button x:Name="helpBtn" Click="helpBtn_Click">
@@ -19,11 +19,12 @@
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="39" Margin="10,10,0,0" VerticalAlignment="Top" Width="208">
+        <Grid HorizontalAlignment="Left" Height="39" Margin="10,10,0,0" VerticalAlignment="Top" Width="281">
             <RadioButton x:Name="atP" Content="@p" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" IsChecked="True"/>
             <RadioButton x:Name="atA" Content="@a" HorizontalAlignment="Left" Margin="58,10,0,0" VerticalAlignment="Top"/>
             <RadioButton x:Name="atR" Content="@r" HorizontalAlignment="Left" Margin="106,10,0,0" VerticalAlignment="Top"/>
             <RadioButton x:Name="atE" Content="@e" HorizontalAlignment="Left" Margin="154,10,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="atS" Content="@s" HorizontalAlignment="Left" Margin="201,10,0,0" VerticalAlignment="Top"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="30" Margin="10,54,0,0" VerticalAlignment="Top" Width="660">
             <Controls:NumericUpDown x:Name="x" Minimum="-1000000" Maximum="1000000" Interval="5" StringFormat="" Margin="84,0,436,4" Height="25" IsEnabled="False" Value="0" />
@@ -89,14 +90,14 @@
             <CheckBox x:Name="tagCheck" Content="标签" HorizontalAlignment="Left" Margin="8,6,0,0" VerticalAlignment="Top" Click="tagCheck_Click" Width="83"/>
             <TextBox x:Name="tags" HorizontalAlignment="Left" Height="23" Margin="96,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" IsEnabled="False"/>
         </Grid>
-        <Label x:Name="AtTip" Content="- 以下为额外附加NBT标签，只能使用于testfor指令！ -" HorizontalAlignment="Left" Margin="10,359,0,0" VerticalAlignment="Top" Foreground="#FF646464" FontSize="11"/>
-        <Grid HorizontalAlignment="Left" Height="30" Margin="10,383,0,0" VerticalAlignment="Top" Width="660">
+        <Label x:Name="AtTip" Content="- 以下为额外附加NBT标签，只能使用于testfor指令！ -" HorizontalAlignment="Left" Margin="10,402,0,0" VerticalAlignment="Top" Foreground="#FF646464" FontSize="11"/>
+        <Grid HorizontalAlignment="Left" Height="30" Margin="10,426,0,0" VerticalAlignment="Top" Width="660">
             <CheckBox x:Name="flyCheck" Content="是否飞行" HorizontalAlignment="Left" Margin="7,6,0,0" VerticalAlignment="Top"/>
             <CheckBox x:Name="InvCheck" Content="检测背包物品" HorizontalAlignment="Left" Margin="307,6,0,0" VerticalAlignment="Top" Click="InvCheck_Click"/>
             <Controls:NumericUpDown x:Name="InvCheckCount" Minimum="1" Maximum="41" Interval="5" StringFormat="" Margin="408,0,163,2" Height="28" Value="1" ToolTip="要同时检测物品的数量" IsEnabled="False" />
             <Button x:Name="InvCheckGetBtn" Content="Get" HorizontalAlignment="Left" Margin="502,0,0,0" VerticalAlignment="Top" Width="75" FontSize="10" Style="{DynamicResource SquareButtonStyle}" Height="28" IsEnabled="False" Click="InvCheckGetBtn_Click"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="30" Margin="10,418,0,0" VerticalAlignment="Top" Width="660">
+        <Grid HorizontalAlignment="Left" Height="30" Margin="10,461,0,0" VerticalAlignment="Top" Width="660">
             <CheckBox x:Name="handCheck" Content="是否手持物品" HorizontalAlignment="Left" Margin="7,5,0,0" VerticalAlignment="Top" Click="handCheck_Click"/>
             <ComboBox x:Name="hand" HorizontalAlignment="Left" Margin="108,2,0,0" VerticalAlignment="Top" Width="166" IsEnabled="False"/>
             <Controls:NumericUpDown x:Name="handMeta" Minimum="-1" Maximum="100" Interval="5" StringFormat="" Margin="371,2,206,0" Height="28" ToolTip="物品的Meta(Damage)值" IsEnabled="False" Value="-1" />
@@ -104,15 +105,20 @@
             <Button x:Name="getItemBtn" Content="Get" HorizontalAlignment="Left" Margin="575,2,0,0" VerticalAlignment="Top" Width="75" FontSize="10" Style="{DynamicResource SquareButtonStyle}" Height="28" IsEnabled="False" Click="getItemBtn_Click"/>
             <TextBox x:Name="getItemText" HorizontalAlignment="Left" Height="23" Margin="459,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111" IsEnabled="False"/>
         </Grid>
-        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="156,495,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" FontSize="10" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="236,495,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" FontSize="10" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="396,495,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" FontSize="10" Style="{DynamicResource SquareButtonStyle}"/>
-        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="316,495,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" FontSize="10" Style="{DynamicResource SquareButtonStyle}"/>
-        <Grid HorizontalAlignment="Left" Height="30" Margin="10,453,0,0" VerticalAlignment="Top" Width="660">
+        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="156,538,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" FontSize="10" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="236,538,0,0" VerticalAlignment="Top" Width="75" Click="createBtn_Click" FontSize="10" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="396,538,0,0" VerticalAlignment="Top" Width="75" Click="checkBtn_Click" FontSize="10" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="316,538,0,0" VerticalAlignment="Top" Width="75" Click="copyBtn_Click" FontSize="10" Style="{DynamicResource SquareButtonStyle}"/>
+        <Grid HorizontalAlignment="Left" Height="30" Margin="10,496,0,0" VerticalAlignment="Top" Width="660">
             <CheckBox x:Name="rideCheck" Content="骑乘对象" HorizontalAlignment="Left" Margin="7,6,0,0" VerticalAlignment="Top" Click="rideCheck_Click"/>
             <ComboBox x:Name="rideEntity" HorizontalAlignment="Left" Margin="108,4,0,0" VerticalAlignment="Top" Width="166" IsEnabled="False"/>
             <CheckBox x:Name="itemCheck" Content="自定义物品实体" HorizontalAlignment="Left" Margin="307,6,0,0" VerticalAlignment="Top" Click="itemCheck_Click"/>
             <Button x:Name="itemCheckBtn" Content="Get" HorizontalAlignment="Left" Margin="575,1,0,0" VerticalAlignment="Top" Width="75" FontSize="10" Style="{DynamicResource SquareButtonStyle}" Height="28" IsEnabled="False" Click="itemCheckBtn_Click"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="30" Margin="10,364,0,0" VerticalAlignment="Top" Width="660">
+            <CheckBox x:Name="NBTCheck" Content="NBT" HorizontalAlignment="Left" Margin="8,6,0,0" VerticalAlignment="Top" Width="83" Click="NBTCheck_Click"/>
+            <TextBox x:Name="NBTTextbox" HorizontalAlignment="Left" Height="23" Margin="96,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" IsEnabled="False" Controls:TextBoxHelper.Watermark="{}{nbttag1:&quot;nbtvalue1&quot;,nbt2:1b}"/>
+            <CheckBox x:Name="NBTUN" Content="非" HorizontalAlignment="Left" Margin="294,6,0,0" VerticalAlignment="Top" IsEnabled="False"/>
         </Grid>
 
     </Grid>

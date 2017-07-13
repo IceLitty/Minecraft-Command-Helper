@@ -1543,5 +1543,60 @@ namespace WpfMinecraftCommandHelper2
             relanglist.Add(LangList[langID]["FloatPassVersion"].ToString());
             return relanglist;
         }
+
+        public List<string> SetJsonOpen()
+        {
+            string nowLang = getLangFile();
+            int langID = 0;
+            for (int i = 0; i < fileCount; i++)
+            {
+                if (LangList[i]["LanguageID"].ToString() == nowLang)
+                {
+                    langID = i;
+                }
+            }
+            List<string> relanglist = new List<string>();
+            relanglist.Add(LangList[langID]["JsonTitle"].ToString());
+            relanglist.Add(LangList[langID]["JsonLoottable"].ToString());
+            relanglist.Add(LangList[langID]["JsonAdventure"].ToString());
+            relanglist.Add(LangList[langID]["JsonRecipe"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["FloatConfirm"].ToString());
+            relanglist.Add(LangList[langID]["FloatCancel"].ToString());
+            return relanglist;
+        }
+
+        public List<string> SetRecipe()
+        {
+            string nowLang = getLangFile();
+            int langID = 0;
+            for (int i = 0; i < fileCount; i++)
+            {
+                if (LangList[i]["LanguageID"].ToString() == nowLang)
+                {
+                    langID = i;
+                }
+            }
+            List<string> relanglist = new List<string>();
+            relanglist.Add(LangList[langID]["BtnClear"].ToString());
+            relanglist.Add(LangList[langID]["BtnCreate"].ToString());
+            relanglist.Add(LangList[langID]["BtnCopy"].ToString());
+            relanglist.Add(LangList[langID]["BtnCheck"].ToString());
+            relanglist.Add(LangList[langID]["FloatErrorTitle"].ToString());
+            relanglist.Add(LangList[langID]["FloatHelpFileCantFind"].ToString());
+            relanglist.Add(LangList[langID]["FloatConfirm"].ToString());
+            relanglist.Add(LangList[langID]["FloatCancel"].ToString());
+            relanglist.Add(LangList[langID]["RecipeTitle"].ToString());
+            relanglist.Add(LangList[langID]["RecipeShaped"].ToString());
+            relanglist.Add(LangList[langID]["RecipeShapeless"].ToString());
+            relanglist.Add(LangList[langID]["RecipeGroup"].ToString());
+            relanglist.Add(LangList[langID]["RecipeShapedHeader"].ToString());
+            relanglist.Add(LangList[langID]["RecipeShapelessHeader1"].ToString());
+            relanglist.Add(LangList[langID]["RecipeShapelessHeader2"].ToString());
+            relanglist.Add(LangList[langID]["RecipeResult"].ToString());
+            relanglist.Add(LangList[langID]["LootTableSaveTitle"].ToString());
+            return relanglist;
+        }
     }
 }

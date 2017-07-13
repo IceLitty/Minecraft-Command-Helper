@@ -324,11 +324,11 @@ namespace WpfMinecraftCommandHelper2
             AllSelData asd = new AllSelData();
             if (mcVersion == "1.8" || mcVersion == "1.9/1.10")
             {
-                finalStr = "/summon ArmorStand ~ ~1 ~ {Tags:[\"HoloItems\"],PersistenceRequired:1b,DisabledSlots:2039583,NoGravity:1b,Marker:1b,Invulnerable:1b,Invisible:1b,Passengers:[0:{id:Item,Tags:[\"HoloItems\"],Item:{id:\"" + asd.getItem(tabOther1ItemFlySel.SelectedIndex) + "\",Count:" + tabOther1ItemFlyCount.Value + "b,Damage:" + tabOther1ItemFlyDamage.Value + "s},PickupDelay:" + canget + ",Age:-32768}]}";
+                finalStr = "/summon ArmorStand ~ ~1 ~ {Tags:[\"HoloItems\"],PersistenceRequired:1b,DisabledSlots:2039583,NoGravity:1b,Marker:1b,Invulnerable:1b,Invisible:1b,Passengers:[{id:Item,Tags:[\"HoloItems\"],Item:{id:\"" + asd.getItem(tabOther1ItemFlySel.SelectedIndex) + "\",Count:" + tabOther1ItemFlyCount.Value + "b,Damage:" + tabOther1ItemFlyDamage.Value + "s},PickupDelay:" + canget + ",Age:-32768}]}";
             }
             else
             {
-                finalStr = "/summon armor_stand ~ ~1 ~ {Tags:[\"HoloItems\"],PersistenceRequired:1b,DisabledSlots:2039583,NoGravity:1b,Marker:1b,Invulnerable:1b,Invisible:1b,Passengers:[0:{id:Item,Tags:[\"HoloItems\"],Item:{id:\"" + asd.getItem(tabOther1ItemFlySel.SelectedIndex) + "\",Count:" + tabOther1ItemFlyCount.Value + "b,Damage:" + tabOther1ItemFlyDamage.Value + "s},PickupDelay:" + canget + ",Age:-32768}]}";
+                finalStr = "/summon armor_stand ~ ~1 ~ {Tags:[\"HoloItems\"],PersistenceRequired:1b,DisabledSlots:2039583,NoGravity:1b,Marker:1b,Invulnerable:1b,Invisible:1b,Passengers:[{id:Item,Tags:[\"HoloItems\"],Item:{id:\"" + asd.getItem(tabOther1ItemFlySel.SelectedIndex) + "\",Count:" + tabOther1ItemFlyCount.Value + "b,Damage:" + tabOther1ItemFlyDamage.Value + "s},PickupDelay:" + canget + ",Age:-32768}]}";
             }
             Check checkbox = new Check();
             checkbox.showText(finalStr);
@@ -620,7 +620,7 @@ namespace WpfMinecraftCommandHelper2
 
             //string ValueStr = "{\"profileId\":\"" + uuid + "\",\"profileName\":\"" + PlayerName + "\",\"textures\":{\"SKIN\":{\"url\":\"" + ValueURL + "\"}}}";
             //string base64ed = Base64Encode(ValueStr);
-            //string mainStr = "{SkullOwner:\"" + PlayerName + "\",Id:\"" + uuid + "\",Properties:{textures:[0:{Value:\"" + base64ed + "\"}]}}";
+            //string mainStr = "{SkullOwner:\"" + PlayerName + "\",Id:\"" + uuid + "\",Properties:{textures:[{Value:\"" + base64ed + "\"}]}}";
             string endStr = "/give @p minecraft:skull 1 3 " + outputStr;
 
             finalStr = endStr;
@@ -853,25 +853,6 @@ namespace WpfMinecraftCommandHelper2
                 else
                 {
                     this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-                }
-            }
-            else if (e.Key == System.Windows.Input.Key.Z)
-            {
-                int i, j, k;
-                for (i = 1; i <= 3; i++)
-                {
-                    for (j = 1; j <= 10; j++)
-                    {
-                        this.Top += 1;
-                        this.Left += 1;
-                        System.Threading.Thread.Sleep(1);
-                    }
-                    for (k = 1; k <= 10; k++)
-                    {
-                        this.Top -= 1;
-                        this.Left -= 1;
-                        System.Threading.Thread.Sleep(1);
-                    }
                 }
             }
         }

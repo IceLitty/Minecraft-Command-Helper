@@ -1,0 +1,73 @@
+﻿<Controls:MetroWindow x:Class="WpfMinecraftCommandHelper2.RecipeJson"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
+        Title="合成表" Height="586" Width="889" PreviewKeyDown="RecipeJson_OnPreviewKeyDown">
+    <Grid>
+        <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="10,519,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="clearBtn_Click"/>
+        <Grid HorizontalAlignment="Left" Height="28" Margin="10,10,0,0" VerticalAlignment="Top" Width="224">
+            <RadioButton x:Name="rbShaped" Content="有序合成" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" IsChecked="True" Click="rbShaped_Click"/>
+            <RadioButton x:Name="rbShapeless" Content="无序合成" HorizontalAlignment="Left" Margin="124,5,0,0" VerticalAlignment="Top" Click="rbShapeless_Click"/>
+        </Grid>
+        <TextBox x:Name="Group" HorizontalAlignment="Left" Height="23" Margin="55,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <Label x:Name="labelGroup" Content="组名" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top"/>
+        <GroupBox x:Name="gShaped" Header="有序" HorizontalAlignment="Left" Height="152" Margin="10,74,0,0" VerticalAlignment="Top" Width="348">
+            <Grid HorizontalAlignment="Left" Height="114" VerticalAlignment="Top" Width="338" Margin="0,0,-2,0">
+                <ComboBox x:Name="Shaped1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="103"/>
+                <ComboBox x:Name="Shaped2" HorizontalAlignment="Left" Margin="118,10,0,0" VerticalAlignment="Top" Width="105"/>
+                <ComboBox x:Name="Shaped3" HorizontalAlignment="Left" Margin="228,10,0,0" VerticalAlignment="Top" Width="100"/>
+                <ComboBox x:Name="Shaped4" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="103"/>
+                <ComboBox x:Name="Shaped5" HorizontalAlignment="Left" Margin="118,41,0,0" VerticalAlignment="Top" Width="105"/>
+                <ComboBox x:Name="Shaped6" HorizontalAlignment="Left" Margin="228,41,0,0" VerticalAlignment="Top" Width="100"/>
+                <ComboBox x:Name="Shaped7" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="103"/>
+                <ComboBox x:Name="Shaped8" HorizontalAlignment="Left" Margin="118,72,0,0" VerticalAlignment="Top" Width="105"/>
+                <ComboBox x:Name="Shaped9" HorizontalAlignment="Left" Margin="228,72,0,0" VerticalAlignment="Top" Width="100"/>
+
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="gShapeless" Header="无序/有序物品" HorizontalAlignment="Left" Height="329" Margin="363,74,0,0" VerticalAlignment="Top" Width="348">
+            <Grid HorizontalAlignment="Left" Height="292" VerticalAlignment="Top" Width="338" Margin="0,0,-2,-1">
+                <ComboBox x:Name="ItemList1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="282" PreviewMouseDown="ItemList1_PreviewMouseDown"/>
+                <ComboBox x:Name="ItemList2" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="282" PreviewMouseDown="ItemList2_PreviewMouseDown"/>
+                <ComboBox x:Name="ItemList3" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="282" PreviewMouseDown="ItemList3_PreviewMouseDown"/>
+                <ComboBox x:Name="ItemList4" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="282" PreviewMouseDown="ItemList4_PreviewMouseDown"/>
+                <ComboBox x:Name="ItemList5" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="282" PreviewMouseDown="ItemList5_PreviewMouseDown"/>
+                <ComboBox x:Name="ItemList6" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Width="282" PreviewMouseDown="ItemList6_PreviewMouseDown"/>
+                <ComboBox x:Name="ItemList7" HorizontalAlignment="Left" Margin="10,196,0,0" VerticalAlignment="Top" Width="282" PreviewMouseDown="ItemList7_PreviewMouseDown"/>
+                <ComboBox x:Name="ItemList8" HorizontalAlignment="Left" Margin="10,227,0,0" VerticalAlignment="Top" Width="282" PreviewMouseDown="ItemList8_PreviewMouseDown"/>
+                <ComboBox x:Name="ItemList9" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Width="282" PreviewMouseDown="ItemList9_PreviewMouseDown"/>
+                <Label x:Name="sign1" Content="!" HorizontalAlignment="Center" Margin="313,10,-5,257" VerticalAlignment="Center" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="sign2" Content="@" HorizontalAlignment="Center" Margin="313,41,-5,226" VerticalAlignment="Center" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="sign3" Content="#" HorizontalAlignment="Center" Margin="313,72,-5,195" VerticalAlignment="Center" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="sign4" Content="$" HorizontalAlignment="Center" Margin="313,103,-5,164" VerticalAlignment="Center" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="sign5" Content="%" HorizontalAlignment="Center" Margin="313,134,-5,133" VerticalAlignment="Center" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="sign6" Content="^" HorizontalAlignment="Center" Margin="313,165,-5,102" VerticalAlignment="Center" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="sign7" Content="&amp;" HorizontalAlignment="Center" Margin="313,196,-5,71" VerticalAlignment="Center" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="sign8" Content="*" HorizontalAlignment="Center" Margin="313,227,-5,40" VerticalAlignment="Center" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="sign9" Content="(" HorizontalAlignment="Center" Margin="313,258,-5,9" VerticalAlignment="Center" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <CheckBox x:Name="DataCheck1" Content="" HorizontalAlignment="Left" Margin="297,14,0,0" VerticalAlignment="Top" Width="31"/>
+                <CheckBox x:Name="DataCheck2" Content="" HorizontalAlignment="Left" Margin="297,45,0,0" VerticalAlignment="Top" Width="31"/>
+                <CheckBox x:Name="DataCheck3" Content="" HorizontalAlignment="Left" Margin="297,76,0,0" VerticalAlignment="Top" Width="31"/>
+                <CheckBox x:Name="DataCheck4" Content="" HorizontalAlignment="Left" Margin="297,107,0,0" VerticalAlignment="Top" Width="31"/>
+                <CheckBox x:Name="DataCheck5" Content="" HorizontalAlignment="Left" Margin="297,138,0,0" VerticalAlignment="Top" Width="31"/>
+                <CheckBox x:Name="DataCheck6" Content="" HorizontalAlignment="Left" Margin="297,169,0,0" VerticalAlignment="Top" Width="31"/>
+                <CheckBox x:Name="DataCheck7" Content="" HorizontalAlignment="Left" Margin="297,200,0,0" VerticalAlignment="Top" Width="31"/>
+                <CheckBox x:Name="DataCheck8" Content="" HorizontalAlignment="Left" Margin="297,231,0,0" VerticalAlignment="Top" Width="31"/>
+                <CheckBox x:Name="DataCheck9" Content="" HorizontalAlignment="Left" Margin="297,262,0,0" VerticalAlignment="Top" Width="31"/>
+
+            </Grid>
+        </GroupBox>
+        <Label x:Name="labelResult" Content="合成结果" HorizontalAlignment="Left" Margin="10,242,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ResultItem" HorizontalAlignment="Left" Margin="10,272,0,0" VerticalAlignment="Top" Width="200" PreviewMouseDown="ResultItem_PreviewMouseDown"/>
+        <Grid HorizontalAlignment="Left" Height="26" Margin="215,272,0,0" VerticalAlignment="Top" Width="143">
+            <Controls:NumericUpDown x:Name="ResultCount" HideUpDownButtons="True"  Value="1" HasDecimals="False" Margin="0,0,73,0" Minimum="0" Maximum="32767"/>
+            <Controls:NumericUpDown x:Name="ResultData" HideUpDownButtons="True"  Value="0" HasDecimals="False" Margin="73,0,0,0" Minimum="0" Maximum="32767" IsEnabled="False"/>
+        </Grid>
+        <CheckBox x:Name="ResultDataCheck" Content="" HorizontalAlignment="Left" Margin="339,246,0,0" VerticalAlignment="Top" Click="ResultDataCheck_Click"/>
+        <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="90,519,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="createBtn_Click"/>
+        <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="170,519,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="copyBtn_Click"/>
+        <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="250,519,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="checkBtn_Click"/>
+    </Grid>
+</Controls:MetroWindow>

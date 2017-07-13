@@ -1,0 +1,661 @@
+﻿<Controls:MetroWindow x:Class="WpfMinecraftCommandHelper2.Advancement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
+        Title="进度表" Height="591" Width="997" PreviewKeyDown="Advancement_OnPreviewKeyDown">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedSingleRowTabControl.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <TabControl x:Name="TabAll" HorizontalAlignment="Left" Height="562" VerticalAlignment="Top" Width="991" SelectionChanged="TabAll_SelectionChanged">
+            <TabItem x:Name="TabRoot" Header="Root">
+                <Grid>
+                    <ComboBox x:Name="IconSel" HorizontalAlignment="Left" Margin="61,10,0,0" VerticalAlignment="Top" Width="180" PreviewMouseDown="IconSel_PreviewMouseDown"/>
+                    <Label x:Name="labelIcon" Content="图标" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="Name" HorizontalAlignment="Left" Height="23" Margin="61,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label x:Name="labelName" Content="名称" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="Description" HorizontalAlignment="Left" Height="23" Margin="61,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label x:Name="labelDescription" Content="Desc." HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+                    <Grid HorizontalAlignment="Left" Height="26" Margin="10,134,0,0" VerticalAlignment="Top" Width="231">
+                        <RadioButton x:Name="FrameTask" Content="任务" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,4,0,0" IsChecked="True"/>
+                        <RadioButton x:Name="FrameGoal" Content="目标" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="68,4,0,0"/>
+                        <RadioButton x:Name="FrameChallenge" Content="挑战" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="132,4,0,0"/>
+                    </Grid>
+                    <CheckBox x:Name="ShowToast" Content="完成显示右上角提示" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                    <CheckBox x:Name="Broadcast2Chat" Content="完成后广播消息" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                    <CheckBox x:Name="HiddenAdvancement" Content="隐藏成就" HorizontalAlignment="Left" Margin="10,211,0,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="ParentCheck" Content="父成就" HorizontalAlignment="Left" Margin="10,234,0,0" VerticalAlignment="Top" Click="ParentCheck_Click"/>
+                    <TextBox x:Name="Parent" HorizontalAlignment="Left" Height="23" Margin="94,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" IsEnabled="False"/>
+                    <Label x:Name="labelConditions" Content="添加条件" HorizontalAlignment="Right" Margin="0,0,515,483" VerticalAlignment="Bottom" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom"/>
+                    <ComboBox x:Name="ConditionsList" HorizontalAlignment="Left" Margin="672,10,0,0" VerticalAlignment="Top" Width="241"/>
+                    <ListBox x:Name="ConditionsBox" HorizontalAlignment="Left" Height="195" Margin="475,41,0,0" VerticalAlignment="Top" Width="500" MouseDoubleClick="ConditionsBox_MouseDoubleClick"/>
+                    <Button x:Name="ConditionsMinus" Content="-" HorizontalAlignment="Left" Margin="949,10,0,0" VerticalAlignment="Top" Width="26" Style="{DynamicResource SquareButtonStyle}" ToolTip="Using F2 to open this Manual Fix Color Code window." Height="26" Click="ConditionsMinus_Click"/>
+                    <Button x:Name="ConditionsAdd" Content="+" HorizontalAlignment="Left" Margin="918,10,0,0" VerticalAlignment="Top" Width="26" Style="{DynamicResource SquareButtonStyle}" ToolTip="Using F2 to open this Manual Fix Color Code window." Height="26" Click="ConditionsAdd_Click"/>
+                    <TextBox x:Name="ConditionsName" HorizontalAlignment="Left" Height="23" Margin="475,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
+                    <ListBox x:Name="RequirementsBox" HorizontalAlignment="Left" Height="195" Margin="475,241,0,0" VerticalAlignment="Top" Width="500"/>
+                    <Button x:Name="RequirementsMinus" Content="-" HorizontalAlignment="Left" Margin="444,271,0,0" VerticalAlignment="Top" Width="26" Style="{DynamicResource SquareButtonStyle}" ToolTip="Using F2 to open this Manual Fix Color Code window." Height="26" Click="RequirementsMinus_Click"/>
+                    <Button x:Name="RequirementsAdd" Content="+" HorizontalAlignment="Left" Margin="413,271,0,0" VerticalAlignment="Top" Width="26" Style="{DynamicResource SquareButtonStyle}" ToolTip="Using F2 to open this Manual Fix Color Code window." Height="26" Click="RequirementsAdd_Click"/>
+                    <Label x:Name="labelRequirements" Content="需求条件" HorizontalAlignment="Right" Margin="0,0,515,252" VerticalAlignment="Bottom" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom"/>
+                    <GroupBox x:Name="RewardsGroup" Header="奖励" HorizontalAlignment="Left" Height="237" Margin="10,271,0,0" VerticalAlignment="Top" Width="397">
+                        <Grid HorizontalAlignment="Left" Height="238" VerticalAlignment="Top" Width="387" Margin="0,0,-2,0">
+                            <Grid HorizontalAlignment="Left" Height="26" Margin="94,69,0,0" VerticalAlignment="Top" Width="283">
+                                <Controls:NumericUpDown x:Name="RewardExp" Value="0" Minimum="0" Maximum="100000" IsEnabled="False"/>
+                            </Grid>
+                            <TextBox x:Name="RewardRecipes" HorizontalAlignment="Left" Height="23" Margin="94,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283" IsEnabled="False"/>
+                            <CheckBox x:Name="RewardRecipesCheck" Content="配方" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0" Click="RewardRecipesCheck_Click"/>
+                            <CheckBox x:Name="RewardLootCheck" Content="战利品名称" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,41,0,0" Click="RewardLootCheck_Click"/>
+                            <CheckBox x:Name="RewardExpCheck" Content="经验值" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,73,0,0" Click="RewardExpCheck_Click"/>
+                            <CheckBox x:Name="RewardFuncCheck" Content="功能文件" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,103,0,0" Click="RewardFuncCheck_Click"/>
+                            <TextBox x:Name="RewardLoot" HorizontalAlignment="Left" Height="23" Margin="94,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283" IsEnabled="False"/>
+                            <TextBox x:Name="RewardFunc" HorizontalAlignment="Left" Height="23" Margin="94,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283" IsEnabled="False"/>
+                        </Grid>
+                    </GroupBox>
+                    <Button x:Name="clearBtn" Content="清空" HorizontalAlignment="Left" Margin="413,480,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="clearBtn_Click"/>
+                    <Button x:Name="createBtn" Content="生成" HorizontalAlignment="Left" Margin="493,480,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="createBtn_Click"/>
+                    <Button x:Name="copyBtn" Content="复制" HorizontalAlignment="Left" Margin="573,480,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="copyBtn_Click"/>
+                    <Button x:Name="checkBtn" Content="检索" HorizontalAlignment="Left" Margin="653,480,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="checkBtn_Click"/>
+                    <Button x:Name="ConditionsFlush" Content="刷新" HorizontalAlignment="Left" Margin="414,41,0,0" VerticalAlignment="Top" Width="56" Style="{DynamicResource SquareButtonStyle}" ToolTip="Using F2 to open this Manual Fix Color Code window." Height="26" Click="ConditionsFlush_Click"/>
+                    <TextBox x:Name="Background" HorizontalAlignment="Left" Height="23" Margin="61,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="409" Controls:TextBoxHelper.Watermark="minecraft:textures/gui/advancements/backgrounds/adventure.png"/>
+                    <Label x:Name="labelBackground" Content="背景" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="RequirementsMerge" Content="=&gt;" HorizontalAlignment="Left" Margin="444,302,0,0" VerticalAlignment="Top" Width="26" Style="{DynamicResource SquareButtonStyle}" ToolTip="Using F2 to open this Manual Fix Color Code window." Height="26" Click="RequirementsMerge_Click"/>
+                    <Button x:Name="jsonBtn" Content="生成文件" HorizontalAlignment="Left" Margin="733,480,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="jsonBtn_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCTypeHurtType" Header="·伤害类型·">
+                <Grid>
+                    <Button x:Name="TBCTClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCTClear_Click"/>
+                    <Button x:Name="TBCTCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCTCreate_Click"/>
+                    <Button x:Name="TBCTCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCTCheck_Click"/>
+                    <CheckBox x:Name="TBCTBypassArmor" Content="伤害忽视护甲" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" IsThreeState="True"/>
+                    <CheckBox x:Name="TBCTBypassInvulnerability" Content="伤害忽视无敌模式" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" IsThreeState="True"/>
+                    <CheckBox x:Name="TBCTBypassMagic" Content="伤害由饥饿引起" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" IsThreeState="True"/>
+                    <CheckBox x:Name="TBCTIsExplosion" Content="伤害由爆炸引起" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" IsThreeState="True"/>
+                    <CheckBox x:Name="TBCTIsFire" Content="伤害由火引起" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" IsThreeState="True"/>
+                    <CheckBox x:Name="TBCTIsMagic" Content="伤害由魔法引起" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" IsThreeState="True"/>
+                    <CheckBox x:Name="TBCTIsProjectile" Content="伤害由弹射物引起" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" IsThreeState="True"/>
+                    <CheckBox x:Name="TBCTDirectBy" Content="伤害来源" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Click="TBCTDirectBy_Click"/>
+                    <Button x:Name="TBCTDirectByBtn" Content="Get" HorizontalAlignment="Left" Margin="99,181,0,0" VerticalAlignment="Top" Width="146" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCTDirectByBtn_Click"/>
+                    <CheckBox x:Name="TBCTSourceBy" Content="伤害来自" HorizontalAlignment="Left" Margin="10,214,0,0" VerticalAlignment="Top" Click="TBCTSourceBy_Click"/>
+                    <Button x:Name="TBCTSourceByBtn" Content="Get" HorizontalAlignment="Left" Margin="99,211,0,0" VerticalAlignment="Top" Width="146" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCTSourceByBtn_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCTypeHurt" Header="·伤害·">
+                <Grid>
+                    <CheckBox x:Name="TBCHIsBlock" Content="是否被格挡" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" IsThreeState="True"/>
+                    <Grid x:Name="TBCHDealtDamageGrid" HorizontalAlignment="Left" Height="26" Margin="60,38,0,0" VerticalAlignment="Top" Width="330" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCHDealtDamageMin" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="39,0,145,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCHDealtDamageMax" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="190,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <CheckBox x:Name="TBCHDealtDamage" Content="初始伤害" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Click="TBCHDealtDamage_Click"/>
+                    <Grid x:Name="TBCHTakenDamageGrid" HorizontalAlignment="Left" Height="26" Margin="60,65,0,0" VerticalAlignment="Top" Width="330" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCHTakenDamageMin" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="39,0,145,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCHTakenDamageMax" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="190,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <CheckBox x:Name="TBCHTakenDamage" Content="实际伤害" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Click="TBCHTakenDamage_Click"/>
+                    <CheckBox x:Name="TBCHDirectBy" Content="伤害来源" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" Click="TBCHDirectBy_Click"/>
+                    <Button x:Name="TBCHDirectByBtn" Content="Get" HorizontalAlignment="Left" Margin="99,111,0,0" VerticalAlignment="Top" Width="146" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCHDirectByBtn_Click"/>
+                    <CheckBox x:Name="TBCHSourceBy" Content="伤害来自" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Click="TBCHSourceBy_Click"/>
+                    <Button x:Name="TBCHSourceByBtn" Content="Get" HorizontalAlignment="Left" Margin="99,141,0,0" VerticalAlignment="Top" Width="146" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCHSourceByBtn_Click"/>
+                    <CheckBox x:Name="TBCHDamageType" Content="伤害类型" HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top" Click="TBCHDamageType_Click"/>
+                    <Button x:Name="TBCHDamageTypeBtn" Content="Get" HorizontalAlignment="Left" Margin="99,188,0,0" VerticalAlignment="Top" Width="146" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCHDamageTypeBtn_Click"/>
+                    <Button x:Name="TBCHClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCHClear_Click"/>
+                    <Button x:Name="TBCHCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCHCreate_Click"/>
+                    <Button x:Name="TBCHCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCHCheck_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCTypeEntity" Header="·实体·">
+                <Grid>
+                    <Grid HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="436">
+                        <Controls:NumericUpDown x:Name="TBCEDistanceNum" Margin="161,0,0,0" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" IsEnabled="False"/>
+                        <CheckBox x:Name="TBCEDistance" Content="与玩家距离" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" Click="TBCEDistance_Click"/>
+                    </Grid>
+                    <Grid x:Name="TBCEDistanceGrid" HorizontalAlignment="Left" Height="160" Margin="10,45,0,0" VerticalAlignment="Top" Width="436" IsEnabled="False">
+                        <CheckBox x:Name="TBCEDistanceAbsoluteCheck" Content="绝对值" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0" Click="TBCEDistanceAbsoluteCheck_Click"/>
+                        <Grid x:Name="TBCEDistanceAbsoluteGrid" HorizontalAlignment="Left" Height="28" Margin="107,0,0,0" VerticalAlignment="Top" Width="329" IsEnabled="False">
+                            <Controls:NumericUpDown x:Name="TBCEDistanceAbsoluteMin" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="54,0,141,0" ToolTip="Min"/>
+                            <Controls:NumericUpDown x:Name="TBCEDistanceAbsoluteMax" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="195,0,0,0" ToolTip="Max"/>
+                        </Grid>
+                        <CheckBox x:Name="TBCEDistanceHorizontalCheck" Content="直线距离" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,38,0,0" Click="TBCEDistanceHorizontalCheck_Click"/>
+                        <Grid x:Name="TBCEDistanceHorizontalGrid" HorizontalAlignment="Left" Height="28" Margin="107,33,0,0" VerticalAlignment="Top" Width="329" IsEnabled="False">
+                            <Controls:NumericUpDown x:Name="TBCEDistanceHorizontalMin" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="54,0,141,0" ToolTip="Min"/>
+                            <Controls:NumericUpDown x:Name="TBCEDistanceHorizontalMax" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="195,0,0,0" ToolTip="Max"/>
+                        </Grid>
+                        <CheckBox x:Name="TBCEDistanceXCheck" Content="X" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,71,0,0" Click="TBCEDistanceXCheck_Click"/>
+                        <Grid x:Name="TBCEDistanceXGrid" HorizontalAlignment="Left" Height="28" Margin="107,66,0,0" VerticalAlignment="Top" Width="329" IsEnabled="False">
+                            <Controls:NumericUpDown x:Name="TBCEDistanceXMin" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="54,0,141,0" ToolTip="Min"/>
+                            <Controls:NumericUpDown x:Name="TBCEDistanceXMax" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="195,0,0,0" ToolTip="Max"/>
+                        </Grid>
+                        <CheckBox x:Name="TBCEDistanceYCheck" Content="Y" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,104,0,0" Click="TBCEDistanceYCheck_Click"/>
+                        <Grid x:Name="TBCEDistanceYGrid" HorizontalAlignment="Left" Height="28" Margin="107,99,0,0" VerticalAlignment="Top" Width="329" IsEnabled="False">
+                            <Controls:NumericUpDown x:Name="TBCEDistanceYMin" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="54,0,141,0" ToolTip="Min"/>
+                            <Controls:NumericUpDown x:Name="TBCEDistanceYMax" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="195,0,0,0" ToolTip="Max"/>
+                        </Grid>
+                        <CheckBox x:Name="TBCEDistanceZCheck" Content="Z" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,137,0,0" Click="TBCEDistanceZCheck_Click"/>
+                        <Grid x:Name="TBCEDistanceZGrid" HorizontalAlignment="Left" Height="28" Margin="107,132,0,0" VerticalAlignment="Top" Width="329" IsEnabled="False">
+                            <Controls:NumericUpDown x:Name="TBCEDistanceZMin" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="54,0,141,0" ToolTip="Min"/>
+                            <Controls:NumericUpDown x:Name="TBCEDistanceZMax" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="195,0,0,0" ToolTip="Max"/>
+                        </Grid>
+                    </Grid>
+                    <CheckBox x:Name="TBCEEffect" Content="状态效果" HorizontalAlignment="Left" Margin="10,222,0,0" VerticalAlignment="Top" Click="TBCEEffect_Click"/>
+                    <Grid x:Name="TBCEEffectGrid" HorizontalAlignment="Left" Height="119" Margin="10,245,0,0" VerticalAlignment="Top" Width="436" IsEnabled="False">
+                        <Button x:Name="TBCEEffectPre" Content="↑" Margin="-46,0,362,45" RenderTransformOrigin="0.5,0.5" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="120" Style="{DynamicResource SquareButtonStyle}" Click="TBCEEffectPre_Click">
+                            <Button.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Button.RenderTransform>
+                        </Button>
+                        <Button x:Name="TBCEEffectNext" Content="↓" Margin="0,0,-46,45" RenderTransformOrigin="0.5,0.5" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="120" Style="{DynamicResource SquareButtonStyle}" Click="TBCEEffectNext_Click">
+                            <Button.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Button.RenderTransform>
+                        </Button>
+                        <Grid HorizontalAlignment="Left" Height="131" Margin="43,35,0,-15" VerticalAlignment="Top" Width="353">
+                            <Controls:NumericUpDown x:Name="TBCEEffectLevelMin" Value="0" Minimum="0" Maximum="1000000" Margin="120,0,119,102" HasDecimals="False" ToolTip="Min"></Controls:NumericUpDown>
+                            <Controls:NumericUpDown x:Name="TBCEEffectLevelMax" Value="0" Minimum="0" Maximum="1000000" Margin="239,0,0,102" HasDecimals="False" ToolTip="Max"/>
+                            <Controls:NumericUpDown x:Name="TBCEEffectTimeMin" Value="0" Minimum="0" Maximum="1000000" Margin="120,34,119,68" HasDecimals="False" ToolTip="Min"/>
+                            <Controls:NumericUpDown x:Name="TBCEEffectTimeMax" Value="0" Minimum="0" Maximum="1000000" Margin="239,34,0,68" HasDecimals="False" ToolTip="Max"/>
+                            <Label x:Name="TBCEEffectLabelLevel" Content="倍率等级" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="TBCEEffectLabelTime" Content="持续时间" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Label x:Name="TBCEEffectNameNum" Content="效果名称 1/?" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top"/>
+                        <Button x:Name="TBCEEffectGet" Content="Get" HorizontalAlignment="Left" Margin="321,0,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCEEffectGet_Click"/>
+                    </Grid>
+                    <CheckBox x:Name="TBCELocation" Content="实体位置" HorizontalAlignment="Left" Margin="475,16,0,0" VerticalAlignment="Top" Click="TBCELocation_Click"/>
+                    <Button x:Name="TBCELocationBtn" Content="Get" HorizontalAlignment="Left" Margin="610,13,0,0" VerticalAlignment="Top" Width="213" IsEnabled="False" Style="{DynamicResource SquareButtonStyle}" Click="TBCELocationBtn_Click"/>
+                    <CheckBox x:Name="TBCENBT" Content="包含自定义NBT标签" HorizontalAlignment="Left" Margin="475,64,0,0" VerticalAlignment="Top" Click="TBCENBT_Click"/>
+                    <TextBox x:Name="TBCENBTText" HorizontalAlignment="Left" Height="23" Margin="610,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" IsEnabled="False"/>
+                    <CheckBox x:Name="TBCEId" Content="实体ID" HorizontalAlignment="Left" Margin="475,114,0,0" VerticalAlignment="Top" Click="TBCEId_Click"/>
+                    <ComboBox x:Name="TBCEIdSel" HorizontalAlignment="Left" Margin="610,110,0,0" VerticalAlignment="Top" Width="213" IsEnabled="False"/>
+                    <Button x:Name="TBCEClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCEClear_Click"/>
+                    <Button x:Name="TBCECreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCECreate_Click"/>
+                    <Button x:Name="TBCECheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCECheck_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCTypeItem" Header="·物品·">
+                <Grid>
+                    <ComboBox x:Name="TBCIItemSel" HorizontalAlignment="Left" Margin="75,42,0,0" VerticalAlignment="Top" Width="290"/>
+                    <Button x:Name="TBCIItemBtn" Content="获取物品ID、数量、Meta值、附魔效果" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="332" Height="26" Style="{DynamicResource SquareButtonStyle}" Click="TBCIItemBtn_Click"/>
+                    <Grid x:Name="TBCICountGrid" HorizontalAlignment="Left" Height="26" Margin="35,73,0,0" VerticalAlignment="Top" Width="330">
+                        <Controls:NumericUpDown x:Name="TBCICountMin" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="39,0,145,0" ToolTip="Min"></Controls:NumericUpDown>
+                        <Controls:NumericUpDown x:Name="TBCICountMax" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="190,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <Grid x:Name="TBCIDataGrid" HorizontalAlignment="Left" Height="26" Margin="35,104,0,0" VerticalAlignment="Top" Width="330">
+                        <Controls:NumericUpDown x:Name="TBCIDataMin" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="39,0,145,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCIDataMax" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="190,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <Grid x:Name="TBCIDurabilityQualityReliabilityGrid" HorizontalAlignment="Left" Height="26" Margin="35,135,0,0" VerticalAlignment="Top" Width="330" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCIDurabilityQualityReliabilityMin" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="39,0,145,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCIDurabilityQualityReliabilityMax" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="190,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <CheckBox x:Name="TBCINBTCheck" Content="包含自定义NBT标签" HorizontalAlignment="Left" Margin="12,171,0,0" VerticalAlignment="Top" Click="TBCINBTCheck_Click"/>
+                    <TextBox x:Name="TBCINBT" HorizontalAlignment="Left" Height="23" Margin="147,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" IsEnabled="False"/>
+                    <Label x:Name="TBCIPotionLabel" Content="药水属性" HorizontalAlignment="Left" Margin="12,198,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="TBCIPotionSel" HorizontalAlignment="Left" Margin="75,198,0,0" VerticalAlignment="Top" Width="290"/>
+                    <CheckBox x:Name="TBCIEnchant" Content="附魔" HorizontalAlignment="Left" Margin="12,231,0,0" VerticalAlignment="Top" Click="TBCIEnchant_Click"/>
+                    <Grid x:Name="TBCIEnchantGrid" HorizontalAlignment="Left" Height="119" Margin="12,254,0,0" VerticalAlignment="Top" Width="436" IsEnabled="False">
+                        <Button x:Name="TBCIEnchantPre" Content="↑" Margin="-46,0,362,45" RenderTransformOrigin="0.5,0.5" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="120" Style="{DynamicResource SquareButtonStyle}" Click="TBCIEnchantPre_Click">
+                            <Button.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Button.RenderTransform>
+                        </Button>
+                        <Button x:Name="TBCIEnchantNext" Content="↓" Margin="0,0,-46,45" RenderTransformOrigin="0.5,0.5" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="120" Style="{DynamicResource SquareButtonStyle}" Click="TBCIEnchantNext_Click">
+                            <Button.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Button.RenderTransform>
+                        </Button>
+                        <Grid HorizontalAlignment="Left" Height="131" Margin="43,35,0,-15" VerticalAlignment="Top" Width="353">
+                            <Controls:NumericUpDown x:Name="TBCIEnchantLevelMin" Value="0" Minimum="0" Maximum="1000000" Margin="120,0,119,102" HasDecimals="False" ToolTip="Min"/>
+                            <Controls:NumericUpDown x:Name="TBCIEnchantLevelMax" Value="0" Minimum="0" Maximum="1000000" Margin="239,0,0,102" HasDecimals="False" ToolTip="Max"/>
+                            <Label x:Name="TBCIEnchantLevelLabel" Content="附魔等级" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Label x:Name="TBCIEnchantNameNum" Content="附魔名称 1/?" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top"/>
+                    </Grid>
+                    <Button x:Name="TBCIClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCIClear_Click"/>
+                    <Button x:Name="TBCICreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCICreate_Click"/>
+                    <Button x:Name="TBCICheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCICheck_Click"/>
+                    <CheckBox x:Name="TBCIItem" Content="物品" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" IsChecked="True" Click="TBCIItem_Click"/>
+                    <CheckBox x:Name="TBCICount" Content="数量" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" IsChecked="True" Click="TBCICount_Click"/>
+                    <CheckBox x:Name="TBCIData" Content="Data" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top" IsChecked="True" Click="TBCIData_Click"/>
+                    <CheckBox x:Name="TBCIDurabilityQualityReliability" Content="DQR." HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Click="TBCIDurabilityQualityReliability_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCTypeLocation" Header="·位置·">
+                <Grid>
+                    <CheckBox x:Name="TBCLBiomeCheck" Content="生物群系" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Click="TBCLBiomeCheck_Click"/>
+                    <ComboBox x:Name="TBCLBiome" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" Width="234" IsEnabled="False"/>
+                    <CheckBox x:Name="TBCLDimCheck" Content="维度" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Click="TBCLDimCheck_Click"/>
+                    <ComboBox x:Name="TBCLDim" HorizontalAlignment="Left" Margin="110,41,0,0" VerticalAlignment="Top" Width="234" IsEnabled="False"/>
+                    <CheckBox x:Name="TBCLStructureCheck" Content="所在结构" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Click="TBCLStructureCheck_Click"/>
+                    <ComboBox x:Name="TBCLStructure" HorizontalAlignment="Left" Margin="110,72,0,0" VerticalAlignment="Top" Width="234" IsEnabled="False"/>
+                    <CheckBox x:Name="TBCLXYZ" Content="坐标" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top" Click="TBCLXYZ_Click"/>
+                    <Grid x:Name="TBCLXYZGrid" HorizontalAlignment="Left" Height="142" Margin="10,135,0,0" VerticalAlignment="Top" Width="334" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCLXMin" HasDecimals="False" Value="0" Minimum="-1000000" Maximum="1000000" Margin="44,0,147,115" ToolTip="Min"></Controls:NumericUpDown>
+                        <Controls:NumericUpDown x:Name="TBCLXMax" HasDecimals="False" Value="0" Minimum="-1000000" Maximum="1000000" Margin="193,0,0,115" ToolTip="Max"/>
+                        <Controls:NumericUpDown x:Name="TBCLYMin" HasDecimals="False" Value="0" Minimum="-1000000" Maximum="1000000" Margin="44,32,147,83" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCLYMax" HasDecimals="False" Value="0" Minimum="-1000000" Maximum="1000000" Margin="193,32,0,83" ToolTip="Max"/>
+                        <Controls:NumericUpDown x:Name="TBCLZMin" HasDecimals="False" Value="0" Minimum="-1000000" Maximum="1000000" Margin="44,64,147,51" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCLZMax" HasDecimals="False" Value="0" Minimum="-1000000" Maximum="1000000" Margin="193,64,0,51" ToolTip="Max"/>
+                        <Label Content="X" HorizontalAlignment="Left" Margin="21,1,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Y" HorizontalAlignment="Left" Margin="21,33,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Z" HorizontalAlignment="Left" Margin="21,65,0,0" VerticalAlignment="Top"/>
+                    </Grid>
+                    <Button x:Name="TBCLClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCLClear_Click"/>
+                    <Button x:Name="TBCLCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCLCreate_Click"/>
+                    <Button x:Name="TBCLCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCLCheck_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoBred" Header="繁殖动物">
+                <Grid>
+                    <Button x:Name="TBCOBredClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOBredClear_Click"/>
+                    <Button x:Name="TBCOBredCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOBredCreate_Click"/>
+                    <Button x:Name="TBCOBredCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOBredCheck_Click"/>
+                    <CheckBox x:Name="TBCOBredChild" Content="孩子" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Click="TBCOBredChild_Click"/>
+                    <Button x:Name="TBCOBredChildBtn" Content="Get" HorizontalAlignment="Left" Margin="88,7,0,0" VerticalAlignment="Top" Width="155" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCOBredChildBtn_Click"/>
+                    <CheckBox x:Name="TBCOBredParent" Content="父母" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Click="TBCOBredParent_Click"/>
+                    <Button x:Name="TBCOBredParentBtn" Content="Get" HorizontalAlignment="Left" Margin="88,40,0,0" VerticalAlignment="Top" Width="155" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCOBredParentBtn_Click"/>
+                    <CheckBox x:Name="TBCOBredPartner" Content="配偶" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Click="TBCOBredPartner_Click"/>
+                    <Button x:Name="TBCOBredPartnerBtn" Content="Get" HorizontalAlignment="Left" Margin="88,73,0,0" VerticalAlignment="Top" Width="155" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCOBredPartnerBtn_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoBrew" Header="酿造药水">
+                <Grid>
+                    <Button x:Name="TBCOBrewClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOBrewClear_Click"/>
+                    <Button x:Name="TBCOBrewCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOBrewCreate_Click"/>
+                    <Button x:Name="TBCOBrewCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOBrewCheck_Click"/>
+                    <Label x:Name="TBCOBrewLabel" Content="药水属性" HorizontalAlignment="Left" Margin="11,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="TBCOBrewSel" HorizontalAlignment="Left" Margin="74,10,0,0" VerticalAlignment="Top" Width="290"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoDim" Header="维度旅行">
+                <Grid>
+                    <Button x:Name="TBCODimClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCODimClear_Click"/>
+                    <Button x:Name="TBCODimCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCODimCreate_Click"/>
+                    <Button x:Name="TBCODimCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCODimCheck_Click"/>
+                    <CheckBox x:Name="TBCODimFromCC" Content="From Dimension" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="TBCODimFromCC_Click"/>
+                    <ComboBox x:Name="TBCODimFrom" HorizontalAlignment="Left" Margin="128,10,0,0" VerticalAlignment="Top" Width="212" IsEnabled="False"/>
+                    <ComboBox x:Name="TBCODimTo" HorizontalAlignment="Left" Margin="128,41,0,0" VerticalAlignment="Top" Width="212" IsEnabled="False"/>
+                    <CheckBox x:Name="TBCODimToCC" Content="To Dimension" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Click="TBCODimToCC_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoBeacon" Header="改变信标">
+                <Grid>
+                    <Button x:Name="TBCOBeaconClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOBeaconClear_Click"/>
+                    <Button x:Name="TBCOBeaconCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOBeaconCreate_Click"/>
+                    <Button x:Name="TBCOBeaconCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOBeaconCheck_Click"/>
+                    <Grid HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="370">
+                        <Controls:NumericUpDown x:Name="TBCOBeaconMax" HasDecimals="False" Value="0" Minimum="0" Maximum="4" Margin="237,0,0,0" ToolTip="Max"></Controls:NumericUpDown>
+                        <Controls:NumericUpDown x:Name="TBCOBeaconMin" HasDecimals="False" Value="0" Minimum="0" Maximum="4" Margin="99,0,138,0" ToolTip="Min"/>
+                        <Label x:Name="TBCOBeaconLabel" Content="信标层数" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"/>
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoConsume" Header="消耗物品">
+                <Grid>
+                    <Button x:Name="TBCOConsumeClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOConsumeClear_Click"/>
+                    <Button x:Name="TBCOConsumeCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOConsumeCreate_Click"/>
+                    <Button x:Name="TBCOConsumeCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOConsumeCheck_Click"/>
+                    <Button x:Name="TBCOConsumeBtn" Content="Get" HorizontalAlignment="Left" Margin="39,10,0,0" VerticalAlignment="Top" Width="206" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCOConsumeBtn_Click"/>
+                    <CheckBox x:Name="TBCOConsumeCC" Content="" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Click="TBCOConsumeCC_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoCuredZV" Header="治愈僵尸村民">
+                <Grid>
+                    <Button x:Name="TBCOCuredZVClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOCuredZVClear_Click"/>
+                    <Button x:Name="TBCOCuredZVCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOCuredZVCreate_Click"/>
+                    <Button x:Name="TBCOCuredZVCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOCuredZVCheck_Click"/>
+                    <CheckBox x:Name="TBCOCuredVillagerCheck" Content="村民" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Click="TBCOCuredVillagerCheck_Click"/>
+                    <Button x:Name="TBCOCuredVillager" Content="get" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="155" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCOCuredVillager_Click"/>
+                    <CheckBox x:Name="TBCOCuredZombieCheck" Content="僵尸" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Click="TBCOCuredZombieCheck_Click"/>
+                    <Button x:Name="TBCOCuredZombie" Content="get" HorizontalAlignment="Left" Margin="90,43,0,0" VerticalAlignment="Top" Width="155" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCOCuredZombie_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoEffectChange" Header="状态变更">
+                <Grid>
+                    <Button x:Name="TBCOECClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOECClear_Click"/>
+                    <Button x:Name="TBCOECCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOECCreate_Click"/>
+                    <Button x:Name="TBCOECCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCOECCheck_Click"/>
+                    <CheckBox x:Name="TBCOECCC" Content="" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Click="TBCOECCC_Click"/>
+                    <Button x:Name="TBCOECBtn" Content="Get" HorizontalAlignment="Left" Margin="39,10,0,0" VerticalAlignment="Top" Width="206" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCOECBtn_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoEnchant" Header="附魔">
+                <Grid>
+                    <Button x:Name="TBCoEnchantClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoEnchantClear_Click"/>
+                    <Button x:Name="TBCoEnchantCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoEnchantCreate_Click"/>
+                    <Button x:Name="TBCoEnchantCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoEnchantCheck_Click"/>
+                    <Button x:Name="TBCoEnchantBtn" Content="Get" HorizontalAlignment="Left" Margin="39,10,0,0" VerticalAlignment="Top" Width="206" IsEnabled="False" Style="{DynamicResource SquareButtonStyle}" Click="TBCoEnchantBtn_Click"/>
+                    <CheckBox x:Name="TBCoEnchantBtnCC" Content="" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Click="TBCoEnchantBtnCC_Click"/>
+                    <CheckBox x:Name="TBCoEnchantLevelCC" Content="花费经验等级" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Click="TBCoEnchantLevelCC_Click"/>
+                    <Grid x:Name="TBCoEnchantLevelGrid" HorizontalAlignment="Left" Height="69" Margin="10,66,0,0" VerticalAlignment="Top" Width="235" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCoEnchantLevelMin" HasDecimals="False" Value="0" Minimum="0" Maximum="100000" Margin="30,0,0,43" ToolTip="Min"></Controls:NumericUpDown>
+                        <Controls:NumericUpDown x:Name="TBCoEnchantLevelMax" HasDecimals="False" Value="0" Minimum="0" Maximum="100000" Margin="30,31,0,12" ToolTip="Max"/>
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoIn2Block" Header="进入方块">
+                <Grid>
+                    <Button x:Name="TBCoBlockClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoBlockClear_Click"/>
+                    <Button x:Name="TBCoBlockCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoBlockCreate_Click"/>
+                    <Button x:Name="TBCoBlockCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoBlockCheck_Click"/>
+                    <ComboBox x:Name="TBCoBlockType" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="235"/>
+                    <Label x:Name="TBCoBlockStateLabel" Content="方块状态" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TBCoBlockStateKey" HorizontalAlignment="Left" Height="23" Margin="10,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Controls:TextBoxHelper.Watermark="facing, power, variant e.g."/>
+                    <TextBox x:Name="TBCoBlockStateValue" HorizontalAlignment="Left" Height="23" Margin="10,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Controls:TextBoxHelper.Watermark="north, 0, stone e.g."/>
+                    <Label Content="=" HorizontalAlignment="Left" Margin="112,114,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="90"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <ListBox x:Name="TBCoBlockStateBox" HorizontalAlignment="Left" Height="165" Margin="259,9,0,0" VerticalAlignment="Top" Width="233"/>
+                    <Button x:Name="TBCoBlockStateMinus" Content="-" HorizontalAlignment="Left" Margin="221,117,0,0" VerticalAlignment="Top" Width="24" Style="{DynamicResource SquareButtonStyle}" Click="TBCoBlockStateMinus_Click"/>
+                    <Button x:Name="TBCoBlockStateAdd" Content="+" HorizontalAlignment="Left" Margin="192,117,0,0" VerticalAlignment="Top" Width="24" Style="{DynamicResource SquareButtonStyle}" Click="TBCoBlockStateAdd_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoEHP" Header="实体伤害玩家">
+                <Grid>
+                    <Button x:Name="TBCoEHPClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoEHPClear_Click"/>
+                    <Button x:Name="TBCoEHPCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoEHPCreate_Click"/>
+                    <Button x:Name="TBCoEHPCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoEHPCheck_Click"/>
+                    <CheckBox x:Name="TBCoEHPCC" Content="" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Click="TBCoEHPCC_Click"/>
+                    <Button x:Name="TBCoEHPBtn" Content="Get" HorizontalAlignment="Left" Margin="39,10,0,0" VerticalAlignment="Top" Width="206" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCoEHPBtn_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoEKP" Header="实体杀死玩家">
+                <Grid>
+                    <Button x:Name="TBCoEKPClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoEKPClear_Click"/>
+                    <Button x:Name="TBCoEKPCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoEKPCreate_Click"/>
+                    <Button x:Name="TBCoEKPCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoEKPCheck_Click"/>
+                    <Button x:Name="TBCoEKPSourceBtn" Content="Get" HorizontalAlignment="Left" Margin="133,10,0,0" VerticalAlignment="Top" Width="112" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCoEKPSourceBtn_Click"/>
+                    <CheckBox x:Name="TBCoEKPSourceCC" Content="伤害来源" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Click="TBCoEKPSourceCC_Click"/>
+                    <Button x:Name="TBCoEKPTypeBtn" Content="Get" HorizontalAlignment="Left" Margin="133,43,0,0" VerticalAlignment="Top" Width="112" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCoEKPTypeBtn_Click"/>
+                    <CheckBox x:Name="TBCoEKPTypeCC" Content="杀害类型" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Click="TBCoEKPTypeCC_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoInvChange" Header="物品栏变化">
+                <Grid>
+                    <Button x:Name="TBCoInvClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoInvClear_Click"/>
+                    <Button x:Name="TBCoInvCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoInvCreate_Click"/>
+                    <Button x:Name="TBCoInvCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoInvCheck_Click"/>
+                    <Button x:Name="TBCoInvBtn" Content="Get" HorizontalAlignment="Left" Margin="226,10,0,0" VerticalAlignment="Top" Width="28" Style="{DynamicResource SquareButtonStyle}" Click="TBCoInvBtn_Click"/>
+                    <Grid x:Name="TBCoInvEmptyGrid" HorizontalAlignment="Left" Height="26" Margin="108,43,0,0" VerticalAlignment="Top" Width="211" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCoInvEmptyMin" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="0,0,106,0" ToolTip="Min"></Controls:NumericUpDown>
+                        <Controls:NumericUpDown x:Name="TBCoInvEmptyMax" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="110,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <CheckBox x:Name="TBCoInvEmpty" Content="空槽数量" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Click="TBCoInvEmpty_Click"/>
+                    <Grid x:Name="TBCoInvFullGrid" HorizontalAlignment="Left" Height="26" Margin="108,75,0,0" VerticalAlignment="Top" Width="211" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCoInvFullMin" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="0,0,106,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCoInvFullMax" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="110,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <CheckBox x:Name="TBCoInvFull" Content="成组物品数量" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Click="TBCoInvFull_Click"/>
+                    <Grid x:Name="TBCoInvOccupiedGrid" HorizontalAlignment="Left" Height="26" Margin="108,107,0,0" VerticalAlignment="Top" Width="211" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCoInvOccupiedMin" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="0,0,106,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCoInvOccupiedMax" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="110,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <CheckBox x:Name="TBCoInvOccupied" Content="占用数量" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top" Click="TBCoInvOccupied_Click"/>
+                    <Button x:Name="TBCoInvAdd" Content="+" HorizontalAlignment="Left" Margin="259,10,0,0" VerticalAlignment="Top" Width="28" Style="{DynamicResource SquareButtonStyle}" Click="TBCoInvAdd_Click"/>
+                    <Button x:Name="TBCoInvBtnMinus" Content="-" HorizontalAlignment="Left" Margin="292,10,0,0" VerticalAlignment="Top" Width="28" Style="{DynamicResource SquareButtonStyle}" Click="TBCoInvBtnMinus_Click"/>
+                    <ListBox x:Name="TBCoInvGroup" HorizontalAlignment="Left" Height="123" Margin="325,10,0,0" VerticalAlignment="Top" Width="260"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoDurability" Header="耐久度变化">
+                <Grid>
+                    <Button x:Name="TBCoDurabilityClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoDurabilityClear_Click"/>
+                    <Button x:Name="TBCoDurabilityCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoDurabilityCreate_Click"/>
+                    <Button x:Name="TBCoDurabilityCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoDurabilityCheck_Click"/>
+                    <Button x:Name="TBCoDurabilityItemBtn" Content="Get" HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top" Width="305" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCoDurabilityItemBtn_Click"/>
+                    <CheckBox x:Name="TBCoDurabilityItem" Content="" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Click="TBCoDurabilityItem_Click"/>
+                    <CheckBox x:Name="TBCoDurabilityD" Content="耐久度差值" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Click="TBCoDurabilityD_Click"/>
+                    <Grid x:Name="TBCoDurabilityDGrid" HorizontalAlignment="Left" Height="26" Margin="128,43,0,0" VerticalAlignment="Top" Width="211" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCoDurabilityDMin" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="0,0,106,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCoDurabilityDMax" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="110,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <CheckBox x:Name="TBCoDurabilityE" Content="剩余耐久度" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Click="TBCoDurabilityE_Click"/>
+                    <Grid x:Name="TBCoDurabilityEGrid" HorizontalAlignment="Left" Height="26" Margin="128,74,0,0" VerticalAlignment="Top" Width="211" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCoDurabilityEMin" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="0,0,106,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCoDurabilityEMax" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="110,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoLevitation" Header="漂浮状态">
+                <Grid>
+                    <Button x:Name="TBCoLevitationClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoLevitationClear_Click"/>
+                    <Button x:Name="TBCoLevitationCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoLevitationCreate_Click"/>
+                    <Button x:Name="TBCoLevitationCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoLevitationCheck_Click"/>
+                    <CheckBox x:Name="TBCoLevitationAbsolute" Content="绝对值" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="TBCoLevitationAbsolute_Click"/>
+                    <Grid x:Name="TBCoLevitationAbsoluteGrid" HorizontalAlignment="Left" Height="26" Margin="128,6,0,0" VerticalAlignment="Top" Width="211" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCoLevitationAbsoluteMin" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="0,0,106,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCoLevitationAbsoluteMax" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="110,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <CheckBox x:Name="TBCoLevitationHorizontal" Content="直线距离" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Click="TBCoLevitationHorizontal_Click"/>
+                    <Grid x:Name="TBCoLevitationHorizontalGrid" HorizontalAlignment="Left" Height="26" Margin="128,37,0,0" VerticalAlignment="Top" Width="211" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCoLevitationHorizontalMin" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="0,0,106,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCoLevitationHorizontalMax" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="110,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <CheckBox x:Name="TBCoLevitationX" Content="X" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Click="TBCoLevitationX_Click"/>
+                    <Grid x:Name="TBCoLevitationXGrid" HorizontalAlignment="Left" Height="26" Margin="128,68,0,0" VerticalAlignment="Top" Width="211" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCoLevitationXMin" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="0,0,106,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCoLevitationXMax" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="110,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <CheckBox x:Name="TBCoLevitationY" Content="Y" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Click="TBCoLevitationY_Click"/>
+                    <Grid x:Name="TBCoLevitationYGrid" HorizontalAlignment="Left" Height="26" Margin="128,99,0,0" VerticalAlignment="Top" Width="211" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCoLevitationYMin" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="0,0,106,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCoLevitationYMax" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="110,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <CheckBox x:Name="TBCoLevitationZ" Content="Z" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Click="TBCoLevitationZ_Click"/>
+                    <Grid x:Name="TBCoLevitationZGrid" HorizontalAlignment="Left" Height="26" Margin="128,130,0,0" VerticalAlignment="Top" Width="211" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCoLevitationZMin" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="0,0,106,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCoLevitationZMax" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="110,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <CheckBox x:Name="TBCoLevitationDuration" Content="漂浮时间" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Click="TBCoLevitationDuration_Click"/>
+                    <Grid x:Name="TBCoLevitationDurationGrid" HorizontalAlignment="Left" Height="26" Margin="128,161,0,0" VerticalAlignment="Top" Width="211" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCoLevitationDurationMin" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="0,0,106,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCoLevitationDurationMax" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="110,0,0,0" ToolTip="Max"/>
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoLocation" Header="位置更新">
+                <Grid>
+                    <Button x:Name="TBCoLocationClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoLocationClear_Click"/>
+                    <Button x:Name="TBCoLocationCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoLocationCreate_Click"/>
+                    <Button x:Name="TBCoLocationCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoLocationCheck_Click"/>
+                    <Button x:Name="TBCoLocationBtn" Content="Get" HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top" Width="211" IsEnabled="False" Click="TBCoLocationBtn_Click"/>
+                    <CheckBox x:Name="TBCoLocationCC" Content="" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top" Click="TBCoLocationCC_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoNether" Header="地狱归来">
+                <Grid>
+                    <Button x:Name="TBCoNetherClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoNetherClear_Click"/>
+                    <Button x:Name="TBCoNetherCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoNetherCreate_Click"/>
+                    <Button x:Name="TBCoNetherCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoNetherCheck_Click"/>
+                    <CheckBox x:Name="TBCoNetherAbsolute" Content="绝对值" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="TBCoNetherAbsolute_Click"/>
+                    <Grid x:Name="TBCoNetherAbsoluteGrid" HorizontalAlignment="Left" Height="26" Margin="128,6,0,0" VerticalAlignment="Top" Width="211" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCoNetherAbsoluteMin" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="0,0,106,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCoNetherAbsoluteMax" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="110,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <CheckBox x:Name="TBCoNetherHorizontal" Content="直线距离" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Click="TBCoNetherHorizontal_Click"/>
+                    <Grid x:Name="TBCoNetherHorizontalGrid" HorizontalAlignment="Left" Height="26" Margin="128,37,0,0" VerticalAlignment="Top" Width="211" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCoNetherHorizontalMin" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="0,0,106,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCoNetherHorizontalMax" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="110,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <CheckBox x:Name="TBCoNetherX" Content="X" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Click="TBCoNetherX_Click"/>
+                    <Grid x:Name="TBCoNetherXGrid" HorizontalAlignment="Left" Height="26" Margin="128,68,0,0" VerticalAlignment="Top" Width="211" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCoNetherXMin" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="0,0,106,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCoNetherXMax" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="110,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <CheckBox x:Name="TBCoNetherY" Content="Y" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Click="TBCoNetherY_Click"/>
+                    <Grid x:Name="TBCoNetherYGrid" HorizontalAlignment="Left" Height="26" Margin="128,99,0,0" VerticalAlignment="Top" Width="211" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCoNetherYMin" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="0,0,106,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCoNetherYMax" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="110,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <CheckBox x:Name="TBCoNetherZ" Content="Z" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Click="TBCoNetherZ_Click"/>
+                    <Grid x:Name="TBCoNetherZGrid" HorizontalAlignment="Left" Height="26" Margin="128,130,0,0" VerticalAlignment="Top" Width="211" IsEnabled="False">
+                        <Controls:NumericUpDown x:Name="TBCoNetherZMin" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="0,0,106,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCoNetherZMax" HasDecimals="False" Value="0" Minimum="0" Maximum="41" Margin="110,0,0,0" ToolTip="Max"/>
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoPlace" Header="放置方块">
+                <Grid>
+                    <Button x:Name="TBCoPlaceClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoPlaceClear_Click"/>
+                    <Button x:Name="TBCoPlaceCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoPlaceCreate_Click"/>
+                    <Button x:Name="TBCoPlaceCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoPlaceCheck_Click"/>
+                    <ComboBox x:Name="TBCoPlaceBlock" HorizontalAlignment="Left" Margin="100,10,0,0" VerticalAlignment="Top" Width="145" IsEnabled="False"/>
+                    <CheckBox x:Name="TBCoPlaceStateCC" Content="方块状态" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top" Click="TBCoPlaceStateCC_Click"/>
+                    <TextBox x:Name="TBCoPlaceStateKey" HorizontalAlignment="Left" Height="23" Margin="10,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Controls:TextBoxHelper.Watermark="facing, power, variant e.g." IsEnabled="False"/>
+                    <TextBox x:Name="TBCoPlaceStateValue" HorizontalAlignment="Left" Height="23" Margin="10,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Controls:TextBoxHelper.Watermark="north, 0, stone e.g." IsEnabled="False"/>
+                    <Label Content="=" HorizontalAlignment="Left" Margin="112,182,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="90"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <CheckBox x:Name="TBCoPlaceBlockCC" Content="放出的方块" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Click="TBCoPlaceBlockCC_Click"/>
+                    <Button x:Name="TBCoPlaceItem" Content="Get" HorizontalAlignment="Left" Margin="100,41,0,0" VerticalAlignment="Top" Width="145" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCoPlaceItem_Click"></Button>
+                    <CheckBox x:Name="TBCoPlaceItemCC" Content="使用的物品" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Click="TBCoPlaceItemCC_Click"/>
+                    <Button x:Name="TBCoPlaceLocation" Content="Get" HorizontalAlignment="Left" Margin="100,74,0,0" VerticalAlignment="Top" Width="145" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCoPlaceLocation_Click"/>
+                    <CheckBox x:Name="TBCoPlaceLocationCC" Content="地点" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Click="TBCoPlaceLocationCC_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoPHE" Header="玩家伤害实体">
+                <Grid>
+                    <Button x:Name="TBCoPHEClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoPHEClear_Click"/>
+                    <Button x:Name="TBCoPHECreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoPHECreate_Click"/>
+                    <Button x:Name="TBCoPHECheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoPHECheck_Click"/>
+                    <Button x:Name="TBCoPHEBtn" Content="Get" HorizontalAlignment="Left" Margin="34,5,0,0" VerticalAlignment="Top" Width="211" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCoPHEBtn_Click"/>
+                    <CheckBox x:Name="TBCoPHECC" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="TBCoPHECC_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoPKE" Header="玩家杀死实体">
+                <Grid>
+                    <Button x:Name="TBCoPKEClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoPKEClear_Click"/>
+                    <Button x:Name="TBCoPKECreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoPKECreate_Click"/>
+                    <Button x:Name="TBCoPKECheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoPKECheck_Click"/>
+                    <Button x:Name="TBCoPKEEntity" Content="Get" HorizontalAlignment="Left" Margin="118,5,0,0" VerticalAlignment="Top" Width="127" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCoPKEEntity_Click"/>
+                    <CheckBox x:Name="TBCoPKEEntityCC" Content="杀死的实体" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="TBCoPKEEntityCC_Click"/>
+                    <Button x:Name="TBCoPKEType" Content="Get" HorizontalAlignment="Left" Margin="118,40,0,0" VerticalAlignment="Top" Width="127" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCoPKEType_Click"/>
+                    <CheckBox x:Name="TBCoPKETypeCC" Content="击杀类型" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Click="TBCoPKETypeCC_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoUnlock" Header="解锁配方">
+                <Grid>
+                    <Button x:Name="TBCoUnlockClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoUnlockClear_Click"/>
+                    <Button x:Name="TBCoUnlockCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoUnlockCreate_Click"/>
+                    <Button x:Name="TBCoUnlockCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoUnlockCheck_Click"/>
+                    <ComboBox x:Name="TBCoUnlockType" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="235"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoSleep" Header="上床睡觉">
+                <Grid>
+                    <Button x:Name="TBCoSleepClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoSleepClear_Click"/>
+                    <Button x:Name="TBCoSleepCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoSleepCreate_Click"/>
+                    <Button x:Name="TBCoSleepCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoSleepCheck_Click"/>
+                    <Button x:Name="TBCoSleepBtn" Content="Get" HorizontalAlignment="Left" Margin="34,5,0,0" VerticalAlignment="Top" Width="211" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCoSleepBtn_Click"/>
+                    <CheckBox x:Name="TBCoSleepCC" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="TBCoSleepCC_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoSummon" Header="创造实体">
+                <Grid>
+                    <Button x:Name="TBCoSummonClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoSummonClear_Click"/>
+                    <Button x:Name="TBCoSummonCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoSummonCreate_Click"/>
+                    <Button x:Name="TBCoSummonCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoSummonCheck_Click"/>
+                    <Button x:Name="TBCoSummonBtn" Content="Get" HorizontalAlignment="Left" Margin="34,5,0,0" VerticalAlignment="Top" Width="211" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCoSummonBtn_Click"/>
+                    <CheckBox x:Name="TBCoSummonCC" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="TBCoSummonCC_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoTame" Header="驯服动物">
+                <Grid>
+                    <Button x:Name="TBCoTameClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoTameClear_Click"/>
+                    <Button x:Name="TBCoTameCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoTameCreate_Click"/>
+                    <Button x:Name="TBCoTameCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoTameCheck_Click"/>
+                    <Button x:Name="TBCoTameBtn" Content="Get" HorizontalAlignment="Left" Margin="34,5,0,0" VerticalAlignment="Top" Width="211" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCoTameBtn_Click"/>
+                    <CheckBox x:Name="TBCoTameCC" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="TBCoTameCC_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoEye" Header="末影之眼">
+                <Grid>
+                    <Button x:Name="TBCoEyeClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoEyeClear_Click"/>
+                    <Button x:Name="TBCoEyeCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoEyeCreate_Click"/>
+                    <Button x:Name="TBCoEyeCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoEyeCheck_Click"/>
+                    <Grid HorizontalAlignment="Left" Height="26" Margin="10,6,0,0" VerticalAlignment="Top" Width="330">
+                        <Controls:NumericUpDown x:Name="TBCoEyeMin" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="39,0,145,0" ToolTip="Min"/>
+                        <Controls:NumericUpDown x:Name="TBCoEyeMax" HasDecimals="False" Value="0" Minimum="0" Maximum="1000000" Margin="190,0,0,0" ToolTip="Max"/>
+                    </Grid>
+                    <Label x:Name="TBCoEyeLabel" Content="距离" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabCoTrade" Header="村民交易">
+                <Grid>
+                    <Button x:Name="TBCoTradeClear" Content="清空" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoTradeClear_Click"/>
+                    <Button x:Name="TBCoTradeCreate" Content="生成" HorizontalAlignment="Left" Margin="90,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoTradeCreate_Click"/>
+                    <Button x:Name="TBCoTradeCheck" Content="检索" HorizontalAlignment="Left" Margin="170,483,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource SquareButtonStyle}" Click="TBCoTradeCheck_Click"/>
+                    <Button x:Name="TBCoTradeItem" Content="Get" HorizontalAlignment="Left" Margin="118,5,0,0" VerticalAlignment="Top" Width="127" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCoTradeItem_Click"/>
+                    <CheckBox x:Name="TBCoTradeItemCC" Content="购买的物品" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="TBCoTradeItemCC_Click"/>
+                    <Button x:Name="TBCoTradeVillager" Content="Get" HorizontalAlignment="Left" Margin="118,41,0,0" VerticalAlignment="Top" Width="127" Style="{DynamicResource SquareButtonStyle}" IsEnabled="False" Click="TBCoTradeVillager_Click"/>
+                    <CheckBox x:Name="TBCoTradeVillagerCC" Content="村民属性" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Click="TBCoTradeVillagerCC_Click"/>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Controls:MetroWindow>

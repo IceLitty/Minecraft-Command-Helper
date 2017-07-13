@@ -4,8 +4,8 @@
     "LanguageName": "正體中文",
     "AuthorStr": "語言文件作者：",
     "Author": "IceLitty",
-    "LastUpdateStr": "最後更新：",
-    "LastUpdate": "2016.12.31",
+    "LastUpdateStr": "語言文件最後更新：",
+    "LastUpdate": "2017.07.10",
 
     "FloatConfirm": "確認",
     "FloatCancel": "取消",
@@ -51,7 +51,7 @@
     "MainOtherLib": "其他指令",
     "MainExit": "退出程序",
     "MainAbout": "關于程序",
-    "MainLoottable": "掉落掠奪",
+    "MainLoottable": "JSON創建",
     "MainChest": "實體方塊",
     "MainCommandHelp": "指令幫助",
     "MainAboutFloatText": "感謝使用此軟件，更多詳情請點擊右上角「關于」按鈕！",
@@ -880,5 +880,19 @@
     "FColorBoxTooltip": "在此粘貼代碼",
     "FColorBtnTooltip": "根據妳的代碼，手動重新生成指令。",
     "FColorSelCB": "[默認]告示牌會將下方命令方塊的內容為修復後指令，可Ctrl+鼠標中鍵拾取並在別處放置，仍有效。",
-    "FColorSelSign": "直接右鍵告示牌即可執行修復後指令，同樣可Ctrl+鼠標中鍵拾取並在別處放置。"
+    "FColorSelSign": "直接右鍵告示牌即可執行修復後指令，同樣可Ctrl+鼠標中鍵拾取並在別處放置。",
+
+    "JsonTitle": "Json 創建窗口",
+    "JsonLoottable": "Loottable\r\n掠奪表",
+    "JsonAdventure": "Adventure\r\n進度表",
+    "JsonRecipe": "Recipe\r\n合成表",
+
+    "RecipeTitle": "合成表",
+    "RecipeShaped": "有序合成",
+    "RecipeShapeless": "無序合成",
+    "RecipeGroup": "組名",
+    "RecipeShapedHeader": "有序",
+    "RecipeShapelessHeader1": "無序",
+    "RecipeShapelessHeader2": "有序物品",
+    "RecipeResult": "合成結果",
 }

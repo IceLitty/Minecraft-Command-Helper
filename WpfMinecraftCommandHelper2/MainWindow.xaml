@@ -192,7 +192,7 @@
                 <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/other.png" />
             </StackPanel>
         </Controls:Tile>
-        <Controls:Tile x:Name="loottable" Title="掉落掠夺" Width="170" Height="54" Margin="430,240,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="loottable_Click">
+        <Controls:Tile x:Name="jsonopen" Title="JSON创建" Width="170" Height="54" Margin="430,240,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI Light" Click="jsonopen_Click">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-60,0">
                 <Image Width="32" Height="32" Stretch="Fill" Source="Images/MainIcon/loottable.png" />
             </StackPanel>

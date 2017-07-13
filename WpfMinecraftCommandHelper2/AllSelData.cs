@@ -2017,42 +2017,42 @@ namespace WpfMinecraftCommandHelper2
         private string[] bannerTypeStr = {
                                                 "中心圆形",
 												"中心菱形",
-												"条纹形",
-												"自上渐变",
-												"自下渐变",
-												"左上方块",
-												"右上方块",
-												"左下方块",
-												"右下方块",
-												"左侧边线",
-												"右侧边线",
-												"上行边线",
-												"下行边线",
+                                                "竖条纹形",
+                                                "自上渐淡",
+                                                "自下渐淡",
+                                                "左顶方",
+                                                "右顶方",
+                                                "左底方",
+                                                "右底方",
+                                                "左竖条",
+                                                "右竖条",
+                                                "顶横条",
+                                                "底横条",
 												"上半方形",
 												"下半方形",
 												"左半方形",
 												"右半方形",
-												"对角线（从右上角到左下角）",
-												"对角线（从左下角到右上角）",
-												"交叉线",
-												"中平分线",
-												"中垂线",
-												"顶部三角",
-												"底部三角",
+                                                "右斜条",
+                                                "左斜条",
+                                                "斜十字",
+                                                "中横条",
+                                                "中竖条",
+                                                "顶三角",
+												"底三角",
 												"左上三角",
 												"右下三角",
 												"左下三角",
 												"右上三角",
-												"顶部锯齿",
-												"底部锯齿",
-												"花束形",
-												"墙砖形",
-												"骷髅形",
-												"爬行者形",
-												"方框边",
-												"波纹边",
-												"十字",
-												"Mojang"
+                                                "顶波纹",
+                                                "底波纹",
+                                                "染色花朵盾徽",
+                                                "染色砖纹",
+                                                "染色头颅盾徽",
+                                                "染色爬行者盾徽",
+                                                "方框边",
+                                                "染色波纹边",
+                                                "正十字",
+                                                "染色Mojang徽标"
                                             };
 
         private string[] bannerTypeStrEn = {
@@ -2344,6 +2344,73 @@ namespace WpfMinecraftCommandHelper2
                                         -1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,127,128,129,130,131,132,133,134,140,149,151,155,156,157,158,160,161,162,163,164,165,166,167
                                    };
 
+        private string[] biomeId = {
+                                        "<Unload>",
+                                        "minecraft:ocean",
+                                        "minecraft:plains",
+                                        "minecraft:desert",
+                                        "minecraft:extreme_hills",
+                                        "minecraft:forest",
+                                        "minecraft:taiga",
+                                        "minecraft:swampland",
+                                        "minecraft:river",
+                                        "minecraft:hell",
+                                        "minecraft:sky",
+                                        "minecraft:frozen_ocean",
+                                        "minecraft:frozen_river",
+                                        "minecraft:ice_flats",
+                                        "minecraft:ice_mountains",
+                                        "minecraft:mushroom_island",
+                                        "minecraft:mushroom_island_shore",
+                                        "minecraft:beaches",
+                                        "minecraft:desert_hills",
+                                        "minecraft:forest_hills",
+                                        "minecraft:taiga_hills",
+                                        "minecraft:mutated_extreme_hills",
+                                        "minecraft:jungle",
+                                        "minecraft:jungle_hills",
+                                        "minecraft:jungle_edge",
+                                        "minecraft:deep_ocean",
+                                        "minecraft:stone_beach",
+                                        "minecraft:cold_beach",
+                                        "minecraft:birch_forest",
+                                        "minecraft:birch_forest_hills",
+                                        "minecraft:roofed_forest",
+                                        "minecraft:taiga_coldtaiga_cold",
+                                        "minecraft:taiga_cold_hillstaiga_cold_hills",
+                                        "minecraft:mutated_redwood_taiga",
+                                        "minecraft:mutated_redwood_taiga_hills",
+                                        "minecraft:extreme_hills_with_trees",
+                                        "minecraft:savanna",
+                                        "minecraft:savanna_rock",
+                                        "minecraft:mesa",
+                                        "minecraft:mesa_clear_rock",
+                                        "minecraft:mesa_rock",
+                                        "minecraft:void",
+                                        "minecraft:mutated_plains",
+                                        "minecraft:mutated_mesa",
+                                        "minecraft:mutated_desert",
+                                        "minecraft:smaller_extreme_hills",
+                                        "minecraft:mutated_forest",
+                                        "minecraft:redwood_taiga",
+                                        "minecraft:mutated_swampland",
+                                        "minecraft:mutated_ice_flats",
+                                        "minecraft:mutated_jungle",
+                                        "minecraft:mutated_jungle_edge",
+                                        "minecraft:mutated_birch_forest",
+                                        "minecraft:mutated_birch_forest_hills",
+                                        "minecraft:mutated_roofed_forest",
+                                        "minecraft:mutated_taiga_cold",
+                                        "minecraft:mutated_taiga",
+                                        "minecraft:redwood_taiga_hills",
+                                        "minecraft:mutated_extreme_hills_with_trees",
+                                        "minecraft:mutated_savanna",
+                                        "minecraft:mutated_savanna_rock",
+                                        "minecraft:mutated_mesa",
+                                        "minecraft:mutated_mesa_clear_rock",
+                                        "minecraft:mutated_mesa_rock"
+        };
+
         private string[] biomeStr = {
                                         "<未加载>",
 										"海洋",
@@ -2597,6 +2664,199 @@ namespace WpfMinecraftCommandHelper2
                                             "Black"
                                         };
 
+        // http://minecraft.gamepedia.com/Advancements#List_of_triggers
+        private string[] trigger = {
+                                        "minecraft:bred_animals",
+                                        "minecraft:brewed_potion",
+                                        "minecraft:changed_dimension",
+                                        "minecraft:construct_beacon",
+                                        "minecraft:consume_item",
+                                        "minecraft:cured_zombie_villager",
+                                        "minecraft:effects_changed",
+                                        "minecraft:enchanted_item",
+                                        "minecraft:enter_block",
+                                        "minecraft:entity_hurt_player",
+                                        "minecraft:entity_killed_player",
+                                        "minecraft:impossible",
+                                        "minecraft:inventory_changed",
+                                        "minecraft:item_durability_changed",
+                                        "minecraft:levitation",
+                                        "minecraft:location",
+                                        "minecraft:nether_travel",
+                                        "minecraft:placed_block",
+                                        "minecraft:player_hurt_entity",
+                                        "minecraft:player_killed_entity",
+                                        "minecraft:recipe_unlocked",
+                                        "minecraft:slept_in_bed",
+                                        "minecraft:summoned_entity",
+                                        "minecraft:tame_animal",
+                                        "minecraft:tick",
+                                        "minecraft:used_ender_eye",
+                                        "minecraft:used_totem",
+                                        "minecraft:villager_trade"
+        };
+
+        private string[] triggerStr = {
+            "玩家繁殖动物时",
+            "从酿造台拿出酿好的药水时",
+            "改变维度时",
+            "改变信标时",
+            "损坏物品时",
+            "治愈僵尸村民时",
+            "状态效果改变时",
+            "附魔物品后",
+            "在方块内部时",
+            "实体伤害玩家时",
+            "实体杀死玩家时",
+            "仅使用/advancement指令时",
+            "背包变化时",
+            "损失耐久度时",
+            "漂浮状态时",
+            "检查玩家位置，每刻(1/20s)时触发",
+            "从下界返回主世界时",
+            "放置方块时",
+            "玩家伤害实体时",
+            "玩家杀死实体时",
+            "玩家解锁配方时",
+            "玩家上床睡觉时",
+            "玩家摆放/使用发射器召唤实体时",
+            "驯服动物时",
+            "每刻(1/20s)时触发",
+            "使用末影之眼时",
+            "使用图腾时",
+            "与村民交易时"
+        };
+
+        private string[] potionStringID = {
+            "water",
+            "mundane",
+            "thick",
+            "awkward",
+            "night_vision",
+            "long_night_vision",
+            "invisibility",
+            "long_invisibility",
+            "leaping",
+            "strong_leaping",
+            "long_leaping",
+            "fire_resistance",
+            "long_fire_resistance",
+            "swiftness",
+            "strong_swiftness",
+            "long_swiftness",
+            "slowness",
+            "long_slowness",
+            "water_breathing",
+            "long_water_breathing",
+            "healing",
+            "strong_healing",
+            "harming",
+            "strong_harming",
+            "poison",
+            "strong_poison",
+            "long_poison",
+            "regeneration",
+            "strong_regeneration",
+            "long_regeneration",
+            "strength",
+            "strong_strength",
+            "long_strength",
+            "weakness",
+            "long_weakness",
+            "luck"
+        };
+
+        private string[] potionStringStr = {
+            "水瓶",
+            "平凡的药水",
+            "浑浊的药水",
+            "粗制的药水",
+            "夜视",
+            "夜视 - 延长",
+            "隐身",
+            "隐身 - 延长",
+            "跳跃",
+            "跳跃 - 加强",
+            "跳跃 - 延长",
+            "抗火",
+            "抗火 - 延长",
+            "迅捷",
+            "迅捷 - 加强",
+            "迅捷 - 延长",
+            "缓慢",
+            "缓慢 - 延长",
+            "水下呼吸",
+            "水下呼吸 - 延长",
+            "治疗",
+            "治疗 - 加强",
+            "伤害",
+            "伤害 - 加强",
+            "中毒",
+            "中毒 - 加强",
+            "中毒 - 延长",
+            "再生",
+            "再生 - 加强",
+            "再生 - 延长",
+            "力量",
+            "力量 - 加强",
+            "力量 - 延长",
+            "虚弱",
+            "虚弱 - 延长",
+            "幸运"
+        };
+
+        public int getPotionStringCount() { return potionStringID.Count(); }
+
+        public string getPotionID(int index)
+        {
+            if (index < 0 || index > (potionStringID.Count() - 1))
+            {
+                return "IndexError";
+            }
+            else
+            {
+                return potionStringID[index];
+            }
+        }
+
+        public string getPotionStr(int index)
+        {
+            if (index < 0 || index > (potionStringStr.Count() - 1))
+            {
+                return "IndexError";
+            }
+            else
+            {
+                if (nowLang != "cn") { return potionStringID[index]; } else { return potionStringStr[index]; }
+            }
+        }
+
+        public int getTriggerCount() { return trigger.Count(); }
+
+        public string getTriggerID(int index)
+        {
+            if (index < 0 || index > (trigger.Count() - 1))
+            {
+                return "IndexError";
+            }
+            else
+            {
+                return trigger[index];
+            }
+        }
+
+        public string getTriggerStr(int index)
+        {
+            if (index < 0 || index > (trigger.Count() - 1))
+            {
+                return "IndexError";
+            }
+            else
+            {
+                if (nowLang != "cn") { return trigger[index]; } else { return triggerStr[index]; }
+            }
+        }
+
         public int getWoolColorCount() { return woolColorStr.Count(); }
 
         public string getWoolColor(int index)
@@ -2636,6 +2896,18 @@ namespace WpfMinecraftCommandHelper2
         }
 
         public int getUniColorStrCount() { return uniColorStr.Count(); }
+
+        public string getBiomeIDEn(int index)
+        {
+            if (index < 0 || index > (biomeIndex.Count() - 1))
+            {
+                return "<Unload>";
+            }
+            else
+            {
+                return biomeId[index];
+            }
+        }
 
         public int getBiomeID(int index)
         {

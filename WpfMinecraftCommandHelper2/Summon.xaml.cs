@@ -939,15 +939,15 @@ namespace WpfMinecraftCommandHelper2
             if (mcVersion == "1.8")
             {
                 sumosText = "Equipment:[";
-                if (sumosEquipmentMainHandId != 0) { equipCount++; sumosText += "{id:" + asd.getItem(sumosEquipmentMainHandId) + ",Count:" + sumosEquipmentMainHandCount + "b,Damage:" + sumosEquipmentMainHandDamage + "s,tag:{" + globalSumosHand + "}},"; }
-                if (sumosEquipmentBootId != 0) { equipCount++; sumosText += "{id:" + asd.getItem(sumosEquipmentBootId) + ",Count:" + sumosEquipmentBootCount + "b,Damage:" + sumosEquipmentBootDamage + "s,tag:{" + globalSumosBoot + "}},"; } else { equipCount++; sumosText += "{},"; }
-                if (sumosEquipmentLegId != 0) { equipCount++; sumosText += "{id:" + asd.getItem(sumosEquipmentLegId) + ",Count:" + sumosEquipmentLegCount + "b,Damage:" + sumosEquipmentLegDamage + "s,tag:{" + globalSumosLeg + "}},"; } else { equipCount++; sumosText += "{},"; }
-                if (sumosEquipmentChestId != 0) { equipCount++; sumosText += "{id:" + asd.getItem(sumosEquipmentChestId) + ",Count:" + sumosEquipmentChestCount + "b,Damage:" + sumosEquipmentChestDamage + "s,tag:{" + globalSumosChest + "}},"; } else { equipCount++; sumosText += "{},"; }
+                if (sumosEquipmentMainHandId != 0) { equipCount++; sumosText += "{id:\"" + asd.getItem(sumosEquipmentMainHandId) + "\",Count:" + sumosEquipmentMainHandCount + "b,Damage:" + sumosEquipmentMainHandDamage + "s,tag:{" + globalSumosHand + "}},"; }
+                if (sumosEquipmentBootId != 0) { equipCount++; sumosText += "{id:\"" + asd.getItem(sumosEquipmentBootId) + "\",Count:" + sumosEquipmentBootCount + "b,Damage:" + sumosEquipmentBootDamage + "s,tag:{" + globalSumosBoot + "}},"; } else { equipCount++; sumosText += "{},"; }
+                if (sumosEquipmentLegId != 0) { equipCount++; sumosText += "{id:\"" + asd.getItem(sumosEquipmentLegId) + "\",Count:" + sumosEquipmentLegCount + "b,Damage:" + sumosEquipmentLegDamage + "s,tag:{" + globalSumosLeg + "}},"; } else { equipCount++; sumosText += "{},"; }
+                if (sumosEquipmentChestId != 0) { equipCount++; sumosText += "{id:\"" + asd.getItem(sumosEquipmentChestId) + "\",Count:" + sumosEquipmentChestCount + "b,Damage:" + sumosEquipmentChestDamage + "s,tag:{" + globalSumosChest + "}},"; } else { equipCount++; sumosText += "{},"; }
                 if (tabSumosHasHeadID.IsChecked.Value == false)
                 {
                     if (sumosEquipmentHeadId != 0)
                     {
-                        sumosText += "{id:" + asd.getItem(sumosEquipmentHeadId) + ",Count:" + sumosEquipmentHeadCount + "b,Damage:" + sumosEquipmentHeadDamage + "s,tag:{" + globalSumosHead + "}},";
+                        sumosText += "{id:\"" + asd.getItem(sumosEquipmentHeadId) + "\",Count:" + sumosEquipmentHeadCount + "b,Damage:" + sumosEquipmentHeadDamage + "s,tag:{" + globalSumosHead + "}},";
                         equipCount++;
                     }
                     else { equipCount++; sumosText += "{},"; }
@@ -955,28 +955,28 @@ namespace WpfMinecraftCommandHelper2
                 else
                 {
                     globalSumosTempSel = tabSumosHead.SelectedIndex;
-                    sumosText += "{id:" + asd.getItem(tabSumosHead.SelectedIndex) + ",Count:" + sumosEquipmentHeadCount + "b,Damage:3s,tag:" + tabSumosHeadID.Text + "},";
+                    sumosText += "{id:\"" + asd.getItem(tabSumosHead.SelectedIndex) + "\",Count:" + sumosEquipmentHeadCount + "b,Damage:3s,tag:" + tabSumosHeadID.Text + "},";
                     equipCount++;
                 }
             }
             else
             {
                 tabSumosEgg.IsEnabled = true;
-                sumosText += "0:{"; if (sumosEquipmentBootId != 0) { equipCount++; sumosText += "id:" + asd.getItem(sumosEquipmentBootId) + ",Count:" + sumosEquipmentBootCount + "b,Damage:" + sumosEquipmentBootDamage + "s,tag:{" + globalSumosBoot + "}"; } sumosText += "},";
-                sumosText += "1:{"; if (sumosEquipmentLegId != 0) { equipCount++; sumosText += "id:" + asd.getItem(sumosEquipmentLegId) + ",Count:" + sumosEquipmentLegCount + "b,Damage:" + sumosEquipmentLegDamage + "s,tag:{" + globalSumosLeg + "}"; } sumosText += "},";
-                sumosText += "2:{"; if (sumosEquipmentChestId != 0) { equipCount++; sumosText += "id:" + asd.getItem(sumosEquipmentChestId) + ",Count:" + sumosEquipmentChestCount + "b,Damage:" + sumosEquipmentChestDamage + "s,tag:{" + globalSumosChest + "}"; } sumosText += "},";
+                sumosText += "{"; if (sumosEquipmentBootId != 0) { equipCount++; sumosText += "id:\"" + asd.getItem(sumosEquipmentBootId) + "\",Count:" + sumosEquipmentBootCount + "b,Damage:" + sumosEquipmentBootDamage + "s,tag:{" + globalSumosBoot + "}"; } sumosText += "},";
+                sumosText += "{"; if (sumosEquipmentLegId != 0) { equipCount++; sumosText += "id:\"" + asd.getItem(sumosEquipmentLegId) + "\",Count:" + sumosEquipmentLegCount + "b,Damage:" + sumosEquipmentLegDamage + "s,tag:{" + globalSumosLeg + "}"; } sumosText += "},";
+                sumosText += "{"; if (sumosEquipmentChestId != 0) { equipCount++; sumosText += "id:\"" + asd.getItem(sumosEquipmentChestId) + "\",Count:" + sumosEquipmentChestCount + "b,Damage:" + sumosEquipmentChestDamage + "s,tag:{" + globalSumosChest + "}"; } sumosText += "},";
                 if (tabSumosHasHeadID.IsChecked.Value == false)
                 {
                     if (sumosEquipmentHeadId != 0)
                     {
-                        sumosText += "3:{id:" + asd.getItem(sumosEquipmentHeadId) + ",Count:" + sumosEquipmentHeadCount + "b,Damage:" + sumosEquipmentHeadDamage + "s,tag:{" + globalSumosHead + "}},";
+                        sumosText += "{id:\"" + asd.getItem(sumosEquipmentHeadId) + "\",Count:" + sumosEquipmentHeadCount + "b,Damage:" + sumosEquipmentHeadDamage + "s,tag:{" + globalSumosHead + "}},";
                         equipCount++;
                     }
                 }
                 else
                 {
                     globalSumosTempSel = tabSumosHead.SelectedIndex;
-                    sumosText += "3:{id:" + asd.getItem(tabSumosHead.SelectedIndex) + ",Count:" + sumosEquipmentHeadCount + "b,Damage:3s,tag:" + tabSumosHeadID.Text + "},";
+                    sumosText += "{id:\"" + asd.getItem(tabSumosHead.SelectedIndex) + "\",Count:" + sumosEquipmentHeadCount + "b,Damage:3s,tag:" + tabSumosHeadID.Text + "},";
                     equipCount++;
                 }
             }
@@ -987,21 +987,20 @@ namespace WpfMinecraftCommandHelper2
             }
             sumosText += "],";
             sumosText = sumosText.Replace("Equipment:[{},{},{},{}],", "");
-            sumosText = sumosText.Replace("Equipment:[0:{},1:{},2:{},3:{}],", "");
             if (mcVersion != "1.8")
             {
                 sumosText += "HandItems:[";
-                sumosText += "0:{"; if (sumosEquipmentMainHandId != 0) { equipCount++; sumosText += "id:" + asd.getItem(sumosEquipmentMainHandId) + ",Count:" + sumosEquipmentMainHandCount + "b,Damage:" + sumosEquipmentMainHandDamage + "s,tag:{" + globalSumosHand + "}"; } sumosText += "},";
-                if (sumosEquipmentOffHandId != 0) { equipCount++; sumosText += "1:{id:" + asd.getItem(sumosEquipmentOffHandId) + ",Count:" + sumosEquipmentOffHandCount + "b,Damage:" + sumosEquipmentOffHandDamage + "s,tag:{" + globalSumosLHand + "}},"; }
+                sumosText += "{"; if (sumosEquipmentMainHandId != 0) { equipCount++; sumosText += "id:\"" + asd.getItem(sumosEquipmentMainHandId) + "\",Count:" + sumosEquipmentMainHandCount + "b,Damage:" + sumosEquipmentMainHandDamage + "s,tag:{" + globalSumosHand + "}"; } sumosText += "},";
+                if (sumosEquipmentOffHandId != 0) { equipCount++; sumosText += "{id:\"" + asd.getItem(sumosEquipmentOffHandId) + "\",Count:" + sumosEquipmentOffHandCount + "b,Damage:" + sumosEquipmentOffHandDamage + "s,tag:{" + globalSumosLHand + "}},"; }
                 if (equipCount != 0)
                 {
                     sumosText = sumosText.Substring(0, sumosText.Length - 1);
                     equipCount = 0;
                 }
                 sumosText += "],";
-                sumosText = sumosText.Replace("ArmorItems:[0:{},1:{},2:{},]", "");
-                sumosText = sumosText.Replace(",HandItems:[0:{},]", "");
-                sumosText = sumosText.Replace("HandItems:[0:{},]", "");
+                sumosText = sumosText.Replace("ArmorItems:[{},{},{},]", "");
+                sumosText = sumosText.Replace(",HandItems:[{},]", "");
+                sumosText = sumosText.Replace("HandItems:[{},]", "");
             }
             if (tabSumosLeftHand.IsChecked.Value) sumosText += "LeftHanded:1b,";
             if (tabSumosDropchance.IsChecked.Value)
@@ -1012,8 +1011,8 @@ namespace WpfMinecraftCommandHelper2
                 }
                 else
                 {
-                    sumosText += "ArmorDropChances:[0:" + tabSumosDCBoot.Value + "F,1:" + tabSumosDCLeg.Value + "F,2:" + tabSumosDCChest.Value + "F,3:" + tabSumosDCHead.Value + "F],";
-                    sumosText += "HandDropChances:[0:" + tabSumosDCHand.Value + "F,1:" + tabSumosDCLHand.Value + "F],";
+                    sumosText += "ArmorDropChances:[" + tabSumosDCBoot.Value + "F," + tabSumosDCLeg.Value + "F," + tabSumosDCChest.Value + "F," + tabSumosDCHead.Value + "F],";
+                    sumosText += "HandDropChances:[" + tabSumosDCHand.Value + "F," + tabSumosDCLHand.Value + "F],";
                 }
             }
             if (sumosText.Length != 0)
@@ -1128,7 +1127,7 @@ namespace WpfMinecraftCommandHelper2
             sumosRidingSelType = asd.getAt(tabSumosType.SelectedIndex);
             //sumosRidingNBT = sumosText;
             globalSumosTypeIndex = tabSumosType.SelectedIndex;
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Villager" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:villager" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:husk" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_villager" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_pigman")//选择村民
+            if (asd.getAt(tabSumosType.SelectedIndex) == "Villager" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:villager" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_villager")//选择村民
             {
                 if (tabVillagerMaxIndex >= globalVillagerMaxValue)
                 {
@@ -1147,9 +1146,9 @@ namespace WpfMinecraftCommandHelper2
                     }
                     for (int i = 0; i <= tabVillagerMaxIndex; i++)
                     {
-                        villagerOffers += "{maxUses:" + globalVillagerMaxUses[i] + villagerReward + ",buy:{id:" + asd.getItem(globalVillagerA[i]) + ",Count:" + globalVillagerACount[i] + "b,Damage:" + globalVillagerAMeta[i] + "s,tag:{" + globalVillagerAStr[i] + "}}";
-                        if (globalVillagerBCheck[i] == true) villagerOffers += ",buyB:{id:" + asd.getItem(globalVillagerB[i]) + ",Count:" + globalVillagerBCount[i] + "b,Damage:" + globalVillagerBMeta[i] + "s,tag:{" + globalVillagerBStr[i] + "}}";
-                        villagerOffers += ",sell:{id:" + asd.getItem(globalVillagerC[i]) + ",Count:" + globalVillagerCCount[i] + "b,Damage:" + globalVillagerCMeta[i] + "s,tag:{" + globalVillagerCStr[i] + "}}},";
+                        villagerOffers += "{maxUses:" + globalVillagerMaxUses[i] + villagerReward + ",buy:{id:\"" + asd.getItem(globalVillagerA[i]) + "\",Count:" + globalVillagerACount[i] + "b,Damage:" + globalVillagerAMeta[i] + "s,tag:{" + globalVillagerAStr[i] + "}}";
+                        if (globalVillagerBCheck[i] == true) villagerOffers += ",buyB:{id:\"" + asd.getItem(globalVillagerB[i]) + "\",Count:" + globalVillagerBCount[i] + "b,Damage:" + globalVillagerBMeta[i] + "s,tag:{" + globalVillagerBStr[i] + "}}";
+                        villagerOffers += ",sell:{id:\"" + asd.getItem(globalVillagerC[i]) + "\",Count:" + globalVillagerCCount[i] + "b,Damage:" + globalVillagerCMeta[i] + "s,tag:{" + globalVillagerCStr[i] + "}}},";
                     }
                     if (villagerOffers.Length >= 1)
                     {
@@ -1694,13 +1693,13 @@ namespace WpfMinecraftCommandHelper2
                 }
                 else
                 {
-                    sumosRiding = "id:" + sumosRidingSelType + ",Riding:{" + sumosRiding + "}";
+                    sumosRiding = "id:\"" + sumosRidingSelType + "\",Riding:{" + sumosRiding + "}";
                 }
                 sumosFinalStr = finaltext + sumosRiding + "}}";
             }
             else
             {
-                if (sumosRidingNBT != "") sumosRiding = "id:" + sumosRidingSelType + "," + sumosRidingNBT; else sumosRiding = "id:" + sumosRidingSelType;
+                if (sumosRidingNBT != "") sumosRiding = "id:\"" + sumosRidingSelType + "\"," + sumosRidingNBT; else sumosRiding = "id:\"" + sumosRidingSelType + "\"";
                 ridingList[(int)tabSumosRidingV1.Value.Value, ridingIndex[(int)tabSumosRidingV1.Value.Value]] = sumosRiding;
                 ridingIndex[(int)tabSumosRidingV1.Value.Value]++;
             }
@@ -1875,7 +1874,7 @@ namespace WpfMinecraftCommandHelper2
             {
                 tabSumosEAtkByEnderman.IsEnabled = true;
             }
-            if (asd.getAt(tabSumosType.SelectedIndex) == "Zombie" || asd.getAt(tabSumosType.SelectedIndex) == "PigZombie" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:husk" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_villager" || asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_pigman")
+            if (asd.getAt(tabSumosType.SelectedIndex) == "minecraft:zombie_villager")
             {
                 tabSumosECanBreakDoor.IsEnabled = true;
                 SummonVHeader.Visibility = Visibility.Visible;
@@ -2580,25 +2579,6 @@ namespace WpfMinecraftCommandHelper2
                 else
                 {
                     this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-                }
-            }
-            else if (e.Key == System.Windows.Input.Key.Z)
-            {
-                int i, j, k;
-                for (i = 1; i <= 3; i++)
-                {
-                    for (j = 1; j <= 10; j++)
-                    {
-                        this.Top += 1;
-                        this.Left += 1;
-                        System.Threading.Thread.Sleep(1);
-                    }
-                    for (k = 1; k <= 10; k++)
-                    {
-                        this.Top -= 1;
-                        this.Left -= 1;
-                        System.Threading.Thread.Sleep(1);
-                    }
                 }
             }
         }
@@ -3694,7 +3674,7 @@ namespace WpfMinecraftCommandHelper2
             }
             else
             {
-                string finalRidingString = "/summon minecraft:falling_block ~ ~1 ~ {id:minecraft:falling_block";
+                string finalRidingString = "/summon minecraft:falling_block ~ ~1 ~ {id:\"minecraft:falling_block\"";
                 if (mcVersion == "1.8" || mcVersion == "1.9/1.10")
                 {
                     finalRidingString = "/summon FallingSand ~ ~1 ~ {id:FallingSand";
@@ -3709,7 +3689,7 @@ namespace WpfMinecraftCommandHelper2
                         {
                             if (ridingList[i, b] != "")
                             {
-                                finalRidingString += b + ":{" + ridingList[i, b];
+                                finalRidingString += "{" + ridingList[i, b];
                                 if (b != ridingIndex[i] - 1)
                                 {
                                     finalRidingString += "},";

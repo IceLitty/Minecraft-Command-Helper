@@ -16,6 +16,7 @@ namespace WpfMinecraftCommandHelper2
         {
             InitializeComponent();
             appLanguage();
+            favouriteBtn.Visibility = Visibility.Hidden;
         }
 
         private string CheckCreate = "检索已生成代码 - ";

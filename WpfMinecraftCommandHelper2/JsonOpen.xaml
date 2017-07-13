@@ -1,0 +1,13 @@
+﻿<Controls:MetroWindow x:Class="WpfMinecraftCommandHelper2.JsonOpen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        WindowStartupLocation="CenterScreen" GlowBrush="{DynamicResource AccentColorBrush}" ShowIconOnTitleBar="False" Icon="MinecraftCommandHelper.ico" ResizeMode="CanMinimize"
+        Title="Json创建窗口" Height="150" Width="339" PreviewKeyDown="MetroWindow_PreviewKeyDown">
+    <Grid>
+        <Button x:Name="LoottableBtn" Content="Loottable&#x000A;掠夺表" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="101" Style="{DynamicResource SquareButtonStyle}" Height="101" Click="LoottableBtn_Click"/>
+        <Button x:Name="AdventureBtn" Content="Adventure&#xA;进度/成就表" HorizontalAlignment="Left" Margin="116,10,0,0" VerticalAlignment="Top" Width="101" Style="{DynamicResource SquareButtonStyle}" Height="101" Click="AdventureBtn_Click"/>
+        <Button x:Name="RecipeBtn" Content="Recipe&#xA;合成表" HorizontalAlignment="Left" Margin="222,10,0,0" VerticalAlignment="Top" Width="101" Style="{DynamicResource SquareButtonStyle}" Height="101" Click="RecipeBtn_Click"/>
+    </Grid>
+</Controls:MetroWindow>

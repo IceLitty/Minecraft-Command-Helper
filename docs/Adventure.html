@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<script type="text/javascript" src="js/BGIC.js"></script>
+	<link rel="stylesheet" href="css/MainStyle.css" type="text/css">
+	<link rel="stylesheet" href="css/blog.css" type="text/css">
+	<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.metro.js"></script>
+	<script type="text/javascript" src="js/tilt.js"></script>
+</head>
+<body>
+	<div class="layerMasks"></div>
+	<div class="cp">Metro content theme by Code52, Pages made by IceLitty</div>
+	<div class="pages">
+		<div class="page">
+			<section>
+				<a class="lime cpfont" href="JsonOpen.html"><- 有的时候你需要-1s来返回上一页</a>
+				<h3 class="orange bold cpfont shadow">MCH -> 进度表生成器</h3>
+			</section>
+			<article class="brown shadow">
+				<img class="right" src="img/adventure/1.png" style="width:100%">
+				<p>操作说明：</p>
+				<p>· 顶端标签仅作为进度浏览，请勿手动切换（自动记录每个标签因果关系，如手动切换则会导致问题）</p>
+				<p>· 如图，<code>tiaojian1</code>是唯一一个条件的名称，这个名称不能重复</p>
+				<p>· 条件右侧选框为条件触发器类型，填好名称，选好后点击右侧的+按钮添加</p>
+				<p>· 双击条件进入条件设置</p>
+				<p>· 一部分按钮是通过其他标签来进行值的设置的，这些按钮左侧都有复选框，勾上则会跳转到相应的标签</p>
+				<p>· 每个标签设置完成后点击生成按钮，生成并跳回上一个标签</p>
+				<p>· 全部设置完成后则会跳转到根标签，选中条件点击需求列表左侧的+则加入一行需求</p>
+				<p>· =>按钮为合并两个条件，在需求列表中条件的关系是或，如合并两个条件则那两个条件的关系就为与</p>
+				<p>· 点击生成后可以点击检索来检查是否有数据问题，如有数据问题点生成文件必定会未响应</p>
+				<p>· 点击生成文件并把文件放入相应目录则生效</p>
+				<p>图例生成的样子：</p>
+				<img class="left" src="img/adventure/2.png" style="width:65%">
+				<p>紫黑色是没有材质的意思，也就是上方设置背景的地方，用命名空间路径的方式设置地址。</p>
+				<p>我们生成的文件应放于<code>世界名\data\advancements\命名空间名</code></p>
+				<p>瞬间229级√</p>
+				<p>代码：</p>
+				<pre class="autobreak">{
+  "display": {
+    "icon": {
+      "item": "minecraft:ice",
+      "data": 0
+    },
+    "title": "成就名称",
+    "description": "这是解释",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "rewards": {
+    "experience": 50000
+  },
+  "criteria": {
+    "tiaojian1": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:ice"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tiaojian1"
+    ]
+  ]
+}</pre>
+			</article>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/load-table.js"></script>
+	<script type="text/javascript" src="js/load-tilt.js"></script>
+</body>
+</html>

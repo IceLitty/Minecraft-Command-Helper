@@ -188,6 +188,8 @@ namespace WpfMinecraftCommandHelper2
         // "CanPlaceOn:["block1","block2"]"
         private string globalEnchList = "";
         private string globalCommand = "";
+        private List<string> globalJsonEnchant = new List<string>();
+        private List<string> globalJsonEnchantLevel = new List<string>();
 
         private int globalItemSel = 0;
         private int globalItemCount = 0;
@@ -387,36 +389,36 @@ namespace WpfMinecraftCommandHelper2
             string enchant = "";
             if (tabItemEnchantCheck.IsChecked.Value)
             {
-                if (tabItemEnchant0.IsChecked.Value) { enchant += "{id:0s,lvl:" + tabItemEnNum0.Value.Value + "s},"; globalEnchList += "protection,"; }
-                if (tabItemEnchant1.IsChecked.Value) { enchant += "{id:1s,lvl:" + tabItemEnNum1.Value.Value + "s},"; globalEnchList += "fire_protection,"; }
-                if (tabItemEnchant2.IsChecked.Value) { enchant += "{id:2s,lvl:" + tabItemEnNum2.Value.Value + "s},"; globalEnchList += "feather_falling,"; }
-                if (tabItemEnchant3.IsChecked.Value) { enchant += "{id:3s,lvl:" + tabItemEnNum3.Value.Value + "s},"; globalEnchList += "blast_protection,"; }
-                if (tabItemEnchant4.IsChecked.Value) { enchant += "{id:4s,lvl:" + tabItemEnNum4.Value.Value + "s},"; globalEnchList += "projectile_protection,"; }
-                if (tabItemEnchant5.IsChecked.Value) { enchant += "{id:5s,lvl:" + tabItemEnNum5.Value.Value + "s},"; globalEnchList += "respiration,"; }
-                if (tabItemEnchant6.IsChecked.Value) { enchant += "{id:6s,lvl:" + tabItemEnNum6.Value.Value + "s},"; globalEnchList += "aqua_affinity,"; }
-                if (tabItemEnchant7.IsChecked.Value) { enchant += "{id:7s,lvl:" + tabItemEnNum7.Value.Value + "s},"; globalEnchList += "thorns,"; }
-                if (tabItemEnchant8.IsChecked.Value) { enchant += "{id:8s,lvl:" + tabItemEnNum8.Value.Value + "s},"; globalEnchList += "depth_strider,"; }
-                if (tabItemEnchant9.IsChecked.Value) { enchant += "{id:9s,lvl:" + tabItemEnNum9.Value.Value + "s},"; globalEnchList += "frost_walker,"; }
-                if (tabItemEnchant10.IsChecked.Value) { enchant += "{id:10s,lvl:" + tabItemEnNum10.Value.Value + "s},"; globalEnchList += "binding_curse,"; }
-                if (tabItemEnchant16.IsChecked.Value) { enchant += "{id:16s,lvl:" + tabItemEnNum16.Value.Value + "s},"; globalEnchList += "sharpness,"; }
-                if (tabItemEnchant17.IsChecked.Value) { enchant += "{id:17s,lvl:" + tabItemEnNum17.Value.Value + "s},"; globalEnchList += "smite,"; }
-                if (tabItemEnchant18.IsChecked.Value) { enchant += "{id:18s,lvl:" + tabItemEnNum18.Value.Value + "s},"; globalEnchList += "bane_of_arthropods,"; }
-                if (tabItemEnchant19.IsChecked.Value) { enchant += "{id:19s,lvl:" + tabItemEnNum19.Value.Value + "s},"; globalEnchList += "knockback,"; }
-                if (tabItemEnchant20.IsChecked.Value) { enchant += "{id:20s,lvl:" + tabItemEnNum20.Value.Value + "s},"; globalEnchList += "fire_aspect,"; }
-                if (tabItemEnchant21.IsChecked.Value) { enchant += "{id:21s,lvl:" + tabItemEnNum21.Value.Value + "s},"; globalEnchList += "looting,"; }
-                if (tabItemEnchant22.IsChecked.Value) { enchant += "{id:22s,lvl:" + tabItemEnNum22.Value.Value + "s},"; globalEnchList += "sweeping_edge,"; }
-                if (tabItemEnchant32.IsChecked.Value) { enchant += "{id:32s,lvl:" + tabItemEnNum32.Value.Value + "s},"; globalEnchList += "efficiency,"; }
-                if (tabItemEnchant33.IsChecked.Value) { enchant += "{id:33s,lvl:" + tabItemEnNum33.Value.Value + "s},"; globalEnchList += "silk_touch,"; }
-                if (tabItemEnchant34.IsChecked.Value) { enchant += "{id:34s,lvl:" + tabItemEnNum34.Value.Value + "s},"; globalEnchList += "unbreaking,"; }
-                if (tabItemEnchant35.IsChecked.Value) { enchant += "{id:35s,lvl:" + tabItemEnNum35.Value.Value + "s},"; globalEnchList += "fortune,"; }
-                if (tabItemEnchant48.IsChecked.Value) { enchant += "{id:48s,lvl:" + tabItemEnNum48.Value.Value + "s},"; globalEnchList += "power,"; }
-                if (tabItemEnchant49.IsChecked.Value) { enchant += "{id:49s,lvl:" + tabItemEnNum49.Value.Value + "s},"; globalEnchList += "punch,"; }
-                if (tabItemEnchant50.IsChecked.Value) { enchant += "{id:50s,lvl:" + tabItemEnNum50.Value.Value + "s},"; globalEnchList += "flame,"; }
-                if (tabItemEnchant51.IsChecked.Value) { enchant += "{id:51s,lvl:" + tabItemEnNum51.Value.Value + "s},"; globalEnchList += "infinity,"; }
-                if (tabItemEnchant61.IsChecked.Value) { enchant += "{id:61s,lvl:" + tabItemEnNum61.Value.Value + "s},"; globalEnchList += "luck_of_the_sea,"; }
-                if (tabItemEnchant62.IsChecked.Value) { enchant += "{id:62s,lvl:" + tabItemEnNum62.Value.Value + "s},"; globalEnchList += "lure,"; }
-                if (tabItemEnchant70.IsChecked.Value) { enchant += "{id:70s,lvl:" + tabItemEnNum70.Value.Value + "s},"; globalEnchList += "mending,"; }
-                if (tabItemEnchant71.IsChecked.Value) { enchant += "{id:71s,lvl:" + tabItemEnNum71.Value.Value + "s},"; globalEnchList += "vanishing_curse,"; }
+                if (tabItemEnchant0.IsChecked.Value) { globalJsonEnchant.Add("protection"); globalJsonEnchantLevel.Add(tabItemEnNum0.Value.ToString()); enchant += "{id:0s,lvl:" + tabItemEnNum0.Value.Value + "s},"; globalEnchList += "protection,"; }
+                if (tabItemEnchant1.IsChecked.Value) { globalJsonEnchant.Add("fire_protection"); globalJsonEnchantLevel.Add(tabItemEnNum1.Value.ToString()); enchant += "{id:1s,lvl:" + tabItemEnNum1.Value.Value + "s},"; globalEnchList += "fire_protection,"; }
+                if (tabItemEnchant2.IsChecked.Value) { globalJsonEnchant.Add("feather_falling"); globalJsonEnchantLevel.Add(tabItemEnNum2.Value.ToString()); enchant += "{id:2s,lvl:" + tabItemEnNum2.Value.Value + "s},"; globalEnchList += "feather_falling,"; }
+                if (tabItemEnchant3.IsChecked.Value) { globalJsonEnchant.Add("blast_protection"); globalJsonEnchantLevel.Add(tabItemEnNum3.Value.ToString()); enchant += "{id:3s,lvl:" + tabItemEnNum3.Value.Value + "s},"; globalEnchList += "blast_protection,"; }
+                if (tabItemEnchant4.IsChecked.Value) { globalJsonEnchant.Add("projectile_protection"); globalJsonEnchantLevel.Add(tabItemEnNum4.Value.ToString()); enchant += "{id:4s,lvl:" + tabItemEnNum4.Value.Value + "s},"; globalEnchList += "projectile_protection,"; }
+                if (tabItemEnchant5.IsChecked.Value) { globalJsonEnchant.Add("respiration"); globalJsonEnchantLevel.Add(tabItemEnNum5.Value.ToString()); enchant += "{id:5s,lvl:" + tabItemEnNum5.Value.Value + "s},"; globalEnchList += "respiration,"; }
+                if (tabItemEnchant6.IsChecked.Value) { globalJsonEnchant.Add("aqua_affinity"); globalJsonEnchantLevel.Add(tabItemEnNum6.Value.ToString()); enchant += "{id:6s,lvl:" + tabItemEnNum6.Value.Value + "s},"; globalEnchList += "aqua_affinity,"; }
+                if (tabItemEnchant7.IsChecked.Value) { globalJsonEnchant.Add("thorns"); globalJsonEnchantLevel.Add(tabItemEnNum7.Value.ToString()); enchant += "{id:7s,lvl:" + tabItemEnNum7.Value.Value + "s},"; globalEnchList += "thorns,"; }
+                if (tabItemEnchant8.IsChecked.Value) { globalJsonEnchant.Add("depth_strider"); globalJsonEnchantLevel.Add(tabItemEnNum8.Value.ToString()); enchant += "{id:8s,lvl:" + tabItemEnNum8.Value.Value + "s},"; globalEnchList += "depth_strider,"; }
+                if (tabItemEnchant9.IsChecked.Value) { globalJsonEnchant.Add("frost_walker"); globalJsonEnchantLevel.Add(tabItemEnNum9.Value.ToString()); enchant += "{id:9s,lvl:" + tabItemEnNum9.Value.Value + "s},"; globalEnchList += "frost_walker,"; }
+                if (tabItemEnchant10.IsChecked.Value) { globalJsonEnchant.Add("binding_curse"); globalJsonEnchantLevel.Add(tabItemEnNum10.Value.ToString()); enchant += "{id:10s,lvl:" + tabItemEnNum10.Value.Value + "s},"; globalEnchList += "binding_curse,"; }
+                if (tabItemEnchant16.IsChecked.Value) { globalJsonEnchant.Add("sharpness"); globalJsonEnchantLevel.Add(tabItemEnNum16.Value.ToString()); enchant += "{id:16s,lvl:" + tabItemEnNum16.Value.Value + "s},"; globalEnchList += "sharpness,"; }
+                if (tabItemEnchant17.IsChecked.Value) { globalJsonEnchant.Add("smite"); globalJsonEnchantLevel.Add(tabItemEnNum17.Value.ToString()); enchant += "{id:17s,lvl:" + tabItemEnNum17.Value.Value + "s},"; globalEnchList += "smite,"; }
+                if (tabItemEnchant18.IsChecked.Value) { globalJsonEnchant.Add("bane_of_arthropods"); globalJsonEnchantLevel.Add(tabItemEnNum18.Value.ToString()); enchant += "{id:18s,lvl:" + tabItemEnNum18.Value.Value + "s},"; globalEnchList += "bane_of_arthropods,"; }
+                if (tabItemEnchant19.IsChecked.Value) { globalJsonEnchant.Add("knockback"); globalJsonEnchantLevel.Add(tabItemEnNum19.Value.ToString()); enchant += "{id:19s,lvl:" + tabItemEnNum19.Value.Value + "s},"; globalEnchList += "knockback,"; }
+                if (tabItemEnchant20.IsChecked.Value) { globalJsonEnchant.Add("fire_aspect"); globalJsonEnchantLevel.Add(tabItemEnNum20.Value.ToString()); enchant += "{id:20s,lvl:" + tabItemEnNum20.Value.Value + "s},"; globalEnchList += "fire_aspect,"; }
+                if (tabItemEnchant21.IsChecked.Value) { globalJsonEnchant.Add("looting"); globalJsonEnchantLevel.Add(tabItemEnNum21.Value.ToString()); enchant += "{id:21s,lvl:" + tabItemEnNum21.Value.Value + "s},"; globalEnchList += "looting,"; }
+                if (tabItemEnchant22.IsChecked.Value) { globalJsonEnchant.Add("sweeping_edge"); globalJsonEnchantLevel.Add(tabItemEnNum22.Value.ToString()); enchant += "{id:22s,lvl:" + tabItemEnNum22.Value.Value + "s},"; globalEnchList += "sweeping_edge,"; }
+                if (tabItemEnchant32.IsChecked.Value) { globalJsonEnchant.Add("efficiency"); globalJsonEnchantLevel.Add(tabItemEnNum32.Value.ToString()); enchant += "{id:32s,lvl:" + tabItemEnNum32.Value.Value + "s},"; globalEnchList += "efficiency,"; }
+                if (tabItemEnchant33.IsChecked.Value) { globalJsonEnchant.Add("silk_touch"); globalJsonEnchantLevel.Add(tabItemEnNum33.Value.ToString()); enchant += "{id:33s,lvl:" + tabItemEnNum33.Value.Value + "s},"; globalEnchList += "silk_touch,"; }
+                if (tabItemEnchant34.IsChecked.Value) { globalJsonEnchant.Add("unbreaking"); globalJsonEnchantLevel.Add(tabItemEnNum34.Value.ToString()); enchant += "{id:34s,lvl:" + tabItemEnNum34.Value.Value + "s},"; globalEnchList += "unbreaking,"; }
+                if (tabItemEnchant35.IsChecked.Value) { globalJsonEnchant.Add("fortune"); globalJsonEnchantLevel.Add(tabItemEnNum35.Value.ToString()); enchant += "{id:35s,lvl:" + tabItemEnNum35.Value.Value + "s},"; globalEnchList += "fortune,"; }
+                if (tabItemEnchant48.IsChecked.Value) { globalJsonEnchant.Add("power"); globalJsonEnchantLevel.Add(tabItemEnNum48.Value.ToString()); enchant += "{id:48s,lvl:" + tabItemEnNum48.Value.Value + "s},"; globalEnchList += "power,"; }
+                if (tabItemEnchant49.IsChecked.Value) { globalJsonEnchant.Add("punch"); globalJsonEnchantLevel.Add(tabItemEnNum49.Value.ToString()); enchant += "{id:49s,lvl:" + tabItemEnNum49.Value.Value + "s},"; globalEnchList += "punch,"; }
+                if (tabItemEnchant50.IsChecked.Value) { globalJsonEnchant.Add("flame"); globalJsonEnchantLevel.Add(tabItemEnNum50.Value.ToString()); enchant += "{id:50s,lvl:" + tabItemEnNum50.Value.Value + "s},"; globalEnchList += "flame,"; }
+                if (tabItemEnchant51.IsChecked.Value) { globalJsonEnchant.Add("infinity"); globalJsonEnchantLevel.Add(tabItemEnNum51.Value.ToString()); enchant += "{id:51s,lvl:" + tabItemEnNum51.Value.Value + "s},"; globalEnchList += "infinity,"; }
+                if (tabItemEnchant61.IsChecked.Value) { globalJsonEnchant.Add("luck_of_the_sea"); globalJsonEnchantLevel.Add(tabItemEnNum61.Value.ToString()); enchant += "{id:61s,lvl:" + tabItemEnNum61.Value.Value + "s},"; globalEnchList += "luck_of_the_sea,"; }
+                if (tabItemEnchant62.IsChecked.Value) { globalJsonEnchant.Add("lure"); globalJsonEnchantLevel.Add(tabItemEnNum62.Value.ToString()); enchant += "{id:62s,lvl:" + tabItemEnNum62.Value.Value + "s},"; globalEnchList += "lure,"; }
+                if (tabItemEnchant70.IsChecked.Value) { globalJsonEnchant.Add("mending"); globalJsonEnchantLevel.Add(tabItemEnNum70.Value.ToString()); enchant += "{id:70s,lvl:" + tabItemEnNum70.Value.Value + "s},"; globalEnchList += "mending,"; }
+                if (tabItemEnchant71.IsChecked.Value) { globalJsonEnchant.Add("vanishing_curse"); globalJsonEnchantLevel.Add(tabItemEnNum71.Value.ToString()); enchant += "{id:71s,lvl:" + tabItemEnNum71.Value.Value + "s},"; globalEnchList += "vanishing_curse,"; }
                 if (globalEnchList.Length != 0) globalEnchList = globalEnchList.Substring(0, globalEnchList.Length - 1);
                 if (enchant != "")
                 {
@@ -716,6 +718,12 @@ namespace WpfMinecraftCommandHelper2
             return new int[] { globalItemSel, globalItemCount, globalItemSelMeta, globalHideSelIndex };
         }
 
+        public List<List<string>> returnList4Json()
+        {
+            List<string> temp = new List<string>(globalJsonEnchantLevel);
+            return new List<List<string>>() {globalJsonEnchant, globalJsonEnchantLevel, temp};
+        }
+
         private void tabItemEnchantCheck_Click(object sender, RoutedEventArgs e)
         {
             if (tabItemEnchantCheck.IsChecked.Value)
@@ -899,25 +907,6 @@ namespace WpfMinecraftCommandHelper2
                 else
                 {
                     this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-                }
-            }
-            else if (e.Key == System.Windows.Input.Key.Z)
-            {
-                int i, j, k;
-                for (i = 1; i <= 3; i++)
-                {
-                    for (j = 1; j <= 10; j++)
-                    {
-                        this.Top += 1;
-                        this.Left += 1;
-                        System.Threading.Thread.Sleep(1);
-                    }
-                    for (k = 1; k <= 10; k++)
-                    {
-                        this.Top -= 1;
-                        this.Left -= 1;
-                        System.Threading.Thread.Sleep(1);
-                    }
                 }
             }
             else if (e.Key == System.Windows.Input.Key.F2)

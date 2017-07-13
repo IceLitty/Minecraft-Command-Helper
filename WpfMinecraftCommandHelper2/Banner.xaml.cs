@@ -400,14 +400,13 @@ namespace WpfMinecraftCommandHelper2
             string second = "";
             if (tabBannerGive.IsChecked.Value)
             {
-                //first = "/give @p minecraft:banner 1 " + tabBannerBaseColor.SelectedIndex;
                 if (ShieldCheck.IsChecked.Value)
                 {
                     first = "/give @p minecraft:shield 1 0";
                 }
                 else
                 {
-                    first = "/give @p minecraft:banner 1 0";
+                    first = "/give @p minecraft:banner 1 " + tabBannerBaseColor.SelectedIndex;
                 }
                 if (tabBannerHasMoreAttr.IsChecked.Value)
                 {
@@ -541,25 +540,6 @@ namespace WpfMinecraftCommandHelper2
                 else
                 {
                     this.ShowMessageAsync(FloatErrorTitle, FloatHelpFileCantFind, MessageDialogStyle.Affirmative, new MetroDialogSettings() { AffirmativeButtonText = FloatConfirm, NegativeButtonText = FloatCancel });
-                }
-            }
-            else if (e.Key == System.Windows.Input.Key.Z)
-            {
-                int i, j, k;
-                for (i = 1; i <= 3; i++)
-                {
-                    for (j = 1; j <= 10; j++)
-                    {
-                        this.Top += 1;
-                        this.Left += 1;
-                        System.Threading.Thread.Sleep(1);
-                    }
-                    for (k = 1; k <= 10; k++)
-                    {
-                        this.Top -= 1;
-                        this.Left -= 1;
-                        System.Threading.Thread.Sleep(1);
-                    }
                 }
             }
         }
