@@ -284,6 +284,11 @@ namespace WpfMinecraftCommandHelper2
             checkbox.Show();
         }
 
+        private void tabOther1WordColor_Click(object sender, RoutedEventArgs e)
+        {
+            tabOther1Word.Text = tabOther1Word.Text += "§";
+        }
+
         private void tabOther1WordCreate_Click(object sender, RoutedEventArgs e)
         {
             if (mcVersion == "1.8" || mcVersion == "1.9/1.10")
@@ -293,6 +298,14 @@ namespace WpfMinecraftCommandHelper2
             else
             {
                 finalStr = "/summon armor_stand ~ ~1 ~ {Tags:[\"HoloText\"],PersistenceRequired:1b,DisabledSlots:2039583,Invulnerable:1b,NoGravity:1b,Invisible:1b,CustomName:\"" + tabOther1Word.Text + "\",CustomNameVisible:true}";
+            }
+            //判断是否含有颜色代码
+            if (finalStr.IndexOf("§", StringComparison.Ordinal) != -1)
+            {
+                FixColorCode fcc = new FixColorCode();
+                fcc.setStr(finalStr);
+                fcc.ShowDialog();
+                finalStr = fcc.getStr();
             }
             Check checkbox = new Check();
             checkbox.showText(finalStr);

@@ -19,8 +19,9 @@
             <Button x:Name="tabOther1WordHelp" Content="?" HorizontalAlignment="Left" Width="31" Margin="0,0,0,1" Click="tabOther1WordHelp_Click" Style="{DynamicResource SquareButtonStyle}"/>
             <Label x:Name="OtherFlyWord" Content="浮空字" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top"/>
             <Button x:Name="tabOther1WordCreate" Content="生成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="543,0,0,0" Click="tabOther1WordCreate_Click" Style="{DynamicResource SquareButtonStyle}"/>
-            <TextBox x:Name="tabOther1Word" HorizontalAlignment="Left" Height="23" Margin="100,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="395"/>
+            <TextBox x:Name="tabOther1Word" HorizontalAlignment="Left" Height="23" Margin="100,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="369"/>
             <Button x:Name="tabOther1WordRemove" Content="移除" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="500,0,0,0" Click="tabOther1WordRemove_Click" Style="{DynamicResource SquareButtonStyle}"/>
+            <Button x:Name="tabOther1WordColor" Content="§" HorizontalAlignment="Left" VerticalAlignment="Top" Width="21" Margin="474,0,0,0" Style="{DynamicResource SquareButtonStyle}" Click="tabOther1WordColor_Click"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="26" Margin="10,72,0,0" VerticalAlignment="Top" Width="591">
             <Button x:Name="tabOther1ItemFlyHelp" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="31" Click="tabOther1ItemFlyHelp_Click" Style="{DynamicResource SquareButtonStyle}"/>

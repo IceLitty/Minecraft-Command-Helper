@@ -374,7 +374,7 @@ namespace WpfMinecraftCommandHelper2
                 finalStr = give + finalString + "}";
             }
             //判断是否含有颜色代码
-            if (finalStr.IndexOf("§") != -1)
+            if (finalStr.IndexOf("§", StringComparison.Ordinal) != -1)
             {
                 FixColorCode fcc = new FixColorCode();
                 fcc.setStr(finalStr);
