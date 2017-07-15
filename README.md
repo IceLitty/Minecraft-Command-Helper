@@ -13,7 +13,9 @@ Anything!
 Like Minecraft :P
 
 ## Contact me
-[From China Minecraft Forum](http://www.mcbbs.net/thread-381131-1-1.html)
+[From China Minecraft Forum (MCBBS)](http://www.mcbbs.net/thread-381131-1-1.html)
+
+[From China Minecraft Forum (Netease)](http://mc.netease.com/thread-9459-1-1.html)
 
 ## Wiki
 Program Build-in Tutorial with html, Almost all window press F1 can open they help in your browser.
