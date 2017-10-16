@@ -30,6 +30,8 @@ namespace WpfMinecraftCommandHelper2
                 tabItemNameColorSel.Items.Add(asd.getUniColorStr(i));
                 tabItemLoreColorSel.Items.Add(asd.getUniColorStr(i));
             }
+            Config config = new Config();
+            mcVersion = config.getSetting("[Personalize]", "MCVersion");
             clear();
         }
 
@@ -197,7 +199,8 @@ namespace WpfMinecraftCommandHelper2
         private int globalHideSelIndex = 0;
         private string globalColor = "16777215";
         private string summonSpawnEggCmd = "";
-
+        
+        private string mcVersion = "latest";
         private string atStr = "未设置AT变量！";
         private string finalStr = "";
 
@@ -331,7 +334,7 @@ namespace WpfMinecraftCommandHelper2
             {
                 finalString += summonSpawnEggCmd + ",";
             }
-            if (tabItemEnchantCheck.IsChecked.Value || enchantStr != "ench:[]")
+            if (tabItemEnchantCheck.IsChecked.Value)
             {
                 finalString += enchantStr + ",";
             }
@@ -424,6 +427,13 @@ namespace WpfMinecraftCommandHelper2
                 {
                     enchant = enchant.Remove(enchant.Length - 1, 1);
                 }
+                if (string.IsNullOrEmpty(enchant))
+                {
+                    if (mcVersion != "1.8" || mcVersion != "1.9/1.10")
+                    {
+                        enchant += "{id:-1s,lvl:0s}";
+                    }
+                }
             }
             enchant = "ench:[" + enchant + "]";
             globalEnchString = enchant;
@@ -445,7 +455,7 @@ namespace WpfMinecraftCommandHelper2
                     string lore = "";
                     for (int i = 0; i < loreAL.Count(); i++)
                     {
-                        lore += i + ":\"" + loreAL[i] + "\",";
+                        lore += "\"" + loreAL[i] + "\",";
                     }
                     NLStr += "Lore:[" + lore + "],";
                 }

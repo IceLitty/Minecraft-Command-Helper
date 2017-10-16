@@ -277,7 +277,7 @@ namespace WpfMinecraftCommandHelper2
             color.Add(TextColorSel.SelectedIndex);
             insertion.Add(InsertionStr.Text);
             if (cCERunCmd.IsChecked.Value) { ceCheck.Add(1); } else if (cCESuggestCmd.IsChecked.Value) { ceCheck.Add(2); } else if (cCEOpenUrl.IsChecked.Value) { ceCheck.Add(3); } else if (cCEChangePage.IsChecked.Value) { ceCheck.Add(4); } else { ceCheck.Add(0); }
-            runcmd.Add(tCERunCmd.Text);
+            runcmd.Add(tCERunCmd.Text.Replace("\\\"", "\\\\\"").Replace("\"", "\\\""));
             suggest.Add(tCESuggestCmd.Text);
             openurl.Add(tCEOpenUrl.Text);
             bookpage.Add(int.Parse(tCEChangePage.Value.Value.ToString()));
