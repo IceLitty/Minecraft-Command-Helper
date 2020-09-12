@@ -4,7 +4,9 @@ To quickly generate Minecraft command with nbt data.
 # Updates
 
 Project MCH3 source is private access, there are the following links:
+
 [Minecraft Forum (MCBBS) MCHv3 page](https://www.mcbbs.net/thread-381131-1-1.html)
+
 [Join us Discord channel for download](https://discord.gg/sTvp4kR)
 
 ## Features
